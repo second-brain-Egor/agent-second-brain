@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+exec 200>/tmp/claude-heavy.lock
+flock -n 200 || { echo "Another Claude process running, skip"; exit 0; }
+
 # PATH for systemd (claude, uv, npx, node)
 export PATH="$HOME/.local/bin:$HOME/.nvm/versions/node/$(ls "$HOME/.nvm/versions/node/" 2>/dev/null | tail -1)/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
@@ -163,7 +166,7 @@ sys.stdout.write('{\"error\": \"failed to parse execute output\"}')
     REPORT=$(claude --print --dangerously-skip-permissions \
         -p "Today is $TODAY. Read .claude/skills/dbrain-processor/phases/reflect.md and execute Phase 3.
 Read .session/capture.json and .session/execute.json for input data.
-Read MEMORY.md, .session/handoff.md, .graph/health-history.json.
+Read memory/soul.md, memory/user.md, memory/facts.md, .session/handoff.md, .graph/health-history.json.
 Generate HTML report, update MEMORY, record observations.
 Return ONLY RAW HTML (for Telegram)." \
         2>&1) || true
@@ -183,6 +186,10 @@ echo "=== Rebuilding vault graph ==="
 cd "$VAULT_DIR"
 uv run .claude/skills/graph-builder/scripts/analyze.py || echo "Graph rebuild failed (non-critical)"
 
+# RAG index (update SQLite FTS5)
+echo "=== RAG indexing ==="
+uv run python3 -c "from d_brain.services.memory_rag import index_daily; print(f'Indexed {index_daily(\"$VAULT_DIR\")} facts')" || echo "RAG indexing failed (non-critical)"
+
 # Memory decay (update relevance scores and tiers)
 echo "=== Memory decay ==="
 uv run .claude/skills/agent-memory/scripts/memory-engine.py decay . || echo "Memory decay failed (non-critical)"
@@ -191,6 +198,7 @@ cd "$PROJECT_DIR"
 # Git commit
 git add -A
 git commit -m "chore: process daily $TODAY" || true
+git pull --rebase origin main || true
 git push || true
 
 # Send to Telegram

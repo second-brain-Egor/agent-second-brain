@@ -114,9 +114,14 @@ async def process_request(message: Message, prompt: str, user_id: int = 0) -> No
 
     report = await run_with_progress()
 
-    formatted = format_process_report(report)
-    try:
-        await status_msg.edit_text(formatted)
-    except Exception:
-        # Fallback: send without HTML parsing
-        await status_msg.edit_text(formatted, parse_mode=None)
+    messages = format_process_report(report)
+    if messages:
+        try:
+            await status_msg.edit_text(messages[0])
+        except Exception:
+            await status_msg.edit_text(messages[0], parse_mode=None)
+        for msg in messages[1:]:
+            try:
+                await message.answer(msg)
+            except Exception:
+                await message.answer(msg, parse_mode=None)

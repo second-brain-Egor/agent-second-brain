@@ -1,12 +1,14 @@
-"""Command handlers for /start, /help, /status."""
+"""Command handlers for /start, /help, /status, /silent, /chat."""
 
 from datetime import date
 
 from aiogram import Router
 from aiogram.filters import Command
+from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
 from d_brain.bot.keyboards import get_main_keyboard
+from d_brain.bot.states import SilentState
 from d_brain.config import get_settings
 from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
@@ -30,6 +32,8 @@ async def cmd_start(message: Message) -> None:
         "/process - обработать записи\n"
         "/do - выполнить произвольный запрос\n"
         "/weekly - недельный дайджест\n"
+        "/silent - тихий режим (только сохранение)\n"
+        "/chat - вернуться в диалог\n"
         "/help - справка",
         reply_markup=get_main_keyboard(),
     )
@@ -99,4 +103,25 @@ async def cmd_status(message: Message) -> None:
         f"- 📷 Фото: {photo_count}\n"
         f"- ↩️ Пересланных: {forward_count}"
         f"{week_stats}"
+    )
+
+
+@router.message(Command("silent"))
+async def cmd_silent(message: Message, state: FSMContext) -> None:
+    """Switch to silent mode — save only, no Claude responses."""
+    await state.set_state(SilentState.active)
+    await message.answer(
+        "🔇 <b>Тихий режим</b>\n\n"
+        "Сообщения сохраняются, но Claude не отвечает.\n"
+        "Для возврата в диалог: /chat"
+    )
+
+
+@router.message(Command("chat"))
+async def cmd_chat(message: Message, state: FSMContext) -> None:
+    """Switch back to dialog mode."""
+    await state.clear()
+    await message.answer(
+        "💬 <b>Диалоговый режим</b>\n\n"
+        "Claude отвечает на каждое сообщение."
     )

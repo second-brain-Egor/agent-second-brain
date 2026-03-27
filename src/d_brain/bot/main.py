@@ -82,6 +82,10 @@ def create_auth_middleware(settings: Settings) -> MiddlewareType:
 
 async def run_bot(settings: Settings) -> None:
     """Run the bot with polling."""
+    # Rotate large session files on startup
+    from d_brain.services.session import SessionStore
+    SessionStore(settings.vault_path).rotate_all()
+
     bot = create_bot(settings)
     dp = create_dispatcher()
 

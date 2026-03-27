@@ -57,9 +57,14 @@ async def cmd_process(message: Message) -> None:
         await asyncio.to_thread(git.commit_and_push, f"chore: process daily {today}")
 
     # Format and send report
-    formatted = format_process_report(report)
-    try:
-        await status_msg.edit_text(formatted)
-    except Exception:
-        # Fallback: send without HTML parsing
-        await status_msg.edit_text(formatted, parse_mode=None)
+    messages = format_process_report(report)
+    if messages:
+        try:
+            await status_msg.edit_text(messages[0])
+        except Exception:
+            await status_msg.edit_text(messages[0], parse_mode=None)
+        for msg in messages[1:]:
+            try:
+                await message.answer(msg)
+            except Exception:
+                await message.answer(msg, parse_mode=None)

@@ -10,10 +10,12 @@ requires-python = ">=3.12"
 dependencies = [
     "aiogram>=3.0",
     "deepgram-sdk",
+    "duckduckgo-search>=8.1.1",
     "httpx",
     "pydantic>=2.0",
     "pydantic-settings",
     "todoist-api-python>=3.1.0",
+    "yt-dlp>=2026.3.17",
 ]
 
 [project.optional-dependencies]

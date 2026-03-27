@@ -82,6 +82,33 @@ class SessionStore:
             if e.get("ts", "").startswith(today)
         ]
 
+    def rotate(self, user_id: int, max_size: int = 1_000_000) -> None:
+        """Rotate session file if it exceeds max_size bytes.
+
+        Renames current file to {user_id}.{YYYY-MM}.jsonl.bak and creates new one.
+        """
+        path = self._get_session_file(user_id)
+        if not path.exists():
+            return
+
+        if path.stat().st_size <= max_size:
+            return
+
+        now = datetime.now()
+        backup_name = f"{user_id}.{now.strftime('%Y-%m')}.jsonl.bak"
+        backup_path = self.sessions_dir / backup_name
+        path.rename(backup_path)
+
+    def rotate_all(self, max_size: int = 1_000_000) -> None:
+        """Rotate all session files that exceed max_size."""
+        for session_file in self.sessions_dir.glob("*.jsonl"):
+            if session_file.suffix == ".jsonl" and not session_file.name.endswith(".bak"):
+                try:
+                    user_id = int(session_file.stem)
+                    self.rotate(user_id, max_size)
+                except ValueError:
+                    continue
+
     def get_stats(self, user_id: int, days: int = 7) -> dict[str, int]:
         """Get usage statistics for the last N days.
 
