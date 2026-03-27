@@ -53,8 +53,14 @@ async def cmd_weekly(message: Message) -> None:
     if "error" not in report:
         await asyncio.to_thread(git.commit_and_push, "chore: weekly digest")
 
-    formatted = format_process_report(report)
-    try:
-        await status_msg.edit_text(formatted)
-    except Exception:
-        await status_msg.edit_text(formatted, parse_mode=None)
+    messages = format_process_report(report)
+    if messages:
+        try:
+            await status_msg.edit_text(messages[0])
+        except Exception:
+            await status_msg.edit_text(messages[0], parse_mode=None)
+        for msg in messages[1:]:
+            try:
+                await message.answer(msg)
+            except Exception:
+                await message.answer(msg, parse_mode=None)

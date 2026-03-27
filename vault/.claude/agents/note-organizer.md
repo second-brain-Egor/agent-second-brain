@@ -1,6 +1,12 @@
 ---
 name: note-organizer
 description: Organize vault, find orphan notes, suggest connections, update MOC indexes, consolidate duplicates.
+model: sonnet
+scope: global
+depends_on: []
+triggers:
+  - организуй заметки
+  - organize vault
 ---
 
 # Note Organizer Agent

@@ -1,6 +1,12 @@
 ---
 name: weekly-digest
 description: Generate weekly digest with goal progress, wins, challenges, and next week planning. Run on Sundays.
+model: sonnet
+scope: global
+depends_on: []
+triggers:
+  - недельный дайджест
+  - weekly digest
 ---
 
 # Weekly Digest Agent

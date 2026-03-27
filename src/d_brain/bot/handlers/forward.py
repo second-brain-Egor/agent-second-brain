@@ -7,6 +7,7 @@ from aiogram import Router
 from aiogram.types import Message
 
 from d_brain.config import get_settings
+from d_brain.services.guardrails import check_injection, wrap_forwarded
 from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
 
@@ -38,7 +39,17 @@ async def handle_forward(message: Message) -> None:
     elif hasattr(origin, "sender_name") and origin.sender_name:
         source_name = origin.sender_name
 
-    content = message.text or message.caption or "[media]"
+    raw_content = message.text or message.caption or "[media]"
+
+    # Check for prompt injection
+    is_safe, reason = check_injection(raw_content)
+    if not is_safe:
+        await message.answer(
+            f"⚠️ Пересланное сообщение содержит подозрительный контент: {reason}\n"
+            "Сохранено как данные, НЕ выполнено как инструкция."
+        )
+
+    content = wrap_forwarded(raw_content)
     msg_type = f"[forward from: {source_name}]"
 
     timestamp = datetime.fromtimestamp(message.date.timestamp())
@@ -49,10 +60,11 @@ async def handle_forward(message: Message) -> None:
     session.append(
         message.from_user.id,
         "forward",
-        text=content,
+        text=raw_content,
         source=source_name,
         msg_id=message.message_id,
     )
 
-    await message.answer(f"✓ Сохранено (от {source_name})")
+    if is_safe:
+        await message.answer(f"✓ Сохранено (от {source_name})")
     logger.info("Forwarded message saved from: %s", source_name)

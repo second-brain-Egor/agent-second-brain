@@ -97,55 +97,77 @@ def validate_telegram_html(text: str) -> bool:
     return len(tag_stack) == 0
 
 
-def truncate_html(text: str, max_length: int = 4096) -> str:
-    """Truncate HTML text while keeping tags balanced.
-
-    Args:
-        text: HTML text
-        max_length: Maximum length (Telegram limit is 4096)
-
-    Returns:
-        Truncated text with balanced tags
-    """
-    if len(text) <= max_length:
-        return text
-
-    # Find a safe cut point
-    cut_point = max_length - 50  # Leave room for closing tags and ellipsis
-
-    # Don't cut in the middle of a tag
-    last_open = text.rfind("<", 0, cut_point)
-    last_close = text.rfind(">", 0, cut_point)
-
-    if last_open > last_close:
-        # We're in the middle of a tag, cut before it
-        cut_point = last_open
-
-    truncated = text[:cut_point]
-
-    # Close any open tags
+def _get_open_tags(text: str) -> list[str]:
+    """Get list of currently open HTML tags in text."""
     tag_pattern = re.compile(r"<(/?)([a-zA-Z]+)(?:\s[^>]*)?>")
-    open_tags = []
-
-    for match in tag_pattern.finditer(truncated):
+    open_tags: list[str] = []
+    for match in tag_pattern.finditer(text):
         is_closing = match.group(1) == "/"
         tag_name = match.group(2).lower()
-
         if tag_name not in ALLOWED_TAGS:
             continue
-
         if is_closing and open_tags and open_tags[-1] == tag_name:
             open_tags.pop()
         elif not is_closing:
             open_tags.append(tag_name)
-
-    # Add closing tags in reverse order
-    closing_tags = "".join(f"</{tag}>" for tag in reversed(open_tags))
-
-    return truncated + "..." + closing_tags
+    return open_tags
 
 
-def format_process_report(report: dict[str, Any]) -> str:
+def split_html_messages(text: str, max_length: int = 4096) -> list[str]:
+    """Split HTML text into multiple messages, keeping tags balanced.
+
+    Args:
+        text: HTML text
+        max_length: Maximum length per message (Telegram limit is 4096)
+
+    Returns:
+        List of HTML messages with balanced tags
+    """
+    if len(text) <= max_length:
+        return [text]
+
+    messages: list[str] = []
+    remaining = text
+
+    while remaining:
+        if len(remaining) <= max_length:
+            messages.append(remaining)
+            break
+
+        # Find a safe cut point
+        cut_point = max_length - 100  # Room for closing/opening tags
+
+        # Don't cut in the middle of a tag
+        last_open = remaining.rfind("<", 0, cut_point)
+        last_close = remaining.rfind(">", 0, cut_point)
+        if last_open > last_close:
+            cut_point = last_open
+
+        # Try not to cut in the middle of a word
+        space_pos = remaining.rfind(" ", max(0, cut_point - 200), cut_point)
+        newline_pos = remaining.rfind("\n", max(0, cut_point - 200), cut_point)
+        best_break = max(space_pos, newline_pos)
+        if best_break > cut_point - 200:
+            cut_point = best_break
+
+        chunk = remaining[:cut_point]
+        remaining = remaining[cut_point:]
+
+        # Close open tags at end of chunk
+        open_tags = _get_open_tags(chunk)
+        closing_tags = "".join(f"</{tag}>" for tag in reversed(open_tags))
+        chunk += closing_tags
+
+        # Re-open tags at start of next chunk
+        opening_tags = "".join(f"<{tag}>" for tag in open_tags)
+        remaining = opening_tags + remaining
+
+        messages.append(chunk)
+
+    return messages
+
+
+def format_process_report(report: dict[str, Any]) -> list[str]:
     """Format processing report for Telegram HTML.
 
     The report from Claude is expected to be in HTML format.
@@ -155,11 +177,11 @@ def format_process_report(report: dict[str, Any]) -> str:
         report: Processing report from ClaudeProcessor
 
     Returns:
-        Formatted HTML message for Telegram
+        List of formatted HTML messages for Telegram
     """
     if "error" in report:
         error_msg = html.escape(str(report["error"]))
-        return f"❌ <b>Ошибка:</b> {error_msg}"
+        return [f"❌ <b>Ошибка:</b> {error_msg}"]
 
     if "report" in report:
         raw_report = report["report"]
@@ -170,12 +192,12 @@ def format_process_report(report: dict[str, Any]) -> str:
         # Validate tag balance
         if not validate_telegram_html(sanitized):
             # Fall back to plain text if tags are broken
-            return html.escape(raw_report)
+            return [html.escape(raw_report)]
 
-        # Truncate if too long
-        return truncate_html(sanitized, max_length=4096)
+        # Split into multiple messages if too long
+        return split_html_messages(sanitized, max_length=4096)
 
-    return "✅ <b>Обработка завершена</b>"
+    return ["✅ <b>Обработка завершена</b>"]
 
 
 def format_error(error: str) -> str:

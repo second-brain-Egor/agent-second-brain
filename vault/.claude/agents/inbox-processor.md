@@ -1,6 +1,12 @@
 ---
 name: inbox-processor
 description: GTD-style processing of incoming entries. Decide action for each item - do now, schedule, delegate, save, or delete.
+model: sonnet
+scope: global
+depends_on: []
+triggers:
+  - обработай входящие
+  - inbox processing
 ---
 
 # Inbox Processor Agent

@@ -25,13 +25,16 @@ node_modules/
 .DS_Store
 Thumbs.db
 
-# Vault personal data (never commit these)
-vault/daily/
+# Vault data — бэкапится в приватный GitHub-репо
+# Раскомментируй если хочешь исключить:
+# vault/daily/
+# vault/thoughts/
+# vault/business/
+# vault/projects/
+# vault/attachments/
 vault/contacts/
 vault/finances/
-vault/attachments/
 vault/.session/
 vault/.graph/
-vault/business/
-vault/projects/
-vault/thoughts/
+vault/.data/
+vault/.claude/CLAUDE.local.md

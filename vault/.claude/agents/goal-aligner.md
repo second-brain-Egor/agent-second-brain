@@ -1,6 +1,12 @@
 ---
 name: goal-aligner
 description: Check alignment between tasks in Todoist and goals in vault. Find orphan tasks and stale goals.
+model: sonnet
+scope: global
+depends_on: []
+triggers:
+  - проверь выравнивание целей
+  - alignment check
 ---
 
 # Goal Aligner Agent

@@ -3,6 +3,7 @@
 import logging
 import os
 import subprocess
+import time
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -12,6 +13,7 @@ from d_brain.services.session import SessionStore
 logger = logging.getLogger(__name__)
 
 DEFAULT_TIMEOUT = 1200  # 20 minutes
+CHAT_TIMEOUT = 120  # 2 minutes for chat mode
 
 
 class ClaudeProcessor:
@@ -172,11 +174,14 @@ CRITICAL OUTPUT FORMAT:
         try:
             # Pass TODOIST_API_KEY to Claude subprocess
             env = os.environ.copy()
+            env["MCP_TIMEOUT"] = "30000"
+            env["MAX_MCP_OUTPUT_TOKENS"] = "50000"
             if self.todoist_api_key:
                 env["TODOIST_API_KEY"] = self.todoist_api_key
 
             result = subprocess.run(
                 [
+                    "flock", "-n", "/tmp/claude-heavy.lock",
                     "claude",
                     "--print",
                     "--dangerously-skip-permissions",
@@ -276,11 +281,14 @@ EXECUTION:
 
         try:
             env = os.environ.copy()
+            env["MCP_TIMEOUT"] = "30000"
+            env["MAX_MCP_OUTPUT_TOKENS"] = "50000"
             if self.todoist_api_key:
                 env["TODOIST_API_KEY"] = self.todoist_api_key
 
             result = subprocess.run(
                 [
+                    "flock", "-n", "/tmp/claude-heavy.lock",
                     "claude",
                     "--print",
                     "--dangerously-skip-permissions",
@@ -352,11 +360,14 @@ CRITICAL OUTPUT FORMAT:
 
         try:
             env = os.environ.copy()
+            env["MCP_TIMEOUT"] = "30000"
+            env["MAX_MCP_OUTPUT_TOKENS"] = "50000"
             if self.todoist_api_key:
                 env["TODOIST_API_KEY"] = self.todoist_api_key
 
             result = subprocess.run(
                 [
+                    "flock", "-n", "/tmp/claude-heavy.lock",
                     "claude",
                     "--print",
                     "--dangerously-skip-permissions",
@@ -402,4 +413,98 @@ CRITICAL OUTPUT FORMAT:
             return {"error": "Claude CLI not installed", "processed_entries": 0}
         except Exception as e:
             logger.exception("Unexpected error during weekly digest")
+            return {"error": str(e), "processed_entries": 0}
+
+    # Cache for memory context
+    _memory_cache: dict[str, Any] = {}
+    _memory_cache_time: float = 0
+
+    def _get_memory_context(self) -> str:
+        """Load and cache memory context (refreshes every 5 minutes)."""
+        now = time.time()
+        if now - self._memory_cache_time < 300 and self._memory_cache.get("context"):
+            return self._memory_cache["context"]
+
+        parts = []
+        memory_dir = self.vault_path / "memory"
+        if memory_dir.exists():
+            for md_file in sorted(memory_dir.glob("*.md")):
+                content = md_file.read_text(errors="ignore")[:2000]
+                parts.append(f"=== {md_file.name} ===\n{content}")
+
+        goals_dir = self.vault_path / "goals"
+        if goals_dir.exists():
+            for goal_file in sorted(goals_dir.glob("*.md")):
+                content = goal_file.read_text(errors="ignore")[:1000]
+                parts.append(f"=== {goal_file.name} ===\n{content}")
+
+        context = "\n\n".join(parts)
+        self._memory_cache["context"] = context
+        self._memory_cache_time = now
+        return context
+
+    def execute_raw_prompt(self, prompt: str, user_id: int = 0, model: str = "sonnet") -> dict[str, Any]:
+        """Execute a raw prompt without MCP (fast chat mode).
+
+        Args:
+            prompt: User's message
+            user_id: Telegram user ID
+            model: Claude model to use (default: sonnet)
+
+        Returns:
+            Dict with "report" key
+        """
+        session_context = self._get_session_context(user_id)
+        memory_context = self._get_memory_context()
+
+        # RAG search
+        rag_context = ""
+        try:
+            from d_brain.services.memory_rag import search_memory
+            relevant = search_memory(prompt, limit=5)
+            if relevant:
+                rag_context = f"\nРелевантные факты из памяти:\n{relevant}\n"
+        except Exception:
+            pass
+
+        full_prompt = f"""Ты — персональный ассистент. Отвечай кратко и по делу. Язык: русский.
+
+{memory_context}
+{rag_context}
+{session_context}
+Сообщение пользователя: {prompt}"""
+
+        try:
+            env = os.environ.copy()
+
+            result = subprocess.run(
+                [
+                    "flock", "-w", "30", "/tmp/claude-chat.lock",
+                    "claude",
+                    "--print",
+                    "--dangerously-skip-permissions",
+                    "--model", model,
+                    "-p",
+                    full_prompt,
+                ],
+                cwd=self.vault_path.parent,
+                capture_output=True,
+                text=True,
+                timeout=CHAT_TIMEOUT,
+                check=False,
+                env=env,
+            )
+
+            if result.returncode != 0:
+                logger.error("Chat failed: %s", result.stderr)
+                return {"error": result.stderr or "Chat failed", "processed_entries": 0}
+
+            return {"report": result.stdout.strip(), "processed_entries": 1}
+
+        except subprocess.TimeoutExpired:
+            return {"error": "Таймаут — попробуй ещё раз", "processed_entries": 0}
+        except FileNotFoundError:
+            return {"error": "Claude CLI not installed", "processed_entries": 0}
+        except Exception as e:
+            logger.exception("Chat error")
             return {"error": str(e), "processed_entries": 0}
