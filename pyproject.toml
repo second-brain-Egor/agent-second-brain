@@ -15,7 +15,9 @@ dependencies = [
     "pydantic>=2.0",
     "pydantic-settings",
     "todoist-api-python>=3.1.0",
+    "telethon>=1.36",
     "yt-dlp>=2026.3.17",
+    "edge-tts>=6.1.9",
 ]
 
 [project.optional-dependencies]

@@ -3,7 +3,7 @@
 from datetime import date
 
 from aiogram import Router
-from aiogram.filters import Command
+from aiogram.filters import Command, StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
@@ -34,6 +34,7 @@ async def cmd_start(message: Message) -> None:
         "/weekly - недельный дайджест\n"
         "/silent - тихий режим (только сохранение)\n"
         "/chat - вернуться в диалог\n"
+        "/voice - включить/выключить голосовые ответы\n"
         "/help - справка",
         reply_markup=get_main_keyboard(),
     )
@@ -54,7 +55,8 @@ async def cmd_help(message: Message) -> None:
         "/status - сколько записей сегодня\n"
         "/process - обработать записи\n"
         "/do - выполнить произвольный запрос\n"
-        "/weekly - недельный дайджест\n\n"
+        "/weekly - недельный дайджест\n"
+        "/voice - включить/выключить голосовые ответы\n\n"
         "<i>Пример: /do перенеси просроченные задачи на понедельник</i>"
     )
 
@@ -120,8 +122,33 @@ async def cmd_silent(message: Message, state: FSMContext) -> None:
 @router.message(Command("chat"))
 async def cmd_chat(message: Message, state: FSMContext) -> None:
     """Switch back to dialog mode."""
+    # Save voice_mode preference before clearing state
+    data = await state.get_data()
+    voice_mode = data.get("voice_mode", False)
     await state.clear()
+    if voice_mode:
+        await state.update_data(voice_mode=True)
     await message.answer(
         "💬 <b>Диалоговый режим</b>\n\n"
         "Claude отвечает на каждое сообщение."
     )
+
+
+@router.message(Command("voice"), StateFilter("*"))
+async def cmd_voice(message: Message, state: FSMContext) -> None:
+    """Toggle voice reply mode on/off."""
+    data = await state.get_data()
+    if data.get("voice_mode", False):
+        await state.update_data(voice_mode=False)
+        await message.answer(
+            "🔇 <b>Голосовые ответы выключены</b>\n\n"
+            "Бот отвечает текстом.\n"
+            "/voice — включить снова"
+        )
+    else:
+        await state.update_data(voice_mode=True)
+        await message.answer(
+            "🔊 <b>Голосовые ответы включены</b>\n\n"
+            "Бот будет отвечать голосом (edge-tts).\n"
+            "/voice — выключить"
+        )

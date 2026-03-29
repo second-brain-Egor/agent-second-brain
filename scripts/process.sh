@@ -106,7 +106,7 @@ cd "$VAULT_DIR"
 
 # ── Phase 1: CAPTURE ──
 echo "=== Phase 1: CAPTURE ==="
-CAPTURE=$(claude --print --dangerously-skip-permissions \
+CAPTURE=$(claude --print --dangerously-skip-permissions --model opus \
     -p "Today is $TODAY. Read .claude/skills/dbrain-processor/phases/capture.md and execute Phase 1.
 Read daily/$TODAY.md, goals/3-weekly.md, goals/2-monthly.md, goals/$YEARLY_GOALS_NAME.
 Classify each entry. Return ONLY JSON." \
@@ -131,7 +131,7 @@ echo "Capture saved: $(wc -c < "$CAPTURE_FILE") bytes"
 if grep -q '"error"' "$CAPTURE_FILE"; then
     echo "WARN: Capture phase had issues, falling back to monolith mode"
     # Fallback to monolith processing
-    REPORT=$(claude --print --dangerously-skip-permissions \
+    REPORT=$(claude --print --dangerously-skip-permissions --model opus \
         --mcp-config "$PROJECT_DIR/mcp-config.json" \
         -p "Today is $TODAY. Execute daily processing according to dbrain-processor skill.
 $MCP_PROMPT" \
@@ -139,7 +139,7 @@ $MCP_PROMPT" \
 else
     # ── Phase 2: EXECUTE ──
     echo "=== Phase 2: EXECUTE ==="
-    EXECUTE=$(claude --print --dangerously-skip-permissions \
+    EXECUTE=$(claude --print --dangerously-skip-permissions --model opus \
         --mcp-config "$PROJECT_DIR/mcp-config.json" \
         -p "Today is $TODAY. Read .claude/skills/dbrain-processor/phases/execute.md and execute Phase 2.
 Read .session/capture.json for input data.
@@ -163,7 +163,7 @@ sys.stdout.write('{\"error\": \"failed to parse execute output\"}')
 
     # ── Phase 3: REFLECT ──
     echo "=== Phase 3: REFLECT ==="
-    REPORT=$(claude --print --dangerously-skip-permissions \
+    REPORT=$(claude --print --dangerously-skip-permissions --model opus \
         -p "Today is $TODAY. Read .claude/skills/dbrain-processor/phases/reflect.md and execute Phase 3.
 Read .session/capture.json and .session/execute.json for input data.
 Read memory/soul.md, memory/user.md, memory/facts.md, .session/handoff.md, .graph/health-history.json.

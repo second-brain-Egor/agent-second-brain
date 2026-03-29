@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 DEFAULT_TIMEOUT = 1200  # 20 minutes
 CHAT_TIMEOUT = 120  # 2 minutes for chat mode
+AGENT_MARKER = "[NEED_AGENT]"
 
 
 class ClaudeProcessor:
@@ -60,10 +61,10 @@ class ClaudeProcessor:
             return ""
 
         lines = ["=== TODAY'S SESSION ==="]
-        for entry in today_entries[-10:]:
+        for entry in today_entries[-50:]:
             ts = entry.get("ts", "")[11:16]  # HH:MM from ISO
             entry_type = entry.get("type", "unknown")
-            text = entry.get("text", "")[:80]
+            text = entry.get("text", "")[:500]
             if text:
                 lines.append(f"{ts} [{entry_type}] {text}")
         lines.append("=== END SESSION ===\n")
@@ -185,6 +186,7 @@ CRITICAL OUTPUT FORMAT:
                     "claude",
                     "--print",
                     "--dangerously-skip-permissions",
+                    "--model", "opus",
                     "--mcp-config",
                     str(self._mcp_config_path),
                     "-p",
@@ -292,6 +294,7 @@ EXECUTION:
                     "claude",
                     "--print",
                     "--dangerously-skip-permissions",
+                    "--model", "opus",
                     "--mcp-config",
                     str(self._mcp_config_path),
                     "-p",
@@ -371,6 +374,7 @@ CRITICAL OUTPUT FORMAT:
                     "claude",
                     "--print",
                     "--dangerously-skip-permissions",
+                    "--model", "opus",
                     "--mcp-config",
                     str(self._mcp_config_path),
                     "-p",
@@ -413,6 +417,102 @@ CRITICAL OUTPUT FORMAT:
             return {"error": "Claude CLI not installed", "processed_entries": 0}
         except Exception as e:
             logger.exception("Unexpected error during weekly digest")
+            return {"error": str(e), "processed_entries": 0}
+
+    @staticmethod
+    def needs_agent(response: str) -> bool:
+        """Check if response signals need for agent escalation."""
+        return response.strip().startswith(AGENT_MARKER)
+
+    @staticmethod
+    def strip_agent_marker(response: str) -> str:
+        """Strip agent marker and return the brief description."""
+        return response.strip().removeprefix(AGENT_MARKER).strip()
+
+    def execute_agent(self, user_prompt: str, user_id: int = 0) -> dict[str, Any]:
+        """Execute task with full agent (opus + MCP tools).
+
+        Called automatically when sonnet detects a complex task.
+
+        Args:
+            user_prompt: Original user message
+            user_id: Telegram user ID
+
+        Returns:
+            Execution report as dict
+        """
+        today = date.today()
+        session_context = self._get_session_context(user_id)
+        memory_context = self._get_memory_context()
+        todoist_ref = self._load_todoist_reference()
+
+        prompt = f"""Ты — персональный ассистент d-brain. Выполни задачу пользователя.
+
+CONTEXT:
+- Текущая дата: {today}
+- Vault path: {self.vault_path}
+
+{memory_context}
+{session_context}
+=== TODOIST REFERENCE ===
+{todoist_ref}
+=== END REFERENCE ===
+
+ПЕРВЫМ ДЕЛОМ: вызови mcp__todoist__user-info чтобы убедиться что MCP работает.
+
+CRITICAL MCP RULE:
+- ТЫ ИМЕЕШЬ ДОСТУП к mcp__todoist__* tools — ВЫЗЫВАЙ ИХ НАПРЯМУЮ
+- НИКОГДА не пиши "MCP недоступен" или "добавь вручную"
+- Если tool вернул ошибку — покажи ТОЧНУЮ ошибку
+
+ЗАДАЧА ПОЛЬЗОВАТЕЛЯ:
+{user_prompt}
+
+ФОРМАТ ОТВЕТА:
+- Простой текст (НЕ HTML)
+- Кратко: что сделал, результат
+- Если создал задачи — перечисли их
+- Если записал файл — укажи путь"""
+
+        try:
+            env = os.environ.copy()
+            env["MCP_TIMEOUT"] = "30000"
+            env["MAX_MCP_OUTPUT_TOKENS"] = "50000"
+            if self.todoist_api_key:
+                env["TODOIST_API_KEY"] = self.todoist_api_key
+
+            result = subprocess.run(
+                [
+                    "flock", "-w", "60", "/tmp/claude-heavy.lock",
+                    "claude",
+                    "--print",
+                    "--dangerously-skip-permissions",
+                    "--model", "opus",
+                    "--mcp-config",
+                    str(self._mcp_config_path),
+                    "-p",
+                    prompt,
+                ],
+                cwd=self.vault_path.parent,
+                capture_output=True,
+                text=True,
+                timeout=DEFAULT_TIMEOUT,
+                check=False,
+                env=env,
+            )
+
+            if result.returncode != 0:
+                logger.error("Agent execution failed: %s", result.stderr)
+                return {"error": result.stderr or "Agent failed", "processed_entries": 0}
+
+            return {"report": result.stdout.strip(), "processed_entries": 1}
+
+        except subprocess.TimeoutExpired:
+            return {"error": "Агент: таймаут (20 мин)", "processed_entries": 0}
+        except FileNotFoundError:
+            return {"error": "Claude CLI not installed", "processed_entries": 0}
+        except Exception as e:
+            logger.exception("Agent error")
             return {"error": str(e), "processed_entries": 0}
 
     # Cache for memory context
@@ -472,7 +572,13 @@ CRITICAL OUTPUT FORMAT:
 {memory_context}
 {rag_context}
 {session_context}
-Сообщение пользователя: {prompt}"""
+Сообщение пользователя: {prompt}
+
+ВАЖНОЕ ПРАВИЛО ЭСКАЛАЦИИ:
+Если задача требует ДЕЙСТВИЙ (создать/изменить задачи в Todoist, записать файл, обработать заметки, \
+многошаговые операции, работа с инструментами) — начни ответ РОВНО с маркера {AGENT_MARKER} \
+и после него кратко опиши что будешь делать (1 предложение). НЕ пытайся выполнить задачу сам.
+Если это обычный вопрос, разговор, размышление — отвечай как обычно БЕЗ маркера."""
 
         try:
             env = os.environ.copy()

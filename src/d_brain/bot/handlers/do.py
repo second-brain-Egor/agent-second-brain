@@ -39,7 +39,13 @@ async def cmd_do(message: Message, command: CommandObject, state: FSMContext) ->
 @router.message(DoCommandState.waiting_for_input)
 async def handle_do_input(message: Message, bot: Bot, state: FSMContext) -> None:
     """Handle voice/text input after /do command."""
-    await state.clear()  # Clear state immediately
+    # Save user preferences before clearing state
+    data = await state.get_data()
+    voice_mode = data.get("voice_mode", False)
+    await state.clear()  # Clear FSM state (and data)
+    # Restore user preferences
+    if voice_mode:
+        await state.update_data(voice_mode=True)
 
     prompt = None
 

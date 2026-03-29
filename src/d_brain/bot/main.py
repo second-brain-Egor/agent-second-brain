@@ -25,13 +25,14 @@ def create_bot(settings: Settings) -> Bot:
 
 def create_dispatcher() -> Dispatcher:
     """Create and configure the dispatcher with routers."""
-    from d_brain.bot.handlers import buttons, commands, do, forward, photo, process, text, voice, weekly
+    from d_brain.bot.handlers import buttons, channel, commands, do, forward, photo, process, text, voice, weekly
 
     # Use memory storage for FSM (required for /do command state)
     dp = Dispatcher(storage=MemoryStorage())
 
     # Register routers - ORDER MATTERS
     dp.include_router(commands.router)
+    dp.include_router(channel.router)  # Telegram user account reader
     dp.include_router(process.router)
     dp.include_router(weekly.router)
     dp.include_router(do.router)  # Before voice/text to catch FSM state

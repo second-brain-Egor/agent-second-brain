@@ -16,6 +16,8 @@ class Settings(BaseSettings):
     )
 
     telegram_bot_token: str = Field(description="Telegram Bot API token")
+    telegram_api_id: int = Field(default=0, description="Telegram API ID from my.telegram.org")
+    telegram_api_hash: str = Field(default="", description="Telegram API Hash from my.telegram.org")
     deepgram_api_key: str = Field(description="Deepgram API key for transcription")
     todoist_api_key: str = Field(default="", description="Todoist API key for tasks")
     vault_path: Path = Field(
@@ -29,6 +31,10 @@ class Settings(BaseSettings):
     allow_all_users: bool = Field(
         default=False,
         description="Whether to allow access to all users (security risk!)",
+    )
+    voice_replies: bool = Field(
+        default=False,
+        description="Reply to voice messages with TTS voice messages",
     )
 
     @property
