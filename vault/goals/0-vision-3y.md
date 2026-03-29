@@ -2,15 +2,14 @@
 type: vision
 horizon: 3-years
 period: 2025-2027
-updated: YYYY-MM-DD
+updated: 2026-03-29
 ---
 
 # Vision 2025-2027
 
 ## Life Mission
 
-<!-- Your life direction in one sentence -->
-<!-- Example: "Build meaningful technology while maintaining balance across health, relationships, and personal growth." -->
+Построить своё дело в деревообработке по технологии timberframe — от мастерской до полноценного производства.
 
 ---
 
@@ -19,90 +18,84 @@ updated: YYYY-MM-DD
 ### Career & Business
 
 **3-Year Vision:**
-<!-- Where do you want to be professionally in 3 years? -->
+Работающее предприятие по строительству малых архитектурных форм (дома, бани, сараи, беседки) в стиле timberframe. Отлаженное производство, стабильные заказы.
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] Мастерская с ЧПУ порталом и рейсмусом
+- [ ] Первые коммерческие объекты (баня, беседка)
+- [ ] Портфолио и поток заказов
 
 ---
 
 ### Health & Energy
 
 **3-Year Vision:**
-<!-- What does your ideal health look like? -->
+[будет заполнено]
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] —
 
 ---
 
 ### Relationships & Family
 
 **3-Year Vision:**
-<!-- How do you want your relationships to evolve? -->
+[будет заполнено]
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] —
 
 ---
 
 ### Personal Growth
 
 **3-Year Vision:**
-<!-- What skills, habits, or mindset changes do you want? -->
+Мастер деревообработки и timberframe-технологии. ЧПУ, проектирование соединений, полный цикл производства.
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] ЧПУ портал — сборка и освоение
+- [ ] Точная нарезка шипов/врубок на станке
+- [ ] Проектирование объектов от эскиза до сборки
 
 ---
 
 ### Financial
 
 **3-Year Vision:**
-<!-- What does financial security look like for you? -->
+[будет заполнено]
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] —
 
 ---
 
 ### Creativity & Joy
 
 **3-Year Vision:**
-<!-- What brings you joy? How will you nurture it? -->
+Timberframe — это и хобби, и бизнес. Строить красивые вещи из дерева.
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] Беседка-витрина на своём участке
+- [ ] Баня для семьи
+- [ ] Первый заказ «на красоту» (не только функционал)
 
 ---
 
 ## Quarterly Review Questions
 
-1. Which goals still align with my values?
-2. What has changed that affects these goals?
-3. What am I willing to sacrifice to achieve these?
-4. Who can help me?
+1. Какие цели всё ещё совпадают с моими ценностями?
+2. Что изменилось и влияет на план?
+3. Чем готов пожертвовать ради целей?
+4. Кто может помочь?
 
 ---
 
 ## Links
 
-- [[1-yearly-2025]] - This year's goals
-- [[2-monthly]] - Current month focus
-- [[3-weekly]] - This week's plan
+- [[1-yearly-2026]] - Цели на 2026
+- [[2-monthly]] - Фокус месяца
+- [[3-weekly]] - План недели
 
 ---
 
-*Next Review: Q1 2025*
+*Next Review: Q2 2026*

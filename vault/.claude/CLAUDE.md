@@ -96,7 +96,7 @@ vault/.claude/rules/ — governance, security, communication-style
 - Ежедневно: ничего (автоматически)
 - Еженедельно: дайджест (пт)
 - Ежемесячно: goals/2-monthly.md
-- Ежеквартально: goals/1-yearly-YYYY.md
+- Ежеквартально: goals/1-yearly-2026.md
 
 ## Learnings
 1. Не обрезать ответы — разбивать на несколько сообщений

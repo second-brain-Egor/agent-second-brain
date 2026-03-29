@@ -1,59 +1,47 @@
 ---
 type: monthly
-period: YYYY-MM
-updated: YYYY-MM-DD
+period: 2026-04
+updated: 2026-03-29
 ---
 
-# Monthly Focus
+# Monthly Focus — Апрель 2026
 
 ## Top 3 Priorities
 
-### Priority 1: [Your Top Priority]
-<!-- What MUST happen this month? -->
+### Priority 1: Завершить сборку рейсмуса Bilmash на SBR20
 
-**Why it matters:** [connection to yearly goal]
+**Why it matters:** без рейсмуса нет обработки бруса → нет производства
 
 **Key Actions:**
-- [ ] Action 1
-- [ ] Action 2
-- [ ] Action 3
+- [ ] Смонтировать направляющие SBR20 с линейными подшипниками
+- [ ] Настроить цепной привод подачи
+- [ ] Тестовый прогон бруса 6м
 
-**Definition of Done:** [clear outcome]
+**Definition of Done:** рейсмус обрабатывает брус 6м с ровной геометрией
 
 ---
 
-### Priority 2: [Second Priority]
+### Priority 2: Проект бани
 
-**Why it matters:** [connection to yearly goal]
+**Why it matters:** [[1-yearly-2026#Строительство]] — цель года
 
 **Key Actions:**
-- [ ] Action 1
-- [ ] Action 2
-- [ ] Action 3
+- [ ] Определить размеры и планировку
+- [ ] Выбрать фундамент
+- [ ] Составить смету материалов
 
-**Definition of Done:** [clear outcome]
+**Definition of Done:** готовый проект + смета
 
 ---
 
-### Priority 3: [Third Priority]
-
-**Why it matters:** [connection to yearly goal]
-
-**Key Actions:**
-- [ ] Action 1
-- [ ] Action 2
-- [ ] Action 3
-
-**Definition of Done:** [clear outcome]
+### Priority 3: [будет заполнено]
 
 ---
 
 ## NOT Doing This Month
 
-<!-- What are you consciously saying NO to? -->
--
--
--
+- Не начинать ЧПУ портал (сначала рейсмус)
+- Не брать коммерческие заказы (ещё рано)
 
 ---
 
@@ -61,10 +49,10 @@ updated: YYYY-MM-DD
 
 | Week | Progress | Blockers | Adjustments |
 |------|----------|----------|-------------|
-| W1 | | | |
-| W2 | | | |
-| W3 | | | |
-| W4 | | | |
+| W14 | | | |
+| W15 | | | |
+| W16 | | | |
+| W17 | | | |
 
 ---
 
@@ -87,9 +75,9 @@ updated: YYYY-MM-DD
 ## Links
 
 - [[0-vision-3y]] - 3-year vision
-- [[1-yearly-2025]] - Annual goals
-- [[3-weekly]] - This week's plan
+- [[1-yearly-2026]] - Цели 2026
+- [[3-weekly]] - План недели
 
 ---
 
-*Next Review: End of month*
+*Next Review: End of April*
