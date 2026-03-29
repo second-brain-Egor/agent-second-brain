@@ -1,5 +1,6 @@
-"""Photo message handler."""
+"""Photo message handler with Claude Vision analysis."""
 
+import base64
 import logging
 from datetime import datetime
 
@@ -13,10 +14,57 @@ from d_brain.services.storage import VaultStorage
 router = Router(name="photo")
 logger = logging.getLogger(__name__)
 
+VISION_PROMPT = (
+    "Опиши что на изображении. "
+    "Если есть текст — извлеки его полностью (OCR). "
+    "Если это скриншот, документ или заметка — передай содержание. "
+    "Если это фото — опиши кратко что изображено. "
+    "Отвечай на русском, кратко и по делу."
+)
+
+
+async def _analyze_image(photo_bytes: bytes, caption: str | None = None) -> str | None:
+    """Analyze image using Claude Vision API."""
+    try:
+        import anthropic
+
+        client = anthropic.Anthropic()
+
+        image_b64 = base64.standard_b64encode(photo_bytes).decode("utf-8")
+
+        content: list[dict] = [
+            {
+                "type": "image",
+                "source": {
+                    "type": "base64",
+                    "media_type": "image/jpeg",
+                    "data": image_b64,
+                },
+            },
+        ]
+
+        user_prompt = VISION_PROMPT
+        if caption:
+            user_prompt += f"\n\nПодпись от пользователя: {caption}"
+
+        content.append({"type": "text", "text": user_prompt})
+
+        response = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=1024,
+            messages=[{"role": "user", "content": content}],
+        )
+
+        return response.content[0].text
+
+    except Exception:
+        logger.exception("Vision analysis failed")
+        return None
+
 
 @router.message(lambda m: m.photo is not None)
 async def handle_photo(message: Message, bot: Bot) -> None:
-    """Handle photo messages."""
+    """Handle photo messages — save and analyze with Vision."""
     if not message.photo or not message.from_user:
         return
 
@@ -53,10 +101,16 @@ async def handle_photo(message: Message, bot: Bot) -> None:
             extension,
         )
 
-        # Create content with Obsidian embed
+        # Analyze with Vision
+        await message.chat.do(action="typing")
+        description = await _analyze_image(photo_bytes, message.caption)
+
+        # Create content with Obsidian embed + description
         content = f"![[{relative_path}]]"
         if message.caption:
             content += f"\n\n{message.caption}"
+        if description:
+            content += f"\n\n> [!note] Vision\n> {description.replace(chr(10), chr(10) + '> ')}"
 
         storage.append_to_daily(content, timestamp, "[photo]")
 
@@ -67,11 +121,20 @@ async def handle_photo(message: Message, bot: Bot) -> None:
             "photo",
             path=relative_path,
             caption=message.caption,
+            text=description,
             msg_id=message.message_id,
         )
 
-        await message.answer("📷 ✓ Сохранено")
-        logger.info("Photo saved: %s", relative_path)
+        # Reply with description or just confirm
+        if description:
+            try:
+                await message.answer(f"📷 ✓\n\n{description}")
+            except Exception:
+                await message.answer(f"📷 ✓\n\n{description}", parse_mode=None)
+        else:
+            await message.answer("📷 ✓ Сохранено")
+
+        logger.info("Photo saved and analyzed: %s", relative_path)
 
     except Exception as e:
         logger.exception("Error processing photo")
