@@ -15,6 +15,7 @@ from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
 from d_brain.services.transcription import DeepgramTranscriber
 from d_brain.services.tts import text_to_voice
+from d_brain.services.reminder import check_process_reminder
 
 router = Router(name="voice")
 logger = logging.getLogger(__name__)
@@ -146,6 +147,10 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
                 )
             else:
                 session.append(user_id, "assistant", text=response[:500])
+                # Smart reminder: after 20:00 if day not processed
+                reminder = check_process_reminder(settings.vault_path)
+                if reminder:
+                    response += reminder
                 await _send_response(message, response, voice_mode)
 
     except Exception as e:

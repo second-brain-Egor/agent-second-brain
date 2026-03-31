@@ -1,8 +1,10 @@
 """Photo message handler with Claude Vision analysis."""
 
-import base64
 import logging
+import os
+import subprocess
 from datetime import datetime
+from pathlib import Path
 
 from aiogram import Bot, Router
 from aiogram.types import Message
@@ -23,40 +25,44 @@ VISION_PROMPT = (
 )
 
 
-async def _analyze_image(photo_bytes: bytes, caption: str | None = None) -> str | None:
-    """Analyze image using Claude Vision API."""
+async def _analyze_image(image_path: str, vault_path: Path, caption: str | None = None) -> str | None:
+    """Analyze image using Claude CLI (subscription, no API key needed)."""
     try:
-        import anthropic
-
-        client = anthropic.Anthropic()
-
-        image_b64 = base64.standard_b64encode(photo_bytes).decode("utf-8")
-
-        content: list[dict] = [
-            {
-                "type": "image",
-                "source": {
-                    "type": "base64",
-                    "media_type": "image/jpeg",
-                    "data": image_b64,
-                },
-            },
-        ]
-
         user_prompt = VISION_PROMPT
         if caption:
             user_prompt += f"\n\nПодпись от пользователя: {caption}"
 
-        content.append({"type": "text", "text": user_prompt})
+        full_prompt = f"Прочитай изображение по пути {image_path} и выполни задачу:\n{user_prompt}"
 
-        response = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=1024,
-            messages=[{"role": "user", "content": content}],
+        env = os.environ.copy()
+        result = subprocess.run(
+            [
+                "flock", "-w", "30", "/tmp/claude-chat.lock",
+                "claude",
+                "--print",
+                "--dangerously-skip-permissions",
+                "--model", "sonnet",
+                "-p",
+                full_prompt,
+            ],
+            cwd=str(vault_path.parent),
+            capture_output=True,
+            text=True,
+            timeout=120,
+            check=False,
+            env=env,
         )
 
-        return response.content[0].text
+        if result.returncode != 0:
+            logger.error("Vision CLI failed: %s", result.stderr)
+            return None
 
+        output = result.stdout.strip()
+        return output if output else None
+
+    except subprocess.TimeoutExpired:
+        logger.error("Vision CLI timed out")
+        return None
     except Exception:
         logger.exception("Vision analysis failed")
         return None
@@ -101,9 +107,13 @@ async def handle_photo(message: Message, bot: Bot) -> None:
             extension,
         )
 
-        # Analyze with Vision
+        # Absolute path for Claude CLI
+        vault_path = Path(settings.vault_path)
+        absolute_image_path = str((vault_path / relative_path).resolve())
+
+        # Analyze with Vision via Claude CLI
         await message.chat.do(action="typing")
-        description = await _analyze_image(photo_bytes, message.caption)
+        description = await _analyze_image(absolute_image_path, vault_path, message.caption)
 
         # Create content with Obsidian embed + description
         content = f"![[{relative_path}]]"

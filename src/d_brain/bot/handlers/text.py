@@ -14,6 +14,7 @@ from d_brain.services.processor import ClaudeProcessor
 from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
 from d_brain.services.tts import text_to_voice
+from d_brain.services.reminder import check_process_reminder
 
 router = Router(name="text")
 logger = logging.getLogger(__name__)
@@ -109,6 +110,10 @@ async def handle_text(message: Message, state: FSMContext) -> None:
                 )
             else:
                 session.append(user_id, "assistant", text=response[:500])
+                # Smart reminder: after 20:00 if day not processed
+                reminder = check_process_reminder(settings.vault_path)
+                if reminder:
+                    response += reminder
                 await _send_text_response(message, response, voice_mode)
         else:
             await message.answer("✓ Сохранено")
