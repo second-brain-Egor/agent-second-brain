@@ -10,7 +10,7 @@ class DoCommandState(StatesGroup):
 
 
 class SilentState(StatesGroup):
-    """Silent mode — only save, no Claude response."""
+    """Silent mode — only save, no AI response."""
 
     active = State()
 

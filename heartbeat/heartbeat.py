@@ -5,13 +5,11 @@ Heartbeat: проверяет память, цели, дедлайны и отп
 
 import json
 import os
-import subprocess
 import sys
-import urllib.request
 import urllib.parse
+import urllib.request
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MCP_CONFIG = os.path.join(PROJECT_DIR, "mcp-config.json")
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 ALLOWED_USER_IDS = os.environ.get("ALLOWED_USER_IDS", "[]")
 
@@ -21,9 +19,15 @@ def get_chat_id() -> str:
     return ALLOWED_USER_IDS.strip("[]").strip()
 
 
-def run_claude() -> str:
-    """Run Claude to check for reminders."""
+def run_agent() -> str:
+    """Run the local OpenAI-backed agent to check for reminders."""
     from datetime import date
+
+    sys.path.insert(0, os.path.join(PROJECT_DIR, "src"))
+
+    from d_brain.config import get_settings
+    from d_brain.services.processor import AgentProcessor
+
     today = date.today().isoformat()
 
     prompt = f"""Сегодня {today}. Ты — heartbeat-агент.
@@ -31,38 +35,23 @@ def run_claude() -> str:
 Проверь:
 1. memory/facts.md — недавние события, требующие действий
 2. goals/3-weekly.md — прогресс по недельным целям
-3. Задачи в Todoist с дедлайном сегодня/завтра (вызови mcp__todoist__get-tasks)
+3. Задачи в Todoist, связанные с сегодня и завтра
 
 Если есть что-то важное — верни краткое напоминание в формате Telegram HTML.
 Если нечего напоминать — верни ТОЛЬКО слово "SKIP" (без ничего другого).
 
 Формат: <b>заголовок</b>, списки через \\n• пункт.
 Допустимые теги: <b>, <i>, <code>.
-Максимум 500 символов."""
-
-    env = os.environ.copy()
-    env["MCP_TIMEOUT"] = "30000"
+Максимум 500 символов.
+Ничего не меняй в файлах и не создавай задачи."""
 
     try:
-        result = subprocess.run(
-            [
-                "flock", "-n", "/tmp/claude-heavy.lock",
-                "claude",
-                "--print",
-                "--dangerously-skip-permissions",
-                "--mcp-config", MCP_CONFIG,
-                "-p", prompt,
-            ],
-            cwd=os.path.join(PROJECT_DIR, "vault"),
-            capture_output=True,
-            text=True,
-            timeout=120,
-            check=False,
-            env=env,
-        )
-        return result.stdout.strip() if result.returncode == 0 else ""
+        settings = get_settings()
+        processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
+        result = processor.execute_prompt(prompt, user_id=0)
+        return result.get("report", "").strip() if "error" not in result else ""
     except Exception as e:
-        print(f"Claude error: {e}", file=sys.stderr)
+        print(f"Agent error: {e}", file=sys.stderr)
         return ""
 
 
@@ -101,7 +90,7 @@ def main() -> None:
         print("No chat_id configured", file=sys.stderr)
         sys.exit(1)
 
-    output = run_claude()
+    output = run_agent()
 
     if not output or output.strip().upper() == "SKIP":
         print("Nothing to report")

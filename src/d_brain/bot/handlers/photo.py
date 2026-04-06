@@ -1,10 +1,13 @@
-"""Photo message handler with Claude Vision analysis."""
+"""Photo message handler with OpenAI vision analysis."""
 
+from __future__ import annotations
+
+import asyncio
+import base64
 import logging
-import os
-import subprocess
 from datetime import datetime
 from pathlib import Path
+from typing import Any
 
 from aiogram import Bot, Router
 from aiogram.types import Message
@@ -17,52 +20,80 @@ router = Router(name="photo")
 logger = logging.getLogger(__name__)
 
 VISION_PROMPT = (
-    "Опиши что на изображении. "
-    "Если есть текст — извлеки его полностью (OCR). "
-    "Если это скриншот, документ или заметка — передай содержание. "
-    "Если это фото — опиши кратко что изображено. "
-    "Отвечай на русском, кратко и по делу."
+    "Describe what is in the image. "
+    "If there is readable text, extract it fully. "
+    "If this is a screenshot, note, or document, summarize the important content. "
+    "Reply in Russian, concise and useful."
 )
 
+MIME_BY_SUFFIX = {
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+    ".webp": "image/webp",
+}
 
-async def _analyze_image(image_path: str, vault_path: Path, caption: str | None = None) -> str | None:
-    """Analyze image using Claude CLI (subscription, no API key needed)."""
-    try:
-        user_prompt = VISION_PROMPT
-        if caption:
-            user_prompt += f"\n\nПодпись от пользователя: {caption}"
 
-        full_prompt = f"Прочитай изображение по пути {image_path} и выполни задачу:\n{user_prompt}"
+def _extract_output_text(response: Any) -> str:
+    text = getattr(response, "output_text", "") or ""
+    if text:
+        return text.strip()
 
-        env = os.environ.copy()
-        result = subprocess.run(
-            [
-                "flock", "-w", "30", "/tmp/claude-chat.lock",
-                "claude",
-                "--print",
-                "--dangerously-skip-permissions",
-                "--model", "sonnet",
-                "-p",
-                full_prompt,
-            ],
-            cwd=str(vault_path.parent),
-            capture_output=True,
-            text=True,
-            timeout=120,
-            check=False,
-            env=env,
-        )
+    parts: list[str] = []
+    for item in getattr(response, "output", []):
+        if getattr(item, "type", "") != "message":
+            continue
+        for content in getattr(item, "content", []):
+            content_type = getattr(content, "type", "")
+            if content_type in {"output_text", "text"}:
+                value = getattr(content, "text", "") or ""
+                if value:
+                    parts.append(value)
+    return "\n".join(parts).strip()
 
-        if result.returncode != 0:
-            logger.error("Vision CLI failed: %s", result.stderr)
-            return None
 
-        output = result.stdout.strip()
-        return output if output else None
-
-    except subprocess.TimeoutExpired:
-        logger.error("Vision CLI timed out")
+def _analyze_image_sync(image_path: str, caption: str | None = None) -> str | None:
+    settings = get_settings()
+    if not settings.openai_api_key:
         return None
+
+    from openai import OpenAI
+
+    image_file = Path(image_path)
+    mime_type = MIME_BY_SUFFIX.get(image_file.suffix.lower(), "image/jpeg")
+    image_b64 = base64.b64encode(image_file.read_bytes()).decode("ascii")
+
+    prompt = VISION_PROMPT
+    if caption:
+        prompt += f"\n\nUser caption: {caption}"
+
+    client = OpenAI(api_key=settings.openai_api_key)
+    response = client.responses.create(
+        model=settings.openai_model,
+        instructions="Reply in Russian, concise, plain text.",
+        input=[
+            {
+                "role": "user",
+                "content": [
+                    {"type": "input_text", "text": prompt},
+                    {
+                        "type": "input_image",
+                        "image_url": f"data:{mime_type};base64,{image_b64}",
+                    },
+                ],
+            }
+        ],
+        reasoning={"effort": "low"},
+        text={"verbosity": "low"},
+        max_output_tokens=1000,
+    )
+    return _extract_output_text(response) or None
+
+
+async def _analyze_image(image_path: str, caption: str | None = None) -> str | None:
+    """Analyze an image with the configured OpenAI model."""
+    try:
+        return await asyncio.to_thread(_analyze_image_sync, image_path, caption)
     except Exception:
         logger.exception("Vision analysis failed")
         return None
@@ -70,14 +101,12 @@ async def _analyze_image(image_path: str, vault_path: Path, caption: str | None 
 
 @router.message(lambda m: m.photo is not None)
 async def handle_photo(message: Message, bot: Bot) -> None:
-    """Handle photo messages — save and analyze with Vision."""
+    """Handle photo messages: save them and analyze with vision."""
     if not message.photo or not message.from_user:
         return
 
     settings = get_settings()
     storage = VaultStorage(settings.vault_path)
-
-    # Get largest photo
     photo = message.photo[-1]
 
     try:
@@ -94,12 +123,10 @@ async def handle_photo(message: Message, bot: Bot) -> None:
         timestamp = datetime.fromtimestamp(message.date.timestamp())
         photo_bytes = file_bytes.read()
 
-        # Determine extension from file path
         extension = "jpg"
-        if file.file_path and "." in file.file_path:
+        if "." in file.file_path:
             extension = file.file_path.rsplit(".", 1)[-1]
 
-        # Save photo and get relative path
         relative_path = storage.save_attachment(
             photo_bytes,
             timestamp.date(),
@@ -107,15 +134,11 @@ async def handle_photo(message: Message, bot: Bot) -> None:
             extension,
         )
 
-        # Absolute path for Claude CLI
-        vault_path = Path(settings.vault_path)
-        absolute_image_path = str((vault_path / relative_path).resolve())
+        absolute_image_path = str((Path(settings.vault_path) / relative_path).resolve())
 
-        # Analyze with Vision via Claude CLI
         await message.chat.do(action="typing")
-        description = await _analyze_image(absolute_image_path, vault_path, message.caption)
+        description = await _analyze_image(absolute_image_path, message.caption)
 
-        # Create content with Obsidian embed + description
         content = f"![[{relative_path}]]"
         if message.caption:
             content += f"\n\n{message.caption}"
@@ -124,7 +147,6 @@ async def handle_photo(message: Message, bot: Bot) -> None:
 
         storage.append_to_daily(content, timestamp, "[photo]")
 
-        # Log to session
         session = SessionStore(settings.vault_path)
         session.append(
             message.from_user.id,
@@ -135,17 +157,16 @@ async def handle_photo(message: Message, bot: Bot) -> None:
             msg_id=message.message_id,
         )
 
-        # Reply with description or just confirm
         if description:
             try:
-                await message.answer(f"📷 ✓\n\n{description}")
+                await message.answer(f"Photo saved.\n\n{description}")
             except Exception:
-                await message.answer(f"📷 ✓\n\n{description}", parse_mode=None)
+                await message.answer(f"Photo saved.\n\n{description}", parse_mode=None)
         else:
-            await message.answer("📷 ✓ Сохранено")
+            await message.answer("Photo saved.")
 
         logger.info("Photo saved and analyzed: %s", relative_path)
 
-    except Exception as e:
+    except Exception as exc:
         logger.exception("Error processing photo")
-        await message.answer(f"Error: {e}")
+        await message.answer(f"Error: {exc}")

@@ -149,16 +149,10 @@ install_uv() {
 }
 
 #######################################
-# Install Claude Code CLI
+# Configure OpenAI backend
 #######################################
-install_claude() {
-    if has_command claude; then
-        success "Claude Code already installed: $(claude --version)"
-    else
-        info "Installing Claude Code CLI..."
-        npm install -g @anthropic-ai/claude-code
-        success "Claude Code installed"
-    fi
+setup_openai() {
+    info "OpenAI backend will be configured via .env"
 }
 
 #######################################
@@ -222,11 +216,11 @@ collect_tokens() {
     echo -e "${GREEN}║           TOKEN CONFIGURATION                  ║${NC}"
     echo -e "${GREEN}╚════════════════════════════════════════════════╝${NC}"
     echo
-    echo "You'll need to provide 4 tokens. Instructions for each below."
+    echo "You'll need to provide 5 tokens/settings. Instructions for each below."
 
     # Telegram Bot Token
     prompt_token \
-        "1/4: Telegram Bot Token" \
+        "1/5: Telegram Bot Token" \
         "Create a bot via @BotFather in Telegram:
 1. Open Telegram and search for @BotFather
 2. Send /newbot
@@ -237,7 +231,7 @@ collect_tokens() {
 
     # Telegram User ID
     prompt_token \
-        "2/4: Your Telegram User ID" \
+        "2/5: Your Telegram User ID" \
         "Get your ID via @userinfobot:
 1. Search for @userinfobot in Telegram
 2. Send any message
@@ -247,7 +241,7 @@ collect_tokens() {
 
     # Deepgram API Key
     prompt_token \
-        "3/4: Deepgram API Key" \
+        "3/5: Deepgram API Key" \
         "For voice transcription (free \$200 credit):
 1. Sign up at console.deepgram.com
 2. Go to Settings → API Keys
@@ -257,7 +251,7 @@ collect_tokens() {
 
     # Todoist API Token (optional)
     prompt_token \
-        "4/4: Todoist API Token (optional)" \
+        "4/5: Todoist API Token (optional)" \
         "For task management:
 1. Log in to todoist.com
 2. Settings → Integrations → Developer
@@ -265,6 +259,15 @@ collect_tokens() {
         "https://todoist.com/app/settings/integrations/developer" \
         "TODOIST_API_KEY" \
         "true"
+
+    prompt_token \
+        "5/5: OpenAI API Key" \
+        "Required for the local processing agent:
+1. Open platform.openai.com
+2. Create an API key
+3. Copy the full key value" \
+        "https://platform.openai.com/api-keys" \
+        "OPENAI_API_KEY"
 }
 
 #######################################
@@ -282,6 +285,11 @@ DEEPGRAM_API_KEY=$DEEPGRAM_API_KEY
 
 # Todoist API Token (optional)
 TODOIST_API_KEY=$TODOIST_API_KEY
+
+# AI backend
+AI_BACKEND=openai
+OPENAI_API_KEY=$OPENAI_API_KEY
+OPENAI_MODEL=gpt-5.2
 
 # Path to vault (don't change)
 VAULT_PATH=./vault
@@ -338,44 +346,22 @@ EOF
 }
 
 #######################################
-# Authenticate Claude
+# Setup automation
 #######################################
-auth_claude() {
+setup_automation() {
     echo
-    echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${YELLOW}Claude Authentication${NC}"
-    echo "You need Claude Pro subscription (\$20/month) for this to work."
-    echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo
-
-    if claude auth status &>/dev/null; then
-        success "Claude already authenticated"
-    else
-        info "Starting Claude authentication..."
-        echo "A browser window will open. Log in with your Anthropic account."
-        echo
-        claude auth login
-        success "Claude authenticated"
-    fi
-}
-
-#######################################
-# Setup autostart (optional)
-#######################################
-setup_autostart() {
-    echo
-    read -p "Configure autostart (bot runs when computer starts)? (y/n): " -n 1 -r < /dev/tty
+    read -p "Configure automation now? (launchd on macOS, cron on Linux/WSL) (y/n): " -n 1 -r < /dev/tty
     echo
 
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        info "Skipping autostart configuration"
+        info "Skipping automation configuration"
         return
     fi
 
     if [[ "$OS" == "mac" ]]; then
         setup_launchd
     else
-        setup_systemd
+        setup_cron
     fi
 }
 
@@ -424,36 +410,13 @@ EOF
 }
 
 #######################################
-# Setup systemd (Linux/WSL)
+# Setup cron (Linux/WSL)
 #######################################
-setup_systemd() {
-    info "Configuring systemd..."
-
-    mkdir -p ~/.config/systemd/user
-
-    cat > ~/.config/systemd/user/agent-second-brain.service << EOF
-[Unit]
-Description=Agent Second Brain Telegram Bot
-After=network.target
-
-[Service]
-Type=simple
-WorkingDirectory=$INSTALL_DIR
-ExecStart=$HOME/.local/bin/uv run python -m d_brain
-Restart=always
-RestartSec=10
-Environment=PYTHONUNBUFFERED=1
-
-[Install]
-WantedBy=default.target
-EOF
-
-    systemctl --user daemon-reload
-    systemctl --user enable agent-second-brain
-    systemctl --user start agent-second-brain
-
-    success "Autostart configured (systemd)"
-    info "Bot is running now and will start on boot"
+setup_cron() {
+    info "Configuring cron..."
+    cd "$INSTALL_DIR"
+    /bin/bash "$INSTALL_DIR/scripts/install-cron.sh"
+    success "Automation configured (cron)"
 }
 
 #######################################
@@ -473,13 +436,13 @@ start_bot() {
         echo "  Stop:    launchctl unload ~/Library/LaunchAgents/com.agent-second-brain.plist"
         echo "  Start:   launchctl load ~/Library/LaunchAgents/com.agent-second-brain.plist"
         echo "  Logs:    tail -f $INSTALL_DIR/logs/bot.log"
-    elif systemctl --user is-active --quiet agent-second-brain 2>/dev/null; then
+    elif crontab -l 2>/dev/null | grep -q "agent-second-brain"; then
         echo "Bot is running in background."
         echo
         echo "Commands:"
-        echo "  Stop:    systemctl --user stop agent-second-brain"
-        echo "  Start:   systemctl --user start agent-second-brain"
-        echo "  Logs:    journalctl --user -u agent-second-brain -f"
+        echo "  Edit cron:  crontab -e"
+        echo "  Bot logs:   tail -f $INSTALL_DIR/logs/bot.log"
+        echo "  Jobs log:   tail -f $INSTALL_DIR/logs/weekly.log"
     else
         echo "To start the bot manually:"
         echo
@@ -511,14 +474,13 @@ main() {
     install_homebrew
     install_dependencies
     install_uv
-    install_claude
+    setup_openai
     clone_repo
     collect_tokens
     create_env
     install_python_deps
     install_mcp_cli
-    auth_claude
-    setup_autostart
+    setup_automation
     start_bot
 }
 

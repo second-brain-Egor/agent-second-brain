@@ -217,18 +217,9 @@ install_nodejs() {
     success "Node.js $(node --version) installed"
 }
 
-install_claude_cli() {
-    step "Installing Claude CLI"
-
-    if check_command claude; then
-        success "Claude CLI already installed: $(claude --version 2>/dev/null || echo 'version unknown')"
-        return
-    fi
-
-    info "Installing @anthropic-ai/claude-code globally..."
-    sudo npm install -g @anthropic-ai/claude-code
-
-    success "Claude CLI installed"
+setup_openai_backend() {
+    step "Preparing OpenAI backend"
+    success "No extra CLI is required. The bot uses OPENAI_API_KEY from .env"
 }
 
 # =============================================================================
@@ -288,6 +279,7 @@ collect_tokens() {
     echo "  - Your Telegram ID (from @userinfobot)"
     echo "  - Deepgram API Key (from console.deepgram.com)"
     echo "  - Todoist API Token (from Todoist Settings > Integrations > Developer)"
+    echo "  - OpenAI API Key (from platform.openai.com/api-keys)"
     echo ""
 
     # Telegram Bot Token
@@ -337,6 +329,17 @@ collect_tokens() {
             error "Invalid API token format. Should be alphanumeric, 30+ characters"
         fi
     done
+
+    while true; do
+        ask "OpenAI API Key (from platform.openai.com/api-keys):"
+        read -r OPENAI_API_KEY
+        if [ -n "$OPENAI_API_KEY" ]; then
+            success "OpenAI API Key captured"
+            break
+        else
+            error "OpenAI API Key cannot be empty"
+        fi
+    done
 }
 
 create_env_file() {
@@ -363,6 +366,11 @@ DEEPGRAM_API_KEY=$DEEPGRAM_API_KEY
 # Todoist API key for task management
 TODOIST_API_KEY=$TODOIST_API_KEY
 
+# AI backend
+AI_BACKEND=openai
+OPENAI_API_KEY=$OPENAI_API_KEY
+OPENAI_MODEL=gpt-5.2
+
 # Path to Obsidian vault directory
 VAULT_PATH=./vault
 
@@ -385,45 +393,13 @@ install_dependencies() {
     success "Dependencies installed"
 }
 
-configure_systemd() {
-    step "Configuring systemd service"
+configure_cron() {
+    step "Configuring cron automation"
 
-    SERVICE_FILE="/etc/systemd/system/d-brain-bot.service"
-    SERVICE_NAME="d-brain-bot"
+    cd "$PROJECT_DIR"
+    /bin/bash "$PROJECT_DIR/scripts/install-cron.sh"
 
-    # Generate service file content
-    SERVICE_CONTENT="[Unit]
-Description=d-brain Telegram Bot
-After=network.target
-
-[Service]
-Type=simple
-User=$USER
-WorkingDirectory=$PROJECT_DIR
-ExecStart=$HOME/.local/bin/uv run python -m d_brain
-Restart=always
-RestartSec=10
-Environment=PYTHONUNBUFFERED=1
-
-[Install]
-WantedBy=multi-user.target"
-
-    info "Creating systemd service..."
-    echo "$SERVICE_CONTENT" | sudo tee "$SERVICE_FILE" > /dev/null
-
-    info "Reloading systemd daemon..."
-    sudo systemctl daemon-reload
-
-    info "Enabling service to start on boot..."
-    sudo systemctl enable "$SERVICE_NAME"
-
-    info "Starting service..."
-    sudo systemctl start "$SERVICE_NAME"
-
-    # Wait a moment for service to start
-    sleep 2
-
-    success "Systemd service configured"
+    success "Cron automation configured"
 }
 
 configure_git_remote() {
@@ -504,12 +480,7 @@ check_status() {
         ERRORS+=("Node.js not found")
     fi
 
-    # Check Claude CLI
-    if check_command claude; then
-        success "Claude CLI: installed"
-    else
-        WARNINGS+=("Claude CLI not found (needed for AI processing)")
-    fi
+    success "OpenAI backend: configured via .env"
 
     # Check .env
     if [ -f "$PROJECT_DIR/.env" ]; then
@@ -518,12 +489,10 @@ check_status() {
         ERRORS+=(".env file not found")
     fi
 
-    # Check systemd service
-    if systemctl is-active --quiet d-brain-bot; then
-        success "Bot service: running"
+    if crontab -l 2>/dev/null | grep -q "agent-second-brain"; then
+        success "Cron automation: installed"
     else
-        STATUS=$(systemctl is-active d-brain-bot 2>/dev/null || echo "unknown")
-        ERRORS+=("Bot service not running (status: $STATUS)")
+        ERRORS+=("Cron automation not installed")
     fi
 
     echo ""
@@ -544,9 +513,9 @@ check_status() {
         echo "    3. Send a voice message!"
         echo ""
         echo "  Useful commands:"
-        echo "    - View logs:    sudo journalctl -u d-brain-bot -f"
-        echo "    - Restart bot:  sudo systemctl restart d-brain-bot"
-        echo "    - Stop bot:     sudo systemctl stop d-brain-bot"
+        echo "    - Edit cron:    crontab -e"
+        echo "    - Bot logs:     tail -f $PROJECT_DIR/logs/bot.log"
+        echo "    - Daily logs:   tail -f $PROJECT_DIR/logs/process.log"
         echo ""
     else
         if [ ${#ERRORS[@]} -gt 0 ]; then
@@ -566,29 +535,12 @@ check_status() {
         fi
 
         echo "Troubleshooting:"
-        echo "  - Check logs: sudo journalctl -u d-brain-bot -n 50"
+        echo "  - Check cron: crontab -l"
+        echo "  - Check bot logs: tail -n 50 $PROJECT_DIR/logs/bot.log"
         echo "  - Check .env: cat $PROJECT_DIR/.env"
         echo "  - Manual start: cd $PROJECT_DIR && uv run python -m d_brain"
         echo ""
     fi
-}
-
-authorize_claude() {
-    step "Claude CLI Authorization"
-
-    if claude auth status 2>/dev/null | grep -q "Logged in"; then
-        success "Claude CLI already authorized"
-        return
-    fi
-
-    warn "Claude CLI needs authorization"
-    echo ""
-    echo "Run this command manually:"
-    echo -e "  ${CYAN}claude auth login${NC}"
-    echo ""
-    echo "This will open a browser for authentication."
-    echo "After authorizing, the bot will be able to use Claude for AI processing."
-    echo ""
 }
 
 # =============================================================================
@@ -602,7 +554,7 @@ main() {
     check_os
 
     echo "This script will:"
-    echo "  1. Install required software (Python, Node.js, uv, Claude CLI)"
+    echo "  1. Install required software (Python, Node.js, uv)"
     echo "  2. Clone your fork of the repository"
     echo "  3. Ask for your API tokens"
     echo "  4. Create configuration files"
@@ -620,16 +572,15 @@ main() {
     install_python
     install_uv
     install_nodejs
-    install_claude_cli
+    setup_openai_backend
 
     # Configuration
     clone_repository
     collect_tokens
     create_env_file
     install_dependencies
-    configure_systemd
+    configure_cron
     configure_git_remote
-    authorize_claude
 
     # Final check
     check_status

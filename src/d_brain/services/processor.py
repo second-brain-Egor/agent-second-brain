@@ -1,10 +1,11 @@
-"""Claude processing service."""
+"""AI processing service."""
 
+from __future__ import annotations
+
+import json
 import logging
-import os
-import subprocess
 import time
-from datetime import date
+from datetime import date, datetime, time as dt_time, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -12,46 +13,68 @@ from d_brain.services.session import SessionStore
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_TIMEOUT = 1200  # 20 minutes
-CHAT_TIMEOUT = 120  # 2 minutes for chat mode
 AGENT_MARKER = "[NEED_AGENT]"
+MAX_TOOL_STEPS = 24
+SKIP_DIR_NAMES = {
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".data",
+}
+SUPPORTED_REASONING_EFFORTS = {"none", "low", "medium", "high", "xhigh"}
+SUPPORTED_VERBOSITY = {"low", "medium", "high"}
 
 
-class ClaudeProcessor:
-    """Service for triggering Claude Code processing."""
+class AgentProcessor:
+    """Project AI processor."""
+
+    _memory_cache: dict[str, Any] = {}
+    _memory_cache_time: float = 0.0
 
     def __init__(self, vault_path: Path, todoist_api_key: str = "") -> None:
-        self.vault_path = Path(vault_path)
+        self.vault_path = Path(vault_path).resolve()
+        self.project_path = self.vault_path.parent.resolve()
         self.todoist_api_key = todoist_api_key
-        self._mcp_config_path = (self.vault_path.parent / "mcp-config.json").resolve()
+        self._openai_client: Any | None = None
+
+        from d_brain.config import get_settings
+
+        settings = get_settings()
+        backend = settings.ai_backend.strip().lower()
+        self.ai_backend = backend if backend in {"openai", "claude"} else "openai"
+        self.openai_api_key = settings.openai_api_key.strip()
+        self.openai_model = settings.openai_model.strip() or "gpt-5.2"
+
+        effort = settings.openai_reasoning_effort.strip().lower()
+        if effort not in SUPPORTED_REASONING_EFFORTS:
+            effort = "medium"
+        self.openai_reasoning_effort = effort
 
     def _load_skill_content(self) -> str:
-        """Load dbrain-processor skill content for inclusion in prompt.
-
-        NOTE: @vault/ references don't work in --print mode,
-        so we must include skill content directly in the prompt.
-        """
-        skill_path = self.vault_path / ".claude/skills/dbrain-processor/SKILL.md"
-        if skill_path.exists():
-            return skill_path.read_text()
+        """Load dbrain-processor skill content for extra context."""
+        for skill_path in (
+            self.vault_path / ".codex/skills/dbrain-processor/SKILL.md",
+            self.vault_path / ".claude/skills/dbrain-processor/SKILL.md",
+        ):
+            if skill_path.exists():
+                return skill_path.read_text(encoding="utf-8", errors="ignore")
         return ""
 
     def _load_todoist_reference(self) -> str:
-        """Load Todoist reference for inclusion in prompt."""
-        ref_path = self.vault_path / ".claude/skills/dbrain-processor/references/todoist.md"
-        if ref_path.exists():
-            return ref_path.read_text()
+        """Load Todoist reference for prompt context."""
+        for ref_path in (
+            self.vault_path / ".codex/skills/dbrain-processor/references/todoist.md",
+            self.vault_path / ".claude/skills/dbrain-processor/references/todoist.md",
+        ):
+            if ref_path.exists():
+                return ref_path.read_text(encoding="utf-8", errors="ignore")
         return ""
 
     def _get_session_context(self, user_id: int) -> str:
-        """Get today's session context for Claude.
-
-        Args:
-            user_id: Telegram user ID
-
-        Returns:
-            Recent session entries formatted for inclusion in prompt.
-        """
+        """Get today's session context for the AI backend."""
         if user_id == 0:
             return ""
 
@@ -60,14 +83,14 @@ class ClaudeProcessor:
         if not today_entries:
             return ""
 
-        lines = ["=== TODAY'S SESSION ==="]
+        lines = ["=== TODAY SESSION ==="]
         for entry in today_entries[-50:]:
-            ts = entry.get("ts", "")[11:16]  # HH:MM from ISO
+            ts = entry.get("ts", "")[11:16]
             entry_type = entry.get("type", "unknown")
             text = entry.get("text", "")[:500]
             if text:
                 lines.append(f"{ts} [{entry_type}] {text}")
-        lines.append("=== END SESSION ===\n")
+        lines.append("=== END SESSION ===")
         return "\n".join(lines)
 
     def _html_to_markdown(self, html: str) -> str:
@@ -75,32 +98,21 @@ class ClaudeProcessor:
         import re
 
         text = html
-        # <b>text</b> → **text**
         text = re.sub(r"<b>(.*?)</b>", r"**\1**", text)
-        # <i>text</i> → *text*
         text = re.sub(r"<i>(.*?)</i>", r"*\1*", text)
-        # <code>text</code> → `text`
         text = re.sub(r"<code>(.*?)</code>", r"`\1`", text)
-        # <s>text</s> → ~~text~~
         text = re.sub(r"<s>(.*?)</s>", r"~~\1~~", text)
-        # Remove <u> (no Markdown equivalent, just keep text)
         text = re.sub(r"</?u>", "", text)
-        # <a href="url">text</a> → [text](url)
         text = re.sub(r'<a href="([^"]+)">([^<]+)</a>', r"[\2](\1)", text)
-
         return text
 
     def _save_weekly_summary(self, report_html: str, week_date: date) -> Path:
         """Save weekly summary to vault/summaries/YYYY-WXX-summary.md."""
-        # Calculate ISO week number
         year, week, _ = week_date.isocalendar()
         filename = f"{year}-W{week:02d}-summary.md"
         summary_path = self.vault_path / "summaries" / filename
 
-        # Convert HTML to Markdown for Obsidian
         content = self._html_to_markdown(report_html)
-
-        # Add frontmatter
         frontmatter = f"""---
 date: {week_date.isoformat()}
 type: weekly-summary
@@ -108,434 +120,871 @@ week: {year}-W{week:02d}
 ---
 
 """
-        summary_path.write_text(frontmatter + content)
+        summary_path.parent.mkdir(parents=True, exist_ok=True)
+        summary_path.write_text(frontmatter + content, encoding="utf-8")
         logger.info("Weekly summary saved to %s", summary_path)
         return summary_path
 
     def _update_weekly_moc(self, summary_path: Path) -> None:
-        """Add link to new summary in MOC-weekly.md."""
+        """Add link to a new summary in MOC-weekly.md."""
         moc_path = self.vault_path / "MOC" / "MOC-weekly.md"
-        if moc_path.exists():
-            content = moc_path.read_text()
-            link = f"- [[summaries/{summary_path.name}|{summary_path.stem}]]"
-            # Insert after "## Previous Weeks" if not already there
-            if summary_path.stem not in content:
-                content = content.replace(
-                    "## Previous Weeks\n",
-                    f"## Previous Weeks\n\n{link}\n",
+        if not moc_path.exists():
+            return
+
+        content = moc_path.read_text(encoding="utf-8", errors="ignore")
+        link = f"- [[summaries/{summary_path.name}|{summary_path.stem}]]"
+        if summary_path.stem not in content:
+            content = content.replace("## Previous Weeks\n", f"## Previous Weeks\n\n{link}\n")
+            moc_path.write_text(content, encoding="utf-8")
+            logger.info("Updated MOC-weekly.md with %s", summary_path.stem)
+
+    def _get_openai_client(self) -> Any:
+        """Create OpenAI client lazily."""
+        if not self.openai_api_key:
+            raise RuntimeError("OPENAI_API_KEY is not set")
+
+        if self._openai_client is None:
+            from openai import OpenAI
+
+            self._openai_client = OpenAI(api_key=self.openai_api_key)
+        return self._openai_client
+
+    def _normalize_effort(self, effort: str | None) -> str:
+        value = (effort or self.openai_reasoning_effort).strip().lower()
+        if value not in SUPPORTED_REASONING_EFFORTS:
+            return self.openai_reasoning_effort
+        return value
+
+    @staticmethod
+    def _normalize_verbosity(verbosity: str | None) -> str:
+        value = (verbosity or "medium").strip().lower()
+        if value not in SUPPORTED_VERBOSITY:
+            return "medium"
+        return value
+
+    @staticmethod
+    def _extract_output_text(response: Any) -> str:
+        text = getattr(response, "output_text", "") or ""
+        if text:
+            return text.strip()
+
+        parts: list[str] = []
+        for item in getattr(response, "output", []):
+            if getattr(item, "type", "") != "message":
+                continue
+            for content in getattr(item, "content", []):
+                content_type = getattr(content, "type", "")
+                if content_type in {"output_text", "text"}:
+                    value = getattr(content, "text", "") or ""
+                    if value:
+                        parts.append(value)
+        return "\n".join(parts).strip()
+
+    def _run_openai_text(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        *,
+        reasoning: str | None = None,
+        verbosity: str | None = None,
+        max_output_tokens: int = 2000,
+    ) -> str:
+        """Run a plain OpenAI Responses request."""
+        client = self._get_openai_client()
+        response = client.responses.create(
+            model=self.openai_model,
+            instructions=system_prompt,
+            input=user_prompt,
+            reasoning={"effort": self._normalize_effort(reasoning)},
+            text={"verbosity": self._normalize_verbosity(verbosity)},
+            max_output_tokens=max_output_tokens,
+        )
+        return self._extract_output_text(response)
+
+    def _run_openai_agent(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        *,
+        read_only: bool = False,
+        reasoning: str | None = None,
+        verbosity: str | None = None,
+        max_output_tokens: int = 2500,
+    ) -> str:
+        """Run an OpenAI tool loop against local file and Todoist tools."""
+        client = self._get_openai_client()
+        tools = self._tool_schemas(read_only=read_only)
+        effort = self._normalize_effort(reasoning)
+        text_verbosity = self._normalize_verbosity(verbosity)
+
+        response = client.responses.create(
+            model=self.openai_model,
+            instructions=system_prompt,
+            input=user_prompt,
+            tools=tools,
+            reasoning={"effort": effort},
+            text={"verbosity": text_verbosity},
+            max_output_tokens=max_output_tokens,
+        )
+
+        for _ in range(MAX_TOOL_STEPS):
+            tool_calls = [
+                item for item in getattr(response, "output", [])
+                if getattr(item, "type", "") == "function_call"
+            ]
+            if not tool_calls:
+                return self._extract_output_text(response)
+
+            tool_outputs = []
+            for call in tool_calls:
+                tool_result = self._dispatch_tool(call.name, call.arguments)
+                tool_outputs.append(
+                    {
+                        "type": "function_call_output",
+                        "call_id": call.call_id,
+                        "output": tool_result,
+                    }
                 )
-                moc_path.write_text(content)
-                logger.info("Updated MOC-weekly.md with link to %s", summary_path.stem)
+
+            response = client.responses.create(
+                model=self.openai_model,
+                previous_response_id=response.id,
+                input=tool_outputs,
+                tools=tools,
+                reasoning={"effort": effort},
+                text={"verbosity": text_verbosity},
+                max_output_tokens=max_output_tokens,
+            )
+
+        raise RuntimeError("OpenAI tool loop exceeded the step limit")
+
+    def _tool_schemas(self, *, read_only: bool) -> list[dict[str, Any]]:
+        """Return OpenAI function tool schemas."""
+        schemas: list[dict[str, Any]] = [
+            {
+                "type": "function",
+                "name": "list_files",
+                "description": "List files and directories under a path inside the project.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "path": {"type": "string", "description": "Path relative to project root."},
+                        "max_depth": {"type": "integer", "minimum": 1, "maximum": 8},
+                        "max_entries": {"type": "integer", "minimum": 1, "maximum": 500},
+                    },
+                    "required": ["path"],
+                    "additionalProperties": False,
+                },
+                "strict": True,
+            },
+            {
+                "type": "function",
+                "name": "read_file",
+                "description": "Read a UTF-8 text file inside the project.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "path": {"type": "string", "description": "Path relative to project root."},
+                        "max_chars": {"type": "integer", "minimum": 200, "maximum": 40000},
+                    },
+                    "required": ["path"],
+                    "additionalProperties": False,
+                },
+                "strict": True,
+            },
+            {
+                "type": "function",
+                "name": "search_memory",
+                "description": "Search indexed memory facts in the local SQLite RAG cache.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string"},
+                        "limit": {"type": "integer", "minimum": 1, "maximum": 20},
+                    },
+                    "required": ["query"],
+                    "additionalProperties": False,
+                },
+                "strict": True,
+            },
+            {
+                "type": "function",
+                "name": "todoist_get_projects",
+                "description": "Get Todoist projects visible to the current API token.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "required": [],
+                    "additionalProperties": False,
+                },
+                "strict": True,
+            },
+            {
+                "type": "function",
+                "name": "todoist_search_tasks",
+                "description": "Search active Todoist tasks by text in content or description.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string"},
+                        "limit": {"type": "integer", "minimum": 1, "maximum": 100},
+                    },
+                    "required": ["query"],
+                    "additionalProperties": False,
+                },
+                "strict": True,
+            },
+            {
+                "type": "function",
+                "name": "todoist_get_completed_tasks",
+                "description": "Get completed Todoist tasks within an ISO datetime range.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "since_iso": {"type": "string"},
+                        "until_iso": {"type": "string"},
+                        "limit": {"type": "integer", "minimum": 1, "maximum": 100},
+                    },
+                    "required": ["since_iso", "until_iso"],
+                    "additionalProperties": False,
+                },
+                "strict": True,
+            },
+        ]
+
+        if read_only:
+            return schemas
+
+        schemas.extend(
+            [
+                {
+                    "type": "function",
+                    "name": "write_file",
+                    "description": "Write a UTF-8 text file inside the project, creating parent directories.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "path": {"type": "string", "description": "Path relative to project root."},
+                            "content": {"type": "string"},
+                        },
+                        "required": ["path", "content"],
+                        "additionalProperties": False,
+                    },
+                    "strict": True,
+                },
+                {
+                    "type": "function",
+                    "name": "append_file",
+                    "description": "Append UTF-8 text to a file inside the project.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "path": {"type": "string", "description": "Path relative to project root."},
+                            "content": {"type": "string"},
+                        },
+                        "required": ["path", "content"],
+                        "additionalProperties": False,
+                    },
+                    "strict": True,
+                },
+                {
+                    "type": "function",
+                    "name": "todoist_add_task",
+                    "description": "Create a Todoist task.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "content": {"type": "string"},
+                            "description": {"type": "string"},
+                            "due_string": {"type": "string"},
+                            "priority": {"type": "integer", "minimum": 1, "maximum": 4},
+                        },
+                        "required": ["content"],
+                        "additionalProperties": False,
+                    },
+                    "strict": True,
+                },
+                {
+                    "type": "function",
+                    "name": "todoist_update_task",
+                    "description": "Update an existing Todoist task.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {"type": "string"},
+                            "content": {"type": "string"},
+                            "description": {"type": "string"},
+                            "due_string": {"type": "string"},
+                            "priority": {"type": "integer", "minimum": 1, "maximum": 4},
+                        },
+                        "required": ["task_id"],
+                        "additionalProperties": False,
+                    },
+                    "strict": True,
+                },
+                {
+                    "type": "function",
+                    "name": "todoist_complete_task",
+                    "description": "Mark a Todoist task as completed.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {"type": "string"},
+                        },
+                        "required": ["task_id"],
+                        "additionalProperties": False,
+                    },
+                    "strict": True,
+                },
+            ]
+        )
+        return schemas
+
+    def _dispatch_tool(self, name: str, raw_arguments: str | None) -> str:
+        """Dispatch a tool call and return JSON text."""
+        try:
+            arguments = json.loads(raw_arguments) if raw_arguments else {}
+        except json.JSONDecodeError as exc:
+            return json.dumps({"ok": False, "error": f"Invalid tool arguments: {exc}"}, ensure_ascii=False)
+
+        try:
+            if name == "list_files":
+                result = self._tool_list_files(**arguments)
+            elif name == "read_file":
+                result = self._tool_read_file(**arguments)
+            elif name == "write_file":
+                result = self._tool_write_file(**arguments)
+            elif name == "append_file":
+                result = self._tool_append_file(**arguments)
+            elif name == "search_memory":
+                result = self._tool_search_memory(**arguments)
+            elif name == "todoist_get_projects":
+                result = self._tool_todoist_get_projects()
+            elif name == "todoist_search_tasks":
+                result = self._tool_todoist_search_tasks(**arguments)
+            elif name == "todoist_get_completed_tasks":
+                result = self._tool_todoist_get_completed_tasks(**arguments)
+            elif name == "todoist_add_task":
+                result = self._tool_todoist_add_task(**arguments)
+            elif name == "todoist_update_task":
+                result = self._tool_todoist_update_task(**arguments)
+            elif name == "todoist_complete_task":
+                result = self._tool_todoist_complete_task(**arguments)
+            else:
+                raise ValueError(f"Unknown tool: {name}")
+        except Exception as exc:
+            logger.exception("Tool %s failed", name)
+            return json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False)
+
+        return json.dumps({"ok": True, "result": result}, ensure_ascii=False)
+
+    def _resolve_path(self, raw_path: str) -> Path:
+        """Resolve a relative path and keep it inside the project root."""
+        candidate = Path(raw_path)
+        if candidate.is_absolute():
+            resolved = candidate.resolve()
+        else:
+            resolved = (self.project_path / candidate).resolve()
+
+        if resolved != self.project_path and self.project_path not in resolved.parents:
+            raise ValueError(f"Path is outside the project: {raw_path}")
+        return resolved
+
+    def _tool_list_files(
+        self,
+        path: str,
+        max_depth: int = 3,
+        max_entries: int = 200,
+    ) -> dict[str, Any]:
+        target = self._resolve_path(path)
+        if not target.exists():
+            raise FileNotFoundError(path)
+
+        if target.is_file():
+            rel = str(target.relative_to(self.project_path).as_posix())
+            return {"root": rel, "items": [{"path": rel, "type": "file"}], "truncated": False}
+
+        items: list[dict[str, str]] = []
+        truncated = False
+        for entry in sorted(target.rglob("*")):
+            rel_to_target = entry.relative_to(target)
+            if len(rel_to_target.parts) > max_depth:
+                continue
+            if any(part in SKIP_DIR_NAMES for part in rel_to_target.parts):
+                continue
+            items.append(
+                {
+                    "path": str(entry.relative_to(self.project_path).as_posix()),
+                    "type": "dir" if entry.is_dir() else "file",
+                }
+            )
+            if len(items) >= max_entries:
+                truncated = True
+                break
+
+        return {
+            "root": str(target.relative_to(self.project_path).as_posix()),
+            "items": items,
+            "truncated": truncated,
+        }
+
+    def _tool_read_file(self, path: str, max_chars: int = 12000) -> dict[str, Any]:
+        target = self._resolve_path(path)
+        if not target.exists():
+            raise FileNotFoundError(path)
+        if not target.is_file():
+            raise IsADirectoryError(path)
+
+        content = target.read_text(encoding="utf-8", errors="ignore")
+        truncated = len(content) > max_chars
+        if truncated:
+            content = content[:max_chars]
+
+        return {
+            "path": str(target.relative_to(self.project_path).as_posix()),
+            "content": content,
+            "truncated": truncated,
+        }
+
+    def _tool_write_file(self, path: str, content: str) -> dict[str, Any]:
+        target = self._resolve_path(path)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(content, encoding="utf-8")
+        return {
+            "path": str(target.relative_to(self.project_path).as_posix()),
+            "bytes": len(content.encode("utf-8")),
+        }
+
+    def _tool_append_file(self, path: str, content: str) -> dict[str, Any]:
+        target = self._resolve_path(path)
+        target.parent.mkdir(parents=True, exist_ok=True)
+
+        prefix = ""
+        if target.exists():
+            existing = target.read_text(encoding="utf-8", errors="ignore")
+            if existing and not existing.endswith("\n"):
+                prefix = "\n"
+
+        with target.open("a", encoding="utf-8") as handle:
+            handle.write(prefix + content)
+
+        return {
+            "path": str(target.relative_to(self.project_path).as_posix()),
+            "bytes_appended": len((prefix + content).encode("utf-8")),
+        }
+
+    def _tool_search_memory(self, query: str, limit: int = 5) -> dict[str, Any]:
+        from d_brain.services.memory_rag import search_memory
+
+        return {"query": query, "results": search_memory(query, limit=limit)}
+
+    def _get_todoist_api(self) -> Any:
+        if not self.todoist_api_key:
+            raise RuntimeError("TODOIST_API_KEY is not set")
+
+        from todoist_api_python.api import TodoistAPI
+
+        return TodoistAPI(self.todoist_api_key)
+
+    @staticmethod
+    def _task_to_dict(task: Any) -> dict[str, Any]:
+        due = getattr(task, "due", None)
+        due_data = None
+        if due is not None:
+            due_data = {
+                "date": getattr(due, "date", None),
+                "string": getattr(due, "string", None),
+                "datetime": getattr(due, "datetime", None),
+                "timezone": getattr(due, "timezone", None),
+            }
+
+        return {
+            "id": getattr(task, "id", ""),
+            "content": getattr(task, "content", ""),
+            "description": getattr(task, "description", ""),
+            "priority": getattr(task, "priority", 1),
+            "project_id": getattr(task, "project_id", None),
+            "section_id": getattr(task, "section_id", None),
+            "labels": list(getattr(task, "labels", []) or []),
+            "is_completed": getattr(task, "is_completed", False),
+            "due": due_data,
+            "url": getattr(task, "url", None),
+        }
+
+    @staticmethod
+    def _project_to_dict(project: Any) -> dict[str, Any]:
+        return {
+            "id": getattr(project, "id", ""),
+            "name": getattr(project, "name", ""),
+            "color": getattr(project, "color", ""),
+            "is_inbox_project": getattr(project, "is_inbox_project", False),
+            "is_shared": getattr(project, "is_shared", False),
+            "url": getattr(project, "url", None),
+        }
+
+    def _flatten_task_pages(self, pages: Any, limit: int) -> list[dict[str, Any]]:
+        items: list[dict[str, Any]] = []
+        for page in pages:
+            for task in page:
+                items.append(self._task_to_dict(task))
+                if len(items) >= limit:
+                    return items
+        return items
+
+    def _tool_todoist_get_projects(self) -> dict[str, Any]:
+        api = self._get_todoist_api()
+        projects = api.get_projects()
+        return {"projects": [self._project_to_dict(project) for project in projects]}
+
+    def _tool_todoist_search_tasks(self, query: str, limit: int = 20) -> dict[str, Any]:
+        api = self._get_todoist_api()
+        pages = api.get_tasks(limit=min(max(limit, 1), 100))
+        tasks = self._flatten_task_pages(pages, min(max(limit, 1), 100))
+
+        lowered = query.casefold()
+        matched = [
+            task for task in tasks
+            if lowered in (task["content"] or "").casefold()
+            or lowered in (task["description"] or "").casefold()
+        ]
+        return {"tasks": matched[:limit]}
+
+    def _tool_todoist_get_completed_tasks(
+        self,
+        since_iso: str,
+        until_iso: str,
+        limit: int = 20,
+    ) -> dict[str, Any]:
+        api = self._get_todoist_api()
+        since = datetime.fromisoformat(since_iso)
+        until = datetime.fromisoformat(until_iso)
+        pages = api.get_completed_tasks_by_completion_date(since=since, until=until, limit=limit)
+        return {"tasks": self._flatten_task_pages(pages, limit)}
+
+    def _tool_todoist_add_task(
+        self,
+        content: str,
+        description: str = "",
+        due_string: str = "",
+        priority: int = 1,
+    ) -> dict[str, Any]:
+        api = self._get_todoist_api()
+        task = api.add_task(
+            content=content,
+            description=description or None,
+            due_string=due_string or None,
+            priority=priority,
+        )
+        return {"task": self._task_to_dict(task)}
+
+    def _tool_todoist_update_task(
+        self,
+        task_id: str,
+        content: str = "",
+        description: str = "",
+        due_string: str = "",
+        priority: int | None = None,
+    ) -> dict[str, Any]:
+        api = self._get_todoist_api()
+        task = api.update_task(
+            task_id,
+            content=content or None,
+            description=description or None,
+            due_string=due_string or None,
+            priority=priority,
+        )
+        return {"task": self._task_to_dict(task)}
+
+    def _tool_todoist_complete_task(self, task_id: str) -> dict[str, Any]:
+        api = self._get_todoist_api()
+        success = api.complete_task(task_id)
+        return {"task_id": task_id, "completed": success}
 
     def process_daily(self, day: date | None = None) -> dict[str, Any]:
-        """Process daily file with Claude.
-
-        Args:
-            day: Date to process (default: today)
-
-        Returns:
-            Processing report as dict
-        """
+        """Process a daily note and update vault/Todoist via OpenAI tools."""
         if day is None:
             day = date.today()
 
         daily_file = self.vault_path / "daily" / f"{day.isoformat()}.md"
-
         if not daily_file.exists():
             logger.warning("No daily file for %s", day)
-            return {
-                "error": f"No daily file for {day}",
-                "processed_entries": 0,
-            }
+            return {"error": f"No daily file for {day}", "processed_entries": 0}
 
-        # Load skill content directly (@ references don't work in --print mode)
+        daily_text = daily_file.read_text(encoding="utf-8", errors="ignore")
+        if len(daily_text.strip()) < 50:
+            report = (
+                f"<b>Processing for {day}</b>\n\n"
+                "Nothing substantial to process yet."
+            )
+            return {"report": report, "processed_entries": 0}
+
         skill_content = self._load_skill_content()
+        todoist_ref = self._load_todoist_reference()
+        yearly_files = sorted((self.vault_path / "goals").glob("1-yearly-*.md"))
+        yearly_hint = yearly_files[-1].name if yearly_files else "1-yearly-2026.md"
 
-        prompt = f"""Сегодня {day}. Выполни ежедневную обработку.
+        system_prompt = (
+            "You are the processing backend for a personal Telegram second-brain bot. "
+            "Work directly with the provided tools. Reply in Russian. "
+            "When you create or update files, keep markdown clean and concise. "
+            "Avoid duplicates: read target files before appending, and do not repeat the same fact twice. "
+            "Create Todoist tasks only for clear actionable items. "
+            "Return ONLY raw Telegram HTML. "
+            "Allowed tags: <b>, <i>, <code>, <s>, <u>. "
+            "Do not include markdown fences."
+        )
 
-=== SKILL INSTRUCTIONS ===
-{skill_content}
-=== END SKILL ===
+        user_prompt = f"""
+Today is {day.isoformat()}.
+Project root: {self.project_path.as_posix()}
+Vault root: {self.vault_path.as_posix()}
 
-ПЕРВЫМ ДЕЛОМ: вызови mcp__todoist__user-info чтобы убедиться что MCP работает.
+Process today's inbox and memory updates.
 
-CRITICAL MCP RULE:
-- ТЫ ИМЕЕШЬ ДОСТУП к mcp__todoist__* tools — ВЫЗЫВАЙ ИХ НАПРЯМУЮ
-- НИКОГДА не пиши "MCP недоступен" или "добавь вручную"
-- Для задач: вызови mcp__todoist__add-tasks tool
-- Если tool вернул ошибку — покажи ТОЧНУЮ ошибку в отчёте
+Start by reading:
+- vault/daily/{day.isoformat()}.md
+- vault/memory/facts.md
+- vault/memory/user.md
+- vault/memory/soul.md
+- vault/goals/3-weekly.md
+- vault/goals/2-monthly.md
+- vault/goals/{yearly_hint}
 
-CRITICAL OUTPUT FORMAT:
-- Return ONLY raw HTML for Telegram (parse_mode=HTML)
-- NO markdown: no **, no ## , no ```, no tables
-- Start directly with 📊 <b>Обработка за {day}</b>
-- Allowed tags: <b>, <i>, <code>, <s>, <u>
-- If entries already processed, return status report in same HTML format"""
+Then:
+1. Extract durable facts and append them to vault/memory/facts.md.
+2. Append only stable user profile changes to vault/memory/user.md.
+3. Append only assistant behavior learnings to vault/memory/soul.md.
+4. If there is a durable idea, project, reflection, learning, or task, create a note under vault/thoughts/... .
+5. Create Todoist tasks for clear next actions when useful.
+6. Keep changes minimal and readable.
+
+Useful reference material:
+=== DBRAIN SKILL ===
+{skill_content[:8000]}
+=== TODOIST REFERENCE ===
+{todoist_ref[:4000]}
+=== END REFERENCES ===
+
+Return ONLY raw Telegram HTML with:
+- short header
+- processed highlights
+- files updated
+- Todoist actions
+- one short next-step line
+"""
 
         try:
-            # Pass TODOIST_API_KEY to Claude subprocess
-            env = os.environ.copy()
-            env["MCP_TIMEOUT"] = "30000"
-            env["MAX_MCP_OUTPUT_TOKENS"] = "50000"
-            if self.todoist_api_key:
-                env["TODOIST_API_KEY"] = self.todoist_api_key
-
-            result = subprocess.run(
-                [
-                    "flock", "-n", "/tmp/claude-heavy.lock",
-                    "claude",
-                    "--print",
-                    "--dangerously-skip-permissions",
-                    "--model", "opus",
-                    "--mcp-config",
-                    str(self._mcp_config_path),
-                    "-p",
-                    prompt,
-                ],
-                cwd=self.vault_path.parent,
-                capture_output=True,
-                text=True,
-                timeout=DEFAULT_TIMEOUT,
-                check=False,
-                env=env,
+            report = self._run_openai_agent(
+                system_prompt,
+                user_prompt,
+                read_only=False,
+                reasoning="medium",
+                verbosity="medium",
+                max_output_tokens=3000,
             )
-
-            if result.returncode != 0:
-                logger.error("Claude processing failed: %s", result.stderr)
-                return {
-                    "error": result.stderr or "Claude processing failed",
-                    "processed_entries": 0,
-                }
-
-            # Return human-readable output
-            output = result.stdout.strip()
-            return {
-                "report": output,
-                "processed_entries": 1,  # успешно обработано
-            }
-
-        except subprocess.TimeoutExpired:
-            logger.error("Claude processing timed out")
-            return {
-                "error": "Processing timed out",
-                "processed_entries": 0,
-            }
-        except FileNotFoundError:
-            logger.error("Claude CLI not found")
-            return {
-                "error": "Claude CLI not installed",
-                "processed_entries": 0,
-            }
-        except Exception as e:
-            logger.exception("Unexpected error during processing")
-            return {
-                "error": str(e),
-                "processed_entries": 0,
-            }
+            return {"report": report, "processed_entries": 1}
+        except Exception as exc:
+            logger.exception("OpenAI daily processing failed")
+            return {"error": str(exc), "processed_entries": 0}
 
     def execute_prompt(self, user_prompt: str, user_id: int = 0) -> dict[str, Any]:
-        """Execute arbitrary prompt with Claude.
-
-        Args:
-            user_prompt: User's natural language request
-            user_id: Telegram user ID for session context
-
-        Returns:
-            Execution report as dict
-        """
-        today = date.today()
-
-        # Load context
+        """Execute an arbitrary user request with tools and HTML output."""
+        today = date.today().isoformat()
         todoist_ref = self._load_todoist_reference()
+        memory_context = self._get_memory_context()
         session_context = self._get_session_context(user_id)
 
-        prompt = f"""Ты - персональный ассистент d-brain.
+        rag_context = ""
+        try:
+            from d_brain.services.memory_rag import search_memory
 
-CONTEXT:
-- Текущая дата: {today}
-- Vault path: {self.vault_path}
+            relevant = search_memory(user_prompt, limit=5)
+            if relevant:
+                rag_context = f"\n=== MEMORY SEARCH ===\n{relevant}\n"
+        except Exception:
+            rag_context = ""
 
-{session_context}=== TODOIST REFERENCE ===
-{todoist_ref}
-=== END REFERENCE ===
+        system_prompt = (
+            "You are the action backend for a personal Telegram second-brain bot. "
+            "You have tools for local project files and Todoist. "
+            "Reply in Russian. Act directly, keep changes inside the project, and be concise. "
+            "Return ONLY raw Telegram HTML. Allowed tags: <b>, <i>, <code>, <s>, <u>."
+        )
 
-ПЕРВЫМ ДЕЛОМ: вызови mcp__todoist__user-info чтобы убедиться что MCP работает.
+        composed_prompt = f"""
+Today is {today}.
+Project root: {self.project_path.as_posix()}
+Vault root: {self.vault_path.as_posix()}
 
-CRITICAL MCP RULE:
-- ТЫ ИМЕЕШЬ ДОСТУП к mcp__todoist__* tools — ВЫЗЫВАЙ ИХ НАПРЯМУЮ
-- НИКОГДА не пиши "MCP недоступен" или "добавь вручную"
-- Если tool вернул ошибку — покажи ТОЧНУЮ ошибку в отчёте
+=== MEMORY CONTEXT ===
+{memory_context}
+
+=== SESSION CONTEXT ===
+{session_context}
+{rag_context}
+=== TODOIST REFERENCE ===
+{todoist_ref[:4000]}
+=== END CONTEXT ===
 
 USER REQUEST:
 {user_prompt}
 
-CRITICAL OUTPUT FORMAT:
-- Return ONLY raw HTML for Telegram (parse_mode=HTML)
-- NO markdown: no **, no ##, no ```, no tables, no -
-- Start with emoji and <b>header</b>
-- Allowed tags: <b>, <i>, <code>, <s>, <u>
-- Be concise - Telegram has 4096 char limit
-
-EXECUTION:
-1. Analyze the request
-2. Call MCP tools directly (mcp__todoist__*, read/write files)
-3. Return HTML status report with results"""
+If no tool is needed, answer directly.
+If tools are needed, use them and then report the result.
+Keep the final answer short and concrete.
+"""
 
         try:
-            env = os.environ.copy()
-            env["MCP_TIMEOUT"] = "30000"
-            env["MAX_MCP_OUTPUT_TOKENS"] = "50000"
-            if self.todoist_api_key:
-                env["TODOIST_API_KEY"] = self.todoist_api_key
-
-            result = subprocess.run(
-                [
-                    "flock", "-n", "/tmp/claude-heavy.lock",
-                    "claude",
-                    "--print",
-                    "--dangerously-skip-permissions",
-                    "--model", "opus",
-                    "--mcp-config",
-                    str(self._mcp_config_path),
-                    "-p",
-                    prompt,
-                ],
-                cwd=self.vault_path.parent,
-                capture_output=True,
-                text=True,
-                timeout=DEFAULT_TIMEOUT,
-                check=False,
-                env=env,
+            report = self._run_openai_agent(
+                system_prompt,
+                composed_prompt,
+                read_only=False,
+                reasoning="medium",
+                verbosity="medium",
+                max_output_tokens=2500,
             )
-
-            if result.returncode != 0:
-                logger.error("Claude execution failed: %s", result.stderr)
-                return {
-                    "error": result.stderr or "Claude execution failed",
-                    "processed_entries": 0,
-                }
-
-            return {
-                "report": result.stdout.strip(),
-                "processed_entries": 1,
-            }
-
-        except subprocess.TimeoutExpired:
-            logger.error("Claude execution timed out")
-            return {"error": "Execution timed out", "processed_entries": 0}
-        except FileNotFoundError:
-            logger.error("Claude CLI not found")
-            return {"error": "Claude CLI not installed", "processed_entries": 0}
-        except Exception as e:
-            logger.exception("Unexpected error during execution")
-            return {"error": str(e), "processed_entries": 0}
+            return {"report": report, "processed_entries": 1}
+        except Exception as exc:
+            logger.exception("OpenAI action execution failed")
+            return {"error": str(exc), "processed_entries": 0}
 
     def generate_weekly(self) -> dict[str, Any]:
-        """Generate weekly digest with Claude.
-
-        Returns:
-            Weekly digest report as dict
-        """
+        """Generate weekly digest using the OpenAI backend."""
         today = date.today()
+        week_start = today - timedelta(days=today.weekday())
+        week_end = week_start + timedelta(days=6)
+        since_iso = datetime.combine(week_start, dt_time.min).isoformat()
+        until_iso = datetime.combine(week_end, dt_time.max).isoformat()
 
-        prompt = f"""Сегодня {today}. Сгенерируй недельный дайджест.
+        system_prompt = (
+            "You are generating a weekly digest for a personal Telegram second-brain bot. "
+            "Reply in Russian. Use read-only tools to inspect daily notes, goals, memory, and completed Todoist tasks. "
+            "Return ONLY raw Telegram HTML with a short, punchy weekly summary."
+        )
+        user_prompt = f"""
+Today is {today.isoformat()}.
+Current ISO week: {today.isocalendar().year}-W{today.isocalendar().week:02d}
+Project root: {self.project_path.as_posix()}
+Vault root: {self.vault_path.as_posix()}
 
-ПЕРВЫМ ДЕЛОМ: вызови mcp__todoist__user-info чтобы убедиться что MCP работает.
+Read the relevant weekly files and produce a digest.
+At minimum, inspect:
+- vault/goals/3-weekly.md
+- vault/goals/2-monthly.md
+- the latest vault/goals/1-yearly-*.md
+- daily files from {week_start.isoformat()} to {week_end.isoformat()}
+- completed Todoist tasks via todoist_get_completed_tasks with:
+  since_iso={since_iso}
+  until_iso={until_iso}
 
-CRITICAL MCP RULE:
-- ТЫ ИМЕЕШЬ ДОСТУП к mcp__todoist__* tools — ВЫЗЫВАЙ ИХ НАПРЯМУЮ
-- НИКОГДА не пиши "MCP недоступен" или "добавь вручную"
-- Для выполненных задач: вызови mcp__todoist__find-completed-tasks tool
-- Если tool вернул ошибку — покажи ТОЧНУЮ ошибку в отчёте
-
-WORKFLOW:
-1. Собери данные за неделю (daily файлы в vault/daily/, completed tasks через MCP)
-2. Проанализируй прогресс по целям (goals/3-weekly.md)
-3. Определи победы и вызовы
-4. Сгенерируй HTML отчёт
-
-CRITICAL OUTPUT FORMAT:
-- Return ONLY raw HTML for Telegram (parse_mode=HTML)
-- NO markdown: no **, no ##, no ```, no tables
-- Start with 📅 <b>Недельный дайджест</b>
-- Allowed tags: <b>, <i>, <code>, <s>, <u>
-- Be concise - Telegram has 4096 char limit"""
+Return ONLY raw Telegram HTML with:
+- wins
+- blockers
+- progress on goals
+- focus for next week
+"""
 
         try:
-            env = os.environ.copy()
-            env["MCP_TIMEOUT"] = "30000"
-            env["MAX_MCP_OUTPUT_TOKENS"] = "50000"
-            if self.todoist_api_key:
-                env["TODOIST_API_KEY"] = self.todoist_api_key
-
-            result = subprocess.run(
-                [
-                    "flock", "-n", "/tmp/claude-heavy.lock",
-                    "claude",
-                    "--print",
-                    "--dangerously-skip-permissions",
-                    "--model", "opus",
-                    "--mcp-config",
-                    str(self._mcp_config_path),
-                    "-p",
-                    prompt,
-                ],
-                cwd=self.vault_path.parent,
-                capture_output=True,
-                text=True,
-                timeout=DEFAULT_TIMEOUT,
-                check=False,
-                env=env,
+            report = self._run_openai_agent(
+                system_prompt,
+                user_prompt,
+                read_only=True,
+                reasoning="medium",
+                verbosity="medium",
+                max_output_tokens=2500,
             )
-
-            if result.returncode != 0:
-                logger.error("Weekly digest failed: %s", result.stderr)
-                return {
-                    "error": result.stderr or "Weekly digest failed",
-                    "processed_entries": 0,
-                }
-
-            output = result.stdout.strip()
-
-            # Save to summaries/ and update MOC
-            try:
-                summary_path = self._save_weekly_summary(output, today)
-                self._update_weekly_moc(summary_path)
-            except Exception as e:
-                logger.warning("Failed to save weekly summary: %s", e)
-
-            return {
-                "report": output,
-                "processed_entries": 1,
-            }
-
-        except subprocess.TimeoutExpired:
-            logger.error("Weekly digest timed out")
-            return {"error": "Weekly digest timed out", "processed_entries": 0}
-        except FileNotFoundError:
-            logger.error("Claude CLI not found")
-            return {"error": "Claude CLI not installed", "processed_entries": 0}
-        except Exception as e:
-            logger.exception("Unexpected error during weekly digest")
-            return {"error": str(e), "processed_entries": 0}
+            summary_path = self._save_weekly_summary(report, today)
+            self._update_weekly_moc(summary_path)
+            return {"report": report, "processed_entries": 1}
+        except Exception as exc:
+            logger.exception("OpenAI weekly digest failed")
+            return {"error": str(exc), "processed_entries": 0}
 
     @staticmethod
     def needs_agent(response: str) -> bool:
-        """Check if response signals need for agent escalation."""
+        """Check if a response requests escalation."""
         return response.strip().startswith(AGENT_MARKER)
 
     @staticmethod
     def strip_agent_marker(response: str) -> str:
-        """Strip agent marker and return the brief description."""
+        """Strip the escalation marker from a response."""
         return response.strip().removeprefix(AGENT_MARKER).strip()
 
     def execute_agent(self, user_prompt: str, user_id: int = 0) -> dict[str, Any]:
-        """Execute task with full agent (opus + MCP tools).
-
-        Called automatically when sonnet detects a complex task.
-
-        Args:
-            user_prompt: Original user message
-            user_id: Telegram user ID
-
-        Returns:
-            Execution report as dict
-        """
-        today = date.today()
-        session_context = self._get_session_context(user_id)
+        """Execute a heavier task with tools and plain-text output."""
+        today = date.today().isoformat()
         memory_context = self._get_memory_context()
-        todoist_ref = self._load_todoist_reference()
+        session_context = self._get_session_context(user_id)
 
-        prompt = f"""Ты — персональный ассистент d-brain. Выполни задачу пользователя.
+        rag_context = ""
+        try:
+            from d_brain.services.memory_rag import search_memory
 
-CONTEXT:
-- Текущая дата: {today}
-- Vault path: {self.vault_path}
+            relevant = search_memory(user_prompt, limit=5)
+            if relevant:
+                rag_context = f"\n=== MEMORY SEARCH ===\n{relevant}\n"
+        except Exception:
+            rag_context = ""
 
+        system_prompt = (
+            "You are the heavier action backend for a personal Telegram second-brain bot. "
+            "You have tools for local project files and Todoist. "
+            "Reply in Russian. Execute the task when possible and finish with plain text only. "
+            "No HTML, no markdown table, no fluff."
+        )
+        composed_prompt = f"""
+Today is {today}.
+Project root: {self.project_path.as_posix()}
+Vault root: {self.vault_path.as_posix()}
+
+=== MEMORY CONTEXT ===
 {memory_context}
+
+=== SESSION CONTEXT ===
 {session_context}
-=== TODOIST REFERENCE ===
-{todoist_ref}
-=== END REFERENCE ===
+{rag_context}
+=== END CONTEXT ===
 
-ПЕРВЫМ ДЕЛОМ: вызови mcp__todoist__user-info чтобы убедиться что MCP работает.
-
-CRITICAL MCP RULE:
-- ТЫ ИМЕЕШЬ ДОСТУП к mcp__todoist__* tools — ВЫЗЫВАЙ ИХ НАПРЯМУЮ
-- НИКОГДА не пиши "MCP недоступен" или "добавь вручную"
-- Если tool вернул ошибку — покажи ТОЧНУЮ ошибку
-
-ЗАДАЧА ПОЛЬЗОВАТЕЛЯ:
+USER REQUEST:
 {user_prompt}
 
-ФОРМАТ ОТВЕТА:
-- Простой текст (НЕ HTML)
-- Кратко: что сделал, результат
-- Если создал задачи — перечисли их
-- Если записал файл — укажи путь"""
+Perform the task with tools if needed. The final answer must be plain text in Russian:
+- what you did
+- result
+- important follow-up if any
+"""
 
         try:
-            env = os.environ.copy()
-            env["MCP_TIMEOUT"] = "30000"
-            env["MAX_MCP_OUTPUT_TOKENS"] = "50000"
-            if self.todoist_api_key:
-                env["TODOIST_API_KEY"] = self.todoist_api_key
-
-            result = subprocess.run(
-                [
-                    "flock", "-w", "60", "/tmp/claude-heavy.lock",
-                    "claude",
-                    "--print",
-                    "--dangerously-skip-permissions",
-                    "--model", "opus",
-                    "--mcp-config",
-                    str(self._mcp_config_path),
-                    "-p",
-                    prompt,
-                ],
-                cwd=self.vault_path.parent,
-                capture_output=True,
-                text=True,
-                timeout=DEFAULT_TIMEOUT,
-                check=False,
-                env=env,
+            report = self._run_openai_agent(
+                system_prompt,
+                composed_prompt,
+                read_only=False,
+                reasoning="high",
+                verbosity="medium",
+                max_output_tokens=2500,
             )
-
-            if result.returncode != 0:
-                logger.error("Agent execution failed: %s", result.stderr)
-                return {"error": result.stderr or "Agent failed", "processed_entries": 0}
-
-            return {"report": result.stdout.strip(), "processed_entries": 1}
-
-        except subprocess.TimeoutExpired:
-            return {"error": "Агент: таймаут (20 мин)", "processed_entries": 0}
-        except FileNotFoundError:
-            return {"error": "Claude CLI not installed", "processed_entries": 0}
-        except Exception as e:
-            logger.exception("Agent error")
-            return {"error": str(e), "processed_entries": 0}
-
-    # Cache for memory context
-    _memory_cache: dict[str, Any] = {}
-    _memory_cache_time: float = 0
+            return {"report": report, "processed_entries": 1}
+        except Exception as exc:
+            logger.exception("OpenAI agent execution failed")
+            return {"error": str(exc), "processed_entries": 0}
 
     def _get_memory_context(self) -> str:
-        """Load and cache memory context (refreshes every 5 minutes)."""
+        """Load and cache memory context for five minutes."""
         now = time.time()
         if now - self._memory_cache_time < 300 and self._memory_cache.get("context"):
-            return self._memory_cache["context"]
+            return str(self._memory_cache["context"])
 
-        parts = []
+        parts: list[str] = []
         memory_dir = self.vault_path / "memory"
         if memory_dir.exists():
             for md_file in sorted(memory_dir.glob("*.md")):
-                content = md_file.read_text(errors="ignore")[:2000]
+                content = md_file.read_text(encoding="utf-8", errors="ignore")[:2000]
                 parts.append(f"=== {md_file.name} ===\n{content}")
 
         goals_dir = self.vault_path / "goals"
         if goals_dir.exists():
             for goal_file in sorted(goals_dir.glob("*.md")):
-                content = goal_file.read_text(errors="ignore")[:1000]
+                content = goal_file.read_text(encoding="utf-8", errors="ignore")[:1000]
                 parts.append(f"=== {goal_file.name} ===\n{content}")
 
         context = "\n\n".join(parts)
@@ -544,73 +993,56 @@ CRITICAL MCP RULE:
         return context
 
     def execute_raw_prompt(self, prompt: str, user_id: int = 0, model: str = "sonnet") -> dict[str, Any]:
-        """Execute a raw prompt without MCP (fast chat mode).
+        """Execute a fast chat request without tool usage.
 
-        Args:
-            prompt: User's message
-            user_id: Telegram user ID
-            model: Claude model to use (default: sonnet)
-
-        Returns:
-            Dict with "report" key
+        The model argument is kept for handler compatibility and ignored.
         """
+        del model
         session_context = self._get_session_context(user_id)
         memory_context = self._get_memory_context()
 
-        # RAG search
         rag_context = ""
         try:
             from d_brain.services.memory_rag import search_memory
+
             relevant = search_memory(prompt, limit=5)
             if relevant:
-                rag_context = f"\nРелевантные факты из памяти:\n{relevant}\n"
+                rag_context = f"\n=== MEMORY SEARCH ===\n{relevant}\n"
         except Exception:
-            pass
+            rag_context = ""
 
-        full_prompt = f"""Ты — персональный ассистент. Отвечай кратко и по делу. Язык: русский.
-
+        system_prompt = (
+            "You are a personal assistant in a Telegram second-brain bot. "
+            "Reply in Russian, concise and direct. "
+            "If the request requires taking actions with files, Todoist, or a multi-step workflow, "
+            f"do not execute it in chat mode. Start the reply exactly with {AGENT_MARKER} "
+            "and then add one short sentence describing the needed action. "
+            "If it is a normal conversation or question, answer normally without the marker."
+        )
+        user_prompt = f"""
+=== MEMORY CONTEXT ===
 {memory_context}
-{rag_context}
-{session_context}
-Сообщение пользователя: {prompt}
 
-ВАЖНОЕ ПРАВИЛО ЭСКАЛАЦИИ:
-Если задача требует ДЕЙСТВИЙ (создать/изменить задачи в Todoist, записать файл, обработать заметки, \
-многошаговые операции, работа с инструментами) — начни ответ РОВНО с маркера {AGENT_MARKER} \
-и после него кратко опиши что будешь делать (1 предложение). НЕ пытайся выполнить задачу сам.
-Если это обычный вопрос, разговор, размышление — отвечай как обычно БЕЗ маркера."""
+=== SESSION CONTEXT ===
+{session_context}
+{rag_context}
+=== USER MESSAGE ===
+{prompt}
+"""
 
         try:
-            env = os.environ.copy()
-
-            result = subprocess.run(
-                [
-                    "flock", "-w", "30", "/tmp/claude-chat.lock",
-                    "claude",
-                    "--print",
-                    "--dangerously-skip-permissions",
-                    "--model", model,
-                    "-p",
-                    full_prompt,
-                ],
-                cwd=self.vault_path.parent,
-                capture_output=True,
-                text=True,
-                timeout=CHAT_TIMEOUT,
-                check=False,
-                env=env,
+            report = self._run_openai_text(
+                system_prompt,
+                user_prompt,
+                reasoning="low",
+                verbosity="low",
+                max_output_tokens=1200,
             )
+            return {"report": report, "processed_entries": 1}
+        except Exception as exc:
+            logger.exception("OpenAI chat failed")
+            return {"error": str(exc), "processed_entries": 0}
 
-            if result.returncode != 0:
-                logger.error("Chat failed: %s", result.stderr)
-                return {"error": result.stderr or "Chat failed", "processed_entries": 0}
 
-            return {"report": result.stdout.strip(), "processed_entries": 1}
-
-        except subprocess.TimeoutExpired:
-            return {"error": "Таймаут — попробуй ещё раз", "processed_entries": 0}
-        except FileNotFoundError:
-            return {"error": "Claude CLI not installed", "processed_entries": 0}
-        except Exception as e:
-            logger.exception("Chat error")
-            return {"error": str(e), "processed_entries": 0}
+# Backward-compatible alias for existing imports.
+ClaudeProcessor = AgentProcessor

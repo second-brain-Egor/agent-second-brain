@@ -109,7 +109,7 @@ The daily processing runs in three phases:
 Each phase produces a clean JSON that the next phase picks up. If something breaks, you can see exactly where and why.
 
 ```
-Telegram → Deepgram → Claude Code → Todoist + Obsidian vault → Telegram report
+Telegram → Deepgram → OpenAI agent → Todoist + Obsidian vault → Telegram report
 ```
 
 ## What it costs

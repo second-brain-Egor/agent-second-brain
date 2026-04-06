@@ -20,6 +20,13 @@ class Settings(BaseSettings):
     telegram_api_hash: str = Field(default="", description="Telegram API Hash from my.telegram.org")
     deepgram_api_key: str = Field(description="Deepgram API key for transcription")
     todoist_api_key: str = Field(default="", description="Todoist API key for tasks")
+    ai_backend: str = Field(default="openai", description="AI backend: openai or claude")
+    openai_api_key: str = Field(default="", description="OpenAI API key")
+    openai_model: str = Field(default="gpt-5.2", description="OpenAI model name")
+    openai_reasoning_effort: str = Field(
+        default="medium",
+        description="OpenAI reasoning effort: none/low/medium/high/xhigh",
+    )
     vault_path: Path = Field(
         default=Path("./vault"),
         description="Path to Obsidian vault directory",

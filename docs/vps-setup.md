@@ -123,25 +123,13 @@ npm --version
 
 ---
 
-## Step 8: Install Claude CLI
+## Step 8: Prepare OpenAI Access
 
 ```bash
-npm install -g @anthropic-ai/claude-code
-
-# Verify
-which claude
-claude --version
-
-# Authenticate
-claude auth login
+echo "Create an API key at https://platform.openai.com/api-keys"
 ```
 
-After `claude auth login`:
-1. A URL appears
-2. Copy and open it in browser on your computer
-3. Log in to Anthropic account
-4. Authorize access
-5. Return to terminal — it will confirm
+You do not need Claude CLI anymore. The bot uses `OPENAI_API_KEY` from `.env`.
 
 ---
 
@@ -214,6 +202,9 @@ Paste (replace with your values):
 TELEGRAM_BOT_TOKEN=7123456789:AAHdN8J2K4m5N6o7P8q9R0s1T2u3V4w5X6y
 DEEPGRAM_API_KEY=a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
 TODOIST_API_KEY=
+AI_BACKEND=openai
+OPENAI_API_KEY=sk-proj-...
+OPENAI_MODEL=gpt-5.2
 VAULT_PATH=./vault
 ALLOWED_USER_IDS=[123456789]
 ```
@@ -273,118 +264,19 @@ Stop with `Ctrl+C`.
 
 ---
 
-## Step 16: Setup Autostart (systemd)
-
-### Bot Service
+## Step 16: Setup Automation (cron)
 
 ```bash
-sudo nano /etc/systemd/system/d-brain-bot.service
-```
+cd ~/projects/agent-second-brain
+/bin/bash scripts/install-cron.sh
 
-Paste (replace `myuser`):
-
-```ini
-[Unit]
-Description=d-brain Telegram Bot
-After=network.target
-
-[Service]
-Type=simple
-User=myuser
-WorkingDirectory=/home/myuser/projects/agent-second-brain
-ExecStart=/home/myuser/.local/bin/uv run python -m d_brain
-Restart=always
-RestartSec=10
-Environment=PYTHONUNBUFFERED=1
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Enable and start:
-
-```bash
-sudo systemctl daemon-reload
-sudo systemctl start d-brain-bot
-sudo systemctl enable d-brain-bot
-
-# Check status
-sudo systemctl status d-brain-bot
+# Check installed jobs
+crontab -l
 ```
 
 ---
 
-## Step 17: Daily Processing Timer (optional)
-
-Automatically process entries at 21:00 daily.
-
-### Edit process script
-
-```bash
-nano ~/projects/agent-second-brain/scripts/process.sh
-```
-
-Update paths at the top:
-```bash
-export HOME="/home/myuser"
-PROJECT_DIR="/home/myuser/projects/agent-second-brain"
-```
-
-Make executable:
-```bash
-chmod +x ~/projects/agent-second-brain/scripts/process.sh
-```
-
-### Create timer
-
-```bash
-sudo nano /etc/systemd/system/d-brain-process.timer
-```
-
-```ini
-[Unit]
-Description=Run d-brain processing daily at 21:00
-
-[Timer]
-OnCalendar=*-*-* 21:00:00
-Persistent=true
-
-[Install]
-WantedBy=timers.target
-```
-
-### Create service
-
-```bash
-sudo nano /etc/systemd/system/d-brain-process.service
-```
-
-```ini
-[Unit]
-Description=d-brain Daily Processing
-
-[Service]
-Type=oneshot
-User=myuser
-WorkingDirectory=/home/myuser/projects/agent-second-brain
-ExecStart=/home/myuser/projects/agent-second-brain/scripts/process.sh
-Environment=PYTHONUNBUFFERED=1
-```
-
-### Enable
-
-```bash
-sudo systemctl daemon-reload
-sudo systemctl enable d-brain-process.timer
-sudo systemctl start d-brain-process.timer
-
-# Check timer
-sudo systemctl list-timers | grep d-brain
-```
-
----
-
-## Step 18: Git Configuration
+## Step 17: Git Configuration
 
 ```bash
 cd ~/projects/agent-second-brain
@@ -416,26 +308,17 @@ If prompted for password, use Personal Access Token:
 ## Useful Commands
 
 ```bash
-# Bot status
-sudo systemctl status d-brain-bot
+# Cron jobs
+crontab -l
 
-# Restart bot
-sudo systemctl restart d-brain-bot
+# Bot logs
+tail -f ~/projects/agent-second-brain/logs/bot.log
 
-# Stop bot
-sudo systemctl stop d-brain-bot
+# Daily processing logs
+tail -f ~/projects/agent-second-brain/logs/process.log
 
-# Real-time logs
-sudo journalctl -u d-brain-bot -f
-
-# Last 100 log lines
-sudo journalctl -u d-brain-bot -n 100
-
-# All d-brain services
-sudo systemctl status 'd-brain-*'
-
-# List timers
-sudo systemctl list-timers
+# Weekly digest logs
+tail -f ~/projects/agent-second-brain/logs/weekly.log
 
 # Manual processing
 cd ~/projects/agent-second-brain
@@ -445,7 +328,7 @@ cd ~/projects/agent-second-brain
 cd ~/projects/agent-second-brain
 git pull
 uv sync
-sudo systemctl restart d-brain-bot
+/bin/bash scripts/install-cron.sh
 ```
 
 ---
@@ -455,10 +338,10 @@ sudo systemctl restart d-brain-bot
 ### Bot doesn't respond
 
 ```bash
-sudo systemctl status d-brain-bot
-sudo journalctl -u d-brain-bot -n 100
+crontab -l
+tail -n 100 ~/projects/agent-second-brain/logs/bot.log
 cat ~/projects/agent-second-brain/.env | grep TELEGRAM_BOT_TOKEN
-sudo systemctl restart d-brain-bot
+/bin/bash ~/projects/agent-second-brain/scripts/install-cron.sh
 ```
 
 ### Voice not transcribing
@@ -471,9 +354,8 @@ sudo journalctl -u d-brain-bot | grep -i error
 ### Processing errors
 
 ```bash
-claude --version
-claude auth status
-claude auth login  # if needed
+cat ~/projects/agent-second-brain/.env | grep OPENAI_API_KEY
+tail -n 100 ~/projects/agent-second-brain/logs/process.log
 ```
 
 ### Todoist not working

@@ -10,7 +10,7 @@ from aiogram.fsm.context import FSMContext
 
 from d_brain.bot.states import SilentState
 from d_brain.config import get_settings
-from d_brain.services.processor import ClaudeProcessor
+from d_brain.services.processor import AgentProcessor
 from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
 from d_brain.services.tts import text_to_voice
@@ -83,7 +83,7 @@ async def handle_text(message: Message, state: FSMContext) -> None:
     # Dialog mode: respond via Claude
     await message.chat.do(action="typing")
 
-    processor = ClaudeProcessor(settings.vault_path, settings.todoist_api_key)
+    processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
     user_id = message.from_user.id
     data = await state.get_data()
     voice_mode = settings.voice_replies or data.get("voice_mode", False)
@@ -127,7 +127,7 @@ async def handle_text(message: Message, state: FSMContext) -> None:
 
 async def _run_agent(
     message: Message,
-    processor: ClaudeProcessor,
+    processor: AgentProcessor,
     prompt: str,
     user_id: int,
     session: SessionStore,

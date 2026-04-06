@@ -109,7 +109,7 @@ Agent Second Brain использует кривую забывания Эбби
 Каждая фаза создаёт чистый JSON, который подхватывает следующая. Если что-то ломается - видно где именно и почему.
 
 ```
-Telegram → Deepgram → Claude Code → Todoist + Obsidian → Telegram отчёт
+Telegram → Deepgram → OpenAI-агент → Todoist + Obsidian → Telegram отчёт
 ```
 
 ## Сколько стоит

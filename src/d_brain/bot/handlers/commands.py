@@ -110,11 +110,11 @@ async def cmd_status(message: Message) -> None:
 
 @router.message(Command("silent"))
 async def cmd_silent(message: Message, state: FSMContext) -> None:
-    """Switch to silent mode — save only, no Claude responses."""
+    """Switch to silent mode — save only, no AI responses."""
     await state.set_state(SilentState.active)
     await message.answer(
         "🔇 <b>Тихий режим</b>\n\n"
-        "Сообщения сохраняются, но Claude не отвечает.\n"
+        "Сообщения сохраняются, но AI не отвечает.\n"
         "Для возврата в диалог: /chat"
     )
 
@@ -130,7 +130,7 @@ async def cmd_chat(message: Message, state: FSMContext) -> None:
         await state.update_data(voice_mode=True)
     await message.answer(
         "💬 <b>Диалоговый режим</b>\n\n"
-        "Claude отвечает на каждое сообщение."
+        "AI отвечает на каждое сообщение."
     )
 
 

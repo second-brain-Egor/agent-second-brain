@@ -170,11 +170,11 @@ def split_html_messages(text: str, max_length: int = 4096) -> list[str]:
 def format_process_report(report: dict[str, Any]) -> list[str]:
     """Format processing report for Telegram HTML.
 
-    The report from Claude is expected to be in HTML format.
+    The report from the AI processor is expected to be in HTML format.
     We sanitize it to ensure only Telegram-safe tags are used.
 
     Args:
-        report: Processing report from ClaudeProcessor
+        report: Processing report from AgentProcessor
 
     Returns:
         List of formatted HTML messages for Telegram

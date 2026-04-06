@@ -88,7 +88,7 @@
 
 Чем больше вы делитесь информацией и чем лучше заполните цели и карточку о себе — тем лучше агент понимает ваш контекст и тем точнее расставляет приоритеты.
 
-**Про Claude Code — не бойтесь названия.** Да, он называется «Code», но это универсальный AI-агент, который отлично помогает в жизни. У него чёткие инструкции как действовать с вашими записями — создавать задачи, сохранять мысли, следить за целями. Он просто работает.
+**Про AI-агент — не бойтесь названия.** Здесь это не IDE-игрушка, а рабочий обработчик записей: он создаёт задачи, сохраняет мысли, следит за целями и запускается локально через OpenAI API.
 
 ---
 
@@ -109,7 +109,7 @@
 
 1. Вы отправляете голосовое/текст/фото в **Telegram**
 2. **Бот на сервере** сохраняет всё в файл
-3. **Claude Code** анализирует записи
+3. **OpenAI-агент** анализирует записи
 4. Создаёт задачи в **Todoist**, сохраняет мысли в **Obsidian**
 5. Отправляет отчёт обратно в **Telegram**
 6. Всё синхронизируется в **GitHub**
@@ -724,14 +724,10 @@ sudo apt install -y nodejs
 ```
 
 ```bash
-npm install -g @anthropic-ai/claude-code
+echo "OpenAI API key: https://platform.openai.com/api-keys"
 ```
 
-```bash
-claude auth login
-```
-
-Последняя команда откроет ссылку для авторизации — следуйте инструкциям на экране.
+Claude CLI больше не нужен. Агент работает через `OPENAI_API_KEY` в `.env`.
 
 <p align="center">
   <img width="600" alt="Ghostty_27_December_2025_gAcpHg2c" src="https://github.com/user-attachments/assets/a4e2066d-fccb-4b6b-ba8d-8929c0709cc5" />
@@ -744,14 +740,14 @@ claude auth login
 | Что проверить | Как проверить |
 |---------------|---------------|
 | Подключение к серверу | Команда `ssh myuser@ВАШ_IP` работает без ошибок |
-| Claude установлен | Команда `claude --version` показывает номер версии |
-| Claude авторизован | Команда `claude auth status` показывает `Logged in` |
+| OpenAI ключ готов | Вы создали API key на platform.openai.com |
+| Node.js установлен | Команда `node --version` показывает номер версии |
 
 ---
 
 ## Запуск бота
 
-**Вы установили Claude Code и авторизовались — отлично!**
+**Вы подготовили сервер и OpenAI API key — отлично!**
 
 Теперь просто вставьте эту команду и следуйте подсказкам на экране:
 
@@ -763,7 +759,7 @@ curl -fsSL https://raw.githubusercontent.com/ВАШ_ЛОГИН/agent-second-brai
 
 Скрипт сам:
 - Скачает ваш проект
-- Спросит у вас все токены (Telegram, Deepgram, Todoist)
+- Спросит у вас все токены (Telegram, Deepgram, Todoist, OpenAI)
 - Создаст файл с настройками
 - Настроит автозапуск
 - Запустит бота
@@ -938,14 +934,11 @@ sudo systemctl status d-brain-bot
 **Голосовые не распознаются:**
 Проверьте, правильно ли вы ввели ключ Deepgram при настройке.
 
-**Claude не работает:**
-Проверьте авторизацию:
+**AI-обработка не работает:**
+Проверьте ключ OpenAI в `.env` и логи обработки:
 ```bash
-claude auth status
-```
-Если нужно авторизоваться заново:
-```bash
-claude auth login
+cat ~/agent-second-brain/.env | grep OPENAI_API_KEY
+tail -n 100 ~/agent-second-brain/logs/process.log
 ```
 
 ---
@@ -1003,39 +996,14 @@ sudo systemctl start d-brain-bot
 
 Полный список: [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)
 
-### Настройка systemd вручную
+### Настройка cron вручную
 
-Если автоматический скрипт не создал сервис:
-
-```bash
-sudo nano /etc/systemd/system/d-brain-bot.service
-```
-
-Вставьте (замените `myuser` на ваше имя пользователя):
-
-```ini
-[Unit]
-Description=d-brain Telegram Bot
-After=network.target
-
-[Service]
-Type=simple
-User=myuser
-WorkingDirectory=/home/myuser/agent-second-brain
-ExecStart=/home/myuser/.local/bin/uv run python -m d_brain
-Restart=always
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Сохраните (`Ctrl+O`, Enter, `Ctrl+X`) и выполните:
+Если автоматический скрипт не создал cron-задачи:
 
 ```bash
-sudo systemctl daemon-reload
-sudo systemctl enable d-brain-bot
-sudo systemctl start d-brain-bot
+cd ~/agent-second-brain
+/bin/bash scripts/install-cron.sh
+crontab -l
 ```
 
 </details>
@@ -1043,11 +1011,11 @@ sudo systemctl start d-brain-bot
 ---
 
 <details>
-<summary><strong>Инструкция для Claude Code (читает Claude, не вы)</strong></summary>
+<summary><strong>Инструкция для агента (читает агент, не вы)</strong></summary>
 
 ### Команды с sudo
 
-Claude Code не может выполнять команды с `sudo` — они требуют ввода пароля.
+Агент не может выполнять команды с `sudo` — они требуют ввода пароля.
 
 Когда нужно выполнить команду с sudo, попроси пользователя:
 
