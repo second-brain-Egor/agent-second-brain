@@ -1,99 +1,29 @@
-"""Photo message handler with OpenAI vision analysis."""
+"""Photo message handler with Codex CLI vision analysis."""
 
 from __future__ import annotations
 
 import asyncio
-import base64
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any
 
 from aiogram import Bot, Router
 from aiogram.types import Message
 
 from d_brain.config import get_settings
+from d_brain.services.processor import AgentProcessor
 from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
 
 router = Router(name="photo")
 logger = logging.getLogger(__name__)
 
-VISION_PROMPT = (
-    "Describe what is in the image. "
-    "If there is readable text, extract it fully. "
-    "If this is a screenshot, note, or document, summarize the important content. "
-    "Reply in Russian, concise and useful."
-)
-
-MIME_BY_SUFFIX = {
-    ".jpg": "image/jpeg",
-    ".jpeg": "image/jpeg",
-    ".png": "image/png",
-    ".webp": "image/webp",
-}
-
-
-def _extract_output_text(response: Any) -> str:
-    text = getattr(response, "output_text", "") or ""
-    if text:
-        return text.strip()
-
-    parts: list[str] = []
-    for item in getattr(response, "output", []):
-        if getattr(item, "type", "") != "message":
-            continue
-        for content in getattr(item, "content", []):
-            content_type = getattr(content, "type", "")
-            if content_type in {"output_text", "text"}:
-                value = getattr(content, "text", "") or ""
-                if value:
-                    parts.append(value)
-    return "\n".join(parts).strip()
-
-
-def _analyze_image_sync(image_path: str, caption: str | None = None) -> str | None:
-    settings = get_settings()
-    if not settings.openai_api_key:
-        return None
-
-    from openai import OpenAI
-
-    image_file = Path(image_path)
-    mime_type = MIME_BY_SUFFIX.get(image_file.suffix.lower(), "image/jpeg")
-    image_b64 = base64.b64encode(image_file.read_bytes()).decode("ascii")
-
-    prompt = VISION_PROMPT
-    if caption:
-        prompt += f"\n\nUser caption: {caption}"
-
-    client = OpenAI(api_key=settings.openai_api_key)
-    response = client.responses.create(
-        model=settings.openai_model,
-        instructions="Reply in Russian, concise, plain text.",
-        input=[
-            {
-                "role": "user",
-                "content": [
-                    {"type": "input_text", "text": prompt},
-                    {
-                        "type": "input_image",
-                        "image_url": f"data:{mime_type};base64,{image_b64}",
-                    },
-                ],
-            }
-        ],
-        reasoning={"effort": "low"},
-        text={"verbosity": "low"},
-        max_output_tokens=1000,
-    )
-    return _extract_output_text(response) or None
-
-
 async def _analyze_image(image_path: str, caption: str | None = None) -> str | None:
-    """Analyze an image with the configured OpenAI model."""
+    """Analyze an image with the configured Codex CLI model."""
     try:
-        return await asyncio.to_thread(_analyze_image_sync, image_path, caption)
+        settings = get_settings()
+        processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
+        return await asyncio.to_thread(processor.analyze_image, image_path, caption)
     except Exception:
         logger.exception("Vision analysis failed")
         return None

@@ -6,10 +6,13 @@ After=network.target
 Type=simple
 User=egor
 WorkingDirectory=/home/egor/agent-second-brain
-ExecStart=/home/egor/.local/bin/uv run python -m d_brain
+EnvironmentFile=-/home/egor/agent-second-brain/.env
+ExecStart=/home/egor/agent-second-brain/scripts/run-bot.sh
 Restart=always
 RestartSec=10
 Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target

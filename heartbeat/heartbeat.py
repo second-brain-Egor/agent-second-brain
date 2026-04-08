@@ -10,22 +10,26 @@ import urllib.parse
 import urllib.request
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-ALLOWED_USER_IDS = os.environ.get("ALLOWED_USER_IDS", "[]")
 
 
-def get_chat_id() -> str:
-    """Extract chat ID from ALLOWED_USER_IDS."""
-    return ALLOWED_USER_IDS.strip("[]").strip()
+def load_settings():
+    """Load project settings from .env via the main config module."""
+    sys.path.insert(0, os.path.join(PROJECT_DIR, "src"))
+
+    from d_brain.config import get_settings
+
+    return get_settings()
+
+
+def get_chat_id(allowed_user_ids: list[int]) -> str:
+    """Extract chat ID from allowed Telegram user ids."""
+    return str(allowed_user_ids[0]) if allowed_user_ids else ""
 
 
 def run_agent() -> str:
     """Run the local OpenAI-backed agent to check for reminders."""
     from datetime import date
 
-    sys.path.insert(0, os.path.join(PROJECT_DIR, "src"))
-
-    from d_brain.config import get_settings
     from d_brain.services.processor import AgentProcessor
 
     today = date.today().isoformat()
@@ -46,7 +50,7 @@ def run_agent() -> str:
 Ничего не меняй в файлах и не создавай задачи."""
 
     try:
-        settings = get_settings()
+        settings = load_settings()
         processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
         result = processor.execute_prompt(prompt, user_id=0)
         return result.get("report", "").strip() if "error" not in result else ""
@@ -55,13 +59,13 @@ def run_agent() -> str:
         return ""
 
 
-def send_telegram(text: str, chat_id: str) -> None:
+def send_telegram(text: str, chat_id: str, telegram_token: str) -> None:
     """Send message via Telegram Bot API."""
-    if not TELEGRAM_TOKEN or not chat_id:
-        print("Missing TELEGRAM_TOKEN or chat_id", file=sys.stderr)
+    if not telegram_token or not chat_id:
+        print("Missing TELEGRAM_BOT_TOKEN or chat_id", file=sys.stderr)
         return
 
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+    url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
     data = urllib.parse.urlencode({
         "chat_id": chat_id,
         "text": text,
@@ -85,7 +89,8 @@ def send_telegram(text: str, chat_id: str) -> None:
 
 
 def main() -> None:
-    chat_id = get_chat_id()
+    settings = load_settings()
+    chat_id = get_chat_id(settings.allowed_user_ids)
     if not chat_id:
         print("No chat_id configured", file=sys.stderr)
         sys.exit(1)
@@ -96,7 +101,7 @@ def main() -> None:
         print("Nothing to report")
         return
 
-    send_telegram(output, chat_id)
+    send_telegram(output, chat_id, settings.telegram_bot_token)
     print(f"Sent heartbeat ({len(output)} chars)")
 
 

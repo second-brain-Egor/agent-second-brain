@@ -724,10 +724,11 @@ sudo apt install -y nodejs
 ```
 
 ```bash
-echo "OpenAI API key: https://platform.openai.com/api-keys"
+codex login
+codex login status
 ```
 
-Claude CLI больше не нужен. Агент работает через `OPENAI_API_KEY` в `.env`.
+Агент работает через локальную авторизацию Codex CLI. В статусе должно быть `Logged in using ChatGPT`.
 
 <p align="center">
   <img width="600" alt="Ghostty_27_December_2025_gAcpHg2c" src="https://github.com/user-attachments/assets/a4e2066d-fccb-4b6b-ba8d-8929c0709cc5" />
@@ -937,7 +938,7 @@ sudo systemctl status d-brain-bot
 **AI-обработка не работает:**
 Проверьте ключ OpenAI в `.env` и логи обработки:
 ```bash
-cat ~/agent-second-brain/.env | grep OPENAI_API_KEY
+codex login status
 tail -n 100 ~/agent-second-brain/logs/process.log
 ```
 

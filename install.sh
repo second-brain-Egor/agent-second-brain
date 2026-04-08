@@ -260,14 +260,9 @@ collect_tokens() {
         "TODOIST_API_KEY" \
         "true"
 
-    prompt_token \
-        "5/5: OpenAI API Key" \
-        "Required for the local processing agent:
-1. Open platform.openai.com
-2. Create an API key
-3. Copy the full key value" \
-        "https://platform.openai.com/api-keys" \
-        "OPENAI_API_KEY"
+    info "5/5: Codex CLI login"
+    info "The bot uses your local Codex login instead of an API key."
+    info "Run once before starting the service: codex login"
 }
 
 #######################################
@@ -286,10 +281,9 @@ DEEPGRAM_API_KEY=$DEEPGRAM_API_KEY
 # Todoist API Token (optional)
 TODOIST_API_KEY=$TODOIST_API_KEY
 
-# AI backend
-AI_BACKEND=openai
-OPENAI_API_KEY=$OPENAI_API_KEY
-OPENAI_MODEL=gpt-5.2
+# Codex CLI settings
+CODEX_BIN=codex
+CODEX_MODEL=gpt-5.4
 
 # Path to vault (don't change)
 VAULT_PATH=./vault

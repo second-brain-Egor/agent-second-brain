@@ -11,10 +11,13 @@ VAULT_DIR="$PROJECT_DIR/vault"
 ENV_FILE="$PROJECT_DIR/.env"
 
 if [ -f "$ENV_FILE" ]; then
-    export $(grep -v '^#' "$ENV_FILE" | xargs)
+    set -a
+    # shellcheck disable=SC1090
+    . "$ENV_FILE"
+    set +a
 fi
 
-if [ -z "$TELEGRAM_BOT_TOKEN" ]; then
+if [ -z "${TELEGRAM_BOT_TOKEN:-}" ]; then
     echo "ERROR: TELEGRAM_BOT_TOKEN not set"
     exit 1
 fi
@@ -28,7 +31,8 @@ if [ ! -d "$SKILLS_ROOT" ]; then
 fi
 
 TODAY=$(date +%Y-%m-%d)
-CHAT_ID="${ALLOWED_USER_IDS//[\[\]]/}"
+CHAT_ID="${ALLOWED_USER_IDS:-}"
+CHAT_ID="${CHAT_ID//[\[\]]/}"
 
 echo "=== d-brain processing for $TODAY ==="
 

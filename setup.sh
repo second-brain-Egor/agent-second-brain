@@ -218,8 +218,8 @@ install_nodejs() {
 }
 
 setup_openai_backend() {
-    step "Preparing OpenAI backend"
-    success "No extra CLI is required. The bot uses OPENAI_API_KEY from .env"
+    step "Preparing Codex CLI backend"
+    success "The bot uses local Codex login. Run 'codex login' for this user if needed."
 }
 
 # =============================================================================
@@ -330,16 +330,8 @@ collect_tokens() {
         fi
     done
 
-    while true; do
-        ask "OpenAI API Key (from platform.openai.com/api-keys):"
-        read -r OPENAI_API_KEY
-        if [ -n "$OPENAI_API_KEY" ]; then
-            success "OpenAI API Key captured"
-            break
-        else
-            error "OpenAI API Key cannot be empty"
-        fi
-    done
+    ask "Codex CLI is used for the AI backend. Make sure 'codex login' is completed for this user."
+    success "Skipping API key setup for the Codex backend"
 }
 
 create_env_file() {
@@ -366,10 +358,9 @@ DEEPGRAM_API_KEY=$DEEPGRAM_API_KEY
 # Todoist API key for task management
 TODOIST_API_KEY=$TODOIST_API_KEY
 
-# AI backend
-AI_BACKEND=openai
-OPENAI_API_KEY=$OPENAI_API_KEY
-OPENAI_MODEL=gpt-5.2
+# Codex CLI settings
+CODEX_BIN=codex
+CODEX_MODEL=gpt-5.4
 
 # Path to Obsidian vault directory
 VAULT_PATH=./vault

@@ -109,7 +109,7 @@ The daily processing runs in three phases:
 Each phase produces a clean JSON that the next phase picks up. If something breaks, you can see exactly where and why.
 
 ```
-Telegram → Deepgram → OpenAI agent → Todoist + Obsidian vault → Telegram report
+Telegram → Deepgram → codex exec (local Codex login) → Todoist + Obsidian vault → Telegram report
 ```
 
 ## What it costs
@@ -145,7 +145,7 @@ Open these files and replace the placeholders:
 - `vault/.claude/skills/dbrain-processor/references/about.md` - tell the agent about yourself
 - `vault/.claude/skills/dbrain-processor/references/classification.md` - how you want entries sorted
 
-### 4. Get four API keys
+### 4. Get three API keys and log in to Codex
 
 | What | Where | Time |
 |------|-------|------|
@@ -153,6 +153,15 @@ Open these files and replace the placeholders:
 | Your Telegram ID | [@userinfobot](https://t.me/userinfobot) | 30 sec |
 | Deepgram API Key | [console.deepgram.com](https://console.deepgram.com/) | 3 min |
 | Todoist API Token | Todoist → Settings → Integrations → Developer | 1 min |
+
+Then log in locally:
+
+```bash
+codex login
+codex login status
+```
+
+The bot uses your local Codex CLI session instead of `OPENAI_API_KEY`.
 
 ### 5. Deploy
 

@@ -4,6 +4,10 @@ from __future__ import annotations
 
 import json
 import logging
+import os
+import shutil
+import subprocess
+import tempfile
 import time
 from datetime import date, datetime, time as dt_time, timedelta
 from pathlib import Path
@@ -38,20 +42,17 @@ class AgentProcessor:
         self.vault_path = Path(vault_path).resolve()
         self.project_path = self.vault_path.parent.resolve()
         self.todoist_api_key = todoist_api_key
-        self._openai_client: Any | None = None
 
         from d_brain.config import get_settings
 
         settings = get_settings()
-        backend = settings.ai_backend.strip().lower()
-        self.ai_backend = backend if backend in {"openai", "claude"} else "openai"
-        self.openai_api_key = settings.openai_api_key.strip()
-        self.openai_model = settings.openai_model.strip() or "gpt-5.2"
+        self.codex_bin = settings.codex_bin.strip() or "codex"
+        self.codex_model = settings.codex_model.strip() or "gpt-5.4"
 
-        effort = settings.openai_reasoning_effort.strip().lower()
+        effort = os.environ.get("CODEX_REASONING_EFFORT", "medium").strip().lower()
         if effort not in SUPPORTED_REASONING_EFFORTS:
             effort = "medium"
-        self.openai_reasoning_effort = effort
+        self.codex_reasoning_effort = effort
 
     def _load_skill_content(self) -> str:
         """Load dbrain-processor skill content for extra context."""
@@ -138,21 +139,17 @@ week: {year}-W{week:02d}
             moc_path.write_text(content, encoding="utf-8")
             logger.info("Updated MOC-weekly.md with %s", summary_path.stem)
 
-    def _get_openai_client(self) -> Any:
-        """Create OpenAI client lazily."""
-        if not self.openai_api_key:
-            raise RuntimeError("OPENAI_API_KEY is not set")
-
-        if self._openai_client is None:
-            from openai import OpenAI
-
-            self._openai_client = OpenAI(api_key=self.openai_api_key)
-        return self._openai_client
+    def _get_codex_bin(self) -> str:
+        """Resolve the Codex CLI binary."""
+        resolved = shutil.which(self.codex_bin)
+        if not resolved:
+            raise RuntimeError(f"Codex CLI not found: {self.codex_bin}")
+        return resolved
 
     def _normalize_effort(self, effort: str | None) -> str:
-        value = (effort or self.openai_reasoning_effort).strip().lower()
+        value = (effort or self.codex_reasoning_effort).strip().lower()
         if value not in SUPPORTED_REASONING_EFFORTS:
-            return self.openai_reasoning_effort
+            return self.codex_reasoning_effort
         return value
 
     @staticmethod
@@ -162,23 +159,88 @@ week: {year}-W{week:02d}
             return "medium"
         return value
 
-    @staticmethod
-    def _extract_output_text(response: Any) -> str:
-        text = getattr(response, "output_text", "") or ""
-        if text:
-            return text.strip()
+    def _build_codex_prompt(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        *,
+        read_only: bool,
+    ) -> str:
+        mode = "read-only" if read_only else "workspace-write"
+        return (
+            f"{system_prompt}\n\n"
+            "Execution constraints:\n"
+            f"- Run inside project root: {self.project_path.as_posix()}\n"
+            f"- Sandbox expectation: {mode}\n"
+            "- Reply in Russian.\n"
+            "- Return only the final answer for the user, without tool logs or extra commentary.\n\n"
+            f"{user_prompt.strip()}\n"
+        )
 
-        parts: list[str] = []
-        for item in getattr(response, "output", []):
-            if getattr(item, "type", "") != "message":
-                continue
-            for content in getattr(item, "content", []):
-                content_type = getattr(content, "type", "")
-                if content_type in {"output_text", "text"}:
-                    value = getattr(content, "text", "") or ""
-                    if value:
-                        parts.append(value)
-        return "\n".join(parts).strip()
+    def _run_codex_exec(
+        self,
+        prompt: str,
+        *,
+        read_only: bool,
+        images: list[str] | None = None,
+        timeout_sec: int = 600,
+    ) -> str:
+        """Run Codex CLI and return its final message."""
+        codex_bin = self._get_codex_bin()
+        with tempfile.TemporaryDirectory(prefix="dbrain-codex-") as temp_dir:
+            output_file = Path(temp_dir) / "last-message.txt"
+            cmd = [
+                codex_bin,
+                "exec",
+                "--skip-git-repo-check",
+                "--color",
+                "never",
+                "--cd",
+                str(self.project_path),
+                "--output-last-message",
+                str(output_file),
+                "--model",
+                self.codex_model,
+            ]
+
+            if read_only:
+                cmd.extend(["--sandbox", "read-only"])
+            else:
+                cmd.append("--full-auto")
+
+            for image in images or []:
+                cmd.extend(["-i", image])
+
+            cmd.append("-")
+
+            env = os.environ.copy()
+            env.pop("OPENAI_API_KEY", None)
+
+            result = subprocess.run(
+                cmd,
+                input=prompt,
+                text=True,
+                capture_output=True,
+                cwd=self.project_path,
+                env=env,
+                timeout=timeout_sec,
+                check=False,
+            )
+
+            final_text = ""
+            if output_file.exists():
+                final_text = output_file.read_text(encoding="utf-8", errors="ignore").strip()
+            if not final_text:
+                final_text = (result.stdout or "").strip()
+
+            if result.returncode != 0:
+                details = (result.stderr or result.stdout or "codex exec failed").strip()
+                raise RuntimeError(details.splitlines()[-1] if details else "codex exec failed")
+
+            if not final_text:
+                raise RuntimeError("codex exec returned an empty response")
+
+            return final_text
 
     def _run_openai_text(
         self,
@@ -189,17 +251,14 @@ week: {year}-W{week:02d}
         verbosity: str | None = None,
         max_output_tokens: int = 2000,
     ) -> str:
-        """Run a plain OpenAI Responses request."""
-        client = self._get_openai_client()
-        response = client.responses.create(
-            model=self.openai_model,
-            instructions=system_prompt,
-            input=user_prompt,
-            reasoning={"effort": self._normalize_effort(reasoning)},
-            text={"verbosity": self._normalize_verbosity(verbosity)},
-            max_output_tokens=max_output_tokens,
+        """Run a plain Codex CLI request."""
+        del reasoning, verbosity, max_output_tokens
+        prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=True)
+        return self._run_codex_exec(
+            prompt,
+            read_only=True,
+            timeout_sec=300,
         )
-        return self._extract_output_text(response)
 
     def _run_openai_agent(
         self,
@@ -211,52 +270,42 @@ week: {year}-W{week:02d}
         verbosity: str | None = None,
         max_output_tokens: int = 2500,
     ) -> str:
-        """Run an OpenAI tool loop against local file and Todoist tools."""
-        client = self._get_openai_client()
-        tools = self._tool_schemas(read_only=read_only)
-        effort = self._normalize_effort(reasoning)
-        text_verbosity = self._normalize_verbosity(verbosity)
-
-        response = client.responses.create(
-            model=self.openai_model,
-            instructions=system_prompt,
-            input=user_prompt,
-            tools=tools,
-            reasoning={"effort": effort},
-            text={"verbosity": text_verbosity},
-            max_output_tokens=max_output_tokens,
+        """Run Codex CLI against the local project."""
+        del reasoning, verbosity, max_output_tokens
+        prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=read_only)
+        return self._run_codex_exec(
+            prompt,
+            read_only=read_only,
+            timeout_sec=900 if not read_only else 600,
         )
 
-        for _ in range(MAX_TOOL_STEPS):
-            tool_calls = [
-                item for item in getattr(response, "output", [])
-                if getattr(item, "type", "") == "function_call"
-            ]
-            if not tool_calls:
-                return self._extract_output_text(response)
+    def analyze_image(self, image_path: str, caption: str | None = None) -> str | None:
+        """Analyze an image via Codex CLI."""
+        image_file = Path(image_path)
+        if not image_file.exists():
+            return None
 
-            tool_outputs = []
-            for call in tool_calls:
-                tool_result = self._dispatch_tool(call.name, call.arguments)
-                tool_outputs.append(
-                    {
-                        "type": "function_call_output",
-                        "call_id": call.call_id,
-                        "output": tool_result,
-                    }
-                )
+        prompt = (
+            "You are analyzing an image for a Telegram second-brain bot.\n"
+            "Reply in Russian, concise and useful.\n"
+            "Describe what is in the image.\n"
+            "If there is readable text, extract it fully.\n"
+            "If this is a screenshot, note, or document, summarize the important content.\n"
+            "Return plain text only."
+        )
+        if caption:
+            prompt += f"\n\nUser caption:\n{caption}"
 
-            response = client.responses.create(
-                model=self.openai_model,
-                previous_response_id=response.id,
-                input=tool_outputs,
-                tools=tools,
-                reasoning={"effort": effort},
-                text={"verbosity": text_verbosity},
-                max_output_tokens=max_output_tokens,
+        try:
+            return self._run_codex_exec(
+                prompt,
+                read_only=True,
+                images=[str(image_file)],
+                timeout_sec=300,
             )
-
-        raise RuntimeError("OpenAI tool loop exceeded the step limit")
+        except Exception:
+            logger.exception("Vision analysis failed")
+            return None
 
     def _tool_schemas(self, *, read_only: bool) -> list[dict[str, Any]]:
         """Return OpenAI function tool schemas."""

@@ -5,8 +5,8 @@ After=network.target
 [Service]
 Type=oneshot
 User=egor
-WorkingDirectory=/home/egor/projects/agent-second-brain
-ExecStart=/home/egor/.local/bin/uv run python scripts/weekly.py
-EnvironmentFile=/home/egor/projects/agent-second-brain/.env
+WorkingDirectory=/home/egor/agent-second-brain
+EnvironmentFile=-/home/egor/agent-second-brain/.env
+ExecStart=/home/egor/agent-second-brain/scripts/weekly.sh
 StandardOutput=journal
 StandardError=journal

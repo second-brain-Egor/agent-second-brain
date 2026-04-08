@@ -5,5 +5,8 @@ Description=d-brain Daily Processing
 Type=oneshot
 User=egor
 WorkingDirectory=/home/egor/agent-second-brain
+EnvironmentFile=-/home/egor/agent-second-brain/.env
 ExecStart=/home/egor/agent-second-brain/scripts/process.sh
 Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal

@@ -123,13 +123,14 @@ npm --version
 
 ---
 
-## Step 8: Prepare OpenAI Access
+## Step 8: Prepare Codex CLI Access
 
 ```bash
-echo "Create an API key at https://platform.openai.com/api-keys"
+codex login
+codex login status
 ```
 
-You do not need Claude CLI anymore. The bot uses `OPENAI_API_KEY` from `.env`.
+The bot uses local Codex CLI authorization. `codex login status` should show `Logged in using ChatGPT`.
 
 ---
 
@@ -202,9 +203,8 @@ Paste (replace with your values):
 TELEGRAM_BOT_TOKEN=7123456789:AAHdN8J2K4m5N6o7P8q9R0s1T2u3V4w5X6y
 DEEPGRAM_API_KEY=a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
 TODOIST_API_KEY=
-AI_BACKEND=openai
-OPENAI_API_KEY=sk-proj-...
-OPENAI_MODEL=gpt-5.2
+CODEX_BIN=codex
+CODEX_MODEL=gpt-5.4
 VAULT_PATH=./vault
 ALLOWED_USER_IDS=[123456789]
 ```
@@ -354,7 +354,7 @@ sudo journalctl -u d-brain-bot | grep -i error
 ### Processing errors
 
 ```bash
-cat ~/projects/agent-second-brain/.env | grep OPENAI_API_KEY
+codex login status
 tail -n 100 ~/projects/agent-second-brain/logs/process.log
 ```
 
