@@ -1,12 +1,10 @@
 ---
-name: skill-conductor
+type: note
 description: >
-  Create, edit, evaluate, and package agent skills. Use when building a new
-  skill from scratch, improving an existing skill, running evals to test a
-  skill, benchmarking skill performance, optimizing a skill's description
-  for better triggering, reviewing third-party skills for quality, or
-  packaging skills for distribution. Not for using skills or general coding
-  tasks.
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
+name: skill-conductor
 ---
 
 # Skill Conductor

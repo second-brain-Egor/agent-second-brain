@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-03-31
+relevance: 0.88
+tier: warm
+---
 # Второй Мозг — Егор
 
 ## !!! ГЛАВНОЕ ПРАВИЛО !!!

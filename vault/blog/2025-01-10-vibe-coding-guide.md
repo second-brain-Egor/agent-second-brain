@@ -1,21 +1,18 @@
 ---
+type: note
 title: "Как начать вайб-кодинг: практическое руководство для не-программистов"
+tags: 
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
 excerpt: "Вайб-кодинг превращает идеи в работающий код без технического бэкграунда. Разбираем инструменты, настройку и промпты."
 category: "Практика"
 publishedAt: "2025-01-10"
 readingTime: 9
-image: "https://imagedelivery.net/LVzF3_XVrx_tp99EAqRbDA/a7c10129-a212-4b3e-6ea3-8830a026b500/public"
-tags:
-  - Vibe Coding
-  - Claude Code
-  - Gemini
-  - AI-разработка
-  - Корпоративное обучение AI
-  - Внедрение AI в бизнес
-author:
-  name: "Сергей Шима"
-  role: "Chief AI Officer, TDI Group"
-  image: "/shima.webp"
+image: "/shima.webp"
+author: 
+name: "Сергей Шима"
+role: "Chief AI Officer, TDI Group"
 ---
 
 На корпоративных тренингах по AI для бизнеса вайб-кодинг - самая горячая тема последних месяцев. Руководители хотят понять, как создавать рабочие инструменты без штата разработчиков. Маркетологи спрашивают про автоматизацию рутины. И все без исключения хотят попробовать сами.

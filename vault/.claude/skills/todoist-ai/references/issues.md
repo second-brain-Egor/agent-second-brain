@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
+---
 # GitHub Issues
 
 Recent issues from the repository (18 total).

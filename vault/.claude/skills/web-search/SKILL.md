@@ -1,13 +1,14 @@
 ---
-name: web-search
+type: note
 description: DuckDuckGo для быстрых фактов, Tavily для исследований
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
+name: web-search
 model: default
 scope: global
 depends_on: []
-triggers:
-  - найди информацию
-  - поищи в интернете
-  - что такое
+triggers: 
 ---
 
 # Web Search

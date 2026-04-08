@@ -1,7 +1,10 @@
 ---
 type: weekly
-week: 2026-W14
 updated: 2026-03-29
+last_accessed: 2026-03-29
+relevance: 0.85
+tier: warm
+week: 2026-W14
 ---
 
 # Weekly Focus — W14 (31 марта – 6 апреля)

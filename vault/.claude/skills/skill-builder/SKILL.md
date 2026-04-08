@@ -1,15 +1,14 @@
 ---
-name: skill-builder
+type: note
 description: Создаёт новые навыки и суб-агентов по запросу пользователя
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
+name: skill-builder
 model: default
 scope: global
 depends_on: []
-triggers:
-  - создай навык
-  - добавь навык
-  - новый скилл
-  - создай агента
-  - новый агент
+triggers: 
 ---
 
 # Skill & Agent Builder

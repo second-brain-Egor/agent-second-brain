@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
+---
 # Critical Processing Rules
 
 See [ABOUT.md](ABOUT.md) for user context and preferences.

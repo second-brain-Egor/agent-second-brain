@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-03-31
+relevance: 0.88
+tier: warm
+---
 # System Log
 
 Дневник наблюдений: работают ли правила bootstrap и записи в daily из терминала.

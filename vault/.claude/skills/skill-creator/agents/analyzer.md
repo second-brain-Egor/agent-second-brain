@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
+---
 # Post-hoc Analyzer Agent
 
 Analyze blind comparison results to understand WHY the winner won and generate improvement suggestions.

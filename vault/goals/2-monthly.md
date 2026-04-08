@@ -1,7 +1,10 @@
 ---
 type: monthly
-period: 2026-04
 updated: 2026-03-29
+last_accessed: 2026-03-29
+relevance: 0.85
+tier: warm
+period: 2026-04
 ---
 
 # Monthly Focus — Апрель 2026

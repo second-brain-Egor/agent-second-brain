@@ -1,18 +1,14 @@
 ---
-name: video-processor
+type: note
 description: >
-  Транскрибация и анализ YouTube-видео через yt-dlp + субтитры.
-  MP4/кружочки — ffmpeg + Deepgram. Используй когда нужно
-  понять содержание видео, скачать субтитры, проанализировать ролик.
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
+name: video-processor
 model: default
 scope: global
 depends_on: []
-triggers:
-  - обработай видео
-  - скачай субтитры
-  - посмотри видео
-  - что в этом ролике
-  - о чем видео
+triggers: 
 ---
 
 # Video Processor

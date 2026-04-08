@@ -1,17 +1,20 @@
 ---
 type: crm
 description: >-
-  [One-line summary: industry, key deal, what makes this client notable]
 tags: [industry, region, deal-type]
-status: prospect
 industry: [FMCG|Electronics|Banks|Pharma|Retail|Auto|IT|Telecom]
+priority: [High|Mid|Low]
+status: prospect
 region: [ISO country code]
 owner: [Your Name]
-priority: [High|Mid|Low]
 deal_status: [In Progress|Tender|Proposal Sent]
 deal_deadline: YYYY-MM-DD
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
+[One-line summary: industry, key deal, what makes this client notable]
 ---
 
 # [Company Name]

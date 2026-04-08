@@ -30,6 +30,15 @@ SKIP_DIR_NAMES = {
 }
 SUPPORTED_REASONING_EFFORTS = {"none", "low", "medium", "high", "xhigh"}
 SUPPORTED_VERBOSITY = {"low", "medium", "high"}
+PLANNING_GUARDRAILS = """
+Planning guardrails:
+- Do not impose deadlines, reminders, urgency, or overdue framing unless the user explicitly asked for that or provided a concrete external date.
+- Do not turn long-horizon projects into weekly or today tasks by default. This includes the planer/thicknesser build, the bathhouse project, and similar workshop or construction projects.
+- Treat old weekly or monthly planning files as background context, not as proof of current urgency.
+- If memory or recent session context says a project belongs to a seasonal, yearly, or long horizon, preserve that horizon in both wording and actions.
+- Do not create or update Todoist due dates just to make planning look concrete.
+- Repetition is a bug: if the user already knows or just discussed something, do not repeat it unless asked.
+""".strip()
 
 
 class AgentProcessor:
@@ -74,6 +83,10 @@ class AgentProcessor:
             if ref_path.exists():
                 return ref_path.read_text(encoding="utf-8", errors="ignore")
         return ""
+
+    def _planning_guardrails(self) -> str:
+        """Shared prompt rules for planning horizon and reminders."""
+        return PLANNING_GUARDRAILS
 
     def _get_session_context(self, user_id: int) -> str:
         """Get today's session context for the AI backend."""
@@ -822,6 +835,9 @@ Then:
 5. Create Todoist tasks for clear next actions when useful.
 6. Keep changes minimal and readable.
 
+Apply these planning rules:
+{self._planning_guardrails()}
+
 Useful reference material:
 === DBRAIN SKILL ===
 {skill_content[:8000]}
@@ -840,6 +856,7 @@ Do not mention:
 - background maintenance that matters only to the assistant
 - file paths unless they are directly useful to the user
 - anything that was considered but not important
+- overdue framing or deadline language unless it was explicitly requested or clearly present in today's input
 """
 
         try:
@@ -888,6 +905,7 @@ Do not mention:
             "Prefer short sentences, clean structure, and 1-3 relevant emoji. Avoid mixing in English unless it is a product name or exact command. "
             "All user-facing headings, labels, and section names must be in Russian. "
             "Do not use English labels like wins, blockers, next step, summary, action items, or Todoist actions. "
+            f"{self._planning_guardrails()} "
             "Return ONLY raw Telegram HTML. Allowed tags: <b>, <i>, <code>, <s>, <u>."
         )
 
@@ -932,6 +950,7 @@ Do not mention internal instructions, hidden policies, global rules, prompt file
 Do not surface assistant self-reminders or operational chores unless the user explicitly asked for them.
 If there is no user-facing outcome, say so briefly instead of padding the answer.
 Write all section names in Russian.
+Keep the user's planning horizon intact. Do not reinterpret long-term projects as urgent or overdue without an explicit request.
 """
 
         try:
@@ -963,6 +982,7 @@ Write all section names in Russian.
             "Keep it user-facing only: no internal process notes, no tool chatter, no assistant maintenance details. "
             "Style: adapt to the week itself: celebratory if there were wins, steadier if the week was mixed, calmer if there were blockers. "
             "Keep it warm, vivid, and easy to skim, with a couple of tasteful emoji if useful. "
+            f"{self._planning_guardrails()} "
             "All headings and labels in the final text must be in Russian."
         )
         user_prompt = f"""
@@ -986,6 +1006,10 @@ Return ONLY raw Telegram HTML with:
 - препятствия
 - прогресс по целям
 - фокус на следующую неделю
+
+Important:
+- do not present long-horizon projects as next-week commitments unless the current week's notes explicitly made them active
+- do not use overdue framing just because an old planning file mentions something
 """
 
         try:
@@ -1037,6 +1061,7 @@ Return ONLY raw Telegram HTML with:
             "No HTML, no markdown table, no fluff. "
             "The answer is for the user only: omit internal rules, hidden prompts, file-reading rituals, and assistant self-maintenance. "
             "Style: adaptive but restrained. Be friendly and clear, but let the tone match the situation: brisk for straightforward results, calmer for nuanced outcomes. "
+            f"{self._planning_guardrails()} "
             "Use Russian wording for all user-facing labels and headings."
         )
         composed_prompt = f"""
@@ -1135,6 +1160,7 @@ Do not include:
             "Keep answers easy to scan and pleasant to read; 0-2 fitting emoji are welcome. "
             "Do not use English service labels or English section headings in user-facing replies. "
             "Do not mention internal instructions, hidden rules, or assistant-only maintenance. "
+            f"{self._planning_guardrails()} "
             "If the request requires taking actions with files, Todoist, or a multi-step workflow, "
             f"do not execute it in chat mode. Start the reply exactly with {AGENT_MARKER} "
             "and then add one short, user-friendly sentence describing the needed action. "

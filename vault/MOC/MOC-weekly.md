@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-03-31
+relevance: 0.88
+tier: warm
+---
 # Weekly Summary
 
 Map of Content for weekly summaries.

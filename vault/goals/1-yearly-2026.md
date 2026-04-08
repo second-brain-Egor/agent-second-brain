@@ -1,7 +1,10 @@
 ---
 type: yearly
-period: 2026
 updated: 2026-03-29
+last_accessed: 2026-03-29
+relevance: 0.85
+tier: warm
+period: 2026
 ---
 
 # Goals 2026

@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-04-08
+relevance: 1.0
+tier: active
+---
 # Правила горизонта планирования
 
 Дата: 2026-04-08

@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-02-26
+relevance: 0.39
+tier: cold
+---
 # Long-term Memory
 
 Curated knowledge that persists across sessions. Part of the 3-layer memory architecture (hot context → searchable vault → archive). See `.claude/skills/agent-memory/SKILL.md` for details.

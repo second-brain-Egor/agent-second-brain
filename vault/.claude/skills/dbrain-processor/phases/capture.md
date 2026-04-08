@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-03-27
+relevance: 0.82
+tier: warm
+---
 # Phase 1: CAPTURE
 
 Read daily entries, classify them, and output structured JSON.
