@@ -22,6 +22,10 @@ class Settings(BaseSettings):
     todoist_api_key: str = Field(default="", description="Todoist API key for tasks")
     codex_bin: str = Field(default="codex", description="Path to the Codex CLI binary")
     codex_model: str = Field(default="gpt-5.4", description="Codex model name")
+    codex_sandbox_mode: str = Field(
+        default="bypass",
+        description="Codex exec sandbox mode: read-only, workspace-write, danger-full-access, or bypass",
+    )
     vault_path: Path = Field(
         default=Path("./vault"),
         description="Path to Obsidian vault directory",

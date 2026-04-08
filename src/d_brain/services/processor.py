@@ -48,6 +48,7 @@ class AgentProcessor:
         settings = get_settings()
         self.codex_bin = settings.codex_bin.strip() or "codex"
         self.codex_model = settings.codex_model.strip() or "gpt-5.4"
+        self.codex_sandbox_mode = settings.codex_sandbox_mode.strip().lower() or "bypass"
 
         effort = os.environ.get("CODEX_REASONING_EFFORT", "medium").strip().lower()
         if effort not in SUPPORTED_REASONING_EFFORTS:
@@ -203,10 +204,18 @@ week: {year}-W{week:02d}
                 self.codex_model,
             ]
 
-            if read_only:
-                cmd.extend(["--sandbox", "read-only"])
+            sandbox_mode = self.codex_sandbox_mode
+            if read_only and sandbox_mode == "workspace-write":
+                sandbox_mode = "read-only"
+
+            if sandbox_mode == "bypass":
+                cmd.append("--dangerously-bypass-approvals-and-sandbox")
+            elif sandbox_mode in {"read-only", "workspace-write", "danger-full-access"}:
+                cmd.extend(["--sandbox", sandbox_mode])
+                if not read_only and sandbox_mode == "workspace-write":
+                    cmd.append("--full-auto")
             else:
-                cmd.append("--full-auto")
+                raise RuntimeError(f"Unsupported CODEX_SANDBOX_MODE: {self.codex_sandbox_mode}")
 
             for image in images or []:
                 cmd.extend(["-i", image])
