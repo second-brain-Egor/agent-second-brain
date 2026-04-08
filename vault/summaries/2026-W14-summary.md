@@ -1,7 +1,7 @@
 ---
 type: weekly-summary
 last_accessed: 2026-03-31
-relevance: 0.88
+relevance: 0.86
 tier: warm
 date: 2026-03-31
 week: 2026-W14

@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-02-26
-relevance: 0.39
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Long-term Memory
 

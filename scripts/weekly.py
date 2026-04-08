@@ -13,6 +13,8 @@ from aiogram import Bot
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
+from d_brain.bot.formatters import format_process_report
+
 from d_brain.config import get_settings
 from d_brain.services.git import VaultGit
 from d_brain.services.processor import AgentProcessor
@@ -58,7 +60,9 @@ async def main() -> None:
             await bot.send_message(chat_id=user_id, text=report)
         except Exception:
             # Fallback: send without HTML parsing
-            await bot.send_message(chat_id=user_id, text=report, parse_mode=None)
+            messages = format_process_report({"report": report})
+            for chunk in messages:
+                await bot.send_message(chat_id=user_id, text=chunk)
 
         logger.info("Weekly digest sent to user %s", user_id)
     finally:

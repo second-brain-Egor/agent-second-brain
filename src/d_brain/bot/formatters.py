@@ -9,6 +9,17 @@ from typing import Any
 ALLOWED_TAGS = {"b", "i", "code", "pre", "a", "s", "u"}
 
 
+def normalize_telegram_output(text: str) -> str:
+    """Normalize common pseudo-formatting tokens into Telegram-friendly text."""
+    if not text:
+        return ""
+
+    text = re.sub(r"(?i)<br\s*/?>", "\n", text)
+    text = re.sub(r"(?im)(^|\n)\s*br(?=\s|$)", r"\1", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
 def sanitize_telegram_html(text: str) -> str:
     """Sanitize HTML for Telegram, keeping only allowed tags.
 
@@ -20,6 +31,7 @@ def sanitize_telegram_html(text: str) -> str:
     Returns:
         Sanitized HTML safe for Telegram
     """
+    text = normalize_telegram_output(text)
     if not text:
         return ""
 

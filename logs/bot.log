@@ -301,3 +301,33 @@
 2026-04-09 00:02:53,425 - d_brain.bot.handlers.weekly - INFO - Weekly digest triggered by user 6144231826
 2026-04-09 00:03:45,823 - d_brain.services.processor - INFO - Weekly summary saved to /home/egor/agent-second-brain/vault/summaries/2026-W15-summary.md
 2026-04-09 00:03:45,826 - d_brain.services.processor - INFO - Updated MOC-weekly.md with 2026-W15-summary
+2026-04-09 00:03:53,596 - d_brain.services.git - INFO - Committed: chore: weekly digest
+2026-04-09 00:03:54,832 - d_brain.services.git - INFO - Pushed to remote
+2026-04-09 00:03:54,900 - aiogram.event - INFO - Update id=861043485 is handled. Duration 61477 ms by bot id=8566638650
+2026-04-09 00:05:34,866 - d_brain.bot.handlers.text - INFO - Text message processed: 75 chars
+2026-04-09 00:05:34,867 - aiogram.event - INFO - Update id=861043486 is handled. Duration 8410 ms by bot id=8566638650
+2026-04-09 00:06:32,669 - d_brain.bot.handlers.text - INFO - Text message processed: 105 chars
+2026-04-09 00:06:32,669 - aiogram.event - INFO - Update id=861043487 is handled. Duration 5221 ms by bot id=8566638650
+2026-04-09 00:08:36,164 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-09 00:08:36,164 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-09 00:08:36,166 - aiogram.dispatcher - INFO - Polling stopped for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-09 00:08:36,166 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-09 00:08:36,188 - d_brain.services.processor - ERROR - OpenAI agent execution failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1072, in execute_agent
+    === MEMORY CONTEXT ===
+                         ^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 285, in _run_openai_agent
+    def _run_openai_agent(
+               ^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 250, in _run_codex_exec
+    )
+      
+RuntimeError: codex exec returned an empty response
+2026-04-09 00:08:50,724 - __main__ - INFO - d-brain starting...
+2026-04-09 00:08:50,724 - __main__ - INFO - Vault path: vault
+2026-04-09 00:08:50,724 - __main__ - INFO - Allowed users: [6144231826]
+2026-04-09 00:08:51,042 - telethon.crypto.aes - INFO - libssl detected, it will be used for encryption
+2026-04-09 00:08:51,275 - d_brain.bot.main - INFO - Starting bot polling...
+2026-04-09 00:08:51,276 - aiogram.dispatcher - INFO - Start polling
+2026-04-09 00:08:51,389 - aiogram.dispatcher - INFO - Run polling for bot @Mozg02_bot id=8566638650 - 'Второй мозг'

@@ -2,7 +2,7 @@
 type: note
 description: Personal assistant for processing daily voice/text entries from Telegram. Classifies content, creates Todoist tasks aligned with goals, saves thoughts to Obsidian with wiki-links, generates HTML reports. Integrates Your Business context (clients, projects, CRM). Triggers on /process command or daily 21:00 cron.
 last_accessed: 2026-03-27
-relevance: 0.82
+relevance: 0.8
 tier: warm
 name: dbrain-processor
 allowed-tools: Bash(mcp-cli:*)

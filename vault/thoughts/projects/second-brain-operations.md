@@ -4,7 +4,7 @@ tags:
 source: daily/2026-04-08
 created: 2026-04-08
 last_accessed: 2026-04-08
-relevance: 1.0
+relevance: 0.98
 tier: active
 ---
 

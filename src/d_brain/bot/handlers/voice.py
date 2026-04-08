@@ -9,6 +9,7 @@ from aiogram.types import BufferedInputFile, Message
 from aiogram.fsm.context import FSMContext
 
 from d_brain.bot.states import SilentState
+from d_brain.bot.formatters import format_process_report, normalize_telegram_output
 from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
 from d_brain.services.session import SessionStore
@@ -43,6 +44,7 @@ async def _transcribe_voice(message: Message, bot: Bot) -> str | None:
 
 async def _send_response(message: Message, response: str, voice_replies: bool) -> None:
     """Send response as voice or text depending on settings."""
+    response = normalize_telegram_output(response)
     if voice_replies:
         try:
             audio = await text_to_voice(response)
@@ -180,9 +182,7 @@ async def _run_voice_agent(
         elif "report" in result:
             response = result["report"]
             session.append(user_id, "assistant", text=f"[agent-done] {response[:500]}")
-            # Agent responses are always text (too long for voice)
-            from d_brain.bot.formatters import split_html_messages
-            for chunk in split_html_messages(response):
+            for chunk in format_process_report({"report": response}):
                 try:
                     await message.answer(chunk)
                 except Exception:

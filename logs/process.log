@@ -122,3 +122,71 @@ ORIENT: daily/2026-04-08.md is empty (13 bytes) - skipping AI processing
 To https://github.com/second-brain-Egor/agent-second-brain.git
    38d91aa..5024b88  main -> main
 === Done (empty daily, graph-only) ===
+=== d-brain processing for 2026-04-09 ===
+ORIENT: daily=358 bytes, handoff=OK, graph=OK
+=== AI output ===
+<b>🧠 Обработал</b>
+
+• Зафиксировал устойчивое правило: ответы в Telegram должны быть визуально чистыми, без сырого <code>br</code>, с нормальными абзацами.
+• Сохранил предпочтение по подаче: короткие блоки текста и картинки только когда они реально помогают.
+• Добавил короткую заметку про правила оформления, чтобы это не потерялось в следующих сессиях.
+• Создал задачу в Todoist: «Исправить HTML-оформление ответов Telegram-бота» (p3, id: <code>6gM2QqFjJmmJVwR2</code>)
+=================
+=== Rebuilding vault graph ===
+# Vault Graph Analysis
+
+## Overview
+
+- **Total notes:** 36
+- **Total links:** 52
+- **Orphan notes:** 13
+
+## Most Connected Notes
+
+- [[2026-04-08]] (9 links)
+- [[2-monthly]] (9 links)
+- [[3-weekly]] (7 links)
+- [[2026-03-29]] (6 links)
+- [[1-yearly-2026]] (6 links)
+
+## Domain Statistics
+
+| Domain | Notes | Avg Links |
+|--------|-------|-----------|
+| MOC/ | 5 | 0.4 |
+| blog/ | 2 | 0.0 |
+| daily/ | 8 | 2.5 |
+| goals/ | 5 | 6.2 |
+| memory/ | 4 | 3.5 |
+| references/ | 2 | 1.5 |
+| root/ | 1 | 3.0 |
+| summaries/ | 2 | 0.0 |
+| templates/ | 2 | 0.0 |
+| thoughts/ | 5 | 2.8 |
+
+## Orphan Notes (need links)
+
+- [[2026-03-30]] (daily/)
+- [[2026-04-07]] (daily/)
+- [[2026-03-27]] (daily/)
+- [[2026-03-28]] (daily/)
+- [[2026-03-31]] (daily/)
+- [[2026-W14-summary]] (summaries/)
+- [[2026-W15-summary]] (summaries/)
+- [[business-context]] (references/)
+- [[crm-template]] (templates/)
+- [[daily-template]] (templates/)
+- [[system-log]] (memory/)
+- [[2026-01-08-consumer-ai-2030-predictions]] (blog/)
+- [[2025-01-10-vibe-coding-guide]] (blog/)
+
+=== RAG indexing ===
+Indexed 35 facts
+=== Memory decay ===
+
+  decay results:
+    total: 98, changed: 97
+    avg relevance: 0.81
+    active  :   13 ████
+    warm    :   80 ██████████████████████████
+    cold    :    5 █

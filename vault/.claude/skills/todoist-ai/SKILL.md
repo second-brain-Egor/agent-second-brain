@@ -2,7 +2,7 @@
 type: note
 description: Todoist integration via mcp-cli for task management
 last_accessed: 2026-03-27
-relevance: 0.82
+relevance: 0.8
 tier: warm
 name: todoist-ai
 depends_on: []

@@ -2,7 +2,7 @@
 type: note
 description: Создаёт новые навыки и суб-агентов по запросу пользователя
 last_accessed: 2026-03-27
-relevance: 0.82
+relevance: 0.8
 tier: warm
 name: skill-builder
 model: default

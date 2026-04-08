@@ -2,7 +2,7 @@
 type: yearly
 updated: YYYY-MM-DD
 last_accessed: 2026-03-27
-relevance: 0.82
+relevance: 0.8
 tier: warm
 period: YYYY
 ---
