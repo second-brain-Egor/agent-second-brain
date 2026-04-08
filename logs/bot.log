@@ -165,3 +165,64 @@
 2026-04-08 11:35:17,793 - d_brain.bot.handlers.voice - INFO - Voice message processed
 2026-04-08 11:35:17,793 - aiogram.event - INFO - Update id=861043450 is handled. Duration 6636 ms by bot id=8566638650
 2026-04-08 16:17:49,910 - d_brain.bot.handlers.process - INFO - Process command triggered by user 6144231826
+2026-04-08 16:21:50,913 - d_brain.services.git - INFO - Committed: chore: process daily 2026-04-08
+2026-04-08 16:21:52,256 - d_brain.services.git - INFO - Pushed to remote
+2026-04-08 16:21:52,347 - aiogram.event - INFO - Update id=861043451 is handled. Duration 242441 ms by bot id=8566638650
+2026-04-08 16:43:35,268 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-08 16:43:35,272 - aiogram.dispatcher - INFO - Polling stopped for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-08 16:43:35,272 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-08 16:43:40,044 - __main__ - INFO - d-brain starting...
+2026-04-08 16:43:40,045 - __main__ - INFO - Vault path: vault
+2026-04-08 16:43:40,045 - __main__ - INFO - Allowed users: [6144231826]
+2026-04-08 16:43:40,572 - telethon.crypto.aes - INFO - libssl detected, it will be used for encryption
+2026-04-08 16:43:41,345 - d_brain.bot.main - INFO - Starting bot polling...
+2026-04-08 16:43:41,346 - aiogram.dispatcher - INFO - Start polling
+2026-04-08 16:43:41,626 - aiogram.dispatcher - INFO - Run polling for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-08 17:11:01,191 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-08 17:11:01,196 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-08 17:11:01,197 - aiogram.dispatcher - INFO - Polling stopped for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-08 17:11:01,198 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-08 17:11:05,553 - __main__ - INFO - d-brain starting...
+2026-04-08 17:11:05,553 - __main__ - INFO - Vault path: vault
+2026-04-08 17:11:05,553 - __main__ - INFO - Allowed users: [6144231826]
+2026-04-08 17:11:05,880 - telethon.crypto.aes - INFO - libssl detected, it will be used for encryption
+2026-04-08 17:11:06,120 - d_brain.bot.main - INFO - Starting bot polling...
+2026-04-08 17:11:06,120 - aiogram.dispatcher - INFO - Start polling
+2026-04-08 17:11:06,239 - aiogram.dispatcher - INFO - Run polling for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-08 17:14:25,831 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-08 17:14:25,835 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-08 17:14:25,835 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-08 17:14:25,835 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-08 17:14:25,836 - aiogram.dispatcher - INFO - Polling stopped for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-08 17:14:25,837 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-08 17:14:29,849 - __main__ - INFO - d-brain starting...
+2026-04-08 17:14:29,849 - __main__ - INFO - Vault path: vault
+2026-04-08 17:14:29,849 - __main__ - INFO - Allowed users: [6144231826]
+2026-04-08 17:14:30,133 - telethon.crypto.aes - INFO - libssl detected, it will be used for encryption
+2026-04-08 17:14:30,354 - d_brain.bot.main - INFO - Starting bot polling...
+2026-04-08 17:14:30,355 - aiogram.dispatcher - INFO - Start polling
+2026-04-08 17:14:30,467 - aiogram.dispatcher - INFO - Run polling for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-08 17:16:55,281 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-08 17:16:55,287 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-08 17:16:55,288 - aiogram.dispatcher - INFO - Polling stopped for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-08 17:16:55,288 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-08 17:16:58,794 - __main__ - INFO - d-brain starting...
+2026-04-08 17:16:58,794 - __main__ - INFO - Vault path: vault
+2026-04-08 17:16:58,794 - __main__ - INFO - Allowed users: [6144231826]
+2026-04-08 17:16:59,062 - telethon.crypto.aes - INFO - libssl detected, it will be used for encryption
+2026-04-08 17:16:59,258 - d_brain.bot.main - INFO - Starting bot polling...
+2026-04-08 17:16:59,259 - aiogram.dispatcher - INFO - Start polling
+2026-04-08 17:16:59,359 - aiogram.dispatcher - INFO - Run polling for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-08 17:34:24,794 - d_brain.bot.handlers.text - INFO - Text message processed: 107 chars
+2026-04-08 17:34:24,794 - aiogram.event - INFO - Update id=861043452 is handled. Duration 4042 ms by bot id=8566638650
+2026-04-08 18:24:24,683 - d_brain.services.transcription - INFO - Starting transcription, audio size: 176353 bytes
+2026-04-08 18:24:30,137 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-08 18:24:30,142 - d_brain.services.transcription - INFO - Transcription complete: 76 chars
+2026-04-08 18:24:38,447 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-08 18:24:38,448 - aiogram.event - INFO - Update id=861043453 is handled. Duration 14399 ms by bot id=8566638650
+2026-04-08 18:24:48,116 - d_brain.services.transcription - INFO - Starting transcription, audio size: 364225 bytes
+2026-04-08 18:24:49,711 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-08 18:24:49,725 - d_brain.services.transcription - INFO - Transcription complete: 220 chars
+2026-04-08 18:24:54,078 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-08 18:24:54,079 - aiogram.event - INFO - Update id=861043454 is handled. Duration 6456 ms by bot id=8566638650
+2026-04-08 18:25:09,473 - d_brain.bot.handlers.process - INFO - Process command triggered by user 6144231826
