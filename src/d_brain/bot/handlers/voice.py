@@ -5,18 +5,20 @@ import logging
 from datetime import datetime
 
 from aiogram import Bot, Router
-from aiogram.types import BufferedInputFile, Message
+from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 
 from d_brain.bot.states import SilentState
-from d_brain.bot.formatters import format_process_report, normalize_telegram_output
+from d_brain.bot.formatters import (
+    format_plain_text_report,
+    normalize_telegram_output,
+    strip_internal_markers,
+)
 from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
 from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
 from d_brain.services.transcription import DeepgramTranscriber
-from d_brain.services.tts import text_to_voice
-from d_brain.services.reminder import check_process_reminder
 
 router = Router(name="voice")
 logger = logging.getLogger(__name__)
@@ -42,17 +44,9 @@ async def _transcribe_voice(message: Message, bot: Bot) -> str | None:
     return text
 
 
-async def _send_response(message: Message, response: str, voice_replies: bool) -> None:
-    """Send response as voice or text depending on settings."""
+async def _send_response(message: Message, response: str) -> None:
+    """Send a plain text response."""
     response = normalize_telegram_output(response)
-    if voice_replies:
-        try:
-            audio = await text_to_voice(response)
-            await message.answer_voice(BufferedInputFile(audio, filename="response.ogg"))
-            return
-        except Exception:
-            logger.exception("TTS failed, falling back to text")
-            await message.answer("⚠️ Голосовой ответ не удался, отвечаю текстом:")
     try:
         await message.answer(response)
     except Exception:
@@ -126,8 +120,6 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
         await message.chat.do(action="typing")
         processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
         user_id = message.from_user.id
-        fsm_data = await state.get_data()
-        voice_mode = settings.voice_replies or fsm_data.get("voice_mode", False)
 
         result = await asyncio.to_thread(
             processor.execute_raw_prompt, transcript, user_id
@@ -140,20 +132,16 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
 
             # Auto-escalation: sonnet detected complex task
             if processor.needs_agent(response):
-                brief = processor.strip_agent_marker(response)
+                brief = normalize_telegram_output(processor.strip_agent_marker(response))
                 await message.answer(f"🤖 Запускаю агента...\n{brief}", parse_mode=None)
                 session.append(user_id, "assistant", text=f"[agent] {brief}")
 
                 asyncio.create_task(
-                    _run_voice_agent(message, processor, transcript, user_id, session, voice_mode)
+                    _run_voice_agent(message, processor, transcript, user_id, session)
                 )
             else:
                 session.append(user_id, "assistant", text=response[:500])
-                # Smart reminder: after 20:00 if day not processed
-                reminder = check_process_reminder(settings.vault_path)
-                if reminder:
-                    response += reminder
-                await _send_response(message, response, voice_mode)
+                await _send_response(message, response)
 
     except Exception as e:
         logger.exception("Error processing voice message")
@@ -168,7 +156,6 @@ async def _run_voice_agent(
     prompt: str,
     user_id: int,
     session: SessionStore,
-    voice_replies: bool = False,
 ) -> None:
     """Run heavy agent in background and send result."""
     try:
@@ -181,12 +168,10 @@ async def _run_voice_agent(
             await message.answer(f"⚠️ Агент: {result['error']}", parse_mode=None)
         elif "report" in result:
             response = result["report"]
-            session.append(user_id, "assistant", text=f"[agent-done] {response[:500]}")
-            for chunk in format_process_report({"report": response}):
-                try:
-                    await message.answer(chunk)
-                except Exception:
-                    await message.answer(chunk, parse_mode=None)
+            clean_response = strip_internal_markers(response)
+            session.append(user_id, "assistant", text=f"[agent-done] {clean_response[:500]}")
+            for chunk in format_plain_text_report({"report": response}):
+                await message.answer(chunk, parse_mode=None)
     except Exception as e:
         logger.exception("Agent execution error")
         await message.answer(f"⚠️ Агент упал: {e}", parse_mode=None)

@@ -7,6 +7,20 @@ from typing import Any
 
 # Allowed HTML tags in Telegram
 ALLOWED_TAGS = {"b", "i", "code", "pre", "a", "s", "u"}
+INTERNAL_MARKER_PATTERNS = (
+    re.compile(r"(?i)\[\s*need_agent\s*\]"),
+)
+
+
+def strip_internal_markers(text: str) -> str:
+    """Remove internal control markers from user-facing output."""
+    if not text:
+        return ""
+
+    cleaned = text
+    for pattern in INTERNAL_MARKER_PATTERNS:
+        cleaned = pattern.sub("", cleaned)
+    return cleaned.strip()
 
 
 def normalize_telegram_output(text: str) -> str:
@@ -14,7 +28,8 @@ def normalize_telegram_output(text: str) -> str:
     if not text:
         return ""
 
-    text = re.sub(r"(?i)<br\s*/?>", "\n", text)
+    text = strip_internal_markers(text)
+    text = re.sub(r"(?i)\s*(?:<br\s*/?>|\[\s*br\s*\]|\(\s*br\s*\)|\{\s*br\s*\})\s*", "\n", text)
     text = re.sub(r"(?im)(^|\n)\s*br(?=\s|$)", r"\1", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
@@ -179,6 +194,33 @@ def split_html_messages(text: str, max_length: int = 4096) -> list[str]:
     return messages
 
 
+def split_plain_text_messages(text: str, max_length: int = 4096) -> list[str]:
+    """Split plain text into multiple Telegram messages."""
+    text = normalize_telegram_output(text)
+    if len(text) <= max_length:
+        return [text]
+
+    messages: list[str] = []
+    remaining = text
+
+    while remaining:
+        if len(remaining) <= max_length:
+            messages.append(remaining)
+            break
+
+        cut_point = max_length
+        space_pos = remaining.rfind(" ", max(0, cut_point - 200), cut_point)
+        newline_pos = remaining.rfind("\n", max(0, cut_point - 200), cut_point)
+        best_break = max(space_pos, newline_pos)
+        if best_break > cut_point - 200:
+            cut_point = best_break
+
+        messages.append(remaining[:cut_point].rstrip())
+        remaining = remaining[cut_point:].lstrip()
+
+    return messages
+
+
 def format_process_report(report: dict[str, Any]) -> list[str]:
     """Format processing report for Telegram HTML.
 
@@ -210,6 +252,18 @@ def format_process_report(report: dict[str, Any]) -> list[str]:
         return split_html_messages(sanitized, max_length=4096)
 
     return ["✅ <b>Обработка завершена</b>"]
+
+
+def format_plain_text_report(report: dict[str, Any]) -> list[str]:
+    """Format plain-text report for Telegram without HTML parsing."""
+    if "error" in report:
+        return [f"Ошибка: {report['error']}"]
+
+    if "report" in report:
+        raw_report = str(report["report"])
+        return split_plain_text_messages(raw_report, max_length=4096)
+
+    return ["Обработка завершена"]
 
 
 def format_error(error: str) -> str:

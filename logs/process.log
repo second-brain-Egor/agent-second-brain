@@ -190,3 +190,13 @@ Indexed 35 facts
     active  :   13 ████
     warm    :   80 ██████████████████████████
     cold    :    5 █
+[main ab53af5] chore: process daily 2026-04-09
+ 103 files changed, 270 insertions(+), 102 deletions(-)
+ create mode 100644 vault/daily/2026-04-09.md
+ create mode 100644 vault/thoughts/learnings/telegram-formatting-rules.md
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+To https://github.com/second-brain-Egor/agent-second-brain.git
+   0885129..ab53af5  main -> main
+=== Sending to Telegram ===
+=== Done ===

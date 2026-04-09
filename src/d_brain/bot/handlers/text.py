@@ -5,33 +5,27 @@ import logging
 from datetime import datetime
 
 from aiogram import Router
-from aiogram.types import BufferedInputFile, Message
+from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 
 from d_brain.bot.states import SilentState
-from d_brain.bot.formatters import format_process_report, normalize_telegram_output
+from d_brain.bot.formatters import (
+    format_plain_text_report,
+    normalize_telegram_output,
+    strip_internal_markers,
+)
 from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
 from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
-from d_brain.services.tts import text_to_voice
-from d_brain.services.reminder import check_process_reminder
 
 router = Router(name="text")
 logger = logging.getLogger(__name__)
 
 
-async def _send_text_response(message: Message, response: str, voice_mode: bool) -> None:
-    """Send response as voice or text depending on voice_mode flag."""
+async def _send_text_response(message: Message, response: str) -> None:
+    """Send a plain text response."""
     response = normalize_telegram_output(response)
-    if voice_mode:
-        try:
-            audio = await text_to_voice(response)
-            await message.answer_voice(BufferedInputFile(audio, filename="response.ogg"))
-            return
-        except Exception:
-            logger.exception("TTS failed, falling back to text")
-            await message.answer("⚠️ Голосовой ответ не удался, отвечаю текстом:")
     try:
         await message.answer(response)
     except Exception:
@@ -87,8 +81,6 @@ async def handle_text(message: Message, state: FSMContext) -> None:
 
     processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
     user_id = message.from_user.id
-    data = await state.get_data()
-    voice_mode = settings.voice_replies or data.get("voice_mode", False)
 
     try:
         result = await asyncio.to_thread(
@@ -102,7 +94,7 @@ async def handle_text(message: Message, state: FSMContext) -> None:
 
             # Auto-escalation: sonnet detected complex task
             if processor.needs_agent(response):
-                brief = processor.strip_agent_marker(response)
+                brief = normalize_telegram_output(processor.strip_agent_marker(response))
                 await message.answer(f"🤖 Запускаю агента...\n{brief}", parse_mode=None)
                 session.append(user_id, "assistant", text=f"[agent] {brief}")
 
@@ -112,11 +104,7 @@ async def handle_text(message: Message, state: FSMContext) -> None:
                 )
             else:
                 session.append(user_id, "assistant", text=response[:500])
-                # Smart reminder: after 20:00 if day not processed
-                reminder = check_process_reminder(settings.vault_path)
-                if reminder:
-                    response += reminder
-                await _send_text_response(message, response, voice_mode)
+                await _send_text_response(message, response)
         else:
             await message.answer("✓ Сохранено")
 
@@ -145,12 +133,10 @@ async def _run_agent(
             await message.answer(f"⚠️ Агент: {result['error']}", parse_mode=None)
         elif "report" in result:
             response = result["report"]
-            session.append(user_id, "assistant", text=f"[agent-done] {response[:500]}")
-            for chunk in format_process_report({"report": response}):
-                try:
-                    await message.answer(chunk)
-                except Exception:
-                    await message.answer(chunk, parse_mode=None)
+            clean_response = strip_internal_markers(response)
+            session.append(user_id, "assistant", text=f"[agent-done] {clean_response[:500]}")
+            for chunk in format_plain_text_report({"report": response}):
+                await message.answer(chunk, parse_mode=None)
     except Exception as e:
         logger.exception("Agent execution error")
         await message.answer(f"⚠️ Агент упал: {e}", parse_mode=None)

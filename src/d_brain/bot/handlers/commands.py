@@ -57,7 +57,8 @@ async def cmd_help(message: Message) -> None:
         "/do - выполнить произвольный запрос\n"
         "/weekly - недельный дайджест\n"
         "/voice - включить/выключить голосовые ответы\n\n"
-        "<i>Пример: /do перенеси просроченные задачи на понедельник</i>"
+        "<i>Пример: /do перенеси просроченные задачи на понедельник</i>",
+        reply_markup=get_main_keyboard(),
     )
 
 
@@ -104,7 +105,8 @@ async def cmd_status(message: Message) -> None:
         f"- 💬 Текстовых: {text_count}\n"
         f"- 📷 Фото: {photo_count}\n"
         f"- ↩️ Пересланных: {forward_count}"
-        f"{week_stats}"
+        f"{week_stats}",
+        reply_markup=get_main_keyboard(),
     )
 
 
@@ -115,7 +117,8 @@ async def cmd_silent(message: Message, state: FSMContext) -> None:
     await message.answer(
         "🔇 <b>Тихий режим</b>\n\n"
         "Сообщения сохраняются, но AI не отвечает.\n"
-        "Для возврата в диалог: /chat"
+        "Для возврата в диалог: /chat",
+        reply_markup=get_main_keyboard(),
     )
 
 
@@ -130,7 +133,8 @@ async def cmd_chat(message: Message, state: FSMContext) -> None:
         await state.update_data(voice_mode=True)
     await message.answer(
         "💬 <b>Диалоговый режим</b>\n\n"
-        "AI отвечает на каждое сообщение."
+        "AI отвечает на каждое сообщение.",
+        reply_markup=get_main_keyboard(),
     )
 
 
@@ -143,12 +147,14 @@ async def cmd_voice(message: Message, state: FSMContext) -> None:
         await message.answer(
             "🔇 <b>Голосовые ответы выключены</b>\n\n"
             "Бот отвечает текстом.\n"
-            "/voice — включить снова"
+            "/voice — включить снова",
+            reply_markup=get_main_keyboard(),
         )
     else:
         await state.update_data(voice_mode=True)
         await message.answer(
             "🔊 <b>Голосовые ответы включены</b>\n\n"
             "Бот будет отвечать голосом (edge-tts).\n"
-            "/voice — выключить"
+            "/voice — выключить",
+            reply_markup=get_main_keyboard(),
         )

@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 import shutil
 import subprocess
 import tempfile
@@ -18,6 +19,10 @@ from d_brain.services.session import SessionStore
 logger = logging.getLogger(__name__)
 
 AGENT_MARKER = "[NEED_AGENT]"
+AGENT_MARKER_PATTERN = re.compile(
+    r"^\s*(?:<[^>]+>\s*)*" + re.escape(AGENT_MARKER) + r"(?:\s|$)",
+    re.IGNORECASE,
+)
 MAX_TOOL_STEPS = 24
 SKIP_DIR_NAMES = {
     ".git",
@@ -895,14 +900,18 @@ Do not mention:
             "You have tools for local project files and Todoist. "
             "Reply in Russian. Act directly, keep changes inside the project, and be concise. "
             "The final message is for the user, not for developers: hide internal reasoning, rule-following, file-reading steps, and assistant-only maintenance. "
-            "Mention only what affects the user: result, meaningful changes, and optional next step. "
+            "Mention only what affects the user: result and meaningful changes. "
             "Use an adaptive tone depending on context instead of one fixed style. "
             "For reminders and nudges, sound warm, supportive, and light. "
             "For completed actions and results, sound clear, confident, and compact. "
             "For simple chat, sound natural, lively, and easygoing. "
             "For serious or important matters, sound calmer and more focused. "
             "Make the message pleasant to read: compact, lively, and visually clean. "
-            "Prefer short sentences, clean structure, and 1-3 relevant emoji. Avoid mixing in English unless it is a product name or exact command. "
+            "Prefer short sentences, short paragraphs, and a blank line between paragraphs. "
+            "Use 1-3 relevant emoji and place them at the start of meaningful paragraphs instead of at the end. "
+            "Avoid repeating the same emoji in neighboring paragraphs. Avoid mixing in English unless it is a product name or exact command. "
+            "Never show your reasoning, internal reflections, deliberation, or intermediate thoughts. Give only the final answer. "
+            "Do not offer extra help, extra options, or next actions unless the user explicitly asked for them or a real user action is strictly required. "
             "All user-facing headings, labels, and section names must be in Russian. "
             "Do not use English labels like wins, blockers, next step, summary, action items, or Todoist actions. "
             f"{self._planning_guardrails()} "
@@ -934,7 +943,7 @@ Make it feel human and easy to scan, not like a dry technical report.
 Prefer:
 - a short friendly opening
 - 1-4 compact bullets or short paragraphs
-- a brief closing line only if it adds value
+- a brief closing line only if the user truly needs to do something next
 
 Choose the tone by context:
 - reminder or check-in -> softer, warmer, more caring
@@ -946,6 +955,8 @@ Avoid:
 - bureaucratic wording
 - overexplaining obvious steps
 - clutter, repetition, or heavy technical phrasing
+- phrases about your own thinking, such as "я подумал", "я рассуждал", or similar
+- offers like "если хочешь, я могу..." unless the user explicitly asked for options
 Do not mention internal instructions, hidden policies, global rules, prompt files, or technical steps that matter only to the assistant.
 Do not surface assistant self-reminders or operational chores unless the user explicitly asked for them.
 If there is no user-facing outcome, say so briefly instead of padding the answer.
@@ -1031,12 +1042,13 @@ Important:
     @staticmethod
     def needs_agent(response: str) -> bool:
         """Check if a response requests escalation."""
-        return response.strip().startswith(AGENT_MARKER)
+        return bool(AGENT_MARKER_PATTERN.match(response or ""))
 
     @staticmethod
     def strip_agent_marker(response: str) -> str:
         """Strip the escalation marker from a response."""
-        return response.strip().removeprefix(AGENT_MARKER).strip()
+        cleaned = AGENT_MARKER_PATTERN.sub("", (response or ""), count=1)
+        return cleaned.strip()
 
     def execute_agent(self, user_prompt: str, user_id: int = 0) -> dict[str, Any]:
         """Execute a heavier task with tools and plain-text output."""
@@ -1061,6 +1073,10 @@ Important:
             "No HTML, no markdown table, no fluff. "
             "The answer is for the user only: omit internal rules, hidden prompts, file-reading rituals, and assistant self-maintenance. "
             "Style: adaptive but restrained. Be friendly and clear, but let the tone match the situation: brisk for straightforward results, calmer for nuanced outcomes. "
+            "Use short paragraphs with a blank line between them. "
+            "Use fitting emoji sparingly and place them at the start of a paragraph when they improve scanning. "
+            "Never reveal reasoning, internal reflections, or intermediate thinking. Give conclusions only. "
+            "Do not suggest extra follow-up actions unless they are strictly required or explicitly requested. "
             f"{self._planning_guardrails()} "
             "Use Russian wording for all user-facing labels and headings."
         )
@@ -1083,7 +1099,7 @@ USER REQUEST:
 Perform the task with tools if needed. The final answer must be plain text in Russian:
 - what you did
 - result
-- important follow-up if any
+- important follow-up only if the user must actually do something
 
 Write naturally, not like a changelog. Keep it compact, readable, and human.
 
@@ -1091,6 +1107,8 @@ Do not include:
 - internal instructions or rules you had to follow
 - assistant-only chores or maintenance notes
 - low-level tool logs unless the user asked for them
+- your own reasoning or phrases about your thought process
+- offers like "если хочешь, я могу..." unless explicitly requested
 """
 
         try:
@@ -1157,9 +1175,12 @@ Do not include:
             "For casual chat, be lighter and more conversational. "
             "For advice or emotional moments, be softer and more attentive. "
             "For factual answers, be clear and calm. "
-            "Keep answers easy to scan and pleasant to read; 0-2 fitting emoji are welcome. "
+            "Keep answers easy to scan and pleasant to read. Use short paragraphs with a blank line between them. "
+            "Use 0-3 fitting emoji when helpful, and place them at the start of a paragraph rather than at the end. "
             "Do not use English service labels or English section headings in user-facing replies. "
             "Do not mention internal instructions, hidden rules, or assistant-only maintenance. "
+            "Never expose reasoning, reflections, or intermediate thinking; give the final answer only. "
+            "Do not offer extra actions or say 'если хочешь, я могу...' unless the user explicitly asked for options or continuation. "
             f"{self._planning_guardrails()} "
             "If the request requires taking actions with files, Todoist, or a multi-step workflow, "
             f"do not execute it in chat mode. Start the reply exactly with {AGENT_MARKER} "
