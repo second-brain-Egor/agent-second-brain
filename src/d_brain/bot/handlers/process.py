@@ -23,7 +23,7 @@ async def cmd_process(message: Message) -> None:
     user_id = message.from_user.id if message.from_user else "unknown"
     logger.info("Process command triggered by user %s", user_id)
 
-    status_msg = await message.answer("⏳ Processing... (may take up to 10 min)")
+    status_msg = await message.answer("⏳ Обрабатываю... Это может занять до 10 минут.")
 
     settings = get_settings()
     processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
@@ -42,7 +42,7 @@ async def cmd_process(message: Message) -> None:
             if not task.done():
                 try:
                     await status_msg.edit_text(
-                        f"⏳ Processing... ({elapsed // 60}m {elapsed % 60}s)"
+                        f"⏳ Обрабатываю... ({elapsed // 60}м {elapsed % 60}с)"
                     )
                 except Exception:
                     pass  # Ignore edit errors

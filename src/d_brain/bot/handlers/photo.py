@@ -48,12 +48,12 @@ async def handle_photo(message: Message, bot: Bot) -> None:
     try:
         file = await bot.get_file(photo.file_id)
         if not file.file_path:
-            await message.answer("Failed to download photo")
+            await message.answer("Не удалось скачать фото.")
             return
 
         file_bytes = await bot.download_file(file.file_path)
         if not file_bytes:
-            await message.answer("Failed to download photo")
+            await message.answer("Не удалось скачать фото.")
             return
 
         timestamp = datetime.fromtimestamp(message.date.timestamp())
@@ -102,14 +102,14 @@ async def handle_photo(message: Message, bot: Bot) -> None:
 
         if description:
             try:
-                await message.answer(f"Photo saved.\n\n{description}")
+                await message.answer(f"Фото сохранено.\n\n{description}")
             except Exception:
-                await message.answer(f"Photo saved.\n\n{description}", parse_mode=None)
+                await message.answer(f"Фото сохранено.\n\n{description}", parse_mode=None)
         else:
-            await message.answer("Photo saved.")
+            await message.answer("Фото сохранено.")
 
         logger.info("Photo saved and analyzed: %s", relative_path)
 
     except Exception as exc:
         logger.exception("Error processing photo")
-        await message.answer(f"Error: {exc}")
+        await message.answer(f"Ошибка: {exc}")

@@ -874,3 +874,41 @@ RuntimeError: codex exec returned an empty response
 2026-04-11 13:49:32,387 - d_brain.bot.main - WARNING - Unauthorized access attempt from user 750222590
 2026-04-11 13:49:32,387 - aiogram.event - INFO - Update id=861043613 is handled. Duration 1 ms by bot id=8566638650
 2026-04-11 13:50:33,786 - d_brain.bot.handlers.process - INFO - Process command triggered by user 6144231826
+2026-04-11 13:53:04,319 - d_brain.services.git - INFO - Committed: chore: process daily 2026-04-11
+2026-04-11 13:53:05,610 - d_brain.services.git - INFO - Pushed to remote
+2026-04-11 13:53:05,705 - aiogram.event - INFO - Update id=861043614 is handled. Duration 151922 ms by bot id=8566638650
+2026-04-11 14:24:44,473 - d_brain.bot.handlers.text - INFO - Text message processed: 73 chars
+2026-04-11 14:24:44,473 - aiogram.event - INFO - Update id=861043615 is handled. Duration 7407 ms by bot id=8566638650
+2026-04-11 14:26:44,860 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-11 14:26:44,865 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-11 14:26:44,866 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-11 14:26:44,867 - aiogram.dispatcher - INFO - Polling stopped for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-11 14:26:44,867 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-11 14:26:44,887 - d_brain.services.processor - ERROR - OpenAI agent execution failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1152, in execute_agent
+    try:
+         
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 329, in _run_openai_agent
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 294, in _run_codex_exec
+    raise RuntimeError("codex exec returned an empty response")
+RuntimeError: codex exec returned an empty response
+2026-04-11 14:26:48,851 - __main__ - INFO - d-brain starting...
+2026-04-11 14:26:48,851 - __main__ - INFO - Vault path: vault
+2026-04-11 14:26:48,851 - __main__ - INFO - Allowed users: [6144231826]
+2026-04-11 14:26:49,179 - telethon.crypto.aes - INFO - libssl detected, it will be used for encryption
+2026-04-11 14:26:49,241 - d_brain.bot.main - INFO - Starting bot polling...
+2026-04-11 14:26:49,241 - aiogram.dispatcher - INFO - Start polling
+2026-04-11 14:26:49,348 - aiogram.dispatcher - INFO - Run polling for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-11 19:47:33,071 - d_brain.services.transcription - INFO - Starting transcription, audio size: 975633 bytes
+2026-04-11 19:47:35,113 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-11 19:47:35,147 - d_brain.services.transcription - INFO - Transcription complete: 504 chars
+2026-04-11 19:47:43,696 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-11 19:47:43,697 - aiogram.event - INFO - Update id=861043616 is handled. Duration 11448 ms by bot id=8566638650
+2026-04-11 19:49:21,131 - d_brain.services.transcription - INFO - Starting transcription, audio size: 766337 bytes
+2026-04-11 19:49:23,043 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-11 19:49:23,054 - d_brain.services.transcription - INFO - Transcription complete: 372 chars
+2026-04-11 19:49:33,278 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-11 19:49:33,278 - aiogram.event - INFO - Update id=861043617 is handled. Duration 12761 ms by bot id=8566638650

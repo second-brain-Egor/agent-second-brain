@@ -69,7 +69,7 @@ async def handle_voice_silent(message: Message, bot: Bot, state: FSMContext) -> 
     try:
         transcript = await _transcribe_voice(message, bot)
         if not transcript:
-            await message.answer("Could not transcribe audio")
+            await message.answer("Не удалось распознать аудио.")
             return
 
         settings = get_settings()
@@ -93,7 +93,7 @@ async def handle_voice_silent(message: Message, bot: Bot, state: FSMContext) -> 
 
     except Exception as e:
         logger.exception("Error processing voice message")
-        await message.answer(f"Error: {e}")
+        await message.answer(f"Ошибка: {e}")
 
 
 @router.message(lambda m: m.voice is not None)
@@ -107,7 +107,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
     try:
         transcript = await _transcribe_voice(message, bot)
         if not transcript:
-            await message.answer("Could not transcribe audio")
+            await message.answer("Не удалось распознать аудио.")
             return
 
         settings = get_settings()
@@ -165,7 +165,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
 
     except Exception as e:
         logger.exception("Error processing voice message")
-        await message.answer(f"Error: {e}", parse_mode=None)
+        await message.answer(f"Ошибка: {e}", parse_mode=None)
 
     logger.info("Voice message processed")
 
