@@ -21,14 +21,20 @@ class SessionStore:
         self.sessions_dir = Path(vault_path) / ".sessions"
         self.sessions_dir.mkdir(exist_ok=True)
 
-    def _get_session_file(self, user_id: int) -> Path:
-        return self.sessions_dir / f"{user_id}.jsonl"
+    def _scope_key(self, scope_id: int | str) -> str:
+        if isinstance(scope_id, int):
+            return str(scope_id)
+        safe = str(scope_id).strip().replace("/", "_").replace("\\", "_")
+        return safe or "unknown"
 
-    def append(self, user_id: int, entry_type: str, **data: Any) -> None:
+    def _get_session_file(self, scope_id: int | str) -> Path:
+        return self.sessions_dir / f"{self._scope_key(scope_id)}.jsonl"
+
+    def append(self, scope_id: int | str, entry_type: str, **data: Any) -> None:
         """Append entry to user's session file.
 
         Args:
-            user_id: Telegram user ID
+            scope_id: Telegram user ID or chat scope key
             entry_type: Type of entry (voice, text, photo, forward, command, etc.)
             **data: Additional data to store (text, duration, msg_id, etc.)
         """
@@ -37,21 +43,21 @@ class SessionStore:
             "type": entry_type,
             **data,
         }
-        path = self._get_session_file(user_id)
+        path = self._get_session_file(scope_id)
         with path.open("a", encoding="utf-8") as f:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-    def get_recent(self, user_id: int, limit: int = 50) -> list[dict]:
+    def get_recent(self, scope_id: int | str, limit: int = 50) -> list[dict]:
         """Get recent session entries.
 
         Args:
-            user_id: Telegram user ID
+            scope_id: Telegram user ID or chat scope key
             limit: Maximum number of entries to return
 
         Returns:
             List of session entries, most recent last
         """
-        path = self._get_session_file(user_id)
+        path = self._get_session_file(scope_id)
         if not path.exists():
             return []
 
@@ -66,11 +72,11 @@ class SessionStore:
 
         return entries[-limit:]
 
-    def get_today(self, user_id: int) -> list[dict]:
+    def get_today(self, scope_id: int | str) -> list[dict]:
         """Get today's session entries.
 
         Args:
-            user_id: Telegram user ID
+            scope_id: Telegram user ID or chat scope key
 
         Returns:
             List of today's entries
@@ -78,15 +84,16 @@ class SessionStore:
         today = datetime.now().date().isoformat()
         return [
             e
-            for e in self.get_recent(user_id, limit=200)
+            for e in self.get_recent(scope_id, limit=200)
             if e.get("ts", "").startswith(today)
         ]
 
-    def rotate(self, user_id: int, max_size: int = 1_000_000) -> None:
+    def rotate(self, user_id: int | str, max_size: int = 1_000_000) -> None:
         """Rotate session file if it exceeds max_size bytes.
 
-        Renames current file to {user_id}.{YYYY-MM}.jsonl.bak and creates new one.
+        Renames current file to {scope}.{YYYY-MM}.jsonl.bak and creates new one.
         """
+        scope_key = self._scope_key(user_id)
         path = self._get_session_file(user_id)
         if not path.exists():
             return
@@ -95,7 +102,7 @@ class SessionStore:
             return
 
         now = datetime.now()
-        backup_name = f"{user_id}.{now.strftime('%Y-%m')}.jsonl.bak"
+        backup_name = f"{scope_key}.{now.strftime('%Y-%m')}.jsonl.bak"
         backup_path = self.sessions_dir / backup_name
         path.rename(backup_path)
 
@@ -103,17 +110,13 @@ class SessionStore:
         """Rotate all session files that exceed max_size."""
         for session_file in self.sessions_dir.glob("*.jsonl"):
             if session_file.suffix == ".jsonl" and not session_file.name.endswith(".bak"):
-                try:
-                    user_id = int(session_file.stem)
-                    self.rotate(user_id, max_size)
-                except ValueError:
-                    continue
+                self.rotate(session_file.stem, max_size)
 
-    def get_stats(self, user_id: int, days: int = 7) -> dict[str, int]:
+    def get_stats(self, scope_id: int | str, days: int = 7) -> dict[str, int]:
         """Get usage statistics for the last N days.
 
         Args:
-            user_id: Telegram user ID
+            scope_id: Telegram user ID or chat scope key
             days: Number of days to analyze
 
         Returns:
@@ -122,7 +125,7 @@ class SessionStore:
         from datetime import timedelta
 
         cutoff = (datetime.now() - timedelta(days=days)).isoformat()
-        entries = self.get_recent(user_id, limit=1000)
+        entries = self.get_recent(scope_id, limit=1000)
 
         stats: dict[str, int] = {}
         for entry in entries:

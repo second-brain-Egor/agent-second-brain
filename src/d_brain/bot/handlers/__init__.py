@@ -1,6 +1,7 @@
 """Bot message handlers."""
 
 from d_brain.bot.handlers import (
+    ask,
     buttons,
     channel,
     commands,
@@ -14,6 +15,7 @@ from d_brain.bot.handlers import (
 )
 
 __all__ = [
+    "ask",
     "buttons",
     "channel",
     "commands",

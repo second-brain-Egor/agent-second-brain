@@ -10,6 +10,11 @@ from pathlib import Path
 from aiogram import Bot, Router
 from aiogram.types import Message
 
+from d_brain.bot.chat_context import (
+    build_msg_type,
+    get_session_scope,
+    is_work_chat,
+)
 from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
 from d_brain.services.session import SessionStore
@@ -37,6 +42,7 @@ async def handle_photo(message: Message, bot: Bot) -> None:
 
     settings = get_settings()
     storage = VaultStorage(settings.vault_path)
+    scope = get_session_scope(message)
     photo = message.photo[-1]
 
     try:
@@ -75,17 +81,24 @@ async def handle_photo(message: Message, bot: Bot) -> None:
         if description:
             content += f"\n\n> [!note] Vision\n> {description.replace(chr(10), chr(10) + '> ')}"
 
-        storage.append_to_daily(content, timestamp, "[photo]")
+        storage.append_to_daily(content, timestamp, build_msg_type(message, "[photo]"))
 
         session = SessionStore(settings.vault_path)
         session.append(
-            message.from_user.id,
+            scope,
             "photo",
             path=relative_path,
             caption=message.caption,
             text=description,
             msg_id=message.message_id,
+            chat_id=message.chat.id,
+            chat_title=message.chat.title,
         )
+
+        work_context = is_work_chat(message, settings)
+        if work_context:
+            logger.info("Saved group photo without reply in chat %s", message.chat.id)
+            return
 
         if description:
             try:

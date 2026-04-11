@@ -9,6 +9,12 @@ class DoCommandState(StatesGroup):
     waiting_for_input = State()  # Waiting for voice or text after /do
 
 
+class AskCommandState(StatesGroup):
+    """States for /ask command flow."""
+
+    waiting_for_input = State()  # Waiting for voice or text after /ask
+
+
 class SilentState(StatesGroup):
     """Silent mode — only save, no AI response."""
 

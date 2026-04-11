@@ -93,13 +93,13 @@ class AgentProcessor:
         """Shared prompt rules for planning horizon and reminders."""
         return PLANNING_GUARDRAILS
 
-    def _get_session_context(self, user_id: int) -> str:
+    def _get_session_context(self, session_scope: int | str | None) -> str:
         """Get today's session context for the AI backend."""
-        if user_id == 0:
+        if session_scope in (0, "0", None, ""):
             return ""
 
         session = SessionStore(self.vault_path)
-        today_entries = session.get_today(user_id)
+        today_entries = session.get_today(session_scope)
         if not today_entries:
             return ""
 
@@ -112,6 +112,32 @@ class AgentProcessor:
                 lines.append(f"{ts} [{entry_type}] {text}")
         lines.append("=== END SESSION ===")
         return "\n".join(lines)
+
+    @staticmethod
+    def _extract_markdown_section(content: str, heading: str) -> str:
+        pattern = re.compile(
+            rf"^##\s+{re.escape(heading)}\s*$([\s\S]*?)(?=^##\s+|\Z)",
+            re.MULTILINE,
+        )
+        match = pattern.search(content)
+        return match.group(0).strip() if match else ""
+
+    def _get_work_memory_context(self) -> str:
+        parts: list[str] = []
+
+        policy_path = self.vault_path / "references" / "work-group-rules.md"
+        if policy_path.exists():
+            content = policy_path.read_text(encoding="utf-8", errors="ignore")[:2000]
+            parts.append(f"=== {policy_path.name} ===\n{content}")
+
+        user_path = self.vault_path / "memory" / "user.md"
+        if user_path.exists():
+            user_content = user_path.read_text(encoding="utf-8", errors="ignore")
+            work_section = self._extract_markdown_section(user_content, "Работа")
+            if work_section:
+                parts.append(f"=== user.md / Работа ===\n{work_section[:1500]}")
+
+        return "\n\n".join(parts)
 
     def _html_to_markdown(self, html: str) -> str:
         """Convert Telegram HTML to Obsidian Markdown."""
@@ -875,12 +901,19 @@ Do not mention:
             logger.exception("OpenAI daily processing failed")
             return {"error": str(exc), "processed_entries": 0}
 
-    def execute_prompt(self, user_prompt: str, user_id: int = 0) -> dict[str, Any]:
+    def execute_prompt(
+        self,
+        user_prompt: str,
+        user_id: int = 0,
+        *,
+        session_scope: int | str | None = None,
+        work_context: bool = False,
+    ) -> dict[str, Any]:
         """Execute an arbitrary user request with tools and HTML output."""
         today = date.today().isoformat()
         todoist_ref = self._load_todoist_reference()
-        memory_context = self._get_memory_context()
-        session_context = self._get_session_context(user_id)
+        memory_context = self._get_memory_context(work_mode=work_context)
+        session_context = self._get_session_context(session_scope or user_id)
 
         rag_context = ""
         try:
@@ -1047,11 +1080,18 @@ Important:
         cleaned = AGENT_MARKER_PATTERN.sub("", (response or ""), count=1)
         return cleaned.strip()
 
-    def execute_agent(self, user_prompt: str, user_id: int = 0) -> dict[str, Any]:
+    def execute_agent(
+        self,
+        user_prompt: str,
+        user_id: int = 0,
+        *,
+        session_scope: int | str | None = None,
+        work_context: bool = False,
+    ) -> dict[str, Any]:
         """Execute a heavier task with tools and plain-text output."""
         today = date.today().isoformat()
-        memory_context = self._get_memory_context()
-        session_context = self._get_session_context(user_id)
+        memory_context = self._get_memory_context(work_mode=work_context)
+        session_context = self._get_session_context(session_scope or user_id)
 
         rag_context = ""
         try:
@@ -1122,11 +1162,18 @@ Do not include:
             logger.exception("OpenAI agent execution failed")
             return {"error": str(exc), "processed_entries": 0}
 
-    def _get_memory_context(self) -> str:
+    def _get_memory_context(self, work_mode: bool = False) -> str:
         """Load and cache memory context for five minutes."""
+        cache_key = "work" if work_mode else "default"
         now = time.time()
-        if now - self._memory_cache_time < 300 and self._memory_cache.get("context"):
-            return str(self._memory_cache["context"])
+        if now - self._memory_cache_time < 300 and self._memory_cache.get(cache_key):
+            return str(self._memory_cache[cache_key])
+
+        if work_mode:
+            context = self._get_work_memory_context()
+            self._memory_cache[cache_key] = context
+            self._memory_cache_time = now
+            return context
 
         parts: list[str] = []
         memory_dir = self.vault_path / "memory"
@@ -1142,18 +1189,26 @@ Do not include:
                 parts.append(f"=== {goal_file.name} ===\n{content}")
 
         context = "\n\n".join(parts)
-        self._memory_cache["context"] = context
+        self._memory_cache[cache_key] = context
         self._memory_cache_time = now
         return context
 
-    def execute_raw_prompt(self, prompt: str, user_id: int = 0, model: str = "sonnet") -> dict[str, Any]:
+    def execute_raw_prompt(
+        self,
+        prompt: str,
+        user_id: int = 0,
+        model: str = "sonnet",
+        *,
+        session_scope: int | str | None = None,
+        work_context: bool = False,
+    ) -> dict[str, Any]:
         """Execute a fast chat request without tool usage.
 
         The model argument is kept for handler compatibility and ignored.
         """
         del model
-        session_context = self._get_session_context(user_id)
-        memory_context = self._get_memory_context()
+        session_context = self._get_session_context(session_scope or user_id)
+        memory_context = self._get_memory_context(work_mode=work_context)
 
         rag_context = ""
         try:

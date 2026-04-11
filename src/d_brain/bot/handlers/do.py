@@ -8,6 +8,7 @@ from aiogram.filters import Command, CommandObject
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
+from d_brain.bot.chat_context import get_session_scope, is_work_chat
 from d_brain.bot.formatters import format_process_report
 from d_brain.bot.states import DoCommandState
 from d_brain.config import get_settings
@@ -98,10 +99,18 @@ async def process_request(message: Message, prompt: str, user_id: int = 0) -> No
 
     settings = get_settings()
     processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
+    session_scope = get_session_scope(message)
+    work_context = is_work_chat(message, settings)
 
     async def run_with_progress() -> dict:
         task = asyncio.create_task(
-            asyncio.to_thread(processor.execute_prompt, prompt, user_id)
+            asyncio.to_thread(
+                processor.execute_prompt,
+                prompt,
+                user_id,
+                session_scope=session_scope,
+                work_context=work_context,
+            )
         )
 
         elapsed = 0

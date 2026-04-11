@@ -8,6 +8,11 @@ from aiogram import Bot, Router
 from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 
+from d_brain.bot.chat_context import (
+    build_msg_type,
+    get_session_scope,
+    is_work_chat,
+)
 from d_brain.bot.states import SilentState
 from d_brain.bot.formatters import (
     format_plain_text_report,
@@ -69,16 +74,19 @@ async def handle_voice_silent(message: Message, bot: Bot, state: FSMContext) -> 
 
         settings = get_settings()
         storage = VaultStorage(settings.vault_path)
+        scope = get_session_scope(message)
         timestamp = datetime.fromtimestamp(message.date.timestamp())
-        storage.append_to_daily(transcript, timestamp, "[voice]")
+        storage.append_to_daily(transcript, timestamp, build_msg_type(message, "[voice]"))
 
         session = SessionStore(settings.vault_path)
         session.append(
-            message.from_user.id,
+            scope,
             "voice",
             text=transcript,
             duration=message.voice.duration,
             msg_id=message.message_id,
+            chat_id=message.chat.id,
+            chat_title=message.chat.title,
         )
 
         await message.answer(f"🎤 {transcript}\n\n✓ Сохранено")
@@ -104,17 +112,25 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
 
         settings = get_settings()
         storage = VaultStorage(settings.vault_path)
+        scope = get_session_scope(message)
         timestamp = datetime.fromtimestamp(message.date.timestamp())
-        storage.append_to_daily(transcript, timestamp, "[voice]")
+        storage.append_to_daily(transcript, timestamp, build_msg_type(message, "[voice]"))
 
         session = SessionStore(settings.vault_path)
         session.append(
-            message.from_user.id,
+            scope,
             "voice",
             text=transcript,
             duration=message.voice.duration,
             msg_id=message.message_id,
+            chat_id=message.chat.id,
+            chat_title=message.chat.title,
         )
+
+        work_context = is_work_chat(message, settings)
+        if work_context:
+            logger.info("Saved group voice without reply in chat %s", message.chat.id)
+            return
 
         # Dialog mode: respond via Claude
         await message.chat.do(action="typing")
@@ -122,7 +138,11 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
         user_id = message.from_user.id
 
         result = await asyncio.to_thread(
-            processor.execute_raw_prompt, transcript, user_id
+            processor.execute_raw_prompt,
+            transcript,
+            user_id,
+            session_scope=scope,
+            work_context=work_context,
         )
 
         if "error" in result:
@@ -134,13 +154,13 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
             if processor.needs_agent(response):
                 brief = normalize_telegram_output(processor.strip_agent_marker(response))
                 await message.answer(f"🤖 Запускаю агента...\n{brief}", parse_mode=None)
-                session.append(user_id, "assistant", text=f"[agent] {brief}")
+                session.append(scope, "assistant", text=f"[agent] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
 
                 asyncio.create_task(
-                    _run_voice_agent(message, processor, transcript, user_id, session)
+                    _run_voice_agent(message, processor, transcript, user_id, scope, work_context, session)
                 )
             else:
-                session.append(user_id, "assistant", text=response[:500])
+                session.append(scope, "assistant", text=response[:500], chat_id=message.chat.id, chat_title=message.chat.title)
                 await _send_response(message, response)
 
     except Exception as e:
@@ -155,13 +175,19 @@ async def _run_voice_agent(
     processor: AgentProcessor,
     prompt: str,
     user_id: int,
+    session_scope: int | str,
+    work_context: bool,
     session: SessionStore,
 ) -> None:
     """Run heavy agent in background and send result."""
     try:
         await message.chat.do(action="typing")
         result = await asyncio.to_thread(
-            processor.execute_agent, prompt, user_id
+            processor.execute_agent,
+            prompt,
+            user_id,
+            session_scope=session_scope,
+            work_context=work_context,
         )
 
         if "error" in result:
@@ -169,7 +195,7 @@ async def _run_voice_agent(
         elif "report" in result:
             response = result["report"]
             clean_response = strip_internal_markers(response)
-            session.append(user_id, "assistant", text=f"[agent-done] {clean_response[:500]}")
+            session.append(session_scope, "assistant", text=f"[agent-done] {clean_response[:500]}", chat_id=message.chat.id, chat_title=message.chat.title)
             for chunk in format_plain_text_report({"report": response}):
                 await message.answer(chunk, parse_mode=None)
     except Exception as e:

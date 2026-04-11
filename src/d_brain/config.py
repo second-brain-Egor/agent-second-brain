@@ -38,6 +38,14 @@ class Settings(BaseSettings):
         default=False,
         description="Whether to allow access to all users (security risk!)",
     )
+    work_chat_ids: list[int] = Field(
+        default_factory=list,
+        description="Telegram group chat IDs treated as work-only context",
+    )
+    treat_all_group_chats_as_work: bool = Field(
+        default=True,
+        description="Whether all non-private chats should default to work-only context",
+    )
     voice_replies: bool = Field(
         default=False,
         description="Reply to voice messages with TTS voice messages",
