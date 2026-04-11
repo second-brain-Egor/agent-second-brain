@@ -788,10 +788,7 @@ week: {year}-W{week:02d}
 
         daily_text = daily_file.read_text(encoding="utf-8", errors="ignore")
         if len(daily_text.strip()) < 50:
-            report = (
-                f"<b>Processing for {day}</b>\n\n"
-                "Nothing substantial to process yet."
-            )
+            report = f"<b>{day}</b>\n\nНичего существенного."
             return {"report": report, "processed_entries": 0}
 
         skill_content = self._load_skill_content()
