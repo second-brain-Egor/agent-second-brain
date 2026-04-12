@@ -912,3 +912,6 @@ RuntimeError: codex exec returned an empty response
 2026-04-11 19:49:23,054 - d_brain.services.transcription - INFO - Transcription complete: 372 chars
 2026-04-11 19:49:33,278 - d_brain.bot.handlers.voice - INFO - Voice message processed
 2026-04-11 19:49:33,278 - aiogram.event - INFO - Update id=861043617 is handled. Duration 12761 ms by bot id=8566638650
+2026-04-12 16:03:22,833 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-12 16:03:22,833 - aiogram.event - INFO - Update id=861043618 is handled. Duration 3511 ms by bot id=8566638650
+2026-04-12 16:45:23,117 - d_brain.bot.handlers.process - INFO - Process command triggered by user 6144231826
