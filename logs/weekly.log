@@ -1,0 +1,3 @@
+2026-04-12 17:30:03,764 - __main__ - INFO - Starting weekly digest generation...
+2026-04-12 17:31:00,869 - d_brain.services.processor - INFO - Weekly summary saved to /home/egor/agent-second-brain/vault/summaries/2026-W15-summary.md
+2026-04-12 17:31:00,871 - __main__ - INFO - Weekly digest generated successfully
