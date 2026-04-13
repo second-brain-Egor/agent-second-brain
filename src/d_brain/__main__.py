@@ -19,7 +19,7 @@ async def main() -> None:
     settings = get_settings()
     logger.info("d-brain starting...")
     logger.info("Vault path: %s", settings.vault_path)
-    logger.info("Allowed users: %s", settings.allowed_user_ids or "all")
+    logger.info("Allowed users: %s", settings.allowed_user_ids)
 
     await run_bot(settings)
 

@@ -60,6 +60,8 @@ tier: warm
 Глобальные навыки: vault/.claude/skills/ (работают везде)
 Проектные навыки: vault/projects/{name}/.skills/ (только в рамках проекта)
 Каждый — папка с SKILL.md (YAML front matter: name, description, model, scope, triggers).
+- Локальные пользовательские навыки для этого проекта: `Скиллы/`
+- Для оформления ответов в Telegram обязательно использовать `Скиллы/telegram-formatting/SKILL.md`
 - web-search: поиск в интернете (DDG + Tavily)
 - video-processor: обработка YouTube и MP4
 - skill-creator: (Anthropic) создание простых навыков — интервью, драфт, тест, итерация

@@ -57,10 +57,6 @@ def create_auth_middleware(settings: Settings) -> MiddlewareType:
         event: Update,
         data: dict[str, Any],
     ) -> Any:
-        # If explicitly allowed all users, just bypass check
-        if settings.allow_all_users:
-            return await handler(event, data)
-
         user = None
         if event.message:
             user = event.message.from_user
@@ -84,6 +80,12 @@ def create_auth_middleware(settings: Settings) -> MiddlewareType:
 
 async def run_bot(settings: Settings) -> None:
     """Run the bot with polling."""
+    if not settings.allowed_user_ids:
+        raise RuntimeError("ALLOWED_USER_IDS is empty; bot startup refused")
+
+    if settings.allow_all_users:
+        raise RuntimeError("ALLOW_ALL_USERS is enabled; bot startup refused")
+
     # Rotate large session files on startup
     from d_brain.services.session import SessionStore
     SessionStore(settings.vault_path).rotate_all()
@@ -91,7 +93,7 @@ async def run_bot(settings: Settings) -> None:
     bot = create_bot(settings)
     dp = create_dispatcher()
 
-    # Always add auth middleware for security (it handles allow_all_users internally)
+    # Always filter updates by allowed Telegram user IDs.
     dp.update.middleware(create_auth_middleware(settings))
 
     logger.info("Starting bot polling...")
