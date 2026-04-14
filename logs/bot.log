@@ -1699,3 +1699,47 @@ RuntimeError: codex exec returned an empty response
 2026-04-13 19:33:42,403 - aiogram.event - INFO - Update id=861043797 is handled. Duration 5577 ms by bot id=8566638650
 2026-04-13 19:36:53,620 - d_brain.bot.handlers.text - INFO - Text message processed: 215 chars
 2026-04-13 19:36:53,621 - aiogram.event - INFO - Update id=861043798 is handled. Duration 4779 ms by bot id=8566638650
+2026-04-14 02:18:52,959 - d_brain.bot.handlers.text - INFO - Text message processed: 80 chars
+2026-04-14 02:18:52,959 - aiogram.event - INFO - Update id=861043799 is handled. Duration 27301 ms by bot id=8566638650
+2026-04-14 02:19:30,926 - d_brain.bot.handlers.text - INFO - Text message processed: 29 chars
+2026-04-14 02:19:30,926 - aiogram.event - INFO - Update id=861043800 is handled. Duration 10850 ms by bot id=8566638650
+2026-04-14 02:19:55,898 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-14 02:19:55,898 - aiogram.event - INFO - Update id=861043801 is handled. Duration 4707 ms by bot id=8566638650
+2026-04-14 02:20:22,601 - d_brain.bot.handlers.text - INFO - Text message processed: 21 chars
+2026-04-14 02:20:22,602 - aiogram.event - INFO - Update id=861043802 is handled. Duration 6452 ms by bot id=8566638650
+2026-04-14 02:20:50,778 - d_brain.bot.handlers.text - INFO - Text message processed: 23 chars
+2026-04-14 02:20:50,778 - aiogram.event - INFO - Update id=861043803 is handled. Duration 4724 ms by bot id=8566638650
+2026-04-14 02:21:21,344 - d_brain.bot.handlers.text - INFO - Text message processed: 31 chars
+2026-04-14 02:21:21,345 - aiogram.event - INFO - Update id=861043804 is handled. Duration 4392 ms by bot id=8566638650
+2026-04-14 02:21:53,155 - d_brain.bot.handlers.text - INFO - Text message processed: 16 chars
+2026-04-14 02:21:53,156 - aiogram.event - INFO - Update id=861043805 is handled. Duration 12349 ms by bot id=8566638650
+2026-04-14 02:22:39,381 - d_brain.bot.handlers.text - INFO - Text message processed: 37 chars
+2026-04-14 02:22:39,381 - aiogram.event - INFO - Update id=861043806 is handled. Duration 7091 ms by bot id=8566638650
+2026-04-14 02:23:29,683 - d_brain.bot.handlers.text - INFO - Text message processed: 62 chars
+2026-04-14 02:23:29,683 - aiogram.event - INFO - Update id=861043807 is handled. Duration 4168 ms by bot id=8566638650
+2026-04-14 02:24:32,288 - d_brain.bot.handlers.text - INFO - Text message processed: 45 chars
+2026-04-14 02:24:32,288 - aiogram.event - INFO - Update id=861043808 is handled. Duration 17468 ms by bot id=8566638650
+2026-04-14 02:25:03,956 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-14 02:25:03,957 - aiogram.event - INFO - Update id=861043809 is handled. Duration 4760 ms by bot id=8566638650
+2026-04-14 02:25:41,953 - d_brain.bot.handlers.text - INFO - Text message processed: 31 chars
+2026-04-14 02:25:41,954 - aiogram.event - INFO - Update id=861043810 is handled. Duration 10082 ms by bot id=8566638650
+2026-04-14 02:26:23,542 - d_brain.bot.handlers.text - INFO - Text message processed: 42 chars
+2026-04-14 02:26:23,542 - aiogram.event - INFO - Update id=861043811 is handled. Duration 9921 ms by bot id=8566638650
+2026-04-14 02:26:51,520 - d_brain.bot.handlers.text - INFO - Text message processed: 33 chars
+2026-04-14 02:26:51,520 - aiogram.event - INFO - Update id=861043812 is handled. Duration 3361 ms by bot id=8566638650
+2026-04-14 02:27:55,546 - d_brain.bot.handlers.text - INFO - Text message processed: 60 chars
+2026-04-14 02:27:55,547 - aiogram.event - INFO - Update id=861043813 is handled. Duration 14447 ms by bot id=8566638650
+2026-04-14 02:28:12,995 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-14 02:28:12,995 - aiogram.event - INFO - Update id=861043814 is handled. Duration 3839 ms by bot id=8566638650
+2026-04-14 02:28:40,702 - d_brain.bot.handlers.text - INFO - Text message processed: 35 chars
+2026-04-14 02:28:40,702 - aiogram.event - INFO - Update id=861043815 is handled. Duration 4072 ms by bot id=8566638650
+2026-04-14 02:29:05,370 - d_brain.bot.handlers.text - INFO - Text message processed: 17 chars
+2026-04-14 02:29:05,371 - aiogram.event - INFO - Update id=861043816 is handled. Duration 4599 ms by bot id=8566638650
+2026-04-14 03:21:24,763 - d_brain.bot.handlers.text - INFO - Text message processed: 13 chars
+2026-04-14 03:21:24,764 - aiogram.event - INFO - Update id=861043817 is handled. Duration 5547 ms by bot id=8566638650
+2026-04-14 09:16:38,405 - d_brain.services.transcription - INFO - Starting transcription, audio size: 63465 bytes
+2026-04-14 09:16:40,912 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-14 09:16:40,917 - d_brain.services.transcription - INFO - Transcription complete: 25 chars
+2026-04-14 09:16:41,808 - d_brain.bot.handlers.process - INFO - Process command triggered by user 6144231826
+2026-04-14 09:16:46,345 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-14 09:16:46,345 - aiogram.event - INFO - Update id=861043818 is handled. Duration 8247 ms by bot id=8566638650

@@ -488,3 +488,17 @@ ORIENT: daily/2026-04-14.md is empty (13 bytes) - skipping AI processing
 - [[2026-01-08-consumer-ai-2030-predictions]] (blog/)
 - [[2025-01-10-vibe-coding-guide]] (blog/)
 
+[main 825f445] chore: process daily 2026-04-14
+ 20 files changed, 1935 insertions(+), 8 deletions(-)
+ create mode 100644 vault/attachments/2026-04-13/img-135028.jpg
+ create mode 100644 vault/attachments/2026-04-13/img-135451.jpg
+ create mode 100644 vault/attachments/2026-04-13/img-141319.jpg
+ create mode 100644 vault/daily/2026-04-14.md
+ create mode 100644 "\320\221\320\260\321\200\321\213\320\263\320\260/SKILL.md"
+ create mode 100644 "\320\221\320\260\321\200\321\213\320\263\320\260/\320\237\320\220\320\234\320\257\320\242\320\232\320\220.md"
+ create mode 100644 "\320\221\320\260\321\200\321\213\320\263\320\260/\320\237\320\240\320\220\320\222\320\230\320\233\320\236.md"
+ create mode 100644 "\320\241\320\272\320\270\320\273\320\273\321\213/baryga-access/SKILL.md"
+ create mode 100644 "\320\241\320\272\320\270\320\273\320\273\321\213/telegram-formatting/SKILL.md"
+To https://github.com/second-brain-Egor/agent-second-brain.git
+   3146300..825f445  main -> main
+=== Done (empty daily, graph-only) ===
