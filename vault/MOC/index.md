@@ -10,8 +10,8 @@ tier: active
 
 ## Срез
 
-- Заметок: 58
-- Связей: 158
+- Заметок: 59
+- Связей: 162
 - Сирот: 0
 - Слабосвязанных: 9
 
@@ -75,6 +75,7 @@ tier: active
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]
+- [[thoughts/learnings/vault-search-discipline.md|Дисциплина поиска по vault]]
 - [[thoughts/learnings/windows-network-recovery-after-wireguard.md|Восстановление сети Windows после WireGuard]]
 
 ## Справочные материалы
