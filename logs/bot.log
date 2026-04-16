@@ -19488,3 +19488,54 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: messa
 2026-04-16 21:25:01,738 - d_brain.bot.handlers.text - INFO - Text message processed: 79 chars
 2026-04-16 21:25:01,739 - aiogram.event - INFO - Update id=861044096 is handled. Duration 8637 ms by bot id=8566638650
 2026-04-16 21:25:30,888 - d_brain.bot.handlers.process - INFO - Process command triggered by user 6144231826
+2026-04-16 21:27:31,475 - d_brain.services.git - INFO - Committed: chore: process daily 2026-04-16
+2026-04-16 21:27:33,185 - d_brain.services.git - INFO - Pushed to remote
+2026-04-16 21:27:33,262 - aiogram.event - INFO - Update id=861044097 is handled. Duration 122376 ms by bot id=8566638650
+2026-04-16 21:48:41,749 - d_brain.bot.handlers.text - INFO - Text message processed: 26 chars
+2026-04-16 21:48:41,749 - aiogram.event - INFO - Update id=861044098 is handled. Duration 6329 ms by bot id=8566638650
+2026-04-16 21:49:47,839 - d_brain.bot.handlers.text - INFO - Text message processed: 20 chars
+2026-04-16 21:49:47,840 - aiogram.event - INFO - Update id=861044099 is handled. Duration 5215 ms by bot id=8566638650
+2026-04-16 21:51:59,334 - d_brain.bot.handlers.text - INFO - Text message processed: 53 chars
+2026-04-16 21:51:59,334 - aiogram.event - INFO - Update id=861044100 is handled. Duration 4758 ms by bot id=8566638650
+2026-04-16 21:52:41,652 - d_brain.bot.handlers.text - INFO - Text message processed: 29 chars
+2026-04-16 21:52:41,653 - aiogram.event - INFO - Update id=861044101 is handled. Duration 7942 ms by bot id=8566638650
+2026-04-16 23:11:05,705 - d_brain.bot.handlers.text - INFO - Text message processed: 97 chars
+2026-04-16 23:11:05,705 - aiogram.event - INFO - Update id=861044102 is handled. Duration 11077 ms by bot id=8566638650
+2026-04-16 23:13:03,057 - d_brain.bot.handlers.text - INFO - Text message processed: 46 chars
+2026-04-16 23:13:03,058 - aiogram.event - INFO - Update id=861044103 is handled. Duration 7162 ms by bot id=8566638650
+2026-04-16 23:34:22,544 - d_brain.bot.handlers.text - INFO - Text message processed: 22 chars
+2026-04-16 23:34:22,544 - aiogram.event - INFO - Update id=861044104 is handled. Duration 12297 ms by bot id=8566638650
+2026-04-16 23:34:45,502 - d_brain.bot.handlers.text - INFO - Text message processed: 16 chars
+2026-04-16 23:34:45,503 - aiogram.event - INFO - Update id=861044105 is handled. Duration 6296 ms by bot id=8566638650
+2026-04-16 23:36:53,678 - d_brain.bot.handlers.text - INFO - Text message processed: 36 chars
+2026-04-16 23:36:53,678 - aiogram.event - INFO - Update id=861044106 is handled. Duration 5873 ms by bot id=8566638650
+2026-04-16 23:37:23,148 - d_brain.bot.handlers.text - INFO - Text message processed: 22 chars
+2026-04-16 23:37:23,148 - aiogram.event - INFO - Update id=861044107 is handled. Duration 6029 ms by bot id=8566638650
+2026-04-16 23:37:46,384 - d_brain.bot.handlers.text - INFO - Text message processed: 7 chars
+2026-04-16 23:37:46,385 - aiogram.event - INFO - Update id=861044108 is handled. Duration 4037 ms by bot id=8566638650
+2026-04-16 23:40:41,971 - d_brain.services.processor - ERROR - OpenAI chat failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1275, in execute_raw_prompt
+    report = self._run_openai_text(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 318, in _run_openai_text
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 299, in _run_codex_exec
+    raise RuntimeError(details.splitlines()[-1] if details else "codex exec failed")
+RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Apr 17th, 2026 1:12 AM.
+2026-04-16 23:40:42,043 - d_brain.bot.handlers.text - INFO - Text message processed: 21 chars
+2026-04-16 23:40:42,043 - aiogram.event - INFO - Update id=861044109 is handled. Duration 2247 ms by bot id=8566638650
+2026-04-16 23:41:19,866 - d_brain.services.processor - ERROR - OpenAI chat failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1275, in execute_raw_prompt
+    report = self._run_openai_text(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 318, in _run_openai_text
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 299, in _run_codex_exec
+    raise RuntimeError(details.splitlines()[-1] if details else "codex exec failed")
+RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Apr 17th, 2026 1:12 AM.
+2026-04-16 23:41:19,934 - d_brain.bot.handlers.text - INFO - Text message processed: 8 chars
+2026-04-16 23:41:19,934 - aiogram.event - INFO - Update id=861044110 is handled. Duration 4693 ms by bot id=8566638650
