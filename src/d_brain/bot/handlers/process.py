@@ -11,7 +11,9 @@ from aiogram.types import Message
 from d_brain.bot.formatters import format_process_report
 from d_brain.config import get_settings
 from d_brain.services.git import VaultGit
+from d_brain.services.memory_rag import index_daily
 from d_brain.services.processor import AgentProcessor
+from d_brain.services.wiki import refresh_wiki
 
 router = Router(name="process")
 logger = logging.getLogger(__name__)
@@ -51,9 +53,10 @@ async def cmd_process(message: Message) -> None:
 
     report = await process_with_progress()
 
-    # Commit and push changes
     if "error" not in report:
         today = date.today().isoformat()
+        await asyncio.to_thread(refresh_wiki, settings.vault_path)
+        await asyncio.to_thread(index_daily, str(settings.vault_path))
         await asyncio.to_thread(git.commit_and_push, f"chore: process daily {today}")
 
     # Format and send report

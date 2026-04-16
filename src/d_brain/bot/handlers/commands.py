@@ -1,5 +1,7 @@
-"""Command handlers for /start, /help, /status, /silent, /chat."""
+"""Command handlers for /start, /help, /status, /restart, /silent, /chat."""
 
+import asyncio
+import shlex
 from datetime import date
 
 from aiogram import Router
@@ -9,11 +11,44 @@ from aiogram.types import Message
 
 from d_brain.bot.keyboards import get_main_keyboard
 from d_brain.bot.states import SilentState
-from d_brain.config import get_settings
+from d_brain.config import Settings, get_settings
 from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
 
 router = Router(name="commands")
+
+
+def _is_admin(user_id: int, settings: Settings) -> bool:
+    """Return True when the user can run admin commands."""
+    return user_id in settings.admin_user_ids
+
+
+async def _run_admin_command(command: str, timeout: int = 30) -> tuple[int, str, str]:
+    """Execute configured admin command and collect output."""
+    args = shlex.split(command)
+    if not args:
+        return 2, "", "empty command"
+
+    try:
+        proc = await asyncio.create_subprocess_exec(
+            *args,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
+    except OSError as exc:
+        return 127, "", str(exc)
+    try:
+        stdout, stderr = await asyncio.wait_for(proc.communicate(), timeout=timeout)
+    except TimeoutError:
+        proc.kill()
+        await proc.wait()
+        return 124, "", "timeout"
+
+    return (
+        proc.returncode or 0,
+        stdout.decode("utf-8", errors="replace").strip(),
+        stderr.decode("utf-8", errors="replace").strip(),
+    )
 
 
 @router.message(Command("start"))
@@ -33,6 +68,7 @@ async def cmd_start(message: Message) -> None:
         "/process - обработать записи\n"
         "/do - выполнить произвольный запрос\n"
         "/weekly - недельный дайджест\n"
+        "/restart - перезапустить бота (admin)\n"
         "/silent - тихий режим (только сохранение)\n"
         "/chat - вернуться в диалог\n"
         "/voice - включить/выключить голосовые ответы\n"
@@ -58,6 +94,7 @@ async def cmd_help(message: Message) -> None:
         "/process - обработать записи\n"
         "/do - выполнить произвольный запрос\n"
         "/weekly - недельный дайджест\n"
+        "/restart - перезапустить бота (admin)\n"
         "/voice - включить/выключить голосовые ответы\n\n"
         "<i>Пример: /do перенеси просроченные задачи на понедельник</i>",
         reply_markup=get_main_keyboard(),
@@ -109,6 +146,42 @@ async def cmd_status(message: Message) -> None:
         f"- ↩️ Пересланных: {forward_count}"
         f"{week_stats}",
         reply_markup=get_main_keyboard(),
+    )
+
+
+@router.message(Command("restart"))
+async def cmd_restart(message: Message) -> None:
+    """Handle /restart command for bot restart."""
+    user_id = message.from_user.id if message.from_user else 0
+    settings = get_settings()
+    session = SessionStore(settings.vault_path)
+    session.append(user_id, "command", cmd="/restart")
+
+    if not _is_admin(user_id, settings):
+        await message.answer("⛔ Команда доступна только администратору.")
+        return
+
+    restart_command = settings.admin_restart_command.strip()
+    if not restart_command:
+        await message.answer(
+            "⚠️ Перезапуск не настроен.\n\n"
+            "Нужно задать `ADMIN_RESTART_COMMAND` в `.env`."
+        )
+        return
+
+    status_msg = await message.answer("🔄 Перезапускаю сервис...")
+    code, stdout, stderr = await _run_admin_command(restart_command)
+
+    if code == 0:
+        await status_msg.edit_text("✅ Команда перезапуска отправлена.")
+        return
+
+    details = stderr or stdout or "без текста ошибки"
+    if len(details) > 300:
+        details = details[:300].rstrip() + "..."
+    await status_msg.edit_text(
+        "❌ Перезапуск не выполнен.\n\n"
+        f"<code>{details}</code>"
     )
 
 

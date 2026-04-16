@@ -12,7 +12,7 @@ from d_brain.bot.chat_context import get_session_scope, is_work_chat
 from d_brain.bot.formatters import (
     format_plain_text_report,
     normalize_telegram_output,
-    strip_internal_markers,
+    prepare_plain_text_response,
 )
 from d_brain.bot.states import AskCommandState
 from d_brain.config import get_settings
@@ -26,11 +26,11 @@ logger = logging.getLogger(__name__)
 
 async def _send_text_response(message: Message, response: str) -> None:
     """Send a plain text response."""
-    response = normalize_telegram_output(response)
-    try:
-        await message.answer(response)
-    except Exception:
-        await message.answer(response, parse_mode=None)
+    for chunk in prepare_plain_text_response(response):
+        try:
+            await message.answer(chunk)
+        except Exception:
+            await message.answer(chunk, parse_mode=None)
 
 
 @router.message(Command("ask"))
@@ -130,10 +130,11 @@ async def process_ask(message: Message, prompt: str) -> None:
             )
             return
 
+        sent_chunks = prepare_plain_text_response(response)
         session.append(
             session_scope,
             "assistant",
-            text=response[:500],
+            text="\n\n".join(sent_chunks),
             chat_id=message.chat.id,
             chat_title=message.chat.title,
         )
@@ -172,15 +173,15 @@ async def _run_ask_agent(
             await message.answer("Не получилось собрать ответ агента.", parse_mode=None)
             return
 
-        clean_response = strip_internal_markers(response)
+        sent_chunks = format_plain_text_report({"report": response})
         session.append(
             session_scope,
             "assistant",
-            text=f"[agent-done] {clean_response[:500]}",
+            text=f"[agent-done] {'\n\n'.join(sent_chunks)}",
             chat_id=message.chat.id,
             chat_title=message.chat.title,
         )
-        for chunk in format_plain_text_report({"report": response}):
+        for chunk in sent_chunks:
             await message.answer(chunk, parse_mode=None)
     except Exception as exc:
         logger.exception("Ask agent execution error")

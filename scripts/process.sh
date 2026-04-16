@@ -11,10 +11,17 @@ VAULT_DIR="$PROJECT_DIR/vault"
 ENV_FILE="$PROJECT_DIR/.env"
 
 if [ -f "$ENV_FILE" ]; then
-    set -a
-    # shellcheck disable=SC1090
-    . "$ENV_FILE"
-    set +a
+    while IFS= read -r line || [ -n "$line" ]; do
+        case "$line" in
+            ''|\#*) continue ;;
+            *=*)
+                key="${line%%=*}"
+                value="${line#*=}"
+                key="${key#export }"
+                export "$key=$value"
+                ;;
+        esac
+    done < "$ENV_FILE"
 fi
 
 if [ -z "${TELEGRAM_BOT_TOKEN:-}" ]; then
@@ -52,6 +59,10 @@ if [ "$DAILY_SIZE" -lt 50 ]; then
     cd "$VAULT_DIR"
     uv run "$SKILLS_ROOT/graph-builder/scripts/analyze.py" || echo "Graph rebuild failed (non-critical)"
     cd "$PROJECT_DIR"
+    echo "=== Refreshing wiki index ==="
+    uv run python -m d_brain.services.wiki || echo "Wiki refresh failed (non-critical)"
+    echo "=== RAG indexing ==="
+    uv run python3 -c "from d_brain.services.memory_rag import index_daily; print(f'Indexed {index_daily(\"$VAULT_DIR\")} facts')" || echo "RAG indexing failed (non-critical)"
     git add -A
     git commit -m "chore: process daily $TODAY" || true
     git push || true
@@ -99,13 +110,16 @@ REPORT_CLEAN=$(echo "$REPORT" | sed '/<!--/,/-->/d')
 echo "=== Rebuilding vault graph ==="
 cd "$VAULT_DIR"
 uv run "$SKILLS_ROOT/graph-builder/scripts/analyze.py" || echo "Graph rebuild failed (non-critical)"
+cd "$PROJECT_DIR"
+
+echo "=== Refreshing wiki index ==="
+uv run python -m d_brain.services.wiki || echo "Wiki refresh failed (non-critical)"
 
 echo "=== RAG indexing ==="
 uv run python3 -c "from d_brain.services.memory_rag import index_daily; print(f'Indexed {index_daily(\"$VAULT_DIR\")} facts')" || echo "RAG indexing failed (non-critical)"
 
 echo "=== Memory decay ==="
-uv run "$SKILLS_ROOT/agent-memory/scripts/memory-engine.py" decay . || echo "Memory decay failed (non-critical)"
-cd "$PROJECT_DIR"
+uv run "$SKILLS_ROOT/agent-memory/scripts/memory-engine.py" decay "$VAULT_DIR" || echo "Memory decay failed (non-critical)"
 
 git add -A
 git commit -m "chore: process daily $TODAY" || true

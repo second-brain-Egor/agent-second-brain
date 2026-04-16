@@ -93,6 +93,16 @@ class AgentProcessor:
         """Shared prompt rules for planning horizon and reminders."""
         return PLANNING_GUARDRAILS
 
+    @staticmethod
+    def _render_session_entry(entry: dict[str, Any]) -> str:
+        """Render a session entry without truncating stored text."""
+        ts = entry.get("ts", "")[11:16]
+        entry_type = entry.get("type", "unknown")
+        text = entry.get("text", "")
+        if not text:
+            return ""
+        return f"{ts} [{entry_type}] {text}"
+
     def _get_session_context(self, session_scope: int | str | None) -> str:
         """Get today's session context for the AI backend."""
         if session_scope in (0, "0", None, ""):
@@ -105,11 +115,9 @@ class AgentProcessor:
 
         lines = ["=== TODAY SESSION ==="]
         for entry in today_entries[-50:]:
-            ts = entry.get("ts", "")[11:16]
-            entry_type = entry.get("type", "unknown")
-            text = entry.get("text", "")[:500]
-            if text:
-                lines.append(f"{ts} [{entry_type}] {text}")
+            rendered = self._render_session_entry(entry)
+            if rendered:
+                lines.append(rendered)
         lines.append("=== END SESSION ===")
         return "\n".join(lines)
 
@@ -896,6 +904,12 @@ Do not mention:
                 verbosity="medium",
                 max_output_tokens=3000,
             )
+            try:
+                from d_brain.services.wiki import refresh_wiki
+
+                refresh_wiki(self.vault_path)
+            except Exception:
+                logger.exception("Wiki refresh failed after daily processing")
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
             logger.exception("OpenAI daily processing failed")
@@ -1188,6 +1202,11 @@ Do not include:
             for goal_file in sorted(goals_dir.glob("*.md")):
                 content = goal_file.read_text(encoding="utf-8", errors="ignore")[:1000]
                 parts.append(f"=== {goal_file.name} ===\n{content}")
+
+        index_file = self.vault_path / "MOC" / "index.md"
+        if index_file.exists():
+            content = index_file.read_text(encoding="utf-8", errors="ignore")[:3000]
+            parts.append(f"=== index.md ===\n{content}")
 
         context = "\n\n".join(parts)
         self._memory_cache[cache_key] = context

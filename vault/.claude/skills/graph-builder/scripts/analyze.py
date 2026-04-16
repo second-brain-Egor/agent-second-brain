@@ -11,6 +11,8 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+IGNORE_DIRS = {".obsidian", "attachments", ".git", ".graph", ".claude", ".trash", "__pycache__"}
+
 
 def extract_links(content: str) -> list[str]:
     """Extract [[wiki-links]] from content."""
@@ -23,50 +25,97 @@ def get_note_title(path: Path) -> str:
     return path.stem
 
 
+def note_id_for_path(rel_path: Path) -> str:
+    """Stable note id based on relative path without extension."""
+    return rel_path.as_posix().removesuffix(".md")
+
+
+def normalize_link_target(raw_link: str) -> str:
+    """Normalize a wiki-link target for matching."""
+    target = raw_link.split("#", 1)[0].strip().strip("/")
+    return target.removesuffix(".md")
+
+
+def collect_markdown_files(vault_path: Path) -> list[Path]:
+    """Collect vault markdown files, excluding internal directories."""
+    return sorted(
+        f for f in vault_path.rglob("*.md")
+        if not any(part in IGNORE_DIRS or part.startswith(".") for part in f.relative_to(vault_path).parts)
+    )
+
+
+def resolve_link_target(
+    target: str,
+    path_index: dict[str, str],
+    stem_index: dict[str, list[str]],
+) -> str | None:
+    """Resolve a wiki-link target to a unique relative path when possible."""
+    normalized = normalize_link_target(target)
+    if not normalized:
+        return None
+
+    if normalized in path_index:
+        return path_index[normalized]
+
+    leaf = normalized.split("/")[-1]
+    matches = stem_index.get(leaf, [])
+    if len(matches) == 1:
+        return matches[0]
+
+    return None
+
+
 def analyze_vault(vault_path: Path) -> dict:
     """Analyze vault link structure."""
     notes: dict[str, dict] = {}
     links_from: dict[str, set] = defaultdict(set)  # note -> set of linked notes
     links_to: dict[str, set] = defaultdict(set)    # note -> set of notes linking to it
+    unresolved_links: dict[str, set] = defaultdict(set)
 
     # Collect all markdown files
-    md_files = list(vault_path.rglob("*.md"))
+    md_files = collect_markdown_files(vault_path)
 
-    # Skip hidden directories and .claude
-    md_files = [
-        f for f in md_files
-        if not any(part.startswith('.') for part in f.relative_to(vault_path).parts)
-    ]
+    path_index: dict[str, str] = {}
+    stem_index: dict[str, list[str]] = defaultdict(list)
 
     # Build note index
     for md_file in md_files:
         rel_path = md_file.relative_to(vault_path)
+        rel_path_str = rel_path.as_posix()
         title = get_note_title(md_file)
         domain = str(rel_path.parts[0]) if len(rel_path.parts) > 1 else "root"
+        note_id = note_id_for_path(rel_path)
 
-        notes[title] = {
-            "path": str(rel_path),
+        path_index[note_id] = rel_path_str
+        stem_index[title].append(rel_path_str)
+
+        notes[rel_path_str] = {
+            "path": rel_path_str,
+            "note_id": note_id,
+            "title": title,
             "domain": domain,
             "size": md_file.stat().st_size,
         }
 
     # Analyze links
     for md_file in md_files:
-        title = get_note_title(md_file)
+        source_path = md_file.relative_to(vault_path).as_posix()
         content = md_file.read_text(encoding="utf-8", errors="ignore")
 
         for link in extract_links(content):
-            # Handle links with paths like [[folder/note]]
-            link_title = link.split("/")[-1] if "/" in link else link
-
-            links_from[title].add(link_title)
-            links_to[link_title].add(title)
+            resolved = resolve_link_target(link, path_index, stem_index)
+            if resolved:
+                links_from[source_path].add(resolved)
+                links_to[resolved].add(source_path)
+            else:
+                unresolved_links[source_path].add(normalize_link_target(link))
 
     # Calculate statistics
     orphans = []
-    for title, info in notes.items():
-        incoming = len(links_to.get(title, set()))
-        outgoing = len(links_from.get(title, set()))
+    weakly_connected = []
+    for rel_path, info in notes.items():
+        incoming = len(links_to.get(rel_path, set()))
+        outgoing = len(links_from.get(rel_path, set()))
         info["incoming"] = incoming
         info["outgoing"] = outgoing
         info["total_links"] = incoming + outgoing
@@ -75,11 +124,13 @@ def analyze_vault(vault_path: Path) -> dict:
         # Exclude MOC and root-level files from orphan detection
         if incoming == 0 and outgoing == 0:
             if info["domain"] not in ("MOC", "root"):
-                orphans.append(title)
+                orphans.append(rel_path)
+        elif info["total_links"] < 2:
+            weakly_connected.append(rel_path)
 
     # Domain statistics
     domain_stats: dict[str, dict] = defaultdict(lambda: {"count": 0, "links": 0})
-    for title, info in notes.items():
+    for info in notes.values():
         domain = info["domain"]
         domain_stats[domain]["count"] += 1
         domain_stats[domain]["links"] += info["total_links"]
@@ -101,11 +152,21 @@ def analyze_vault(vault_path: Path) -> dict:
         "total_links": sum(len(v) for v in links_from.values()),
         "orphans": orphans,
         "orphan_count": len(orphans),
+        "weakly_connected": weakly_connected,
+        "weakly_connected_count": len(weakly_connected),
         "domain_stats": dict(domain_stats),
-        "most_connected": [(t, n["total_links"]) for t, n in most_connected],
+        "most_connected": [
+            {
+                "path": path,
+                "title": note["title"],
+                "count": note["total_links"],
+            }
+            for path, note in most_connected
+        ],
         "notes": notes,
         "links_from": {k: list(v) for k, v in links_from.items()},
         "links_to": {k: list(v) for k, v in links_to.items()},
+        "unresolved_links": {k: list(v) for k, v in unresolved_links.items()},
     }
 
 
@@ -126,8 +187,8 @@ def format_report(stats: dict) -> str:
     if stats["most_connected"]:
         lines.append("## Most Connected Notes")
         lines.append("")
-        for title, count in stats["most_connected"][:5]:
-            lines.append(f"- [[{title}]] ({count} links)")
+        for note in stats["most_connected"][:5]:
+            lines.append(f"- [[{note['path']}|{note['title']}]] ({note['count']} links)")
         lines.append("")
 
     # Domain stats
@@ -144,9 +205,9 @@ def format_report(stats: dict) -> str:
     if stats["orphans"]:
         lines.append("## Orphan Notes (need links)")
         lines.append("")
-        for title in stats["orphans"][:20]:
-            note = stats["notes"][title]
-            lines.append(f"- [[{title}]] ({note['domain']}/)")
+        for rel_path in stats["orphans"][:20]:
+            note = stats["notes"][rel_path]
+            lines.append(f"- [[{rel_path.removesuffix('.md')}|{note['title']}]] ({note['domain']}/)")
         if len(stats["orphans"]) > 20:
             lines.append(f"- ... and {len(stats['orphans']) - 20} more")
         lines.append("")
@@ -171,8 +232,8 @@ def format_html(stats: dict) -> str:
     # Most connected
     if stats["most_connected"]:
         lines.append("<b>🏆 Most connected:</b>")
-        for title, count in stats["most_connected"][:3]:
-            lines.append(f"• [[{title}]] ({count})")
+        for note in stats["most_connected"][:3]:
+            lines.append(f"• [[{note['path'].removesuffix('.md')}|{note['title']}]] ({note['count']})")
         lines.append("")
 
     # Weakest domain
@@ -186,8 +247,9 @@ def format_html(stats: dict) -> str:
     if stats["orphans"]:
         lines.append("")
         lines.append("<b>📋 Sample orphans:</b>")
-        for title in stats["orphans"][:5]:
-            lines.append(f"• {title}")
+        for rel_path in stats["orphans"][:5]:
+            note = stats["notes"][rel_path]
+            lines.append(f"• {note['title']} — {rel_path}")
 
     return "\n".join(lines)
 

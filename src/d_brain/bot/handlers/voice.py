@@ -17,7 +17,7 @@ from d_brain.bot.states import SilentState
 from d_brain.bot.formatters import (
     format_plain_text_report,
     normalize_telegram_output,
-    strip_internal_markers,
+    prepare_plain_text_response,
 )
 from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
@@ -51,11 +51,11 @@ async def _transcribe_voice(message: Message, bot: Bot) -> str | None:
 
 async def _send_response(message: Message, response: str) -> None:
     """Send a plain text response."""
-    response = normalize_telegram_output(response)
-    try:
-        await message.answer(response)
-    except Exception:
-        await message.answer(response, parse_mode=None)
+    for chunk in prepare_plain_text_response(response):
+        try:
+            await message.answer(chunk)
+        except Exception:
+            await message.answer(chunk, parse_mode=None)
 
 
 @router.message(SilentState.active, lambda m: m.voice is not None)
@@ -160,7 +160,14 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
                     _run_voice_agent(message, processor, transcript, user_id, scope, work_context, session)
                 )
             else:
-                session.append(scope, "assistant", text=response[:500], chat_id=message.chat.id, chat_title=message.chat.title)
+                sent_chunks = prepare_plain_text_response(response)
+                session.append(
+                    scope,
+                    "assistant",
+                    text="\n\n".join(sent_chunks),
+                    chat_id=message.chat.id,
+                    chat_title=message.chat.title,
+                )
                 await _send_response(message, response)
 
     except Exception as e:
@@ -194,9 +201,15 @@ async def _run_voice_agent(
             await message.answer(f"⚠️ Агент: {result['error']}", parse_mode=None)
         elif "report" in result:
             response = result["report"]
-            clean_response = strip_internal_markers(response)
-            session.append(session_scope, "assistant", text=f"[agent-done] {clean_response[:500]}", chat_id=message.chat.id, chat_title=message.chat.title)
-            for chunk in format_plain_text_report({"report": response}):
+            sent_chunks = format_plain_text_report({"report": response})
+            session.append(
+                session_scope,
+                "assistant",
+                text=f"[agent-done] {'\n\n'.join(sent_chunks)}",
+                chat_id=message.chat.id,
+                chat_title=message.chat.title,
+            )
+            for chunk in sent_chunks:
                 await message.answer(chunk, parse_mode=None)
     except Exception as e:
         logger.exception("Agent execution error")

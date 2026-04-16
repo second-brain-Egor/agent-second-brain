@@ -266,6 +266,11 @@ def format_plain_text_report(report: dict[str, Any]) -> list[str]:
     return ["Обработка завершена"]
 
 
+def prepare_plain_text_response(text: str) -> list[str]:
+    """Prepare plain-text Telegram response chunks from raw model output."""
+    return split_plain_text_messages(str(text), max_length=4096)
+
+
 def format_error(error: str) -> str:
     """Format error message for Telegram.
 

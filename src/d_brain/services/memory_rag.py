@@ -11,6 +11,7 @@ from datetime import date
 from pathlib import Path
 
 DB_PATH = os.path.join(os.environ.get("PROJECT_DIR", "."), "vault", ".data", "memory.db")
+EXCLUDED_DIRS = {".obsidian", "attachments", ".git", ".graph", ".claude", ".trash", "__pycache__"}
 
 
 def _get_db_path() -> str:
@@ -60,6 +61,29 @@ def _extract_facts(text: str) -> list[str]:
     return facts
 
 
+def _iter_markdown_files(vault: Path) -> list[Path]:
+    """Return markdown files from the vault, excluding internal directories."""
+    return sorted(
+        md_file
+        for md_file in vault.rglob("*.md")
+        if not any(part in EXCLUDED_DIRS or part.startswith(".") for part in md_file.relative_to(vault).parts)
+    )
+
+
+def _tokenize_query(query: str) -> list[str]:
+    """Extract searchable tokens from a free-form query."""
+    tokens = re.findall(r"\w+", query.lower())
+    return [token for token in tokens if len(token) >= 2]
+
+
+def _run_search(conn: sqlite3.Connection, fts_query: str, limit: int) -> list[tuple[str, str]]:
+    """Run an FTS query and return content/source rows."""
+    return conn.execute(
+        "SELECT content, source FROM facts_fts WHERE facts_fts MATCH ? ORDER BY rank LIMIT ?",
+        (fts_query, limit),
+    ).fetchall()
+
+
 def index_daily(vault_path: str | None = None) -> int:
     """Index vault markdown files into SQLite FTS5.
 
@@ -84,24 +108,20 @@ def index_daily(vault_path: str | None = None) -> int:
     conn.execute("DELETE FROM facts_fts")
 
     count = 0
-    for subdir in ["daily", "thoughts", "memory"]:
-        dir_path = vault / subdir
-        if not dir_path.exists():
+    today = date.today().isoformat()
+    for md_file in _iter_markdown_files(vault):
+        try:
+            text = md_file.read_text(errors="ignore")
+            facts = _extract_facts(text)
+            source = str(md_file.relative_to(vault))
+            for fact in facts:
+                conn.execute(
+                    "INSERT INTO facts (source, content, created_at) VALUES (?, ?, ?)",
+                    (source, fact, today),
+                )
+                count += 1
+        except Exception:
             continue
-        for md_file in dir_path.glob("*.md"):
-            try:
-                text = md_file.read_text(errors="ignore")
-                facts = _extract_facts(text)
-                source = f"{subdir}/{md_file.name}"
-                today = date.today().isoformat()
-                for fact in facts:
-                    conn.execute(
-                        "INSERT INTO facts (source, content, created_at) VALUES (?, ?, ?)",
-                        (source, fact, today),
-                    )
-                    count += 1
-            except Exception:
-                continue
 
     # Rebuild FTS index
     conn.execute("INSERT INTO facts_fts(facts_fts) VALUES('rebuild')")
@@ -126,16 +146,19 @@ def search_memory(query: str, limit: int = 5) -> str:
 
     try:
         conn = sqlite3.connect(db_path)
-        # Sanitize query for FTS5 (remove special chars)
-        safe_query = re.sub(r"[^\w\s]", " ", query)
-        safe_query = " ".join(safe_query.split())
-        if not safe_query:
+        tokens = _tokenize_query(query)
+        if not tokens:
+            conn.close()
             return ""
 
-        rows = conn.execute(
-            "SELECT content, source FROM facts_fts WHERE facts_fts MATCH ? ORDER BY rank LIMIT ?",
-            (safe_query, limit),
-        ).fetchall()
+        # First try the strict query. FTS5 treats whitespace as AND, which works
+        # well for compact factual prompts.
+        rows = _run_search(conn, " ".join(tokens), limit)
+        if not rows:
+            # Fall back to a broader prefix query so natural-language prompts
+            # still surface relevant notes instead of returning nothing.
+            relaxed_terms = [f'"{token}"*' for token in tokens]
+            rows = _run_search(conn, " OR ".join(relaxed_terms), limit)
         conn.close()
 
         if not rows:

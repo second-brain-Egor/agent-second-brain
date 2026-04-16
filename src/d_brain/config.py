@@ -34,9 +34,17 @@ class Settings(BaseSettings):
         default_factory=list,
         description="List of Telegram user IDs allowed to use the bot",
     )
+    admin_user_ids: list[int] = Field(
+        default_factory=list,
+        description="List of Telegram user IDs allowed to run admin commands",
+    )
     allow_all_users: bool = Field(
         default=False,
         description="Whether to allow access to all users (security risk!)",
+    )
+    admin_restart_command: str = Field(
+        default="",
+        description="Shell command used by /restart admin command",
     )
     work_chat_ids: list[int] = Field(
         default_factory=list,

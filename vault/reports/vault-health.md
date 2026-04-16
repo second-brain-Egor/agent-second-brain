@@ -1,0 +1,67 @@
+---
+type: note
+updated: 2026-04-16
+relevance: 0.86
+tier: warm
+---
+# Health Check Vault
+
+Снимок связности и навигации по базе знаний.
+
+## Обзор
+
+- Заметок: 57
+- Связей: 153
+- Сирот: 0
+- Слабосвязанных: 9
+
+## Домены
+
+| Домен | Заметок | Среднее число связей |
+|---|---:|---:|
+| MOC | 6 | 9.50 |
+| blog | 2 | 1.00 |
+| daily | 15 | 3.47 |
+| goals | 5 | 8.60 |
+| memory | 5 | 8.40 |
+| references | 3 | 2.00 |
+| reports | 1 | 36.00 |
+| root | 1 | 3.00 |
+| summaries | 2 | 2.00 |
+| templates | 2 | 1.00 |
+| thoughts | 15 | 3.93 |
+
+## Самые связные заметки
+
+- [[MOC/index.md|Индекс знаний]] — 46 связей
+- [[reports/vault-health.md|Health Check Vault]] — 36 связей
+- [[memory/soul.md|Идентичность агента]] — 14 связей
+- [[memory/facts.md|Ключевые факты и события]] — 13 связей
+- [[memory/user.md|Данные о пользователе]] — 11 связей
+- [[goals/1-yearly-2026.md|Goals 2026]] — 10 связей
+- [[goals/2-monthly.md|Monthly Focus — Апрель 2026]] — 10 связей
+- [[goals/0-vision-3y.md|Vision 2025-2027]] — 9 связей
+- [[goals/3-weekly.md|Weekly Focus — W14 (31 марта – 6 апреля)]] — 9 связей
+- [[daily/2026-04-11.md|2026-04-11]] — 7 связей
+
+## Слабосвязанные
+
+- [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
+- [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
+- [[daily/2026-03-27.md|2026-03-27]]
+- [[daily/2026-03-28.md|2026-03-28]]
+- [[daily/2026-03-30.md|2026-03-30]]
+- [[daily/2026-03-31.md|2026-03-31]]
+- [[daily/2026-04-07.md|2026-04-07]]
+- [[templates/crm-template.md|[Company Name]]]
+- [[templates/daily-template.md|{{date}}]]
+
+## Неразрешённые ссылки
+
+- [[daily/2026-03-29.md|2026-03-29]]: attachments/2026-03-29/img-153353.jpg, attachments/2026-03-29/img-153442.jpg, attachments/2026-03-29/img-153919.jpg, attachments/2026-03-29/img-154039.jpg, attachments/2026-03-29/img-154119.jpg
+- [[daily/2026-04-08.md|2026-04-08]]: .session/handoff, GLOBAL_RULES, attachments/2026-04-08/img-224628.jpg, attachments/2026-04-08/img-231319.jpg
+- [[daily/2026-04-09.md|2026-04-09]]: .session/handoff, attachments/2026-04-09/img-091056.jpg, attachments/2026-04-09/img-092050.jpg
+- [[daily/2026-04-11.md|2026-04-11]]: attachments/2026-04-11/img-133108.jpg, attachments/2026-04-11/img-133634.jpg
+- [[daily/2026-04-13.md|2026-04-13]]: attachments/2026-04-13/img-135028.jpg, attachments/2026-04-13/img-135451.jpg, attachments/2026-04-13/img-141319.jpg
+- [[daily/2026-04-14.md|2026-04-14]]: attachments/2026-04-14/img-120945.jpg
+- [[references/classification.md|Entry Classification]]: 2024-12-16-claude-mcp-setup, 2024-12-16-saas-pricing-model, client

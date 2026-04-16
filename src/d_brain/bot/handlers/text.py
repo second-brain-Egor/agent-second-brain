@@ -18,7 +18,7 @@ from d_brain.bot.states import SilentState
 from d_brain.bot.formatters import (
     format_plain_text_report,
     normalize_telegram_output,
-    strip_internal_markers,
+    prepare_plain_text_response,
 )
 from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
@@ -31,11 +31,11 @@ logger = logging.getLogger(__name__)
 
 async def _send_text_response(message: Message, response: str) -> None:
     """Send a plain text response."""
-    response = normalize_telegram_output(response)
-    try:
-        await message.answer(response)
-    except Exception:
-        await message.answer(response, parse_mode=None)
+    for chunk in prepare_plain_text_response(response):
+        try:
+            await message.answer(chunk)
+        except Exception:
+            await message.answer(chunk, parse_mode=None)
 
 
 @router.message(SilentState.active, lambda m: m.text is not None and not m.text.startswith("/"))
@@ -124,7 +124,14 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
                     _run_agent(message, processor, message.text, user_id, scope, work_context, session)
                 )
             else:
-                session.append(scope, "assistant", text=response[:500], chat_id=message.chat.id, chat_title=message.chat.title)
+                sent_chunks = prepare_plain_text_response(response)
+                session.append(
+                    scope,
+                    "assistant",
+                    text="\n\n".join(sent_chunks),
+                    chat_id=message.chat.id,
+                    chat_title=message.chat.title,
+                )
                 await _send_text_response(message, response)
         else:
             await message.answer("✓ Сохранено")
@@ -160,9 +167,15 @@ async def _run_agent(
             await message.answer(f"⚠️ Агент: {result['error']}", parse_mode=None)
         elif "report" in result:
             response = result["report"]
-            clean_response = strip_internal_markers(response)
-            session.append(session_scope, "assistant", text=f"[agent-done] {clean_response[:500]}", chat_id=message.chat.id, chat_title=message.chat.title)
-            for chunk in format_plain_text_report({"report": response}):
+            sent_chunks = format_plain_text_report({"report": response})
+            session.append(
+                session_scope,
+                "assistant",
+                text=f"[agent-done] {'\n\n'.join(sent_chunks)}",
+                chat_id=message.chat.id,
+                chat_title=message.chat.title,
+            )
+            for chunk in sent_chunks:
                 await message.answer(chunk, parse_mode=None)
     except Exception as e:
         logger.exception("Agent execution error")
