@@ -10,8 +10,8 @@ tier: active
 
 ## Срез
 
-- Заметок: 57
-- Связей: 153
+- Заметок: 58
+- Связей: 158
 - Сирот: 0
 - Слабосвязанных: 9
 
@@ -49,6 +49,7 @@ tier: active
 - [[thoughts/projects/enterprise-ai-implementation/README.md|Внедрение ИИ на предприятии]]
 - [[thoughts/projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
 - [[thoughts/projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
+- [[thoughts/projects/second-brain-bot-operations/memory-sync.md|Синхронизация памяти между Telegram и терминалом]]
 - [[thoughts/projects/shiporezny-stanok-selection/README.md|Подбор шипорезного станка]]
 - [[thoughts/projects/timberframe-workshop-setup/README.md|Timberframe Workshop Setup]]
 - [[thoughts/projects/timberframe/README.md|TimberFrame]]
