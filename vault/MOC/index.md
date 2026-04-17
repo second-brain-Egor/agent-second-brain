@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-04-17
+updated: 2026-04-18
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 60
-- Связей: 152
-- Сирот: 1
-- Слабосвязанных: 19
+- Заметок: 63
+- Связей: 177
+- Сирот: 0
+- Слабосвязанных: 11
 
 ## Память
 
@@ -43,6 +43,7 @@ tier: active
 ## Проекты
 
 - [[thoughts/projects/asula/README.md|АСУЛА]]
+- [[thoughts/projects/dacha/README.md|Дача]]
 - [[thoughts/projects/enterprise-ai-implementation/01-project-outline.md|Каркас проекта]]
 - [[thoughts/projects/enterprise-ai-implementation/02-key-questions-and-sensitive-points.md|Ключевые вопросы и чувствительные моменты]]
 - [[thoughts/projects/enterprise-ai-implementation/03-local-ai-stack-and-budget.md|Локальный ИИ-контур и бюджет]]
@@ -57,16 +58,17 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-04-18.md|2026-04-18]]
 - [[daily/2026-04-17.md|2026-04-17]]
 - [[daily/2026-04-16.md|2026-04-16]]
 - [[daily/2026-04-15.md|2026-04-15]]
 - [[daily/2026-04-14.md|2026-04-14]]
 - [[daily/2026-04-13.md|2026-04-13]]
 - [[daily/2026-04-12.md|2026-04-12]]
-- [[daily/2026-04-11.md|2026-04-11]]
 
 ## Недельные сводки
 
+- [[summaries/2026-W16-summary.md|2026-W16-summary]]
 - [[summaries/2026-W15-summary.md|2026-W15-summary]]
 - [[summaries/2026-W14-summary.md|2026-W14-summary]]
 

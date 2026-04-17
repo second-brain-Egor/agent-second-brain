@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-04-17
+updated: 2026-04-18
 relevance: 0.86
 tier: warm
 ---
@@ -10,50 +10,42 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 60
-- Связей: 152
-- Сирот: 1
-- Слабосвязанных: 19
+- Заметок: 63
+- Связей: 177
+- Сирот: 0
+- Слабосвязанных: 11
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 6 | 9.17 |
+| MOC | 6 | 12.17 |
 | blog | 2 | 1.00 |
-| daily | 16 | 3.19 |
+| daily | 17 | 3.24 |
 | goals | 5 | 8.60 |
-| memory | 5 | 9.00 |
-| references | 3 | 1.33 |
-| reports | 1 | 26.00 |
+| memory | 5 | 9.20 |
+| references | 3 | 2.00 |
+| reports | 1 | 37.00 |
 | root | 1 | 3.00 |
-| summaries | 2 | 2.00 |
+| summaries | 3 | 2.00 |
 | templates | 2 | 1.00 |
-| thoughts | 17 | 4.06 |
+| thoughts | 18 | 4.50 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 48 связей
-- [[reports/vault-health.md|Health Check Vault]] — 26 связей
+- [[MOC/index.md|Индекс знаний]] — 51 связей
+- [[reports/vault-health.md|Health Check Vault]] — 37 связей
 - [[memory/soul.md|Идентичность агента]] — 16 связей
 - [[memory/facts.md|Ключевые факты и события]] — 13 связей
 - [[memory/user.md|Данные о пользователе]] — 13 связей
+- [[MOC/MOC-projects.md|Projects]] — 12 связей
 - [[goals/1-yearly-2026.md|Goals 2026]] — 10 связей
 - [[goals/2-monthly.md|Monthly Focus — Апрель 2026]] — 10 связей
 - [[goals/0-vision-3y.md|Vision 2025-2027]] — 9 связей
 - [[goals/3-weekly.md|Weekly Focus — W14 (31 марта – 6 апреля)]] — 9 связей
-- [[daily/2026-04-11.md|2026-04-11]] — 7 связей
-
-## Сироты
-
-- [[daily/2026-04-10.md|2026-04-10]]
 
 ## Слабосвязанные
 
-- [[MOC/MOC-ideas.md|Ideas]]
-- [[MOC/MOC-learnings.md|Learnings]]
-- [[MOC/MOC-projects.md|Projects]]
-- [[MOC/MOC-reflections.md|Reflections]]
 - [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
 - [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
@@ -61,12 +53,8 @@ tier: warm
 - [[daily/2026-03-30.md|2026-03-30]]
 - [[daily/2026-03-31.md|2026-03-31]]
 - [[daily/2026-04-07.md|2026-04-07]]
-- [[daily/2026-04-12.md|2026-04-12]]
-- [[daily/2026-04-15.md|2026-04-15]]
-- [[daily/2026-04-17.md|2026-04-17]]
-- [[memory/system-log.md|System Log]]
-- [[references/business-context.md|Business Context]]
-- [[references/work-group-rules.md|Правила рабочей группы]]
+- [[daily/2026-04-10.md|2026-04-10]]
+- [[daily/2026-04-18.md|2026-04-18]]
 - [[templates/crm-template.md|[Company Name]]]
 - [[templates/daily-template.md|{{date}}]]
 
