@@ -73,6 +73,20 @@ pgrep = subprocess.run(
     text=True,
 )
 process_lines = [line.strip() for line in pgrep.stdout.splitlines() if line.strip()]
+
+du = subprocess.run(
+    ["du", "-sb", str(remote_dir)],
+    capture_output=True,
+    text=True,
+)
+folder_size_bytes = None
+if du.returncode == 0 and du.stdout.strip():
+    first_field = du.stdout.split()[0]
+    try:
+        folder_size_bytes = int(first_field)
+    except ValueError:
+        folder_size_bytes = None
+
 log_dt = parse_log_timestamp(log_path)
 log_age = int((now - log_dt).total_seconds()) if log_dt else None
 
@@ -92,6 +106,7 @@ report = {
     "status": status,
     "reasons": reasons,
     "remote_dir": str(remote_dir),
+    "folder_size_bytes": folder_size_bytes,
     "process_count": len(process_lines),
     "processes": process_lines[:5],
     "scraped_threads": len(progress.get("scraped_threads", [])),
@@ -115,6 +130,20 @@ from datetime import datetime, timezone
 
 report = json.loads(os.environ["REMOTE_REPORT"])
 
+def fmt_size(size_bytes):
+    if size_bytes is None:
+        return "n/a"
+    units = ["Б", "КиБ", "МиБ", "ГиБ", "ТиБ"]
+    size = float(size_bytes)
+    unit = units[0]
+    for next_unit in units[1:]:
+        if size < 1024:
+            break
+        size /= 1024
+        unit = next_unit
+    precision = 0 if unit == "Б" else 2
+    return f"{size:.{precision}f} {unit}"
+
 def fmt_age(seconds):
     if seconds is None:
         return "n/a"
@@ -131,6 +160,11 @@ procs = " | ".join(report["processes"]) if report["processes"] else "нет"
 
 print(f"[{stamp}] Forumhouse check: {report['status'].upper()}")
 print(f"remote_dir={report['remote_dir']}")
+print(
+    "folder_size="
+    f"bytes:{report['folder_size_bytes'] if report['folder_size_bytes'] is not None else 'n/a'} "
+    f"human:{fmt_size(report['folder_size_bytes'])}"
+)
 print(f"process_count={report['process_count']}")
 print(f"processes={procs}")
 print(
@@ -151,4 +185,3 @@ print(
 )
 print(f"summary={reasons}")
 PY
-
