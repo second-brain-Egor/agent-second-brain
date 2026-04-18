@@ -1,0 +1,9 @@
+[2026-04-18 09:34:09 MSK] Forumhouse randomized check: delay=1s
+[2026-04-18 09:34:11 MSK] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+process_count=2
+processes=3503259 bash -c cd /root/forum-harvest && nohup .venv/bin/python scrape.py --forum 91 --resume >> scrape.log 2>&1 < /dev/null & echo $! | 3503260 .venv/bin/python scrape.py --forum 91 --resume
+progress=scraped_threads:5 completed_forums:0
+run_state=status:running phase:sync updated_at:2026-04-16T19:40:05.510881+00:00
+log=updated_at:2026-04-18T06:33:47+00:00 age:0 мин
+summary=признаков застоя нет

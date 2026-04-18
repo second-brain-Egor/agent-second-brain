@@ -19673,3 +19673,65 @@ RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgp
 2026-04-17 23:49:05,946 - d_brain.services.transcription - INFO - Transcription complete: 36 chars
 2026-04-17 23:49:11,658 - d_brain.bot.handlers.voice - INFO - Voice message processed
 2026-04-17 23:49:11,658 - aiogram.event - INFO - Update id=861044133 is handled. Duration 7183 ms by bot id=8566638650
+2026-04-18 08:12:02,807 - d_brain.services.transcription - INFO - Starting transcription, audio size: 75001 bytes
+2026-04-18 08:12:04,171 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-18 08:12:04,176 - d_brain.services.transcription - INFO - Transcription complete: 43 chars
+2026-04-18 08:12:09,476 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-18 08:12:09,477 - aiogram.event - INFO - Update id=861044134 is handled. Duration 7047 ms by bot id=8566638650
+2026-04-18 08:20:01,891 - d_brain.bot.handlers.text - INFO - Text message processed: 53 chars
+2026-04-18 08:20:01,891 - aiogram.event - INFO - Update id=861044135 is handled. Duration 4268 ms by bot id=8566638650
+2026-04-18 08:24:46,632 - d_brain.bot.handlers.text - INFO - Text message processed: 29 chars
+2026-04-18 08:24:46,633 - aiogram.event - INFO - Update id=861044136 is handled. Duration 4695 ms by bot id=8566638650
+2026-04-18 08:25:18,764 - d_brain.bot.handlers.text - INFO - Text message processed: 17 chars
+2026-04-18 08:25:18,764 - aiogram.event - INFO - Update id=861044137 is handled. Duration 6959 ms by bot id=8566638650
+2026-04-18 08:25:59,995 - d_brain.bot.handlers.text - INFO - Text message processed: 30 chars
+2026-04-18 08:25:59,995 - aiogram.event - INFO - Update id=861044138 is handled. Duration 4583 ms by bot id=8566638650
+2026-04-18 08:26:08,353 - d_brain.bot.handlers.text - INFO - Text message processed: 13 chars
+2026-04-18 08:26:08,353 - aiogram.event - INFO - Update id=861044139 is handled. Duration 4363 ms by bot id=8566638650
+2026-04-18 08:27:03,604 - d_brain.bot.handlers.text - INFO - Text message processed: 13 chars
+2026-04-18 08:27:03,605 - aiogram.event - INFO - Update id=861044140 is handled. Duration 4734 ms by bot id=8566638650
+2026-04-18 08:27:30,757 - d_brain.bot.handlers.text - INFO - Text message processed: 7 chars
+2026-04-18 08:27:30,757 - aiogram.event - INFO - Update id=861044141 is handled. Duration 9302 ms by bot id=8566638650
+2026-04-18 09:31:55,154 - d_brain.bot.handlers.text - INFO - Text message processed: 118 chars
+2026-04-18 09:31:55,155 - aiogram.event - INFO - Update id=861044142 is handled. Duration 4451 ms by bot id=8566638650
+2026-04-18 09:51:54,716 - aiogram.event - INFO - Update id=861044143 is handled. Duration 171 ms by bot id=8566638650
+2026-04-18 09:52:27,598 - d_brain.services.transcription - INFO - Starting transcription, audio size: 292537 bytes
+2026-04-18 09:52:29,315 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-18 09:52:29,324 - d_brain.services.transcription - INFO - Transcription complete: 202 chars
+2026-04-18 09:52:35,335 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-18 09:52:35,335 - aiogram.event - INFO - Update id=861044144 is handled. Duration 8273 ms by bot id=8566638650
+2026-04-18 09:53:10,232 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-18 09:53:10,233 - aiogram.dispatcher - INFO - Polling stopped for bot @Mozg02_bot id=8566638650 - 'Второй мозг'
+2026-04-18 09:53:10,233 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-18 09:53:10,256 - d_brain.services.processor - ERROR - OpenAI agent execution failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1167, in execute_agent
+    report = self._run_openai_agent(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 337, in _run_openai_agent
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 302, in _run_codex_exec
+    raise RuntimeError("codex exec returned an empty response")
+RuntimeError: codex exec returned an empty response
+2026-04-18 09:53:14,133 - __main__ - INFO - d-brain starting...
+2026-04-18 09:53:14,133 - __main__ - INFO - Vault path: vault
+2026-04-18 09:53:14,133 - __main__ - INFO - Allowed users: [6144231826]
+2026-04-18 09:53:14,545 - telethon.crypto.aes - INFO - libssl detected, it will be used for encryption
+2026-04-18 09:53:14,599 - d_brain.bot.main - INFO - Starting bot polling...
+2026-04-18 09:53:14,599 - aiogram.dispatcher - INFO - Start polling
+2026-04-18 09:53:14,707 - aiogram.dispatcher - INFO - Run polling for bot @Mozg02_bot id=8566638650 - 'Эхо'
+2026-04-18 10:29:21,171 - d_brain.services.transcription - INFO - Starting transcription, audio size: 25561 bytes
+2026-04-18 10:29:21,978 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-18 10:29:21,981 - d_brain.services.transcription - INFO - Transcription complete: 16 chars
+2026-04-18 10:29:30,644 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-18 10:29:30,644 - aiogram.event - INFO - Update id=861044145 is handled. Duration 9984 ms by bot id=8566638650
+2026-04-18 10:29:55,962 - d_brain.services.transcription - INFO - Starting transcription, audio size: 168937 bytes
+2026-04-18 10:29:57,446 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-18 10:29:57,452 - d_brain.services.transcription - INFO - Transcription complete: 81 chars
+2026-04-18 10:30:04,126 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-18 10:30:04,126 - aiogram.event - INFO - Update id=861044146 is handled. Duration 8651 ms by bot id=8566638650
+2026-04-18 10:30:13,965 - aiogram.event - INFO - Update id=861044147 is handled. Duration 133 ms by bot id=8566638650
+2026-04-18 10:30:22,056 - d_brain.bot.handlers.process - INFO - Process command triggered by user 6144231826
+2026-04-18 10:30:41,316 - aiogram.event - INFO - Update id=861044149 is handled. Duration 62 ms by bot id=8566638650
+2026-04-18 10:31:19,967 - aiogram.event - INFO - Update id=861044150 is handled. Duration 30176 ms by bot id=8566638650

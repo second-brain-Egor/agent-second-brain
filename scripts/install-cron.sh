@@ -6,6 +6,7 @@ CRON_TMP="$(mktemp)"
 PATH_LINE="PATH=$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin"
 DAILY_SCHEDULE="${DAILY_CRON_SCHEDULE:-*/5 * * * *}"
 WEEKLY_SCHEDULE="${WEEKLY_CRON_SCHEDULE:-0 18 * * 0}"
+FORUMHOUSE_CHECK_SCHEDULE="${FORUMHOUSE_CHECK_SCHEDULE:-0 */2 * * *}"
 
 crontab -l 2>/dev/null \
     | sed '/# >>> agent-second-brain >>>/,/# <<< agent-second-brain <<</d' \
@@ -18,6 +19,7 @@ crontab -l 2>/dev/null \
     echo "$DAILY_SCHEDULE cd $PROJECT_DIR && /bin/bash $PROJECT_DIR/scripts/process-randomized.sh >>$PROJECT_DIR/logs/process.log 2>&1"
     echo "$WEEKLY_SCHEDULE cd $PROJECT_DIR && /bin/bash $PROJECT_DIR/scripts/weekly.sh"
     echo "*/30 8-22 * * * cd $PROJECT_DIR && $HOME/.local/bin/uv run python heartbeat/heartbeat.py >>$PROJECT_DIR/logs/heartbeat.log 2>&1"
+    echo "$FORUMHOUSE_CHECK_SCHEDULE cd $PROJECT_DIR && /bin/bash $PROJECT_DIR/scripts/forumhouse-check-randomized.sh >>$PROJECT_DIR/logs/forumhouse-check.log 2>&1"
     echo "# <<< agent-second-brain <<<"
 } >>"$CRON_TMP"
 
@@ -29,3 +31,4 @@ echo "  @reboot  bot startup"
 echo "  $DAILY_SCHEDULE  randomized daily processing check (runs once between 00:00 and 05:00 Moscow)"
 echo "  $WEEKLY_SCHEDULE  weekly digest"
 echo "  */30 8-22 * * *  heartbeat reminders"
+echo "  $FORUMHOUSE_CHECK_SCHEDULE  forumhouse check with random delay up to 30 minutes"

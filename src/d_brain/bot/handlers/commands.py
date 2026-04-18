@@ -18,6 +18,17 @@ from d_brain.services.storage import VaultStorage
 router = Router(name="commands")
 
 
+ENTRY_TYPE_LABELS = {
+    "assistant": "Ответов бота",
+    "command": "Команд",
+    "photo": "Фото",
+    "text": "Текстовых",
+    "voice": "Голосовых",
+    "forward": "Пересланных",
+    "voice_reply": "Голосовых ответов",
+}
+
+
 def _is_admin(user_id: int, settings: Settings) -> bool:
     """Return True when the user can run admin commands."""
     return user_id in settings.admin_user_ids
@@ -135,7 +146,8 @@ async def cmd_status(message: Message) -> None:
     if stats:
         week_stats = "\n\n<b>За 7 дней:</b>"
         for entry_type, count in sorted(stats.items()):
-            week_stats += f"\n• {entry_type}: {count}"
+            label = ENTRY_TYPE_LABELS.get(entry_type, entry_type.replace("_", " ").capitalize())
+            week_stats += f"\n• {label}: {count}"
 
     await message.answer(
         f"📅 <b>{today}</b>\n\n"

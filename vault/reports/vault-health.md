@@ -10,10 +10,10 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 63
-- Связей: 177
+- Заметок: 64
+- Связей: 182
 - Сирот: 0
-- Слабосвязанных: 11
+- Слабосвязанных: 10
 
 ## Домены
 
@@ -21,23 +21,23 @@ tier: warm
 |---|---:|---:|
 | MOC | 6 | 12.17 |
 | blog | 2 | 1.00 |
-| daily | 17 | 3.24 |
+| daily | 17 | 3.47 |
 | goals | 5 | 8.60 |
-| memory | 5 | 9.20 |
+| memory | 5 | 9.80 |
 | references | 3 | 2.00 |
 | reports | 1 | 37.00 |
 | root | 1 | 3.00 |
 | summaries | 3 | 2.00 |
 | templates | 2 | 1.00 |
-| thoughts | 18 | 4.50 |
+| thoughts | 19 | 4.42 |
 
 ## Самые связные заметки
 
 - [[MOC/index.md|Индекс знаний]] — 51 связей
 - [[reports/vault-health.md|Health Check Vault]] — 37 связей
-- [[memory/soul.md|Идентичность агента]] — 16 связей
-- [[memory/facts.md|Ключевые факты и события]] — 13 связей
-- [[memory/user.md|Данные о пользователе]] — 13 связей
+- [[memory/soul.md|Идентичность агента]] — 17 связей
+- [[memory/facts.md|Ключевые факты и события]] — 14 связей
+- [[memory/user.md|Данные о пользователе]] — 14 связей
 - [[MOC/MOC-projects.md|Projects]] — 12 связей
 - [[goals/1-yearly-2026.md|Goals 2026]] — 10 связей
 - [[goals/2-monthly.md|Monthly Focus — Апрель 2026]] — 10 связей
@@ -54,7 +54,6 @@ tier: warm
 - [[daily/2026-03-31.md|2026-03-31]]
 - [[daily/2026-04-07.md|2026-04-07]]
 - [[daily/2026-04-10.md|2026-04-10]]
-- [[daily/2026-04-18.md|2026-04-18]]
 - [[templates/crm-template.md|[Company Name]]]
 - [[templates/daily-template.md|{{date}}]]
 
