@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-04-18
+updated: 2026-04-19
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 64
-- Связей: 182
-- Сирот: 0
-- Слабосвязанных: 10
+- Заметок: 66
+- Связей: 177
+- Сирот: 1
+- Слабосвязанных: 19
 
 ## Память
 
@@ -44,6 +44,7 @@ tier: active
 
 - [[thoughts/projects/asula/README.md|АСУЛА]]
 - [[thoughts/projects/dacha/README.md|Дача]]
+- [[thoughts/projects/dacha/kettama-mps02d-motor-replacement.md|Kettama MPS02D — замена двигателя]]
 - [[thoughts/projects/enterprise-ai-implementation/01-project-outline.md|Каркас проекта]]
 - [[thoughts/projects/enterprise-ai-implementation/02-key-questions-and-sensitive-points.md|Ключевые вопросы и чувствительные моменты]]
 - [[thoughts/projects/enterprise-ai-implementation/03-local-ai-stack-and-budget.md|Локальный ИИ-контур и бюджет]]
@@ -58,13 +59,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-04-19.md|2026-04-19]]
 - [[daily/2026-04-18.md|2026-04-18]]
 - [[daily/2026-04-17.md|2026-04-17]]
 - [[daily/2026-04-16.md|2026-04-16]]
 - [[daily/2026-04-15.md|2026-04-15]]
 - [[daily/2026-04-14.md|2026-04-14]]
 - [[daily/2026-04-13.md|2026-04-13]]
-- [[daily/2026-04-12.md|2026-04-12]]
 
 ## Недельные сводки
 
