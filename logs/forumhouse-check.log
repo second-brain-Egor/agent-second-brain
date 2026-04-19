@@ -95,3 +95,64 @@ progress=scraped_threads:6 completed_forums:0
 run_state=status:running phase:sync updated_at:2026-04-16T19:40:05.510881+00:00
 log=updated_at:2026-04-19T00:49:38+00:00 age:0 мин
 summary=признаков застоя нет
+[2026-04-19 05:30:01 MSK] Forumhouse randomized check: delay=863s
+[2026-04-19 06:14:26 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:1180645932 human:1.10 ГиБ
+process_count=2
+processes=3503259 bash -c cd /root/forum-harvest && nohup .venv/bin/python scrape.py --forum 91 --resume >> scrape.log 2>&1 < /dev/null & echo $! | 3503260 .venv/bin/python scrape.py --forum 91 --resume
+progress=scraped_threads:6 completed_forums:0
+run_state=status:running phase:sync updated_at:2026-04-16T19:40:05.510881+00:00
+log=updated_at:2026-04-19T02:44:20+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-04-19 07:30:01 MSK] Forumhouse randomized check: delay=241s
+[2026-04-19 08:04:04 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:1201724491 human:1.12 ГиБ
+process_count=2
+processes=3503259 bash -c cd /root/forum-harvest && nohup .venv/bin/python scrape.py --forum 91 --resume >> scrape.log 2>&1 < /dev/null & echo $! | 3503260 .venv/bin/python scrape.py --forum 91 --resume
+progress=scraped_threads:6 completed_forums:0
+run_state=status:running phase:sync updated_at:2026-04-16T19:40:05.510881+00:00
+log=updated_at:2026-04-19T04:33:57+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-04-19 09:30:01 MSK] Forumhouse randomized check: delay=984s
+[2026-04-19 10:16:27 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:1201912995 human:1.12 ГиБ
+process_count=2
+processes=3503259 bash -c cd /root/forum-harvest && nohup .venv/bin/python scrape.py --forum 91 --resume >> scrape.log 2>&1 < /dev/null & echo $! | 3503260 .venv/bin/python scrape.py --forum 91 --resume
+progress=scraped_threads:6 completed_forums:0
+run_state=status:running phase:sync updated_at:2026-04-16T19:40:05.510881+00:00
+log=updated_at:2026-04-19T06:46:23+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-04-19 11:30:01 MSK] Forumhouse randomized check: delay=1444s
+[2026-04-19 12:24:06 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:1202094919 human:1.12 ГиБ
+process_count=2
+processes=3503259 bash -c cd /root/forum-harvest && nohup .venv/bin/python scrape.py --forum 91 --resume >> scrape.log 2>&1 < /dev/null & echo $! | 3503260 .venv/bin/python scrape.py --forum 91 --resume
+progress=scraped_threads:6 completed_forums:0
+run_state=status:running phase:sync updated_at:2026-04-16T19:40:05.510881+00:00
+log=updated_at:2026-04-19T08:54:05+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-04-19 13:30:01 MSK] Forumhouse randomized check: delay=1509s
+[2026-04-19 14:25:12 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:1202269791 human:1.12 ГиБ
+process_count=2
+processes=3503259 bash -c cd /root/forum-harvest && nohup .venv/bin/python scrape.py --forum 91 --resume >> scrape.log 2>&1 < /dev/null & echo $! | 3503260 .venv/bin/python scrape.py --forum 91 --resume
+progress=scraped_threads:6 completed_forums:0
+run_state=status:running phase:sync updated_at:2026-04-16T19:40:05.510881+00:00
+log=updated_at:2026-04-19T10:55:10+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-04-19 15:30:01 MSK] Forumhouse randomized check: delay=1772s
+[2026-04-19 16:29:35 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:1202449203 human:1.12 ГиБ
+process_count=2
+processes=3503259 bash -c cd /root/forum-harvest && nohup .venv/bin/python scrape.py --forum 91 --resume >> scrape.log 2>&1 < /dev/null & echo $! | 3503260 .venv/bin/python scrape.py --forum 91 --resume
+progress=scraped_threads:6 completed_forums:0
+run_state=status:running phase:sync updated_at:2026-04-16T19:40:05.510881+00:00
+log=updated_at:2026-04-19T12:59:21+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-04-19 17:30:01 MSK] Forumhouse randomized check: delay=73s
