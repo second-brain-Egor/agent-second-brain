@@ -156,3 +156,43 @@ run_state=status:running phase:sync updated_at:2026-04-16T19:40:05.510881+00:00
 log=updated_at:2026-04-19T12:59:21+00:00 age:0 мин
 summary=признаков застоя нет
 [2026-04-19 17:30:01 MSK] Forumhouse randomized check: delay=73s
+[2026-04-19 18:01:16 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:1216054041 human:1.13 ГиБ
+process_count=3
+processes=3523821 bash -c cd /root/forum-harvest && nohup .venv/bin/python server_sync.py --forum 91 --limit 20 --repair-limit 10 --interval-minutes 60 > runtime/server_sync.out 2>&1 < /dev/null & echo $! | 3523822 .venv/bin/python server_sync.py --forum 91 --limit 20 --repair-limit 10 --interval-minutes 60 | 3523824 /root/forum-harvest/.venv/bin/python /root/forum-harvest/scrape.py --forum 91 --resume --repair-only --limit 10
+progress=scraped_threads:7 completed_forums:0
+run_state=status:running phase:repair updated_at:2026-04-19T13:33:11.959597+00:00
+log=updated_at:2026-04-19T14:30:37+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-04-19 19:30:01 MSK] Forumhouse randomized check: delay=281s
+[2026-04-19 20:04:43 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:1257475522 human:1.17 ГиБ
+process_count=3
+processes=3523821 bash -c cd /root/forum-harvest && nohup .venv/bin/python server_sync.py --forum 91 --limit 20 --repair-limit 10 --interval-minutes 60 > runtime/server_sync.out 2>&1 < /dev/null & echo $! | 3523822 .venv/bin/python server_sync.py --forum 91 --limit 20 --repair-limit 10 --interval-minutes 60 | 3523824 /root/forum-harvest/.venv/bin/python /root/forum-harvest/scrape.py --forum 91 --resume --repair-only --limit 10
+progress=scraped_threads:7 completed_forums:0
+run_state=status:running phase:repair updated_at:2026-04-19T13:33:11.959597+00:00
+log=updated_at:2026-04-19T16:34:07+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-04-19 21:30:01 MSK] Forumhouse randomized check: delay=106s
+[2026-04-19 22:01:48 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:1312652237 human:1.22 ГиБ
+process_count=3
+processes=3523821 bash -c cd /root/forum-harvest && nohup .venv/bin/python server_sync.py --forum 91 --limit 20 --repair-limit 10 --interval-minutes 60 > runtime/server_sync.out 2>&1 < /dev/null & echo $! | 3523822 .venv/bin/python server_sync.py --forum 91 --limit 20 --repair-limit 10 --interval-minutes 60 | 3523824 /root/forum-harvest/.venv/bin/python /root/forum-harvest/scrape.py --forum 91 --resume --repair-only --limit 10
+progress=scraped_threads:7 completed_forums:0
+run_state=status:running phase:repair updated_at:2026-04-19T13:33:11.959597+00:00
+log=updated_at:2026-04-19T18:30:39+00:00 age:1 мин
+summary=признаков застоя нет
+[2026-04-19 23:30:01 MSK] Forumhouse randomized check: delay=1229s
+[2026-04-20 00:20:32 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:n/a human:n/a
+process_count=3
+processes=3523821 bash -c cd /root/forum-harvest && nohup .venv/bin/python server_sync.py --forum 91 --limit 20 --repair-limit 10 --interval-minutes 60 > runtime/server_sync.out 2>&1 < /dev/null & echo $! | 3523822 .venv/bin/python server_sync.py --forum 91 --limit 20 --repair-limit 10 --interval-minutes 60 | 3523824 /root/forum-harvest/.venv/bin/python /root/forum-harvest/scrape.py --forum 91 --resume --repair-only --limit 10
+progress=scraped_threads:7 completed_forums:0
+run_state=status:running phase:repair updated_at:2026-04-19T13:33:11.959597+00:00
+log=updated_at:2026-04-19T20:50:16+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-04-20 01:30:01 MSK] Forumhouse randomized check: delay=1524s

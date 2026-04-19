@@ -111,6 +111,7 @@ report = {
     "processes": process_lines[:5],
     "scraped_threads": len(progress.get("scraped_threads", [])),
     "completed_forums": len(progress.get("completed_forums", [])),
+    "active_thread": progress.get("active_thread") if isinstance(progress.get("active_thread"), dict) else None,
     "run_state_status": run_state.get("status"),
     "run_state_phase": run_state.get("phase"),
     "run_state_updated_at": run_state.get("updated_at"),
@@ -172,6 +173,16 @@ print(
     f"scraped_threads:{report['scraped_threads']} "
     f"completed_forums:{report['completed_forums']}"
 )
+active = report.get("active_thread") or {}
+if active:
+    print(
+        "active_thread="
+        f"forum_id:{active.get('forum_id', 'n/a')} "
+        f"thread_id:{active.get('thread_id', 'n/a')} "
+        f"page:{active.get('saved_pages', 'n/a')}/{active.get('expected_pages', 'n/a')} "
+        f"posts:{active.get('posts_count', 'n/a')} "
+        f"updated_at:{active.get('updated_at', 'n/a')}"
+    )
 print(
     "run_state="
     f"status:{report['run_state_status'] or 'n/a'} "
