@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-04-21
+updated: 2026-04-22
 relevance: 0.86
 tier: warm
 ---
@@ -10,31 +10,31 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 68
-- Связей: 179
-- Сирот: 0
-- Слабосвязанных: 21
+- Заметок: 69
+- Связей: 187
+- Сирот: 1
+- Слабосвязанных: 13
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 6 | 11.83 |
+| MOC | 6 | 12.33 |
 | blog | 2 | 1.00 |
-| daily | 20 | 2.95 |
+| daily | 21 | 2.95 |
 | goals | 5 | 8.60 |
-| memory | 5 | 9.60 |
-| references | 3 | 1.33 |
-| reports | 1 | 30.00 |
+| memory | 5 | 9.80 |
+| references | 3 | 2.00 |
+| reports | 1 | 38.00 |
 | root | 1 | 3.00 |
 | summaries | 3 | 2.00 |
-| templates | 2 | 1.00 |
+| templates | 2 | 0.50 |
 | thoughts | 20 | 4.50 |
 
 ## Самые связные заметки
 
 - [[MOC/index.md|Индекс знаний]] — 52 связей
-- [[reports/vault-health.md|Health Check Vault]] — 30 связей
+- [[reports/vault-health.md|Health Check Vault]] — 38 связей
 - [[memory/soul.md|Идентичность агента]] — 17 связей
 - [[memory/facts.md|Ключевые факты и события]] — 14 связей
 - [[memory/user.md|Данные о пользователе]] — 14 связей
@@ -44,11 +44,12 @@ tier: warm
 - [[goals/0-vision-3y.md|Vision 2025-2027]] — 9 связей
 - [[goals/3-weekly.md|Weekly Focus — W14 (31 марта – 6 апреля)]] — 9 связей
 
+## Сироты
+
+- [[templates/daily-template.md|{{date}}]]
+
 ## Слабосвязанные
 
-- [[MOC/MOC-ideas.md|Ideas]]
-- [[MOC/MOC-learnings.md|Learnings]]
-- [[MOC/MOC-reflections.md|Reflections]]
 - [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
 - [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
@@ -59,14 +60,9 @@ tier: warm
 - [[daily/2026-04-10.md|2026-04-10]]
 - [[daily/2026-04-12.md|2026-04-12]]
 - [[daily/2026-04-15.md|2026-04-15]]
-- [[daily/2026-04-17.md|2026-04-17]]
-- [[daily/2026-04-19.md|2026-04-19]]
-- [[daily/2026-04-21.md|2026-04-21]]
-- [[memory/system-log.md|System Log]]
-- [[references/business-context.md|Business Context]]
-- [[references/work-group-rules.md|Правила рабочей группы]]
+- [[daily/2026-04-20.md|2026-04-20]]
+- [[daily/2026-04-22.md|2026-04-22]]
 - [[templates/crm-template.md|[Company Name]]]
-- ... ещё 1
 
 ## Неразрешённые ссылки
 

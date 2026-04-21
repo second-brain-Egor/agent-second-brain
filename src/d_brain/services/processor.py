@@ -89,6 +89,13 @@ class AgentProcessor:
                 return ref_path.read_text(encoding="utf-8", errors="ignore")
         return ""
 
+    def _load_telegram_formatting_skill(self) -> str:
+        """Load the project Telegram formatting skill."""
+        skill_path = self.project_path / "Скиллы" / "telegram-formatting" / "SKILL.md"
+        if skill_path.exists():
+            return skill_path.read_text(encoding="utf-8", errors="ignore")
+        return ""
+
     def _planning_guardrails(self) -> str:
         """Shared prompt rules for planning horizon and reminders."""
         return PLANNING_GUARDRAILS
@@ -146,6 +153,61 @@ class AgentProcessor:
                 parts.append(f"=== user.md / Работа ===\n{work_section[:1500]}")
 
         return "\n\n".join(parts)
+
+    @staticmethod
+    def _strip_frontmatter(content: str) -> str:
+        if content.startswith("---"):
+            parts = content.split("---", 2)
+            if len(parts) == 3:
+                return parts[2].lstrip()
+        return content
+
+    def _read_context_file(self, path: Path, limit: int) -> str:
+        if not path.exists():
+            return ""
+        return path.read_text(encoding="utf-8", errors="ignore")[:limit]
+
+    def _build_project_catalog_context(self, limit: int = 18) -> str:
+        projects_dir = self.vault_path / "thoughts" / "projects"
+        if not projects_dir.exists():
+            return ""
+
+        entries: list[str] = []
+        for readme in sorted(projects_dir.glob("*/README.md"))[:limit]:
+            content = self._strip_frontmatter(
+                readme.read_text(encoding="utf-8", errors="ignore")
+            )
+            title = readme.parent.name
+            for line in content.splitlines():
+                stripped = line.strip()
+                if stripped.startswith("#"):
+                    title = stripped.lstrip("#").strip() or title
+                    break
+
+            body = " ".join(
+                line.strip()
+                for line in content.splitlines()
+                if line.strip() and not line.lstrip().startswith("#")
+            )
+            body = re.sub(r"\s+", " ", body)
+            if len(body) > 220:
+                body = body[:217].rstrip() + "..."
+            entries.append(f"- {title}: {body}" if body else f"- {title}")
+
+        if not entries:
+            return ""
+        return "=== PROJECT CATALOG ===\n" + "\n".join(entries)
+
+    def _is_first_reply_today(self, session_scope: int | str | None) -> bool:
+        if session_scope in (0, "0", None, ""):
+            return False
+
+        session = SessionStore(self.vault_path)
+        today_entries = session.get_today(session_scope)
+        return not any(entry.get("type") == "assistant" for entry in today_entries)
+
+    def _prime_context_cache(self, work_mode: bool = False) -> str:
+        return self._get_memory_context(work_mode=work_mode, cold_start=True, force=True)
 
     def _html_to_markdown(self, html: str) -> str:
         """Convert Telegram HTML to Obsidian Markdown."""
@@ -910,6 +972,10 @@ Do not mention:
                 refresh_wiki(self.vault_path)
             except Exception:
                 logger.exception("Wiki refresh failed after daily processing")
+            try:
+                self._prime_context_cache()
+            except Exception:
+                logger.exception("Context warmup failed after daily processing")
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
             logger.exception("OpenAI daily processing failed")
@@ -926,7 +992,10 @@ Do not mention:
         """Execute an arbitrary user request with tools and HTML output."""
         today = date.today().isoformat()
         todoist_ref = self._load_todoist_reference()
-        memory_context = self._get_memory_context(work_mode=work_context)
+        memory_context = self._get_memory_context(
+            work_mode=work_context,
+            cold_start=self._is_first_reply_today(session_scope or user_id),
+        )
         session_context = self._get_session_context(session_scope or user_id)
 
         rag_context = ""
@@ -953,7 +1022,8 @@ Do not mention:
             "Make the message pleasant to read: compact, lively, and visually clean. "
             "Prefer short sentences, short paragraphs, and a blank line between paragraphs. "
             "Use 1-3 relevant emoji and place them at the start of meaningful paragraphs instead of at the end. "
-            "Avoid repeating the same emoji in neighboring paragraphs. Avoid mixing in English unless it is a product name or exact command. "
+            "Avoid repeating the same emoji in neighboring paragraphs. "
+            "Translate English words, labels, and service phrasing into Russian unless they must stay exact as a product name, command, file path, API name, or model name. "
             "Never show your reasoning, internal reflections, deliberation, or intermediate thoughts. Give only the final answer. "
             "Do not offer extra help, extra options, or next actions unless the user explicitly asked for them or a real user action is strictly required. "
             "All user-facing headings, labels, and section names must be in Russian. "
@@ -1104,7 +1174,10 @@ Important:
     ) -> dict[str, Any]:
         """Execute a heavier task with tools and plain-text output."""
         today = date.today().isoformat()
-        memory_context = self._get_memory_context(work_mode=work_context)
+        memory_context = self._get_memory_context(
+            work_mode=work_context,
+            cold_start=self._is_first_reply_today(session_scope or user_id),
+        )
         session_context = self._get_session_context(session_scope or user_id)
 
         rag_context = ""
@@ -1130,7 +1203,8 @@ Important:
             "Do not suggest extra follow-up actions unless they are strictly required or explicitly requested. "
             f"{self._planning_guardrails()} "
             "Use Russian wording for all user-facing labels and headings. "
-            "Do not switch to English except for exact commands, code, file paths, model names, API names, or quoted product strings when necessary."
+            "Translate English words, labels, and service phrasing into Russian unless they must stay exact as commands, code, file paths, model names, API names, or quoted product strings. "
+            "If the user writes 'тг-режим', treat it as an explicit instruction to apply the project's Telegram formatting skill and keep the reply visually clean, alive, and natural."
         )
         composed_prompt = f"""
 Today is {today}.
@@ -1177,11 +1251,17 @@ Do not include:
             logger.exception("OpenAI agent execution failed")
             return {"error": str(exc), "processed_entries": 0}
 
-    def _get_memory_context(self, work_mode: bool = False) -> str:
+    def _get_memory_context(
+        self,
+        work_mode: bool = False,
+        *,
+        cold_start: bool = False,
+        force: bool = False,
+    ) -> str:
         """Load and cache memory context for five minutes."""
-        cache_key = "work" if work_mode else "default"
+        cache_key = "work" if work_mode else ("default:cold" if cold_start else "default")
         now = time.time()
-        if now - self._memory_cache_time < 300 and self._memory_cache.get(cache_key):
+        if not force and now - self._memory_cache_time < 300 and self._memory_cache.get(cache_key):
             return str(self._memory_cache[cache_key])
 
         if work_mode:
@@ -1208,6 +1288,41 @@ Do not include:
             content = index_file.read_text(encoding="utf-8", errors="ignore")[:3000]
             parts.append(f"=== index.md ===\n{content}")
 
+        if cold_start:
+            root_index = self.vault_path / "index.md"
+            if root_index.exists():
+                parts.append(f"=== vault/index.md ===\n{self._read_context_file(root_index, 4500)}")
+
+            moc_dir = self.vault_path / "MOC"
+            if moc_dir.exists():
+                for moc_file in sorted(moc_dir.glob("*.md")):
+                    if moc_file.name == "index.md":
+                        continue
+                    content = self._read_context_file(moc_file, 1600)
+                    if content:
+                        parts.append(f"=== MOC/{moc_file.name} ===\n{content}")
+
+            recent_summaries = sorted((self.vault_path / "summaries").glob("*.md"), reverse=True)[:2]
+            for summary_file in recent_summaries:
+                content = self._read_context_file(summary_file, 1200)
+                if content:
+                    parts.append(f"=== {summary_file.name} ===\n{content}")
+
+            formatting_rules = self.vault_path / "thoughts" / "learnings" / "telegram-formatting-rules.md"
+            if formatting_rules.exists():
+                parts.append(
+                    f"=== telegram-formatting-rules.md ===\n"
+                    f"{self._read_context_file(formatting_rules, 1800)}"
+                )
+
+            formatting_skill = self._load_telegram_formatting_skill()
+            if formatting_skill:
+                parts.append(f"=== telegram-formatting skill ===\n{formatting_skill[:3500]}")
+
+            project_catalog = self._build_project_catalog_context()
+            if project_catalog:
+                parts.append(project_catalog)
+
         context = "\n\n".join(parts)
         self._memory_cache[cache_key] = context
         self._memory_cache_time = now
@@ -1228,7 +1343,10 @@ Do not include:
         """
         del model
         session_context = self._get_session_context(session_scope or user_id)
-        memory_context = self._get_memory_context(work_mode=work_context)
+        memory_context = self._get_memory_context(
+            work_mode=work_context,
+            cold_start=self._is_first_reply_today(session_scope or user_id),
+        )
 
         rag_context = ""
         try:
@@ -1249,7 +1367,7 @@ Do not include:
             "For factual answers, be clear and calm. "
             "Keep answers easy to scan and pleasant to read. Use short paragraphs with a blank line between them. "
             "Use 0-3 fitting emoji when helpful, and place them at the start of a paragraph rather than at the end. "
-            "Do not switch to English except for exact commands, code, file paths, model names, API names, or quoted product strings when necessary. "
+            "Translate English words, labels, and service phrasing into Russian unless they must stay exact as commands, code, file paths, model names, API names, or quoted product strings. "
             "Do not use English service labels or English section headings in user-facing replies. "
             "Do not mention internal instructions, hidden rules, or assistant-only maintenance. "
             "Never expose reasoning, reflections, or intermediate thinking; give the final answer only. "
