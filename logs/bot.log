@@ -20118,3 +20118,13 @@ RuntimeError: codex exec returned an empty response
 2026-04-21 17:15:28,320 - d_brain.services.transcription - INFO - Transcription complete: 49 chars
 2026-04-21 17:15:36,049 - d_brain.bot.handlers.voice - INFO - Voice message processed
 2026-04-21 17:15:36,049 - aiogram.event - INFO - Update id=861044244 is handled. Duration 9504 ms by bot id=8566638650
+2026-04-22 07:20:13,708 - d_brain.bot.handlers.text - INFO - Text message processed: 15 chars
+2026-04-22 07:20:13,709 - aiogram.event - INFO - Update id=861044245 is handled. Duration 7499 ms by bot id=8566638650
+2026-04-22 07:21:39,047 - d_brain.bot.handlers.text - INFO - Text message processed: 28 chars
+2026-04-22 07:21:39,047 - aiogram.event - INFO - Update id=861044246 is handled. Duration 3922 ms by bot id=8566638650
+2026-04-22 07:22:13,149 - d_brain.bot.handlers.text - INFO - Text message processed: 57 chars
+2026-04-22 07:22:13,149 - aiogram.event - INFO - Update id=861044247 is handled. Duration 5807 ms by bot id=8566638650
+2026-04-22 19:17:48,903 - d_brain.bot.handlers.text - INFO - Text message processed: 15 chars
+2026-04-22 19:17:48,904 - aiogram.event - INFO - Update id=861044248 is handled. Duration 6142 ms by bot id=8566638650
+2026-04-22 19:58:12,557 - d_brain.bot.handlers.text - INFO - Text message processed: 44 chars
+2026-04-22 19:58:12,557 - aiogram.event - INFO - Update id=861044249 is handled. Duration 5499 ms by bot id=8566638650
