@@ -20128,3 +20128,275 @@ RuntimeError: codex exec returned an empty response
 2026-04-22 19:17:48,904 - aiogram.event - INFO - Update id=861044248 is handled. Duration 6142 ms by bot id=8566638650
 2026-04-22 19:58:12,557 - d_brain.bot.handlers.text - INFO - Text message processed: 44 chars
 2026-04-22 19:58:12,557 - aiogram.event - INFO - Update id=861044249 is handled. Duration 5499 ms by bot id=8566638650
+2026-04-23 06:26:34,428 - d_brain.bot.handlers.text - INFO - Text message processed: 15 chars
+2026-04-23 06:26:34,428 - aiogram.event - INFO - Update id=861044250 is handled. Duration 7068 ms by bot id=8566638650
+2026-04-23 06:26:55,940 - d_brain.bot.handlers.text - INFO - Text message processed: 19 chars
+2026-04-23 06:26:55,941 - aiogram.event - INFO - Update id=861044251 is handled. Duration 5513 ms by bot id=8566638650
+2026-04-23 06:27:27,167 - d_brain.bot.handlers.text - INFO - Text message processed: 15 chars
+2026-04-23 06:27:27,168 - aiogram.event - INFO - Update id=861044252 is handled. Duration 6583 ms by bot id=8566638650
+2026-04-23 06:27:44,635 - d_brain.bot.handlers.text - INFO - Text message processed: 19 chars
+2026-04-23 06:27:44,635 - aiogram.event - INFO - Update id=861044253 is handled. Duration 4600 ms by bot id=8566638650
+2026-04-23 06:28:29,412 - d_brain.bot.handlers.text - INFO - Text message processed: 16 chars
+2026-04-23 06:28:29,413 - aiogram.event - INFO - Update id=861044254 is handled. Duration 4133 ms by bot id=8566638650
+2026-04-23 06:31:15,093 - d_brain.bot.handlers.text - INFO - Text message processed: 15 chars
+2026-04-23 06:31:15,094 - aiogram.event - INFO - Update id=861044255 is handled. Duration 6155 ms by bot id=8566638650
+2026-04-23 06:31:30,058 - d_brain.bot.handlers.text - INFO - Text message processed: 8 chars
+2026-04-23 06:31:30,058 - aiogram.event - INFO - Update id=861044256 is handled. Duration 6696 ms by bot id=8566638650
+2026-04-23 06:32:06,347 - d_brain.bot.handlers.text - INFO - Text message processed: 13 chars
+2026-04-23 06:32:06,347 - aiogram.event - INFO - Update id=861044257 is handled. Duration 5444 ms by bot id=8566638650
+2026-04-23 06:32:28,028 - d_brain.bot.handlers.text - INFO - Text message processed: 5 chars
+2026-04-23 06:32:28,029 - aiogram.event - INFO - Update id=861044258 is handled. Duration 6652 ms by bot id=8566638650
+2026-04-23 06:33:06,191 - d_brain.bot.handlers.text - INFO - Text message processed: 22 chars
+2026-04-23 06:33:06,191 - aiogram.event - INFO - Update id=861044259 is handled. Duration 7553 ms by bot id=8566638650
+2026-04-23 06:33:33,445 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-23 06:33:33,445 - aiogram.event - INFO - Update id=861044260 is handled. Duration 7362 ms by bot id=8566638650
+2026-04-23 06:33:57,972 - d_brain.bot.handlers.text - INFO - Text message processed: 19 chars
+2026-04-23 06:33:57,972 - aiogram.event - INFO - Update id=861044261 is handled. Duration 4084 ms by bot id=8566638650
+2026-04-23 06:35:03,609 - d_brain.services.transcription - INFO - Starting transcription, audio size: 491945 bytes
+2026-04-23 06:35:05,267 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-23 06:35:05,276 - d_brain.services.transcription - INFO - Transcription complete: 229 chars
+2026-04-23 06:35:10,297 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-23 06:35:10,297 - aiogram.event - INFO - Update id=861044262 is handled. Duration 7264 ms by bot id=8566638650
+2026-04-23 06:36:47,696 - d_brain.bot.handlers.text - INFO - Text message processed: 29 chars
+2026-04-23 06:36:47,697 - aiogram.event - INFO - Update id=861044263 is handled. Duration 6822 ms by bot id=8566638650
+2026-04-23 06:37:04,196 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-23 06:37:04,197 - aiogram.event - INFO - Update id=861044264 is handled. Duration 5181 ms by bot id=8566638650
+2026-04-23 06:37:17,879 - d_brain.bot.handlers.text - INFO - Text message processed: 8 chars
+2026-04-23 06:37:17,879 - aiogram.event - INFO - Update id=861044265 is handled. Duration 4510 ms by bot id=8566638650
+2026-04-23 06:37:31,353 - d_brain.bot.handlers.text - INFO - Text message processed: 16 chars
+2026-04-23 06:37:31,353 - aiogram.event - INFO - Update id=861044266 is handled. Duration 4631 ms by bot id=8566638650
+2026-04-23 06:38:00,162 - d_brain.bot.handlers.text - INFO - Text message processed: 44 chars
+2026-04-23 06:38:00,162 - aiogram.event - INFO - Update id=861044267 is handled. Duration 3990 ms by bot id=8566638650
+2026-04-23 10:18:36,394 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-23 10:18:36,397 - aiogram.dispatcher - INFO - Polling stopped for bot @Mozg02_bot id=8566638650 - 'Эхо'
+2026-04-23 10:18:36,401 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-23 10:18:36,403 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-23 10:18:36,571 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-23 10:18:36,583 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-23 10:38:12,760 - __main__ - INFO - d-brain starting...
+2026-04-23 10:38:12,761 - __main__ - INFO - Vault path: vault
+2026-04-23 10:38:12,761 - __main__ - INFO - Allowed users: [6144231826]
+2026-04-23 10:38:13,402 - telethon.crypto.aes - INFO - libssl detected, it will be used for encryption
+2026-04-23 10:38:13,683 - d_brain.bot.main - INFO - Starting bot polling...
+2026-04-23 10:38:13,684 - aiogram.dispatcher - INFO - Start polling
+2026-04-23 10:38:13,842 - aiogram.dispatcher - INFO - Run polling for bot @Mozg02_bot id=8566638650 - 'Эхо'
+2026-04-23 10:38:14,590 - d_brain.services.transcription - INFO - Starting transcription, audio size: 56049 bytes
+2026-04-23 10:38:15,018 - d_brain.services.transcription - INFO - Starting transcription, audio size: 248865 bytes
+2026-04-23 10:38:16,144 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-23 10:38:16,164 - d_brain.services.transcription - INFO - Transcription complete: 0 chars
+2026-04-23 10:38:16,278 - aiogram.event - INFO - Update id=861044268 is handled. Duration 2372 ms by bot id=8566638650
+2026-04-23 10:38:16,802 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-23 10:38:16,813 - d_brain.services.transcription - INFO - Transcription complete: 98 chars
+2026-04-23 10:38:27,004 - d_brain.services.processor - ERROR - OpenAI chat failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1393, in execute_raw_prompt
+    report = self._run_openai_text(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 380, in _run_openai_text
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 361, in _run_codex_exec
+    raise RuntimeError(details.splitlines()[-1] if details else "codex exec failed")
+RuntimeError: ERROR: Selected model is at capacity. Please try a different model.
+2026-04-23 10:38:27,206 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-23 10:38:27,215 - aiogram.event - INFO - Update id=861044269 is handled. Duration 13309 ms by bot id=8566638650
+2026-04-23 10:38:31,659 - d_brain.bot.handlers.text - INFO - Text message processed: 12 chars
+2026-04-23 10:38:31,659 - aiogram.event - INFO - Update id=861044270 is handled. Duration 17752 ms by bot id=8566638650
+2026-04-23 10:40:16,327 - d_brain.services.transcription - INFO - Starting transcription, audio size: 125265 bytes
+2026-04-23 10:40:17,666 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-23 10:40:17,674 - d_brain.services.transcription - INFO - Transcription complete: 75 chars
+2026-04-23 10:41:07,526 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-23 10:41:07,527 - aiogram.event - INFO - Update id=861044271 is handled. Duration 51586 ms by bot id=8566638650
+2026-04-23 10:41:07,844 - d_brain.bot.handlers.text - INFO - Text message processed: 2 chars
+2026-04-23 10:41:07,844 - aiogram.event - INFO - Update id=861044272 is handled. Duration 19704 ms by bot id=8566638650
+2026-04-23 11:06:40,241 - d_brain.services.transcription - INFO - Starting transcription, audio size: 47809 bytes
+2026-04-23 11:06:41,379 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-23 11:06:41,383 - d_brain.services.transcription - INFO - Transcription complete: 26 chars
+2026-04-23 11:06:58,127 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-23 11:06:58,127 - aiogram.event - INFO - Update id=861044273 is handled. Duration 18118 ms by bot id=8566638650
+2026-04-23 11:08:36,151 - d_brain.services.transcription - INFO - Starting transcription, audio size: 243921 bytes
+2026-04-23 11:08:37,224 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-23 11:08:37,236 - d_brain.services.transcription - INFO - Transcription complete: 175 chars
+2026-04-23 11:08:58,146 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-23 11:08:58,147 - aiogram.event - INFO - Update id=861044274 is handled. Duration 22488 ms by bot id=8566638650
+2026-04-23 11:31:31,913 - d_brain.bot.handlers.text - INFO - Text message processed: 16 chars
+2026-04-23 11:31:31,914 - aiogram.event - INFO - Update id=861044275 is handled. Duration 7332 ms by bot id=8566638650
+2026-04-23 12:07:37,438 - d_brain.bot.handlers.text - INFO - Text message processed: 15 chars
+2026-04-23 12:07:37,438 - aiogram.event - INFO - Update id=861044276 is handled. Duration 5077 ms by bot id=8566638650
+2026-04-23 12:10:12,401 - d_brain.bot.handlers.text - INFO - Text message processed: 11 chars
+2026-04-23 12:10:12,402 - aiogram.event - INFO - Update id=861044277 is handled. Duration 3987 ms by bot id=8566638650
+2026-04-23 12:11:09,752 - d_brain.bot.handlers.text - INFO - Text message processed: 132 chars
+2026-04-23 12:11:09,752 - aiogram.event - INFO - Update id=861044278 is handled. Duration 6804 ms by bot id=8566638650
+2026-04-23 14:47:40,301 - d_brain.bot.handlers.text - INFO - Text message processed: 76 chars
+2026-04-23 14:47:40,302 - aiogram.event - INFO - Update id=861044279 is handled. Duration 5805 ms by bot id=8566638650
+2026-04-23 14:48:02,668 - d_brain.bot.handlers.text - INFO - Text message processed: 32 chars
+2026-04-23 14:48:02,669 - aiogram.event - INFO - Update id=861044280 is handled. Duration 4912 ms by bot id=8566638650
+2026-04-23 14:48:19,973 - d_brain.bot.handlers.text - INFO - Text message processed: 16 chars
+2026-04-23 14:48:19,973 - aiogram.event - INFO - Update id=861044281 is handled. Duration 4002 ms by bot id=8566638650
+2026-04-23 14:48:43,283 - d_brain.bot.handlers.text - INFO - Text message processed: 26 chars
+2026-04-23 14:48:43,283 - aiogram.event - INFO - Update id=861044282 is handled. Duration 7621 ms by bot id=8566638650
+2026-04-23 14:49:29,800 - d_brain.bot.handlers.text - INFO - Text message processed: 12 chars
+2026-04-23 14:49:29,800 - aiogram.event - INFO - Update id=861044283 is handled. Duration 7005 ms by bot id=8566638650
+2026-04-23 14:50:08,887 - d_brain.bot.handlers.text - INFO - Text message processed: 16 chars
+2026-04-23 14:50:08,888 - aiogram.event - INFO - Update id=861044284 is handled. Duration 23266 ms by bot id=8566638650
+2026-04-23 14:52:24,954 - d_brain.bot.handlers.photo - INFO - Photo saved and analyzed: attachments/2026-04-23/img-145217.jpg
+2026-04-23 14:52:24,955 - aiogram.event - INFO - Update id=861044285 is handled. Duration 7557 ms by bot id=8566638650
+2026-04-23 14:53:02,271 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-23 14:53:02,272 - aiogram.event - INFO - Update id=861044286 is handled. Duration 6812 ms by bot id=8566638650
+2026-04-23 14:57:49,982 - d_brain.bot.handlers.text - INFO - Text message processed: 25 chars
+2026-04-23 14:57:49,983 - aiogram.event - INFO - Update id=861044287 is handled. Duration 5361 ms by bot id=8566638650
+2026-04-23 14:58:29,537 - d_brain.bot.handlers.text - INFO - Text message processed: 17 chars
+2026-04-23 14:58:29,538 - aiogram.event - INFO - Update id=861044288 is handled. Duration 6111 ms by bot id=8566638650
+2026-04-23 15:00:31,528 - d_brain.bot.handlers.text - INFO - Text message processed: 13 chars
+2026-04-23 15:00:31,529 - aiogram.event - INFO - Update id=861044289 is handled. Duration 14485 ms by bot id=8566638650
+2026-04-23 15:01:13,066 - d_brain.bot.handlers.text - INFO - Text message processed: 28 chars
+2026-04-23 15:01:13,066 - aiogram.event - INFO - Update id=861044290 is handled. Duration 6686 ms by bot id=8566638650
+2026-04-23 15:01:18,445 - d_brain.bot.handlers.text - INFO - Text message processed: 12 chars
+2026-04-23 15:01:18,446 - aiogram.event - INFO - Update id=861044291 is handled. Duration 4273 ms by bot id=8566638650
+2026-04-23 15:07:48,136 - d_brain.bot.handlers.text - INFO - Text message processed: 33 chars
+2026-04-23 15:07:48,136 - aiogram.event - INFO - Update id=861044292 is handled. Duration 7063 ms by bot id=8566638650
+2026-04-23 15:09:09,220 - d_brain.bot.handlers.text - INFO - Text message processed: 30 chars
+2026-04-23 15:09:09,221 - aiogram.event - INFO - Update id=861044293 is handled. Duration 4107 ms by bot id=8566638650
+2026-04-23 15:13:02,097 - aiogram.event - INFO - Update id=861044294 is not handled. Duration 8 ms by bot id=8566638650
+2026-04-23 15:13:21,906 - d_brain.bot.handlers.text - INFO - Text message processed: 11 chars
+2026-04-23 15:13:21,907 - aiogram.event - INFO - Update id=861044295 is handled. Duration 4584 ms by bot id=8566638650
+2026-04-23 15:13:40,928 - aiogram.event - INFO - Update id=861044296 is not handled. Duration 4 ms by bot id=8566638650
+2026-04-23 15:13:56,346 - d_brain.bot.handlers.text - INFO - Text message processed: 13 chars
+2026-04-23 15:13:56,346 - aiogram.event - INFO - Update id=861044297 is handled. Duration 5214 ms by bot id=8566638650
+2026-04-23 15:14:50,396 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-23 15:14:50,397 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8566638650)
+2026-04-23 15:15:01,449 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8566638650)
+2026-04-23 15:16:29,539 - d_brain.bot.handlers.text - INFO - Text message processed: 6 chars
+2026-04-23 15:16:29,539 - aiogram.event - INFO - Update id=861044298 is handled. Duration 3419 ms by bot id=8566638650
+2026-04-23 15:16:47,747 - aiogram.event - INFO - Update id=861044299 is not handled. Duration 10 ms by bot id=8566638650
+2026-04-23 15:18:33,161 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-23 15:18:33,162 - aiogram.event - INFO - Update id=861044300 is handled. Duration 4212 ms by bot id=8566638650
+2026-04-23 15:18:55,565 - d_brain.bot.handlers.text - INFO - Text message processed: 24 chars
+2026-04-23 15:18:55,566 - aiogram.event - INFO - Update id=861044301 is handled. Duration 7581 ms by bot id=8566638650
+2026-04-23 15:19:08,514 - d_brain.bot.handlers.text - INFO - Text message processed: 8 chars
+2026-04-23 15:19:08,514 - aiogram.event - INFO - Update id=861044302 is handled. Duration 4520 ms by bot id=8566638650
+2026-04-23 15:19:22,211 - aiogram.event - INFO - Update id=861044303 is not handled. Duration 3 ms by bot id=8566638650
+2026-04-23 15:19:38,803 - d_brain.bot.handlers.text - INFO - Text message processed: 6 chars
+2026-04-23 15:19:38,803 - aiogram.event - INFO - Update id=861044304 is handled. Duration 9054 ms by bot id=8566638650
+2026-04-23 15:20:03,714 - d_brain.bot.handlers.text - INFO - Text message processed: 6 chars
+2026-04-23 15:20:03,714 - aiogram.event - INFO - Update id=861044305 is handled. Duration 3208 ms by bot id=8566638650
+2026-04-23 15:20:12,896 - d_brain.bot.handlers.text - INFO - Text message processed: 6 chars
+2026-04-23 15:20:12,897 - aiogram.event - INFO - Update id=861044306 is handled. Duration 3329 ms by bot id=8566638650
+2026-04-23 15:20:20,780 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-23 15:20:20,780 - aiogram.dispatcher - INFO - Polling stopped for bot @Mozg02_bot id=8566638650 - 'Эхо'
+2026-04-23 15:20:20,781 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-23 15:20:20,788 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-23 15:20:20,788 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-04-23 15:20:20,802 - d_brain.services.processor - ERROR - OpenAI agent execution failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1241, in execute_agent
+    report = self._run_openai_agent(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 399, in _run_openai_agent
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 364, in _run_codex_exec
+    raise RuntimeError("codex exec returned an empty response")
+RuntimeError: codex exec returned an empty response
+2026-04-23 15:20:20,805 - d_brain.services.processor - ERROR - OpenAI agent execution failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1241, in execute_agent
+    report = self._run_openai_agent(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 399, in _run_openai_agent
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 364, in _run_codex_exec
+    raise RuntimeError("codex exec returned an empty response")
+RuntimeError: codex exec returned an empty response
+2026-04-23 15:20:26,763 - __main__ - INFO - d-brain starting...
+2026-04-23 15:20:26,763 - __main__ - INFO - Vault path: vault
+2026-04-23 15:20:26,764 - __main__ - INFO - Allowed users: [6144231826]
+2026-04-23 15:20:27,084 - telethon.crypto.aes - INFO - libssl detected, it will be used for encryption
+2026-04-23 15:20:27,140 - d_brain.bot.main - INFO - Starting bot polling...
+2026-04-23 15:20:27,140 - aiogram.dispatcher - INFO - Start polling
+2026-04-23 15:20:27,267 - aiogram.dispatcher - INFO - Run polling for bot @Mozg02_bot id=8566638650 - 'Эхо'
+2026-04-23 15:20:38,950 - d_brain.bot.handlers.text - INFO - Text message processed: 41 chars
+2026-04-23 15:20:38,950 - aiogram.event - INFO - Update id=861044307 is handled. Duration 6738 ms by bot id=8566638650
+2026-04-23 15:28:05,617 - d_brain.bot.handlers.text - INFO - Text message processed: 32 chars
+2026-04-23 15:28:05,618 - aiogram.event - INFO - Update id=861044308 is handled. Duration 6658 ms by bot id=8566638650
+2026-04-23 15:30:17,470 - d_brain.bot.handlers.text - INFO - Text message processed: 70 chars
+2026-04-23 15:30:17,471 - aiogram.event - INFO - Update id=861044309 is handled. Duration 11671 ms by bot id=8566638650
+2026-04-23 15:49:21,878 - d_brain.bot.handlers.text - INFO - Text message processed: 31 chars
+2026-04-23 15:49:21,878 - aiogram.event - INFO - Update id=861044310 is handled. Duration 3908 ms by bot id=8566638650
+2026-04-23 15:51:49,884 - d_brain.bot.handlers.text - INFO - Text message processed: 11 chars
+2026-04-23 15:51:49,885 - aiogram.event - INFO - Update id=861044311 is handled. Duration 4158 ms by bot id=8566638650
+2026-04-23 15:51:57,144 - d_brain.bot.handlers.text - INFO - Text message processed: 11 chars
+2026-04-23 15:51:57,144 - aiogram.event - INFO - Update id=861044312 is handled. Duration 4457 ms by bot id=8566638650
+2026-04-23 15:54:21,550 - d_brain.bot.handlers.text - INFO - Text message processed: 18 chars
+2026-04-23 15:54:21,550 - aiogram.event - INFO - Update id=861044313 is handled. Duration 4204 ms by bot id=8566638650
+2026-04-23 15:59:11,608 - d_brain.bot.handlers.text - INFO - Text message processed: 11 chars
+2026-04-23 15:59:11,609 - aiogram.event - INFO - Update id=861044314 is handled. Duration 3533 ms by bot id=8566638650
+2026-04-23 16:01:59,383 - d_brain.bot.handlers.text - INFO - Text message processed: 11 chars
+2026-04-23 16:01:59,383 - aiogram.event - INFO - Update id=861044315 is handled. Duration 5345 ms by bot id=8566638650
+2026-04-23 16:02:20,241 - d_brain.bot.handlers.text - INFO - Text message processed: 6 chars
+2026-04-23 16:02:20,241 - aiogram.event - INFO - Update id=861044316 is handled. Duration 3587 ms by bot id=8566638650
+2026-04-23 16:07:02,207 - d_brain.bot.handlers.text - INFO - Text message processed: 10 chars
+2026-04-23 16:07:02,207 - aiogram.event - INFO - Update id=861044317 is handled. Duration 3234 ms by bot id=8566638650
+2026-04-23 16:39:46,811 - d_brain.bot.handlers.text - INFO - Text message processed: 23 chars
+2026-04-23 16:39:46,811 - aiogram.event - INFO - Update id=861044318 is handled. Duration 5556 ms by bot id=8566638650
+2026-04-23 17:22:00,445 - d_brain.bot.handlers.text - INFO - Text message processed: 27 chars
+2026-04-23 17:22:00,446 - aiogram.event - INFO - Update id=861044319 is handled. Duration 4079 ms by bot id=8566638650
+2026-04-23 17:54:20,275 - d_brain.bot.handlers.text - INFO - Text message processed: 26 chars
+2026-04-23 17:54:20,276 - aiogram.event - INFO - Update id=861044320 is handled. Duration 5685 ms by bot id=8566638650
+2026-04-23 18:04:28,852 - d_brain.bot.handlers.text - INFO - Text message processed: 11 chars
+2026-04-23 18:04:28,852 - aiogram.event - INFO - Update id=861044321 is handled. Duration 3444 ms by bot id=8566638650
+2026-04-23 18:06:15,577 - d_brain.bot.handlers.text - INFO - Text message processed: 21 chars
+2026-04-23 18:06:15,578 - aiogram.event - INFO - Update id=861044322 is handled. Duration 6227 ms by bot id=8566638650
+2026-04-23 18:06:40,046 - d_brain.bot.handlers.text - INFO - Text message processed: 28 chars
+2026-04-23 18:06:40,046 - aiogram.event - INFO - Update id=861044323 is handled. Duration 6345 ms by bot id=8566638650
+2026-04-23 18:07:10,099 - d_brain.bot.handlers.text - INFO - Text message processed: 36 chars
+2026-04-23 18:07:10,099 - aiogram.event - INFO - Update id=861044324 is handled. Duration 11483 ms by bot id=8566638650
+2026-04-23 18:07:48,963 - d_brain.bot.handlers.text - INFO - Text message processed: 30 chars
+2026-04-23 18:07:48,963 - aiogram.event - INFO - Update id=861044325 is handled. Duration 3898 ms by bot id=8566638650
+2026-04-23 18:08:27,157 - d_brain.bot.handlers.photo - INFO - Photo saved and analyzed: attachments/2026-04-23/img-180817.jpg
+2026-04-23 18:08:27,158 - aiogram.event - INFO - Update id=861044326 is handled. Duration 9301 ms by bot id=8566638650
+2026-04-23 18:08:46,679 - d_brain.services.transcription - INFO - Starting transcription, audio size: 81593 bytes
+2026-04-23 18:08:48,791 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-23 18:08:48,799 - d_brain.services.transcription - INFO - Transcription complete: 62 chars
+2026-04-23 18:08:54,228 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-23 18:08:54,229 - aiogram.event - INFO - Update id=861044327 is handled. Duration 7919 ms by bot id=8566638650
+2026-04-23 19:26:05,417 - d_brain.bot.handlers.text - INFO - Text message processed: 15 chars
+2026-04-23 19:26:05,417 - aiogram.event - INFO - Update id=861044328 is handled. Duration 5715 ms by bot id=8566638650
+2026-04-23 19:26:28,525 - d_brain.bot.handlers.text - INFO - Text message processed: 13 chars
+2026-04-23 19:26:28,526 - aiogram.event - INFO - Update id=861044329 is handled. Duration 6716 ms by bot id=8566638650
+2026-04-23 19:26:40,096 - d_brain.bot.handlers.text - INFO - Text message processed: 17 chars
+2026-04-23 19:26:40,097 - aiogram.event - INFO - Update id=861044330 is handled. Duration 3320 ms by bot id=8566638650
+2026-04-23 19:26:58,311 - d_brain.bot.handlers.text - INFO - Text message processed: 6 chars
+2026-04-23 19:26:58,311 - aiogram.event - INFO - Update id=861044331 is handled. Duration 6482 ms by bot id=8566638650
+2026-04-23 19:27:13,857 - d_brain.bot.handlers.text - INFO - Text message processed: 3 chars
+2026-04-23 19:27:13,857 - aiogram.event - INFO - Update id=861044332 is handled. Duration 3809 ms by bot id=8566638650
+2026-04-23 19:27:26,051 - d_brain.bot.handlers.text - INFO - Text message processed: 10 chars
+2026-04-23 19:27:26,051 - aiogram.event - INFO - Update id=861044333 is handled. Duration 3759 ms by bot id=8566638650
+2026-04-23 19:27:39,454 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-23 19:27:39,454 - aiogram.event - INFO - Update id=861044334 is handled. Duration 4647 ms by bot id=8566638650
+2026-04-23 19:28:03,521 - d_brain.bot.handlers.text - INFO - Text message processed: 39 chars
+2026-04-23 19:28:03,521 - aiogram.event - INFO - Update id=861044335 is handled. Duration 3892 ms by bot id=8566638650
+2026-04-23 20:50:29,611 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 20:50:29,612 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8566638650)
+2026-04-23 20:51:41,612 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 20:51:41,614 - aiogram.dispatcher - WARNING - Sleep for 1.224572 seconds and try again... (tryings = 1, bot id = 8566638650)
+2026-04-23 20:52:53,637 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 20:52:53,639 - aiogram.dispatcher - WARNING - Sleep for 1.532239 seconds and try again... (tryings = 2, bot id = 8566638650)
+2026-04-23 20:54:05,638 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 20:54:05,640 - aiogram.dispatcher - WARNING - Sleep for 1.904977 seconds and try again... (tryings = 3, bot id = 8566638650)
+2026-04-23 20:55:17,624 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 20:55:17,625 - aiogram.dispatcher - WARNING - Sleep for 2.300050 seconds and try again... (tryings = 4, bot id = 8566638650)
+2026-04-23 20:56:30,631 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 20:56:30,632 - aiogram.dispatcher - WARNING - Sleep for 3.055092 seconds and try again... (tryings = 5, bot id = 8566638650)
+2026-04-23 20:57:44,641 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 20:57:44,641 - aiogram.dispatcher - WARNING - Sleep for 3.984240 seconds and try again... (tryings = 6, bot id = 8566638650)
+2026-04-23 20:58:59,636 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 20:58:59,639 - aiogram.dispatcher - WARNING - Sleep for 4.807161 seconds and try again... (tryings = 7, bot id = 8566638650)
+2026-04-23 21:00:14,608 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 21:00:14,608 - aiogram.dispatcher - WARNING - Sleep for 4.917716 seconds and try again... (tryings = 8, bot id = 8566638650)
+2026-04-23 21:01:29,626 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 21:01:29,627 - aiogram.dispatcher - WARNING - Sleep for 5.022450 seconds and try again... (tryings = 9, bot id = 8566638650)
+2026-04-23 21:02:45,634 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-04-23 21:02:45,634 - aiogram.dispatcher - WARNING - Sleep for 5.030176 seconds and try again... (tryings = 10, bot id = 8566638650)
+2026-04-23 21:03:00,848 - aiogram.dispatcher - INFO - Connection established (tryings = 11, bot id = 8566638650)

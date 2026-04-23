@@ -83,3 +83,29 @@ class VaultStorage:
         file_path.write_bytes(data)
 
         return f"attachments/{day.isoformat()}/{filename}"
+
+    def save_document(
+        self,
+        data: bytes,
+        day: date,
+        filename: str,
+    ) -> str:
+        """Save a user-sent document and return its vault-relative path."""
+        dir_path = self.get_attachments_dir(day)
+        safe_name = Path(filename).name.strip() or "document"
+        file_path = dir_path / safe_name
+
+        if file_path.exists():
+            stem = file_path.stem
+            suffix = file_path.suffix
+            counter = 2
+            while True:
+                candidate = dir_path / f"{stem}-{counter}{suffix}"
+                if not candidate.exists():
+                    file_path = candidate
+                    break
+                counter += 1
+
+        file_path.write_bytes(data)
+
+        return f"attachments/{day.isoformat()}/{file_path.name}"

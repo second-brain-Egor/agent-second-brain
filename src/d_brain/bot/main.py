@@ -25,7 +25,7 @@ def create_bot(settings: Settings) -> Bot:
 
 def create_dispatcher() -> Dispatcher:
     """Create and configure the dispatcher with routers."""
-    from d_brain.bot.handlers import ask, buttons, channel, commands, do, forward, photo, process, text, voice, weekly
+    from d_brain.bot.handlers import ask, buttons, channel, commands, do, document, forward, photo, process, text, voice, weekly
 
     # Use memory storage for FSM (required for /do command state)
     dp = Dispatcher(storage=MemoryStorage())
@@ -38,6 +38,7 @@ def create_dispatcher() -> Dispatcher:
     dp.include_router(weekly.router)
     dp.include_router(do.router)  # Before voice/text to catch FSM state
     dp.include_router(buttons.router)  # Reply keyboard buttons
+    dp.include_router(document.router)
     dp.include_router(voice.router)
     dp.include_router(photo.router)
     dp.include_router(forward.router)
