@@ -360,7 +360,7 @@ TODOIST_API_KEY=$TODOIST_API_KEY
 
 # Codex CLI settings
 CODEX_BIN=codex
-CODEX_MODEL=gpt-5.4
+CODEX_MODEL=gpt-5.5
 
 # Path to Obsidian vault directory
 VAULT_PATH=./vault

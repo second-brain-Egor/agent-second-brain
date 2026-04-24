@@ -61,7 +61,7 @@ class AgentProcessor:
 
         settings = get_settings()
         self.codex_bin = settings.codex_bin.strip() or "codex"
-        self.codex_model = settings.codex_model.strip() or "gpt-5.4"
+        self.codex_model = settings.codex_model.strip() or "gpt-5.5"
         self.codex_sandbox_mode = settings.codex_sandbox_mode.strip().lower() or "bypass"
 
         effort = os.environ.get("CODEX_REASONING_EFFORT", "medium").strip().lower()
