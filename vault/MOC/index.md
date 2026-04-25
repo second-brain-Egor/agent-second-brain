@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-04-24
+updated: 2026-04-25
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 71
-- Связей: 192
+- Заметок: 73
+- Связей: 194
 - Сирот: 1
-- Слабосвязанных: 14
+- Слабосвязанных: 15
 
 ## Память
 
@@ -50,6 +50,7 @@ tier: active
 - [[thoughts/projects/enterprise-ai-implementation/03-local-ai-stack-and-budget.md|Локальный ИИ-контур и бюджет]]
 - [[thoughts/projects/enterprise-ai-implementation/README.md|Внедрение ИИ на предприятии]]
 - [[thoughts/projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
+- [[thoughts/projects/japanese-architecture/README.md|Японская архитектура]]
 - [[thoughts/projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
 - [[thoughts/projects/second-brain-bot-operations/memory-sync.md|Синхронизация памяти между Telegram и терминалом]]
 - [[thoughts/projects/shiporezny-stanok-selection/README.md|Подбор шипорезного станка]]
@@ -59,13 +60,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-04-25.md|2026-04-25]]
 - [[daily/2026-04-24.md|2026-04-24]]
 - [[daily/2026-04-23.md|2026-04-23]]
 - [[daily/2026-04-22.md|2026-04-22]]
 - [[daily/2026-04-21.md|2026-04-21]]
 - [[daily/2026-04-20.md|2026-04-20]]
 - [[daily/2026-04-19.md|2026-04-19]]
-- [[daily/2026-04-18.md|2026-04-18]]
 
 ## Недельные сводки
 

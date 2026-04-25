@@ -15,6 +15,7 @@ Map of Content for project notes.
 - [[thoughts/projects/asula/README.md|АСУЛА]]
 - [[thoughts/projects/enterprise-ai-implementation/README.md|Внедрение ИИ на предприятии]]
 - [[thoughts/projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
+- [[thoughts/projects/japanese-architecture/README.md|Японская архитектура]]
 - [[thoughts/projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
 - [[thoughts/projects/shiporezny-stanok-selection/README.md|Подбор шипорезного станка]]
 - [[thoughts/projects/timberframe-workshop-setup/README.md|Timberframe Workshop Setup]]

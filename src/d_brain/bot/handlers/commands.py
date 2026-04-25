@@ -181,20 +181,8 @@ async def cmd_restart(message: Message) -> None:
         )
         return
 
-    status_msg = await message.answer("🔄 Перезапускаю сервис...")
-    code, stdout, stderr = await _run_admin_command(restart_command)
-
-    if code == 0:
-        await status_msg.edit_text("✅ Команда перезапуска отправлена.")
-        return
-
-    details = stderr or stdout or "без текста ошибки"
-    if len(details) > 300:
-        details = details[:300].rstrip() + "..."
-    await status_msg.edit_text(
-        "❌ Перезапуск не выполнен.\n\n"
-        f"<code>{details}</code>"
-    )
+    await message.answer("🔄 Команда перезапуска отправлена. Бот вернётся через несколько секунд.")
+    asyncio.create_task(_run_admin_command(restart_command, timeout=10))
 
 
 @router.message(Command("silent"))

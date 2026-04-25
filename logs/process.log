@@ -979,3 +979,49 @@ Indexed 472 facts
 To https://github.com/second-brain-Egor/agent-second-brain.git
    b004d2b..64485c5  main -> main
 === Done (empty daily, graph-only) ===
+RANDOMIZED_PROCESS: picked 04:26 Moscow for 2026-04-25
+RANDOMIZED_PROCESS: starting at 04:30 Moscow for target 04:26
+=== d-brain processing for 2026-04-25 ===
+ORIENT: daily/2026-04-25.md not found - creating empty file
+ORIENT: daily/2026-04-25.md is empty (13 bytes) - skipping AI processing
+# Vault Graph Analysis
+
+## Overview
+
+- **Total notes:** 73
+- **Total links:** 194
+- **Orphan notes:** 2
+
+## Most Connected Notes
+
+- [[MOC/index.md|index]] (53 links)
+- [[reports/vault-health.md|vault-health]] (39 links)
+- [[memory/soul.md|soul]] (18 links)
+- [[memory/facts.md|facts]] (15 links)
+- [[memory/user.md|user]] (15 links)
+
+## Domain Statistics
+
+| Domain | Notes | Avg Links |
+|--------|-------|-----------|
+| MOC/ | 6 | 12.7 |
+| blog/ | 2 | 1.0 |
+| daily/ | 24 | 2.8 |
+| goals/ | 5 | 8.6 |
+| memory/ | 5 | 10.4 |
+| references/ | 3 | 2.0 |
+| reports/ | 1 | 39.0 |
+| root/ | 1 | 3.0 |
+| summaries/ | 3 | 2.0 |
+| templates/ | 2 | 0.5 |
+| thoughts/ | 21 | 4.4 |
+
+## Orphan Notes (need links)
+
+- [[daily/2026-04-25|2026-04-25]] (daily/)
+- [[templates/daily-template|daily-template]] (templates/)
+
+=== Refreshing wiki index ===
+Wiki refreshed: notes=73 links=194 orphans=1
+=== RAG indexing ===
+Indexed 492 facts
