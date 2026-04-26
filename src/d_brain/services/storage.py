@@ -79,6 +79,11 @@ class VaultStorage:
         time_str = timestamp.strftime("%H%M%S")
         filename = f"img-{time_str}.{extension}"
         file_path = dir_path / filename
+        counter = 2
+        while file_path.exists():
+            filename = f"img-{time_str}-{counter}.{extension}"
+            file_path = dir_path / filename
+            counter += 1
 
         file_path.write_bytes(data)
 
