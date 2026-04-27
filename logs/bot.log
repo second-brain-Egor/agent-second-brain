@@ -21497,3 +21497,60 @@ Traceback (most recent call last):
 RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Apr 28th, 2026 9:30 PM.
 2026-04-26 21:23:39,822 - d_brain.bot.handlers.text - INFO - Text message processed: 51 chars
 2026-04-26 21:23:39,822 - aiogram.event - INFO - Update id=861044541 is handled. Duration 3021 ms by bot id=8566638650
+2026-04-27 06:33:40,574 - d_brain.services.processor - ERROR - OpenAI chat failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1393, in execute_raw_prompt
+    report = self._run_openai_text(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 380, in _run_openai_text
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 361, in _run_codex_exec
+    raise RuntimeError(details.splitlines()[-1] if details else "codex exec failed")
+RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Apr 28th, 2026 9:30 PM.
+2026-04-27 06:33:40,655 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-04-27 06:33:40,656 - aiogram.event - INFO - Update id=861044542 is handled. Duration 3746 ms by bot id=8566638650
+2026-04-27 13:19:43,021 - d_brain.services.processor - ERROR - OpenAI chat failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1393, in execute_raw_prompt
+    report = self._run_openai_text(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 380, in _run_openai_text
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 361, in _run_codex_exec
+    raise RuntimeError(details.splitlines()[-1] if details else "codex exec failed")
+RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Apr 28th, 2026 9:30 PM.
+2026-04-27 13:19:43,139 - d_brain.bot.handlers.text - INFO - Text message processed: 6 chars
+2026-04-27 13:19:43,139 - aiogram.event - INFO - Update id=861044543 is handled. Duration 2895 ms by bot id=8566638650
+2026-04-27 13:20:36,954 - d_brain.services.transcription - INFO - Starting transcription, audio size: 873457 bytes
+2026-04-27 13:20:38,807 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-27 13:20:38,824 - d_brain.services.transcription - INFO - Transcription complete: 394 chars
+2026-04-27 13:20:41,066 - d_brain.services.processor - ERROR - OpenAI chat failed
+Traceback (most recent call last):
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 1393, in execute_raw_prompt
+    report = self._run_openai_text(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 380, in _run_openai_text
+    return self._run_codex_exec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/agent-second-brain/src/d_brain/services/processor.py", line 361, in _run_codex_exec
+    raise RuntimeError(details.splitlines()[-1] if details else "codex exec failed")
+RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Apr 28th, 2026 9:30 PM.
+2026-04-27 13:20:41,201 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-27 13:20:41,201 - aiogram.event - INFO - Update id=861044544 is handled. Duration 4976 ms by bot id=8566638650
+2026-04-27 18:22:32,748 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-04-27 18:22:32,748 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8566638650)
+2026-04-27 18:22:43,862 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8566638650)
+2026-04-27 18:22:43,865 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-04-27 18:22:43,865 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8566638650)
+2026-04-27 18:22:54,985 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8566638650)
+2026-04-27 18:25:25,580 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-04-27 18:25:25,581 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8566638650)
+2026-04-27 18:25:36,701 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8566638650)
+2026-04-27 18:25:36,708 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-04-27 18:25:36,708 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8566638650)
+2026-04-27 18:25:47,826 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8566638650)
+2026-04-27 18:26:58,147 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-04-27 18:26:58,148 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8566638650)
+2026-04-27 18:27:09,300 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8566638650)
