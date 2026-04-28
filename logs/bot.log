@@ -21554,3 +21554,54 @@ RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgp
 2026-04-27 18:26:58,147 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2026-04-27 18:26:58,148 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8566638650)
 2026-04-27 18:27:09,300 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8566638650)
+2026-04-28 11:48:00,838 - d_brain.services.transcription - INFO - Starting transcription, audio size: 26385 bytes
+2026-04-28 11:48:01,850 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 11:48:01,875 - d_brain.services.transcription - INFO - Transcription complete: 12 chars
+2026-04-28 11:48:06,123 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 11:48:06,123 - aiogram.event - INFO - Update id=861044545 is handled. Duration 5670 ms by bot id=8566638650
+2026-04-28 11:48:16,865 - d_brain.services.transcription - INFO - Starting transcription, audio size: 126913 bytes
+2026-04-28 11:48:18,204 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 11:48:18,212 - d_brain.services.transcription - INFO - Transcription complete: 101 chars
+2026-04-28 11:48:25,443 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 11:48:25,444 - aiogram.event - INFO - Update id=861044546 is handled. Duration 8931 ms by bot id=8566638650
+2026-04-28 11:50:08,027 - d_brain.services.transcription - INFO - Starting transcription, audio size: 873457 bytes
+2026-04-28 11:50:10,067 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 11:50:10,078 - d_brain.services.transcription - INFO - Transcription complete: 394 chars
+2026-04-28 11:50:15,074 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 11:50:15,074 - aiogram.event - INFO - Update id=861044547 is handled. Duration 7433 ms by bot id=8566638650
+2026-04-28 11:51:22,574 - d_brain.services.transcription - INFO - Starting transcription, audio size: 986345 bytes
+2026-04-28 11:51:24,019 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 11:51:24,041 - d_brain.services.transcription - INFO - Transcription complete: 546 chars
+2026-04-28 11:51:28,602 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 11:51:28,602 - aiogram.event - INFO - Update id=861044548 is handled. Duration 6722 ms by bot id=8566638650
+2026-04-28 12:19:27,241 - d_brain.services.transcription - INFO - Starting transcription, audio size: 268641 bytes
+2026-04-28 12:19:28,918 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 12:19:28,923 - d_brain.services.transcription - INFO - Transcription complete: 108 chars
+2026-04-28 12:19:38,604 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 12:19:38,606 - aiogram.event - INFO - Update id=861044549 is handled. Duration 11975 ms by bot id=8566638650
+2026-04-28 12:20:09,843 - d_brain.services.transcription - INFO - Starting transcription, audio size: 107137 bytes
+2026-04-28 12:20:11,217 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 12:20:11,221 - d_brain.services.transcription - INFO - Transcription complete: 70 chars
+2026-04-28 12:20:16,404 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 12:20:16,404 - aiogram.event - INFO - Update id=861044550 is handled. Duration 6886 ms by bot id=8566638650
+2026-04-28 12:21:16,575 - d_brain.services.transcription - INFO - Starting transcription, audio size: 388945 bytes
+2026-04-28 12:21:18,373 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 12:21:18,378 - d_brain.services.transcription - INFO - Transcription complete: 111 chars
+2026-04-28 12:21:28,943 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 12:21:28,943 - aiogram.event - INFO - Update id=861044551 is handled. Duration 12888 ms by bot id=8566638650
+2026-04-28 12:26:34,510 - d_brain.services.transcription - INFO - Starting transcription, audio size: 37097 bytes
+2026-04-28 12:26:36,357 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 12:26:36,361 - d_brain.services.transcription - INFO - Transcription complete: 23 chars
+2026-04-28 12:26:43,975 - d_brain.bot.handlers.process - INFO - Process command triggered by user 6144231826
+2026-04-28 12:26:44,008 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 12:26:44,008 - aiogram.event - INFO - Update id=861044552 is handled. Duration 9722 ms by bot id=8566638650
+2026-04-28 12:26:55,367 - d_brain.services.transcription - INFO - Starting transcription, audio size: 45337 bytes
+2026-04-28 12:26:56,287 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 12:26:56,290 - d_brain.services.transcription - INFO - Transcription complete: 30 chars
+2026-04-28 12:27:23,500 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 12:27:23,501 - aiogram.event - INFO - Update id=861044554 is handled. Duration 28292 ms by bot id=8566638650
+2026-04-28 12:27:37,384 - d_brain.services.transcription - INFO - Starting transcription, audio size: 31329 bytes
+2026-04-28 12:27:38,659 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-04-28 12:27:38,671 - d_brain.services.transcription - INFO - Transcription complete: 16 chars
+2026-04-28 12:27:45,066 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-04-28 12:27:45,066 - aiogram.event - INFO - Update id=861044555 is handled. Duration 7877 ms by bot id=8566638650
