@@ -1302,3 +1302,50 @@ Indexed 1055 facts
 To https://github.com/second-brain-Egor/agent-second-brain.git
    b2db814..2390a06  main -> main
 === Done (empty daily, graph-only) ===
+RANDOMIZED_PROCESS: picked 04:57 Moscow for 2026-04-29
+RANDOMIZED_PROCESS: starting at 05:00 Moscow for target 04:57
+=== d-brain processing for 2026-04-29 ===
+ORIENT: daily/2026-04-29.md not found - creating empty file
+ORIENT: daily/2026-04-29.md is empty (13 bytes) - skipping AI processing
+# Vault Graph Analysis
+
+## Overview
+
+- **Total notes:** 191
+- **Total links:** 692
+- **Orphan notes:** 3
+
+## Most Connected Notes
+
+- [[MOC/index.md|index]] (168 links)
+- [[thoughts/projects/Рынок стройматериалы/cards/README.md|README]] (105 links)
+- [[thoughts/projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|product-cards-page-1-2026-04-26]] (84 links)
+- [[reports/vault-health.md|vault-health]] (51 links)
+- [[thoughts/projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|price-list-page-2-2026-04-26]] (47 links)
+
+## Domain Statistics
+
+| Domain | Notes | Avg Links |
+|--------|-------|-----------|
+| MOC/ | 6 | 32.0 |
+| blog/ | 2 | 1.0 |
+| daily/ | 28 | 2.6 |
+| goals/ | 5 | 7.8 |
+| memory/ | 5 | 10.6 |
+| references/ | 3 | 2.0 |
+| reports/ | 1 | 51.0 |
+| root/ | 1 | 3.0 |
+| summaries/ | 3 | 2.0 |
+| templates/ | 2 | 0.0 |
+| thoughts/ | 135 | 7.1 |
+
+## Orphan Notes (need links)
+
+- [[daily/2026-04-29|2026-04-29]] (daily/)
+- [[templates/crm-template|crm-template]] (templates/)
+- [[templates/daily-template|daily-template]] (templates/)
+
+=== Refreshing wiki index ===
+Wiki refreshed: notes=191 links=692 orphans=3
+=== RAG indexing ===
+Indexed 1066 facts
