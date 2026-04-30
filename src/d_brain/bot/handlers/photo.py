@@ -23,6 +23,9 @@ from d_brain.services.storage import VaultStorage
 router = Router(name="photo")
 logger = logging.getLogger(__name__)
 
+_album_ack_tasks: dict[tuple[int, str], asyncio.Task[None]] = {}
+
+
 async def _analyze_image(image_path: str, caption: str | None = None) -> str | None:
     """Analyze an image with the configured Codex CLI model."""
     try:
@@ -34,9 +37,37 @@ async def _analyze_image(image_path: str, caption: str | None = None) -> str | N
         return None
 
 
+async def _send_album_ack_later(message: Message, key: tuple[int, str]) -> None:
+    """Send one acknowledgement for a Telegram media group."""
+    try:
+        await asyncio.sleep(1.5)
+        await message.answer("Фото получил. Что с ними сделать?")
+    except asyncio.CancelledError:
+        raise
+    except Exception:
+        logger.exception("Failed to send album acknowledgement")
+    finally:
+        _album_ack_tasks.pop(key, None)
+
+
+async def _acknowledge_photo(message: Message) -> None:
+    """Ask what to do with received photo(s) without dumping vision text."""
+    media_group_id = message.media_group_id
+    if not media_group_id:
+        await message.answer("Фото получил. Что с ним сделать?")
+        return
+
+    key = (message.chat.id, media_group_id)
+    existing = _album_ack_tasks.pop(key, None)
+    if existing:
+        existing.cancel()
+
+    _album_ack_tasks[key] = asyncio.create_task(_send_album_ack_later(message, key))
+
+
 @router.message(lambda m: m.photo is not None)
 async def handle_photo(message: Message, bot: Bot) -> None:
-    """Handle photo messages: save them and analyze with vision."""
+    """Handle photo messages: save them and keep vision text out of chat."""
     if not message.photo or not message.from_user:
         return
 
@@ -91,6 +122,7 @@ async def handle_photo(message: Message, bot: Bot) -> None:
             caption=message.caption,
             text=description,
             msg_id=message.message_id,
+            media_group_id=message.media_group_id,
             chat_id=message.chat.id,
             chat_title=message.chat.title,
         )
@@ -100,13 +132,7 @@ async def handle_photo(message: Message, bot: Bot) -> None:
             logger.info("Saved group photo without reply in chat %s", message.chat.id)
             return
 
-        if description:
-            try:
-                await message.answer(f"Фото сохранено.\n\n{description}")
-            except Exception:
-                await message.answer(f"Фото сохранено.\n\n{description}", parse_mode=None)
-        else:
-            await message.answer("Фото сохранено.")
+        await _acknowledge_photo(message)
 
         logger.info("Photo saved and analyzed: %s", relative_path)
 

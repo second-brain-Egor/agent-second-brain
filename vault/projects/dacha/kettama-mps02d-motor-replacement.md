@@ -86,5 +86,5 @@ tags:
 
 ## Связи
 
-- [[thoughts/projects/dacha/README.md|Дача]]
+- [[projects/dacha/README.md|Дача]]
 - [[daily/2026-04-18.md|2026-04-18]]

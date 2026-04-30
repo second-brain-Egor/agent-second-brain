@@ -25,6 +25,6 @@ tier: active
 
 ## Связи
 
-- [[thoughts/projects/timberframe-workshop-setup/README|Timberframe Workshop Setup]]
+- [[projects/timberframe-workshop-setup/README|Timberframe Workshop Setup]]
 - [[goals/0-vision-3y|Vision 2025-2027]]
 - [[goals/1-yearly-2026|Goals 2026]]

@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-04-29
+updated: 2026-04-30
 relevance: 0.86
 tier: warm
 ---
@@ -10,48 +10,46 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 191
-- Связей: 692
-- Сирот: 3
-- Слабосвязанных: 17
+- Заметок: 209
+- Связей: 721
+- Сирот: 0
+- Слабосвязанных: 34
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 6 | 32.00 |
+| MOC | 6 | 34.50 |
 | blog | 2 | 1.00 |
-| daily | 28 | 2.61 |
+| daily | 29 | 2.66 |
 | goals | 5 | 7.80 |
-| memory | 5 | 10.60 |
-| references | 3 | 2.00 |
+| memory | 5 | 10.40 |
+| projects | 146 | 6.68 |
+| references | 3 | 1.33 |
 | reports | 1 | 51.00 |
 | root | 1 | 3.00 |
 | summaries | 3 | 2.00 |
-| templates | 2 | 0.00 |
-| thoughts | 135 | 7.10 |
+| templates | 2 | 1.00 |
+| thoughts | 6 | 4.00 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 168 связей
-- [[thoughts/projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 105 связей
-- [[thoughts/projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 84 связей
+- [[MOC/index.md|Индекс знаний]] — 185 связей
+- [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 105 связей
+- [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 84 связей
 - [[reports/vault-health.md|Health Check Vault]] — 51 связей
-- [[thoughts/projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 47 связей
-- [[thoughts/projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 45 связей
-- [[thoughts/projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 45 связей
-- [[thoughts/projects/Рынок стройматериалы/price-list-page-3-2026-04-26.md|Прайс-лист стройматериалов — страница 3 из 3]] — 26 связей
-- [[thoughts/projects/Рынок стройматериалы/product-cards-page-3-2026-04-26.md|Карточки позиций — Новорязанка, страница 3]] — 25 связей
+- [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 47 связей
+- [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 45 связей
+- [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 45 связей
+- [[projects/Рынок стройматериалы/price-list-page-3-2026-04-26.md|Прайс-лист стройматериалов — страница 3 из 3]] — 26 связей
+- [[projects/Рынок стройматериалы/product-cards-page-3-2026-04-26.md|Карточки позиций — Новорязанка, страница 3]] — 25 связей
 - [[memory/soul.md|Идентичность агента]] — 19 связей
-
-## Сироты
-
-- [[daily/2026-04-22.md|2026-04-22]]
-- [[templates/crm-template.md|[Company Name]]]
-- [[templates/daily-template.md|{{date}}]]
 
 ## Слабосвязанные
 
+- [[MOC/MOC-ideas.md|Ideas]]
+- [[MOC/MOC-learnings.md|Learnings]]
+- [[MOC/MOC-reflections.md|Reflections]]
 - [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
 - [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
@@ -66,9 +64,10 @@ tier: warm
 - [[daily/2026-04-19.md|2026-04-19]]
 - [[daily/2026-04-20.md|2026-04-20]]
 - [[daily/2026-04-21.md|2026-04-21]]
-- [[daily/2026-04-25.md|2026-04-25]]
-- [[daily/2026-04-27.md|2026-04-27]]
-- [[daily/2026-04-29.md|2026-04-29]]
+- [[daily/2026-04-22.md|2026-04-22]]
+- [[daily/2026-04-23.md|2026-04-23]]
+- [[daily/2026-04-30.md|2026-04-30]]
+- ... ещё 14
 
 ## Неразрешённые ссылки
 
@@ -80,15 +79,15 @@ tier: warm
 - [[daily/2026-04-14.md|2026-04-14]]: attachments/2026-04-14/img-120945.jpg
 - [[daily/2026-04-23.md|2026-04-23]]: attachments/2026-04-23/img-145217.jpg, attachments/2026-04-23/img-180817.jpg
 - [[daily/2026-04-26.md|2026-04-26]]: attachments/2026-04-26/img-201007.jpg, attachments/2026-04-26/img-203355.jpg, attachments/2026-04-26/img-204337.jpg, attachments/2026-04-26/img-204926.jpg
-- [[references/classification.md|Entry Classification]]: 2024-12-16-claude-mcp-setup, 2024-12-16-saas-pricing-model, client
-- [[thoughts/projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]: cards/README
-- [[thoughts/projects/Рынок стройматериалы/cards/001-шамотный-кирпич-шб-8-боровичи.md|1. Шамотный кирпич ШБ-8 Боровичи]]: ../README
-- [[thoughts/projects/Рынок стройматериалы/cards/002-кирпич-печной-желтый.md|2. Кирпич печной желтый]]: ../README
-- [[thoughts/projects/Рынок стройматериалы/cards/003-кирпич-печной-красный-боровичи.md|3. Кирпич печной красный Боровичи]]: ../README
-- [[thoughts/projects/Рынок стройматериалы/cards/004-кирпич-рабочий-м150.md|4. Кирпич рабочий М150]]: ../README
-- [[thoughts/projects/Рынок стройматериалы/cards/005-пгп-knauf-1.md|5. ПГП Knauf]]: ../README
-- [[thoughts/projects/Рынок стройматериалы/cards/006-пгп-knauf-2.md|6. ПГП Knauf]]: ../README
-- [[thoughts/projects/Рынок стройматериалы/cards/007-пгп-russian-1.md|7. ПГП Russian]]: ../README
-- [[thoughts/projects/Рынок стройматериалы/cards/008-пгп-russian-2.md|8. ПГП Russian]]: ../README
-- [[thoughts/projects/Рынок стройматериалы/cards/009-штукатурка-волма-холст.md|9. Штукатурка Волма Холст]]: ../README
-- [[thoughts/projects/Рынок стройматериалы/cards/010-штукатурка-волма-слой-30-кг.md|10. Штукатурка Волма Слой 30 кг]]: ../README
+- [[daily/2026-04-29.md|2026-04-29]]: attachments/2026-04-29/img-194339.jpg, attachments/2026-04-29/img-195007.jpg, attachments/2026-04-29/img-195227.jpg, attachments/2026-04-29/img-195246.jpg
+- [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]: cards/README
+- [[projects/Рынок стройматериалы/cards/001-шамотный-кирпич-шб-8-боровичи.md|1. Шамотный кирпич ШБ-8 Боровичи]]: ../README
+- [[projects/Рынок стройматериалы/cards/002-кирпич-печной-желтый.md|2. Кирпич печной желтый]]: ../README
+- [[projects/Рынок стройматериалы/cards/003-кирпич-печной-красный-боровичи.md|3. Кирпич печной красный Боровичи]]: ../README
+- [[projects/Рынок стройматериалы/cards/004-кирпич-рабочий-м150.md|4. Кирпич рабочий М150]]: ../README
+- [[projects/Рынок стройматериалы/cards/005-пгп-knauf-1.md|5. ПГП Knauf]]: ../README
+- [[projects/Рынок стройматериалы/cards/006-пгп-knauf-2.md|6. ПГП Knauf]]: ../README
+- [[projects/Рынок стройматериалы/cards/007-пгп-russian-1.md|7. ПГП Russian]]: ../README
+- [[projects/Рынок стройматериалы/cards/008-пгп-russian-2.md|8. ПГП Russian]]: ../README
+- [[projects/Рынок стройматериалы/cards/009-штукатурка-волма-холст.md|9. Штукатурка Волма Холст]]: ../README
+- [[projects/Рынок стройматериалы/cards/010-штукатурка-волма-слой-30-кг.md|10. Штукатурка Волма Слой 30 кг]]: ../README

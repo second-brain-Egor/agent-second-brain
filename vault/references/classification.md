@@ -132,7 +132,7 @@ For `[photo]` entries:
 | task (content) | Todoist | p3-p4 |
 | idea | thoughts/ideas/ | — |
 | reflection | thoughts/reflections/ | — |
-| project | thoughts/projects/ | — |
+| project | projects/ | — |
 | learning | thoughts/learnings/ | — |
 
 ---
@@ -146,7 +146,7 @@ thoughts/{category}/{YYYY-MM-DD}-short-title.md
 Examples:
 ```
 thoughts/ideas/2024-12-16-saas-pricing-model.md
-thoughts/projects/2024-12-16-ai-agents-pipeline.md
+projects/2024-12-16-ai-agents-pipeline.md
 thoughts/learnings/2024-12-16-claude-mcp-setup.md
 ```
 

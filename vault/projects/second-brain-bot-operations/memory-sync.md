@@ -14,6 +14,6 @@ tier: active
 - Для пользователя практический критерий синхронизации простой: если изменение записано в daily, memory или project note, оно должно быть доступно обоим контурам
 
 Связано:
-- [[thoughts/projects/second-brain-bot-operations/README]]
+- [[projects/second-brain-bot-operations/README]]
 - [[memory/user]]
 - [[memory/soul]]

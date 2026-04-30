@@ -199,7 +199,7 @@ def _group_paths(paths: list[str]) -> dict[str, list[str]]:
             groups["goals"].append(path)
         elif path.startswith("MOC/"):
             groups["moc"].append(path)
-        elif path.startswith("thoughts/projects/"):
+        elif path.startswith("projects/"):
             groups["projects"].append(path)
         elif path.startswith("thoughts/learnings/"):
             groups["learnings"].append(path)

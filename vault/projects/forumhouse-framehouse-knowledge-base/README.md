@@ -117,6 +117,6 @@ status: active
 
 ## Связи
 
-- [[thoughts/projects/timberframe/README|TimberFrame]]
-- [[thoughts/projects/timberframe-workshop-setup/README|Timberframe Workshop Setup]]
+- [[projects/timberframe/README|TimberFrame]]
+- [[projects/timberframe-workshop-setup/README|Timberframe Workshop Setup]]
 - [[goals/1-yearly-2026|Goals 2026]]

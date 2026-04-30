@@ -16,4 +16,4 @@ tier: warm
 - Проверить не только что процесс `running`, но и что проблемные страницы появились в JSON, тема закрылась полностью или осталась в очереди repair с понятной причиной
 
 Связано:
-- [[thoughts/projects/forumhouse-framehouse-knowledge-base/README|Forumhouse Framehouse Knowledge Base]]
+- [[projects/forumhouse-framehouse-knowledge-base/README|Forumhouse Framehouse Knowledge Base]]

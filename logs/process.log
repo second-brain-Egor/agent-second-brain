@@ -1349,3 +1349,63 @@ ORIENT: daily/2026-04-29.md is empty (13 bytes) - skipping AI processing
 Wiki refreshed: notes=191 links=692 orphans=3
 === RAG indexing ===
 Indexed 1066 facts
+[main c77bc35] chore: process daily 2026-04-29
+ 10 files changed, 205 insertions(+), 26 deletions(-)
+ create mode 100644 vault/daily/2026-04-29.md
+To https://github.com/second-brain-Egor/agent-second-brain.git
+   f433bfb..c77bc35  main -> main
+=== Done (empty daily, graph-only) ===
+RANDOMIZED_PROCESS: picked 04:00 Moscow for 2026-04-30
+RANDOMIZED_PROCESS: starting at 04:00 Moscow for target 04:00
+=== d-brain processing for 2026-04-30 ===
+ORIENT: daily/2026-04-30.md not found - creating empty file
+ORIENT: daily/2026-04-30.md is empty (13 bytes) - skipping AI processing
+# Vault Graph Analysis
+
+## Overview
+
+- **Total notes:** 209
+- **Total links:** 706
+- **Orphan notes:** 9
+
+## Most Connected Notes
+
+- [[MOC/index.md|index]] (170 links)
+- [[projects/Рынок стройматериалы/cards/README.md|README]] (105 links)
+- [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|product-cards-page-1-2026-04-26]] (84 links)
+- [[reports/vault-health.md|vault-health]] (51 links)
+- [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|price-list-page-2-2026-04-26]] (47 links)
+
+## Domain Statistics
+
+| Domain | Notes | Avg Links |
+|--------|-------|-----------|
+| MOC/ | 6 | 32.0 |
+| blog/ | 2 | 1.0 |
+| daily/ | 29 | 2.7 |
+| goals/ | 5 | 7.8 |
+| memory/ | 5 | 10.4 |
+| projects/ | 146 | 6.6 |
+| references/ | 3 | 1.3 |
+| reports/ | 1 | 51.0 |
+| root/ | 1 | 3.0 |
+| summaries/ | 3 | 2.0 |
+| templates/ | 2 | 1.0 |
+| thoughts/ | 6 | 4.0 |
+
+## Orphan Notes (need links)
+
+- [[daily/2026-04-30|2026-04-30]] (daily/)
+- [[projects/enterprise-ai-implementation/initiatives/01-local-ai-infrastructure|01-local-ai-infrastructure]] (projects/)
+- [[projects/enterprise-ai-implementation/initiatives/02-enterprise-knowledge-base|02-enterprise-knowledge-base]] (projects/)
+- [[projects/enterprise-ai-implementation/initiatives/03-documents-and-regulations|03-documents-and-regulations]] (projects/)
+- [[projects/enterprise-ai-implementation/initiatives/04-emergency-response|04-emergency-response]] (projects/)
+- [[projects/enterprise-ai-implementation/initiatives/05-training-and-simulators|05-training-and-simulators]] (projects/)
+- [[projects/enterprise-ai-implementation/initiatives/06-analytics|06-analytics]] (projects/)
+- [[projects/enterprise-ai-implementation/initiatives/07-security-and-access|07-security-and-access]] (projects/)
+- [[projects/enterprise-ai-implementation/initiatives/08-organizational-implementation|08-organizational-implementation]] (projects/)
+
+=== Refreshing wiki index ===
+Wiki refreshed: notes=209 links=721 orphans=0
+=== RAG indexing ===
+Indexed 1205 facts

@@ -11,17 +11,18 @@ Map of Content for project notes.
 ## Active
 
 <!-- Active project thoughts -->
-- [[thoughts/projects/dacha/README.md|Дача]]
-- [[thoughts/projects/asula/README.md|АСУЛА]]
-- [[thoughts/projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]
-- [[thoughts/projects/enterprise-ai-implementation/README.md|Внедрение ИИ на предприятии]]
-- [[thoughts/projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
-- [[thoughts/projects/japanese-architecture/README.md|Японская архитектура]]
-- [[thoughts/projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
-- [[thoughts/projects/shiporezny-stanok-selection/README.md|Подбор шипорезного станка]]
-- [[thoughts/projects/timberframe-workshop-setup/README.md|Timberframe Workshop Setup]]
-- [[thoughts/projects/timberframe/README.md|TimberFrame]]
-- [[thoughts/projects/trading-bot-stop-reliability/README.md|Надёжная остановка торгового бота]]
+- [[projects/dacha/README.md|Дача]]
+- [[projects/asula/README.md|АСУЛА]]
+- [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]
+- [[projects/enterprise-ai-implementation/README.md|Внедрение ИИ на предприятии]]
+- [[projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
+- [[projects/japanese-architecture/README.md|Японская архитектура]]
+- [[projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
+- [[projects/server-backup-and-migration/README.md|Выгрузка данных с Regi и переезд бота]]
+- [[projects/shiporezny-stanok-selection/README.md|Подбор шипорезного станка]]
+- [[projects/timberframe-workshop-setup/README.md|Timberframe Workshop Setup]]
+- [[projects/timberframe/README.md|TimberFrame]]
+- [[projects/trading-bot-stop-reliability/README.md|Надёжная остановка торгового бота]]
 
 ## Archive
 

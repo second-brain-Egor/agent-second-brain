@@ -220,7 +220,7 @@ cd ~/projects/agent-second-brain
 
 rm -rf vault/daily/*
 rm -rf vault/thoughts/ideas/*
-rm -rf vault/thoughts/projects/*
+rm -rf vault/projects/*
 rm -rf vault/thoughts/learnings/*
 rm -rf vault/thoughts/reflections/*
 rm -rf vault/summaries/*
