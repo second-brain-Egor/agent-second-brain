@@ -22235,3 +22235,19 @@ RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgp
 2026-04-30 19:42:33,934 - d_brain.services.transcription - INFO - Transcription complete: 110 chars
 2026-04-30 19:42:40,518 - d_brain.bot.handlers.voice - INFO - Voice message processed
 2026-04-30 19:42:40,518 - aiogram.event - INFO - Update id=861044680 is handled. Duration 13175 ms by bot id=8566638650
+2026-05-01 08:37:56,317 - d_brain.services.transcription - INFO - Starting transcription, audio size: 31329 bytes
+2026-05-01 08:37:57,905 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-05-01 08:37:57,909 - d_brain.services.transcription - INFO - Transcription complete: 16 chars
+2026-05-01 08:38:03,193 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-05-01 08:38:03,195 - aiogram.event - INFO - Update id=861044681 is handled. Duration 7238 ms by bot id=8566638650
+2026-05-01 08:48:21,560 - d_brain.services.transcription - INFO - Starting transcription, audio size: 249689 bytes
+2026-05-01 08:48:22,830 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-05-01 08:48:22,843 - d_brain.services.transcription - INFO - Transcription complete: 135 chars
+2026-05-01 08:48:32,376 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-05-01 08:48:32,376 - aiogram.event - INFO - Update id=861044682 is handled. Duration 11366 ms by bot id=8566638650
+2026-05-01 08:50:29,519 - d_brain.services.transcription - INFO - Starting transcription, audio size: 32977 bytes
+2026-05-01 08:50:30,812 - httpx - INFO - HTTP Request: POST https://api.deepgram.com/v1/listen?language=ru&model=nova-3&punctuate=true&smart_format=true "HTTP/1.1 200 OK"
+2026-05-01 08:50:30,816 - d_brain.services.transcription - INFO - Transcription complete: 18 chars
+2026-05-01 08:50:37,856 - d_brain.bot.handlers.voice - INFO - Voice message processed
+2026-05-01 08:50:37,856 - aiogram.event - INFO - Update id=861044683 is handled. Duration 8641 ms by bot id=8566638650
+2026-05-01 08:50:53,023 - d_brain.bot.handlers.process - INFO - Process command triggered by user 6144231826

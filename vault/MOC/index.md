@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 255
-- Связей: 770
+- Заметок: 256
+- Связей: 774
 - Сирот: 2
-- Слабосвязанных: 71
+- Слабосвязанных: 70
 
 ## Память
 
@@ -253,6 +253,7 @@ tier: active
 ## Обучения и правила
 
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
+- [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]
 - [[thoughts/learnings/vault-search-discipline.md|Дисциплина поиска по vault]]

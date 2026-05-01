@@ -1644,3 +1644,25 @@ progress=scraped_threads:117 completed_forums:0
 run_state=status:idle phase:n/a updated_at:2026-04-30T23:36:48.265072+00:00
 log=updated_at:2026-04-30T23:36:48+00:00 age:54 мин
 summary=признаков застоя нет
+[2026-05-01 05:30:01 MSK] Forumhouse randomized check: delay=261s
+[2026-05-01 06:04:26 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:4469048994 human:4.16 ГиБ
+process_count=2
+processes=276536 .venv/bin/python server_sync.py --forum 91 --limit 10 --repair-limit 5 --workers 1 --interval-minutes 60 | 347380 /root/forum-harvest/.venv/bin/python /root/forum-harvest/scrape.py --forum 91 --resume --limit 10
+progress=scraped_threads:118 completed_forums:0
+active_thread=forum_id:91 thread_id:298745 page:110/132 posts:1648 updated_at:2026-05-01T02:32:54.708467
+run_state=status:running phase:sync updated_at:2026-05-01T00:38:07.415587+00:00
+log=updated_at:2026-05-01T02:33:42+00:00 age:0 мин
+summary=признаков застоя нет
+[2026-05-01 07:30:01 MSK] Forumhouse randomized check: delay=595s
+[2026-05-01 08:09:59 +0330] Forumhouse check: OK
+remote_dir=/root/forum-harvest
+folder_size=bytes:4554962411 human:4.24 ГиБ
+process_count=2
+processes=276536 .venv/bin/python server_sync.py --forum 91 --limit 10 --repair-limit 5 --workers 1 --interval-minutes 60 | 347380 /root/forum-harvest/.venv/bin/python /root/forum-harvest/scrape.py --forum 91 --resume --limit 10
+progress=scraped_threads:125 completed_forums:0
+active_thread=forum_id:91 thread_id:440914 page:50/151 posts:747 updated_at:2026-05-01T04:38:50.237601
+run_state=status:running phase:sync updated_at:2026-05-01T00:38:07.415587+00:00
+log=updated_at:2026-05-01T04:39:37+00:00 age:0 мин
+summary=признаков застоя нет
