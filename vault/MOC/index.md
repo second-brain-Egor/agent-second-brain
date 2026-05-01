@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-05-01
+updated: 2026-05-02
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 256
-- Связей: 774
-- Сирот: 2
-- Слабосвязанных: 70
+- Заметок: 260
+- Связей: 780
+- Сирот: 0
+- Слабосвязанных: 76
 
 ## Память
 
@@ -42,14 +42,12 @@ tier: active
 
 ## Проекты
 
+- [[projects/Forumhouse/Нормативка/нормативные авторитетные документы книги пособия.md|Нормативные, авторитетные документы, книги и пособия]]
+- [[projects/Forumhouse/Нормативка/список нормативных документов.md|Нормативные документы из скачанных тем Forumhouse]]
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/dacha/README.md|Дача]]
-- [[projects/dacha/bathhouse-150x50-board-check-2026-04-30.md|Баня — проверка доски 150x50 после перехода стен на 150]]
-- [[projects/dacha/bathhouse-integrated-technical-analysis-2026-04-30.md|Баня — общий технический разбор по SketchUp, скриншотам и видеоразборам]]
 - [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
 - [[projects/dacha/bathhouse-procurement-draft.md|Баня — черновик закупки материалов]]
-- [[projects/dacha/bathhouse-walls-openings-full-check-2026-04-30.md|Баня — проверка стен, стоек и оконных проемов]]
-- [[projects/dacha/bathhouse-window-openings-check-2026-04-30.md|Баня — проверка узлов над оконными проемами]]
 - [[projects/dacha/kettama-mps02d-motor-replacement.md|Kettama MPS02D — замена двигателя]]
 - [[projects/dacha/Разбор специалиста. Три видео/audio-transcript-analysis.md|Разбор консультации специалиста по транскрибации аудио]]
 - [[projects/dacha/Разбор специалиста. Три видео/download-journal.md|Журнал скачанных видео]]
@@ -90,6 +88,11 @@ tier: active
 - [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/description.md|description]]
 - [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/frames/README.md|Кадры]]
 - [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/metadata.md|Гостевой Дом 40м² своими руками по СП 31-105-2002  Расширенная версия]]
+- [[projects/dacha/разбор проекта/bathhouse-150x50-board-check-2026-04-30.md|Баня — проверка доски 150x50 после перехода стен на 150]]
+- [[projects/dacha/разбор проекта/bathhouse-deep-structural-review-2026-05-01.md|Баня — глубокий разбор конструкции по SketchUp, скриншотам, Суровому Плотнику и консультации специалиста]]
+- [[projects/dacha/разбор проекта/bathhouse-integrated-technical-analysis-2026-04-30.md|Баня — общий технический разбор по SketchUp, скриншотам и видеоразборам]]
+- [[projects/dacha/разбор проекта/bathhouse-walls-openings-full-check-2026-04-30.md|Баня — проверка стен, стоек и оконных проемов]]
+- [[projects/dacha/разбор проекта/bathhouse-window-openings-check-2026-04-30.md|Баня — проверка узлов над оконными проемами]]
 - [[projects/enterprise-ai-implementation/01-project-outline.md|Каркас проекта]]
 - [[projects/enterprise-ai-implementation/02-key-questions-and-sensitive-points.md|Ключевые вопросы и чувствительные моменты]]
 - [[projects/enterprise-ai-implementation/03-local-ai-stack-and-budget.md|Локальный ИИ-контур и бюджет]]
@@ -236,13 +239,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-05-02.md|2026-05-02]]
 - [[daily/2026-05-01.md|2026-05-01]]
 - [[daily/2026-04-30.md|2026-04-30]]
 - [[daily/2026-04-29.md|2026-04-29]]
 - [[daily/2026-04-28.md|2026-04-28]]
 - [[daily/2026-04-27.md|2026-04-27]]
 - [[daily/2026-04-26.md|2026-04-26]]
-- [[daily/2026-04-25.md|2026-04-25]]
 
 ## Недельные сводки
 

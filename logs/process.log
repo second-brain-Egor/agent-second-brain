@@ -6395,3 +6395,51 @@ send-pack: unexpected disconnect while reading sideband packet
 fatal: the remote end hung up unexpectedly
 Everything up-to-date
 === Done (empty daily, graph-only) ===
+RANDOMIZED_PROCESS: picked 01:59 Moscow for 2026-05-02
+RANDOMIZED_PROCESS: starting at 02:00 Moscow for target 01:59
+=== d-brain processing for 2026-05-02 ===
+ORIENT: daily/2026-05-02.md not found - creating empty file
+ORIENT: daily/2026-05-02.md is empty (13 bytes) - skipping AI processing
+# Vault Graph Analysis
+
+## Overview
+
+- **Total notes:** 260
+- **Total links:** 777
+- **Orphan notes:** 3
+
+## Most Connected Notes
+
+- [[MOC/index.md|index]] (231 links)
+- [[projects/Рынок стройматериалы/cards/README.md|README]] (105 links)
+- [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|product-cards-page-1-2026-04-26]] (84 links)
+- [[reports/vault-health.md|vault-health]] (52 links)
+- [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|price-list-page-2-2026-04-26]] (47 links)
+
+## Domain Statistics
+
+| Domain | Notes | Avg Links |
+|--------|-------|-----------|
+| MOC/ | 6 | 42.2 |
+| blog/ | 2 | 1.0 |
+| daily/ | 31 | 2.6 |
+| goals/ | 5 | 7.8 |
+| memory/ | 5 | 11.0 |
+| projects/ | 194 | 5.3 |
+| references/ | 3 | 1.0 |
+| reports/ | 1 | 52.0 |
+| root/ | 1 | 3.0 |
+| summaries/ | 3 | 2.0 |
+| templates/ | 2 | 1.0 |
+| thoughts/ | 7 | 3.7 |
+
+## Orphan Notes (need links)
+
+- [[daily/2026-05-02|2026-05-02]] (daily/)
+- [[projects/Forumhouse/Нормативка/нормативные авторитетные документы книги пособия|нормативные авторитетные документы книги пособия]] (projects/)
+- [[projects/Forumhouse/Нормативка/список нормативных документов|список нормативных документов]] (projects/)
+
+=== Refreshing wiki index ===
+Wiki refreshed: notes=260 links=780 orphans=0
+=== RAG indexing ===
+Indexed 2417 facts
