@@ -35,6 +35,19 @@ def normalize_telegram_output(text: str) -> str:
     return text.strip()
 
 
+def convert_markdown_to_telegram_html(text: str) -> str:
+    """Convert common Markdown emphasis to Telegram HTML."""
+    if not text:
+        return ""
+
+    text = normalize_telegram_output(text)
+    text = re.sub(r"(?m)^\s{0,3}#{1,6}\s+(.+?)\s*$", r"<b>\1</b>", text)
+    text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text, flags=re.DOTALL)
+    text = re.sub(r"__(.+?)__", r"<b>\1</b>", text, flags=re.DOTALL)
+    text = re.sub(r"(?<!\*)\*(?!\s)(.+?)(?<!\s)\*(?!\*)", r"<i>\1</i>", text, flags=re.DOTALL)
+    return text
+
+
 def sanitize_telegram_html(text: str) -> str:
     """Sanitize HTML for Telegram, keeping only allowed tags.
 
@@ -46,7 +59,7 @@ def sanitize_telegram_html(text: str) -> str:
     Returns:
         Sanitized HTML safe for Telegram
     """
-    text = normalize_telegram_output(text)
+    text = convert_markdown_to_telegram_html(text)
     if not text:
         return ""
 
@@ -268,6 +281,20 @@ def format_plain_text_report(report: dict[str, Any]) -> list[str]:
 
 def prepare_plain_text_response(text: str) -> list[str]:
     """Prepare plain-text Telegram response chunks from raw model output."""
+    return split_plain_text_messages(str(text), max_length=4096)
+
+
+def prepare_telegram_response(text: str) -> list[str]:
+    """Prepare Telegram HTML chunks from raw model output.
+
+    The model may return either raw Telegram HTML or light Markdown.
+    Telegram receives HTML, so Markdown emphasis is converted first.
+    """
+    sanitized = sanitize_telegram_html(str(text))
+    if not sanitized:
+        return []
+    if validate_telegram_html(sanitized):
+        return split_html_messages(sanitized, max_length=4096)
     return split_plain_text_messages(str(text), max_length=4096)
 
 

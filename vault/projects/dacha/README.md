@@ -3,8 +3,8 @@ type: project
 tags:
 source: daily/2026-04-17
 created: 2026-04-17
-updated: 2026-04-29
-last_accessed: 2026-04-29
+updated: 2026-04-30
+last_accessed: 2026-04-30
 relevance: 0.86
 tier: active
 status: active
@@ -73,6 +73,7 @@ status: active
 
 - под навесом хранится доска `100x50`
 - под навесом хранится доска `150x50`
+- зафиксирован отдельный учет купленного материала для бани: пиломатериал 356 шт., 2136 пог. м, 11.01 м³, плюс ОСП 9 мм — 23 листа
 - для бани уже есть утеплитель
 - для бани уже есть стеклопакеты
 - ожидается отдельное пополнение списка закупок и остатков по материалам
@@ -120,5 +121,9 @@ status: active
 
 - [[MOC/MOC-projects.md|Projects]]
 - [[MOC/index.md|Индекс знаний]]
+- [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
+- [[projects/dacha/bathhouse-150x50-board-check-2026-04-30.md|Баня — проверка доски 150x50 после перехода стен на 150]]
+- [[projects/dacha/bathhouse-walls-openings-full-check-2026-04-30.md|Баня — проверка стен, стоек и оконных проёмов]]
+- [[projects/dacha/bathhouse-integrated-technical-analysis-2026-04-30.md|Баня — общий технический разбор по SketchUp, скриншотам и видеоразборам]]
 - [[projects/dacha/bathhouse-procurement-draft.md|Баня — черновик закупки материалов]]
 - [[projects/dacha/kettama-mps02d-motor-replacement.md|Kettama MPS02D — замена двигателя]]

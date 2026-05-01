@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "videos": {
+    "7z2Y-Rfin0U": {
+      "status": "complete",
+      "folder": "vault/projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days",
+      "title": "Как построить дачный дом своими руками. 62м² за 18 дней. DIY Forest House In 18 Days",
+      "url": "https://www.youtube.com/watch?v=7z2Y-Rfin0U",
+      "upload_date": "20260418",
+      "comments": 76,
+      "frames": 507,
+      "description": true,
+      "transcript": false,
+      "frames_required": true,
+      "updated_at": "2026-04-30T13:24:59+03:00",
+      "completed_at": "2026-04-30T13:24:59+03:00"
+    },
+    "KLu-hKABtyQ": {
+      "status": "complete",
+      "folder": "vault/projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days",
+      "title": "Как построить гостевой дом своими руками. 40 м² за 19 дней. DIY Guest House in 19 days.",
+      "url": "https://www.youtube.com/watch?v=KLu-hKABtyQ",
+      "upload_date": "20260405",
+      "comments": 395,
+      "frames": 321,
+      "description": true,
+      "transcript": false,
+      "frames_required": true,
+      "updated_at": "2026-04-30T13:24:59+03:00",
+      "completed_at": "2026-04-30T13:24:59+03:00"
+    },
+    "wvI9HjkVKL4": {
+      "status": "complete",
+      "folder": "vault/projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия",
+      "title": "Гостевой Дом 40м² своими руками по СП 31-105-2002  Расширенная версия",
+      "url": "https://www.youtube.com/watch?v=wvI9HjkVKL4",
+      "upload_date": "20260323",
+      "comments": 130,
+      "frames": 233,
+      "description": true,
+      "transcript": false,
+      "frames_required": true,
+      "updated_at": "2026-04-30T13:24:59+03:00",
+      "completed_at": "2026-04-30T13:24:59+03:00"
+    }
+  },
+  "updated_at": "2026-04-30T13:24:59+03:00"
+}

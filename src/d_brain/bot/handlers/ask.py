@@ -10,9 +10,8 @@ from aiogram.types import Message
 
 from d_brain.bot.chat_context import get_session_scope, is_work_chat
 from d_brain.bot.formatters import (
-    format_plain_text_report,
     normalize_telegram_output,
-    prepare_plain_text_response,
+    prepare_telegram_response,
 )
 from d_brain.bot.states import AskCommandState
 from d_brain.config import get_settings
@@ -25,8 +24,8 @@ logger = logging.getLogger(__name__)
 
 
 async def _send_text_response(message: Message, response: str) -> None:
-    """Send a plain text response."""
-    for chunk in prepare_plain_text_response(response):
+    """Send a formatted Telegram response."""
+    for chunk in prepare_telegram_response(response):
         try:
             await message.answer(chunk)
         except Exception:
@@ -130,7 +129,7 @@ async def process_ask(message: Message, prompt: str) -> None:
             )
             return
 
-        sent_chunks = prepare_plain_text_response(response)
+        sent_chunks = prepare_telegram_response(response)
         session.append(
             session_scope,
             "assistant",
@@ -173,7 +172,7 @@ async def _run_ask_agent(
             await message.answer("Не получилось собрать ответ агента.", parse_mode=None)
             return
 
-        sent_chunks = format_plain_text_report({"report": response})
+        sent_chunks = prepare_telegram_response(response)
         session.append(
             session_scope,
             "assistant",
@@ -182,7 +181,10 @@ async def _run_ask_agent(
             chat_title=message.chat.title,
         )
         for chunk in sent_chunks:
-            await message.answer(chunk, parse_mode=None)
+            try:
+                await message.answer(chunk)
+            except Exception:
+                await message.answer(chunk, parse_mode=None)
     except Exception as exc:
         logger.exception("Ask agent execution error")
         await message.answer(f"⚠️ Агент упал: {exc}", parse_mode=None)

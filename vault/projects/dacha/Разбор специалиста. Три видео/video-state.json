@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "videos": [
+    {
+      "status": "complete",
+      "folder": "vault/projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть",
+      "source": "1-я часть.mp4",
+      "duration_seconds": 2310.528,
+      "resolution": "2560x1440",
+      "frames": 993,
+      "updated_at": "2026-04-30"
+    },
+    {
+      "status": "complete",
+      "folder": "vault/projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть",
+      "source": "2-я часть.mp4",
+      "duration_seconds": 2359.765333,
+      "resolution": "2560x1440",
+      "frames": 1699,
+      "updated_at": "2026-04-30"
+    },
+    {
+      "status": "complete",
+      "folder": "vault/projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть",
+      "source": "3-я часть.mp4",
+      "duration_seconds": 2372.245333,
+      "resolution": "2240x1080",
+      "frames": 581,
+      "updated_at": "2026-04-30"
+    }
+  ]
+}

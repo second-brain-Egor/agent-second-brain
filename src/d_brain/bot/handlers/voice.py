@@ -15,9 +15,8 @@ from d_brain.bot.chat_context import (
 )
 from d_brain.bot.states import SilentState
 from d_brain.bot.formatters import (
-    format_plain_text_report,
     normalize_telegram_output,
-    prepare_plain_text_response,
+    prepare_telegram_response,
 )
 from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
@@ -50,8 +49,8 @@ async def _transcribe_voice(message: Message, bot: Bot) -> str | None:
 
 
 async def _send_response(message: Message, response: str) -> None:
-    """Send a plain text response."""
-    for chunk in prepare_plain_text_response(response):
+    """Send a formatted Telegram response."""
+    for chunk in prepare_telegram_response(response):
         try:
             await message.answer(chunk)
         except Exception:
@@ -160,7 +159,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
                     _run_voice_agent(message, processor, transcript, user_id, scope, work_context, session)
                 )
             else:
-                sent_chunks = prepare_plain_text_response(response)
+                sent_chunks = prepare_telegram_response(response)
                 session.append(
                     scope,
                     "assistant",
@@ -201,7 +200,7 @@ async def _run_voice_agent(
             await message.answer(f"⚠️ Агент: {result['error']}", parse_mode=None)
         elif "report" in result:
             response = result["report"]
-            sent_chunks = format_plain_text_report({"report": response})
+            sent_chunks = prepare_telegram_response(response)
             session.append(
                 session_scope,
                 "assistant",
@@ -210,7 +209,10 @@ async def _run_voice_agent(
                 chat_title=message.chat.title,
             )
             for chunk in sent_chunks:
-                await message.answer(chunk, parse_mode=None)
+                try:
+                    await message.answer(chunk)
+                except Exception:
+                    await message.answer(chunk, parse_mode=None)
     except Exception as e:
         logger.exception("Agent execution error")
         await message.answer(f"⚠️ Агент упал: {e}", parse_mode=None)

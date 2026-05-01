@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "videos": {
+    "1-я часть": {
+      "status": "complete",
+      "folder": "vault/projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть",
+      "title": "1-я часть",
+      "url": "/home/egor/agent-second-brain/vault/projects/dacha/Разбор специалиста. Три видео/1-я часть.mp4",
+      "upload_date": "",
+      "comments": 0,
+      "frames": 651,
+      "deduped_frames": 424,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-04-30T15:51:46+03:00",
+      "completed_at": "2026-04-30T14:51:10+03:00"
+    },
+    "2-я часть": {
+      "status": "complete",
+      "folder": "vault/projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть",
+      "title": "2-я часть",
+      "url": "/home/egor/agent-second-brain/vault/projects/dacha/Разбор специалиста. Три видео/2-я часть.mp4",
+      "upload_date": "",
+      "comments": 0,
+      "frames": 1255,
+      "deduped_frames": 776,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-04-30T15:51:46+03:00",
+      "completed_at": "2026-04-30T14:56:10+03:00"
+    },
+    "3-я часть": {
+      "status": "complete",
+      "folder": "vault/projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть",
+      "title": "3-я часть",
+      "url": "/home/egor/agent-second-brain/vault/projects/dacha/Разбор специалиста. Три видео/3-я часть.mp4",
+      "upload_date": "",
+      "comments": 0,
+      "frames": 306,
+      "deduped_frames": 196,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-04-30T15:54:54+03:00",
+      "completed_at": "2026-04-30T15:54:54+03:00"
+    }
+  },
+  "updated_at": "2026-04-30T15:54:54+03:00"
+}

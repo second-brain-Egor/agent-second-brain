@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-04-30
+updated: 2026-05-01
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 209
-- Связей: 721
-- Сирот: 0
-- Слабосвязанных: 34
+- Заметок: 255
+- Связей: 770
+- Сирот: 2
+- Слабосвязанных: 71
 
 ## Память
 
@@ -44,8 +44,52 @@ tier: active
 
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/dacha/README.md|Дача]]
+- [[projects/dacha/bathhouse-150x50-board-check-2026-04-30.md|Баня — проверка доски 150x50 после перехода стен на 150]]
+- [[projects/dacha/bathhouse-integrated-technical-analysis-2026-04-30.md|Баня — общий технический разбор по SketchUp, скриншотам и видеоразборам]]
+- [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
 - [[projects/dacha/bathhouse-procurement-draft.md|Баня — черновик закупки материалов]]
+- [[projects/dacha/bathhouse-walls-openings-full-check-2026-04-30.md|Баня — проверка стен, стоек и оконных проемов]]
+- [[projects/dacha/bathhouse-window-openings-check-2026-04-30.md|Баня — проверка узлов над оконными проемами]]
 - [[projects/dacha/kettama-mps02d-motor-replacement.md|Kettama MPS02D — замена двигателя]]
+- [[projects/dacha/Разбор специалиста. Три видео/audio-transcript-analysis.md|Разбор консультации специалиста по транскрибации аудио]]
+- [[projects/dacha/Разбор специалиста. Три видео/download-journal.md|Журнал скачанных видео]]
+- [[projects/dacha/Разбор специалиста. Три видео/summary.md|Сводка по видео]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/comments.md|Комментарии]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/description.md|description]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/frames-deduped/README.md|Кадры после дедупликации]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/frames/README.md|Кадры]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/metadata.md|1-я часть]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/transcript.md|transcript]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/comments.md|Комментарии]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/description.md|description]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/frames-deduped/README.md|Кадры после дедупликации]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/frames/README.md|Кадры]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/metadata.md|2-я часть]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/transcript.md|transcript]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/comments.md|Комментарии]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/description.md|description]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/frames-deduped/README.md|Кадры после дедупликации]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/frames/README.md|Кадры]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/metadata.md|3-я часть]]
+- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/transcript.md|transcript]]
+- [[projects/dacha/Суровый Плотник/README.md|Суровый Плотник]]
+- [[projects/dacha/Суровый Плотник/download-journal.md|Журнал скачанных видео]]
+- [[projects/dacha/Суровый Плотник/summary.md|Сводка по видео]]
+- [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/analysis.md|Анализ ролика]]
+- [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/comments.md|Комментарии]]
+- [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/description.md|description]]
+- [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/frames/README.md|Кадры]]
+- [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/metadata.md|Как построить дачный дом своими руками. 62м² за 18 дней. DIY Forest House In 18 Days]]
+- [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/analysis.md|Анализ ролика]]
+- [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/comments.md|Комментарии]]
+- [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/description.md|description]]
+- [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/frames/README.md|Кадры]]
+- [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/metadata.md|Как построить гостевой дом своими руками. 40 м² за 19 дней. DIY Guest House in 19 days.]]
+- [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/analysis.md|Анализ ролика]]
+- [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/comments.md|Комментарии]]
+- [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/description.md|description]]
+- [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/frames/README.md|Кадры]]
+- [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/metadata.md|Гостевой Дом 40м² своими руками по СП 31-105-2002  Расширенная версия]]
 - [[projects/enterprise-ai-implementation/01-project-outline.md|Каркас проекта]]
 - [[projects/enterprise-ai-implementation/02-key-questions-and-sensitive-points.md|Ключевые вопросы и чувствительные моменты]]
 - [[projects/enterprise-ai-implementation/03-local-ai-stack-and-budget.md|Локальный ИИ-контур и бюджет]]
@@ -188,16 +232,17 @@ tier: active
 - [[projects/Рынок стройматериалы/product-cards-page-3-2026-04-26.md|Карточки позиций — Новорязанка, страница 3]]
 - [[projects/Рынок стройматериалы/source-audit-2026-04-26.md|Проверка исходников прайса - 2026-04-26]]
 - [[projects/Рынок стройматериалы/terem-leroy-audit-2026-04-28.md|Аудит Терем/Леруа - 2026-04-28]]
+- [[projects/Скрипт для выгрузки видео/README.md|Выгрузка видео]]
 
 ## Новые записи дня
 
+- [[daily/2026-05-01.md|2026-05-01]]
 - [[daily/2026-04-30.md|2026-04-30]]
 - [[daily/2026-04-29.md|2026-04-29]]
 - [[daily/2026-04-28.md|2026-04-28]]
 - [[daily/2026-04-27.md|2026-04-27]]
 - [[daily/2026-04-26.md|2026-04-26]]
 - [[daily/2026-04-25.md|2026-04-25]]
-- [[daily/2026-04-24.md|2026-04-24]]
 
 ## Недельные сводки
 
