@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-05-02
+updated: 2026-05-03
 relevance: 0.86
 tier: warm
 ---
@@ -10,26 +10,26 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 260
-- Связей: 780
-- Сирот: 0
+- Заметок: 261
+- Связей: 778
+- Сирот: 2
 - Слабосвязанных: 76
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 6 | 42.67 |
+| MOC | 6 | 43.17 |
 | blog | 2 | 1.00 |
-| daily | 31 | 2.58 |
+| daily | 32 | 2.47 |
 | goals | 5 | 7.80 |
-| memory | 5 | 11.00 |
+| memory | 5 | 10.80 |
 | projects | 194 | 5.34 |
 | references | 3 | 1.00 |
-| reports | 1 | 52.00 |
+| reports | 1 | 50.00 |
 | root | 1 | 3.00 |
 | summaries | 3 | 2.00 |
-| templates | 2 | 1.00 |
+| templates | 2 | 0.00 |
 | thoughts | 7 | 3.71 |
 
 ## Самые связные заметки
@@ -37,7 +37,7 @@ tier: warm
 - [[MOC/index.md|Индекс знаний]] — 234 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 105 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 84 связей
-- [[reports/vault-health.md|Health Check Vault]] — 52 связей
+- [[reports/vault-health.md|Health Check Vault]] — 50 связей
 - [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 47 связей
 - [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 45 связей
 - [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 45 связей
@@ -45,11 +45,13 @@ tier: warm
 - [[projects/Рынок стройматериалы/product-cards-page-3-2026-04-26.md|Карточки позиций — Новорязанка, страница 3]] — 25 связей
 - [[memory/soul.md|Идентичность агента]] — 20 связей
 
+## Сироты
+
+- [[templates/crm-template.md|[Company Name]]]
+- [[templates/daily-template.md|{{date}}]]
+
 ## Слабосвязанные
 
-- [[MOC/MOC-ideas.md|Ideas]]
-- [[MOC/MOC-learnings.md|Learnings]]
-- [[MOC/MOC-reflections.md|Reflections]]
 - [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
 - [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
@@ -67,6 +69,9 @@ tier: warm
 - [[daily/2026-04-22.md|2026-04-22]]
 - [[daily/2026-04-23.md|2026-04-23]]
 - [[daily/2026-04-25.md|2026-04-25]]
+- [[daily/2026-04-26.md|2026-04-26]]
+- [[daily/2026-04-27.md|2026-04-27]]
+- [[daily/2026-04-30.md|2026-04-30]]
 - ... ещё 56
 
 ## Неразрешённые ссылки

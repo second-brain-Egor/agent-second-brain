@@ -6443,3 +6443,71 @@ ORIENT: daily/2026-05-02.md is empty (13 bytes) - skipping AI processing
 Wiki refreshed: notes=260 links=780 orphans=0
 === RAG indexing ===
 Indexed 2417 facts
+[main f3bee1f] chore: process daily 2026-05-02
+ 22 files changed, 1360 insertions(+), 37 deletions(-)
+ create mode 100644 vault/daily/2026-05-02.md
+ create mode 100644 "vault/projects/Forumhouse/\320\235\320\276\321\200\320\274\320\260\321\202\320\270\320\262\320\272\320\260/\320\275\320\276\321\200\320\274\320\260\321\202\320\270\320\262\320\275\321\213\320\265 \320\260\320\262\321\202\320\276\321\200\320\270\321\202\320\265\321\202\320\275\321\213\320\265 \320\264\320\276\320\272\321\203\320\274\320\265\320\275\321\202\321\213 \320\272\320\275\320\270\320\263\320\270 \320\277\320\276\321\201\320\276\320\261\320\270\321\217.md"
+ create mode 100644 "vault/projects/Forumhouse/\320\235\320\276\321\200\320\274\320\260\321\202\320\270\320\262\320\272\320\260/\321\201\320\277\320\270\321\201\320\276\320\272 \320\275\320\276\321\200\320\274\320\260\321\202\320\270\320\262\320\275\321\213\321\205 \320\264\320\276\320\272\321\203\320\274\320\265\320\275\321\202\320\276\320\262.md"
+ rename vault/projects/dacha/bathhouse-150x50-board-check-2026-04-30.md => "vault/projects/dacha/\321\200\320\260\320\267\320\261\320\276\321\200 \320\277\321\200\320\276\320\265\320\272\321\202\320\260/bathhouse-150x50-board-check-2026-04-30.md" (100%)
+ create mode 100644 "vault/projects/dacha/\321\200\320\260\320\267\320\261\320\276\321\200 \320\277\321\200\320\276\320\265\320\272\321\202\320\260/bathhouse-deep-structural-review-2026-05-01.md"
+ rename vault/projects/dacha/bathhouse-integrated-technical-analysis-2026-04-30.md => "vault/projects/dacha/\321\200\320\260\320\267\320\261\320\276\321\200 \320\277\321\200\320\276\320\265\320\272\321\202\320\260/bathhouse-integrated-technical-analysis-2026-04-30.md" (100%)
+ rename vault/projects/dacha/bathhouse-walls-openings-full-check-2026-04-30.md => "vault/projects/dacha/\321\200\320\260\320\267\320\261\320\276\321\200 \320\277\321\200\320\276\320\265\320\272\321\202\320\260/bathhouse-walls-openings-full-check-2026-04-30.md" (100%)
+ rename vault/projects/dacha/bathhouse-window-openings-check-2026-04-30.md => "vault/projects/dacha/\321\200\320\260\320\267\320\261\320\276\321\200 \320\277\321\200\320\276\320\265\320\272\321\202\320\260/bathhouse-window-openings-check-2026-04-30.md" (100%)
+remote: error: Trace: 35301ed679e77471c3bd2b1820c401792ebe1f8ef456003bfefa43a9ddd660fe        
+remote: error: See https://gh.io/lfs for more information.        
+remote: error: File vault/projects/dacha/Разбор специалиста. Три видео/1-я часть.mp4 is 158.15 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File vault/projects/dacha/Разбор специалиста. Три видео/2-я часть.mp4 is 284.05 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File vault/projects/dacha/Разбор специалиста. Три видео/3-я часть.mp4 is 147.58 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/second-brain-Egor/agent-second-brain.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/second-brain-Egor/agent-second-brain.git'
+=== Done (empty daily, graph-only) ===
+RANDOMIZED_PROCESS: picked 02:52 Moscow for 2026-05-03
+RANDOMIZED_PROCESS: starting at 02:55 Moscow for target 02:52
+=== d-brain processing for 2026-05-03 ===
+ORIENT: daily/2026-05-03.md not found - creating empty file
+ORIENT: daily/2026-05-03.md is empty (13 bytes) - skipping AI processing
+# Vault Graph Analysis
+
+## Overview
+
+- **Total notes:** 261
+- **Total links:** 778
+- **Orphan notes:** 3
+
+## Most Connected Notes
+
+- [[MOC/index.md|index]] (234 links)
+- [[projects/Рынок стройматериалы/cards/README.md|README]] (105 links)
+- [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|product-cards-page-1-2026-04-26]] (84 links)
+- [[reports/vault-health.md|vault-health]] (50 links)
+- [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|price-list-page-2-2026-04-26]] (47 links)
+
+## Domain Statistics
+
+| Domain | Notes | Avg Links |
+|--------|-------|-----------|
+| MOC/ | 6 | 43.2 |
+| blog/ | 2 | 1.0 |
+| daily/ | 32 | 2.5 |
+| goals/ | 5 | 7.8 |
+| memory/ | 5 | 10.8 |
+| projects/ | 194 | 5.3 |
+| references/ | 3 | 1.0 |
+| reports/ | 1 | 50.0 |
+| root/ | 1 | 3.0 |
+| summaries/ | 3 | 2.0 |
+| templates/ | 2 | 0.0 |
+| thoughts/ | 7 | 3.7 |
+
+## Orphan Notes (need links)
+
+- [[daily/2026-05-03|2026-05-03]] (daily/)
+- [[templates/crm-template|crm-template]] (templates/)
+- [[templates/daily-template|daily-template]] (templates/)
+
+=== Refreshing wiki index ===
+Wiki refreshed: notes=261 links=778 orphans=2
+=== RAG indexing ===
+Indexed 2418 facts
