@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-04-09
-relevance: 0.98
-tier: active
+relevance: 0.62
+tier: cold
 ---
 # Восстановление сети Windows после WireGuard
 

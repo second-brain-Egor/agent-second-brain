@@ -28,3 +28,10 @@ RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgp
 2026-05-03 17:31:29,811 - d_brain.services.processor - INFO - Weekly summary saved to /home/egor/agent-second-brain/vault/summaries/2026-W18-summary.md
 2026-05-03 17:31:29,813 - d_brain.services.processor - INFO - Updated MOC-weekly.md with 2026-W18-summary
 2026-05-03 17:31:29,813 - __main__ - INFO - Weekly digest generated successfully
+2026-05-03 17:31:30,028 - d_brain.services.git - INFO - Committed: chore: weekly digest
+2026-05-03 17:33:22,354 - d_brain.services.git - ERROR - Git push failed: error: RPC failed; HTTP 408 curl 22 The requested URL returned error: 408
+send-pack: unexpected disconnect while reading sideband packet
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+
+2026-05-03 17:33:22,598 - __main__ - INFO - Weekly digest sent to user 6144231826

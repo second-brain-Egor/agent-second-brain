@@ -1,8 +1,9 @@
 ---
 type: note
-updated: 2026-05-03
-relevance: 0.86
-tier: warm
+updated: 2026-05-04
+last_accessed: 2026-05-04
+relevance: 1.0
+tier: active
 ---
 # Health Check Vault
 
@@ -10,31 +11,31 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 261
-- Связей: 778
-- Сирот: 2
-- Слабосвязанных: 76
+- Заметок: 273
+- Связей: 796
+- Сирот: 3
+- Слабосвязанных: 82
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 6 | 43.17 |
+| MOC | 6 | 45.17 |
 | blog | 2 | 1.00 |
-| daily | 32 | 2.47 |
+| daily | 33 | 2.55 |
 | goals | 5 | 7.80 |
-| memory | 5 | 10.80 |
-| projects | 194 | 5.34 |
+| memory | 5 | 11.40 |
+| projects | 203 | 5.15 |
 | references | 3 | 1.00 |
 | reports | 1 | 50.00 |
 | root | 1 | 3.00 |
-| summaries | 3 | 2.00 |
+| summaries | 4 | 2.00 |
 | templates | 2 | 0.00 |
-| thoughts | 7 | 3.71 |
+| thoughts | 8 | 3.62 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 234 связей
+- [[MOC/index.md|Индекс знаний]] — 244 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 105 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 84 связей
 - [[reports/vault-health.md|Health Check Vault]] — 50 связей
@@ -43,10 +44,11 @@ tier: warm
 - [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 45 связей
 - [[projects/Рынок стройматериалы/price-list-page-3-2026-04-26.md|Прайс-лист стройматериалов — страница 3 из 3]] — 26 связей
 - [[projects/Рынок стройматериалы/product-cards-page-3-2026-04-26.md|Карточки позиций — Новорязанка, страница 3]] — 25 связей
-- [[memory/soul.md|Идентичность агента]] — 20 связей
+- [[memory/soul.md|Идентичность агента]] — 21 связей
 
 ## Сироты
 
+- [[daily/2026-04-27.md|2026-04-27]]
 - [[templates/crm-template.md|[Company Name]]]
 - [[templates/daily-template.md|{{date}}]]
 
@@ -70,9 +72,9 @@ tier: warm
 - [[daily/2026-04-23.md|2026-04-23]]
 - [[daily/2026-04-25.md|2026-04-25]]
 - [[daily/2026-04-26.md|2026-04-26]]
-- [[daily/2026-04-27.md|2026-04-27]]
 - [[daily/2026-04-30.md|2026-04-30]]
-- ... ещё 56
+- [[daily/2026-05-02.md|2026-05-02]]
+- ... ещё 62
 
 ## Неразрешённые ссылки
 
@@ -85,6 +87,8 @@ tier: warm
 - [[daily/2026-04-23.md|2026-04-23]]: attachments/2026-04-23/img-145217.jpg, attachments/2026-04-23/img-180817.jpg
 - [[daily/2026-04-26.md|2026-04-26]]: attachments/2026-04-26/img-201007.jpg, attachments/2026-04-26/img-203355.jpg, attachments/2026-04-26/img-204337.jpg, attachments/2026-04-26/img-204926.jpg
 - [[daily/2026-04-29.md|2026-04-29]]: attachments/2026-04-29/img-194339.jpg, attachments/2026-04-29/img-195007.jpg, attachments/2026-04-29/img-195227.jpg, attachments/2026-04-29/img-195246.jpg
+- [[daily/2026-05-04.md|2026-05-04]]: .session/handoff
+- [[projects/Ежедневник/README.md|Ежедневник]]: daily-template, youtube-habits/README
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]: cards/README
 - [[projects/Рынок стройматериалы/cards/001-шамотный-кирпич-шб-8-боровичи.md|1. Шамотный кирпич ШБ-8 Боровичи]]: ../README
 - [[projects/Рынок стройматериалы/cards/002-кирпич-печной-желтый.md|2. Кирпич печной желтый]]: ../README
@@ -94,5 +98,3 @@ tier: warm
 - [[projects/Рынок стройматериалы/cards/006-пгп-knauf-2.md|6. ПГП Knauf]]: ../README
 - [[projects/Рынок стройматериалы/cards/007-пгп-russian-1.md|7. ПГП Russian]]: ../README
 - [[projects/Рынок стройматериалы/cards/008-пгп-russian-2.md|8. ПГП Russian]]: ../README
-- [[projects/Рынок стройматериалы/cards/009-штукатурка-волма-холст.md|9. Штукатурка Волма Холст]]: ../README
-- [[projects/Рынок стройматериалы/cards/010-штукатурка-волма-слой-30-кг.md|10. Штукатурка Волма Слой 30 кг]]: ../README

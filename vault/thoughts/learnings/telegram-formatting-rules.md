@@ -1,7 +1,7 @@
 ---
 type: note
 last_accessed: 2026-04-09
-relevance: 1.0
+relevance: 0.97
 tier: active
 ---
 # Правила оформления ответов в Telegram

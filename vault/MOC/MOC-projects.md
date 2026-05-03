@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-03-27
-relevance: 0.8
-tier: warm
+relevance: 0.94
+tier: active
 ---
 # Projects
 
@@ -12,6 +12,7 @@ Map of Content for project notes.
 
 <!-- Active project thoughts -->
 - [[projects/dacha/README.md|Дача]]
+- [[projects/Ежедневник/README.md|Ежедневник]]
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]
 - [[projects/enterprise-ai-implementation/README.md|Внедрение ИИ на предприятии]]

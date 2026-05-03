@@ -1,6 +1,6 @@
 ---
 type: project
-tags:
+tags: 
 source: daily/2026-04-14
 created: 2026-04-14
 last_accessed: 2026-04-14

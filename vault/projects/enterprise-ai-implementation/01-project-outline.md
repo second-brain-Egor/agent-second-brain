@@ -1,11 +1,11 @@
 ---
 type: project-note
-project: enterprise-ai-implementation
 source: daily/2026-04-15
 created: 2026-04-15
 last_accessed: 2026-04-15
-relevance: 0.88
+relevance: 0.94
 tier: active
+project: enterprise-ai-implementation
 ---
 
 # Каркас проекта

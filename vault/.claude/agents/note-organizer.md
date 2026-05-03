@@ -2,8 +2,8 @@
 type: note
 description: Organize vault, find orphan notes, suggest connections, update MOC indexes, consolidate duplicates.
 last_accessed: 2026-03-27
-relevance: 0.8
-tier: warm
+relevance: 0.62
+tier: cold
 name: note-organizer
 model: sonnet
 scope: global

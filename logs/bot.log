@@ -22503,3 +22503,37 @@ Everything up-to-date
 2026-05-03 13:10:55,159 - d_brain.services.transcription - INFO - Transcription complete: 268 chars
 2026-05-03 13:11:02,263 - d_brain.bot.handlers.voice - INFO - Voice message processed
 2026-05-03 13:11:02,263 - aiogram.event - INFO - Update id=861044742 is handled. Duration 9999 ms by bot id=8566638650
+2026-05-03 20:33:22,574 - d_brain.bot.handlers.text - INFO - Text message processed: 51 chars
+2026-05-03 20:33:22,575 - aiogram.event - INFO - Update id=861044743 is handled. Duration 13250 ms by bot id=8566638650
+2026-05-03 20:34:38,333 - d_brain.bot.handlers.text - INFO - Text message processed: 46 chars
+2026-05-03 20:34:38,334 - aiogram.event - INFO - Update id=861044744 is handled. Duration 9841 ms by bot id=8566638650
+2026-05-03 23:52:05,642 - d_brain.bot.handlers.text - INFO - Text message processed: 45 chars
+2026-05-03 23:52:05,643 - aiogram.event - INFO - Update id=861044745 is handled. Duration 11317 ms by bot id=8566638650
+2026-05-03 23:53:52,557 - d_brain.bot.handlers.text - INFO - Text message processed: 105 chars
+2026-05-03 23:53:52,562 - aiogram.event - INFO - Update id=861044746 is handled. Duration 28486 ms by bot id=8566638650
+2026-05-03 23:57:57,448 - d_brain.bot.handlers.text - INFO - Text message processed: 190 chars
+2026-05-03 23:57:57,449 - aiogram.event - INFO - Update id=861044747 is handled. Duration 10062 ms by bot id=8566638650
+2026-05-04 00:02:41,899 - d_brain.bot.handlers.text - INFO - Text message processed: 48 chars
+2026-05-04 00:02:41,900 - aiogram.event - INFO - Update id=861044748 is handled. Duration 9037 ms by bot id=8566638650
+2026-05-04 00:03:10,487 - d_brain.bot.handlers.text - INFO - Text message processed: 35 chars
+2026-05-04 00:03:10,488 - aiogram.event - INFO - Update id=861044749 is handled. Duration 4672 ms by bot id=8566638650
+2026-05-04 00:03:26,488 - d_brain.bot.handlers.text - INFO - Text message processed: 9 chars
+2026-05-04 00:03:26,488 - aiogram.event - INFO - Update id=861044750 is handled. Duration 5465 ms by bot id=8566638650
+2026-05-04 00:03:58,931 - d_brain.bot.handlers.text - INFO - Text message processed: 32 chars
+2026-05-04 00:03:58,931 - aiogram.event - INFO - Update id=861044751 is handled. Duration 5223 ms by bot id=8566638650
+2026-05-04 00:04:17,446 - d_brain.bot.handlers.text - INFO - Text message processed: 13 chars
+2026-05-04 00:04:17,446 - aiogram.event - INFO - Update id=861044752 is handled. Duration 6570 ms by bot id=8566638650
+2026-05-04 00:04:55,443 - d_brain.bot.handlers.text - INFO - Text message processed: 41 chars
+2026-05-04 00:04:55,444 - aiogram.event - INFO - Update id=861044753 is handled. Duration 5221 ms by bot id=8566638650
+2026-05-04 00:05:22,631 - d_brain.bot.handlers.text - INFO - Text message processed: 21 chars
+2026-05-04 00:05:22,632 - aiogram.event - INFO - Update id=861044754 is handled. Duration 10412 ms by bot id=8566638650
+2026-05-04 00:06:02,039 - d_brain.bot.handlers.text - INFO - Text message processed: 42 chars
+2026-05-04 00:06:02,039 - aiogram.event - INFO - Update id=861044755 is handled. Duration 6582 ms by bot id=8566638650
+2026-05-04 00:09:04,302 - d_brain.bot.handlers.text - INFO - Text message processed: 274 chars
+2026-05-04 00:09:04,302 - aiogram.event - INFO - Update id=861044756 is handled. Duration 9614 ms by bot id=8566638650
+2026-05-04 00:09:58,572 - d_brain.bot.handlers.text - INFO - Text message processed: 24 chars
+2026-05-04 00:09:58,573 - aiogram.event - INFO - Update id=861044757 is handled. Duration 7989 ms by bot id=8566638650
+2026-05-04 00:10:59,893 - d_brain.bot.handlers.text - INFO - Text message processed: 103 chars
+2026-05-04 00:10:59,893 - aiogram.event - INFO - Update id=861044758 is handled. Duration 7007 ms by bot id=8566638650
+2026-05-04 00:11:58,488 - d_brain.bot.handlers.text - INFO - Text message processed: 30 chars
+2026-05-04 00:11:58,488 - aiogram.event - INFO - Update id=861044759 is handled. Duration 5671 ms by bot id=8566638650

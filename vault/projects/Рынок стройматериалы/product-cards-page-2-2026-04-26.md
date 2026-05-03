@@ -1,13 +1,13 @@
 ---
 type: product-cards
-project: Рынок стройматериалы
 source: price-list-page-2-2026-04-26.md
+status: audited
 created: 2026-04-26
 updated: 2026-04-28
 last_accessed: 2026-04-28
-relevance: 0.88
+relevance: 0.94
 tier: active
-status: audited
+project: Рынок стройматериалы
 ---
 
 # Карточки позиций — Новорязанка, страница 2

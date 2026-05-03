@@ -1,8 +1,11 @@
 ---
 type: project
-updated: 2026-04-29
-status: active
 priority: p1
+status: active
+updated: 2026-04-29
+last_accessed: 2026-04-30
+relevance: 0.94
+tier: active
 ---
 # Выгрузка данных с Regi и переезд бота
 

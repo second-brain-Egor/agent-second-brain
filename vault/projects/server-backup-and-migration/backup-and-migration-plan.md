@@ -1,6 +1,9 @@
 ---
 type: note
 updated: 2026-04-29
+last_accessed: 2026-04-30
+relevance: 0.94
+tier: active
 ---
 # План выгрузки и переезда
 

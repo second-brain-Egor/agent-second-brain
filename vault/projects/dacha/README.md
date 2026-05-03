@@ -1,13 +1,13 @@
 ---
 type: project
-tags:
+tags: 
 source: daily/2026-04-17
+status: active
 created: 2026-04-17
 updated: 2026-04-30
 last_accessed: 2026-04-30
-relevance: 0.86
+relevance: 0.97
 tier: active
-status: active
 ---
 
 # Дача

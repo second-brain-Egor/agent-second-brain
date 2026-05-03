@@ -1,6 +1,9 @@
 ---
 type: learning
 created: 2026-05-01
+last_accessed: 2026-05-01
+relevance: 0.95
+tier: active
 ---
 
 # Загрузка без ложного Git-контекста

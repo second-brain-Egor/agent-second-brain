@@ -1,13 +1,13 @@
 ---
 type: price-list
-project: Рынок стройматериалы
 source: Telegram photo OCR
+status: first-pass
 created: 2026-04-26
 updated: 2026-04-26
 last_accessed: 2026-04-26
-relevance: 0.88
+relevance: 0.94
 tier: active
-status: first-pass
+project: Рынок стройматериалы
 ---
 
 # Прайс-лист стройматериалов — страница 3 из 3

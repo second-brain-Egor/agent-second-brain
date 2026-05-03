@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "videos": {
+    "KcRnotna5qY": {
+      "status": "complete",
+      "folder": "vault/projects/Ежедневник/youtube-habits/videos/001-5-привычки-успешных-людей-брайан-трейси",
+      "title": "5. Привычки успешных людей. Брайан Трейси",
+      "url": "https://www.youtube.com/watch?v=KcRnotna5qY",
+      "upload_date": "20171125",
+      "comments": 3724,
+      "frames": 0,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": false,
+      "updated_at": "2026-05-04T00:11:02+03:00",
+      "completed_at": "2026-05-04T00:11:02+03:00"
+    }
+  },
+  "updated_at": "2026-05-04T00:11:02+03:00"
+}

@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-04-16
-relevance: 0.95
-tier: active
+relevance: 0.73
+tier: warm
 ---
 # Дисциплина поиска по vault
 

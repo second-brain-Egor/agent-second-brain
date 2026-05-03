@@ -1,15 +1,11 @@
 ---
 type: note
+tags: 
 created: 2026-04-18
 updated: 2026-04-18
 last_accessed: 2026-04-18
-relevance: 0.82
+relevance: 0.94
 tier: active
-tags:
-  - дача
-  - техника
-  - ремонт
-  - измельчитель
 ---
 
 # Kettama MPS02D — замена двигателя

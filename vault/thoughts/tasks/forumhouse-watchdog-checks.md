@@ -3,8 +3,9 @@ type: note
 source: daily/2026-04-18
 created: 2026-04-18
 updated: 2026-04-24
-relevance: 0.85
-tier: warm
+last_accessed: 2026-04-30
+relevance: 0.94
+tier: active
 ---
 # Watchdog проверки загрузки Forumhouse
 

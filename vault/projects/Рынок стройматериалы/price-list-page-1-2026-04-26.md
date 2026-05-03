@@ -1,13 +1,13 @@
 ---
 type: source
-project: Рынок стройматериалы
 source: photo
+status: raw-processed
 created: 2026-04-26
 updated: 2026-04-26
 last_accessed: 2026-04-26
-relevance: 0.82
+relevance: 0.94
 tier: active
-status: raw-processed
+project: Рынок стройматериалы
 ---
 
 # Прайс-лист стройматериалов — страница 1 из 3

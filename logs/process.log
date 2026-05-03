@@ -6519,3 +6519,70 @@ send-pack: unexpected disconnect while reading sideband packet
 fatal: the remote end hung up unexpectedly
 Everything up-to-date
 === Done (empty daily, graph-only) ===
+RANDOMIZED_PROCESS: picked 00:32 Moscow for 2026-05-04
+RANDOMIZED_PROCESS: starting at 00:35 Moscow for target 00:32
+=== d-brain processing for 2026-05-04 ===
+ORIENT: daily=1399 bytes, handoff=OK, graph=OK
+=== AI output ===
+<b>🧠 Готово за 4 мая</b>
+
+• Видео про привычки закреплено в контексте «Ежедневника»: черновая выгрузка уже есть, глубокий разбор отложен отдельно.
+
+• В Todoist создана задача: «Разобрать видео про привычки для проекта Ежедневник» — p4, без даты.
+
+• Уточнение по Forumhouse сохранено: вопрос «что у нас про форумхаус» теперь означает фактический статус скачивания тем и ситуацию на сервере.
+
+<i>Следующий шаг: разбор видео можно запускать, когда понадобятся идеи для шаблона ежедневника.</i>
+=================
+=== Rebuilding vault graph ===
+# Vault Graph Analysis
+
+## Overview
+
+- **Total notes:** 273
+- **Total links:** 796
+- **Orphan notes:** 3
+
+## Most Connected Notes
+
+- [[MOC/index.md|index]] (244 links)
+- [[projects/Рынок стройматериалы/cards/README.md|README]] (105 links)
+- [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|product-cards-page-1-2026-04-26]] (84 links)
+- [[reports/vault-health.md|vault-health]] (50 links)
+- [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|price-list-page-2-2026-04-26]] (47 links)
+
+## Domain Statistics
+
+| Domain | Notes | Avg Links |
+|--------|-------|-----------|
+| MOC/ | 6 | 45.2 |
+| blog/ | 2 | 1.0 |
+| daily/ | 33 | 2.5 |
+| goals/ | 5 | 7.8 |
+| memory/ | 5 | 11.4 |
+| projects/ | 203 | 5.2 |
+| references/ | 3 | 1.0 |
+| reports/ | 1 | 50.0 |
+| root/ | 1 | 3.0 |
+| summaries/ | 4 | 2.0 |
+| templates/ | 2 | 0.0 |
+| thoughts/ | 8 | 3.6 |
+
+## Orphan Notes (need links)
+
+- [[daily/2026-04-27|2026-04-27]] (daily/)
+- [[templates/crm-template|crm-template]] (templates/)
+- [[templates/daily-template|daily-template]] (templates/)
+
+=== Refreshing wiki index ===
+Wiki refreshed: notes=273 links=796 orphans=3
+=== RAG indexing ===
+Indexed 5457 facts
+=== Memory decay ===
+
+  decay results:
+    total: 335, changed: 335
+    avg relevance: 0.85
+    active  :  232 █████████████████████████████████████████████████████████████████████████████
+    warm    :   14 ████
+    cold    :   89 █████████████████████████████

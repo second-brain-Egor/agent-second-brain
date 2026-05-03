@@ -1,7 +1,8 @@
 ---
 type: note
-updated: 2026-05-03
-relevance: 0.9
+updated: 2026-05-04
+last_accessed: 2026-05-04
+relevance: 1.0
 tier: active
 ---
 # Индекс знаний
@@ -10,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 261
-- Связей: 778
-- Сирот: 2
-- Слабосвязанных: 76
+- Заметок: 273
+- Связей: 796
+- Сирот: 3
+- Слабосвязанных: 82
 
 ## Память
 
@@ -122,6 +123,15 @@ tier: active
 - [[projects/timberframe-workshop-setup/README.md|Timberframe Workshop Setup]]
 - [[projects/timberframe/README.md|TimberFrame]]
 - [[projects/trading-bot-stop-reliability/README.md|Надёжная остановка торгового бота]]
+- [[projects/Ежедневник/README.md|Ежедневник]]
+- [[projects/Ежедневник/daily-template.md|Шаблон дня]]
+- [[projects/Ежедневник/youtube-habits/README.md|Разбор YouTube-видео про привычки]]
+- [[projects/Ежедневник/youtube-habits/download-journal.md|Журнал скачанных видео]]
+- [[projects/Ежедневник/youtube-habits/summary.md|Сводка по видео]]
+- [[projects/Ежедневник/youtube-habits/videos/001-5-привычки-успешных-людей-брайан-трейси/comments.md|Комментарии]]
+- [[projects/Ежедневник/youtube-habits/videos/001-5-привычки-успешных-людей-брайан-трейси/description.md|description]]
+- [[projects/Ежедневник/youtube-habits/videos/001-5-привычки-успешных-людей-брайан-трейси/metadata.md|5. Привычки успешных людей. Брайан Трейси]]
+- [[projects/Ежедневник/youtube-habits/videos/001-5-привычки-успешных-людей-брайан-трейси/transcript.md|transcript]]
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]
 - [[projects/Рынок стройматериалы/cards/001-шамотный-кирпич-шб-8-боровичи.md|1. Шамотный кирпич ШБ-8 Боровичи]]
 - [[projects/Рынок стройматериалы/cards/002-кирпич-печной-желтый.md|2. Кирпич печной желтый]]
@@ -239,16 +249,17 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-05-04.md|2026-05-04]]
 - [[daily/2026-05-03.md|2026-05-03]]
 - [[daily/2026-05-02.md|2026-05-02]]
 - [[daily/2026-05-01.md|2026-05-01]]
 - [[daily/2026-04-30.md|2026-04-30]]
 - [[daily/2026-04-29.md|2026-04-29]]
 - [[daily/2026-04-28.md|2026-04-28]]
-- [[daily/2026-04-27.md|2026-04-27]]
 
 ## Недельные сводки
 
+- [[summaries/2026-W18-summary.md|2026-W18-summary]]
 - [[summaries/2026-W16-summary.md|2026-W16-summary]]
 - [[summaries/2026-W15-summary.md|2026-W15-summary]]
 - [[summaries/2026-W14-summary.md|2026-W14-summary]]

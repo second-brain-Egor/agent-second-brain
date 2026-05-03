@@ -1,13 +1,13 @@
 ---
 type: project
-tags:
+tags: 
 source: daily/2026-04-17
+status: active
 created: 2026-04-26
 updated: 2026-04-28
 last_accessed: 2026-04-28
-relevance: 0.84
+relevance: 0.94
 tier: active
-status: active
 ---
 
 # Рынок стройматериалы

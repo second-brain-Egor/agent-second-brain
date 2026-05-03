@@ -1,13 +1,13 @@
 ---
 type: project
-tags:
+tags: 
 source: daily/2026-04-11
+status: active
 created: 2026-04-11
 updated: 2026-04-24
 last_accessed: 2026-04-24
-relevance: 0.87
-tier: warm
-status: active
+relevance: 0.94
+tier: active
 ---
 
 # Forumhouse Framehouse Knowledge Base

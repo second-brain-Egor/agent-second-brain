@@ -1,7 +1,7 @@
 ---
 type: note
 last_accessed: 2026-04-30
-relevance: 0.98
+relevance: 0.95
 tier: active
 ---
 # Правила коммуникации бота

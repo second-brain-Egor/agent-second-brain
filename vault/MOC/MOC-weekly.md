@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-03-31
-relevance: 0.86
-tier: warm
+relevance: 0.98
+tier: active
 ---
 # Weekly Summary
 

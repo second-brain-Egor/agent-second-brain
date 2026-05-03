@@ -1,13 +1,13 @@
 ---
 type: product-card-index
-project: Рынок стройматериалы
 source: product-cards
+status: audited
 created: 2026-04-26
 updated: 2026-04-28
 last_accessed: 2026-04-28
-relevance: 0.9
+relevance: 0.94
 tier: active
-status: audited
+project: Рынок стройматериалы
 ---
 
 # Карточки товаров — Новорязанка

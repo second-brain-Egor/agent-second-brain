@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-03-29
-relevance: 0.83
-tier: warm
+relevance: 0.62
+tier: cold
 ---
 # Business Context
 

@@ -3,8 +3,8 @@ type: note
 title: "Consumer AI в 2030: семь прогнозов, которые изменят рынок"
 tags: 
 last_accessed: 2026-03-27
-relevance: 0.8
-tier: warm
+relevance: 0.62
+tier: cold
 excerpt: "Почему устройства без экранов провалятся, куда движется рынок AI-чатботов и что станет самым быстрорастущим AI-продуктом."
 category: "Аналитика"
 publishedAt: "2026-01-08"

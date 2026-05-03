@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-03-27
-relevance: 0.8
-tier: warm
+relevance: 0.62
+tier: cold
 ---
 # Phase 3: REFLECT
 

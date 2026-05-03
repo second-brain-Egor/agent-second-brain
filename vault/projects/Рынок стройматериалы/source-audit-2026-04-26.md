@@ -1,12 +1,12 @@
 ---
 type: source-audit
-project: Рынок стройматериалы
+status: restored
 created: 2026-04-26
 updated: 2026-04-26
 last_accessed: 2026-04-26
-relevance: 0.9
+relevance: 0.94
 tier: active
-status: restored
+project: Рынок стройматериалы
 ---
 
 # Проверка исходников прайса - 2026-04-26

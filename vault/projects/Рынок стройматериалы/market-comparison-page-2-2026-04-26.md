@@ -1,13 +1,13 @@
 ---
 type: research
-project: Рынок стройматериалы
 source: web
+status: first-pass
 created: 2026-04-26
 updated: 2026-04-26
 last_accessed: 2026-04-26
-relevance: 0.86
+relevance: 0.94
 tier: active
-status: first-pass
+project: Рынок стройматериалы
 ---
 
 # Сравнение цен — страница 2 прайса

@@ -1,10 +1,10 @@
 ---
 type: initiative
-project: enterprise-ai-implementation
 created: 2026-04-29
 last_accessed: 2026-04-29
-relevance: 0.86
+relevance: 0.94
 tier: active
+project: enterprise-ai-implementation
 ---
 
 # Обучение персонала и тренажеры
