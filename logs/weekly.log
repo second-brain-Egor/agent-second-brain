@@ -24,3 +24,7 @@ Traceback (most recent call last):
 RuntimeError: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 5:30 PM.
 2026-04-26 17:30:07,792 - __main__ - ERROR - Weekly digest failed: ERROR: You've hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 5:30 PM.
 2026-04-26 17:30:07,957 - __main__ - INFO - Weekly digest sent to user 6144231826
+2026-05-03 17:30:05,414 - __main__ - INFO - Starting weekly digest generation...
+2026-05-03 17:31:29,811 - d_brain.services.processor - INFO - Weekly summary saved to /home/egor/agent-second-brain/vault/summaries/2026-W18-summary.md
+2026-05-03 17:31:29,813 - d_brain.services.processor - INFO - Updated MOC-weekly.md with 2026-W18-summary
+2026-05-03 17:31:29,813 - __main__ - INFO - Weekly digest generated successfully
