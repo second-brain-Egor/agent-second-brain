@@ -15,7 +15,7 @@ Map of Content for project notes.
 - [[projects/Ежедневник/README.md|Ежедневник]]
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]
-- [[projects/enterprise-ai-implementation/README.md|Внедрение ИИ на предприятии]]
+- [[projects/Внедрение ИИ платформы/README.md|Внедрение ИИ платформы]]
 - [[projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
 - [[projects/japanese-architecture/README.md|Японская архитектура]]
 - [[projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]

@@ -1,9 +1,8 @@
 ---
 type: note
-updated: 2026-05-04
-last_accessed: 2026-05-04
-relevance: 1.0
-tier: active
+updated: 2026-05-05
+relevance: 0.86
+tier: warm
 ---
 # Health Check Vault
 
@@ -11,34 +10,34 @@ tier: active
 
 ## Обзор
 
-- Заметок: 273
-- Связей: 796
-- Сирот: 3
-- Слабосвязанных: 82
+- Заметок: 422
+- Связей: 947
+- Сирот: 0
+- Слабосвязанных: 234
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 6 | 45.17 |
+| MOC | 6 | 69.33 |
 | blog | 2 | 1.00 |
-| daily | 33 | 2.55 |
+| daily | 34 | 2.56 |
 | goals | 5 | 7.80 |
 | memory | 5 | 11.40 |
-| projects | 203 | 5.15 |
+| projects | 351 | 3.41 |
 | references | 3 | 1.00 |
-| reports | 1 | 50.00 |
+| reports | 1 | 52.00 |
 | root | 1 | 3.00 |
 | summaries | 4 | 2.00 |
-| templates | 2 | 0.00 |
+| templates | 2 | 1.00 |
 | thoughts | 8 | 3.62 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 244 связей
+- [[MOC/index.md|Индекс знаний]] — 392 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 105 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 84 связей
-- [[reports/vault-health.md|Health Check Vault]] — 50 связей
+- [[reports/vault-health.md|Health Check Vault]] — 52 связей
 - [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 47 связей
 - [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 45 связей
 - [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 45 связей
@@ -46,14 +45,11 @@ tier: active
 - [[projects/Рынок стройматериалы/product-cards-page-3-2026-04-26.md|Карточки позиций — Новорязанка, страница 3]] — 25 связей
 - [[memory/soul.md|Идентичность агента]] — 21 связей
 
-## Сироты
-
-- [[daily/2026-04-27.md|2026-04-27]]
-- [[templates/crm-template.md|[Company Name]]]
-- [[templates/daily-template.md|{{date}}]]
-
 ## Слабосвязанные
 
+- [[MOC/MOC-ideas.md|Ideas]]
+- [[MOC/MOC-learnings.md|Learnings]]
+- [[MOC/MOC-reflections.md|Reflections]]
 - [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
 - [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
@@ -71,10 +67,7 @@ tier: active
 - [[daily/2026-04-22.md|2026-04-22]]
 - [[daily/2026-04-23.md|2026-04-23]]
 - [[daily/2026-04-25.md|2026-04-25]]
-- [[daily/2026-04-26.md|2026-04-26]]
-- [[daily/2026-04-30.md|2026-04-30]]
-- [[daily/2026-05-02.md|2026-05-02]]
-- ... ещё 62
+- ... ещё 214
 
 ## Неразрешённые ссылки
 

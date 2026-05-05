@@ -6586,3 +6586,95 @@ Indexed 5457 facts
     active  :  232 █████████████████████████████████████████████████████████████████████████████
     warm    :   14 ████
     cold    :   89 █████████████████████████████
+[main 25d3308] chore: process daily 2026-05-04
+ 345 files changed, 165419 insertions(+), 728 deletions(-)
+ create mode 100644 vault/daily/2026-05-04.md
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/README.md"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/daily-template.md"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/README.md"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/download-journal.md"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/download-state.json"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/summary.md"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/videos/001-5-\320\277\321\200\320\270\320\262\321\213\321\207\320\272\320\270-\321\203\321\201\320\277\320\265\321\210\320\275\321\213\321\205-\320\273\321\216\320\264\320\265\320\271-\320\261\321\200\320\260\320\271\320\260\320\275-\321\202\321\200\320\265\320\271\321\201\320\270/comments.json"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/videos/001-5-\320\277\321\200\320\270\320\262\321\213\321\207\320\272\320\270-\321\203\321\201\320\277\320\265\321\210\320\275\321\213\321\205-\320\273\321\216\320\264\320\265\320\271-\320\261\321\200\320\260\320\271\320\260\320\275-\321\202\321\200\320\265\320\271\321\201\320\270/comments.md"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/videos/001-5-\320\277\321\200\320\270\320\262\321\213\321\207\320\272\320\270-\321\203\321\201\320\277\320\265\321\210\320\275\321\213\321\205-\320\273\321\216\320\264\320\265\320\271-\320\261\321\200\320\260\320\271\320\260\320\275-\321\202\321\200\320\265\320\271\321\201\320\270/description.md"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/videos/001-5-\320\277\321\200\320\270\320\262\321\213\321\207\320\272\320\270-\321\203\321\201\320\277\320\265\321\210\320\275\321\213\321\205-\320\273\321\216\320\264\320\265\320\271-\320\261\321\200\320\260\320\271\320\260\320\275-\321\202\321\200\320\265\320\271\321\201\320\270/metadata.json"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/videos/001-5-\320\277\321\200\320\270\320\262\321\213\321\207\320\272\320\270-\321\203\321\201\320\277\320\265\321\210\320\275\321\213\321\205-\320\273\321\216\320\264\320\265\320\271-\320\261\321\200\320\260\320\271\320\260\320\275-\321\202\321\200\320\265\320\271\321\201\320\270/metadata.md"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/videos/001-5-\320\277\321\200\320\270\320\262\321\213\321\207\320\272\320\270-\321\203\321\201\320\277\320\265\321\210\320\275\321\213\321\205-\320\273\321\216\320\264\320\265\320\271-\320\261\321\200\320\260\320\271\320\260\320\275-\321\202\321\200\320\265\320\271\321\201\320\270/subtitles/KcRnotna5qY.en.vtt"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/videos/001-5-\320\277\321\200\320\270\320\262\321\213\321\207\320\272\320\270-\321\203\321\201\320\277\320\265\321\210\320\275\321\213\321\205-\320\273\321\216\320\264\320\265\320\271-\320\261\321\200\320\260\320\271\320\260\320\275-\321\202\321\200\320\265\320\271\321\201\320\270/subtitles/KcRnotna5qY.ru.vtt"
+ create mode 100644 "vault/projects/\320\225\320\266\320\265\320\264\320\275\320\265\320\262\320\275\320\270\320\272/youtube-habits/videos/001-5-\320\277\321\200\320\270\320\262\321\213\321\207\320\272\320\270-\321\203\321\201\320\277\320\265\321\210\320\275\321\213\321\205-\320\273\321\216\320\264\320\265\320\271-\320\261\321\200\320\260\320\271\320\260\320\275-\321\202\321\200\320\265\320\271\321\201\320\270/transcript.md"
+ create mode 100644 vault/thoughts/ideas/youtube-habits-channel.md
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+error: RPC failed; HTTP 408 curl 22 The requested URL returned error: 408
+send-pack: unexpected disconnect while reading sideband packet
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+=== Sending to Telegram ===
+=== Done ===
+RANDOMIZED_PROCESS: picked 04:28 Moscow for 2026-05-05
+RANDOMIZED_PROCESS: starting at 04:30 Moscow for target 04:28
+=== d-brain processing for 2026-05-05 ===
+ORIENT: daily/2026-05-05.md not found - creating empty file
+ORIENT: daily/2026-05-05.md is empty (13 bytes) - skipping AI processing
+# Vault Graph Analysis
+
+## Overview
+
+- **Total notes:** 422
+- **Total links:** 796
+- **Orphan notes:** 152
+
+## Most Connected Notes
+
+- [[MOC/index.md|index]] (241 links)
+- [[projects/Рынок стройматериалы/cards/README.md|README]] (105 links)
+- [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|product-cards-page-1-2026-04-26]] (84 links)
+- [[reports/vault-health.md|vault-health]] (52 links)
+- [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|price-list-page-2-2026-04-26]] (47 links)
+
+## Domain Statistics
+
+| Domain | Notes | Avg Links |
+|--------|-------|-----------|
+| MOC/ | 6 | 44.2 |
+| blog/ | 2 | 1.0 |
+| daily/ | 34 | 2.6 |
+| goals/ | 5 | 7.8 |
+| memory/ | 5 | 11.4 |
+| projects/ | 351 | 3.0 |
+| references/ | 3 | 1.0 |
+| reports/ | 1 | 52.0 |
+| root/ | 1 | 3.0 |
+| summaries/ | 4 | 2.0 |
+| templates/ | 2 | 1.0 |
+| thoughts/ | 8 | 3.6 |
+
+## Orphan Notes (need links)
+
+- [[daily/2026-05-05|2026-05-05]] (daily/)
+- [[projects/onyx/github-onyx/AGENTS|AGENTS]] (projects/)
+- [[projects/onyx/github-onyx/CLAUDE|CLAUDE]] (projects/)
+- [[projects/onyx/github-onyx/CONTRIBUTING|CONTRIBUTING]] (projects/)
+- [[projects/onyx/github-onyx/README|README]] (projects/)
+- [[projects/onyx/github-onyx/README.zh-CN|README.zh-CN]] (projects/)
+- [[projects/onyx/github-onyx/backend/alembic/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/alembic_tenants/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/generated/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/model_server/legacy/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/background/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/chat/COMPRESSION|COMPRESSION]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/chat/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/connectors/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/db/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/document_index/FILTER_SEMANTICS|FILTER_SEMANTICS]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/document_index/opensearch/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/evals/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/file_store/README|README]] (projects/)
+- [[projects/onyx/github-onyx/backend/onyx/llm/prompt_cache/README|README]] (projects/)
+- ... and 132 more
+
+=== Refreshing wiki index ===
+Wiki refreshed: notes=422 links=947 orphans=0
+=== RAG indexing ===
+Indexed 13592 facts

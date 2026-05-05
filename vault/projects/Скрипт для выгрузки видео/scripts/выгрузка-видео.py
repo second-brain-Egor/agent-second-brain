@@ -716,6 +716,8 @@ def collect_video(
     with_frames: bool,
     keep_video: bool,
     scene_threshold: float,
+    sub_langs: str,
+    with_subs: bool,
 ) -> None:
     video_id = entry.get("id") or f"video-{index:03d}"
     title = entry.get("title") or video_id
@@ -730,24 +732,26 @@ def collect_video(
     work_dir.mkdir(exist_ok=True)
 
     output_template = str(work_dir / "%(id)s.%(ext)s")
-    run(
-        [
-            YTDLP,
-            "--skip-download",
-            "--write-info-json",
-            "--write-comments",
+    command = [
+        YTDLP,
+        "--skip-download",
+        "--write-info-json",
+        "--write-comments",
+        "--no-warnings",
+        "-o",
+        output_template,
+        video_url,
+    ]
+    if with_subs:
+        command[2:2] = [
             "--write-sub",
             "--write-auto-sub",
             "--sub-lang",
-            "ru,en",
+            sub_langs,
             "--sub-format",
             "vtt",
-            "--no-warnings",
-            "-o",
-            output_template,
-            video_url,
         ]
-    )
+    run(command)
     move_sidecar_files(work_dir, video_dir)
 
     if with_frames:
@@ -814,6 +818,8 @@ def main() -> None:
     parser.add_argument("--keep-video", action="store_true")
     parser.add_argument("--scene-threshold", type=float, default=0.18)
     parser.add_argument("--dedupe-threshold", type=int, default=4)
+    parser.add_argument("--sub-langs", default="ru,en")
+    parser.add_argument("--no-subs", action="store_true")
     args = parser.parse_args()
 
     output_dir = resolve_repo_path(args.output)
@@ -867,7 +873,16 @@ def main() -> None:
             save_state(output_dir, state)
             continue
         try:
-            collect_video(entry, index, videos_dir, args.frames, args.keep_video, args.scene_threshold)
+            collect_video(
+                entry,
+                index,
+                videos_dir,
+                args.frames,
+                args.keep_video,
+                args.scene_threshold,
+                args.sub_langs,
+                not args.no_subs,
+            )
             video_dir = find_existing_video_dir(
                 videos_dir,
                 key,
