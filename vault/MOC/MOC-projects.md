@@ -18,6 +18,7 @@ Map of Content for project notes.
 - [[projects/Внедрение ИИ платформы/README.md|Внедрение ИИ платформы]]
 - [[projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
 - [[projects/japanese-architecture/README.md|Японская архитектура]]
+- [[projects/Подключение/README.md|Подключение]]
 - [[projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
 - [[projects/server-backup-and-migration/README.md|Выгрузка данных с Regi и переезд бота]]
 - [[projects/shiporezny-stanok-selection/README.md|Подбор шипорезного станка]]

@@ -121,7 +121,7 @@ class AgentProcessor:
             return ""
 
         lines = ["=== TODAY SESSION ==="]
-        for entry in today_entries[-50:]:
+        for entry in today_entries[-20:]:
             rendered = self._render_session_entry(entry)
             if rendered:
                 lines.append(rendered)
