@@ -1,8 +1,8 @@
 ---
 type: project
 status: active
-updated: 2026-05-05
-last_accessed: 2026-05-05
+updated: 2026-05-06
+last_accessed: 2026-05-06
 relevance: 0.94
 tier: active
 ---
@@ -57,6 +57,49 @@ tier: active
 4. Не сломана ли конфигурация `proxychains4`.
 5. Запускается ли Telegram-скрипт Барыги именно через `proxychains4`.
 6. Не протухла ли OAuth-сессия Claude Code.
+
+### Шаблон аналога для нового сервера
+
+Аналог Барыги настраивается не как WireGuard, а как точечный SSH SOCKS5-туннель для процесса Claude Code.
+
+Минимальный состав:
+
+- `openssh-client`;
+- `proxychains4`;
+- systemd-сервис `anthropic-tunnel.service`;
+- SSH-доступ с нового сервера на выходной сервер `clawd@37.233.84.178`;
+- локальный SOCKS5 на `127.0.0.1:1080`;
+- запуск Claude Code через `proxychains4`.
+
+Проверенная форма сервиса:
+
+```ini
+[Unit]
+Description=SSH SOCKS tunnel to proxy Anthropic API
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -D 1080 -N -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=no clawd@37.233.84.178
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Проверенная хвостовая часть `/etc/proxychains4.conf`:
+
+```conf
+strict_chain
+proxy_dns
+quiet_mode
+
+[ProxyList]
+socks5 127.0.0.1 1080
+```
+
+Критичное условие: с нового сервера должен быть рабочий неинтерактивный SSH-вход на `clawd@37.233.84.178`. Без этого service будет создан, но туннель не поднимется.
 
 ### Чего здесь не хранить
 

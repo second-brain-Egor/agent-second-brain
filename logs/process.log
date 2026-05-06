@@ -6862,3 +6862,55 @@ ORIENT: daily/2026-05-06.md is empty (13 bytes) - skipping AI processing
 Wiki refreshed: notes=424 links=947 orphans=3
 === RAG indexing ===
 Indexed 13638 facts
+[main 8bc5323] chore: process daily 2026-05-06
+ 13 files changed, 1992 insertions(+), 22 deletions(-)
+ create mode 100644 vault/daily/2026-05-06.md
+ create mode 100644 "vault/projects/\320\237\320\276\320\264\320\272\320\273\321\216\321\207\320\265\320\275\320\270\320\265/README.md"
+fatal: unable to access 'https://github.com/second-brain-Egor/agent-second-brain.git/': Failed to connect to github.com port 443 after 136171 ms: Couldn't connect to server
+=== Done (empty daily, graph-only) ===
+RANDOMIZED_PROCESS: picked 00:47 Moscow for 2026-05-07
+RANDOMIZED_PROCESS: starting at 00:50 Moscow for target 00:47
+=== d-brain processing for 2026-05-07 ===
+ORIENT: daily/2026-05-07.md not found - creating empty file
+ORIENT: daily/2026-05-07.md is empty (13 bytes) - skipping AI processing
+# Vault Graph Analysis
+
+## Overview
+
+- **Total notes:** 425
+- **Total links:** 948
+- **Orphan notes:** 1
+
+## Most Connected Notes
+
+- [[MOC/index.md|index]] (393 links)
+- [[projects/Рынок стройматериалы/cards/README.md|README]] (105 links)
+- [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|product-cards-page-1-2026-04-26]] (84 links)
+- [[reports/vault-health.md|vault-health]] (51 links)
+- [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|price-list-page-2-2026-04-26]] (47 links)
+
+## Domain Statistics
+
+| Domain | Notes | Avg Links |
+|--------|-------|-----------|
+| MOC/ | 6 | 69.7 |
+| blog/ | 2 | 1.0 |
+| daily/ | 36 | 2.4 |
+| goals/ | 5 | 7.8 |
+| memory/ | 5 | 11.4 |
+| projects/ | 352 | 3.4 |
+| references/ | 3 | 1.0 |
+| reports/ | 1 | 51.0 |
+| root/ | 1 | 3.0 |
+| summaries/ | 4 | 2.0 |
+| templates/ | 2 | 1.0 |
+| thoughts/ | 8 | 3.6 |
+
+## Orphan Notes (need links)
+
+- [[daily/2026-05-07|2026-05-07]] (daily/)
+
+=== Refreshing wiki index ===
+Wiki refreshed: notes=425 links=948 orphans=0
+=== RAG indexing ===
+Indexed 13647 facts
