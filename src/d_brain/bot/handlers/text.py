@@ -3,6 +3,7 @@
 import asyncio
 import logging
 from datetime import datetime
+from pathlib import Path
 
 from aiogram import Router
 from aiogram import Bot
@@ -94,6 +95,94 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
         logger.info("Saved group text without reply in chat %s", message.chat.id)
         return
 
+    # Команда удаления последнего файла («удали», «выброси», «не нужен», «убери»).
+    # Только для файлов внутри vault/attachments/ — для безопасности.
+    import re
+    delete_pattern = re.compile(
+        r"\b(удал|выброс|не\s*нужн|убери|снеси|стери|стер[еи]ть)\w*",
+        re.IGNORECASE,
+    )
+    if delete_pattern.search(message.text):
+        recent = session.get_recent(scope, limit=10)
+        for entry in reversed(recent[:-1]):
+            if entry.get("type") in ("text", "voice", "assistant"):
+                continue
+            if entry.get("type") in ("file", "photo"):
+                rel = entry.get("path") or ""
+                if rel and rel.startswith("attachments/"):
+                    abs_path = (settings.vault_path / rel).resolve()
+                    vault_abs = settings.vault_path.resolve()
+                    try:
+                        abs_path.relative_to(vault_abs / "attachments")
+                    except ValueError:
+                        await message.answer(
+                            "⚠️ Удалить можно только файлы из attachments/. Этот файл не там.",
+                            parse_mode=None,
+                        )
+                        return
+                    if abs_path.exists():
+                        abs_path.unlink()
+                        from d_brain.services.storage import VaultStorage as _VS  # alias
+                        # Лог в change-log
+                        try:
+                            cl = settings.vault_path / "memory" / "change-log.md"
+                            cl.parent.mkdir(parents=True, exist_ok=True)
+                            with cl.open("a", encoding="utf-8") as f:
+                                from datetime import datetime as _dt
+                                f.write(
+                                    f"\n{_dt.now().strftime('%Y-%m-%d %H:%M')} | Удалён файл `{rel}` | "
+                                    f"По команде пользователя в чате\n"
+                                )
+                        except Exception:
+                            logger.exception("change-log write failed")
+                        await message.answer(
+                            f"🗑️ Удалил `{Path(rel).name}`",
+                            parse_mode=None,
+                        )
+                        return
+                    await message.answer(
+                        f"⚠️ Файл уже удалён или не найден на диске: `{rel}`",
+                        parse_mode=None,
+                    )
+                    return
+                break
+            break
+
+    # Если последнее событие в сессии — присланный файл (без обработки),
+    # а текущий текст похож на просьбу обработать его → запускаем
+    # document-QA flow (как если бы caption был при отправке).
+    from d_brain.bot.handlers.document import QA_TRIGGERS, _answer_document
+    if QA_TRIGGERS.search(message.text):
+        recent = session.get_recent(scope, limit=5)
+        # Идём с конца, ищем последний file (но не дальше нашего же только что записанного text)
+        for entry in reversed(recent[:-1]):  # без только что добавленного text
+            etype = entry.get("type")
+            if etype == "file":
+                file_relpath = entry.get("path")
+                file_text = entry.get("text") or ""
+                file_name = Path(file_relpath).name if file_relpath else "document.md"
+                if file_relpath and file_text:
+                    await message.answer(
+                        f"📄 Обрабатываю «{file_name}» по твоей команде. ⏳ 1–3 минуты…",
+                        parse_mode=None,
+                    )
+                    asyncio.create_task(
+                        _answer_document(
+                            bot=message.bot,
+                            message=message,
+                            filename=file_name,
+                            file_text=file_text,
+                            instructions=message.text,
+                            storage=storage,
+                            timestamp=timestamp,
+                        )
+                    )
+                    return
+                break  # нашли file без preview — не сможем обработать
+            if etype in ("text", "voice", "assistant"):
+                # между файлом и нашим текстом было ещё что-то — не считаем "следом за файлом"
+                break
+
     # Dialog mode: respond via active LLM backend
     processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
     user_id = message.from_user.id
@@ -141,7 +230,11 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
 
     except Exception as e:
         logger.exception("Dialog error")
-        await message.answer("✓ Сохранено")
+        err = str(e) or type(e).__name__
+        msg = "⚠️ Не получилось ответить (таймаут или ошибка LLM). Запрос сохранён, попробуй ещё раз через минуту."
+        if "TimeoutExpired" in err or "timed out" in err.lower():
+            msg = "⏱ Sonnet не уложился в 90 секунд (rate limit Claude Max или API лагает). Сохранил, попробуй переформулировать короче или подожди минуту."
+        await message.answer(msg, parse_mode=None)
 
     logger.info("Text message processed: %d chars", len(message.text))
 

@@ -176,7 +176,14 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
 
     except Exception as e:
         logger.exception("Error processing voice message")
-        await message.answer(f"Ошибка: {e}", parse_mode=None)
+        err = str(e) or type(e).__name__
+        if "TimeoutExpired" in err or "timed out" in err.lower():
+            msg = "⏱ Sonnet не уложился в 90 секунд (rate limit Claude Max или API лагает). Голосовое сохранил, попробуй ещё раз через минуту."
+        elif "Deepgram" in err or "transcription" in err.lower() or "ConnectTimeout" in err:
+            msg = "🎤 Не получилось транскрибировать голос (Deepgram молчит). Попробуй ещё раз или напиши текстом."
+        else:
+            msg = f"⚠️ Не получилось обработать: {err[:200]}"
+        await message.answer(msg, parse_mode=None)
 
     logger.info("Voice message processed")
 

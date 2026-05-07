@@ -531,14 +531,20 @@ week: {year}-W{week:02d}
         verbosity: str | None = None,
         max_output_tokens: int = 2000,
     ) -> str:
-        """Dialog / chat request → light model (Sonnet on Claude). Per v3."""
+        """Dialog / chat request → light model (Sonnet on Claude). Per v3.
+
+        Тайм-аут диалога — 90 секунд: если за это время Sonnet не ответил,
+        это явный затык (rate limit Claude Max / сетевой блип / API проблема).
+        Лучше выдать пользователю быстрый понятный фейл, чем заставлять ждать
+        5 минут в надежде что прорвётся.
+        """
         del reasoning, verbosity, max_output_tokens
         prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=True)
         with _claude_chat_lock():
             return self._run_backend_exec(
                 prompt,
                 read_only=True,
-                timeout_sec=300,
+                timeout_sec=90,
                 mode="chat",
             )
 

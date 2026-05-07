@@ -60,12 +60,25 @@ class VaultGit:
         logger.info("Committed: %s", message)
         return True
 
-    def push(self) -> bool:
-        """Push to remote.
+    def pull_rebase_autostash(self) -> bool:
+        """Pull + rebase from remote, autostashing any unstaged changes.
 
-        Returns:
-            True if push was successful
+        `--autostash` сам стэшит грязный working tree (бот пишет в `daily/` и
+        `attachments/` всё время) перед rebase и возвращает изменения после.
+        Это решает класс проблем «нельзя pull при unstaged changes», без
+        которого `commit_and_push` мог сломать синхронизацию когда remote
+        ушёл вперёд (например пользователь правил vault через Obsidian
+        с другого устройства).
         """
+        result = self._run_git("pull", "--rebase", "--autostash", "origin", "main")
+        if result.returncode != 0:
+            logger.error("Git pull --rebase --autostash failed: %s", result.stderr)
+            return False
+        logger.info("Pulled with rebase (autostash)")
+        return True
+
+    def push(self) -> bool:
+        """Push to remote. Caller must run pull_rebase_autostash first if needed."""
         result = self._run_git("push")
         if result.returncode != 0:
             logger.error("Git push failed: %s", result.stderr)
@@ -75,16 +88,20 @@ class VaultGit:
         return True
 
     def commit_and_push(self, message: str) -> bool:
-        """Commit all changes (if any) and push.
+        """Commit, pull --rebase --autostash, then push.
 
-        Always attempts push so that any previously committed but unpushed
-        local commits are flushed to the remote — not only the just-made one.
-
-        Args:
-            message: Commit message
+        Алгоритм:
+          1. Commit (no-op если нет изменений).
+          2. Pull --rebase --autostash — подтягиваем remote, обрабатывая
+             параллельную работу бота (он пишет в daily/attachments/).
+          3. Push — отправляет накопленные локальные коммиты.
 
         Returns:
-            True if push succeeded (or there was nothing to send)
+            True если push прошёл (или нечего отправлять).
         """
-        self.commit_changes(message)  # no-op if nothing to commit
+        self.commit_changes(message)  # no-op если нет изменений
+        if not self.pull_rebase_autostash():
+            # Если pull-rebase упал — не пытаемся push, иначе rejected.
+            # Юзер увидит проблему в логах journalctl, отчёт в чат всё равно дойдёт.
+            return False
         return self.push()
