@@ -19,6 +19,7 @@ from d_brain.bot.formatters import (
     prepare_telegram_response,
 )
 from d_brain.bot.typing_indicator import keep_typing
+from d_brain.services.evening_reminder import maybe_evening_reminder
 from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
 from d_brain.services.session import SessionStore
@@ -160,6 +161,9 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
                     _run_voice_agent(message, processor, transcript, user_id, scope, work_context, session)
                 )
             else:
+                reminder = maybe_evening_reminder(settings.vault_path)
+                if reminder:
+                    response = f"{response}\n\n{reminder}"
                 sent_chunks = prepare_telegram_response(response)
                 session.append(
                     scope,

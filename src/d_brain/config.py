@@ -25,7 +25,15 @@ class Settings(BaseSettings):
         description="Active AI backend: 'codex' or 'claude'. Determines which sim is used (vault/.codex/ vs vault/.claude/). Currently only 'codex' is implemented; 'claude' is reserved for future re-activation of the dormant Claude sim.",
     )
     codex_bin: str = Field(default="codex", description="Path to the Codex CLI binary")
-    codex_model: str = Field(default="gpt-5.5", description="Codex model name")
+    codex_model: str = Field(default="gpt-5.5", description="Default Codex model (fallback)")
+    codex_model_chat: str = Field(
+        default="",
+        description="Codex model for dialog mode (light, fast). Falls back to codex_model if empty.",
+    )
+    codex_model_agent: str = Field(
+        default="",
+        description="Codex model for processing/agent mode (heavy, capable). Falls back to codex_model if empty.",
+    )
     codex_sandbox_mode: str = Field(
         default="bypass",
         description="Codex exec sandbox mode: read-only, workspace-write, danger-full-access, or bypass",
@@ -36,7 +44,15 @@ class Settings(BaseSettings):
     )
     claude_model: str = Field(
         default="sonnet",
-        description="Claude model alias (sonnet | opus | haiku) or full ID (claude-sonnet-4-6, claude-opus-4-7, claude-haiku-4-5)",
+        description="Default Claude model (fallback)",
+    )
+    claude_model_chat: str = Field(
+        default="sonnet",
+        description="Claude model for dialog (light, fast). Per v3: Sonnet without MCP.",
+    )
+    claude_model_agent: str = Field(
+        default="opus",
+        description="Claude model for processing/agent (heavy). Per v3: Opus with MCP.",
     )
     claude_effort: str = Field(
         default="medium",

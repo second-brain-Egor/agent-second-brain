@@ -16,6 +16,7 @@ from d_brain.bot.chat_context import (
 )
 from d_brain.bot.states import SilentState
 from d_brain.bot.typing_indicator import keep_typing
+from d_brain.services.evening_reminder import maybe_evening_reminder
 from d_brain.bot.formatters import (
     normalize_telegram_output,
     prepare_telegram_response,
@@ -123,6 +124,9 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
                     _run_agent(message, processor, message.text, user_id, scope, work_context, session)
                 )
             else:
+                reminder = maybe_evening_reminder(settings.vault_path)
+                if reminder:
+                    response = f"{response}\n\n{reminder}"
                 sent_chunks = prepare_telegram_response(response)
                 session.append(
                     scope,

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import contextlib
+import fcntl
 import json
 import logging
 import os
@@ -10,11 +12,42 @@ import shutil
 import subprocess
 import tempfile
 import time
+from collections.abc import Iterator
 from datetime import date, datetime, time as dt_time, timedelta
 from pathlib import Path
 from typing import Any
 
 from d_brain.services.session import SessionStore
+
+
+# Per v3: separate locks для диалога и тяжёлой обработки.
+# Диалог не блокирует обработку и наоборот, но два диалога / два process одновременно — нет.
+_CHAT_LOCK_PATH = "/tmp/claude-chat.lock"
+_HEAVY_LOCK_PATH = "/tmp/claude-heavy.lock"
+
+
+@contextlib.contextmanager
+def _file_lock(path: str) -> Iterator[None]:
+    """Blocking flock на файле. Освобождается автоматически при выходе из контекста."""
+    fd = os.open(path, os.O_CREAT | os.O_RDWR, 0o644)
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX)
+        yield
+    finally:
+        try:
+            fcntl.flock(fd, fcntl.LOCK_UN)
+        finally:
+            os.close(fd)
+
+
+def _claude_chat_lock() -> Any:
+    """Lock для диалогового режима (light model)."""
+    return _file_lock(_CHAT_LOCK_PATH)
+
+
+def _claude_heavy_lock() -> Any:
+    """Lock для тяжёлой обработки (heavy model, /process, /do)."""
+    return _file_lock(_HEAVY_LOCK_PATH)
 
 logger = logging.getLogger(__name__)
 
@@ -66,10 +99,14 @@ class AgentProcessor:
 
         self.codex_bin = settings.codex_bin.strip() or "codex"
         self.codex_model = settings.codex_model.strip() or "gpt-5.5"
+        self.codex_model_chat = settings.codex_model_chat.strip() or self.codex_model
+        self.codex_model_agent = settings.codex_model_agent.strip() or self.codex_model
         self.codex_sandbox_mode = settings.codex_sandbox_mode.strip().lower() or "bypass"
 
         self.claude_bin = settings.claude_bin.strip() or "claude"
         self.claude_model = settings.claude_model.strip() or "sonnet"
+        self.claude_model_chat = settings.claude_model_chat.strip() or self.claude_model
+        self.claude_model_agent = settings.claude_model_agent.strip() or self.claude_model
         claude_effort = settings.claude_effort.strip().lower() or "medium"
         if claude_effort not in {"low", "medium", "high", "xhigh", "max"}:
             claude_effort = "medium"
@@ -310,9 +347,11 @@ week: {year}-W{week:02d}
         read_only: bool,
         images: list[str] | None = None,
         timeout_sec: int = 600,
+        model: str | None = None,
     ) -> str:
         """Run Codex CLI and return its final message."""
         codex_bin = self._get_codex_bin()
+        codex_model = (model or "").strip() or self.codex_model
         with tempfile.TemporaryDirectory(prefix="dbrain-codex-") as temp_dir:
             output_file = Path(temp_dir) / "last-message.txt"
             cmd = [
@@ -326,7 +365,7 @@ week: {year}-W{week:02d}
                 "--output-last-message",
                 str(output_file),
                 "--model",
-                self.codex_model,
+                codex_model,
             ]
 
             sandbox_mode = self.codex_sandbox_mode
@@ -394,6 +433,7 @@ week: {year}-W{week:02d}
         read_only: bool,
         images: list[str] | None = None,
         timeout_sec: int = 600,
+        model: str | None = None,
     ) -> str:
         """Run Claude Code CLI in --print mode and return its final message.
 
@@ -401,11 +441,12 @@ week: {year}-W{week:02d}
         (no API key); auth is managed by the `claude` binary itself.
         """
         claude_bin = self._get_claude_bin()
+        claude_model = (model or "").strip() or self.claude_model
         permission_mode = "default" if read_only else "bypassPermissions"
         cmd = [
             claude_bin,
             "-p",
-            "--model", self.claude_model,
+            "--model", claude_model,
             "--effort", self.claude_effort,
             "--permission-mode", permission_mode,
             "--add-dir", str(self.vault_path),
@@ -443,6 +484,12 @@ week: {year}-W{week:02d}
 
         return final_text
 
+    def _backend_model_for_mode(self, mode: str) -> str:
+        """Pick the model for current backend based on mode (chat | agent)."""
+        if self.ai_backend == "claude":
+            return self.claude_model_chat if mode == "chat" else self.claude_model_agent
+        return self.codex_model_chat if mode == "chat" else self.codex_model_agent
+
     def _run_backend_exec(
         self,
         prompt: str,
@@ -450,20 +497,29 @@ week: {year}-W{week:02d}
         read_only: bool,
         images: list[str] | None = None,
         timeout_sec: int = 600,
+        mode: str = "chat",
     ) -> str:
-        """Dispatch to active AI backend (codex or claude) based on AI_BACKEND."""
+        """Dispatch to active AI backend (codex or claude) based on AI_BACKEND.
+
+        `mode` selects the model:
+          - "chat"  → light/fast model for dialog (Sonnet on Claude, default on Codex)
+          - "agent" → heavy/capable model for processing (Opus on Claude)
+        """
+        model = self._backend_model_for_mode(mode)
         if self.ai_backend == "claude":
             return self._run_claude_exec(
                 prompt,
                 read_only=read_only,
                 images=images,
                 timeout_sec=timeout_sec,
+                model=model,
             )
         return self._run_codex_exec(
             prompt,
             read_only=read_only,
             images=images,
             timeout_sec=timeout_sec,
+            model=model,
         )
 
     def _run_openai_text(
@@ -475,14 +531,16 @@ week: {year}-W{week:02d}
         verbosity: str | None = None,
         max_output_tokens: int = 2000,
     ) -> str:
-        """Run a plain text request via active backend (codex or claude)."""
+        """Dialog / chat request → light model (Sonnet on Claude). Per v3."""
         del reasoning, verbosity, max_output_tokens
         prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=True)
-        return self._run_backend_exec(
-            prompt,
-            read_only=True,
-            timeout_sec=300,
-        )
+        with _claude_chat_lock():
+            return self._run_backend_exec(
+                prompt,
+                read_only=True,
+                timeout_sec=300,
+                mode="chat",
+            )
 
     def _run_openai_agent(
         self,
@@ -494,41 +552,98 @@ week: {year}-W{week:02d}
         verbosity: str | None = None,
         max_output_tokens: int = 2500,
     ) -> str:
-        """Run an agent-style request via active backend (codex or claude)."""
+        """Agent / processing request → heavy model (Opus on Claude). Per v3."""
         del reasoning, verbosity, max_output_tokens
         prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=read_only)
-        return self._run_backend_exec(
-            prompt,
-            read_only=read_only,
-            timeout_sec=900 if not read_only else 600,
-        )
+        with _claude_heavy_lock():
+            return self._run_backend_exec(
+                prompt,
+                read_only=read_only,
+                timeout_sec=900 if not read_only else 600,
+                mode="agent",
+            )
 
     def analyze_image(self, image_path: str, caption: str | None = None) -> str | None:
-        """Analyze an image via Codex CLI."""
+        """Analyze an image via active backend.
+
+        Per v3 §4.7: на Claude — через `anthropic` SDK с credentials Claude CLI
+        (без отдельного API-ключа, по подписке Claude Max). На Codex — через
+        `codex exec -i image` subprocess.
+        """
         image_file = Path(image_path)
         if not image_file.exists():
             return None
 
+        if self.ai_backend == "claude":
+            return self._analyze_image_claude_sdk(image_file, caption)
+        return self._analyze_image_codex_cli(image_file, caption)
+
+    @staticmethod
+    def _vision_prompt(caption: str | None) -> str:
         prompt = (
-            "You are analyzing an image for a Telegram second-brain bot.\n"
-            "Reply in Russian, concise and useful.\n"
-            "Describe what is in the image.\n"
-            "If there is readable text, extract it fully.\n"
-            "If this is a screenshot, note, or document, summarize the important content.\n"
-            "Return plain text only."
+            "Опиши что на изображении. "
+            "Если есть текст — извлеки его полностью (OCR). "
+            "Если это скриншот, документ или заметка — передай содержание. "
+            "Если это фото — опиши кратко что изображено. "
+            "Отвечай на русском, кратко и по делу."
         )
         if caption:
-            prompt += f"\n\nUser caption:\n{caption}"
+            prompt += f"\n\nПодпись: {caption}"
+        return prompt
+
+    def _analyze_image_claude_sdk(self, image_file: Path, caption: str | None) -> str | None:
+        """Vision через anthropic SDK. Подхватывает creds от Claude CLI (~/.claude/.credentials.json),
+        отдельный ANTHROPIC_API_KEY НЕ нужен."""
+        try:
+            import base64
+            import anthropic
+        except ImportError:
+            logger.warning("anthropic SDK not installed — falling back to CLI subprocess")
+            return self._analyze_image_codex_cli(image_file, caption)
 
         try:
+            image_bytes = image_file.read_bytes()
+            image_b64 = base64.standard_b64encode(image_bytes).decode("ascii")
+            ext = image_file.suffix.lower().lstrip(".")
+            media_type = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png",
+                          "gif": "image/gif", "webp": "image/webp"}.get(ext, "image/jpeg")
+
+            client = anthropic.Anthropic()  # creds от Claude CLI, без API-ключа
+            response = client.messages.create(
+                model="claude-sonnet-4-5",
+                max_tokens=1024,
+                messages=[{
+                    "role": "user",
+                    "content": [
+                        {"type": "image", "source": {
+                            "type": "base64", "media_type": media_type, "data": image_b64,
+                        }},
+                        {"type": "text", "text": self._vision_prompt(caption)},
+                    ],
+                }],
+            )
+            blocks = getattr(response, "content", []) or []
+            for block in blocks:
+                text = getattr(block, "text", None)
+                if text:
+                    return text.strip()
+            return None
+        except Exception:
+            logger.exception("Anthropic SDK vision failed — falling back to CLI subprocess")
+            return self._analyze_image_codex_cli(image_file, caption)
+
+    def _analyze_image_codex_cli(self, image_file: Path, caption: str | None) -> str | None:
+        """Vision через subprocess (Codex CLI или Claude CLI как fallback)."""
+        try:
             return self._run_backend_exec(
-                prompt,
+                self._vision_prompt(caption),
                 read_only=True,
                 images=[str(image_file)],
                 timeout_sec=300,
+                mode="chat",
             )
         except Exception:
-            logger.exception("Vision analysis failed")
+            logger.exception("Vision analysis via CLI subprocess failed")
             return None
 
     def _tool_schemas(self, *, read_only: bool) -> list[dict[str, Any]]:
