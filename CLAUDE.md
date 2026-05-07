@@ -6,28 +6,39 @@
 
 ## Главный регламент — общий для обеих симок
 
-`GLOBAL_RULES.md` содержит весь свод: режимы ответа, стиль общения, оформление Telegram, запрещённые фразы, эксплуатация системы, проверки Барыги, **политика записи новых правил (раздел 6)**. Действует одинаково для Codex и для Claude.
+`GLOBAL_RULES.md` содержит весь свод правил: режимы ответа, стиль общения, оформление Telegram, запрещённые фразы, эксплуатация системы, проверки Барыги, **политика записи новых правил (раздел 6)**. Действует одинаково для Codex и для Claude.
 
 @GLOBAL_RULES.md
 
-## Принцип экономии контекста
+## Память пользователя (общая для обеих симок)
 
-Не загружай в системный промпт всё подряд. **Читай через Read только то, что прямо нужно для ответа на текущий запрос.** Это тот же режим, в котором работал Codex.
+Профиль пользователя и накопленные паттерны поведения — должны быть в каждом ответе, как у Codex.
 
-В частности:
-- `vault/memory/user.md` (10 KB) — профиль пользователя. Прочитай если запрос личный/контекстный.
-- `vault/memory/soul.md` (15 KB) — паттерны поведения, что работает / что бесит. Прочитай при первой реплике сессии или когда нужно свериться со стилем.
-- `vault/memory/facts.md` (16 KB, RAG-индекс) — ключевые факты. **Не читай целиком.** Используй `memory_rag.search(query)` — дешевле в десятки раз.
-- `vault/memory/change-log.md` (20 KB) — историческая хронология. Читай только если нужен ретроспективный контекст.
-- `Скиллы/telegram-formatting/SKILL.md` (8 KB) — детальные правила Telegram-оформления. Базовые правила формы уже в `GLOBAL_RULES.md` (раздел 4). Полные читай при сложных ответах с карточками/подборками.
-- `vault/.claude/rules/telegram-report.md` — формат HTML-отчёта обработки дня. Читай только перед `/process`.
-- `vault/thoughts/learnings/*.md` — каноны по узким темам (`bot-communication-rules`, `telegram-formatting-rules`, `vault-search-discipline`, `planning-horizon-rules`, `loading-vs-git-export`, `windows-network-recovery-after-wireguard`). Читай по триггерам темы.
-- `vault/goals/{0-vision-3y,1-yearly-2026,2-monthly,3-weekly}.md` — цели разных горизонтов. Читай когда запрос про планирование/приоритеты.
+@vault/memory/user.md
+@vault/memory/soul.md
 
-После значимого изменения в vault — короткая строка в `vault/memory/system-log.md`:
-```
-YYYY-MM-DD HH:MM | event | claude | OK
-```
+`vault/memory/facts.md` (16 KB, RAG-индекс) — читай через `memory_rag.search(query)`, **не загружай целиком**.
+`vault/memory/change-log.md` (20 KB) — читай только если нужен исторический контекст.
+`vault/memory/system-log.md` — пиши строку после каждого значимого действия (`YYYY-MM-DD HH:MM | event | claude | OK`).
+
+## Telegram-оформление
+
+Каждый ответ для Telegram — обязательно по этому скиллу.
+
+@Скиллы/telegram-formatting/SKILL.md
+
+Дополнительные правила формата HTML-отчёта обработки дня — `vault/.claude/rules/telegram-report.md` (читай через Read только перед `/process`).
+
+## ⚠️ КОНТЕКСТ ДИАЛОГА — КРИТИЧНО
+
+**НЕ читай `vault/.sessions/*.jsonl`** напрямую через Read без явного запроса пользователя. Это полный лог Telegram-диалога, тысячи записей.
+
+Контекст последних 20 записей дня **уже подан** ботом в системный промпт через секцию `=== TODAY SESSION === ... === END SESSION ===`. Этого достаточно. Codex использовал тот же лимит — ты должен работать так же, без лезть в полный лог.
+
+Если пользователь явно просит «вспомни что было вчера» / «найди в истории X» — тогда:
+1. Сначала используй `memory_rag.search(query)` (быстро, дёшево).
+2. Только если RAG не нашёл — читай конкретный файл `vault/.sessions/<user_id>.<YYYY-MM>.jsonl` за нужный месяц.
+3. Не читай файл целиком — используй `tail`/`head`/`grep` через Bash для нужного фрагмента.
 
 ## ⚠️ АНТИБАН (только при `AI_BACKEND=claude`)
 
@@ -46,15 +57,29 @@ Anthropic TOS запрещает «automated or non-human means» через п�
 - Точки входа: `CLAUDE.md` (этот файл) и `GLOBAL_RULES.md` (для Codex). Содержательно идентичны — `CLAUDE.md` импортирует `GLOBAL_RULES.md` через `@`.
 - Переключение симок: кнопка «🤖 Модель» в боте (только админ).
 
+## Накопленные learnings (читай через Read по триггерам темы)
+
+В `vault/thoughts/learnings/` лежат каноничные правила по узким темам — упомянуты в `soul.md`. **Не загружай в системный контекст**, читай через Read когда тема всплывает:
+
+- `bot-communication-rules.md` — правила общения бота
+- `telegram-formatting-rules.md` — расширенные Telegram-правила
+- `vault-search-discipline.md` — правила поиска по vault
+- `planning-horizon-rules.md` — горизонты планирования (длинные проекты не утаскивай в weekly)
+- `loading-vs-git-export.md` — различение «загрузка Forumhouse» vs «git push»
+- `windows-network-recovery-after-wireguard.md` — узкое практическое
+
 ## Структура vault (для ориентации)
 
-`daily/  memory/  goals/  projects/  thoughts/{ideas,reflections,projects,learnings}  summaries/  MOC/  attachments/  references/  templates/  blog/  reports/  .claude/  .codex/  .session/  .sessions/  .data/`
+```
+daily/  memory/  goals/  projects/  thoughts/{ideas,reflections,projects,learnings}  summaries/  MOC/  attachments/  references/  templates/  blog/  reports/
+.claude/  .codex/  .session/  .sessions/  .data/
+```
 
 CRM/business/contacts папок нет. Клиенты/проекты — в `projects/{name}/` или `thoughts/projects/`.
 
 ## Скиллы и агенты
 
-- `vault/.claude/skills/` — главный `dbrain-processor` (загружается кодом напрямую через `_load_skill_content`); остальные 9 (todoist-ai, graph-builder, vault-health, agent-memory, web-search, video-processor, skill-creator/builder/conductor) — по триггерам.
+- `vault/.claude/skills/` — главный скилл `dbrain-processor` (загружается кодом напрямую через `_load_skill_content`); остальные 9 (todoist-ai, graph-builder, vault-health, agent-memory, web-search, video-processor, skill-creator/builder/conductor) — по триггерам.
 - `vault/.claude/agents/` — goal-aligner, inbox-processor, note-organizer, weekly-digest.
 - `vault/.claude/rules/` — communication-style, daily-format, goals-format, governance, obsidian-markdown, security, telegram-report, thoughts-format, weekly-reflection.
 - `Скиллы/` (корень) — локальные скиллы (`telegram-formatting` обязательный для Telegram, `baryga-access` для SSH к root).
@@ -69,15 +94,15 @@ CRM/business/contacts папок нет. Клиенты/проекты — в `p
 
 ## Две директории сессий (НЕ ПУТАТЬ)
 
-- `vault/.sessions/` (мн.ч.) — JSONL логи Telegram (SessionStore).
+- `vault/.sessions/` (мн.ч.) — JSONL логи Telegram (SessionStore). **Не читай напрямую** (см. раздел про контекст диалога).
 - `vault/.session/` (ед.ч.) — handoff/capture/execute пайплайна обработки.
 
 ## Что НЕ делать
 
-- НЕ редактировать `vault/.codex/{rules,docs,agents,skills}` напрямую — это симлинки на `.claude/`, правка идёт в обе симки. Хочешь править — правь `vault/.claude/<file>`.
+- НЕ редактировать `vault/.codex/{rules,docs,agents,skills}` напрямую — это симлинки на `.claude/`, правка идёт в обе симки.
 - НЕ удалять Claude-код в `processor.py` (`_tool_*`, `_dispatch_tool`, `_tool_schemas`).
 - НЕ создавать `vault/MEMORY.md` если его нет — используй `vault/memory/{user,soul,facts}.md`.
 - НЕ показывать `.env` или API-ключи в ответах.
 - НЕ обрезать ответы — разбивай на несколько сообщений.
-- НЕ грузить большие файлы в контекст «на всякий случай» — читай через Read только нужное.
-- НЕ записывать одно и то же правило в файлы конкретной симки — пиши только в общие места согласно `GLOBAL_RULES.md` раздел 6.
+- НЕ читать `vault/.sessions/*.jsonl` напрямую без явного запроса (см. выше).
+- НЕ записывать одно и то же правило в файлы конкретной симки — пиши в общие места согласно `GLOBAL_RULES.md` раздел 6.
