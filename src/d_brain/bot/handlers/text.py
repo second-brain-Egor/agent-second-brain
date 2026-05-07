@@ -15,6 +15,7 @@ from d_brain.bot.chat_context import (
     is_work_chat,
 )
 from d_brain.bot.states import SilentState
+from d_brain.bot.typing_indicator import keep_typing
 from d_brain.bot.formatters import (
     normalize_telegram_output,
     prepare_telegram_response,
@@ -92,20 +93,19 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
         logger.info("Saved group text without reply in chat %s", message.chat.id)
         return
 
-    # Dialog mode: respond via Claude
-    await message.chat.do(action="typing")
-
+    # Dialog mode: respond via active LLM backend
     processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
     user_id = message.from_user.id
 
     try:
-        result = await asyncio.to_thread(
-            processor.execute_raw_prompt,
-            message.text,
-            user_id,
-            session_scope=scope,
-            work_context=work_context,
-        )
+        async with keep_typing(message.chat):
+            result = await asyncio.to_thread(
+                processor.execute_raw_prompt,
+                message.text,
+                user_id,
+                session_scope=scope,
+                work_context=work_context,
+            )
 
         if "error" in result:
             await message.answer(f"⚠️ {result['error']}", parse_mode=None)
@@ -153,14 +153,14 @@ async def _run_agent(
 ) -> None:
     """Run heavy agent in background and send result."""
     try:
-        await message.chat.do(action="typing")
-        result = await asyncio.to_thread(
-            processor.execute_agent,
-            prompt,
-            user_id,
-            session_scope=session_scope,
-            work_context=work_context,
-        )
+        async with keep_typing(message.chat):
+            result = await asyncio.to_thread(
+                processor.execute_agent,
+                prompt,
+                user_id,
+                session_scope=session_scope,
+                work_context=work_context,
+            )
 
         if "error" in result:
             await message.answer(f"⚠️ Агент: {result['error']}", parse_mode=None)

@@ -10,6 +10,8 @@ __pycache__/
 .venv/
 venv/
 .Python
+.pytest_cache/
+.ruff_cache/
 
 # Node
 node_modules/
@@ -35,6 +37,17 @@ Thumbs.db
 vault/contacts/
 vault/finances/
 vault/.session/
+vault/.sessions/
 vault/.graph/
 vault/.data/
 vault/.claude/CLAUDE.local.md
+
+# Runtime logs (могут содержать токены и фрагменты диалогов)
+logs/
+.session/
+.sessions/
+.data/
+
+# Setup artifacts
+.github_user
+*.bak

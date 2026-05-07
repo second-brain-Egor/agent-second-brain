@@ -2,6 +2,16 @@
 set -euo pipefail
 
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
+# Anti-ban guard: skip LLM-triggering automation when Claude sim is active.
+# Anthropic TOS forbids automated calls via subscription. If AI_BACKEND=claude — exit silently.
+if [ -f "$PROJECT_DIR/.env" ]; then
+    AI_BACKEND_VAL="$(grep -E '^AI_BACKEND=' "$PROJECT_DIR/.env" | tail -n1 | cut -d= -f2 | tr -d '"' | tr -d "'" | tr -d '[:space:]')"
+    if [ "${AI_BACKEND_VAL:-codex}" = "claude" ]; then
+        exit 0
+    fi
+fi
+
 STATE_DIR="$PROJECT_DIR/logs"
 STATE_FILE="$STATE_DIR/process-randomized.state"
 LOCK_FILE="/tmp/d-brain-process-randomized.lock"

@@ -15,6 +15,7 @@ from d_brain.bot.chat_context import (
     get_session_scope,
     is_work_chat,
 )
+from d_brain.bot.typing_indicator import keep_typing
 from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
 from d_brain.services.session import SessionStore
@@ -103,8 +104,8 @@ async def handle_photo(message: Message, bot: Bot) -> None:
 
         absolute_image_path = str((Path(settings.vault_path) / relative_path).resolve())
 
-        await message.chat.do(action="typing")
-        description = await _analyze_image(absolute_image_path, message.caption)
+        async with keep_typing(message.chat):
+            description = await _analyze_image(absolute_image_path, message.caption)
 
         content = f"![[{relative_path}]]"
         if message.caption:

@@ -20,11 +20,27 @@ class Settings(BaseSettings):
     telegram_api_hash: str = Field(default="", description="Telegram API Hash from my.telegram.org")
     deepgram_api_key: str = Field(description="Deepgram API key for transcription")
     todoist_api_key: str = Field(default="", description="Todoist API key for tasks")
+    ai_backend: str = Field(
+        default="codex",
+        description="Active AI backend: 'codex' or 'claude'. Determines which sim is used (vault/.codex/ vs vault/.claude/). Currently only 'codex' is implemented; 'claude' is reserved for future re-activation of the dormant Claude sim.",
+    )
     codex_bin: str = Field(default="codex", description="Path to the Codex CLI binary")
     codex_model: str = Field(default="gpt-5.5", description="Codex model name")
     codex_sandbox_mode: str = Field(
         default="bypass",
         description="Codex exec sandbox mode: read-only, workspace-write, danger-full-access, or bypass",
+    )
+    claude_bin: str = Field(
+        default="claude",
+        description="Path to the Claude Code CLI binary (used when AI_BACKEND=claude)",
+    )
+    claude_model: str = Field(
+        default="sonnet",
+        description="Claude model alias (sonnet | opus | haiku) or full ID (claude-sonnet-4-6, claude-opus-4-7, claude-haiku-4-5)",
+    )
+    claude_effort: str = Field(
+        default="medium",
+        description="Claude effort level: low | medium | high | xhigh | max",
     )
     vault_path: Path = Field(
         default=Path("./vault"),

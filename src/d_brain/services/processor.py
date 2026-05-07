@@ -60,9 +60,20 @@ class AgentProcessor:
         from d_brain.config import get_settings
 
         settings = get_settings()
+        self.ai_backend = (settings.ai_backend or "codex").strip().lower()
+        if self.ai_backend not in {"codex", "claude"}:
+            self.ai_backend = "codex"
+
         self.codex_bin = settings.codex_bin.strip() or "codex"
         self.codex_model = settings.codex_model.strip() or "gpt-5.5"
         self.codex_sandbox_mode = settings.codex_sandbox_mode.strip().lower() or "bypass"
+
+        self.claude_bin = settings.claude_bin.strip() or "claude"
+        self.claude_model = settings.claude_model.strip() or "sonnet"
+        claude_effort = settings.claude_effort.strip().lower() or "medium"
+        if claude_effort not in {"low", "medium", "high", "xhigh", "max"}:
+            claude_effort = "medium"
+        self.claude_effort = claude_effort
 
         effort = os.environ.get("CODEX_REASONING_EFFORT", "medium").strip().lower()
         if effort not in SUPPORTED_REASONING_EFFORTS:
@@ -365,6 +376,96 @@ week: {year}-W{week:02d}
 
             return final_text
 
+    def _get_claude_bin(self) -> str:
+        """Resolve the Claude Code CLI binary."""
+        resolved = shutil.which(self.claude_bin)
+        if not resolved:
+            # Fallback: попробовать стандартное место установки под пользователем
+            home_local = Path(os.path.expanduser("~/.local/bin/claude"))
+            if home_local.exists():
+                return str(home_local)
+            raise RuntimeError(f"Claude CLI not found: {self.claude_bin}")
+        return resolved
+
+    def _run_claude_exec(
+        self,
+        prompt: str,
+        *,
+        read_only: bool,
+        images: list[str] | None = None,
+        timeout_sec: int = 600,
+    ) -> str:
+        """Run Claude Code CLI in --print mode and return its final message.
+
+        Used when AI_BACKEND=claude. Uses the local Claude Code subscription
+        (no API key); auth is managed by the `claude` binary itself.
+        """
+        claude_bin = self._get_claude_bin()
+        permission_mode = "default" if read_only else "bypassPermissions"
+        cmd = [
+            claude_bin,
+            "-p",
+            "--model", self.claude_model,
+            "--effort", self.claude_effort,
+            "--permission-mode", permission_mode,
+            "--add-dir", str(self.vault_path),
+            "--output-format", "text",
+            "--no-session-persistence",
+        ]
+
+        # Images: Claude CLI принимает их как @-references прямо в промпте.
+        if images:
+            image_refs = "\n".join(f"@{img}" for img in images)
+            prompt = f"{image_refs}\n\n{prompt}"
+
+        env = os.environ.copy()
+        # Подписка Claude Max — не пускаем ANTHROPIC_API_KEY если случайно есть.
+        env.pop("ANTHROPIC_API_KEY", None)
+
+        result = subprocess.run(
+            cmd,
+            input=prompt,
+            text=True,
+            capture_output=True,
+            cwd=self.project_path,
+            env=env,
+            timeout=timeout_sec,
+            check=False,
+        )
+
+        if result.returncode != 0:
+            details = (result.stderr or result.stdout or "claude exec failed").strip()
+            raise RuntimeError(details.splitlines()[-1] if details else "claude exec failed")
+
+        final_text = (result.stdout or "").strip()
+        if not final_text:
+            raise RuntimeError("claude exec returned an empty response")
+
+        return final_text
+
+    def _run_backend_exec(
+        self,
+        prompt: str,
+        *,
+        read_only: bool,
+        images: list[str] | None = None,
+        timeout_sec: int = 600,
+    ) -> str:
+        """Dispatch to active AI backend (codex or claude) based on AI_BACKEND."""
+        if self.ai_backend == "claude":
+            return self._run_claude_exec(
+                prompt,
+                read_only=read_only,
+                images=images,
+                timeout_sec=timeout_sec,
+            )
+        return self._run_codex_exec(
+            prompt,
+            read_only=read_only,
+            images=images,
+            timeout_sec=timeout_sec,
+        )
+
     def _run_openai_text(
         self,
         system_prompt: str,
@@ -374,10 +475,10 @@ week: {year}-W{week:02d}
         verbosity: str | None = None,
         max_output_tokens: int = 2000,
     ) -> str:
-        """Run a plain Codex CLI request."""
+        """Run a plain text request via active backend (codex or claude)."""
         del reasoning, verbosity, max_output_tokens
         prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=True)
-        return self._run_codex_exec(
+        return self._run_backend_exec(
             prompt,
             read_only=True,
             timeout_sec=300,
@@ -393,10 +494,10 @@ week: {year}-W{week:02d}
         verbosity: str | None = None,
         max_output_tokens: int = 2500,
     ) -> str:
-        """Run Codex CLI against the local project."""
+        """Run an agent-style request via active backend (codex or claude)."""
         del reasoning, verbosity, max_output_tokens
         prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=read_only)
-        return self._run_codex_exec(
+        return self._run_backend_exec(
             prompt,
             read_only=read_only,
             timeout_sec=900 if not read_only else 600,
@@ -420,7 +521,7 @@ week: {year}-W{week:02d}
             prompt += f"\n\nUser caption:\n{caption}"
 
         try:
-            return self._run_codex_exec(
+            return self._run_backend_exec(
                 prompt,
                 read_only=True,
                 images=[str(image_file)],

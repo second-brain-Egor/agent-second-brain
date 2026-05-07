@@ -18,5 +18,10 @@ if [ -f "$ENV_FILE" ]; then
     set +a
 fi
 
+# Anti-ban guard: skip LLM automation when Claude sim is active (Anthropic TOS).
+if [ "${AI_BACKEND:-codex}" = "claude" ]; then
+    exit 0
+fi
+
 cd "$PROJECT_DIR"
 exec flock -n "$LOCK_FILE" uv run python scripts/weekly.py >>"$LOG_FILE" 2>&1
