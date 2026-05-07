@@ -51,3 +51,25 @@ logs/
 # Setup artifacts
 .github_user
 *.bak
+
+# Большие медиа-файлы (GitHub лимит 100 МБ; видео для разбора, не для репо)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.wmv
+*.flv
+*.m4v
+# Длинные аудио (короткие голосовые от Telegram остаются — они .ogg/.oga)
+*.flac
+*.wav
+# Большие архивы и образы
+*.psd
+*.iso
+*.dmg
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+*.rar
