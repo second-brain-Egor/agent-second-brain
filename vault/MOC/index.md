@@ -11,9 +11,9 @@ tier: active
 ## Срез
 
 - Заметок: 425
-- Связей: 948
+- Связей: 949
 - Сирот: 0
-- Слабосвязанных: 239
+- Слабосвязанных: 238
 
 ## Память
 
@@ -96,7 +96,7 @@ tier: active
 - [[projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
 - [[projects/japanese-architecture/README.md|Японская архитектура]]
 - [[projects/onyx/github-onyx/AGENTS.md|PROJECT KNOWLEDGE BASE]]
-- [[projects/onyx/github-onyx/CLAUDE.md|PROJECT KNOWLEDGE BASE]]
+- [[projects/onyx/github-onyx/CLAUDE.md|CLAUDE]]
 - [[projects/onyx/github-onyx/CONTRIBUTING.md|Contributing to Onyx]]
 - [[projects/onyx/github-onyx/README.md|Onyx - The Open Source AI Platform]]
 - [[projects/onyx/github-onyx/README.zh-CN.md|Onyx — 开源 AI 平台]]
@@ -141,8 +141,8 @@ tier: active
 - [[projects/onyx/github-onyx/deployment/docker_compose/README.md|Welcome to Onyx]]
 - [[projects/onyx/github-onyx/deployment/helm/README.md|Dependency updates (when subchart versions are bumped)]]
 - [[projects/onyx/github-onyx/deployment/terraform/modules/aws/README.md|Onyx AWS modules]]
-- [[projects/onyx/github-onyx/desktop/AGENTS.md|Frontend Standards]]
-- [[projects/onyx/github-onyx/desktop/CLAUDE.md|Frontend Standards]]
+- [[projects/onyx/github-onyx/desktop/AGENTS.md|AGENTS]]
+- [[projects/onyx/github-onyx/desktop/CLAUDE.md|CLAUDE]]
 - [[projects/onyx/github-onyx/desktop/README.md|Onyx Desktop]]
 - [[projects/onyx/github-onyx/docs/METRICS.md|Onyx Prometheus Metrics Reference]]
 - [[projects/onyx/github-onyx/examples/widget/README.md|Onyx Chat Bot Widget]]
@@ -150,7 +150,7 @@ tier: active
 - [[projects/onyx/github-onyx/profiling/README.md|Onyx Local Monitoring Stack]]
 - [[projects/onyx/github-onyx/tools/ods/README.md|Onyx Developer Script]]
 - [[projects/onyx/github-onyx/web/AGENTS.md|Frontend Standards]]
-- [[projects/onyx/github-onyx/web/CLAUDE.md|Frontend Standards]]
+- [[projects/onyx/github-onyx/web/CLAUDE.md|CLAUDE]]
 - [[projects/onyx/github-onyx/web/README.md|Point local dev server to cloud backend]]
 - [[projects/onyx/github-onyx/web/lib/opal/README.md|Opal]]
 - [[projects/onyx/github-onyx/web/lib/opal/scripts/README.md|SVG-to-TSX Conversion Scripts]]
