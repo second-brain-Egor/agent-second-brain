@@ -75,14 +75,16 @@ class VaultGit:
         return True
 
     def commit_and_push(self, message: str) -> bool:
-        """Commit all changes and push.
+        """Commit all changes (if any) and push.
+
+        Always attempts push so that any previously committed but unpushed
+        local commits are flushed to the remote — not only the just-made one.
 
         Args:
             message: Commit message
 
         Returns:
-            True if successful
+            True if push succeeded (or there was nothing to send)
         """
-        if self.commit_changes(message):
-            return self.push()
-        return True  # No changes is not an error
+        self.commit_changes(message)  # no-op if nothing to commit
+        return self.push()
