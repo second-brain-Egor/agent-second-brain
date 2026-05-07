@@ -10,8 +10,8 @@ tier: active
 
 ## Срез
 
-- Заметок: 425
-- Связей: 949
+- Заметок: 427
+- Связей: 953
 - Сирот: 0
 - Слабосвязанных: 238
 
@@ -225,6 +225,7 @@ tier: active
 - [[projects/Ежедневник/README.md|Ежедневник]]
 - [[projects/Ежедневник/daily-template.md|Шаблон дня]]
 - [[projects/Ежедневник/youtube-habits/README.md|Разбор YouTube-видео про привычки]]
+- [[projects/Ежедневник/youtube-habits/analysis.md|Разбор серии видео про привычки и успех]]
 - [[projects/Ежедневник/youtube-habits/download-journal.md|Журнал скачанных видео]]
 - [[projects/Ежедневник/youtube-habits/summary.md|Сводка по видео]]
 - [[projects/Ежедневник/youtube-habits/videos/001-1-мышление-успешных-людей-брайан-трейси/comments.md|Комментарии]]
@@ -417,6 +418,7 @@ tier: active
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
 - [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
+- [[thoughts/learnings/shift-based-daily-planner.md|Сменный ежедневник — формат под график сутки через трое]]
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]
 - [[thoughts/learnings/vault-search-discipline.md|Дисциплина поиска по vault]]
 - [[thoughts/learnings/windows-network-recovery-after-wireguard.md|Восстановление сети Windows после WireGuard]]

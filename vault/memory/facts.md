@@ -153,3 +153,14 @@ tier: active
 - **Транскрипция голоса в Telegram** идёт через **Deepgram nova-3** (русский язык, реализация в `src/d_brain/services/transcription.py`). API-ключ в `.env` как `DEEPGRAM_API_KEY`. **Whisper НЕ используется**, не упоминать его в ответах.
 - **Интеграция с Todoist** — через Python SDK `todoist-api-python` (НЕ через `mcp-cli`). API-ключ в `.env` как `TODOIST_API_KEY`. Методы в `src/d_brain/services/processor.py`: `_tool_todoist_get_projects`, `_tool_todoist_search_tasks`, `_tool_todoist_get_completed_tasks`, `_tool_todoist_add_task`, `_tool_todoist_update_task`, `_tool_todoist_complete_task`. Из скилла или из любого места можно вызвать SDK через `.venv/bin/python -c "from todoist_api_python.api import TodoistAPI; ..."`. См. `vault/.claude/skills/todoist-ai/SKILL.md`.
 - **LLM-движки бота:** активная симка определяется `AI_BACKEND` в `.env`. Возможные значения: `claude` (через `claude --print`, подписка Claude Max) и `codex` (через `codex exec`, подписка Codex Pro). Без API-ключей Anthropic/OpenAI — авторизация локальная.
+
+## 2026-05-07 — Сменный ритм и формат ежедневника
+- График сутки через трое: 5 мая — смена, 6 — после смены, 7 — рабочий выходной, 8 — свободный/буфер, 9 — следующая смена
+- Согласован формат сменного ежедневника: состояние → главный фокус (один) → дела (обязательное/полезное/можно отложить) → заметки → вечерний итог; типы дней разные по нагрузке
+- Подход опирается на таймбоксинг (HBR, Zao-Sanders) и implementation intentions (Gollwitzer): «когда-где-что» вместо абстрактных целей
+- Без статуса «просрочено», если нет реальной внешней даты
+- Каноничный текст: [[thoughts/learnings/shift-based-daily-planner]]
+
+## 2026-05-07 — Поведение бота при таймауте Claude
+- Команда `claude -p` с таймаутом 300 секунд может зависнуть и быть убита системой; бот в этот момент молчит, и Егор воспринимает это как «бот пропал»
+- При длительной обработке нужен живой сигнал прогресса в чат, а не тишина — иначе пользователь шлёт повторные сообщения и злится

@@ -10,8 +10,8 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 425
-- Связей: 949
+- Заметок: 427
+- Связей: 953
 - Сирот: 0
 - Слабосвязанных: 238
 
@@ -19,22 +19,22 @@ tier: warm
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 6 | 69.67 |
+| MOC | 6 | 70.00 |
 | blog | 2 | 1.00 |
-| daily | 36 | 2.42 |
+| daily | 36 | 2.44 |
 | goals | 5 | 7.80 |
-| memory | 5 | 11.40 |
-| projects | 352 | 3.40 |
+| memory | 5 | 11.60 |
+| projects | 353 | 3.39 |
 | references | 3 | 1.00 |
 | reports | 1 | 52.00 |
 | root | 1 | 3.00 |
 | summaries | 4 | 2.00 |
 | templates | 2 | 1.00 |
-| thoughts | 8 | 3.62 |
+| thoughts | 9 | 3.67 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 393 связей
+- [[MOC/index.md|Индекс знаний]] — 395 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 105 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 84 связей
 - [[reports/vault-health.md|Health Check Vault]] — 52 связей
@@ -81,6 +81,7 @@ tier: warm
 - [[daily/2026-04-26.md|2026-04-26]]: attachments/2026-04-26/img-201007.jpg, attachments/2026-04-26/img-203355.jpg, attachments/2026-04-26/img-204337.jpg, attachments/2026-04-26/img-204926.jpg
 - [[daily/2026-04-29.md|2026-04-29]]: attachments/2026-04-29/img-194339.jpg, attachments/2026-04-29/img-195007.jpg, attachments/2026-04-29/img-195227.jpg, attachments/2026-04-29/img-195246.jpg
 - [[daily/2026-05-04.md|2026-05-04]]: .session/handoff
+- [[daily/2026-05-07.md|2026-05-07]]: attachments/2026-05-07/09-questionnaire-4-telegram-bot, attachments/2026-05-07/09-questionnaire-4-telegram-bot-2, attachments/2026-05-07/09-questionnaire-4-telegram-bot-3, attachments/2026-05-07/09-questionnaire-4-telegram-bot-4, attachments/2026-05-07/09-questionnaire-4-telegram-bot-5 ...
 - [[projects/Ежедневник/README.md|Ежедневник]]: daily-template, youtube-habits/README
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]: cards/README
 - [[projects/Рынок стройматериалы/cards/001-шамотный-кирпич-шб-8-боровичи.md|1. Шамотный кирпич ШБ-8 Боровичи]]: ../README
@@ -90,4 +91,3 @@ tier: warm
 - [[projects/Рынок стройматериалы/cards/005-пгп-knauf-1.md|5. ПГП Knauf]]: ../README
 - [[projects/Рынок стройматериалы/cards/006-пгп-knauf-2.md|6. ПГП Knauf]]: ../README
 - [[projects/Рынок стройматериалы/cards/007-пгп-russian-1.md|7. ПГП Russian]]: ../README
-- [[projects/Рынок стройматериалы/cards/008-пгп-russian-2.md|8. ПГП Russian]]: ../README
