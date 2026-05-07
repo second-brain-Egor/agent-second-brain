@@ -148,3 +148,8 @@ tier: active
 
 ## 2026-05-07 — Единый Telegram-стиль для обеих симок
 - Правило Telegram-оформления (Cloudlike terminal RHATHM) распространено и на Claude — обе симки отвечают одинаково
+
+## 2026-05-07 — Технический стек (зафиксировано чтобы бот не выдумывал)
+- **Транскрипция голоса в Telegram** идёт через **Deepgram nova-3** (русский язык, реализация в `src/d_brain/services/transcription.py`). API-ключ в `.env` как `DEEPGRAM_API_KEY`. **Whisper НЕ используется**, не упоминать его в ответах.
+- **Интеграция с Todoist** — через Python SDK `todoist-api-python` (НЕ через `mcp-cli`). API-ключ в `.env` как `TODOIST_API_KEY`. Методы в `src/d_brain/services/processor.py`: `_tool_todoist_get_projects`, `_tool_todoist_search_tasks`, `_tool_todoist_get_completed_tasks`, `_tool_todoist_add_task`, `_tool_todoist_update_task`, `_tool_todoist_complete_task`. Из скилла или из любого места можно вызвать SDK через `.venv/bin/python -c "from todoist_api_python.api import TodoistAPI; ..."`. См. `vault/.claude/skills/todoist-ai/SKILL.md`.
+- **LLM-движки бота:** активная симка определяется `AI_BACKEND` в `.env`. Возможные значения: `claude` (через `claude --print`, подписка Claude Max) и `codex` (через `codex exec`, подписка Codex Pro). Без API-ключей Anthropic/OpenAI — авторизация локальная.
