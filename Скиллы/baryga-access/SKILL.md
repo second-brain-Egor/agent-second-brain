@@ -17,13 +17,13 @@ triggers:
 Используй проверенный вход:
 
 ```bash
-sudo -u clawd ssh barriga
+ssh barriga
 ```
 
 Если alias не работает, используй явный вход:
 
 ```bash
-sudo -u clawd ssh -i /home/clawd/.ssh/id_ed25519 root@185.23.35.88
+ssh -i /home/egor/.ssh/id_ed25519 root@185.23.35.88
 ```
 
 После входа переходи сюда:

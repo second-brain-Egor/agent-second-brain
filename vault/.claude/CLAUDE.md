@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-03-31
-relevance: 0.7
-tier: warm
+relevance: 0.94
+tier: active
 ---
 # Второй Мозг — Егор
 

@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-04-08
-relevance: 0.62
-tier: cold
+relevance: 0.94
+tier: active
 ---
 # Правила горизонта планирования
 

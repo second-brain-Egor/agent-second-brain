@@ -59,7 +59,18 @@
       "Bash(systemctl cat d-brain-process.timer 2>&1)",
       "Bash(claude --version)",
       "Bash(claude settings list 2>/dev/null || claude config list 2>/dev/null || echo \"no settings command\")",
-      "Bash(claude auth status 2>&1)"
+      "Bash(claude auth status 2>&1)",
+      "Bash(sudo -u clawd ssh barriga)",
+      "Bash(sudo -u clawd ssh barriga *)",
+      "Bash(sudo -u clawd ssh -i /home/clawd/.ssh/id_ed25519 root@185.23.35.88)",
+      "Bash(sudo -u clawd ssh -i /home/clawd/.ssh/id_ed25519 root@185.23.35.88 *)",
+      "Bash(ssh barriga)",
+      "Bash(ssh barriga *)",
+      "Bash(ssh -o BatchMode=yes *)",
+      "Bash(ssh -i /home/egor/.ssh/id_ed25519 root@185.23.35.88)",
+      "Bash(ssh -i /home/egor/.ssh/id_ed25519 root@185.23.35.88 *)",
+      "Bash(bash scripts/forumhouse-check.sh)",
+      "Bash(/bin/bash /home/egor/agent-second-brain/scripts/forumhouse-check.sh)"
     ]
   }
 }

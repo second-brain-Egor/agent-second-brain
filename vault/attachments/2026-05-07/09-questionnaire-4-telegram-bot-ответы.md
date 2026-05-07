@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-05-07
+relevance: 0.98
+tier: active
+---
 # Ответы на опросник 4 — Telegram-бот
 
 ## Блок А — Понимание истории и контекста

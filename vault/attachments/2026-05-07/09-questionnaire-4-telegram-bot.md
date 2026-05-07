@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-05-07
+relevance: 0.98
+tier: active
+---
 # Опросник 4 — для Telegram-бота (боевые вопросы)
 
 ## Когда задавать

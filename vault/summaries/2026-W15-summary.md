@@ -1,8 +1,8 @@
 ---
 type: weekly-summary
 last_accessed: 2026-04-12
-relevance: 0.67
-tier: cold
+relevance: 0.94
+tier: active
 date: 2026-04-12
 week: 2026-W15
 ---

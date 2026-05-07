@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-05-04
-relevance: 1.0
+relevance: 0.95
 tier: active
 ---
 Здравствуйте дорогие друзья тема

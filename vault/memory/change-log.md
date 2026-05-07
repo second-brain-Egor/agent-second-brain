@@ -1,7 +1,7 @@
 ---
 type: note
 last_accessed: 2026-04-16
-relevance: 0.94
+relevance: 0.98
 tier: active
 ---
 # Журнал изменений

@@ -1,7 +1,7 @@
 ---
 type: weekly-summary
 last_accessed: 2026-05-03
-relevance: 0.98
+relevance: 0.94
 tier: active
 date: 2026-05-03
 week: 2026-W18

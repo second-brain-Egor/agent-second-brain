@@ -3,7 +3,7 @@ type: project-note
 source: daily/2026-04-15
 created: 2026-04-15
 last_accessed: 2026-04-15
-relevance: 0.94
+relevance: 0.95
 tier: active
 project: Внедрение ИИ платформы
 ---

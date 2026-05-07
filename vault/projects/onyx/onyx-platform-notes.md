@@ -1,7 +1,10 @@
 ---
 type: note
-created: 2026-05-04
 source: https://github.com/onyx-dot-app/onyx
+created: 2026-05-04
+last_accessed: 2026-05-05
+relevance: 0.95
+tier: active
 ---
 
 # Onyx — заметки по платформе

@@ -1,7 +1,7 @@
 ---
 type: note
 last_accessed: 2026-03-27
-relevance: 0.94
+relevance: 0.97
 tier: active
 ---
 # Projects

@@ -14,7 +14,6 @@ timestamp_local() {
 }
 
 ssh_cmd=(
-    sudo -u clawd
     ssh
     -o BatchMode=yes
     -o ConnectTimeout=20

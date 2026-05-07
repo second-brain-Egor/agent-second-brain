@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-05-01
-relevance: 0.95
+relevance: 0.94
 tier: active
 ---
 # Как построить дачный дом своими руками. 62м² за 18 дней. DIY Forest House In 18 Days

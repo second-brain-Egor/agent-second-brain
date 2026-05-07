@@ -4,7 +4,7 @@ status: draft-collected
 created: 2026-05-03
 updated: 2026-05-04
 last_accessed: 2026-05-04
-relevance: 0.98
+relevance: 0.95
 tier: active
 project: Ежедневник
 ---

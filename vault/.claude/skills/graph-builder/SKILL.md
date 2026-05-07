@@ -2,8 +2,8 @@
 type: note
 description: Analyze and build knowledge graph links in Obsidian vault. Runs a deterministic script for analysis, then the agent adds semantic links to orphan files. Three domains: Personal, Business, Projects.
 last_accessed: 2026-03-27
-relevance: 0.62
-tier: cold
+relevance: 0.94
+tier: active
 name: graph-builder
 allowed-tools: Bash(uv run:*), Bash(rg:*), Read, Edit
 depends_on: []

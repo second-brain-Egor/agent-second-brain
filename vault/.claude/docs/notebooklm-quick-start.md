@@ -2,8 +2,8 @@
 type: note
 title: NotebookLM MCP CLI - Quick Start
 last_accessed: 2026-03-27
-relevance: 0.62
-tier: cold
+relevance: 0.94
+tier: active
 ---
 # NotebookLM MCP CLI - Quick Start
 

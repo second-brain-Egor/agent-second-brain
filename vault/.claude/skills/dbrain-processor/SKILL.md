@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-05-07
+relevance: 0.98
+tier: active
+---
 # d-brain Processor (Codex)
 
 Главный скилл обработки записей дня. Запускается по команде `/process` или из cron-задачи `process-randomized.sh`.

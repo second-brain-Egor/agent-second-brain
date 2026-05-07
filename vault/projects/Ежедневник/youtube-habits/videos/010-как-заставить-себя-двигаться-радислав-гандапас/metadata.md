@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-05-05
+relevance: 0.95
+tier: active
+---
 # Как заставить себя двигаться. Радислав Гандапас.
 
 Ссылка: https://www.youtube.com/watch?v=xeO0bYvOc1k

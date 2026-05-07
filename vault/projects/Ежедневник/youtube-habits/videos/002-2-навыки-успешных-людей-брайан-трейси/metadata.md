@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-05-05
+relevance: 0.95
+tier: active
+---
 # 2. Навыки успешных людей. Брайан Трейси
 
 Ссылка: https://www.youtube.com/watch?v=v7Rh6fAkB0U

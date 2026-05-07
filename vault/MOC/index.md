@@ -1,7 +1,8 @@
 ---
 type: note
-updated: 2026-05-07
-relevance: 0.9
+updated: 2026-05-08
+last_accessed: 2026-05-08
+relevance: 1.0
 tier: active
 ---
 # Индекс знаний
@@ -10,8 +11,8 @@ tier: active
 
 ## Срез
 
-- Заметок: 427
-- Связей: 953
+- Заметок: 429
+- Связей: 960
 - Сирот: 0
 - Слабосвязанных: 238
 
@@ -398,13 +399,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-05-08.md|2026-05-08]]
 - [[daily/2026-05-07.md|2026-05-07]]
 - [[daily/2026-05-06.md|2026-05-06]]
 - [[daily/2026-05-05.md|2026-05-05]]
 - [[daily/2026-05-04.md|2026-05-04]]
 - [[daily/2026-05-03.md|2026-05-03]]
 - [[daily/2026-05-02.md|2026-05-02]]
-- [[daily/2026-05-01.md|2026-05-01]]
 
 ## Недельные сводки
 
@@ -416,6 +417,7 @@ tier: active
 ## Обучения и правила
 
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
+- [[thoughts/learnings/forumhouse-agent-access-parity.md|Единый доступ агентов к Forumhouse]]
 - [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
 - [[thoughts/learnings/shift-based-daily-planner.md|Сменный ежедневник — формат под график сутки через трое]]

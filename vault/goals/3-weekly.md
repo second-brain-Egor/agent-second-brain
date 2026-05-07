@@ -2,8 +2,8 @@
 type: weekly
 updated: 2026-03-29
 last_accessed: 2026-03-29
-relevance: 0.62
-tier: cold
+relevance: 0.94
+tier: active
 week: 2026-W14
 ---
 
