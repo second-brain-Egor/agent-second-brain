@@ -1,31 +1,20 @@
----
-type: note
-description: Personal assistant for processing daily voice/text entries from Telegram. Classifies content, creates Todoist tasks aligned with goals, saves thoughts to Obsidian with wiki-links, generates HTML reports. Integrates Your Business context (clients, projects, CRM). Triggers on /process command or daily 21:00 cron.
-last_accessed: 2026-03-27
-relevance: 0.62
-tier: cold
-name: dbrain-processor
-allowed-tools: Bash(mcp-cli:*)
-depends_on: [graph-builder, todoist-ai, agent-memory, vault-health]
----
+# d-brain Processor (Codex)
 
-# d-brain Processor
+Главный скилл обработки записей дня. Запускается по команде `/process` или из cron-задачи `process-randomized.sh`.
 
-Process daily entries → tasks (Todoist) + thoughts (Obsidian) + HTML report (Telegram).
-
-Integrates with Your Business data for business context.
+Pipeline: voice/text/forward/photo entries → классификация → задачи в Todoist + мысли в Obsidian с wiki-links → HTML-отчёт в Telegram.
 
 ## CRITICAL: Output Format
 
 **ALWAYS return RAW HTML. No exceptions. No markdown. Ever.**
 
-Your final output goes directly to Telegram with `parse_mode=HTML`.
+Финальный вывод идёт прямо в Telegram с `parse_mode=HTML`.
 
-Rules:
-1. ALWAYS return HTML report — even if entries already processed
-2. ALWAYS use the template below — no free-form text
-3. NEVER use markdown syntax (**, ##, ```, -)
-4. NEVER explain what you did in plain text — put it in HTML report
+Правила:
+1. ВСЕГДА возвращай HTML-отчёт — даже если все записи уже обработаны.
+2. ВСЕГДА используй шаблон отчёта (см. ниже) — никакого свободного текста.
+3. НИКОГДА не используй markdown-синтаксис: `**`, `##`, ` ``` `, `-`.
+4. НИКОГДА не объясняй что сделано простым текстом — это идёт в HTML-отчёт.
 
 WRONG:
 ```html
@@ -39,10 +28,10 @@ CORRECT:
 
 **ВСЕГДА используй mcp-cli для Todoist.** Не используй прямые MCP tools.
 
-### Базовые команды:
+Базовые команды (детали — в `references/todoist.md`):
 
 ```bash
-# Задачи на сегодня (проверка workload)
+# Задачи на сегодня (workload check)
 mcp-cli call todoist find-tasks-by-date '{"startDate": "today"}'
 
 # Создать задачу
@@ -53,69 +42,72 @@ mcp-cli call todoist find-tasks '{"labels": ["process-goal"]}'
 
 # Завершить задачи
 mcp-cli call todoist complete-tasks '{"ids": ["task_id"]}'
-
-# Обзор
-mcp-cli call todoist get-overview '{}'
 ```
 
-### Приоритеты:
-- 1 = p1 (highest)
-- 2 = p2 (high)
-- 3 = p3 (medium)
-- 4 = p4 (default)
+Приоритеты: 1=p1 (highest), 2=p2 (high), 3=p3 (medium), 4=p4 (default).
 
-## CRITICAL: mcp-cli Usage
+### Алгоритм работы с mcp-cli
 
 **СНАЧАЛА ВЫЗОВИ КОМАНДУ. ПОТОМ ДУМАЙ.**
 
-### Обязательный алгоритм:
-
 ```
-1. ВЫЗОВИ: mcp-cli call todoist find-tasks-by-date '{"startDate": "today"}'
+1. ВЫЗОВИ команду
    ↓
    Получил результат? → Продолжай
-   ↓
-   Ошибка? → Читай файлы 30 секунд, потом ВЫЗОВИ СНОВА
-   ↓
-   3 ошибки подряд? → Покажи ТОЧНЫЙ текст ошибки
+   Ошибка? → Подожди, ВЫЗОВИ СНОВА
+   3 ошибки подряд? → Покажи точный текст ошибки
 ```
 
-### ЗАПРЕЩЕНО:
-
-- ❌ "Todoist недоступен"
-- ❌ "mcp-cli не работает"
+**Запрещено:**
+- ❌ "Todoist недоступен" без вызова команды
+- ❌ "mcp-cli не работает" без вызова
 - ❌ "добавь вручную"
-- ❌ Решать что не работает БЕЗ вызова команды
+- ❌ Решения о неработоспособности БЕЗ вызова
 
-### ОБЯЗАТЕЛЬНО:
+**Обязательно:**
+- ✅ Bash-вызов команды
+- ✅ 3 retry перед выводами
+- ✅ Показать task ID если задача создана
 
-- ✅ ВЫЗВАТЬ команду через Bash
-- ✅ Если ошибка — подождать, вызвать снова
-- ✅ 3 retry перед любыми выводами
-- ✅ Показать task ID если создан
+## Реальная структура vault
+
+Текущие папки vault, с которыми работаешь:
+
+| Папка | Назначение |
+|-------|------------|
+| `daily/` | Дневные заметки YYYY-MM-DD.md |
+| `memory/` | user.md, soul.md, facts.md, change-log.md, system-log.md, MEMORY.md |
+| `goals/` | 0-vision-3y.md, 1-yearly-2026.md, 2-monthly.md, 3-weekly.md |
+| `projects/` | Активные проекты, по подпапке на каждый |
+| `thoughts/` | ideas/, reflections/, projects/, learnings/ |
+| `summaries/` | Сводки и саммари |
+| `MOC/` | Maps of Content (индексные заметки) |
+| `attachments/` | Прикреплённые файлы (фото, аудио) |
+| `references/` | Справочники и внешние данные |
+| `templates/` | Шаблоны для новых заметок |
+| `blog/` | Черновики постов |
+| `reports/` | Отчёты |
+
+CRM/business/contacts папок **нет**. Не пытайся их создавать или искать — всё, что про клиентов и активности, идёт в `projects/{name}/` или `thoughts/projects/`.
 
 ## Processing Flow
 
-1. **Load personal context** — Read goals/1-yearly, goals/2-monthly, goals/3-weekly
-2. **Load business context**:
-   - Read `business/_index.md` — Your Business (клиенты, проекты, CRM)
-   - Read `projects/_index.md` — личные проекты (если релевантно)
-3. **Read daily** — daily/YYYY-MM-DD.md
-4. **Check workload** — `mcp-cli call todoist find-tasks-by-date '{"startDate": "today", "daysCount": 7}'`
-5. **CHECK PROCESS GOALS** — `mcp-cli call todoist find-tasks '{"labels": ["process-goal"]}'`
-   → If empty or stale: generate from goals, create recurring tasks
-6. **Process entries** — Classify → task or thought, detect business mentions
-7. **Build links** — Connect notes with [[wiki-links]], link to business entities
-8. **Generate HTML report** — include process goals status + business activity
-9. **Log actions to daily** — append action log entry (see below)
-10. **Evolve MEMORY.md** — update long-term memory if needed (see below)
-11. **Capture observations** — record friction signals to handoff.md (see below)
+1. **Load personal context** — `goals/3-weekly.md`, `goals/2-monthly.md`, `goals/1-yearly-2026.md`.
+2. **Load memory** — `memory/user.md`, `memory/soul.md`, `memory/facts.md`.
+3. **Read daily** — `daily/YYYY-MM-DD.md`.
+4. **Check workload** — `mcp-cli call todoist find-tasks-by-date '{"startDate": "today", "daysCount": 7}'`.
+5. **Check Process Goals** — `mcp-cli call todoist find-tasks '{"labels": ["process-goal"]}'`. Если пусто или устарели — сгенерировать из goals (см. ниже).
+6. **Process entries** — классифицировать каждую запись (task / idea / reflection / learning / project).
+7. **Build links** — создать wiki-links между связанными заметками.
+8. **Generate HTML report** — по шаблону (см. ниже).
+9. **Log actions** — в `daily/YYYY-MM-DD.md` (см. ниже).
+10. **Evolve MEMORY.md** — если файл существует и есть что внести.
+11. **Capture observations** — friction/pattern/idea сигналы в `vault/.session/handoff.md`.
 
 ## ОБЯЗАТЕЛЬНО: Логирование в daily/
 
-**После ЛЮБЫХ изменений в vault — СРАЗУ пиши в `daily/YYYY-MM-DD.md`:**
+После ЛЮБЫХ изменений в vault — сразу пиши в `daily/YYYY-MM-DD.md`:
 
-Формат:
 ```
 ## HH:MM [text]
 {Описание действий}
@@ -124,337 +116,92 @@ mcp-cli call todoist get-overview '{}'
 - [[path/to/file|Name]] — описание
 ```
 
-**Что логировать:**
-- Создание файлов в thoughts/
-- Обновление business/ или projects/
+Что логировать:
+- Создание файлов в `thoughts/`, `projects/`, `summaries/`
 - Создание задач в Todoist (с task ID)
 - Синхронизация с внешними системами
+- Обновление `memory/*.md`
 
-**Пример:**
+Пример:
 ```
 ## 14:30 [text]
 Обработка ежедневных записей
 
 **Создано задач:** 3
-- "Follow-up Acme Corp" (id: 8501234567, p2, завтра)
-- "Подготовить КП Unilever" (id: 8501234568, p2, пятница)
+- "Follow-up по проекту X" (id: 8501234567, p2, завтра)
+- "Подготовить материалы для встречи Y" (id: 8501234568, p2, пятница)
 
 **Сохранено мыслей:** 1
 - [[thoughts/ideas/product-launch|Product Launch]] — идея запуска
 ```
 
-**Зачем:** Audit trail + контекст для будущих обработок.
+Зачем: audit trail + контекст для будущих обработок.
 
-## Evolve MEMORY.md (Step 10 Detail)
-
-**ЦЕЛЬ:** Поддерживать MEMORY.md актуальным. Не добавлять, а ЭВОЛЮЦИОНИРОВАТЬ.
-
-### Когда обновлять MEMORY.md
-
-Проверь после обработки entries — есть ли информация достойная долгосрочной памяти?
-
-### Write Rules: Что достойно MEMORY.md
-
-**ПИСАТЬ:**
-- ✅ Key decisions с impact (pivot, tool choice, architecture change)
-- ✅ Изменения в pipeline (новый лид, закрытая сделка, изменение статуса)
-- ✅ Финансовые изменения (оплаты получены, долги, новые контракты)
-- ✅ Новые паттерны/инсайты (learnings)
-- ✅ Изменения в Active Context (новый ONE Big Thing, Hot Projects)
-- ✅ Новые ключевые контакты (с context)
-
-**НЕ ПИСАТЬ:**
-- ❌ Ежедневные мелочи (встречи, звонки без impact)
-- ❌ Временные заметки (оставить в daily/)
-- ❌ Дубликаты того что уже есть
-- ❌ Детали проектов (оставить в business/crm/, projects/)
-- ❌ Тривиальные задачи
-
-### Как обновлять (evolve, не append)
-
-**Принцип:** Новое ЗАМЕНЯЕТ устаревшее, не добавляется рядом.
-
-| Ситуация | Действие |
-|----------|----------|
-| Новое противоречит старому | ЗАМЕНИТЬ старую информацию |
-| Новое дополняет старое | Добавить в существующую секцию |
-| Информация устарела | Удалить или архивировать |
-
-**Пример 1 — Изменение статуса проекта:**
+После записи — добавь строку в `memory/system-log.md`:
 ```
-Old: "| Acme Corp NCP Meals | p1 | Активная разработка | $XXK |"
-New info: "Acme Corp NCP Meals сдан клиенту"
-→ ЗАМЕНИТЬ на: "| Acme Corp NCP Meals | ✅ | Завершён | $XXK |"
+YYYY-MM-DD HH:MM | process | OK | {N tasks, M thoughts}
 ```
 
-**Пример 2 — Новое решение:**
-```
-Добавить в Key Decisions таблицу:
-| 2026-02-01 | Отказ от X в пользу Y | причина | impact |
-```
+## Process Goals (детали Step 5)
 
-**Пример 3 — Изменение в pipeline:**
-```
-Old: "| LogisticsLead | Hot | $XXK |"
-New info: "LogisticsLead подписал контракт"
-→ Удалить из Pipeline
-→ Добавить в Hot Projects или Financial Context
-```
-
-### Секции MEMORY.md для обновления
-
-| Секция | Когда обновлять |
-|--------|-----------------|
-| Active Context | Изменение ONE Big Thing, Hot Projects, Pipeline |
-| Key Decisions | Новое решение с impact |
-| Financial Context | Оплаты, долги, контракты |
-| Key People | Новый важный контакт |
-| Learnings | Новый паттерн/инсайт |
-| Current Crisis | Изменение в текущей критической ситуации |
-
-### Формат Edit
-
-Используй Edit tool для точечных изменений:
-
-```
-Edit MEMORY.md:
-old_string: "| LogisticsLead | Hot | $XXK |"
-new_string: "| LogisticsLead | ✅ Signed | $XXK |"
-```
-
-### В отчёте
-
-Если обновил MEMORY.md, добавь секцию:
-
-```html
-<b>🧠 MEMORY.md обновлён:</b>
-• Active Context → Hot Projects updated
-• Key Decisions → +1 новое решение
-```
-
-## Capture Observations (Step 11 Detail)
-
-**ЦЕЛЬ:** Записывать friction signals, паттерны и идеи для улучшения системы.
-
-### Когда записывать
-
-После обработки проверь — были ли проблемы или наблюдения?
-
-| Тип | Когда |
-|-----|-------|
-| `[friction]` | mcp-cli errors, timeouts, empty daily, broken links, unexpected data |
-| `[pattern]` | Повторяющийся паттерн (задачи всегда overdue, daily пустой по выходным) |
-| `[idea]` | Идея для улучшения pipeline, schema, отчёта |
-
-### Формат
-
-Append в `vault/.session/handoff.md` секцию `## Observations`:
-
-```markdown
-## Observations
-- [friction] YYYY-MM-DD: mcp-cli timeout 3x на todoist — retry спас, но -60 сек
-- [pattern] YYYY-MM-DD: daily без entries 2 дня подряд — выходные?
-- [idea] YYYY-MM-DD: CRM карточки без deal_deadline = невидимые дедлайны
-```
-
-### Правила
-
-- Одна строка на наблюдение (конкретика, не абстракции)
-- Дата обязательна
-- Не повторять уже записанные observations
-- Когда observations ≥10 → сигнал для system improvement session
-
-### В отчёте
-
-Если записаны observations, добавь:
-
-```html
-<b>👁 Observations:</b>
-• [friction] mcp-cli timeout 3x
-```
-
----
-
-## Process Goals Check (Step 5 Detail)
-
-**ОБЯЗАТЕЛЬНО выполни этот шаг при каждом /process:**
+ОБЯЗАТЕЛЬНО при каждом `/process`.
 
 ### 1. Проверь существующие process goals
-
 ```bash
 mcp-cli call todoist find-tasks '{"labels": ["process-goal"], "limit": 20}'
 ```
 
-### 2. Если process goals ОТСУТСТВУЮТ — создай их
+### 2. Если process goals отсутствуют — создай
 
-Читай goals файлы и генерируй process commitments:
+Читай goals и генерируй process commitments:
 
 | Goal Level | Source | Process Pattern |
 |------------|--------|-----------------|
-| Weekly ONE Big Thing | goals/3-weekly.md | 2h deep work ежедневно |
-| Monthly Top 3 | goals/2-monthly.md | 1 action/день на приоритет |
-| Yearly Focus | goals/1-yearly-*.md | 30 мин/день на стратегию |
+| Weekly ONE Big Thing | `goals/3-weekly.md` | 2h deep work ежедневно |
+| Monthly Top 3 | `goals/2-monthly.md` | 1 action/день на приоритет |
+| Yearly Focus | `goals/1-yearly-2026.md` | 30 мин/день на стратегию |
 
-**Создай recurring tasks:**
-
+Создай recurring tasks:
 ```bash
 mcp-cli call todoist add-tasks '{"tasks": [
   {"content": "2h deep work: [ONE Big Thing]", "dueString": "every weekday at 6am", "priority": 2, "labels": ["process-goal"]},
-  {"content": "1 outreach/день: [monthly priority]", "dueString": "every weekday", "priority": 3, "labels": ["process-goal"]},
-  {"content": "30 мин продуктовые идеи", "dueString": "every day", "priority": 4, "labels": ["process-goal"]}
+  {"content": "1 action/день: [monthly priority]", "dueString": "every weekday", "priority": 3, "labels": ["process-goal"]},
+  {"content": "30 мин стратегия", "dueString": "every day", "priority": 4, "labels": ["process-goal"]}
 ]}'
 ```
 
-**Лимит:** Max 5-7 активных process goals.
+Лимит: max 5–7 активных process goals.
 
-### 3. Если process goals ЕСТЬ — проверь статус
+### 3. Если process goals есть — проверь статус
 
 - Активные (upcoming) → ✅ показать в отчёте
 - Просроченные (overdue) → ⚠️ предупредить
 - Устаревшие (не связаны с текущими целями) → рекомендовать удалить
 
-### 4. Включи в отчёт
-
-```html
-<b>📋 Process Goals:</b>
-• 2h deep work: [Client Project] → ✅ активен
-• 1 outreach/день → ⚠️ просрочен
-{N} активных | {M} требуют внимания
-```
-
-## Entry Format
-
-## HH:MM [type]
-Content
-
-Types: [voice], [text], [forward from: Name], [photo]
-
-## Business Context Integration
-
-**ТОЧКА ВХОДА:** `business/_index.md` — читай для понимания бизнес-контекста.
-
-### Структура:
-```
-business/
-├── _index.md       ← Статистика, обзор
-├── crm/            ← ВСЁ: компании + сделки + проекты в одном файле
-├── network/        ← Структура холдинга
-└── events/         ← Мероприятия
-```
-
-### Распознавание упоминаний
-
-При обработке entries ищи упоминания клиентов и проектов:
-
-| Паттерн | Действие |
-|---------|----------|
-| "звонил [Client]" | Найти `business/crm/{client}.md`, добавить связь |
-| "по проекту [Client]" | Найти `business/crm/{client}.md` |
-| "встреча с [Client]" | Создать задачу + связать с `business/crm/{client}.md` |
-| "отправил КП для [Client]" | Связать с `business/crm/{client}.md` |
-
-### Поиск клиента по имени
-
-1. Имя → kebab-case: "Acme Corp" → `acme-corp`, "Bi Group" → `bi-group`
-2. Искать: `business/crm/{kebab-case}.md`
-3. Если не найден — fuzzy search по `grep -l "{name}" business/crm/`
-
-### Создание связей
-
-Когда упомянут клиент/проект, добавляй wiki-links:
-
-**В задачу:**
-```
-"Follow-up [[business/crm/acme-corp|Acme Corp]] по снекам"
-```
-
-**В thought:**
-```
-Связано с: [[business/crm/techco|TechCo]], [[business/crm/phonebrand-smm|PhoneBrand SMM]]
-```
-
-### Приоритет задач с бизнесом
-
-| Условие | Приоритет |
-|---------|-----------|
-| Клиент с priority: High + deadline | p1 |
-| Активный проект (In progress) | p2 |
-| Клиент с priority: High | p2 |
-| Клиент с priority: Mid | p3 |
-| Prospect без срочности | p4 |
-
 ## Classification
 
-task → Todoist (see references/todoist.md)
-idea/reflection/learning → thoughts/ (see references/classification.md)
-client/project mention → link to Business/Projects + create task if actionable
+| Тип | Куда |
+|-----|------|
+| task (actionable) | Todoist (детали — `references/todoist.md`) |
+| 💡 idea | `thoughts/ideas/` |
+| 🪞 reflection | `thoughts/reflections/` |
+| 🎯 project mention | `thoughts/projects/` или `projects/{name}/` если есть активный проект |
+| 📚 learning | `thoughts/learnings/` |
 
-## Projects Context Integration
-
-**Точка входа:** `projects/_index.md`
-
-### Структура:
-```
-projects/
-├── _index.md       # Clients overview
-├── clients/        # Clients
-└── leads/          # Leads
-```
-
-### Распознавание упоминаний
-
-| Паттерн | Файл |
-|---------|------|
-| "[Client A]" | projects/clients/{client-a}.md |
-| "[Client B]" | projects/clients/{client-b}.md |
-| "AI обучение", "воркшоп" | projects/ контекст |
-
-### Отличие от Business
-
-- **Business** = основной бизнес
-- **Projects** = личные проекты (консалтинг, обучение)
-
-Если entry упоминает AI/ML обучение — ищи в projects/ сначала.
-
-## Contacts Context Integration
-
-**Точка входа:** `contacts/_index.md`
-
-### Распознавание имён в entries
-
-Ищи паттерны:
-- "созвонился с [Contact] из [Client]"
-- "встреча с @username"
-- "Имя Фамилия написал"
-
-### Классификация
-
-| Индикатор | Категория | Vault Link |
-|-----------|-----------|------------|
-| Known business clients | business | `business/crm/{client}` |
-| AI/обучение expertise, known leads | projects | `projects/leads/{name}` |
-| Остальные | personal | — |
-
-### В отчёте
-
-Если в entries упомянуты люди, добавь секцию:
-
-```html
-<b>👤 Упомянуто контактов:</b>
-• [Contact Name] (business → [[business/crm/acme-corp]])
-• [Contact Name] (personal)
-```
+Детали — `references/classification.md`.
 
 ## Priority Rules
 
-p1 — Client deadline, urgent
-p2 — Aligns with ONE Big Thing or monthly priority
-p3 — Aligns with yearly goal
-p4 — Operational, no goal alignment
+| Условие | Приоритет |
+|---------|-----------|
+| Deadline сегодня/завтра | p1 |
+| Aligns with ONE Big Thing или monthly priority | p2 |
+| Aligns with yearly goal | p3 |
+| Operational, без goal alignment | p4 |
 
 ## Process Goals Preference
 
-When creating tasks, prefer PROCESS over OUTCOME formulations.
+Создавая задачи, **предпочитай PROCESS формулировки OUTCOME-формулировкам**.
 
 **Outcome (less effective):**
 - "Закрыть сделку с X"
@@ -466,24 +213,90 @@ When creating tasks, prefer PROCESS over OUTCOME formulations.
 - "2h deep work на MVP" (time-bounded)
 - "Показать драфт программы коллеге" (checkpoint)
 
-**When to transform:**
-- Entry sounds vague/outcome-focused → make it specific/process-focused
-- User says "нужно сделать X" → create actionable next step, not X itself
-- Goal mentioned → create task that MOVES TOWARD goal, not goal itself
+Когда трансформировать:
+- Запись звучит расплывчато / outcome-focused → конкретизировать в process step.
+- Пользователь сказал "нужно сделать X" → создавай actionable next step, не X.
+- Упомянута цель → задача движет к цели, не она сама.
 
-See: references/process-goals.md for patterns and examples.
+Детали — `references/process-goals.md`.
 
-## Thought Categories
+## Evolve MEMORY.md
 
-💡 idea → thoughts/ideas/
-🪞 reflection → thoughts/reflections/
-🎯 project → thoughts/projects/
-📚 learning → thoughts/learnings/
+Цель: поддерживать `memory/MEMORY.md` актуальным **если файл существует**. Не добавлять, а ЭВОЛЮЦИОНИРОВАТЬ.
+
+Если файла нет — НЕ создавай. Просто пропусти этот шаг.
+
+### Что достойно MEMORY.md
+ПИСАТЬ:
+- ✅ Key decisions с impact (pivot, tool choice, architecture change)
+- ✅ Финансовые изменения (контракты, оплаты, долги)
+- ✅ Новые паттерны / инсайты
+- ✅ Изменения в Active Context (новый ONE Big Thing, Hot Projects)
+- ✅ Новые ключевые контакты с context
+
+НЕ ПИСАТЬ:
+- ❌ Ежедневные мелочи без impact
+- ❌ Временные заметки (оставлять в `daily/`)
+- ❌ Дубликаты
+- ❌ Тривиальные задачи
+
+### Как обновлять (evolve, не append)
+
+Принцип: новое ЗАМЕНЯЕТ устаревшее, не добавляется рядом.
+
+| Ситуация | Действие |
+|----------|----------|
+| Новое противоречит старому | ЗАМЕНИТЬ старую информацию |
+| Новое дополняет старое | Добавить в существующую секцию |
+| Информация устарела | Удалить или архивировать |
+
+Используй точечные правки (Edit-стиль), а не append.
+
+В отчёте:
+```html
+<b>🧠 MEMORY.md обновлён:</b>
+• Active Context → Hot Projects updated
+• Key Decisions → +1 новое решение
+```
+
+## Capture Observations
+
+Записывать friction/patterns/ideas для эволюции системы.
+
+Append в `vault/.session/handoff.md` секцию `## Observations`:
+```markdown
+## Observations
+- [friction] YYYY-MM-DD: mcp-cli timeout 3x — retry спас, но -60s
+- [pattern] YYYY-MM-DD: daily без entries 2 дня подряд
+- [idea] YYYY-MM-DD: добавить process-goal "1h reading"
+```
+
+Правила:
+- Одна строка на наблюдение
+- Дата обязательна
+- Не повторять
+- Когда observations ≥10 → сигнал для system improvement session
+
+В отчёте (если есть):
+```html
+<b>👁 Observations:</b>
+• [friction] mcp-cli timeout 3x
+```
+
+## Entry Format
+
+```
+## HH:MM [type]
+Content
+```
+
+Types: `[voice]`, `[text]`, `[forward from: Name]`, `[photo]`, `[terminal]`.
 
 ## HTML Report Template
 
 Output RAW HTML (no markdown, no code blocks):
 
+```
 📊 <b>Обработка за {DATE}</b>
 
 <b>🎯 Текущий фокус:</b>
@@ -495,14 +308,9 @@ Output RAW HTML (no markdown, no code blocks):
 <b>✅ Создано задач:</b> {M}
 • {task} <i>({priority}, {due})</i>
 
-<b>🏢 Business Activity:</b>
-• {client} — {action}
-• {project} — {status update}
-<i>Упомянуто клиентов: {N} | Проектов: {M}</i>
-
 <b>📋 Process Goals:</b>
-• {process goal 1} → {status}
-• {process goal 2} → {status}
+• {goal 1} → {status}
+• {goal 2} → {status}
 {N} активных | {M} требуют внимания
 <i>Создано новых: {K}</i>
 
@@ -510,7 +318,7 @@ Output RAW HTML (no markdown, no code blocks):
 Пн: {n} | Вт: {n} | Ср: {n} | Чт: {n} | Пт: {n} | Сб: {n} | Вс: {n}
 
 <b>⚠️ Требует внимания:</b>
-• {overdue or stale goals}
+• {overdue или stale goals}
 
 <b>🔗 Новые связи:</b>
 • [[Note A]] ↔ [[Note B]]
@@ -524,32 +332,33 @@ Output RAW HTML (no markdown, no code blocks):
 • {goal}: {%} {emoji}
 
 <b>🧠 MEMORY.md:</b>
-• {section} → {change description}
+• {section} → {change}
 <i>(если обновлено)</i>
 
 ---
 <i>Обработано за {duration}</i>
+```
 
 ## If Already Processed
 
-If all entries have `<!-- ✓ processed -->` marker, return status report:
+Если все записи имеют маркер `<!-- ✓ processed -->` — статус-отчёт без re-processing:
 
+```
 📊 <b>Статус за {DATE}</b>
 
 <b>🎯 Текущий фокус:</b>
 {ONE_BIG_THING}
 
 <b>📋 Process Goals:</b>
-• {process goal 1} → {status}
-• {process goal 2} → {status}
+• {goal 1} → {status}
 {N} активных | {M} требуют внимания
 
 <b>📅 Загрузка на неделю:</b>
 Пн: {n} | Вт: {n} | Ср: {n} | Чт: {n} | Пт: {n} | Сб: {n} | Вс: {n}
 
 <b>⚠️ Требует внимания:</b>
-• {overdue count} просроченных
-• {today count} на сегодня
+• {overdue} просроченных
+• {today} на сегодня
 
 <b>⚡ Топ-3 приоритета:</b>
 1. {task}
@@ -558,66 +367,39 @@ If all entries have `<!-- ✓ processed -->` marker, return status report:
 
 ---
 <i>Записи уже обработаны ранее</i>
+```
 
 ## Allowed HTML Tags
 
-<b> — bold (headers)
-<i> — italic (metadata)
-<code> — commands, paths
-<s> — strikethrough
-<u> — underline
-<a href="url">text</a> — links
+`<b>` — bold (заголовки)
+`<i>` — italic (метаданные)
+`<code>` — команды, пути
+`<s>` — strikethrough
+`<u>` — underline
+`<a href="url">text</a>` — ссылки
 
 ## FORBIDDEN in Output
 
-NO markdown: **, ##, -, *, backticks
-NO code blocks (triple backticks)
-NO tables
-NO unsupported tags: div, span, br, p, table
+- НЕ markdown: `**`, `##`, `-`, `*`, backticks
+- НЕ code blocks (triple backticks)
+- НЕ tables
+- НЕ unsupported tags: `<div>`, `<span>`, `<br>`, `<p>`, `<table>`
 
-Max length: 4096 characters.
+Max length: 4096 characters (Telegram).
 
-## References
+## References (читать по запросу)
 
-Read these files as needed:
-- references/about.md — User profile, decision filters
-- references/classification.md — Entry classification rules
-- references/todoist.md — Task creation details + recurring patterns
-- references/goals.md — Goal alignment logic
-- references/process-goals.md — Process vs outcome goals, transformation patterns
-- references/links.md — Wiki-links building
-- references/rules.md — Mandatory processing rules
-- references/report-template.md — Full HTML report spec
-- references/business.md — Business client/project context, search patterns
-- references/contacts.md — Contacts search and classification
+- `references/about.md` — профиль пользователя, decision filters
+- `references/classification.md` — правила классификации записей
+- `references/todoist.md` — детали Todoist API + recurring patterns
+- `references/goals.md` — alignment с целями
+- `references/process-goals.md` — process vs outcome, паттерны трансформации
+- `references/links.md` — построение wiki-links
+- `references/rules.md` — обязательные правила обработки
+- `references/report-template.md` — полная HTML-спецификация отчёта
 
-## Business Quick Reference
+## Phases (детальный pipeline)
 
-**Точка входа:** `business/_index.md`
-
-**Поиск клиента:**
-```
-grep -l "Acme Corp" business/crm/
-→ business/crm/acme-corp.md
-```
-
-**Активные сделки:**
-```
-grep -l "deal_status:" business/crm/
-```
-
-**High priority клиенты:**
-```
-grep -l "priority: High" business/crm/
-```
-
-**Frontmatter полей:**
-- type: crm
-- industry, priority, status, region, owner, responsible
-- deal_status, deal_deadline (для активных сделок)
-- updated
-
-## Relevant Skills
-
-- [[vault/.claude/skills/graph-builder/SKILL|graph-builder]] — Vault graph analysis
-- [[vault/.claude/skills/todoist-ai/SKILL|todoist-ai]] — Todoist task management
+- `phases/capture.md` — фаза захвата записей
+- `phases/execute.md` — фаза выполнения (создание задач, заметок)
+- `phases/reflect.md` — фаза рефлексии (logs, observations)
