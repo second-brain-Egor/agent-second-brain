@@ -97,6 +97,43 @@ async def process_ask(message: Message, prompt: str) -> None:
     await message.chat.do(action="typing")
 
     try:
+        # Check pending action: user may be confirming/cancelling a previous question.
+        pending = processor.get_pending_action(session_scope)
+        if pending:
+            decision = await asyncio.to_thread(
+                processor.classify_pending_response, prompt, pending["brief"]
+            )
+            if decision == "confirm":
+                processor.clear_pending_action(session_scope)
+                await message.answer("🟢 Принял", parse_mode=None)
+                session.append(session_scope, "assistant", text="🟢 Принял", chat_id=message.chat.id, chat_title=message.chat.title)
+                asyncio.create_task(
+                    _run_ask_agent(message, processor, pending["original_prompt"], user_id, session_scope, work_context, session)
+                )
+                return
+            if decision == "cancel":
+                processor.clear_pending_action(session_scope)
+                await message.answer("🔴 Отменил", parse_mode=None)
+                session.append(session_scope, "assistant", text="🔴 Отменил", chat_id=message.chat.id, chat_title=message.chat.title)
+                return
+            processor.clear_pending_action(session_scope)
+
+        # Pre-classify (LLM with last 20 session entries). Heavy → ask confirmation, store pending.
+        weight = await asyncio.to_thread(processor.classify_message_weight, prompt, session_scope)
+        if weight == "heavy":
+            brief_raw = await asyncio.to_thread(processor.generate_brief, prompt, session_scope)
+            brief = normalize_telegram_output(brief_raw)
+            processor.set_pending_action(session_scope, prompt, brief)
+            await message.answer(brief, parse_mode=None)
+            session.append(
+                session_scope,
+                "assistant",
+                text=f"[pending] {brief}",
+                chat_id=message.chat.id,
+                chat_title=message.chat.title,
+            )
+            return
+
         result = await asyncio.to_thread(
             processor.execute_raw_prompt,
             prompt,
@@ -116,7 +153,7 @@ async def process_ask(message: Message, prompt: str) -> None:
 
         if processor.needs_agent(response):
             brief = normalize_telegram_output(processor.strip_agent_marker(response))
-            await message.answer(f"Запускаю агента.\n{brief}", parse_mode=None)
+            await message.answer(brief, parse_mode=None)
             session.append(
                 session_scope,
                 "assistant",

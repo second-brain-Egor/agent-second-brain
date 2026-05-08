@@ -1,9 +1,8 @@
 ---
 type: note
 updated: 2026-05-08
-last_accessed: 2026-05-08
-relevance: 1.0
-tier: active
+relevance: 0.86
+tier: warm
 ---
 # Health Check Vault
 

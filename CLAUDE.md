@@ -17,6 +17,12 @@
 @vault/memory/user.md
 @vault/memory/soul.md
 
+## Sonnet/Opus split — только для Claude симки
+
+Архитектура двух моделей: Sonnet — чат и типовое, Opus — нестандартное и тяжёлое. Правила привратника, формат перефразировок, поведение при отсылках к контексту — в отдельном документе. Этот файл НЕ читается Codex'ом, правила здесь применимы только когда `AI_BACKEND=claude`.
+
+@vault/.claude/sonnet-gatekeeper.md
+
 `vault/memory/facts.md` (16 KB, RAG-индекс) — читай через `memory_rag.search(query)`, **не загружай целиком**.
 `vault/memory/change-log.md` (20 KB) — читай только если нужен исторический контекст.
 `vault/memory/system-log.md` — пиши строку после каждого значимого действия (`YYYY-MM-DD HH:MM | event | claude | OK`).

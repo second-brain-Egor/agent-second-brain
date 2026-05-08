@@ -137,6 +137,44 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
         processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
         user_id = message.from_user.id
 
+        # Check pending action first: user may be confirming/cancelling a previous question.
+        pending = processor.get_pending_action(scope)
+        if pending:
+            decision = await asyncio.to_thread(
+                processor.classify_pending_response, transcript, pending["brief"]
+            )
+            if decision == "confirm":
+                processor.clear_pending_action(scope)
+                await message.answer("🟢 Принял", parse_mode=None)
+                session.append(scope, "assistant", text="🟢 Принял", chat_id=message.chat.id, chat_title=message.chat.title)
+                asyncio.create_task(
+                    _run_voice_agent(message, processor, pending["original_prompt"], user_id, scope, work_context, session)
+                )
+                logger.info("Voice message processed (pending confirmed → Opus)")
+                return
+            if decision == "cancel":
+                processor.clear_pending_action(scope)
+                await message.answer("🔴 Отменил", parse_mode=None)
+                session.append(scope, "assistant", text="🔴 Отменил", chat_id=message.chat.id, chat_title=message.chat.title)
+                logger.info("Voice message processed (pending cancelled)")
+                return
+            # decision == "correct" — drop pending, treat as new request
+            processor.clear_pending_action(scope)
+
+        # Pre-classify (LLM, ~5-10 sec, minimal prompt + last 20 session entries).
+        # Heavy → ask for confirmation, store pending, do NOT launch Opus until user confirms.
+        async with keep_typing(message.chat):
+            weight = await asyncio.to_thread(processor.classify_message_weight, transcript, scope)
+            if weight == "heavy":
+                brief_raw = await asyncio.to_thread(processor.generate_brief, transcript, scope)
+        if weight == "heavy":
+            brief = normalize_telegram_output(brief_raw)
+            processor.set_pending_action(scope, transcript, brief)
+            await message.answer(brief, parse_mode=None)
+            session.append(scope, "assistant", text=f"[pending] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
+            logger.info("Voice message processed (heavy → pending confirmation)")
+            return
+
         async with keep_typing(message.chat):
             result = await asyncio.to_thread(
                 processor.execute_raw_prompt,
@@ -154,7 +192,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
             # Auto-escalation: sonnet detected complex task
             if processor.needs_agent(response):
                 brief = normalize_telegram_output(processor.strip_agent_marker(response))
-                await message.answer(f"🤖 Запускаю агента...\n{brief}", parse_mode=None)
+                await message.answer(brief, parse_mode=None)
                 session.append(scope, "assistant", text=f"[agent] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
 
                 asyncio.create_task(
