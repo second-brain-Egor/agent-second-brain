@@ -1,4 +1,5 @@
 ---
+description: "Внедрение ИИ платформы — project"
 type: project
 tags: 
 source: daily/2026-04-15

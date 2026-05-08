@@ -1,8 +1,11 @@
 ---
+description: "4. Постановка целей. Брайан Трейси — project"
 type: project
 last_accessed: 2026-05-05
 relevance: 0.95
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # 4. Постановка целей. Брайан Трейси
 

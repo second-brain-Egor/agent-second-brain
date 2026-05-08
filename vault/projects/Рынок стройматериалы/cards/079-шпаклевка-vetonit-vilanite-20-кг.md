@@ -1,4 +1,5 @@
 ---
+description: "79. Шпаклевка Vetonit/Vilanite 20 кг — product-card, audited"
 type: product-card
 source: product-cards-page-2-2026-04-26.md
 status: audited

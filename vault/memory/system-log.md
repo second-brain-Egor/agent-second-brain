@@ -1,8 +1,11 @@
 ---
+description: "Дневник наблюдений: работают ли правила bootstrap и записи в daily из терминала. Через несколько дней проверяем — если записей мало или нет..."
 type: note
 last_accessed: 2026-03-31
 relevance: 0.98
 tier: active
+related:
+  - "[[MEMORY]]"
 ---
 # System Log
 
@@ -17,3 +20,4 @@ tier: active
 2026-05-07 23:30 | process | claude | OK | 2 facts, 1 learning, 3 soul-rules
 2026-05-08 00:51 | process | OK | 1 task, 1 thought
 2026-05-08 12:05 | process | claude | OK | 1 task, facts updated
+2026-05-08 22:00 | process | claude | OK | 0 tasks, 1 fact

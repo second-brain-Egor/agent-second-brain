@@ -1,8 +1,11 @@
 ---
+description: "Transcript — project"
 type: project
 last_accessed: 2026-05-01
 relevance: 0.94
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 [0:00] Есть экран? Да. Так, продолжаем. Так, заметочка еще. Вот я тут увидел, что вот тут вот так вот балки насквозь проброшены.
 

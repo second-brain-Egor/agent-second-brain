@@ -1,4 +1,5 @@
 ---
+description: "Баня — проверка стен, стоек и оконных проемов — note, draft"
 type: note
 source: session/2026-04-30
 status: draft

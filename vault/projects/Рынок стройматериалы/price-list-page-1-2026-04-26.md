@@ -1,4 +1,5 @@
 ---
+description: "Прайс-лист стройматериалов — страница 1 из 3 — source, raw-processed"
 type: source
 source: photo
 status: raw-processed

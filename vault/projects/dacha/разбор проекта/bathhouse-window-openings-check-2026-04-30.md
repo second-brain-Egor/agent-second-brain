@@ -1,4 +1,5 @@
 ---
+description: "Баня — проверка узлов над оконными проемами — note, draft"
 type: note
 source: session/2026-04-30
 status: draft
@@ -8,6 +9,8 @@ last_accessed: 2026-05-02
 relevance: 0.94
 tier: active
 project: dacha
+related:
+  - "[[projects/_index]]"
 ---
 
 # Баня — проверка узлов над оконными проемами

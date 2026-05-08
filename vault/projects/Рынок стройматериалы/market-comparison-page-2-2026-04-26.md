@@ -1,4 +1,5 @@
 ---
+description: "Сравнение цен — страница 2 прайса — research, first-pass"
 type: research
 source: web
 status: first-pass

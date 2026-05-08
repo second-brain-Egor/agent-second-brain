@@ -1,4 +1,5 @@
 ---
+description: "83. Штукатурка Litokol — product-card, audited"
 type: product-card
 source: product-cards-page-3-2026-04-26.md
 status: audited

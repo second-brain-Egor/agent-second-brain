@@ -1,4 +1,5 @@
 ---
+description: "Подбор шипорезного станка — project"
 type: project
 tags: 
 source: daily/2026-04-14

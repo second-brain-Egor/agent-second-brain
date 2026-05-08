@@ -1,4 +1,5 @@
 ---
+description: "Подключение — project, active"
 type: project
 status: active
 updated: 2026-05-06

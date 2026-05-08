@@ -1,4 +1,5 @@
 ---
+description: "Надёжная остановка торгового бота — project"
 type: project
 tags: 
 source: daily/2026-04-14

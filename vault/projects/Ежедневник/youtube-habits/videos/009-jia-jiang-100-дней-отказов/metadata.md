@@ -1,8 +1,11 @@
 ---
+description: "Jia Jiang. 100 дней отказов. — project"
 type: project
 last_accessed: 2026-05-05
 relevance: 0.95
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # Jia Jiang. 100 дней отказов.
 

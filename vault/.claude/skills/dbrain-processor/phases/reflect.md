@@ -60,22 +60,37 @@ Rules:
 - New info REPLACES outdated (don't append duplicates)
 - Only write significant changes
 
-### 4. Capture observations
+### 4. Capture observations (ОБЯЗАТЕЛЬНО — не пропускать)
 
-If problems occurred during processing, append to `.session/handoff.md` under `## Observations`:
+Каждая обработка дня должна оставить хотя бы одну запись в `.session/handoff.md` под секцией `## Observations`. Это не «если что-то пошло не так», а **обязательная** запись после каждого `/process`. Если день прошёл без проблем — записать `[pattern]` про характер дня. Если возникли затыки — `[friction]`.
 
+Формат строки строго:
 ```markdown
-- [friction] 2026-02-19: mcp-cli timeout on todoist — retried 3x
-- [pattern] 2026-02-19: daily had only 2 entries — low activity day
+- [friction] YYYY-MM-DD: краткое описание затыка (что пошло не так, что пробовали)
+- [pattern] YYYY-MM-DD: краткое описание паттерна (поведение пользователя, тема дня, нагрузка)
+- [idea] YYYY-MM-DD: идея для улучшения системы из наблюдений за днём
 ```
 
-### 5. Update handoff.md
+Минимум одна запись за обработку. Лучше 2–3, если есть что зафиксировать.
 
-Update session context:
-- Last Session: what was processed
-- Key Decisions: if any
-- In Progress: incomplete items
-- Next Steps: what to do next
+Где записать: открыть `vault/.session/handoff.md`, найти секцию `## Observations`, **дописать новые строки в её конце** (append, не replace). Существующие записи сохранять.
+
+Примеры (из реальных записей системы):
+```
+- [friction] 2026-04-08: mcp-cli не был установлен в среде — пришлось ставить вручную
+- [pattern] 2026-04-16: пользователь раздражён повторами в ответах — давать конкретику с первого раза
+- [pattern] 2026-04-08: долгосрочные проекты не превращать в недельные дедлайны
+```
+
+### 5. Update handoff.md (метаданные)
+
+Кроме секции `## Observations` (см. п.4), обновить также:
+- `## Last Session` — что было обработано (этот блок shell-скрипт `process.sh` уже пишет автоматически, не дублировать)
+- `## Key Decisions` — если в дневнике зафиксированы важные решения, добавить сюда
+- `## In Progress` — незавершённые пункты на завтра
+- `## Next Steps` — что делать пользователю дальше
+
+Каждую секцию вести в **append** режиме где это имеет смысл (Observations) или **replace** (Last Session, In Progress, Next Steps — текущее состояние).
 
 ## Output Format
 

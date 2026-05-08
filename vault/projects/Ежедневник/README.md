@@ -1,4 +1,5 @@
 ---
+description: "Ежедневник — project, active"
 type: project
 status: active
 created: 2026-05-03

@@ -109,8 +109,16 @@ REPORT_CLEAN=$(echo "$REPORT" | sed '/<!--/,/-->/d')
 
 echo "=== Rebuilding vault graph ==="
 cd "$VAULT_DIR"
-uv run "$SKILLS_ROOT/graph-builder/scripts/analyze.py" || echo "Graph rebuild failed (non-critical)"
+mkdir -p .graph
+uv run "$SKILLS_ROOT/graph-builder/scripts/analyze.py" || echo "Graph report failed (non-critical)"
+uv run "$SKILLS_ROOT/graph-builder/scripts/analyze.py" "$VAULT_DIR" --json > .graph/vault-graph.json 2>/dev/null || echo "Graph JSON dump failed (non-critical)"
 cd "$PROJECT_DIR"
+
+echo "=== Regenerating sub-MOCs (business + projects) ==="
+uv run "$SKILLS_ROOT/vault-health/scripts/generate_moc.py" || echo "MOC regeneration failed (non-critical)"
+
+echo "=== Regenerating thoughts/summaries MOCs ==="
+uv run "$SKILLS_ROOT/vault-health/scripts/generate_thoughts_moc.py" || echo "Thoughts MOC regeneration failed (non-critical)"
 
 echo "=== Refreshing wiki index ==="
 uv run python -m d_brain.services.wiki || echo "Wiki refresh failed (non-critical)"
@@ -120,6 +128,38 @@ uv run python3 -c "from d_brain.services.memory_rag import index_daily; print(f'
 
 echo "=== Memory decay ==="
 uv run "$SKILLS_ROOT/agent-memory/scripts/memory-engine.py" decay "$VAULT_DIR" || echo "Memory decay failed (non-critical)"
+
+echo "=== Marking daily as processed ==="
+NOW_ISO=$(date -Iseconds)
+if ! grep -q "<!-- ✓ processed -->" "$DAILY_FILE" 2>/dev/null; then
+    printf '\n<!-- ✓ processed -->\n<!-- timestamp: %s -->\n' "$NOW_ISO" >> "$DAILY_FILE"
+fi
+
+echo "=== Updating handoff.md ==="
+uv run python3 - <<PY
+import re
+from pathlib import Path
+p = Path("$HANDOFF_FILE")
+if p.exists():
+    content = p.read_text(encoding="utf-8")
+    # Update last_accessed in frontmatter (date only)
+    new_fm = re.sub(r"^last_accessed:\s*.*\$", "last_accessed: $TODAY", content, count=1, flags=re.M)
+    # Update or add updated (ISO timestamp)
+    if re.search(r"^updated:\s*", new_fm, flags=re.M):
+        new_fm = re.sub(r"^updated:\s*.*\$", "updated: $NOW_ISO", new_fm, count=1, flags=re.M)
+    elif new_fm.startswith("---"):
+        new_fm = re.sub(r"^---\n", f"---\nupdated: $NOW_ISO\n", new_fm, count=1)
+    else:
+        new_fm = f"---\nupdated: $NOW_ISO\n---\n\n" + new_fm
+    # Update or append Last Session block
+    last_session_block = f"## Last Session\nProcessed daily $TODAY at $NOW_ISO\n"
+    if "## Last Session" in new_fm:
+        new_fm = re.sub(r"## Last Session.*?(?=\n## |\Z)", last_session_block, new_fm, count=1, flags=re.S)
+    else:
+        new_fm = new_fm.rstrip() + f"\n\n{last_session_block}\n"
+    p.write_text(new_fm, encoding="utf-8")
+    print(f"handoff updated: {p}")
+PY
 
 git add -A
 git commit -m "chore: process daily $TODAY" || true

@@ -1,25 +1,13 @@
 ---
-type: note
-last_accessed: 2026-03-27
-relevance: 0.94
+description: "Map of Content: Рефлексии, 0 entries"
+type: moc
+last_accessed: 2026-05-08
+relevance: 0.85
 tier: active
 ---
-# Reflections
 
-Map of Content for personal reflections.
+# Рефлексии
 
-## Recent
+Сгенерировано: 2026-05-08 10:42. Файлов: 0.
 
-<!-- Recent reflections will appear here -->
-
-## By Theme
-
-### Theme 1
-<!-- Links to related reflections -->
-
-### Theme 2
-<!-- Links to related reflections -->
-
----
-
-*Updated automatically by the processor*
+_Пока пусто._

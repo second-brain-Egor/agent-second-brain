@@ -1,4 +1,5 @@
 ---
+description: "Timberframe Workshop Setup — project"
 type: project
 tags: 
 source: daily/2026-03-27

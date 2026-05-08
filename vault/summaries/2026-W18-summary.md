@@ -1,4 +1,5 @@
 ---
+description: "Weekly summary for 2026-W18"
 type: weekly-summary
 last_accessed: 2026-05-03
 relevance: 0.94

@@ -1,4 +1,5 @@
 ---
+description: "Здесь фиксируются изменения и дополнения по проекту: что было изменено, когда и с каким результатом."
 type: note
 last_accessed: 2026-04-16
 relevance: 0.98
@@ -120,3 +121,13 @@ tier: active
 2026-05-08 11:27 | generate_brief теперь подгружает session_context (last 20) — отсылки типа «пятый пункт» резолвятся к ранее перечисленным элементам, не возвращает «не указано»
 2026-05-08 11:32 | generate_brief: коротко 4-7 слов, без «Запустить агента» / «Делать или иначе?» — только суть задачи в форме вопроса
 2026-05-08 11:50 | sonnet-gatekeeper.md перенесён из vault/.claude/rules/ (общие через симлинк) в vault/.claude/ (только Claude). Подключён через @-import в проектном CLAUDE.md. Из processor.py удалена ручная инъекция в системный промпт + метод _load_sonnet_gatekeeper. Codex теперь не видит правило ни через файл, ни через промпт.
+2026-05-08 12:45 | удалена папка vault/projects/onyx/ (1.2 ГБ, orphan submodule). Заметки и ссылка на GitHub сохранены в vault/references/onyx.md. Снято с git index. Гипотеза: ломал graph-builder.
+2026-05-08 13:30 | process.sh: добавлены вызов generate_moc.py (sub-MOC), маркер <!-- ✓ processed --> в daily, обновление last_accessed/updated/Last Session в handoff.md. Закрывает 3 бага pipeline.
+2026-05-08 14:45 | Zettelkasten починен полностью: создан projects/_index.md (hub), сгенерирован vault-graph.json, запущены add_descriptions (293 файла, coverage 100%) + connect_orphans (114 weakly-connected получили related). Создан generate_thoughts_moc.py для 4 недостающих sub-MOC. process.sh обновлён под новую схему. Граф: 332 notes, 962 links, 4 orphans, 23 weakly (было 134).
+2026-05-08 15:00 | weekly.sh: добавлен блок vault-health maintenance ДО anti-ban guard (analyze --json + add_descriptions/connect_orphans/fix_links --apply). Работает на обеих симках, без LLM. reflect.md: усилена инструкция — обязательно писать в handoff.md observations после каждой обработки.
+2026-05-08 16:00 | Codex-гейтинг: pending+classifier+brief обёрнуты в if processor.ai_backend=='claude' в voice/text/ask.py. На Codex эта обвязка пропускается — старый flow без классификатора. CLAUDE.md облегчён: убраны @-импорты user.md/soul.md/telegram-formatting (~25 КБ дублирования), бот их грузит сам через _get_memory_context.
+2026-05-08 16:30 | generate_moc.py: переписана функция generate_projects_moc под реальную структуру (top-level папки vault/projects/, поля description/tier/status). 1 → 254 wikilinks. backlinks.sh оставлен как поисковая утилита по требованию (не для pipeline). note-organizer Opus не запускался — граф уже здоровый, orphan/weakly = только daily+templates (by design).
+2026-05-08 17:00 | facts.md: добавлен раздел «Большой рефакторинг бота (для всех агентов)» — сводка ключевых фактов сегодняшнего дня для общей памяти, читаемой обеими симками + индексируется в RAG.
+2026-05-08 17:30 | hybrid-init-prompt-v5.md дополнен правками 8 мая (953→2113 строк, 62→135 КБ): Фазы 5.5/5.6/5.7/7.6/7.7/11.5 + обновлённые 10.1, граблии, чек-лист. Бэкап в hybrid-init-prompt-v5.backup-2026-05-08.md. Иерархия H2/H3 поправлена sed'ом для вложенных примеров.
+2026-05-08 18:00 | v5: добавлена Фаза 7.2.5 «Локальные скиллы в Скиллы/» с обязательным telegram-formatting/SKILL.md (полный текст 87 строк) и опциональным шаблоном <server>-access. Вычищены упоминания egor/Егор/personal-paths из шапки, lock-комментариев и плейсхолдеров — промпт полностью универсальный.
+2026-05-08 18:30 | v5 + sonnet-gatekeeper.md: правило новый проект → обязательный вопрос (по паттерну Nate Herk). Если папки vault/projects/<slug>/ нет — Sonnet ОБЯЗАНА спросить «🆕 это новый проект, создать папку?» вместо молчаливого создания или сваливания в daily/. Расширена Секция 4 онбординга — шаблоны README.md и _index.md проекта. Также вычищены ещё 3 следа (форумных тем, barriga в примере, проверки Барыги в Фазе 10) — v5 полностью универсальный.

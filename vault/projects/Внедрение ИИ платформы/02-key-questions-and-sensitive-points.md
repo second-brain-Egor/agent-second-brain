@@ -1,4 +1,5 @@
 ---
+description: "Ключевые вопросы и чувствительные моменты — project-note"
 type: project-note
 source: daily/2026-04-15
 created: 2026-04-15

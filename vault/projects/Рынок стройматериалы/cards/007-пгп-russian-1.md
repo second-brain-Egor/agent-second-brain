@@ -1,4 +1,5 @@
 ---
+description: "7. ПГП Russian — product-card, audited"
 type: product-card
 source: product-cards-page-1-2026-04-26.md
 status: audited

@@ -1,4 +1,5 @@
 ---
+description: "Week: 14 of 52 Energy Level: Medium Available Hours: ~24ч (смена пн 31, далее 3 выходных)"
 type: weekly
 updated: 2026-03-29
 last_accessed: 2026-03-29

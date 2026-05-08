@@ -1,4 +1,5 @@
 ---
+description: "Разбор YouTube-видео про привычки — note, draft-collected"
 type: note
 status: draft-collected
 created: 2026-05-03

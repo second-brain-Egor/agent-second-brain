@@ -1,4 +1,5 @@
 ---
+description: "Егор ожидает, что Codex и Claude Code одинаково умеют проверять закачку Forumhouse на Барыге."
 type: learning
 tags: 
 created: 2026-05-08

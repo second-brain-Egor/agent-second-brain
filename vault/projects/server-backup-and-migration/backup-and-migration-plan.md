@@ -4,6 +4,8 @@ updated: 2026-04-29
 last_accessed: 2026-04-30
 relevance: 0.94
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # План выгрузки и переезда
 

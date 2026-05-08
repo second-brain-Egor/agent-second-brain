@@ -1,4 +1,5 @@
 ---
+description: "Передача следующему агенту — handoff"
 type: handoff
 created: 2026-04-29
 last_accessed: 2026-04-29

@@ -1,4 +1,5 @@
 ---
+description: "Карточки товаров — Новорязанка — product-card-index, audited"
 type: product-card-index
 source: product-cards
 status: audited

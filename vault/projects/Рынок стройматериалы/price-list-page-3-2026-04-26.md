@@ -1,4 +1,5 @@
 ---
+description: "Прайс-лист стройматериалов — страница 3 из 3 — price-list, first-pass"
 type: price-list
 source: Telegram photo OCR
 status: first-pass

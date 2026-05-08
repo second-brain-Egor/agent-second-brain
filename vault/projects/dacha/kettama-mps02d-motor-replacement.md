@@ -1,4 +1,5 @@
 ---
+description: "Kettama MPS02D — замена двигателя — note"
 type: note
 tags: 
 created: 2026-04-18

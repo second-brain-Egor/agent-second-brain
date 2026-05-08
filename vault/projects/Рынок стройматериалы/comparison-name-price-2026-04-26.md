@@ -1,4 +1,5 @@
 ---
+description: "Сравнение позиций: название и стоимость — research, working-data"
 type: research
 source: web
 status: working-data

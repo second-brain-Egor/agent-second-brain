@@ -1,4 +1,5 @@
 ---
+description: "Дата: 2026-04-16"
 type: note
 last_accessed: 2026-04-16
 relevance: 0.94

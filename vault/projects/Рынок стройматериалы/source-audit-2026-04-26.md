@@ -1,4 +1,5 @@
 ---
+description: "Проверка исходников прайса - 2026-04-26 — source-audit, restored"
 type: source-audit
 status: restored
 created: 2026-04-26

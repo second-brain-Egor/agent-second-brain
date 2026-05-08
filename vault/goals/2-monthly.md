@@ -1,4 +1,5 @@
 ---
+description: "Why it matters: без рейсмуса нет обработки бруса → нет производства"
 type: monthly
 updated: 2026-03-29
 last_accessed: 2026-03-29

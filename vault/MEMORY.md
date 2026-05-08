@@ -1,4 +1,5 @@
 ---
+description: "Long-term memory and key decisions"
 type: note
 last_accessed: 2026-02-26
 relevance: 0.94

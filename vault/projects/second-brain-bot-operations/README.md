@@ -1,4 +1,5 @@
 ---
+description: "Операционный статус second brain bot — note"
 type: note
 last_accessed: 2026-04-16
 relevance: 0.94

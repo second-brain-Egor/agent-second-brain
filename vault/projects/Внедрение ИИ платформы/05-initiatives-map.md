@@ -1,4 +1,5 @@
 ---
+description: "Карта инициатив — project-note"
 type: project-note
 created: 2026-04-29
 last_accessed: 2026-04-29

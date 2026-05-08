@@ -1,4 +1,5 @@
 ---
+description: "Баня — проверка доски 150x50 после перехода стен на 150 — note, draft"
 type: note
 source: session/2026-04-30
 status: draft

@@ -1,4 +1,5 @@
 ---
+description: "Рынок стройматериалы — project, active"
 type: project
 tags: 
 source: daily/2026-04-17

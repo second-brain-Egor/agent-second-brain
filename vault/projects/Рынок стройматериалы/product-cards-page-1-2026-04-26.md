@@ -1,4 +1,5 @@
 ---
+description: "Карточки товаров — Новорязанка, страница 1 — product-card-index, audited"
 type: product-card-index
 source: product-cards-page-1-2026-04-26.md
 status: audited

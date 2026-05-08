@@ -1,10 +1,13 @@
 ---
+description: "Организационное внедрение — initiative"
 type: initiative
 created: 2026-04-29
 last_accessed: 2026-04-29
 relevance: 0.95
 tier: active
 project: Внедрение ИИ платформы
+related:
+  - "[[projects/_index]]"
 ---
 
 # Организационное внедрение

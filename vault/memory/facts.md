@@ -1,4 +1,5 @@
 ---
+description: "Пополняется автоматически из process.sh. Также индексируется в SQLite (RAG)."
 type: note
 last_accessed: 2026-04-13
 relevance: 0.98
@@ -171,4 +172,20 @@ tier: active
 ## 2026-05-08 — Проект Banny (баня) и Forumhouse
 - По проекту Banny ставится задача свежим взглядом сверить ранее сделанные разборы скриншотов SketchUp с материалами Forumhouse и проверить, не упустил ли предыдущий проектировщик чего-либо
 - Конкретный рабочий вопрос по бане — электроснабжение и вентиляция, ответы и решения Егор хочет получать на основе тем Forumhouse, а не общих интернет-источников
+
+## 2026-05-08 — Большой рефакторинг бота (для всех агентов)
+- На Claude-симке введена цепочка подтверждения тяжёлых задач: классификатор `classify_message_weight` (LLM, 10 сек, контекст последних 20 сообщений) → если heavy → `generate_brief` (одна фраза-вопрос, 4–7 слов) → pending action (TTL 5 мин) → ждём подтверждение пользователя → Opus в фон. Подтверждения: `делай / да / ок / го / давай / запускай / разрешаю / точно / yes` + LLM-fallback на синонимы. Отмена: `нет / отмена / стоп / не делай / забей`.
+- Вся обвязка обёрнута в `if processor.ai_backend == "claude"` — на Codex отключается. У Codex одна модель, эти шаги не нужны.
+- Документ-правило `vault/.claude/sonnet-gatekeeper.md` лежит в Claude-only локации (НЕ через симлинк), подключается через `@`-импорт в проектном `CLAUDE.md`. Codex его не читает.
+- Корневой `CLAUDE.md` облегчён: убраны `@`-импорты `vault/memory/user.md`, `vault/memory/soul.md`, `Скиллы/telegram-formatting/SKILL.md` — бот их грузит сам через `_get_memory_context`, дублирование съедало ~25 КБ контекста Sonnet на каждый вызов.
+- Папка `vault/projects/onyx/github-onyx/` (1.2 ГБ orphan submodule, ломал graph-builder) удалена. Ссылка на GitHub сохранена в `vault/references/onyx.md`. Клонировать обратно: `git clone https://github.com/onyx-dot-app/onyx vault/projects/onyx/github-onyx`.
+- В `scripts/process.sh` добавлены шаги: dump графа в `vault/.graph/vault-graph.json`, `generate_moc.py` (переписан под top-level папки `projects/`), новый `generate_thoughts_moc.py` (генерит MOC-ideas/learnings/reflections/weekly), маркер `<!-- ✓ processed -->` в daily, обновление `vault/.session/handoff.md` (timestamp + Last Session).
+- В `scripts/weekly.sh` добавлен блок vault-health maintenance ДО anti-ban guard: `add_descriptions.py --apply` + `connect_orphans.py --apply` + `fix_links.py --apply`. Работает на обеих симках раз в неделю, без LLM.
+- `vault/.claude/skills/dbrain-processor/phases/reflect.md` усилен: фаза reflect ОБЯЗАНА писать `[friction]` / `[pattern]` / `[idea]` записи в секцию `## Observations` файла `vault/.session/handoff.md` после каждой обработки. Раньше LLM это пропускала.
+- Граф vault: 332 заметок, 962 связей, 4 orphan + 23 weakly-connected (только `daily/*` и `templates/*` — by design). Все 6 sub-MOC обновляются автоматически.
+- Детальная хроника каждого шага: `/home/egor/правка second brain/2026-05-08.md`. Все changelog-строки — в `vault/memory/change-log.md`.
+- В `/home/egor/исходники/` существует `hybrid-init-prompt-v5.md` с Фазой 6.5 «Zettelkasten», но создана НЕ Егором, без его согласия. Не использовать как канон. Основной мастер-промпт — v4, в нём Zettelkasten пока не описан.
 - 12 мая 2026 утром — звонок кадастровому инженеру (Todoist id 6gXrxGrR5fRC7HjR)
+
+## 2026-05-08 — Агенты для Ирины и мамы
+- Егор создаёт отдельных агентов для жены Ирины и для мамы; основной агент должен учитывать их в недельном дайджесте и работать как общая записная книжка по запросу

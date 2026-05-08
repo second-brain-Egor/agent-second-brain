@@ -1,13 +1,24 @@
 ---
+description: "Onyx — не отдельная LLM-модель, а open-source платформа поверх языковых моделей. Это слой приложения: чат, поиск по внутренним данным, RAG, агенты..."
 type: note
 source: https://github.com/onyx-dot-app/onyx
 created: 2026-05-04
-last_accessed: 2026-05-05
-relevance: 0.95
-tier: active
+last_accessed: 2026-05-08
+relevance: 0.5
+tier: archive
+related:
+  - "[[MEMORY]]"
 ---
 
 # Onyx — заметки по платформе
+
+> ⚠️ **2026-05-08:** папка `vault/projects/onyx/github-onyx/` удалена (orphan git submodule, ломал graph-builder). При необходимости — клонировать заново:
+> ```bash
+> git clone https://github.com/onyx-dot-app/onyx vault/projects/onyx/github-onyx
+> ```
+> Этот файл изначально жил по пути `vault/projects/onyx/onyx-platform-notes.md`, перенесён в `references/` чтобы сохранить ссылку и контекст.
+
+---
 
 Onyx — не отдельная LLM-модель, а open-source платформа поверх языковых моделей. Это слой приложения: чат, поиск по внутренним данным, RAG, агенты, действия, веб-поиск, выполнение кода, генерация файлов и интеграции.
 
@@ -64,6 +75,7 @@ Self-hosted-режим держит данные внутри своей инф�
 
 ## Источники
 
+- https://github.com/onyx-dot-app/onyx
 - https://docs.onyx.app/
 - https://docs.onyx.app/llms.txt
 - https://docs.onyx.app/deployment/getting_started/quickstart
@@ -77,4 +89,3 @@ Self-hosted-режим держит данные внутри своей инф�
 - https://docs.onyx.app/security/architecture/data_storage
 - https://docs.onyx.app/security/architecture/access_controls
 - https://docs.onyx.app/security/self_hosted/data_processing
-- https://github.com/onyx-dot-app/onyx

@@ -1,4 +1,5 @@
 ---
+description: "Баня — учёт купленного материала — note, active"
 type: note
 source: session/2026-04-30
 status: active

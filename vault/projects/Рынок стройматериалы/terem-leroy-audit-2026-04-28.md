@@ -1,4 +1,5 @@
 ---
+description: "Аудит Терем/Леруа - 2026-04-28 — research, audited"
 type: research
 source: product-cards
 status: audited

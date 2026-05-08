@@ -10,46 +10,44 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 429
-- Связей: 960
+- Заметок: 332
+- Связей: 1229
 - Сирот: 0
-- Слабосвязанных: 238
+- Слабосвязанных: 25
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 6 | 70.17 |
+| MOC | 7 | 82.43 |
 | blog | 2 | 1.00 |
-| daily | 37 | 2.49 |
-| goals | 5 | 7.80 |
-| memory | 5 | 12.00 |
-| projects | 353 | 3.40 |
-| references | 3 | 1.00 |
+| daily | 37 | 2.54 |
+| goals | 5 | 8.00 |
+| memory | 5 | 12.20 |
+| projects | 254 | 6.13 |
+| references | 4 | 2.00 |
 | reports | 1 | 52.00 |
-| root | 1 | 3.00 |
+| root | 1 | 10.00 |
 | summaries | 4 | 2.00 |
 | templates | 2 | 1.00 |
-| thoughts | 10 | 3.70 |
+| thoughts | 10 | 4.60 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 396 связей
-- [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 105 связей
-- [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 84 связей
+- [[MOC/index.md|Индекс знаний]] — 299 связей
+- [[MOC/MOC-projects.md|MOC - Projects]] — 259 связей
+- [[projects/_index.md|Проекты — индекс]] — 114 связей
+- [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 106 связей
+- [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
 - [[reports/vault-health.md|Health Check Vault]] — 52 связей
-- [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 47 связей
-- [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 45 связей
-- [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 45 связей
-- [[projects/Рынок стройматериалы/price-list-page-3-2026-04-26.md|Прайс-лист стройматериалов — страница 3 из 3]] — 26 связей
-- [[projects/Рынок стройматериалы/product-cards-page-3-2026-04-26.md|Карточки позиций — Новорязанка, страница 3]] — 25 связей
-- [[memory/soul.md|Идентичность агента]] — 22 связей
+- [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 48 связей
+- [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 46 связей
+- [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 46 связей
+- [[projects/Рынок стройматериалы/price-list-page-3-2026-04-26.md|Прайс-лист стройматериалов — страница 3 из 3]] — 27 связей
 
 ## Слабосвязанные
 
-- [[MOC/MOC-ideas.md|Ideas]]
-- [[MOC/MOC-learnings.md|Learnings]]
-- [[MOC/MOC-reflections.md|Reflections]]
+- [[MOC/MOC-reflections.md|Рефлексии]]
 - [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
 - [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
@@ -67,7 +65,9 @@ tier: warm
 - [[daily/2026-04-22.md|2026-04-22]]
 - [[daily/2026-04-23.md|2026-04-23]]
 - [[daily/2026-04-25.md|2026-04-25]]
-- ... ещё 218
+- [[daily/2026-04-26.md|2026-04-26]]
+- [[daily/2026-04-27.md|2026-04-27]]
+- ... ещё 5
 
 ## Неразрешённые ссылки
 
@@ -82,6 +82,7 @@ tier: warm
 - [[daily/2026-04-29.md|2026-04-29]]: attachments/2026-04-29/img-194339.jpg, attachments/2026-04-29/img-195007.jpg, attachments/2026-04-29/img-195227.jpg, attachments/2026-04-29/img-195246.jpg
 - [[daily/2026-05-04.md|2026-05-04]]: .session/handoff
 - [[daily/2026-05-07.md|2026-05-07]]: attachments/2026-05-07/09-questionnaire-4-telegram-bot, attachments/2026-05-07/09-questionnaire-4-telegram-bot-2, attachments/2026-05-07/09-questionnaire-4-telegram-bot-3, attachments/2026-05-07/09-questionnaire-4-telegram-bot-4, attachments/2026-05-07/09-questionnaire-4-telegram-bot-5 ...
+- [[projects/Внедрение ИИ платформы/README.md|Внедрение ИИ платформы]]: projects/onyx/onyx-platform-notes
 - [[projects/Ежедневник/README.md|Ежедневник]]: daily-template, youtube-habits/README
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]: cards/README
 - [[projects/Рынок стройматериалы/cards/001-шамотный-кирпич-шб-8-боровичи.md|1. Шамотный кирпич ШБ-8 Боровичи]]: ../README
@@ -90,4 +91,3 @@ tier: warm
 - [[projects/Рынок стройматериалы/cards/004-кирпич-рабочий-м150.md|4. Кирпич рабочий М150]]: ../README
 - [[projects/Рынок стройматериалы/cards/005-пгп-knauf-1.md|5. ПГП Knauf]]: ../README
 - [[projects/Рынок стройматериалы/cards/006-пгп-knauf-2.md|6. ПГП Knauf]]: ../README
-- [[projects/Рынок стройматериалы/cards/007-пгп-russian-1.md|7. ПГП Russian]]: ../README

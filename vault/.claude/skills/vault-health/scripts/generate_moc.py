@@ -252,12 +252,137 @@ def generate_business_moc() -> str:
     return "\n".join(lines)
 
 
+TIER_ORDER = {"active": 0, "warm": 1, "cold": 2, "archive": 3}
+
+
+def _tier_sort_key(rec: dict) -> tuple:
+    tier = (rec.get("fm") or {}).get("tier", "active").lower()
+    return (TIER_ORDER.get(tier, 99), rec.get("title", ""))
+
+
+def _format_project_entry(rec: dict) -> str:
+    """Format one MOC line for a project note: - [[path|Title]] — description"""
+    fm = rec.get("fm") or {}
+    parts: list[str] = []
+    desc = fm.get("description", "").replace("\n", " ").strip()
+    if desc:
+        if len(desc) > 120:
+            desc = desc[:117] + "..."
+        parts.append(desc)
+    elif fm.get("status"):
+        parts.append(fm["status"])
+    line = f"- [[{rec['path']}|{rec['title']}]]"
+    if parts:
+        line += f" — {parts[0]}"
+    return line
+
+
+def _collect_project_notes(folder: Path) -> list[dict]:
+    """Walk a project folder recursively, return all .md notes with frontmatter."""
+    notes: list[dict] = []
+    for md_file in sorted(folder.rglob("*.md")):
+        if md_file.name.startswith(".") or md_file.name == "_index.md":
+            continue
+        try:
+            content = md_file.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        fm = parse_frontmatter(content)
+        title = extract_title(content) or md_file.stem.replace("-", " ").replace("_", " ")
+        notes.append({
+            "path": relative_path(md_file),
+            "title": title,
+            "fm": fm,
+        })
+    return notes
+
+
+def _format_folder_name(folder_name: str) -> str:
+    """Convert 'Banny' / 'forumhouse-framehouse-knowledge-base' → human-readable section title."""
+    cleaned = folder_name.replace("-", " ").replace("_", " ").strip()
+    return cleaned[:1].upper() + cleaned[1:] if cleaned else folder_name
+
+
 def generate_projects_moc() -> str:
-    """Generate MOC-projects.md with explicit wikilinks."""
+    """Generate MOC-projects.md based on top-level folders in projects/ (Egor's actual structure).
+
+    Each top-level subfolder of projects/ becomes a section. Notes within a folder are
+    listed with their description from frontmatter. Sorted by tier (active → archive).
+    """
 
     now = datetime.now().strftime("%Y-%m-%d")
 
-    # Collect clients
+    if not PROJECTS_DIR.exists():
+        return "# MOC - Projects\n\n_Папка projects/ не найдена._\n"
+
+    # Collect top-level subfolders (each = a project)
+    folders = sorted(
+        [p for p in PROJECTS_DIR.iterdir() if p.is_dir() and not p.name.startswith(".")],
+        key=lambda p: p.name.lower(),
+    )
+
+    # Standalone .md files at projects/ root (excluding _index.md)
+    standalone: list[dict] = []
+    for md_file in sorted(PROJECTS_DIR.glob("*.md")):
+        if md_file.name == "_index.md":
+            continue
+        try:
+            content = md_file.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        fm = parse_frontmatter(content)
+        title = extract_title(content) or md_file.stem.replace("-", " ").title()
+        standalone.append({
+            "path": relative_path(md_file),
+            "title": title,
+            "fm": fm,
+        })
+
+    # Group notes per folder
+    folder_notes: list[tuple[Path, list[dict]]] = []
+    total_notes = 0
+    for folder in folders:
+        notes = _collect_project_notes(folder)
+        if notes:
+            folder_notes.append((folder, notes))
+            total_notes += len(notes)
+
+    lines = [
+        "# MOC - Projects",
+        "",
+        "> Map of Content for Projects (auto-generated)",
+        f"> Generated: {now} | folders: {len(folder_notes)}, notes: {total_notes}, standalone: {len(standalone)}",
+        "",
+        "[[projects/_index|Projects Overview]]",
+        "",
+        "---",
+        "",
+    ]
+
+    for folder, notes in folder_notes:
+        section_title = _format_folder_name(folder.name)
+        lines.append(f"## {section_title} ({len(notes)})")
+        lines.append("")
+        for rec in sorted(notes, key=_tier_sort_key):
+            lines.append(_format_project_entry(rec))
+        lines.append("")
+
+    if standalone:
+        lines.append(f"## Standalone resources ({len(standalone)})")
+        lines.append("")
+        for rec in sorted(standalone, key=lambda r: r["title"]):
+            lines.append(_format_project_entry(rec))
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def _legacy_collect_clients() -> list[dict]:
+    """Legacy collector for projects/clients (Shima's original CRM structure).
+
+    Kept for backward compatibility — runs only if projects/clients/ exists.
+    On Egor's vault this folder doesn't exist, so returns [].
+    """
     clients: list[dict] = []
     clients_dir = PROJECTS_DIR / "clients"
     if clients_dir.exists():
@@ -275,6 +400,15 @@ def generate_projects_moc() -> str:
                 "company": fm.get("company", title),
                 "fm": fm,
             })
+    return clients
+
+
+def _legacy_generate_projects_moc_old() -> str:
+    """Legacy version of generate_projects_moc — kept for reference. Not called."""
+    now = datetime.now().strftime("%Y-%m-%d")
+
+    # Collect clients (legacy)
+    clients = _legacy_collect_clients()
 
     # Collect leads
     leads: list[dict] = []

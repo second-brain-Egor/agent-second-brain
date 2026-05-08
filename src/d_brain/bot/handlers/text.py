@@ -188,41 +188,44 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
     user_id = message.from_user.id
 
     try:
-        # Check pending action first: user may be confirming/cancelling a previous question.
-        pending = processor.get_pending_action(scope)
-        if pending:
-            decision = await asyncio.to_thread(
-                processor.classify_pending_response, message.text, pending["brief"]
-            )
-            if decision == "confirm":
-                processor.clear_pending_action(scope)
-                await message.answer("🟢 Принял", parse_mode=None)
-                session.append(scope, "assistant", text="🟢 Принял", chat_id=message.chat.id, chat_title=message.chat.title)
-                asyncio.create_task(
-                    _run_agent(message, processor, pending["original_prompt"], user_id, scope, work_context, session)
+        # Pending/classifier/brief are Claude-specific (two-model architecture).
+        # On Codex (single model) all this is skipped — fall through to direct execute_raw_prompt.
+        if processor.ai_backend == "claude":
+            # Check pending action first: user may be confirming/cancelling a previous question.
+            pending = processor.get_pending_action(scope)
+            if pending:
+                decision = await asyncio.to_thread(
+                    processor.classify_pending_response, message.text, pending["brief"]
                 )
-                logger.info("Text message processed (pending confirmed → Opus)")
-                return
-            if decision == "cancel":
+                if decision == "confirm":
+                    processor.clear_pending_action(scope)
+                    await message.answer("🟢 Принял", parse_mode=None)
+                    session.append(scope, "assistant", text="🟢 Принял", chat_id=message.chat.id, chat_title=message.chat.title)
+                    asyncio.create_task(
+                        _run_agent(message, processor, pending["original_prompt"], user_id, scope, work_context, session)
+                    )
+                    logger.info("Text message processed (pending confirmed → Opus)")
+                    return
+                if decision == "cancel":
+                    processor.clear_pending_action(scope)
+                    await message.answer("🔴 Отменил", parse_mode=None)
+                    session.append(scope, "assistant", text="🔴 Отменил", chat_id=message.chat.id, chat_title=message.chat.title)
+                    logger.info("Text message processed (pending cancelled)")
+                    return
                 processor.clear_pending_action(scope)
-                await message.answer("🔴 Отменил", parse_mode=None)
-                session.append(scope, "assistant", text="🔴 Отменил", chat_id=message.chat.id, chat_title=message.chat.title)
-                logger.info("Text message processed (pending cancelled)")
-                return
-            processor.clear_pending_action(scope)
 
-        # Pre-classify (LLM with last 20 session entries). Heavy → ask confirmation, store pending.
-        async with keep_typing(message.chat):
-            weight = await asyncio.to_thread(processor.classify_message_weight, message.text, scope)
+            # Pre-classify (LLM with last 20 session entries). Heavy → ask confirmation, store pending.
+            async with keep_typing(message.chat):
+                weight = await asyncio.to_thread(processor.classify_message_weight, message.text, scope)
+                if weight == "heavy":
+                    brief_raw = await asyncio.to_thread(processor.generate_brief, message.text, scope)
             if weight == "heavy":
-                brief_raw = await asyncio.to_thread(processor.generate_brief, message.text, scope)
-        if weight == "heavy":
-            brief = normalize_telegram_output(brief_raw)
-            processor.set_pending_action(scope, message.text, brief)
-            await message.answer(brief, parse_mode=None)
-            session.append(scope, "assistant", text=f"[pending] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
-            logger.info("Text message processed (heavy → pending confirmation): %d chars", len(message.text))
-            return
+                brief = normalize_telegram_output(brief_raw)
+                processor.set_pending_action(scope, message.text, brief)
+                await message.answer(brief, parse_mode=None)
+                session.append(scope, "assistant", text=f"[pending] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
+                logger.info("Text message processed (heavy → pending confirmation): %d chars", len(message.text))
+                return
 
         async with keep_typing(message.chat):
             result = await asyncio.to_thread(

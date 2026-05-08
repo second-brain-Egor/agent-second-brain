@@ -1,4 +1,5 @@
 ---
+description: "Баня — черновик закупки материалов — note, draft"
 type: note
 source: daily/2026-04-26
 status: draft

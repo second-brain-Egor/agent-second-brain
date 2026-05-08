@@ -1,4 +1,5 @@
 ---
+description: "<!-- One word or phrase that defines this year --> <!-- Example: \"Foundation\", \"Growth\", \"Balance\" -->"
 type: yearly
 updated: YYYY-MM-DD
 last_accessed: 2026-03-27

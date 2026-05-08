@@ -1,4 +1,5 @@
 ---
+description: "Карточки позиций — Новорязанка, страница 2 — product-cards, audited"
 type: product-cards
 source: price-list-page-2-2026-04-26.md
 status: audited

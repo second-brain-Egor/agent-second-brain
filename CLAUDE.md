@@ -12,10 +12,11 @@
 
 ## Память пользователя (общая для обеих симок)
 
-Профиль пользователя и накопленные паттерны поведения — должны быть в каждом ответе, как у Codex.
+`vault/memory/user.md` и `vault/memory/soul.md` подгружаются ботом в системный промпт автоматически (через `_get_memory_context`). Здесь @-импорт **не нужен** — это создаёт дублирование и лишнюю нагрузку на Sonnet (~15 КБ повтора при каждом запросе). Не возвращать сюда без серьёзной причины.
 
-@vault/memory/user.md
-@vault/memory/soul.md
+`vault/memory/facts.md` (16 KB, RAG-индекс) — читай через `memory_rag.search(query)`, **не загружай целиком**.
+`vault/memory/change-log.md` (20 KB) — читай только если нужен исторический контекст.
+`vault/memory/system-log.md` — пиши строку после каждого значимого действия (`YYYY-MM-DD HH:MM | event | claude | OK`).
 
 ## Sonnet/Opus split — только для Claude симки
 
@@ -29,9 +30,7 @@
 
 ## Telegram-оформление
 
-Каждый ответ для Telegram — обязательно по этому скиллу.
-
-@Скиллы/telegram-formatting/SKILL.md
+Каждый ответ для Telegram — обязательно по скиллу `Скиллы/telegram-formatting/SKILL.md`. Бот **сам** подгружает этот скилл в системный промпт при cold_start (см. `processor.py:_load_telegram_formatting_skill`). Здесь `@`-импорт не нужен — это создаёт дублирование (~10 КБ при каждом запросе).
 
 Дополнительные правила формата HTML-отчёта обработки дня — `vault/.claude/rules/telegram-report.md` (читай через Read только перед `/process`).
 

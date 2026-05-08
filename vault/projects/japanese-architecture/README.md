@@ -1,4 +1,5 @@
 ---
+description: "Японская архитектура — project"
 type: project
 tags: 
 source: session/2026-04-24
@@ -6,6 +7,8 @@ created: 2026-04-24
 last_accessed: 2026-04-24
 relevance: 0.94
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 
 # Японская архитектура

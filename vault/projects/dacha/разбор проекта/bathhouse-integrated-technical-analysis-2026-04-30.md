@@ -1,4 +1,5 @@
 ---
+description: "Баня — общий технический разбор по SketchUp, скриншотам и видеоразборам — note, draft"
 type: note
 source: session/2026-04-30
 status: draft
