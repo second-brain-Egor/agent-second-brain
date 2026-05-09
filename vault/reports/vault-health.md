@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-05-08
+updated: 2026-05-09
 relevance: 0.86
 tier: warm
 ---
@@ -10,10 +10,10 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 332
+- Заметок: 333
 - Связей: 1229
 - Сирот: 0
-- Слабосвязанных: 25
+- Слабосвязанных: 27
 
 ## Домены
 
@@ -21,7 +21,7 @@ tier: warm
 |---|---:|---:|
 | MOC | 7 | 82.43 |
 | blog | 2 | 1.00 |
-| daily | 37 | 2.54 |
+| daily | 38 | 2.50 |
 | goals | 5 | 8.00 |
 | memory | 5 | 12.20 |
 | projects | 254 | 6.13 |
@@ -67,7 +67,7 @@ tier: warm
 - [[daily/2026-04-25.md|2026-04-25]]
 - [[daily/2026-04-26.md|2026-04-26]]
 - [[daily/2026-04-27.md|2026-04-27]]
-- ... ещё 5
+- ... ещё 7
 
 ## Неразрешённые ссылки
 
@@ -82,6 +82,7 @@ tier: warm
 - [[daily/2026-04-29.md|2026-04-29]]: attachments/2026-04-29/img-194339.jpg, attachments/2026-04-29/img-195007.jpg, attachments/2026-04-29/img-195227.jpg, attachments/2026-04-29/img-195246.jpg
 - [[daily/2026-05-04.md|2026-05-04]]: .session/handoff
 - [[daily/2026-05-07.md|2026-05-07]]: attachments/2026-05-07/09-questionnaire-4-telegram-bot, attachments/2026-05-07/09-questionnaire-4-telegram-bot-2, attachments/2026-05-07/09-questionnaire-4-telegram-bot-3, attachments/2026-05-07/09-questionnaire-4-telegram-bot-4, attachments/2026-05-07/09-questionnaire-4-telegram-bot-5 ...
+- [[daily/2026-05-08.md|2026-05-08]]: attachments/2026-05-08/img-222532.jpg
 - [[projects/Внедрение ИИ платформы/README.md|Внедрение ИИ платформы]]: projects/onyx/onyx-platform-notes
 - [[projects/Ежедневник/README.md|Ежедневник]]: daily-template, youtube-habits/README
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]: cards/README
@@ -90,4 +91,3 @@ tier: warm
 - [[projects/Рынок стройматериалы/cards/003-кирпич-печной-красный-боровичи.md|3. Кирпич печной красный Боровичи]]: ../README
 - [[projects/Рынок стройматериалы/cards/004-кирпич-рабочий-м150.md|4. Кирпич рабочий М150]]: ../README
 - [[projects/Рынок стройматериалы/cards/005-пгп-knauf-1.md|5. ПГП Knauf]]: ../README
-- [[projects/Рынок стройматериалы/cards/006-пгп-knauf-2.md|6. ПГП Knauf]]: ../README
