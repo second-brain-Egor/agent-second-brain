@@ -10,8 +10,8 @@ tier: active
 
 ## Срез
 
-- Заметок: 333
-- Связей: 1232
+- Заметок: 339
+- Связей: 1256
 - Сирот: 0
 - Слабосвязанных: 26
 
@@ -47,6 +47,12 @@ tier: active
 - [[projects/Forumhouse/Нормативка/список нормативных документов.md|Нормативные документы из скачанных тем Forumhouse]]
 - [[projects/_index.md|Проекты — индекс]]
 - [[projects/asula/README.md|АСУЛА]]
+- [[projects/asula/_index.md|АСУЛА — индекс]]
+- [[projects/asula/algorithms.md|Алгоритмы и логика]]
+- [[projects/asula/goals.md|Цели и проблемы]]
+- [[projects/asula/platform.md|Платформа и требования]]
+- [[projects/asula/scenarios.md|Сценарии]]
+- [[projects/asula/timeline.md|Хроника]]
 - [[projects/dacha/README.md|Дача]]
 - [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
 - [[projects/dacha/bathhouse-procurement-draft.md|Баня — черновик закупки материалов]]
