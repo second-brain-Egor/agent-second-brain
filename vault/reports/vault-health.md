@@ -11,9 +11,9 @@ tier: warm
 ## Обзор
 
 - Заметок: 333
-- Связей: 1229
+- Связей: 1232
 - Сирот: 0
-- Слабосвязанных: 27
+- Слабосвязанных: 26
 
 ## Домены
 
@@ -21,9 +21,9 @@ tier: warm
 |---|---:|---:|
 | MOC | 7 | 82.43 |
 | blog | 2 | 1.00 |
-| daily | 38 | 2.50 |
+| daily | 38 | 2.61 |
 | goals | 5 | 8.00 |
-| memory | 5 | 12.20 |
+| memory | 5 | 12.80 |
 | projects | 254 | 6.13 |
 | references | 4 | 2.00 |
 | reports | 1 | 52.00 |
@@ -67,7 +67,7 @@ tier: warm
 - [[daily/2026-04-25.md|2026-04-25]]
 - [[daily/2026-04-26.md|2026-04-26]]
 - [[daily/2026-04-27.md|2026-04-27]]
-- ... ещё 7
+- ... ещё 6
 
 ## Неразрешённые ссылки
 
@@ -83,6 +83,7 @@ tier: warm
 - [[daily/2026-05-04.md|2026-05-04]]: .session/handoff
 - [[daily/2026-05-07.md|2026-05-07]]: attachments/2026-05-07/09-questionnaire-4-telegram-bot, attachments/2026-05-07/09-questionnaire-4-telegram-bot-2, attachments/2026-05-07/09-questionnaire-4-telegram-bot-3, attachments/2026-05-07/09-questionnaire-4-telegram-bot-4, attachments/2026-05-07/09-questionnaire-4-telegram-bot-5 ...
 - [[daily/2026-05-08.md|2026-05-08]]: attachments/2026-05-08/img-222532.jpg
+- [[daily/2026-05-09.md|2026-05-09]]: attachments/2026-05-09/img-182851.jpg
 - [[projects/Внедрение ИИ платформы/README.md|Внедрение ИИ платформы]]: projects/onyx/onyx-platform-notes
 - [[projects/Ежедневник/README.md|Ежедневник]]: daily-template, youtube-habits/README
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]: cards/README
@@ -90,4 +91,3 @@ tier: warm
 - [[projects/Рынок стройматериалы/cards/002-кирпич-печной-желтый.md|2. Кирпич печной желтый]]: ../README
 - [[projects/Рынок стройматериалы/cards/003-кирпич-печной-красный-боровичи.md|3. Кирпич печной красный Боровичи]]: ../README
 - [[projects/Рынок стройматериалы/cards/004-кирпич-рабочий-м150.md|4. Кирпич рабочий М150]]: ../README
-- [[projects/Рынок стройматериалы/cards/005-пгп-knauf-1.md|5. ПГП Knauf]]: ../README
