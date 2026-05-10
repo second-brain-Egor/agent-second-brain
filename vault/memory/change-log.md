@@ -136,3 +136,9 @@ tier: active
 
 2026-05-09 22:06 | Удалён файл `attachments/2026-05-09/img-220231.jpg` | По команде пользователя в чате
 2026-05-09 23:30 | process daily 2026-05-09 (вечерняя сессия по АСУЛА) | факты по платформе/архитектуре в facts.md, два правила в soul.md, открытый вопрос про 3D-модель в timeline.md
+
+2026-05-10 09:25 | Откат всех правок 2026-05-10 + чат переведён на Opus | sonnet-gatekeeper эксперименты (моя секция «Глаголы переключения», утренний bare-режим в processor.py, формула подтверждения) откачены через git checkout. .env: CLAUDE_MODEL=opus, CLAUDE_MODEL_CHAT=opus. Архитектура классификатор+pending+brief формально жива (код в text/voice/ask handlers под if ai_backend=="claude"), но классификация и brief теперь идут на Opus → должны умнее различать «перейти к X» и «обработай X». Бот перезапущен.
+
+2026-05-10 09:30 | Урезана нагрузка контекста на per-message чат | processor.py: _get_session_context [-20:] → [-10:] (десять последних сообщений Telegram вместо двадцати); _get_memory_context per-message ветка теперь грузит только vault/memory/{user.md, soul.md}, всё остальное (facts.md/change-log.md/system-log.md/goals/*/MOC/index.md) ушло в cold_start ветку (один раз на день per scope). Долгая память доступна через memory_rag.search по запросу. Сэкономлено ~10–13 КБ системного промпта на каждый чатовый вызов Opus.
+
+2026-05-10 09:38 | Полностью отключён классификатор+pending+brief flow и привратник | bot/handlers/{text,voice,ask}.py: `if processor.ai_backend == "claude":` → `if False:`. CLAUDE.md: убран @vault/.claude/sonnet-gatekeeper.md импорт, секция переписана. Каждое сообщение Telegram теперь идёт прямо в execute_raw_prompt (Opus chat) без классификации, brief-перефразировки и pending-подтверждения. Триггер: бот зацикливался на «[pending] Что лежит в проекте Ежедневник?» — generate_brief тупо переформулировал запрос пользователя как вопрос обратно к нему.

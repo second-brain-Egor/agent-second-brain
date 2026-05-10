@@ -1,3 +1,6 @@
+---
+description: "Map of Content: Projects, 254 entries"
+---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)

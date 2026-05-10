@@ -137,9 +137,9 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
         processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
         user_id = message.from_user.id
 
-        # Pending/classifier/brief are Claude-specific (two-model architecture).
-        # On Codex (single model) all this is skipped — fall through to direct execute_raw_prompt.
-        if processor.ai_backend == "claude":
+        # 2026-05-10: classifier/pending/brief disabled — pure Opus chat, no two-model dance.
+        # If returning to Sonnet+gatekeeper architecture, flip this back to ai_backend == "claude".
+        if False:
             # Check pending action first: user may be confirming/cancelling a previous question.
             pending = processor.get_pending_action(scope)
             if pending:

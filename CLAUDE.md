@@ -18,15 +18,11 @@
 `vault/memory/change-log.md` (20 KB) — читай только если нужен исторический контекст.
 `vault/memory/system-log.md` — пиши строку после каждого значимого действия (`YYYY-MM-DD HH:MM | event | claude | OK`).
 
-## Sonnet/Opus split — только для Claude симки
+## Архитектура моделей (2026-05-10: pure Opus)
 
-Архитектура двух моделей: Sonnet — чат и типовое, Opus — нестандартное и тяжёлое. Правила привратника, формат перефразировок, поведение при отсылках к контексту — в отдельном документе. Этот файл НЕ читается Codex'ом, правила здесь применимы только когда `AI_BACKEND=claude`.
+Чат и агентские задачи на Claude симке — оба на Opus. Sonnet/Opus split, классификатор weight, pending-confirmation flow и привратник `sonnet-gatekeeper.md` отключены: на практике приводили к шаблонным переспрашиваниям и зацикливаниям. Файл `vault/.claude/sonnet-gatekeeper.md` оставлен в репо как исторический документ, но НЕ импортируется и в системный промпт не попадает.
 
-@vault/.claude/sonnet-gatekeeper.md
-
-`vault/memory/facts.md` (16 KB, RAG-индекс) — читай через `memory_rag.search(query)`, **не загружай целиком**.
-`vault/memory/change-log.md` (20 KB) — читай только если нужен исторический контекст.
-`vault/memory/system-log.md` — пиши строку после каждого значимого действия (`YYYY-MM-DD HH:MM | event | claude | OK`).
+Если возвращать Sonnet+привратник — править три места: `.env` (CLAUDE_MODEL_CHAT=sonnet), `if False:` обратно в `if processor.ai_backend == "claude":` в `bot/handlers/{text,voice,ask}.py`, и вернуть `@vault/.claude/sonnet-gatekeeper.md` в этот файл.
 
 ## Telegram-оформление
 

@@ -58,6 +58,20 @@ AGENT_MARKER_PATTERN = re.compile(
 )
 
 PENDING_ACTION_TTL_SECONDS = 300
+CHAT_TIMEOUT_SECONDS = 90
+MEDIA_GENERATION_TIMEOUT_SECONDS = 300
+
+MEDIA_REQUEST_PATTERN = re.compile(
+    r"\b(фото|картинк\w*|изображени\w*|видео|ролик\w*|image|photo|picture|video)\b",
+    re.IGNORECASE,
+)
+GENERATION_ACTION_PATTERN = re.compile(
+    r"\b("
+    r"сгенерир\w*|генерир\w*|созда[йт]\w*|нарису\w*|сдела[йт]\w*|"
+    r"generate|create|draw|make"
+    r")\b",
+    re.IGNORECASE,
+)
 
 CONFIRMATION_WORDS = frozenset({
     "делай", "делайте",
@@ -184,6 +198,14 @@ class AgentProcessor:
         return PLANNING_GUARDRAILS
 
     @staticmethod
+    def _is_media_generation_request(text: str) -> bool:
+        """Detect photo/image/video generation requests that may run longer."""
+        return bool(
+            MEDIA_REQUEST_PATTERN.search(text or "")
+            and GENERATION_ACTION_PATTERN.search(text or "")
+        )
+
+    @staticmethod
     def _render_session_entry(entry: dict[str, Any]) -> str:
         """Render a session entry without truncating stored text."""
         ts = entry.get("ts", "")[11:16]
@@ -204,7 +226,7 @@ class AgentProcessor:
             return ""
 
         lines = ["=== TODAY SESSION ==="]
-        for entry in today_entries[-20:]:
+        for entry in today_entries[-10:]:
             rendered = self._render_session_entry(entry)
             if rendered:
                 lines.append(rendered)
@@ -565,6 +587,7 @@ week: {year}-W{week:02d}
         reasoning: str | None = None,
         verbosity: str | None = None,
         max_output_tokens: int = 2000,
+        timeout_sec: int = CHAT_TIMEOUT_SECONDS,
     ) -> str:
         """Dialog / chat request → light model (Sonnet on Claude). Per v3.
 
@@ -579,7 +602,7 @@ week: {year}-W{week:02d}
             return self._run_backend_exec(
                 prompt,
                 read_only=True,
-                timeout_sec=90,
+                timeout_sec=timeout_sec,
                 mode="chat",
             )
 
@@ -1685,22 +1708,23 @@ Do not include:
         parts: list[str] = []
         memory_dir = self.vault_path / "memory"
         if memory_dir.exists():
-            for md_file in sorted(memory_dir.glob("*.md")):
-                content = md_file.read_text(encoding="utf-8", errors="ignore")[:2000]
-                parts.append(f"=== {md_file.name} ===\n{content}")
-
-        goals_dir = self.vault_path / "goals"
-        if goals_dir.exists():
-            for goal_file in sorted(goals_dir.glob("*.md")):
-                content = goal_file.read_text(encoding="utf-8", errors="ignore")[:1000]
-                parts.append(f"=== {goal_file.name} ===\n{content}")
-
-        index_file = self.vault_path / "MOC" / "index.md"
-        if index_file.exists():
-            content = index_file.read_text(encoding="utf-8", errors="ignore")[:3000]
-            parts.append(f"=== index.md ===\n{content}")
+            for name in ("user.md", "soul.md"):
+                md_file = memory_dir / name
+                if md_file.exists():
+                    content = md_file.read_text(encoding="utf-8", errors="ignore")[:2000]
+                    parts.append(f"=== {name} ===\n{content}")
 
         if cold_start:
+            goals_dir = self.vault_path / "goals"
+            if goals_dir.exists():
+                for goal_file in sorted(goals_dir.glob("*.md")):
+                    content = goal_file.read_text(encoding="utf-8", errors="ignore")[:1000]
+                    parts.append(f"=== {goal_file.name} ===\n{content}")
+
+            index_file = self.vault_path / "MOC" / "index.md"
+            if index_file.exists():
+                content = index_file.read_text(encoding="utf-8", errors="ignore")[:3000]
+                parts.append(f"=== index.md ===\n{content}")
             root_index = self.vault_path / "index.md"
             if root_index.exists():
                 parts.append(f"=== vault/index.md ===\n{self._read_context_file(root_index, 4500)}")
@@ -1754,6 +1778,11 @@ Do not include:
         The model argument is kept for handler compatibility and ignored.
         """
         del model
+        timeout_sec = (
+            MEDIA_GENERATION_TIMEOUT_SECONDS
+            if self._is_media_generation_request(prompt)
+            else CHAT_TIMEOUT_SECONDS
+        )
         session_context = self._get_session_context(session_scope or user_id)
         memory_context = self._get_memory_context(
             work_mode=work_context,
@@ -1804,6 +1833,7 @@ Do not include:
                 reasoning="low",
                 verbosity="low",
                 max_output_tokens=1200,
+                timeout_sec=timeout_sec,
             )
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
