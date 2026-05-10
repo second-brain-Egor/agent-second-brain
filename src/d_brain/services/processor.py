@@ -199,11 +199,13 @@ class AgentProcessor:
 
     @staticmethod
     def _is_media_generation_request(text: str) -> bool:
-        """Detect photo/image/video generation requests that may run longer."""
-        return bool(
-            MEDIA_REQUEST_PATTERN.search(text or "")
-            and GENERATION_ACTION_PATTERN.search(text or "")
-        )
+        """Detect photo/image/video requests (generation OR processing) — bump timeout to 300s.
+
+        2026-05-10: убрано требование глагола генерации. Любое упоминание медиа
+        (фото/картинка/изображение/видео/ролик/image/photo/picture/video) даёт 300с,
+        иначе анализ/обработка/транскрипция валились на 90-сек чат-таймауте.
+        """
+        return bool(MEDIA_REQUEST_PATTERN.search(text or ""))
 
     @staticmethod
     def _render_session_entry(entry: dict[str, Any]) -> str:

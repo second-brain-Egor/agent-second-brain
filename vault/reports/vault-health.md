@@ -1,7 +1,6 @@
 ---
-description: "Снимок связности и навигации по базе знаний."
 type: note
-updated: 2026-05-09
+updated: 2026-05-11
 relevance: 0.86
 tier: warm
 ---
@@ -11,46 +10,51 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 339
-- Связей: 1256
-- Сирот: 0
-- Слабосвязанных: 26
+- Заметок: 342
+- Связей: 1255
+- Сирот: 5
+- Слабосвязанных: 22
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 7 | 83.29 |
-| blog | 2 | 1.00 |
-| daily | 38 | 2.71 |
+| MOC | 7 | 83.57 |
+| blog | 2 | 2.00 |
+| daily | 40 | 2.50 |
 | goals | 5 | 8.00 |
 | memory | 5 | 13.20 |
 | projects | 260 | 6.12 |
 | references | 4 | 2.50 |
-| reports | 1 | 51.00 |
+| reports | 1 | 49.00 |
 | root | 1 | 10.00 |
-| summaries | 4 | 2.00 |
-| templates | 2 | 1.00 |
+| summaries | 5 | 1.80 |
+| templates | 2 | 0.00 |
 | thoughts | 10 | 4.60 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 305 связей
+- [[MOC/index.md|Индекс знаний]] — 306 связей
 - [[MOC/MOC-projects.md|MOC - Projects]] — 259 связей
 - [[projects/_index.md|Проекты — индекс]] — 113 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 106 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
-- [[reports/vault-health.md|Health Check Vault]] — 51 связей
+- [[reports/vault-health.md|Health Check Vault]] — 49 связей
 - [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 48 связей
 - [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 46 связей
 - [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 46 связей
 - [[projects/Рынок стройматериалы/price-list-page-3-2026-04-26.md|Прайс-лист стройматериалов — страница 3 из 3]] — 27 связей
 
+## Сироты
+
+- [[daily/2026-04-30.md|2026-04-30]]
+- [[daily/2026-05-02.md|2026-05-02]]
+- [[daily/2026-05-03.md|2026-05-03]]
+- [[templates/crm-template.md|[Company Name]]]
+- [[templates/daily-template.md|{{date}}]]
+
 ## Слабосвязанные
 
-- [[MOC/MOC-reflections.md|Рефлексии]]
-- [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
-- [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
 - [[daily/2026-03-28.md|2026-03-28]]
 - [[daily/2026-03-30.md|2026-03-30]]
@@ -58,7 +62,6 @@ tier: warm
 - [[daily/2026-04-07.md|2026-04-07]]
 - [[daily/2026-04-10.md|2026-04-10]]
 - [[daily/2026-04-12.md|2026-04-12]]
-- [[daily/2026-04-15.md|2026-04-15]]
 - [[daily/2026-04-17.md|2026-04-17]]
 - [[daily/2026-04-19.md|2026-04-19]]
 - [[daily/2026-04-20.md|2026-04-20]]
@@ -68,7 +71,11 @@ tier: warm
 - [[daily/2026-04-25.md|2026-04-25]]
 - [[daily/2026-04-26.md|2026-04-26]]
 - [[daily/2026-04-27.md|2026-04-27]]
-- ... ещё 6
+- [[daily/2026-04-29.md|2026-04-29]]
+- [[daily/2026-05-05.md|2026-05-05]]
+- [[daily/2026-05-06.md|2026-05-06]]
+- [[daily/2026-05-10.md|2026-05-10]]
+- ... ещё 2
 
 ## Неразрешённые ссылки
 
@@ -86,9 +93,9 @@ tier: warm
 - [[daily/2026-05-07.md|2026-05-07]]: attachments/2026-05-07/09-questionnaire-4-telegram-bot, attachments/2026-05-07/09-questionnaire-4-telegram-bot-2, attachments/2026-05-07/09-questionnaire-4-telegram-bot-3, attachments/2026-05-07/09-questionnaire-4-telegram-bot-4, attachments/2026-05-07/09-questionnaire-4-telegram-bot-5 ...
 - [[daily/2026-05-08.md|2026-05-08]]: attachments/2026-05-08/img-222532.jpg
 - [[daily/2026-05-09.md|2026-05-09]]: attachments/2026-05-09/img-182851.jpg, attachments/2026-05-09/img-220231.jpg
+- [[daily/2026-05-10.md|2026-05-10]]: attachments/2026-05-10/img-181739.jpg, attachments/2026-05-10/img-181929.jpg
 - [[projects/asula/README.md|АСУЛА]]: ../accident-response-management-system/README, _index
 - [[projects/asula/_index.md|АСУЛА — индекс]]: ../accident-response-management-system/README, README
 - [[projects/Внедрение ИИ платформы/README.md|Внедрение ИИ платформы]]: projects/onyx/onyx-platform-notes
 - [[projects/Ежедневник/README.md|Ежедневник]]: daily-template, youtube-habits/README
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]: cards/README
-- [[projects/Рынок стройматериалы/cards/001-шамотный-кирпич-шб-8-боровичи.md|1. Шамотный кирпич ШБ-8 Боровичи]]: ../README
