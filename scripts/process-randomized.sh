@@ -3,13 +3,19 @@ set -euo pipefail
 
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-# Anti-ban guard: skip LLM-triggering automation when Claude sim is active.
-# Anthropic TOS forbids automated calls via subscription. If AI_BACKEND=claude — exit silently.
+# Anti-ban guard: skip LLM-triggering automation when processing backend resolves to claude.
+# Anthropic TOS forbids automated calls via subscription. PROCESS_BACKEND развязан с AI_BACKEND
+# чтобы чат мог идти через Claude Max, а фоновая обработка автоматически через Codex.
+# Приоритет: PROCESS_BACKEND > AI_BACKEND > codex.
 if [ -f "$PROJECT_DIR/.env" ]; then
+    PROCESS_BACKEND_VAL="$(grep -E '^PROCESS_BACKEND=' "$PROJECT_DIR/.env" | tail -n1 | cut -d= -f2 | tr -d '"' | tr -d "'" | tr -d '[:space:]')"
     AI_BACKEND_VAL="$(grep -E '^AI_BACKEND=' "$PROJECT_DIR/.env" | tail -n1 | cut -d= -f2 | tr -d '"' | tr -d "'" | tr -d '[:space:]')"
-    if [ "${AI_BACKEND_VAL:-codex}" = "claude" ]; then
+    RESOLVED_BACKEND="${PROCESS_BACKEND_VAL:-${AI_BACKEND_VAL:-codex}}"
+    if [ "$RESOLVED_BACKEND" = "claude" ]; then
         exit 0
     fi
+    # Force resolved backend for the processor subprocess regardless of bot daemon's AI_BACKEND.
+    export AI_BACKEND="$RESOLVED_BACKEND"
 fi
 
 STATE_DIR="$PROJECT_DIR/logs"

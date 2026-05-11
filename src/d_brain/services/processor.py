@@ -599,11 +599,17 @@ week: {year}-W{week:02d}
         5 минут в надежде что прорвётся.
         """
         del reasoning, verbosity, max_output_tokens
-        prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=True)
+        # 2026-05-11: чат-сессия больше не read-only. С момента перехода на pure Opus
+        # (2026-05-10) обычный диалог тоже должен уметь ходить на Барыгу, запускать
+        # скрипты, читать сетевые ресурсы. read_only=True оставался legacy от
+        # Sonnet-чата и блокировал --permission-mode → default → Bash недоступен в
+        # subprocess --print. Возвращать True имеет смысл только если снова разделить
+        # light/heavy и вернуть привратника.
+        prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=False)
         with _claude_chat_lock():
             return self._run_backend_exec(
                 prompt,
-                read_only=True,
+                read_only=False,
                 timeout_sec=timeout_sec,
                 mode="chat",
             )

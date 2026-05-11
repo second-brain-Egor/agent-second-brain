@@ -44,11 +44,15 @@ fi
     echo "=== Vault-health done ==="
 } >>"$LOG_FILE" 2>&1
 
-# Anti-ban guard: skip LLM-based weekly digest when Claude sim is active (Anthropic TOS).
+# Anti-ban guard: skip LLM-based weekly digest when processing backend resolves to claude.
 # Vault-health above runs unconditionally — it doesn't call LLM.
-if [ "${AI_BACKEND:-codex}" = "claude" ]; then
+# Приоритет: PROCESS_BACKEND > AI_BACKEND > codex. См. process-randomized.sh.
+RESOLVED_BACKEND="${PROCESS_BACKEND:-${AI_BACKEND:-codex}}"
+if [ "$RESOLVED_BACKEND" = "claude" ]; then
     exit 0
 fi
+# Force resolved backend for the weekly subprocess regardless of bot daemon's AI_BACKEND.
+export AI_BACKEND="$RESOLVED_BACKEND"
 
 cd "$PROJECT_DIR"
 exec flock -n "$LOCK_FILE" uv run python scripts/weekly.py >>"$LOG_FILE" 2>&1
