@@ -21,3 +21,4 @@ related:
 2026-05-08 00:51 | process | OK | 1 task, 1 thought
 2026-05-08 12:05 | process | claude | OK | 1 task, facts updated
 2026-05-08 22:00 | process | claude | OK | 0 tasks, 1 fact
+2026-05-12 09:55 | CHAT_TIMEOUT_SECONDS 90→180 | claude | OK
