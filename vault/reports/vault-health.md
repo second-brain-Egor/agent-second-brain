@@ -10,21 +10,21 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 344
-- Связей: 1255
+- Заметок: 345
+- Связей: 1257
 - Сирот: 7
-- Слабосвязанных: 20
+- Слабосвязанных: 19
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 7 | 83.57 |
+| MOC | 7 | 83.71 |
 | blog | 2 | 2.00 |
-| daily | 42 | 2.43 |
+| daily | 42 | 2.48 |
 | goals | 5 | 8.00 |
 | memory | 5 | 13.20 |
-| projects | 260 | 6.11 |
+| projects | 261 | 6.09 |
 | references | 4 | 2.50 |
 | reports | 1 | 49.00 |
 | root | 1 | 10.00 |
@@ -34,7 +34,7 @@ tier: warm
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 306 связей
+- [[MOC/index.md|Индекс знаний]] — 307 связей
 - [[MOC/MOC-projects.md|MOC - Projects]] — 259 связей
 - [[projects/_index.md|Проекты — индекс]] — 113 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 106 связей
@@ -75,7 +75,6 @@ tier: warm
 - [[daily/2026-04-27.md|2026-04-27]]
 - [[daily/2026-04-29.md|2026-04-29]]
 - [[daily/2026-05-12.md|2026-05-12]]
-- [[daily/2026-05-13.md|2026-05-13]]
 - [[summaries/2026-W19-summary.md|2026-W19-summary]]
 
 ## Неразрешённые ссылки
@@ -96,7 +95,7 @@ tier: warm
 - [[daily/2026-05-09.md|2026-05-09]]: attachments/2026-05-09/img-182851.jpg, attachments/2026-05-09/img-220231.jpg
 - [[daily/2026-05-10.md|2026-05-10]]: attachments/2026-05-10/img-181739.jpg, attachments/2026-05-10/img-181929.jpg
 - [[daily/2026-05-11.md|2026-05-11]]: attachments/2026-05-11/img-092214.jpg
+- [[daily/2026-05-13.md|2026-05-13]]: attachments/2026-05-13/img-200536.jpg, attachments/2026-05-13/img-200751.jpg, attachments/2026-05-13/img-201045.jpg, attachments/2026-05-13/img-202519.jpg, attachments/2026-05-13/img-204033.jpg
 - [[projects/asula/README.md|АСУЛА]]: ../accident-response-management-system/README, _index
 - [[projects/asula/_index.md|АСУЛА — индекс]]: ../accident-response-management-system/README, README
 - [[projects/Внедрение ИИ платформы/README.md|Внедрение ИИ платформы]]: projects/onyx/onyx-platform-notes
-- [[projects/Ежедневник/README.md|Ежедневник]]: daily-template, youtube-habits/README
