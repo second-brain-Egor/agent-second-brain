@@ -11,9 +11,9 @@ tier: warm
 ## Обзор
 
 - Заметок: 346
-- Связей: 1262
+- Связей: 1265
 - Сирот: 0
-- Слабосвязанных: 30
+- Слабосвязанных: 29
 
 ## Домены
 
@@ -21,10 +21,10 @@ tier: warm
 |---|---:|---:|
 | MOC | 7 | 83.57 |
 | blog | 2 | 1.00 |
-| daily | 43 | 2.53 |
+| daily | 43 | 2.60 |
 | goals | 5 | 8.00 |
-| memory | 5 | 13.20 |
-| projects | 261 | 6.09 |
+| memory | 5 | 13.60 |
+| projects | 261 | 6.10 |
 | references | 4 | 2.50 |
 | reports | 1 | 54.00 |
 | root | 1 | 10.00 |
@@ -67,7 +67,7 @@ tier: warm
 - [[daily/2026-04-25.md|2026-04-25]]
 - [[daily/2026-04-26.md|2026-04-26]]
 - [[daily/2026-04-27.md|2026-04-27]]
-- ... ещё 10
+- ... ещё 9
 
 ## Неразрешённые ссылки
 
@@ -88,6 +88,6 @@ tier: warm
 - [[daily/2026-05-10.md|2026-05-10]]: attachments/2026-05-10/img-181739.jpg, attachments/2026-05-10/img-181929.jpg
 - [[daily/2026-05-11.md|2026-05-11]]: attachments/2026-05-11/img-092214.jpg
 - [[daily/2026-05-13.md|2026-05-13]]: attachments/2026-05-13/img-200536.jpg, attachments/2026-05-13/img-200751.jpg, attachments/2026-05-13/img-201045.jpg, attachments/2026-05-13/img-202519.jpg, attachments/2026-05-13/img-204033.jpg
+- [[daily/2026-05-14.md|2026-05-14]]: attachments/2026-05-14/img-072308.jpg, attachments/2026-05-14/img-152837.jpg, attachments/2026-05-14/img-154052.jpg, attachments/2026-05-14/img-154359.jpg, attachments/2026-05-14/img-154526.jpg
 - [[projects/asula/README.md|АСУЛА]]: ../accident-response-management-system/README, _index
 - [[projects/asula/_index.md|АСУЛА — индекс]]: ../accident-response-management-system/README, README
-- [[projects/Внедрение ИИ платформы/README.md|Внедрение ИИ платформы]]: projects/onyx/onyx-platform-notes

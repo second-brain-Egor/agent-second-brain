@@ -29,3 +29,7 @@ tier: active
 - [[projects/timberframe-workshop-setup/README|Timberframe Workshop Setup]]
 - [[goals/0-vision-3y|Vision 2025-2027]]
 - [[goals/1-yearly-2026|Goals 2026]]
+
+## Литература
+
+- Steve Chappell — «A Timber Framer's Workshop: Joinery, Design & Construction of Traditional Timber Frames». 2026-05-14: на Anna's Archive (.org/.gl/.se) книги не нашлось ни по ISBN, ни по названию; в свободных зеркалах сейчас отсутствует. Варианты: купить бумажный экземпляр (Amazon, Fox Maple Press) или искать в офлайн-библиотеках timber framers guild.
