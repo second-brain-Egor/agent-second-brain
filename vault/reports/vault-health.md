@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-05-15
+updated: 2026-05-16
 relevance: 0.86
 tier: warm
 ---
@@ -10,53 +10,46 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 347
-- Связей: 1260
-- Сирот: 7
-- Слабосвязанных: 21
+- Заметок: 349
+- Связей: 1266
+- Сирот: 0
+- Слабосвязанных: 32
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
 | MOC | 7 | 83.71 |
-| blog | 2 | 2.00 |
-| daily | 44 | 2.43 |
+| blog | 2 | 1.00 |
+| daily | 45 | 2.51 |
 | goals | 5 | 8.00 |
 | memory | 5 | 13.60 |
-| projects | 261 | 6.10 |
+| projects | 262 | 6.08 |
 | references | 4 | 2.50 |
-| reports | 1 | 49.00 |
+| reports | 1 | 54.00 |
 | root | 1 | 10.00 |
 | summaries | 5 | 1.80 |
-| templates | 2 | 0.00 |
+| templates | 2 | 1.00 |
 | thoughts | 10 | 4.60 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 307 связей
+- [[MOC/index.md|Индекс знаний]] — 308 связей
 - [[MOC/MOC-projects.md|MOC - Projects]] — 259 связей
 - [[projects/_index.md|Проекты — индекс]] — 113 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 106 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
-- [[reports/vault-health.md|Health Check Vault]] — 49 связей
+- [[reports/vault-health.md|Health Check Vault]] — 54 связей
 - [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 48 связей
 - [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 46 связей
 - [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 46 связей
 - [[projects/Рынок стройматериалы/price-list-page-3-2026-04-26.md|Прайс-лист стройматериалов — страница 3 из 3]] — 27 связей
 
-## Сироты
-
-- [[daily/2026-04-30.md|2026-04-30]]
-- [[daily/2026-05-02.md|2026-05-02]]
-- [[daily/2026-05-03.md|2026-05-03]]
-- [[daily/2026-05-05.md|2026-05-05]]
-- [[daily/2026-05-06.md|2026-05-06]]
-- [[templates/crm-template.md|[Company Name]]]
-- [[templates/daily-template.md|{{date}}]]
-
 ## Слабосвязанные
 
+- [[MOC/MOC-reflections.md|Рефлексии]]
+- [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
+- [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
 - [[daily/2026-03-28.md|2026-03-28]]
 - [[daily/2026-03-30.md|2026-03-30]]
@@ -64,6 +57,7 @@ tier: warm
 - [[daily/2026-04-07.md|2026-04-07]]
 - [[daily/2026-04-10.md|2026-04-10]]
 - [[daily/2026-04-12.md|2026-04-12]]
+- [[daily/2026-04-15.md|2026-04-15]]
 - [[daily/2026-04-17.md|2026-04-17]]
 - [[daily/2026-04-19.md|2026-04-19]]
 - [[daily/2026-04-20.md|2026-04-20]]
@@ -73,11 +67,7 @@ tier: warm
 - [[daily/2026-04-25.md|2026-04-25]]
 - [[daily/2026-04-26.md|2026-04-26]]
 - [[daily/2026-04-27.md|2026-04-27]]
-- [[daily/2026-04-29.md|2026-04-29]]
-- [[daily/2026-05-07.md|2026-05-07]]
-- [[daily/2026-05-12.md|2026-05-12]]
-- [[daily/2026-05-15.md|2026-05-15]]
-- ... ещё 1
+- ... ещё 12
 
 ## Неразрешённые ссылки
 
@@ -99,5 +89,5 @@ tier: warm
 - [[daily/2026-05-11.md|2026-05-11]]: attachments/2026-05-11/img-092214.jpg
 - [[daily/2026-05-13.md|2026-05-13]]: attachments/2026-05-13/img-200536.jpg, attachments/2026-05-13/img-200751.jpg, attachments/2026-05-13/img-201045.jpg, attachments/2026-05-13/img-202519.jpg, attachments/2026-05-13/img-204033.jpg
 - [[daily/2026-05-14.md|2026-05-14]]: attachments/2026-05-14/img-072308.jpg, attachments/2026-05-14/img-152837.jpg, attachments/2026-05-14/img-154052.jpg, attachments/2026-05-14/img-154359.jpg, attachments/2026-05-14/img-154526.jpg
-- [[projects/asula/README.md|АСУЛА]]: ../accident-response-management-system/README, _index
-- [[projects/asula/_index.md|АСУЛА — индекс]]: ../accident-response-management-system/README, README
+- [[daily/2026-05-15.md|2026-05-15]]: attachments/2026-05-15/img-132410.jpg, attachments/2026-05-15/img-141621.jpg
+- [[projects/_index.md|Проекты — индекс]]: Forumhouse, YouTube-каналы, asula, dacha, forumhouse-framehouse-knowledge-base ...

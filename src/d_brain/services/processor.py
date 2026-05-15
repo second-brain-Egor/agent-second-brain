@@ -396,6 +396,14 @@ week: {year}-W{week:02d}
             f"- Sandbox expectation: {mode}\n"
             "- Reply in Russian.\n"
             "- Return only the final answer for the user, without tool logs or extra commentary.\n\n"
+            "Internet tools:\n"
+            "- Internet access is available.\n"
+            "- For web search, use built-in web tools when available, or run: "
+            "`uv run python scripts/web_search.py \"query\" --max-results 5`.\n"
+            "- To read a page by URL, run: "
+            "`uv run python scripts/web_fetch.py \"https://example.com\"`.\n"
+            "- Use web access for current facts, prices, schedules, docs, "
+            "product pages, and links.\n\n"
             f"{user_prompt.strip()}\n"
         )
 
