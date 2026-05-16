@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 349
-- Связей: 1266
+- Заметок: 350
+- Связей: 1267
 - Сирот: 0
-- Слабосвязанных: 32
+- Слабосвязанных: 31
 
 ## Память
 
@@ -57,6 +57,7 @@ tier: active
 - [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
 - [[projects/dacha/bathhouse-procurement-draft.md|Баня — черновик закупки материалов]]
 - [[projects/dacha/kettama-mps02d-motor-replacement.md|Kettama MPS02D — замена двигателя]]
+- [[projects/dacha/pool-from-blocks-idea.md|Бассейн из фундаментных блоков (идея)]]
 - [[projects/dacha/Разбор специалиста. Три видео/audio-transcript-analysis.md|Разбор консультации специалиста по транскрибации аудио]]
 - [[projects/dacha/Разбор специалиста. Три видео/download-journal.md|Журнал скачанных видео]]
 - [[projects/dacha/Разбор специалиста. Три видео/summary.md|Сводка по видео]]
