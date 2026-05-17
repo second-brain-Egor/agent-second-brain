@@ -1,5 +1,4 @@
 ---
-description: "Снимок связности и навигации по базе знаний."
 type: note
 updated: 2026-05-17
 relevance: 0.86
@@ -11,33 +10,33 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 351
-- Связей: 1262
+- Заметок: 352
+- Связей: 1266
 - Сирот: 7
-- Слабосвязанных: 24
+- Слабосвязанных: 22
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 7 | 84.00 |
+| MOC | 7 | 84.14 |
 | blog | 2 | 2.00 |
-| daily | 46 | 2.35 |
+| daily | 46 | 2.37 |
 | goals | 5 | 8.00 |
 | memory | 5 | 13.80 |
-| projects | 263 | 6.05 |
+| projects | 263 | 6.06 |
 | references | 4 | 2.50 |
 | reports | 1 | 48.00 |
-| root | 1 | 10.00 |
-| summaries | 5 | 1.80 |
+| root | 1 | 12.00 |
+| summaries | 6 | 1.83 |
 | templates | 2 | 0.00 |
 | thoughts | 10 | 4.60 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 309 связей
+- [[MOC/index.md|Индекс знаний]] — 310 связей
 - [[MOC/MOC-projects.md|MOC - Projects]] — 259 связей
-- [[projects/_index.md|Проекты — индекс]] — 113 связей
+- [[projects/_index.md|Проекты — индекс]] — 114 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 106 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
 - [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 48 связей
@@ -78,7 +77,7 @@ tier: warm
 - [[daily/2026-05-07.md|2026-05-07]]
 - [[daily/2026-05-10.md|2026-05-10]]
 - [[daily/2026-05-12.md|2026-05-12]]
-- ... ещё 4
+- ... ещё 2
 
 ## Неразрешённые ссылки
 
@@ -101,4 +100,4 @@ tier: warm
 - [[daily/2026-05-13.md|2026-05-13]]: attachments/2026-05-13/img-200536.jpg, attachments/2026-05-13/img-200751.jpg, attachments/2026-05-13/img-201045.jpg, attachments/2026-05-13/img-202519.jpg, attachments/2026-05-13/img-204033.jpg
 - [[daily/2026-05-14.md|2026-05-14]]: attachments/2026-05-14/img-072308.jpg, attachments/2026-05-14/img-152837.jpg, attachments/2026-05-14/img-154052.jpg, attachments/2026-05-14/img-154359.jpg, attachments/2026-05-14/img-154526.jpg
 - [[daily/2026-05-15.md|2026-05-15]]: attachments/2026-05-15/img-132410.jpg, attachments/2026-05-15/img-141621.jpg
-- [[projects/_index.md|Проекты — индекс]]: Forumhouse, YouTube-каналы, asula, dacha, forumhouse-framehouse-knowledge-base ...
+- [[daily/2026-05-17.md|2026-05-17]]: attachments/2026-05-17/img-132424.jpg
