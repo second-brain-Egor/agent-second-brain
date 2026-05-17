@@ -4,6 +4,8 @@ type: moc
 last_accessed: 2026-05-08
 relevance: 0.85
 tier: active
+related:
+  - "[[MEMORY]]"
 ---
 
 # Рефлексии

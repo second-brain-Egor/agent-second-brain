@@ -6,6 +6,8 @@ updated: 2026-05-15
 last_accessed: 2026-05-15
 relevance: 0.9
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # 4G на даче: модем + антенна + что докупить
 

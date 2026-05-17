@@ -1,7 +1,10 @@
 ---
+description: "Weekly summary for 2026-W19"
 date: 2026-05-10
 type: weekly-summary
 week: 2026-W19
+related:
+  - "[[MEMORY]]"
 ---
 
 **Неделя 4–10 мая**
