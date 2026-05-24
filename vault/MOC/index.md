@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 360
-- Связей: 1273
+- Заметок: 361
+- Связей: 1277
 - Сирот: 0
-- Слабосвязанных: 42
+- Слабосвязанных: 41
 
 ## Память
 
@@ -54,6 +54,7 @@ tier: active
 - [[projects/asula/scenarios.md|Сценарии]]
 - [[projects/asula/timeline.md|Хроника]]
 - [[projects/dacha/README.md|Дача]]
+- [[projects/dacha/bathhouse-lipa-osina-vagonka.md|Липа и осина для бани]]
 - [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
 - [[projects/dacha/bathhouse-procurement-draft.md|Баня — черновик закупки материалов]]
 - [[projects/dacha/kettama-mps02d-motor-replacement.md|Kettama MPS02D — замена двигателя]]
