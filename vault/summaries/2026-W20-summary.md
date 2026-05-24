@@ -1,7 +1,10 @@
 ---
+description: "Weekly summary for 2026-W20"
 date: 2026-05-17
 type: weekly-summary
 week: 2026-W20
+related:
+  - "[[MEMORY]]"
 ---
 
 **Победы** ✅
