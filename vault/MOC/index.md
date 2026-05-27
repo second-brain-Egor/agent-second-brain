@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-05-26
+updated: 2026-05-27
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 364
-- Связей: 1281
-- Сирот: 1
-- Слабосвязанных: 41
+- Заметок: 367
+- Связей: 1277
+- Сирот: 11
+- Слабосвязанных: 31
 
 ## Память
 
@@ -57,6 +57,7 @@ tier: active
 - [[projects/dacha/bathhouse-lipa-osina-vagonka.md|Липа и осина для бани]]
 - [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
 - [[projects/dacha/bathhouse-procurement-draft.md|Баня — черновик закупки материалов]]
+- [[projects/dacha/bathhouse-stove-chimney-invoice-2026-05-22.md|Накладная от 22.05.2026 — печь, дымоход, расходники]]
 - [[projects/dacha/kettama-mps02d-motor-replacement.md|Kettama MPS02D — замена двигателя]]
 - [[projects/dacha/pool-from-blocks-idea.md|Бассейн из фундаментных блоков (идея)]]
 - [[projects/dacha/Разбор специалиста. Три видео/audio-transcript-analysis.md|Разбор консультации специалиста по транскрибации аудио]]
@@ -113,6 +114,7 @@ tier: active
 - [[projects/timberframe-workshop-setup/README.md|Timberframe Workshop Setup]]
 - [[projects/timberframe/README.md|TimberFrame]]
 - [[projects/trading-bot-stop-reliability/README.md|Надёжная остановка торгового бота]]
+- [[projects/trading/dash/analysis-2026-05-26.md|DASH/USDT — анализ за полтора месяца]]
 - [[projects/Внедрение ИИ платформы/01-project-outline.md|Каркас проекта]]
 - [[projects/Внедрение ИИ платформы/02-key-questions-and-sensitive-points.md|Ключевые вопросы и чувствительные моменты]]
 - [[projects/Внедрение ИИ платформы/03-local-ai-stack-and-budget.md|Локальный ИИ-контур и бюджет]]
@@ -310,13 +312,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-05-27.md|2026-05-27]]
 - [[daily/2026-05-26.md|2026-05-26]]
 - [[daily/2026-05-25.md|2026-05-25]]
 - [[daily/2026-05-24.md|2026-05-24]]
 - [[daily/2026-05-23.md|2026-05-23]]
 - [[daily/2026-05-22.md|2026-05-22]]
 - [[daily/2026-05-21.md|2026-05-21]]
-- [[daily/2026-05-20.md|2026-05-20]]
 
 ## Недельные сводки
 
