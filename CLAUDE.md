@@ -64,7 +64,8 @@ Anthropic TOS запрещает «automated or non-human means» через п�
 - Активная симка определяется `AI_BACKEND` в `.env`.
 - `vault/.claude/` — мастер. `vault/.codex/{rules,docs,agents,skills}` — симлинки на `.claude/*`. Один источник правил для обеих симок.
 - Точки входа: `CLAUDE.md` (этот файл) и `GLOBAL_RULES.md` (для Codex). Содержательно идентичны — `CLAUDE.md` импортирует `GLOBAL_RULES.md` через `@`.
-- Переключение симок: кнопка «🤖 Модель» в боте (только админ).
+- Переключение симок (Claude / Codex): кнопка «🤖 Модель» в боте (только админ).
+- Переключение модели Claude (Opus / Sonnet / Haiku): кнопка «🧠 Claude» в боте (только админ). Правит `CLAUDE_MODEL`, `CLAUDE_MODEL_CHAT`, `CLAUDE_MODEL_AGENT` в `.env` одним значением — выбранная модель применяется и к чату, и к агенту, и к /do. После нажатия бот рестартится через `ADMIN_RESTART_COMMAND`. Не путать с «🤖 Модель» — та меняет симку, эта меняет вариант Claude внутри Claude-симки.
 
 ## Накопленные learnings (читай через Read по триггерам темы)
 

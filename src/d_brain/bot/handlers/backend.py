@@ -9,6 +9,7 @@ new backend is picked up by the running process.
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import re
 import shlex
@@ -24,6 +25,7 @@ router = Router(name="backend")
 logger = logging.getLogger(__name__)
 
 ENV_PATH = Path(__file__).resolve().parents[3].parent / ".env"
+PENDING_SWITCH_PATH = Path("/tmp/d-brain-pending-backend-switch.json")
 SUPPORTED = {"claude", "codex"}
 LABELS = {
     "claude": "Claude (Claude Max подписка)",
@@ -116,6 +118,16 @@ async def cb_backend(callback: CallbackQuery) -> None:
         return
 
     label = LABELS.get(new_backend, new_backend)
+    chat_id = callback.message.chat.id if callback.message is not None else None
+    if chat_id is not None:
+        try:
+            PENDING_SWITCH_PATH.write_text(
+                json.dumps({"backend": new_backend, "label": label, "chat_id": chat_id}),
+                encoding="utf-8",
+            )
+        except OSError:
+            logger.exception("Failed to write pending backend switch marker")
+
     if callback.message is not None:
         await callback.message.answer(
             f"🔄 Переключаюсь на <b>{label}</b>… рестарт через ~3 сек."

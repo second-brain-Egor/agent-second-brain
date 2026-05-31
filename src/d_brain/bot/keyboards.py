@@ -14,7 +14,7 @@ def get_main_keyboard() -> ReplyKeyboardMarkup:
     # Second row: additional
     builder.button(text="✨ Запрос")
     builder.button(text="🤖 Модель")
-    builder.button(text="❓ Помощь")
+    builder.button(text="🧠 Claude")
     builder.adjust(3, 3)
     # Let Telegram collapse the custom keyboard normally on Android.
     return builder.as_markup(resize_keyboard=True, is_persistent=False)
@@ -28,4 +28,15 @@ def get_backend_inline_keyboard(current: str) -> InlineKeyboardMarkup:
     builder.button(text=claude_label, callback_data="backend:claude")
     builder.button(text=codex_label, callback_data="backend:codex")
     builder.adjust(2)
+    return builder.as_markup()
+
+
+def get_claude_model_inline_keyboard(current: str) -> InlineKeyboardMarkup:
+    """Inline keyboard for switching Claude model (Opus/Sonnet/Haiku)."""
+    builder = InlineKeyboardBuilder()
+    options = [("opus", "Opus"), ("sonnet", "Sonnet"), ("haiku", "Haiku")]
+    for value, label in options:
+        text = f"✅ {label}" if current == value else label
+        builder.button(text=text, callback_data=f"claude_model:{value}")
+    builder.adjust(3)
     return builder.as_markup()

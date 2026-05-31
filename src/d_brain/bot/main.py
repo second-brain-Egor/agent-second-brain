@@ -25,7 +25,7 @@ def create_bot(settings: Settings) -> Bot:
 
 def create_dispatcher() -> Dispatcher:
     """Create and configure the dispatcher with routers."""
-    from d_brain.bot.handlers import ask, backend, buttons, channel, commands, do, document, forward, photo, process, text, voice, weekly
+    from d_brain.bot.handlers import ask, backend, buttons, channel, claude_model, commands, do, document, forward, photo, process, text, voice, weekly
 
     # Use memory storage for FSM (required for /do command state)
     dp = Dispatcher(storage=MemoryStorage())
@@ -38,6 +38,7 @@ def create_dispatcher() -> Dispatcher:
     dp.include_router(weekly.router)
     dp.include_router(do.router)  # Before voice/text to catch FSM state
     dp.include_router(backend.router)  # 🤖 Модель: backend switcher (button + callbacks)
+    dp.include_router(claude_model.router)  # 🧠 Claude: Opus/Sonnet/Haiku switcher
     dp.include_router(buttons.router)  # Reply keyboard buttons
     dp.include_router(document.router)
     dp.include_router(voice.router)
@@ -80,6 +81,35 @@ def create_auth_middleware(settings: Settings) -> MiddlewareType:
     return auth_middleware
 
 
+async def _announce_pending_switch(bot: Bot, marker_path, default_label: str) -> None:
+    """If a pending switch marker exists, notify the chat and remove it."""
+    import json
+
+    if not marker_path.exists():
+        return
+    try:
+        data = json.loads(marker_path.read_text(encoding="utf-8"))
+        chat_id = int(data["chat_id"])
+        label = str(data.get("label") or default_label)
+        await bot.send_message(chat_id, f"✅ Готово, теперь на <b>{label}</b>.")
+    except Exception:
+        logger.exception("Failed to announce switch from %s", marker_path)
+    finally:
+        try:
+            marker_path.unlink()
+        except OSError:
+            pass
+
+
+async def _announce_pending_switches(bot: Bot) -> None:
+    """Announce any pending model and/or backend switches after restart."""
+    from d_brain.bot.handlers.claude_model import PENDING_SWITCH_PATH as MODEL_PATH
+    from d_brain.bot.handlers.backend import PENDING_SWITCH_PATH as BACKEND_PATH
+
+    await _announce_pending_switch(bot, BACKEND_PATH, "Claude")
+    await _announce_pending_switch(bot, MODEL_PATH, "Claude")
+
+
 async def run_bot(settings: Settings) -> None:
     """Run the bot with polling."""
     if not settings.allowed_user_ids:
@@ -97,6 +127,8 @@ async def run_bot(settings: Settings) -> None:
 
     # Always filter updates by allowed Telegram user IDs.
     dp.update.middleware(create_auth_middleware(settings))
+
+    await _announce_pending_switches(bot)
 
     logger.info("Starting bot polling...")
     try:

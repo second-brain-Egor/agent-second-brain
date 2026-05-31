@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 371
-- Связей: 1285
+- Заметок: 372
+- Связей: 1291
 - Сирот: 2
-- Слабосвязанных: 48
+- Слабосвязанных: 47
 
 ## Память
 
@@ -334,6 +334,7 @@ tier: active
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
 - [[thoughts/learnings/forumhouse-agent-access-parity.md|Единый доступ агентов к Forumhouse]]
 - [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
+- [[thoughts/learnings/model-token-economy.md|Экономия лимита при вопросах о модели]]
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
 - [[thoughts/learnings/shift-based-daily-planner.md|Сменный ежедневник — формат под график сутки через трое]]
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]

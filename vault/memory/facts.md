@@ -159,6 +159,7 @@ tier: active
 - **Транскрипция голоса в Telegram** идёт через **Deepgram nova-3** (русский язык, реализация в `src/d_brain/services/transcription.py`). API-ключ в `.env` как `DEEPGRAM_API_KEY`. **Whisper НЕ используется**, не упоминать его в ответах.
 - **Интеграция с Todoist** — через Python SDK `todoist-api-python` (НЕ через `mcp-cli`). API-ключ в `.env` как `TODOIST_API_KEY`. Методы в `src/d_brain/services/processor.py`: `_tool_todoist_get_projects`, `_tool_todoist_search_tasks`, `_tool_todoist_get_completed_tasks`, `_tool_todoist_add_task`, `_tool_todoist_update_task`, `_tool_todoist_complete_task`. Из скилла или из любого места можно вызвать SDK через `.venv/bin/python -c "from todoist_api_python.api import TodoistAPI; ..."`. См. `vault/.claude/skills/todoist-ai/SKILL.md`.
 - **LLM-движки бота:** активная симка определяется `AI_BACKEND` в `.env`. Возможные значения: `claude` (через `claude --print`, подписка Claude Max) и `codex` (через `codex exec`, подписка Codex Pro). Без API-ключей Anthropic/OpenAI — авторизация локальная.
+- **Две кнопки переключения в боте (только админ):** «🤖 Модель» меняет симку (Claude / Codex) — правит `AI_BACKEND` в `.env`. «🧠 Claude» меняет модель Claude (Opus / Sonnet / Haiku) — правит `CLAUDE_MODEL`, `CLAUDE_MODEL_CHAT`, `CLAUDE_MODEL_AGENT` одним значением, применяется к чату, агенту и /do одинаково. Обе кнопки после нажатия дёргают `ADMIN_RESTART_COMMAND`. Когда пользователь спрашивает «как сменить модель» — отправлять в «🧠 Claude», а не в «🤖 Модель».
 
 ## 2026-05-07 — Сменный ритм и формат ежедневника
 - График сутки через трое: 5 мая — смена, 6 — после смены, 7 — рабочий выходной, 8 — свободный/буфер, 9 — следующая смена
@@ -249,3 +250,7 @@ tier: active
 
 ## 2026-05-25 — Таймаут Claude в боте
 - Таймаут `claude -p` увеличен с 210 секунд до 15 минут (900 с) по запросу пользователя
+
+## 2026-05-31 — Проверка модели в Telegram-боте
+- Егор является администратором Telegram-бота и ожидает доступ к админским кнопкам переключения симки и модели Claude.
+- После добавления кнопки «🧠 Claude» Егор проверял в чате, какая модель сейчас активна, и обратил внимание на высокий расход 5-часового лимита при коротких вопросах.
