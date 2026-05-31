@@ -6,6 +6,8 @@ status: active
 created: 2026-05-26
 updated: 2026-05-26
 project: dacha
+related:
+  - "[[projects/_index]]"
 ---
 
 # Накладная от 22.05.2026 — печь, дымоход, расходники

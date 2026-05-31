@@ -1212,8 +1212,14 @@ Vault root: {self.vault_path.as_posix()}
 
 Process today's inbox and memory updates.
 
-Start by reading:
-- vault/daily/{day.isoformat()}.md
+The full content of today's daily file is inlined below — do NOT skip processing it,
+and do not respond "no entries today" if this block is non-empty.
+
+=== vault/daily/{day.isoformat()}.md ===
+{daily_text}
+=== END vault/daily/{day.isoformat()}.md ===
+
+Also read for context:
 - vault/memory/facts.md
 - vault/memory/user.md
 - vault/memory/soul.md

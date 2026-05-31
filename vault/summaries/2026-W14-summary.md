@@ -6,6 +6,8 @@ relevance: 0.94
 tier: active
 date: 2026-03-31
 week: 2026-W14
+related:
+  - "[[MEMORY]]"
 ---
 
 Все данные собраны. Генерирую дайджест.
