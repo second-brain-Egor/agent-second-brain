@@ -1,5 +1,4 @@
 ---
-description: "Map of Content: Index, 309 entries"
 type: note
 updated: 2026-05-31
 relevance: 0.9
@@ -11,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 372
-- Связей: 1291
+- Заметок: 373
+- Связей: 1297
 - Сирот: 2
-- Слабосвязанных: 47
+- Слабосвязанных: 45
 
 ## Память
 
@@ -323,12 +322,12 @@ tier: active
 
 ## Недельные сводки
 
+- [[summaries/2026-W22-summary.md|2026-W22-summary]]
 - [[summaries/2026-W21-summary.md|2026-W21-summary]]
 - [[summaries/2026-W20-summary.md|2026-W20-summary]]
 - [[summaries/2026-W19-summary.md|2026-W19-summary]]
 - [[summaries/2026-W18-summary.md|2026-W18-summary]]
 - [[summaries/2026-W16-summary.md|2026-W16-summary]]
-- [[summaries/2026-W15-summary.md|2026-W15-summary]]
 
 ## Обучения и правила
 
