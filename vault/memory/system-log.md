@@ -28,6 +28,9 @@ related:
 2026-05-25 21:30 | process | OK | 0 tasks, 0 thoughts, 3 facts
 2026-05-27 09:00 | process | claude | OK | 0 tasks, 0 thoughts (no new content)
 2026-05-31 20:04 | process | OK | 0 tasks, 1 thought
+2026-06-04 23:30 | process | claude | OK | 0 tasks, facts+soul updated (FLOKI)
 2026-05-31 21:00 | process | claude | OK | re-run, no new content, all facts already recorded
 2026-05-31 23:50 | process | claude | OK (0 tasks, 1 note updated)
 2026-06-04 23:00 | process | claude | OK | 1 task, facts updated (FLOKI)
+2026-06-04 16:20 | FLOKI live-данные: анализ коридора 90 дней на Барыге | claude | OK
+2026-06-04 16:28 | FLOKI live backtest на Барыге: mean-reversion + сезонность, edge не подтверждён | claude | OK
