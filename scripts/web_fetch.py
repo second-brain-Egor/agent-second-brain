@@ -5,73 +5,15 @@ from __future__ import annotations
 
 import argparse
 import sys
+from pathlib import Path
 
-import httpx
-import trafilatura
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
 
-BLOCKED_INDICATORS = [
-    "enable javascript",
-    "please enable",
-    "access denied",
-    "cloudflare",
-    "ddos protection",
-    "checking your browser",
-    "robot or human",
-    "captcha",
-]
+from direct_web.fetch import fetch_with_browser, fetch_with_httpx  # noqa: E402
+from direct_web.network import ensure_direct_process  # noqa: E402
 
-
-def fetch_with_httpx(url: str, timeout: int = 20) -> str | None:
-    with httpx.Client(
-        follow_redirects=True,
-        timeout=timeout,
-        headers={
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                          "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        },
-    ) as client:
-        response = client.get(url)
-        response.raise_for_status()
-        html = response.text
-
-    lower = html.lower()
-    if any(ind in lower for ind in BLOCKED_INDICATORS) and len(html) < 5000:
-        return None  # likely blocked
-
-    text = trafilatura.extract(
-        html,
-        url=url,
-        include_comments=False,
-        include_tables=True,
-    )
-    return text or html
-
-
-def fetch_with_playwright(url: str, timeout: int = 30) -> str:
-    from playwright.sync_api import sync_playwright
-
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                       "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            locale="ru-RU",
-        )
-        page = context.new_page()
-        page.goto(url, timeout=timeout * 1000, wait_until="domcontentloaded")
-        page.wait_for_timeout(2000)
-        html = page.content()
-        browser.close()
-
-    text = trafilatura.extract(
-        html,
-        url=url,
-        include_comments=False,
-        include_tables=True,
-    )
-    return text or html
+ensure_direct_process()
 
 
 def main() -> int:
@@ -84,12 +26,12 @@ def main() -> int:
     max_chars = min(max(args.max_chars, 1000), 50000)
 
     if args.browser:
-        text = fetch_with_playwright(args.url)
+        text = fetch_with_browser(args.url)
     else:
         text = fetch_with_httpx(args.url)
         if text is None:
             print("HTTP заблокирован, переключаюсь на браузер...", file=sys.stderr)
-            text = fetch_with_playwright(args.url)
+            text = fetch_with_browser(args.url)
 
     print(text[:max_chars].strip())
     return 0

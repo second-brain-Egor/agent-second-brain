@@ -10,9 +10,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 385
-- Связей: 1299
-- Сирот: 15
+- Заметок: 380
+- Связей: 1280
+- Сирот: 16
 - Слабосвязанных: 40
 
 ## Память
@@ -65,40 +65,33 @@ tier: active
 - [[projects/dacha/Разбор специалиста. Три видео/summary.md|Сводка по видео]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/comments.md|Комментарии]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/description.md|description]]
-- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/frames-deduped/README.md|Кадры после дедупликации]]
-- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/frames/README.md|Кадры]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/metadata.md|1-я часть]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/transcript.md|transcript]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/comments.md|Комментарии]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/description.md|description]]
-- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/frames-deduped/README.md|Кадры после дедупликации]]
-- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/frames/README.md|Кадры]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/metadata.md|2-я часть]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/transcript.md|transcript]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/comments.md|Комментарии]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/description.md|description]]
-- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/frames-deduped/README.md|Кадры после дедупликации]]
-- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/frames/README.md|Кадры]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/metadata.md|3-я часть]]
 - [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/transcript.md|transcript]]
+- [[projects/dacha/Разбор специалиста. Три видео/ГДЕ-КАДРЫ.md|Где кадры]]
 - [[projects/dacha/Суровый Плотник/README.md|Суровый Плотник]]
 - [[projects/dacha/Суровый Плотник/download-journal.md|Журнал скачанных видео]]
 - [[projects/dacha/Суровый Плотник/summary.md|Сводка по видео]]
 - [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/analysis.md|Анализ ролика]]
 - [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/comments.md|Комментарии]]
 - [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/description.md|description]]
-- [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/frames/README.md|Кадры]]
 - [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/metadata.md|Как построить дачный дом своими руками. 62м² за 18 дней. DIY Forest House In 18 Days]]
 - [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/analysis.md|Анализ ролика]]
 - [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/comments.md|Комментарии]]
 - [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/description.md|description]]
-- [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/frames/README.md|Кадры]]
 - [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/metadata.md|Как построить гостевой дом своими руками. 40 м² за 19 дней. DIY Guest House in 19 days.]]
 - [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/analysis.md|Анализ ролика]]
 - [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/comments.md|Комментарии]]
 - [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/description.md|description]]
-- [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/frames/README.md|Кадры]]
 - [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/metadata.md|Гостевой Дом 40м² своими руками по СП 31-105-2002  Расширенная версия]]
+- [[projects/dacha/Суровый Плотник/ГДЕ-КАДРЫ.md|Где кадры]]
 - [[projects/dacha/разбор проекта/bathhouse-150x50-board-check-2026-04-30.md|Баня — проверка доски 150x50 после перехода стен на 150]]
 - [[projects/dacha/разбор проекта/bathhouse-deep-structural-review-2026-05-01.md|Баня — глубокий разбор конструкции по SketchUp, скриншотам, Суровому Плотнику и консультации специалиста]]
 - [[projects/dacha/разбор проекта/bathhouse-integrated-technical-analysis-2026-04-30.md|Баня — общий технический разбор по SketchUp, скриншотам и видеоразборам]]
@@ -333,8 +326,10 @@ tier: active
 
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
 - [[thoughts/learnings/forumhouse-agent-access-parity.md|Единый доступ агентов к Forumhouse]]
+- [[thoughts/learnings/forumhouse-export-registry.md|Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)]]
 - [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
 - [[thoughts/learnings/model-token-economy.md|Экономия лимита при вопросах о модели]]
+- [[thoughts/learnings/network-egress-and-web-search.md|Сеть бота и веб-поиск (разобрано 2026-06-11)]]
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
 - [[thoughts/learnings/shift-based-daily-planner.md|Сменный ежедневник — формат под график сутки через трое]]
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]

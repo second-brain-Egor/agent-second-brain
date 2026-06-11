@@ -6,18 +6,21 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from pathlib import Path
 from typing import Any
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from direct_web.network import ensure_direct_process  # noqa: E402
+
+ensure_direct_process()
 
 
 def _search(query: str, max_results: int) -> list[dict[str, Any]]:
-    try:
-        from ddgs import DDGS
-    except ImportError:
-        from duckduckgo_search import DDGS  # type: ignore[no-redef]
+    from direct_web.search import search
 
-    with DDGS() as ddgs:
-        # region ru-ru: иначе выдача уезжает в случайные локали (болгарские магазины и т.п.)
-        return list(ddgs.text(query, region="ru-ru", max_results=max_results))
+    return search(query, max_results)
 
 
 def main() -> int:

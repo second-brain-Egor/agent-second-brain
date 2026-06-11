@@ -10,40 +10,40 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 385
-- Связей: 1299
-- Сирот: 15
+- Заметок: 380
+- Связей: 1280
+- Сирот: 16
 - Слабосвязанных: 40
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 7 | 84.71 |
+| MOC | 7 | 82.71 |
 | blog | 2 | 2.00 |
-| daily | 71 | 1.79 |
+| daily | 71 | 1.82 |
 | goals | 5 | 8.00 |
-| memory | 5 | 15.60 |
-| projects | 266 | 6.03 |
+| memory | 5 | 16.00 |
+| projects | 259 | 6.07 |
 | references | 4 | 2.50 |
-| reports | 1 | 55.00 |
+| reports | 1 | 54.00 |
 | root | 1 | 18.00 |
 | summaries | 9 | 1.78 |
 | templates | 2 | 0.00 |
-| thoughts | 12 | 4.33 |
+| thoughts | 14 | 4.21 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 314 связей
-- [[MOC/MOC-projects.md|MOC - Projects]] — 259 связей
-- [[projects/_index.md|Проекты — индекс]] — 116 связей
+- [[MOC/index.md|Индекс знаний]] — 309 связей
+- [[MOC/MOC-projects.md|MOC - Projects]] — 250 связей
+- [[projects/_index.md|Проекты — индекс]] — 107 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 106 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
-- [[reports/vault-health.md|Health Check Vault]] — 55 связей
+- [[reports/vault-health.md|Health Check Vault]] — 54 связей
 - [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 48 связей
 - [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 46 связей
 - [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 46 связей
-- [[memory/facts.md|Ключевые факты и события]] — 32 связей
+- [[memory/facts.md|Ключевые факты и события]] — 33 связей
 
 ## Сироты
 
@@ -54,6 +54,7 @@ tier: warm
 - [[daily/2026-05-06.md|2026-05-06]]
 - [[daily/2026-05-12.md|2026-05-12]]
 - [[daily/2026-05-16.md|2026-05-16]]
+- [[daily/2026-05-17.md|2026-05-17]]
 - [[daily/2026-05-18.md|2026-05-18]]
 - [[daily/2026-05-20.md|2026-05-20]]
 - [[daily/2026-05-23.md|2026-05-23]]
@@ -90,6 +91,7 @@ tier: warm
 ## Неразрешённые ссылки
 
 - [[MOC/MOC-business.md|MOC - Business]]: business/_index
+- [[MOC/MOC-projects.md|MOC - Projects]]: projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/frames-deduped/README, projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/frames/README, projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/frames-deduped/README, projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/frames/README, projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/frames-deduped/README ...
 - [[daily/2026-03-29.md|2026-03-29]]: attachments/2026-03-29/img-153353.jpg, attachments/2026-03-29/img-153442.jpg, attachments/2026-03-29/img-153919.jpg, attachments/2026-03-29/img-154039.jpg, attachments/2026-03-29/img-154119.jpg
 - [[daily/2026-04-08.md|2026-04-08]]: .session/handoff, GLOBAL_RULES, attachments/2026-04-08/img-224628.jpg, attachments/2026-04-08/img-231319.jpg
 - [[daily/2026-04-09.md|2026-04-09]]: .session/handoff, attachments/2026-04-09/img-091056.jpg, attachments/2026-04-09/img-092050.jpg
@@ -108,4 +110,3 @@ tier: warm
 - [[daily/2026-05-13.md|2026-05-13]]: attachments/2026-05-13/img-200536.jpg, attachments/2026-05-13/img-200751.jpg, attachments/2026-05-13/img-201045.jpg, attachments/2026-05-13/img-202519.jpg, attachments/2026-05-13/img-204033.jpg
 - [[daily/2026-05-14.md|2026-05-14]]: attachments/2026-05-14/img-072308.jpg, attachments/2026-05-14/img-152837.jpg, attachments/2026-05-14/img-154052.jpg, attachments/2026-05-14/img-154359.jpg, attachments/2026-05-14/img-154526.jpg
 - [[daily/2026-05-15.md|2026-05-15]]: attachments/2026-05-15/img-132410.jpg, attachments/2026-05-15/img-141621.jpg
-- [[daily/2026-05-17.md|2026-05-17]]: attachments/2026-05-17/img-132424.jpg
