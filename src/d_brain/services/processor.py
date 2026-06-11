@@ -402,6 +402,8 @@ week: {year}-W{week:02d}
             "`uv run python scripts/web_search.py \"query\" --max-results 5`.\n"
             "- To read a page by URL, run: "
             "`uv run python scripts/web_fetch.py \"https://example.com\"`.\n"
+            "- These scripts use the direct server-IP web/browser contour from "
+            "`direct_web/` and must be preferred over inherited proxy/browser tools.\n"
             "- Use web access for current facts, prices, schedules, docs, "
             "product pages, and links.\n"
             "- NEVER claim «не могу / нет доступа / не получится» without actually "
@@ -708,11 +710,10 @@ week: {year}-W{week:02d}
 
         Лёгкий вызов: haiku, без инструментов, cwd во временной папке — CLAUDE.md
         проекта НЕ подхватывается, память и правила не грузятся, в промпте только
-        результаты поиска. Best effort: любой фейл → None (карточки с результатами
-        уже отправлены пользователю, выжимка — необязательный бонус).
+        результаты поиска. Идёт через claude haiku напрямую, поэтому работает на
+        ОБЕИХ симках (бинарь claude есть независимо от AI_BACKEND). Best effort:
+        любой фейл → None (карточки уже отправлены, выжимка — необязательный бонус).
         """
-        if self.ai_backend != "claude":
-            return None
         prompt = (
             f"Вопрос пользователя: {query}\n\n"
             f"Результаты веб-поиска:\n{results_block}\n\n"
