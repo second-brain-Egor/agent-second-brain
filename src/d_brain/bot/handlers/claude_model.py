@@ -1,7 +1,7 @@
 """Claude model switcher handler.
 
 Provides "🧠 Claude" reply-button and inline keyboard to flip Claude
-model (Opus / Sonnet / Haiku) without touching .env manually. Sets
+model (Opus / Sonnet / Fable) without touching .env manually. Sets
 CLAUDE_MODEL, CLAUDE_MODEL_CHAT and CLAUDE_MODEL_AGENT to the same
 value — one knob for chat, agent and /do alike. After flipping, the
 bot triggers ADMIN_RESTART_COMMAND so the new model is picked up by
@@ -28,11 +28,11 @@ logger = logging.getLogger(__name__)
 
 ENV_PATH = Path(__file__).resolve().parents[3].parent / ".env"
 PENDING_SWITCH_PATH = Path("/tmp/d-brain-pending-model-switch.json")
-SUPPORTED = {"opus", "sonnet", "haiku"}
+SUPPORTED = {"opus", "sonnet", "fable"}
 LABELS = {
     "opus": "Opus",
     "sonnet": "Sonnet",
-    "haiku": "Haiku",
+    "fable": "Fable",
 }
 ENV_KEYS = ("CLAUDE_MODEL", "CLAUDE_MODEL_CHAT", "CLAUDE_MODEL_AGENT")
 

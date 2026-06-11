@@ -38,7 +38,7 @@ def create_dispatcher() -> Dispatcher:
     dp.include_router(weekly.router)
     dp.include_router(do.router)  # Before voice/text to catch FSM state
     dp.include_router(backend.router)  # 🤖 Модель: backend switcher (button + callbacks)
-    dp.include_router(claude_model.router)  # 🧠 Claude: Opus/Sonnet/Haiku switcher
+    dp.include_router(claude_model.router)  # 🧠 Claude: Opus/Sonnet/Fable switcher
     dp.include_router(buttons.router)  # Reply keyboard buttons
     dp.include_router(web.router)  # Веб-поиск fast-path (/web + интент) — до text catch-all
     dp.include_router(document.router)

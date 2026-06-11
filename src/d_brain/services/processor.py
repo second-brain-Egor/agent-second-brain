@@ -708,9 +708,9 @@ week: {year}-W{week:02d}
     def web_quick_summary(self, query: str, results_block: str, timeout_sec: int = 90) -> str | None:
         """Короткая выжимка результатов веб-поиска для fast-path (/web и интент).
 
-        Лёгкий вызов: haiku, без инструментов, cwd во временной папке — CLAUDE.md
+        Лёгкий вызов: fable, без инструментов, cwd во временной папке — CLAUDE.md
         проекта НЕ подхватывается, память и правила не грузятся, в промпте только
-        результаты поиска. Идёт через claude haiku напрямую, поэтому работает на
+        результаты поиска. Идёт через claude fable напрямую, поэтому работает на
         ОБЕИХ симках (бинарь claude есть независимо от AI_BACKEND). Best effort:
         любой фейл → None (карточки уже отправлены, выжимка — необязательный бонус).
         """
@@ -730,7 +730,7 @@ week: {year}-W{week:02d}
                     [
                         claude_bin,
                         "-p",
-                        "--model", "haiku",
+                        "--model", "fable",
                         "--output-format", "text",
                         "--no-session-persistence",
                     ],

@@ -32,9 +32,9 @@ def get_backend_inline_keyboard(current: str) -> InlineKeyboardMarkup:
 
 
 def get_claude_model_inline_keyboard(current: str) -> InlineKeyboardMarkup:
-    """Inline keyboard for switching Claude model (Opus/Sonnet/Haiku)."""
+    """Inline keyboard for switching Claude model (Opus/Sonnet/Fable)."""
     builder = InlineKeyboardBuilder()
-    options = [("opus", "Opus"), ("sonnet", "Sonnet"), ("haiku", "Haiku")]
+    options = [("opus", "Opus"), ("sonnet", "Sonnet"), ("fable", "Fable")]
     for value, label in options:
         text = f"✅ {label}" if current == value else label
         builder.button(text=text, callback_data=f"claude_model:{value}")
