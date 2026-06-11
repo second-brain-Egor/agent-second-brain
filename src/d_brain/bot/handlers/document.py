@@ -188,7 +188,7 @@ async def _answer_document(
         async with keep_typing(message.chat):
             try:
                 answer = await asyncio.to_thread(
-                    processor._run_openai_agent,  # noqa: SLF001 — мы внутри проекта
+                    processor._run_agent,  # noqa: SLF001 — мы внутри проекта
                     system_prompt,
                     user_prompt,
                     read_only=True,

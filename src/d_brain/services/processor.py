@@ -381,7 +381,7 @@ week: {year}-W{week:02d}
             return "medium"
         return value
 
-    def _build_codex_prompt(
+    def _build_exec_prompt(
         self,
         system_prompt: str,
         user_prompt: str,
@@ -398,7 +398,7 @@ week: {year}-W{week:02d}
             "- Return only the final answer for the user, without tool logs or extra commentary.\n\n"
             "Internet tools:\n"
             "- Internet access is available.\n"
-            "- For web search, use built-in web tools when available, or run: "
+            "- For web search ALWAYS run (do not use built-in web tools): "
             "`uv run python scripts/web_search.py \"query\" --max-results 5`.\n"
             "- To read a page by URL, run: "
             "`uv run python scripts/web_fetch.py \"https://example.com\"`.\n"
@@ -589,7 +589,7 @@ week: {year}-W{week:02d}
             model=model,
         )
 
-    def _run_openai_text(
+    def _run_chat(
         self,
         system_prompt: str,
         user_prompt: str,
@@ -599,12 +599,14 @@ week: {year}-W{week:02d}
         max_output_tokens: int = 2000,
         timeout_sec: int = CHAT_TIMEOUT_SECONDS,
     ) -> str:
-        """Dialog / chat request → light model (Sonnet on Claude). Per v3.
+        """Dialog / chat request → chat model (см. CLAUDE_MODEL_CHAT).
 
-        Тайм-аут диалога — 90 секунд: если за это время Sonnet не ответил,
-        это явный затык (rate limit Claude Max / сетевой блип / API проблема).
-        Лучше выдать пользователю быстрый понятный фейл, чем заставлять ждать
-        5 минут в надежде что прорвётся.
+        Тайм-аут диалога — CHAT_TIMEOUT_SECONDS: если модель не ответила,
+        это затык (rate limit Claude Max / сетевой блип / API проблема).
+        Подвисания рандомны (то 9 сек, то висит до упора), поэтому после
+        первого фейла делаем один быстрый повтор с коротким бюджетом —
+        обычно он спасает ответ. После второго фейла — исключение наружу,
+        хендлер покажет пользователю честную ошибку.
         """
         del reasoning, verbosity, max_output_tokens
         # 2026-05-11: чат-сессия больше не read-only. С момента перехода на pure Opus
@@ -613,16 +615,30 @@ week: {year}-W{week:02d}
         # Sonnet-чата и блокировал --permission-mode → default → Bash недоступен в
         # subprocess --print. Возвращать True имеет смысл только если снова разделить
         # light/heavy и вернуть привратника.
-        prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=False)
+        prompt = self._build_exec_prompt(system_prompt, user_prompt, read_only=False)
         with _claude_chat_lock():
-            return self._run_backend_exec(
-                prompt,
-                read_only=False,
-                timeout_sec=timeout_sec,
-                mode="chat",
-            )
+            try:
+                return self._run_backend_exec(
+                    prompt,
+                    read_only=False,
+                    timeout_sec=timeout_sec,
+                    mode="chat",
+                )
+            except (subprocess.TimeoutExpired, RuntimeError) as exc:
+                retry_timeout = min(120, timeout_sec)
+                logger.warning(
+                    "chat exec failed (%s) — one retry with %ss budget",
+                    type(exc).__name__,
+                    retry_timeout,
+                )
+                return self._run_backend_exec(
+                    prompt,
+                    read_only=False,
+                    timeout_sec=retry_timeout,
+                    mode="chat",
+                )
 
-    def _run_openai_agent(
+    def _run_agent(
         self,
         system_prompt: str,
         user_prompt: str,
@@ -634,7 +650,7 @@ week: {year}-W{week:02d}
     ) -> str:
         """Agent / processing request → heavy model (Opus on Claude). Per v3."""
         del reasoning, verbosity, max_output_tokens
-        prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=read_only)
+        prompt = self._build_exec_prompt(system_prompt, user_prompt, read_only=read_only)
         with _claude_heavy_lock():
             return self._run_backend_exec(
                 prompt,
@@ -644,19 +660,18 @@ week: {year}-W{week:02d}
             )
 
     def analyze_image(self, image_path: str, caption: str | None = None) -> str | None:
-        """Analyze an image via active backend.
+        """Analyze an image via active backend CLI subprocess.
 
-        Per v3 §4.7: на Claude — через `anthropic` SDK с credentials Claude CLI
-        (без отдельного API-ключа, по подписке Claude Max). На Codex — через
-        `codex exec -i image` subprocess.
+        2026-06-11: SDK-ветка удалена — `anthropic.Anthropic()` требует API-ключ,
+        которого при подписке Claude Max нет, поэтому она всегда молча падала в
+        CLI-фоллбэк (лишняя задержка + ложная ошибка в логах). CLI-путь работает
+        по подписке и для Claude, и для Codex (диспетчеризация в _run_backend_exec).
         """
         image_file = Path(image_path)
         if not image_file.exists():
             return None
 
-        if self.ai_backend == "claude":
-            return self._analyze_image_claude_sdk(image_file, caption)
-        return self._analyze_image_codex_cli(image_file, caption)
+        return self._analyze_image_cli(image_file, caption)
 
     @staticmethod
     def _vision_prompt(caption: str | None) -> str:
@@ -671,49 +686,8 @@ week: {year}-W{week:02d}
             prompt += f"\n\nПодпись: {caption}"
         return prompt
 
-    def _analyze_image_claude_sdk(self, image_file: Path, caption: str | None) -> str | None:
-        """Vision через anthropic SDK. Подхватывает creds от Claude CLI (~/.claude/.credentials.json),
-        отдельный ANTHROPIC_API_KEY НЕ нужен."""
-        try:
-            import base64
-            import anthropic
-        except ImportError:
-            logger.warning("anthropic SDK not installed — falling back to CLI subprocess")
-            return self._analyze_image_codex_cli(image_file, caption)
-
-        try:
-            image_bytes = image_file.read_bytes()
-            image_b64 = base64.standard_b64encode(image_bytes).decode("ascii")
-            ext = image_file.suffix.lower().lstrip(".")
-            media_type = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png",
-                          "gif": "image/gif", "webp": "image/webp"}.get(ext, "image/jpeg")
-
-            client = anthropic.Anthropic()  # creds от Claude CLI, без API-ключа
-            response = client.messages.create(
-                model="claude-sonnet-4-5",
-                max_tokens=1024,
-                messages=[{
-                    "role": "user",
-                    "content": [
-                        {"type": "image", "source": {
-                            "type": "base64", "media_type": media_type, "data": image_b64,
-                        }},
-                        {"type": "text", "text": self._vision_prompt(caption)},
-                    ],
-                }],
-            )
-            blocks = getattr(response, "content", []) or []
-            for block in blocks:
-                text = getattr(block, "text", None)
-                if text:
-                    return text.strip()
-            return None
-        except Exception:
-            logger.exception("Anthropic SDK vision failed — falling back to CLI subprocess")
-            return self._analyze_image_codex_cli(image_file, caption)
-
-    def _analyze_image_codex_cli(self, image_file: Path, caption: str | None) -> str | None:
-        """Vision через subprocess (Codex CLI или Claude CLI как fallback)."""
+    def _analyze_image_cli(self, image_file: Path, caption: str | None) -> str | None:
+        """Vision через CLI subprocess активного бэкенда (Claude или Codex)."""
         try:
             return self._run_backend_exec(
                 self._vision_prompt(caption),
@@ -724,6 +698,52 @@ week: {year}-W{week:02d}
             )
         except Exception:
             logger.exception("Vision analysis via CLI subprocess failed")
+            return None
+
+    def web_quick_summary(self, query: str, results_block: str, timeout_sec: int = 90) -> str | None:
+        """Короткая выжимка результатов веб-поиска для fast-path (/web и интент).
+
+        Лёгкий вызов: haiku, без инструментов, cwd во временной папке — CLAUDE.md
+        проекта НЕ подхватывается, память и правила не грузятся, в промпте только
+        результаты поиска. Best effort: любой фейл → None (карточки с результатами
+        уже отправлены пользователю, выжимка — необязательный бонус).
+        """
+        if self.ai_backend != "claude":
+            return None
+        prompt = (
+            f"Вопрос пользователя: {query}\n\n"
+            f"Результаты веб-поиска:\n{results_block}\n\n"
+            "Дай выжимку ответа в 2–4 предложениях на русском строго по этим "
+            "результатам. В конце одной строкой укажи 1–2 самые полезные ссылки. "
+            "Без вступлений и оговорок."
+        )
+        try:
+            claude_bin = self._get_claude_bin()
+            env = os.environ.copy()
+            env.pop("ANTHROPIC_API_KEY", None)
+            with tempfile.TemporaryDirectory(prefix="dbrain-web-") as temp_dir:
+                result = subprocess.run(
+                    [
+                        claude_bin,
+                        "-p",
+                        "--model", "haiku",
+                        "--output-format", "text",
+                        "--no-session-persistence",
+                    ],
+                    input=prompt,
+                    text=True,
+                    capture_output=True,
+                    cwd=temp_dir,
+                    env=env,
+                    timeout=timeout_sec,
+                    check=False,
+                )
+            if result.returncode != 0:
+                logger.warning("web_quick_summary failed: %s", (result.stderr or "")[-200:])
+                return None
+            return (result.stdout or "").strip() or None
+        except Exception:
+            logger.exception("web_quick_summary failed")
             return None
 
     def _tool_schemas(self, *, read_only: bool) -> list[dict[str, Any]]:
@@ -1260,7 +1280,7 @@ Do not mention:
 """
 
         try:
-            report = self._run_openai_agent(
+            report = self._run_agent(
                 system_prompt,
                 user_prompt,
                 read_only=False,
@@ -1381,7 +1401,7 @@ Keep the user's planning horizon intact. Do not reinterpret long-term projects a
 """
 
         try:
-            report = self._run_openai_agent(
+            report = self._run_agent(
                 system_prompt,
                 composed_prompt,
                 read_only=False,
@@ -1440,7 +1460,7 @@ Important:
 """
 
         try:
-            report = self._run_openai_agent(
+            report = self._run_agent(
                 system_prompt,
                 user_prompt,
                 read_only=True,
@@ -1695,7 +1715,7 @@ Do not include:
 """
 
         try:
-            report = self._run_openai_agent(
+            report = self._run_agent(
                 system_prompt,
                 composed_prompt,
                 read_only=False,
@@ -1849,7 +1869,7 @@ Do not include:
 """
 
         try:
-            report = self._run_openai_text(
+            report = self._run_chat(
                 system_prompt,
                 user_prompt,
                 reasoning="low",

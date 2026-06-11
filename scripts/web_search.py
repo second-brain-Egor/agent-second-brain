@@ -16,7 +16,8 @@ def _search(query: str, max_results: int) -> list[dict[str, Any]]:
         from duckduckgo_search import DDGS  # type: ignore[no-redef]
 
     with DDGS() as ddgs:
-        return list(ddgs.text(query, max_results=max_results))
+        # region ru-ru: иначе выдача уезжает в случайные локали (болгарские магазины и т.п.)
+        return list(ddgs.text(query, region="ru-ru", max_results=max_results))
 
 
 def main() -> int:
