@@ -18,11 +18,13 @@
 `vault/memory/change-log.md` (20 KB) — читай только если нужен исторический контекст.
 `vault/memory/system-log.md` — пиши строку после каждого значимого действия (`YYYY-MM-DD HH:MM | event | claude | OK`).
 
-## Архитектура моделей (2026-05-10: pure Opus)
+## Архитектура моделей (single-model, переключается кнопкой)
 
-Чат и агентские задачи на Claude симке — оба на Opus. Sonnet/Opus split, классификатор weight, pending-confirmation flow и привратник `sonnet-gatekeeper.md` отключены: на практике приводили к шаблонным переспрашиваниям и зацикливаниям. Файл `vault/.claude/sonnet-gatekeeper.md` оставлен в репо как исторический документ, но НЕ импортируется и в системный промпт не попадает.
+Одна модель на всё (чат, агент, /do). Выбирается кнопкой «🧠 Claude» (только админ) — она пишет одно значение в `CLAUDE_MODEL`, `CLAUDE_MODEL_CHAT`, `CLAUDE_MODEL_AGENT` в `.env`. **Фактическую модель смотри в `.env`, не в этом файле** (на 2026-06-11 везде sonnet; решение «pure Opus» от 2026-05-10 перекрыто переключением кнопкой).
 
-Если возвращать Sonnet+привратник — править три места: `.env` (CLAUDE_MODEL_CHAT=sonnet), `if False:` обратно в `if processor.ai_backend == "claude":` в `bot/handlers/{text,voice,ask}.py`, и вернуть `@vault/.claude/sonnet-gatekeeper.md` в этот файл.
+Sonnet/Opus split, классификатор weight, pending-confirmation flow и привратник `sonnet-gatekeeper.md` отключены: на практике приводили к шаблонным переспрашиваниям и зацикливаниям. Файл `vault/.claude/sonnet-gatekeeper.md` оставлен в репо как исторический документ, но НЕ импортируется и в системный промпт не попадает.
+
+Если возвращать split+привратник — править три места: `.env` (CLAUDE_MODEL_CHAT=sonnet), `if False:` обратно в `if processor.ai_backend == "claude":` в `bot/handlers/{text,voice,ask}.py`, и вернуть `@vault/.claude/sonnet-gatekeeper.md` в этот файл.
 
 ## Telegram-оформление
 
