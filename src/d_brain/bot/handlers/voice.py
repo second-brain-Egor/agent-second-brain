@@ -13,6 +13,7 @@ from d_brain.bot.chat_context import (
     get_session_scope,
     is_work_chat,
 )
+from d_brain.bot.handlers.web import clean_web_query, matches_web_intent, run_web_search
 from d_brain.bot.states import SilentState
 from d_brain.bot.formatters import (
     normalize_telegram_output,
@@ -131,6 +132,12 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
         work_context = is_work_chat(message, settings)
         if work_context:
             logger.info("Saved group voice without reply in chat %s", message.chat.id)
+            return
+
+        # Веб-поиск fast-path: голосовые «найди в интернете…» идут тем же путём,
+        # что и текстовые. Запись в daily/session уже сделана выше — log_input=False.
+        if matches_web_intent(transcript):
+            await run_web_search(message, clean_web_query(transcript), log_input=False)
             return
 
         # Dialog mode: respond via active LLM backend

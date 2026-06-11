@@ -403,7 +403,10 @@ week: {year}-W{week:02d}
             "- To read a page by URL, run: "
             "`uv run python scripts/web_fetch.py \"https://example.com\"`.\n"
             "- Use web access for current facts, prices, schedules, docs, "
-            "product pages, and links.\n\n"
+            "product pages, and links.\n"
+            "- NEVER claim «не могу / нет доступа / не получится» without actually "
+            "trying at least one tool (web_search, web_fetch, Bash) first. If a tool "
+            "failed — say which one and what the error was, then suggest the next step.\n\n"
             f"{user_prompt.strip()}\n"
         )
 

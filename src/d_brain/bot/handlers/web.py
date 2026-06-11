@@ -50,7 +50,7 @@ def matches_web_intent(text: str) -> bool:
     return bool(_INTENT.search(text))
 
 
-def _clean_query(text: str) -> str:
+def clean_web_query(text: str) -> str:
     """Убираем интент-обороты, чтобы поисковику ушёл чистый запрос."""
     query = _INTENT.sub(" ", text)
     query = re.sub(r"\s+", " ", query).strip(" ,.!?—-")
@@ -97,22 +97,25 @@ def _results_block(results: list[dict]) -> str:
     return "\n".join(parts)
 
 
-async def _do_web_search(message: Message, query: str) -> None:
+async def run_web_search(message: Message, query: str, *, log_input: bool = True) -> None:
+    """Поиск + карточки + выжимка. log_input=False — если входящее сообщение
+    уже записано в daily/session вызывающим хендлером (голосовые)."""
     settings = get_settings()
     storage = VaultStorage(settings.vault_path)
     session = SessionStore(settings.vault_path)
     scope = get_session_scope(message)
 
-    timestamp = datetime.fromtimestamp(message.date.timestamp())
-    storage.append_to_daily(message.text or query, timestamp, build_msg_type(message, "[web]"))
-    session.append(
-        scope,
-        "text",
-        text=message.text or query,
-        msg_id=message.message_id,
-        chat_id=message.chat.id,
-        chat_title=message.chat.title,
-    )
+    if log_input:
+        timestamp = datetime.fromtimestamp(message.date.timestamp())
+        storage.append_to_daily(message.text or query, timestamp, build_msg_type(message, "[web]"))
+        session.append(
+            scope,
+            "text",
+            text=message.text or query,
+            msg_id=message.message_id,
+            chat_id=message.chat.id,
+            chat_title=message.chat.title,
+        )
 
     status = await message.answer("🔍 Ищу в интернете…")
     try:
@@ -155,7 +158,7 @@ async def handle_web_command(message: Message) -> None:
     if len(parts) < 2 or not parts[1].strip():
         await message.answer("🔍 Напиши запрос после команды: <code>/web цена осб-3 9мм</code>")
         return
-    await _do_web_search(message, parts[1].strip())
+    await run_web_search(message, parts[1].strip())
 
 
 @router.message(
@@ -165,4 +168,4 @@ async def handle_web_command(message: Message) -> None:
 async def handle_web_intent(message: Message) -> None:
     if not message.text or not message.from_user:
         return
-    await _do_web_search(message, _clean_query(message.text))
+    await run_web_search(message, clean_web_query(message.text))
