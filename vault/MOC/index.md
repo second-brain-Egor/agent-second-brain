@@ -1,8 +1,7 @@
 ---
 type: note
-updated: 2026-06-12
-last_accessed: 2026-06-12
-relevance: 1.0
+updated: 2026-06-13
+relevance: 0.9
 tier: active
 ---
 # Индекс знаний
@@ -11,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 381
-- Связей: 1306
-- Сирот: 8
-- Слабосвязанных: 50
+- Заметок: 384
+- Связей: 1202
+- Сирот: 16
+- Слабосвязанных: 48
 
 ## Память
 
@@ -50,10 +49,12 @@ tier: active
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/asula/_index.md|АСУЛА — индекс]]
 - [[projects/asula/algorithms.md|Алгоритмы и логика]]
+- [[projects/asula/directions.md|Направления работы]]
 - [[projects/asula/goals.md|Цели и проблемы]]
 - [[projects/asula/platform.md|Платформа и требования]]
 - [[projects/asula/scenarios.md|Сценарии]]
 - [[projects/asula/timeline.md|Хроника]]
+- [[projects/asula/tz.md|Техническое задание — офлайн-ядро АСУЛА]]
 - [[projects/dacha/README.md|Дача]]
 - [[projects/dacha/bathhouse-lipa-osina-vagonka.md|Липа и осина для бани]]
 - [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
@@ -306,13 +307,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-06-13.md|2026-06-13]]
 - [[daily/2026-06-12.md|2026-06-12]]
 - [[daily/2026-06-11.md|2026-06-11]]
 - [[daily/2026-06-10.md|2026-06-10]]
 - [[daily/2026-06-09.md|2026-06-09]]
 - [[daily/2026-06-08.md|2026-06-08]]
 - [[daily/2026-06-07.md|2026-06-07]]
-- [[daily/2026-06-06.md|2026-06-06]]
 
 ## Недельные сводки
 

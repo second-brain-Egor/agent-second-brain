@@ -34,3 +34,8 @@ tier: active
 2026-06-04 16:20 | FLOKI live-данные: анализ коридора 90 дней на Барыге | claude | OK
 2026-06-04 16:28 | FLOKI live backtest на Барыге: mean-reversion + сезонность, edge не подтверждён | claude | OK
 2026-06-11 22:21 | process | OK | 0 tasks, facts+user+learning updated
+2026-06-12 10:31 | rules-update | claude | OK
+2026-06-12 10:38 | audit-fixes: CLAUDE.md (fable вместо sonnet/Haiku, формат .sessions), soul.md (Fable), удалены heartbeat/, битый .jsonl.bak, пустая YouTube-каналы | claude | OK
+2026-06-12 10:50 | asula-directions-recorded | claude | OK
+2026-06-12 11:00 | asula-tz-started | claude | OK
+2026-06-12 11:06 | tz-asula-p2 | claude | OK

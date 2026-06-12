@@ -2,7 +2,7 @@
 description: "АСУЛА — индекс проекта"
 type: index
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-06-12
 relevance: 0.94
 tier: active
 ---
@@ -14,6 +14,8 @@ tier: active
 ## Опорные документы
 
 - [[README.md|README — обзор и суть]]
+- [[directions.md|Направления работы — ИИ-контур и офлайн-ядро]]
+- [[tz.md|Техническое задание — офлайн-ядро]]
 - [[goals.md|Цели и проблемы]]
 - [[platform.md|Платформа и требования]]
 - [[scenarios.md|Сценарии работы]]
