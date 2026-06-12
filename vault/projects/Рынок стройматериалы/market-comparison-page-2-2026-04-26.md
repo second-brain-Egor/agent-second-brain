@@ -1,13 +1,13 @@
 ---
-description: "Сравнение цен — страница 2 прайса — research, first-pass"
 type: research
+description: "Сравнение цен — страница 2 прайса — research, first-pass"
 source: web
 status: first-pass
 created: 2026-04-26
 updated: 2026-04-26
 last_accessed: 2026-04-26
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 project: Рынок стройматериалы
 ---
 

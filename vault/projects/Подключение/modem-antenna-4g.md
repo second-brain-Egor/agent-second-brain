@@ -1,13 +1,12 @@
 ---
-description: "Связка 4G: роутер Cudy LT500D + антенна Антэкс PETRA BB 75 MIMO 2x2, разъёмы и кабель"
 type: note
+description: "Связка 4G: роутер Cudy LT500D + антенна Антэкс PETRA BB 75 MIMO 2x2, разъёмы и кабель"
 status: active
+related: 
 updated: 2026-05-15
 last_accessed: 2026-05-15
-relevance: 0.9
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.61
+tier: cold
 ---
 # 4G на даче: модем + антенна + что докупить
 

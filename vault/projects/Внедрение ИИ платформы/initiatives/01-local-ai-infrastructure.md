@@ -1,13 +1,12 @@
 ---
-description: "Локальный ИИ-контур и инфраструктура — initiative"
 type: initiative
+description: "Локальный ИИ-контур и инфраструктура — initiative"
+related: 
 created: 2026-04-29
 last_accessed: 2026-04-29
-relevance: 0.95
-tier: active
+relevance: 0.47
+tier: cold
 project: Внедрение ИИ платформы
-related:
-  - "[[projects/_index]]"
 ---
 
 # Локальный ИИ-контур и инфраструктура

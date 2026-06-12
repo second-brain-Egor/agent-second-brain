@@ -1,13 +1,13 @@
 ---
-description: "Баня — учёт купленного материала — note, active"
 type: note
+description: "Баня — учёт купленного материала — note, active"
 source: session/2026-04-30
 status: active
 created: 2026-04-30
 updated: 2026-04-30
 last_accessed: 2026-05-01
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 project: dacha
 ---
 

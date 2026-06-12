@@ -1,11 +1,10 @@
 ---
-description: "Гостевой Дом 40м² своими руками по СП 31-105-2002  Расширенная версия — project"
 type: project
+description: "Гостевой Дом 40м² своими руками по СП 31-105-2002  Расширенная версия — project"
+related: 
 last_accessed: 2026-05-01
-relevance: 0.94
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 # Гостевой Дом 40м² своими руками по СП 31-105-2002  Расширенная версия
 

@@ -2,8 +2,8 @@
 type: note
 description: Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.
 last_accessed: 2026-03-27
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 name: skill-creator
 ---
 

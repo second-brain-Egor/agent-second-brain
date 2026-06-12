@@ -1,10 +1,11 @@
 ---
-description: "Цели и проблемы, которые закрывает АСУЛА"
 type: note
+description: "Цели и проблемы, которые закрывает АСУЛА"
 created: 2026-05-09
 updated: 2026-05-09
-relevance: 0.94
-tier: active
+last_accessed: 2026-05-09
+relevance: 0.49
+tier: cold
 ---
 
 # Цели и проблемы

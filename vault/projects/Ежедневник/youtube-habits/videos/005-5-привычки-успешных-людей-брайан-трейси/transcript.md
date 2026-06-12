@@ -1,11 +1,10 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
+related: 
 last_accessed: 2026-05-04
-relevance: 0.95
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 Здравствуйте дорогие друзья тема
 сегодняшнего нашего урока привычки

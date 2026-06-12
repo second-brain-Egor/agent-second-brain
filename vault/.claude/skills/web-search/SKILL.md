@@ -2,7 +2,7 @@
 type: note
 description: Веб-поиск через scripts/web_search.py (DuckDuckGo, регион ru-ru)
 last_accessed: 2026-06-11
-relevance: 0.94
+relevance: 0.98
 tier: active
 name: web-search
 model: default

@@ -1,10 +1,11 @@
 ---
-description: "Хроника обсуждений и решений по АСУЛА"
 type: note
+description: "Хроника обсуждений и решений по АСУЛА"
 created: 2026-05-09
 updated: 2026-05-09
-relevance: 0.9
-tier: active
+last_accessed: 2026-05-09
+relevance: 0.49
+tier: cold
 ---
 
 # Хроника

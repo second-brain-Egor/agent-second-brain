@@ -1,9 +1,9 @@
 ---
-description: "Дата: 2026-04-08"
 type: note
+description: "Дата: 2026-04-08"
 last_accessed: 2026-04-08
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 ---
 # Правила горизонта планирования
 

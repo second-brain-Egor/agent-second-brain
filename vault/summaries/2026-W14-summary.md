@@ -1,13 +1,12 @@
 ---
-description: "Weekly summary for 2026-W14"
 type: weekly-summary
+description: "Weekly summary for 2026-W14"
+related: 
 last_accessed: 2026-03-31
-relevance: 0.94
-tier: active
+relevance: 0.82
+tier: warm
 date: 2026-03-31
 week: 2026-W14
-related:
-  - "[[MEMORY]]"
 ---
 
 Все данные собраны. Генерирую дайджест.

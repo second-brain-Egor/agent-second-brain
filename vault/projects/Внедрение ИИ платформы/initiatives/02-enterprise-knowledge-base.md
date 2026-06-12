@@ -1,13 +1,12 @@
 ---
-description: "База знаний предприятия — initiative"
 type: initiative
+description: "База знаний предприятия — initiative"
+related: 
 created: 2026-04-29
 last_accessed: 2026-04-29
-relevance: 0.95
-tier: active
+relevance: 0.47
+tier: cold
 project: Внедрение ИИ платформы
-related:
-  - "[[projects/_index]]"
 ---
 
 # База знаний предприятия

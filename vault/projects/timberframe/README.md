@@ -1,12 +1,12 @@
 ---
-description: "TimberFrame — project"
 type: project
+description: "TimberFrame — project"
 tags: 
 source: daily/2026-04-15
 created: 2026-04-15
 last_accessed: 2026-04-15
-relevance: 0.94
-tier: active
+relevance: 0.56
+tier: cold
 ---
 
 # TimberFrame

@@ -1,11 +1,11 @@
 ---
-description: "Подключение — project, active"
 type: project
+description: "Подключение — project, active"
 status: active
 updated: 2026-05-06
 last_accessed: 2026-05-06
-relevance: 0.98
-tier: active
+relevance: 0.47
+tier: cold
 ---
 # Подключение
 

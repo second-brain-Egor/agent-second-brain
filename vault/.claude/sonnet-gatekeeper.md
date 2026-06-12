@@ -1,3 +1,9 @@
+---
+type: note
+last_accessed: 2026-05-08
+relevance: 0.47
+tier: cold
+---
 <!-- Только для Claude -->
 
 # Sonnet — привратник для Opus

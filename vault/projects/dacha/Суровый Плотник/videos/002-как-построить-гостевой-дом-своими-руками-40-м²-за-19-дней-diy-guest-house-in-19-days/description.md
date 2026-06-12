@@ -1,11 +1,10 @@
 ---
-description: "Description — project"
 type: project
+description: "Description — project"
+related: 
 last_accessed: 2026-05-01
-relevance: 0.94
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 Пиломатериалы 1-2 сорт влажность не более 20%
 50*200 0.96 м³

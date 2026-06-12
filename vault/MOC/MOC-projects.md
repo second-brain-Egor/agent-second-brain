@@ -1,20 +1,28 @@
 ---
-description: "Map of Content: Projects, 254 entries"
+type: note
+last_accessed: 2026-05-10
+relevance: 0.51
+tier: cold
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-05-08 | folders: 16, notes: 253, standalone: 0
+> Generated: 2026-06-12 | folders: 18, notes: 257, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
 ---
 
-## Asula (1)
+## Asula (6)
 
-- [[projects/asula/README|АСУЛА]] — АСУЛА — project
+- [[projects/asula/README|АСУЛА]] — АСУЛА — автоматизированная система управления ликвидацией аварии. Офлайн-приложение для планшета на объекте.
+- [[projects/asula/algorithms|Алгоритмы и логика]] — Алгоритмы и логика работы АСУЛА: справочник, поиск, рекомендации
+- [[projects/asula/platform|Платформа и требования]] — Платформа АСУЛА: Android-планшет, офлайн, голос
+- [[projects/asula/scenarios|Сценарии]] — Сценарии работы АСУЛА
+- [[projects/asula/timeline|Хроника]] — Хроника обсуждений и решений по АСУЛА
+- [[projects/asula/goals|Цели и проблемы]] — Цели и проблемы, которые закрывает АСУЛА
 
-## Dacha (48)
+## Dacha (44)
 
 - [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/metadata|1-я часть]] — 1-я часть — project
 - [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/metadata|2-я часть]] — 2-я часть — project
@@ -39,19 +47,13 @@ description: "Map of Content: Projects, 254 entries"
 - [[projects/dacha/разбор проекта/bathhouse-window-openings-check-2026-04-30|Баня — проверка узлов над оконными проемами]] — Баня — проверка узлов над оконными проемами — note, draft
 - [[projects/dacha/bathhouse-materials-inventory|Баня — учёт купленного материала]] — Баня — учёт купленного материала — note, active
 - [[projects/dacha/bathhouse-procurement-draft|Баня — черновик закупки материалов]] — Баня — черновик закупки материалов — note, draft
+- [[projects/dacha/pool-from-blocks-idea|Бассейн из фундаментных блоков (идея)]] — Дата: 2026-05-16 Статус: брейншторм, без сроков, сезонный/долгий горизонт.
+- [[projects/dacha/Разбор специалиста. Три видео/ГДЕ-КАДРЫ|Где кадры]] — Указатель: кадры видео вынесены из vault на сервер
+- [[projects/dacha/Суровый Плотник/ГДЕ-КАДРЫ|Где кадры]] — Указатель: кадры видео вынесены из vault на сервер
 - [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/metadata|Гостевой Дом 40м² своими руками по СП 31-105-2002  Расширенная версия]] — Гостевой Дом 40м² своими руками по СП 31-105-2002  Расширенная версия — project
 - [[projects/dacha/README|Дача]] — Дача — project, active
 - [[projects/dacha/Разбор специалиста. Три видео/download-journal|Журнал скачанных видео]] — Журнал скачанных видео — project
 - [[projects/dacha/Суровый Плотник/download-journal|Журнал скачанных видео]] — Журнал скачанных видео — project
-- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/frames/README|Кадры]] — Кадры — project
-- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/frames/README|Кадры]] — Кадры — project
-- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/frames/README|Кадры]] — Кадры — project
-- [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/frames/README|Кадры]] — Кадры — project
-- [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/frames/README|Кадры]] — Кадры — project
-- [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/frames/README|Кадры]] — Кадры — project
-- [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/frames-deduped/README|Кадры после дедупликации]] — Кадры после дедупликации — project
-- [[projects/dacha/Разбор специалиста. Три видео/videos/002-2-я-часть/frames-deduped/README|Кадры после дедупликации]] — Кадры после дедупликации — project
-- [[projects/dacha/Разбор специалиста. Три видео/videos/003-3-я-часть/frames-deduped/README|Кадры после дедупликации]] — Кадры после дедупликации — project
 - [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/metadata|Как построить гостевой дом своими руками. 40 м² за 19 дней. DIY Guest House in 19 days.]] — Как построить гостевой дом своими руками. 40 м² за 19 дней. DIY Guest House in 19 days. — project
 - [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/metadata|Как построить дачный дом своими руками. 62м² за 18 дней. DIY Forest House In 18 Days]] — Как построить дачный дом своими руками. 62м² за 18 дней. DIY Forest House In 18 Days — project
 - [[projects/dacha/Разбор специалиста. Три видео/videos/001-1-я-часть/comments|Комментарии]] — Комментарии — project
@@ -60,6 +62,8 @@ description: "Map of Content: Projects, 254 entries"
 - [[projects/dacha/Суровый Плотник/videos/001-как-построить-дачный-дом-своими-руками-62м²-за-18-дней-diy-forest-house-in-18-days/comments|Комментарии]] — Комментарии — project
 - [[projects/dacha/Суровый Плотник/videos/002-как-построить-гостевой-дом-своими-руками-40-м²-за-19-дней-diy-guest-house-in-19-days/comments|Комментарии]] — Комментарии — project
 - [[projects/dacha/Суровый Плотник/videos/003-гостевой-дом-40м²-своими-руками-по-сп-31-105-2002-расширенная-версия/comments|Комментарии]] — Комментарии — project
+- [[projects/dacha/bathhouse-lipa-osina-vagonka|Липа и осина для бани]] — Как отличать липу от осины при покупке вагонки и полковой доски для бани.
+- [[projects/dacha/bathhouse-stove-chimney-invoice-2026-05-22|Накладная от 22.05.2026 — печь, дымоход, расходники]] — Накладная от 22.05.2026 — печь, дымоход, расходники для бани
 - [[projects/dacha/Разбор специалиста. Три видео/audio-transcript-analysis|Разбор консультации специалиста по транскрибации аудио]] — Разбор консультации специалиста по транскрибации аудио — project
 - [[projects/dacha/Разбор специалиста. Три видео/summary|Сводка по видео]] — Сводка по видео — project
 - [[projects/dacha/Суровый Плотник/summary|Сводка по видео]] — Сводка по видео — project
@@ -99,6 +103,10 @@ description: "Map of Content: Projects, 254 entries"
 ## Timberframe workshop setup (1)
 
 - [[projects/timberframe-workshop-setup/README|Timberframe Workshop Setup]] — Timberframe Workshop Setup — project
+
+## Trading (1)
+
+- [[projects/trading/dash/analysis-2026-05-26|DASH/USDT — анализ за полтора месяца]] — Дата анализа: 2026-05-26 Текущая цена: ~45.11 USDT
 
 ## Trading bot stop reliability (1)
 
@@ -187,9 +195,14 @@ description: "Map of Content: Projects, 254 entries"
 - [[projects/Ежедневник/youtube-habits/videos/014-успешные-люди-о-главном/metadata|Успешные люди о главном]] — Успешные люди о главном — project
 - [[projects/Ежедневник/daily-template|Шаблон дня]] — Шаблон дня — template
 
-## Подключение (1)
+## Подключение (2)
 
+- [[projects/Подключение/modem-antenna-4g|4G на даче: модем + антенна + что докупить]] — Связка 4G: роутер Cudy LT500D + антенна Антэкс PETRA BB 75 MIMO 2x2, разъёмы и кабель
 - [[projects/Подключение/README|Подключение]] — Подключение — project, active
+
+## Приложение по дорогам (1)
+
+- [[projects/приложение-по-дорогам/README|Приложение по дорогам]] — Офлайн-приложение под Android с картой предприятия, перекрытием дорог и автопрокладкой маршрута в обход
 
 ## Рынок стройматериалы (113)
 

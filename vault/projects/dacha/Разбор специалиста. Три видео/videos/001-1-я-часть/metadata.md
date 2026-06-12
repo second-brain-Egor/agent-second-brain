@@ -1,11 +1,10 @@
 ---
-description: "1-я часть — project"
 type: project
+description: "1-я часть — project"
+related: 
 last_accessed: 2026-05-01
-relevance: 0.94
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 # 1-я часть
 

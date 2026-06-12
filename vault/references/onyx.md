@@ -1,13 +1,12 @@
 ---
-description: "Onyx — не отдельная LLM-модель, а open-source платформа поверх языковых моделей. Это слой приложения: чат, поиск по внутренним данным, RAG, агенты..."
 type: note
+description: "Onyx — не отдельная LLM-модель, а open-source платформа поверх языковых моделей. Это слой приложения: чат, поиск по внутренним данным, RAG, агенты..."
 source: https://github.com/onyx-dot-app/onyx
+related: 
 created: 2026-05-04
 last_accessed: 2026-05-08
-relevance: 0.5
-tier: archive
-related:
-  - "[[MEMORY]]"
+relevance: 0.47
+tier: cold
 ---
 
 # Onyx — заметки по платформе

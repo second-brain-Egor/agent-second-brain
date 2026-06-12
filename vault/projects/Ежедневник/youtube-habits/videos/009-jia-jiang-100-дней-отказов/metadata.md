@@ -1,11 +1,10 @@
 ---
-description: "Jia Jiang. 100 дней отказов. — project"
 type: project
+description: "Jia Jiang. 100 дней отказов. — project"
+related: 
 last_accessed: 2026-05-05
-relevance: 0.95
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 # Jia Jiang. 100 дней отказов.
 

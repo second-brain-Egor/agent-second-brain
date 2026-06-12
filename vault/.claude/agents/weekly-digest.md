@@ -2,8 +2,8 @@
 type: note
 description: Generate weekly digest with goal progress, wins, challenges, and next week planning. Run on Sundays.
 last_accessed: 2026-03-27
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 name: weekly-digest
 model: sonnet
 scope: global

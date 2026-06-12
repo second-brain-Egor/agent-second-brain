@@ -1,9 +1,9 @@
 ---
-description: "Операционный статус second brain bot — note"
 type: note
+description: "Операционный статус second brain bot — note"
 last_accessed: 2026-04-16
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 ---
 # Операционный статус second brain bot
 

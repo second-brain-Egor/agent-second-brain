@@ -1,13 +1,13 @@
 ---
-description: "Сравнение позиций: название и стоимость — research, working-data"
 type: research
+description: "Сравнение позиций: название и стоимость — research, working-data"
 source: web
 status: working-data
 created: 2026-04-26
 updated: 2026-04-28
 last_accessed: 2026-04-28
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 project: Рынок стройматериалы
 ---
 # Сравнение позиций: название и стоимость

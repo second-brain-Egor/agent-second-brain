@@ -1,6 +1,9 @@
 ---
-date: 2026-06-07
 type: weekly-summary
+last_accessed: 2026-06-07
+relevance: 0.93
+tier: active
+date: 2026-06-07
 week: 2026-W23
 ---
 

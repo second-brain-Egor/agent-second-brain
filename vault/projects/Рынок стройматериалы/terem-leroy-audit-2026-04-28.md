@@ -1,13 +1,13 @@
 ---
-description: "Аудит Терем/Леруа - 2026-04-28 — research, audited"
 type: research
+description: "Аудит Терем/Леруа - 2026-04-28 — research, audited"
 source: product-cards
 status: audited
 created: 2026-04-28
 updated: 2026-04-28
 last_accessed: 2026-04-28
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 project: Рынок стройматериалы
 ---
 

@@ -1,10 +1,10 @@
 ---
-description: "Риски и ограничения — project-note"
 type: project-note
+description: "Риски и ограничения — project-note"
 created: 2026-04-29
 last_accessed: 2026-04-29
-relevance: 0.95
-tier: active
+relevance: 0.47
+tier: cold
 project: Внедрение ИИ платформы
 ---
 

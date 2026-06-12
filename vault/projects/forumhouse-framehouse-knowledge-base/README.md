@@ -1,14 +1,14 @@
 ---
-description: "Forumhouse Framehouse Knowledge Base — project, active"
 type: project
+description: "Forumhouse Framehouse Knowledge Base — project, active"
 tags: 
 source: daily/2026-04-11
 status: active
 created: 2026-04-11
 updated: 2026-04-24
 last_accessed: 2026-04-24
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 ---
 
 # Forumhouse Framehouse Knowledge Base

@@ -1,11 +1,10 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
+related: 
 last_accessed: 2026-05-01
-relevance: 0.94
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 [0:00] Так, так, на чем мы закончили-то? Убираем эти нижние, нижние, верхние. С этими палками разобрались. Дальше по этой палке остается вопрос в отношении того, чтобы ничего здесь не опрокинулось. А я не вижу экрана.
 

@@ -1,9 +1,9 @@
 ---
-description: "Weekly summary for 2026-W16"
 type: weekly-summary
+description: "Weekly summary for 2026-W16"
 last_accessed: 2026-04-19
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 date: 2026-04-19
 week: 2026-W16
 ---

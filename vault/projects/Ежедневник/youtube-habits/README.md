@@ -1,12 +1,12 @@
 ---
-description: "Разбор YouTube-видео про привычки — note, draft-collected"
 type: note
+description: "Разбор YouTube-видео про привычки — note, draft-collected"
 status: draft-collected
 created: 2026-05-03
 updated: 2026-05-04
 last_accessed: 2026-05-04
-relevance: 0.95
-tier: active
+relevance: 0.47
+tier: cold
 project: Ежедневник
 ---
 # Разбор YouTube-видео про привычки

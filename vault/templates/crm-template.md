@@ -12,8 +12,8 @@ deal_deadline: YYYY-MM-DD
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 last_accessed: 2026-03-27
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 [One-line summary: industry, key deal, what makes this client notable]
 ---
 

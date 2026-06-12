@@ -1,12 +1,12 @@
 ---
-description: "Подбор шипорезного станка — project"
 type: project
+description: "Подбор шипорезного станка — project"
 tags: 
 source: daily/2026-04-14
 created: 2026-04-14
 last_accessed: 2026-04-14
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 ---
 
 # Подбор шипорезного станка

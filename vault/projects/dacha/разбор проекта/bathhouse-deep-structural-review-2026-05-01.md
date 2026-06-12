@@ -1,13 +1,13 @@
 ---
-description: "Баня — глубокий разбор конструкции по SketchUp, скриншотам, Суровому Плотнику и консультации специалиста — note, draft"
 type: note
+description: "Баня — глубокий разбор конструкции по SketchUp, скриншотам, Суровому Плотнику и консультации специалиста — note, draft"
 source: session/2026-05-01
 status: draft
 created: 2026-05-01
 updated: 2026-05-01
 last_accessed: 2026-05-02
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 project: dacha
 ---
 

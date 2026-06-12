@@ -1,10 +1,11 @@
 ---
-description: "Алгоритмы и логика работы АСУЛА: справочник, поиск, рекомендации"
 type: note
+description: "Алгоритмы и логика работы АСУЛА: справочник, поиск, рекомендации"
 created: 2026-05-09
 updated: 2026-05-09
-relevance: 0.94
-tier: active
+last_accessed: 2026-05-09
+relevance: 0.49
+tier: cold
 ---
 
 # Алгоритмы и логика

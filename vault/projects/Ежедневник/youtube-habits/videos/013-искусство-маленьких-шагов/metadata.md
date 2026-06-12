@@ -1,11 +1,10 @@
 ---
-description: "Искусство маленьких шагов — project"
 type: project
+description: "Искусство маленьких шагов — project"
+related: 
 last_accessed: 2026-05-05
-relevance: 0.95
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 # Искусство маленьких шагов
 

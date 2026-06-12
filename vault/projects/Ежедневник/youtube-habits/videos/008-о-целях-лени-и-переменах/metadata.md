@@ -1,11 +1,10 @@
 ---
-description: "О целях, лени и переменах — project"
 type: project
+description: "О целях, лени и переменах — project"
+related: 
 last_accessed: 2026-05-05
-relevance: 0.95
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 # О целях, лени и переменах
 

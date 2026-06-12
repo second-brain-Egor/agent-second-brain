@@ -1,14 +1,14 @@
 ---
-description: "Дача — project, active"
 type: project
+description: "Дача — project, active"
 tags: 
 source: daily/2026-04-17
 status: active
 created: 2026-04-17
 updated: 2026-04-30
 last_accessed: 2026-04-30
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 ---
 
 # Дача

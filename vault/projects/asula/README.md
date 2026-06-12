@@ -1,17 +1,14 @@
 ---
-description: "АСУЛА — автоматизированная система управления ликвидацией аварии. Офлайн-приложение для планшета на объекте."
 type: project
-status: active
-tier: active
-tags:
-  - production-safety
-  - emergency-response
-  - offline
+description: "АСУЛА — автоматизированная система управления ликвидацией аварии. Офлайн-приложение для планшета на объекте."
+tags: 
 source: daily/2026-04-11
+status: active
 created: 2026-04-11
 updated: 2026-05-09
 last_accessed: 2026-05-09
-relevance: 0.96
+relevance: 0.49
+tier: cold
 ---
 
 # АСУЛА

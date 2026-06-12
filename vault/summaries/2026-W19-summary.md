@@ -1,10 +1,12 @@
 ---
-description: "Weekly summary for 2026-W19"
-date: 2026-05-10
 type: weekly-summary
+description: "Weekly summary for 2026-W19"
+related: 
+last_accessed: 2026-05-17
+relevance: 0.61
+tier: cold
+date: 2026-05-10
 week: 2026-W19
-related:
-  - "[[MEMORY]]"
 ---
 
 **Неделя 4–10 мая**

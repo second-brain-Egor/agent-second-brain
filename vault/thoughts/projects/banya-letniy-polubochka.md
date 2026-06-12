@@ -1,12 +1,14 @@
 ---
-description: "Временное решение на сезон, пока строится основная баня."
 type: thought
-category: projects
-created: 2026-05-21
-horizon: лето 2026 (временный объект до готовности основной бани)
+description: "Временное решение на сезон, пока строится основная баня."
 status: брейншторм
-related:
-  - "[[MEMORY]]"
+related: 
+created: 2026-05-21
+last_accessed: 2026-05-24
+relevance: 0.72
+tier: warm
+category: projects
+horizon: лето 2026 (временный объект до готовности основной бани)
 ---
 
 # Летний вариант бани — полубочка из гнутых труб

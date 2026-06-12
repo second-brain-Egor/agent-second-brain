@@ -1,11 +1,10 @@
 ---
-description: "[Your Company Name] — [what the company does]."
 type: note
+description: "[Your Company Name] — [what the company does]."
+related: 
 last_accessed: 2026-03-29
-relevance: 0.94
-tier: active
-related:
-  - "[[MEMORY]]"
+relevance: 0.47
+tier: cold
 ---
 # Business Context
 

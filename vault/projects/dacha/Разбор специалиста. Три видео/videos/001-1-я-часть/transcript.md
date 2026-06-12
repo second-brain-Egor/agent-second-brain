@@ -1,11 +1,10 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
+related: 
 last_accessed: 2026-05-01
-relevance: 0.94
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 [0:02] Включил запись. Так, всё, всё работает, приступаем. Так, сейчас, минутку, остановить запись. Ну, я думаю, запись работает, хотелось бы надеяться. Я просто сам первый раз так-то до этого, по-моему, пользовался, вот, но как Я-то и не пользовался вообще, потому как бы не знаю тут примерно ничего.
 

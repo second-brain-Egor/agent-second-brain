@@ -1,13 +1,13 @@
 ---
-description: "Прайс-лист стройматериалов — страница 1 из 3 — source, raw-processed"
 type: source
+description: "Прайс-лист стройматериалов — страница 1 из 3 — source, raw-processed"
 source: photo
 status: raw-processed
 created: 2026-04-26
 updated: 2026-04-26
 last_accessed: 2026-04-26
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 project: Рынок стройматериалы
 ---
 

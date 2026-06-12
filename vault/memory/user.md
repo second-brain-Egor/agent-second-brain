@@ -1,6 +1,6 @@
 ---
-description: "- Имя: Егор - Возраст: 46 лет - Город: Москва - Таймзона: Europe/Moscow (UTC+3) - Язык: русский"
 type: note
+description: "- Имя: Егор - Возраст: 46 лет - Город: Москва - Таймзона: Europe/Moscow (UTC+3) - Язык: русский"
 last_accessed: 2026-05-01
 relevance: 0.98
 tier: active

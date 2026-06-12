@@ -1,13 +1,13 @@
 ---
-description: "Баня — проверка стен, стоек и оконных проемов — note, draft"
 type: note
+description: "Баня — проверка стен, стоек и оконных проемов — note, draft"
 source: session/2026-04-30
 status: draft
 created: 2026-04-30
 updated: 2026-04-30
 last_accessed: 2026-05-02
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 project: dacha
 ---
 

@@ -1,10 +1,10 @@
 ---
-description: "Why it matters: без рейсмуса нет обработки бруса → нет производства"
 type: monthly
+description: "Why it matters: без рейсмуса нет обработки бруса → нет производства"
 updated: 2026-03-29
 last_accessed: 2026-03-29
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 period: 2026-04
 ---
 

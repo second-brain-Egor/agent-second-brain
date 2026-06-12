@@ -1,9 +1,11 @@
 ---
-description: "Как отличать липу от осины при покупке вагонки и полковой доски для бани."
 type: project
+description: "Как отличать липу от осины при покупке вагонки и полковой доски для бани."
+related: 
 created: 2026-05-24
-related:
-  - "[[bathhouse-procurement-draft]]"
+last_accessed: 2026-05-24
+relevance: 0.72
+tier: warm
 ---
 # Липа и осина для бани
 

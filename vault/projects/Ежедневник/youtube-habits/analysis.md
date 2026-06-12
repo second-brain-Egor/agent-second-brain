@@ -1,12 +1,11 @@
 ---
-description: "Разбор серии видео про привычки и успех — note"
 type: note
+description: "Разбор серии видео про привычки и успех — note"
+related: 
 updated: 2026-05-07
 last_accessed: 2026-05-07
-relevance: 0.98
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 
 # Разбор серии видео про привычки и успех

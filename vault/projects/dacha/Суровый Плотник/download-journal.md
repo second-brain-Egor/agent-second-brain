@@ -1,11 +1,10 @@
 ---
-description: "Журнал скачанных видео — project"
 type: project
+description: "Журнал скачанных видео — project"
+related: 
 last_accessed: 2026-05-01
-relevance: 0.94
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 # Журнал скачанных видео
 

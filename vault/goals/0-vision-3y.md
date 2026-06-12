@@ -1,10 +1,10 @@
 ---
-description: "Построить своё дело в деревообработке по технологии timberframe — от мастерской до полноценного производства."
 type: vision
+description: "Построить своё дело в деревообработке по технологии timberframe — от мастерской до полноценного производства."
 updated: 2026-03-29
 last_accessed: 2026-03-29
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 horizon: 3-years
 period: 2025-2027
 ---

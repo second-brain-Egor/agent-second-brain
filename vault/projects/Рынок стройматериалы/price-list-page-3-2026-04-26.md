@@ -1,13 +1,13 @@
 ---
-description: "Прайс-лист стройматериалов — страница 3 из 3 — price-list, first-pass"
 type: price-list
+description: "Прайс-лист стройматериалов — страница 3 из 3 — price-list, first-pass"
 source: Telegram photo OCR
 status: first-pass
 created: 2026-04-26
 updated: 2026-04-26
 last_accessed: 2026-04-26
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 project: Рынок стройматериалы
 ---
 

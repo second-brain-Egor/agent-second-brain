@@ -1,10 +1,10 @@
 ---
-description: "Передача следующему агенту — handoff"
 type: handoff
+description: "Передача следующему агенту — handoff"
 created: 2026-04-29
 last_accessed: 2026-04-29
-relevance: 0.95
-tier: active
+relevance: 0.47
+tier: cold
 project: Внедрение ИИ платформы
 ---
 

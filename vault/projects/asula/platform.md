@@ -1,10 +1,11 @@
 ---
-description: "Платформа АСУЛА: Android-планшет, офлайн, голос"
 type: note
+description: "Платформа АСУЛА: Android-планшет, офлайн, голос"
 created: 2026-05-09
 updated: 2026-05-09
-relevance: 0.94
-tier: active
+last_accessed: 2026-05-09
+relevance: 0.49
+tier: cold
 ---
 
 # Платформа и требования

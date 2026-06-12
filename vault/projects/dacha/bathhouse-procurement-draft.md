@@ -1,12 +1,12 @@
 ---
-description: "Баня — черновик закупки материалов — note, draft"
 type: note
+description: "Баня — черновик закупки материалов — note, draft"
 source: daily/2026-04-26
 status: draft
 created: 2026-04-26
 updated: 2026-06-09
 last_accessed: 2026-05-03
-relevance: 0.94
+relevance: 0.97
 tier: active
 project: dacha
 ---

@@ -1,15 +1,13 @@
 ---
-description: "Map of Content: Рефлексии, 0 entries"
 type: moc
-last_accessed: 2026-05-08
-relevance: 0.85
+description: "Map of Content: Рефлексии, 0 entries"
+last_accessed: 2026-06-12
+relevance: 1.0
 tier: active
-related:
-  - "[[MEMORY]]"
 ---
 
 # Рефлексии
 
-Сгенерировано: 2026-05-08 10:42. Файлов: 0.
+Сгенерировано: 2026-06-12 04:40. Файлов: 0.
 
 _Пока пусто._

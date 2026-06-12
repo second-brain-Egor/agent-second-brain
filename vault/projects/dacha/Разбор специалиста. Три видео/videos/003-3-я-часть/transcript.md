@@ -1,11 +1,10 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
+related: 
 last_accessed: 2026-05-01
-relevance: 0.94
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 [0:00] Есть экран? Да. Так, продолжаем. Так, заметочка еще. Вот я тут увидел, что вот тут вот так вот балки насквозь проброшены.
 

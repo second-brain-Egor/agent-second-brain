@@ -1,11 +1,11 @@
 ---
-description: "Егор ожидает, что Codex и Claude Code одинаково умеют проверять закачку Forumhouse на Барыге."
 type: learning
+description: "Егор ожидает, что Codex и Claude Code одинаково умеют проверять закачку Forumhouse на Барыге."
 tags: 
 created: 2026-05-08
 last_accessed: 2026-05-08
-relevance: 1.0
-tier: active
+relevance: 0.47
+tier: cold
 ---
 
 # Единый доступ агентов к Forumhouse

@@ -1,13 +1,12 @@
 ---
-description: "Weekly summary for 2026-W15"
 type: weekly-summary
+description: "Weekly summary for 2026-W15"
+related: 
 last_accessed: 2026-04-12
-relevance: 0.94
+relevance: 0.93
 tier: active
 date: 2026-04-12
 week: 2026-W15
-related:
-  - "[[MEMORY]]"
 ---
 
 **Победы**

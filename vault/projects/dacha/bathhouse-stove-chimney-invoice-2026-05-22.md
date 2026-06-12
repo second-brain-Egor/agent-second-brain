@@ -1,13 +1,15 @@
 ---
-description: "Накладная от 22.05.2026 — печь, дымоход, расходники для бани"
 type: note
+description: "Накладная от 22.05.2026 — печь, дымоход, расходники для бани"
 source: session/2026-05-26
 status: active
+related: 
 created: 2026-05-26
 updated: 2026-05-26
+last_accessed: 2026-05-31
+relevance: 0.82
+tier: warm
 project: dacha
-related:
-  - "[[projects/_index]]"
 ---
 
 # Накладная от 22.05.2026 — печь, дымоход, расходники

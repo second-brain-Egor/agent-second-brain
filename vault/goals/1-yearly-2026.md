@@ -1,10 +1,10 @@
 ---
-description: "Полноценное производство малых архитектурных форм (дома, бани, сараи) по технологии timberframe."
 type: yearly
+description: "Полноценное производство малых архитектурных форм (дома, бани, сараи) по технологии timberframe."
 updated: 2026-03-29
 last_accessed: 2026-03-29
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 period: 2026
 ---
 

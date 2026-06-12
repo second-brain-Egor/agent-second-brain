@@ -1,12 +1,12 @@
 ---
-description: "Timberframe Workshop Setup — project"
 type: project
+description: "Timberframe Workshop Setup — project"
 tags: 
 source: daily/2026-03-27
 created: 2026-03-29
 last_accessed: 2026-03-29
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 ---
 
 # Timberframe Workshop Setup

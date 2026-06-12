@@ -1,11 +1,10 @@
 ---
 type: note
+related: 
 updated: 2026-04-29
 last_accessed: 2026-04-30
-relevance: 0.94
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.47
+tier: cold
 ---
 # План выгрузки и переезда
 

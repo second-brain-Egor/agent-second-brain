@@ -1,9 +1,9 @@
 ---
-description: "Long-term memory and key decisions"
 type: note
+description: "Long-term memory and key decisions"
 last_accessed: 2026-02-26
-relevance: 0.94
-tier: active
+relevance: 0.47
+tier: cold
 ---
 # Long-term Memory
 
