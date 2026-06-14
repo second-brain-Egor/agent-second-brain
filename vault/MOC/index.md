@@ -1,7 +1,6 @@
 ---
-description: "Map of Content: Index, 306 entries"
 type: note
-updated: 2026-06-14
+updated: 2026-06-15
 relevance: 0.9
 tier: active
 ---
@@ -11,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 385
-- Связей: 1208
-- Сирот: 9
-- Слабосвязанных: 58
+- Заметок: 387
+- Связей: 1204
+- Сирот: 17
+- Слабосвязанных: 50
 
 ## Память
 
@@ -308,22 +307,22 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-06-15.md|2026-06-15]]
 - [[daily/2026-06-14.md|2026-06-14]]
 - [[daily/2026-06-13.md|2026-06-13]]
 - [[daily/2026-06-12.md|2026-06-12]]
 - [[daily/2026-06-11.md|2026-06-11]]
 - [[daily/2026-06-10.md|2026-06-10]]
 - [[daily/2026-06-09.md|2026-06-09]]
-- [[daily/2026-06-08.md|2026-06-08]]
 
 ## Недельные сводки
 
+- [[summaries/2026-W24-summary.md|2026-W24-summary]]
 - [[summaries/2026-W23-summary.md|2026-W23-summary]]
 - [[summaries/2026-W22-summary.md|2026-W22-summary]]
 - [[summaries/2026-W21-summary.md|2026-W21-summary]]
 - [[summaries/2026-W20-summary.md|2026-W20-summary]]
 - [[summaries/2026-W19-summary.md|2026-W19-summary]]
-- [[summaries/2026-W18-summary.md|2026-W18-summary]]
 
 ## Обучения и правила
 
