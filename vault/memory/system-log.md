@@ -39,3 +39,4 @@ tier: active
 2026-06-12 10:50 | asula-directions-recorded | claude | OK
 2026-06-12 11:00 | asula-tz-started | claude | OK
 2026-06-12 11:06 | tz-asula-p2 | claude | OK
+2026-06-16 21:00 | process | claude | OK (asula codex-isolation, facts +1)

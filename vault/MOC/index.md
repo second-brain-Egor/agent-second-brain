@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 388
-- Связей: 1210
+- Заметок: 389
+- Связей: 1221
 - Сирот: 10
-- Слабосвязанных: 60
+- Слабосвязанных: 59
 
 ## Память
 
@@ -49,6 +49,7 @@ tier: active
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/asula/_index.md|АСУЛА — индекс]]
 - [[projects/asula/algorithms.md|Алгоритмы и логика]]
+- [[projects/asula/codex-isolation.md|Кодекс на рабочей машине — закрытый контур]]
 - [[projects/asula/directions.md|Направления работы]]
 - [[projects/asula/goals.md|Цели и проблемы]]
 - [[projects/asula/platform.md|Платформа и требования]]
