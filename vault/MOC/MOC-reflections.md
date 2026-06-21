@@ -4,6 +4,8 @@ description: "Map of Content: Рефлексии, 0 entries"
 last_accessed: 2026-06-12
 relevance: 1.0
 tier: active
+related:
+  - "[[MEMORY]]"
 ---
 
 # Рефлексии

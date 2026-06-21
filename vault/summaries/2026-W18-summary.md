@@ -6,6 +6,8 @@ relevance: 0.47
 tier: cold
 date: 2026-05-03
 week: 2026-W18
+related:
+  - "[[MEMORY]]"
 ---
 
 **Победы недели** 🔧
