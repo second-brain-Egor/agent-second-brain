@@ -227,12 +227,22 @@ class AgentProcessor:
         if not today_entries:
             return ""
 
-        lines = ["=== TODAY SESSION ==="]
-        for entry in today_entries[-10:]:
+        # Берём ВЕСЬ сегодняшний день, а не последние N записей: жёсткое окно
+        # обрезало утренние сообщения и было причиной «амнезии» внутри дня.
+        # Чтобы очень болтливый день не раздул промпт — режем по бюджету символов,
+        # сохраняя самые свежие записи (старые отбрасываем первыми).
+        char_budget = 24000
+        rendered_entries: list[str] = []
+        for entry in reversed(today_entries):
             rendered = self._render_session_entry(entry)
-            if rendered:
-                lines.append(rendered)
-        lines.append("=== END SESSION ===")
+            if not rendered:
+                continue
+            char_budget -= len(rendered)
+            if char_budget < 0:
+                break
+            rendered_entries.append(rendered)
+
+        lines = ["=== TODAY SESSION ===", *reversed(rendered_entries), "=== END SESSION ==="]
         return "\n".join(lines)
 
     @staticmethod

@@ -41,3 +41,7 @@ tier: active
 2026-06-12 11:06 | tz-asula-p2 | claude | OK
 2026-06-16 21:00 | process | claude | OK (asula codex-isolation, facts +1)
 2026-06-20 22:00 | process | OK | 2 notes, facts updated
+2026-06-25 15:06 | daily-write | claude | OK
+2026-06-25 15:12 | daily-write veranda roof | claude | OK
+2026-06-25 19:23 | fix intraday memory window 10→full-day budget | claude | OK
+2026-06-25 19:32 | process | claude | OK | 1 task, 3 notes, 5 facts, 2 soul-rules

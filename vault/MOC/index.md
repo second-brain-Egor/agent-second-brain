@@ -10,9 +10,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 401
-- Связей: 1230
-- Сирот: 21
+- Заметок: 405
+- Связей: 1243
+- Сирот: 20
 - Слабосвязанных: 54
 
 ## Память
@@ -60,9 +60,13 @@ tier: active
 - [[projects/dacha/bathhouse-lipa-osina-vagonka.md|Липа и осина для бани]]
 - [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
 - [[projects/dacha/bathhouse-procurement-draft.md|Баня — черновик закупки материалов]]
+- [[projects/dacha/bathhouse-roof-warm-contour-geometry.md|Баня — кровля по тёплому контуру]]
 - [[projects/dacha/bathhouse-stove-chimney-invoice-2026-05-22.md|Накладная от 22.05.2026 — печь, дымоход, расходники]]
+- [[projects/dacha/besedka-roof-geometry.md|Беседка — кровля]]
+- [[projects/dacha/drainage-system.md|Водосточная система (дача)]]
 - [[projects/dacha/kettama-mps02d-motor-replacement.md|Kettama MPS02D — замена двигателя]]
 - [[projects/dacha/metal-frame-spec.md|Дача — металлопрокат: спецификация и вес]]
+- [[projects/dacha/outdoor-camera-requirements.md|Уличная камера — требования к подбору]]
 - [[projects/dacha/pool-from-blocks-idea.md|Бассейн из фундаментных блоков (идея)]]
 - [[projects/dacha/Разбор специалиста. Три видео/audio-transcript-analysis.md|Разбор консультации специалиста по транскрибации аудио]]
 - [[projects/dacha/Разбор специалиста. Три видео/download-journal.md|Журнал скачанных видео]]
