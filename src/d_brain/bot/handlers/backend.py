@@ -11,8 +11,10 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import os
 import re
 import shlex
+import shutil
 from pathlib import Path
 
 from aiogram import F, Router
@@ -31,6 +33,11 @@ LABELS = {
     "claude": "Claude (Claude Max подписка)",
     "codex": "Codex (OpenAI Codex Pro)",
 }
+AUTH_ERROR_PATTERN = re.compile(
+    r"(auth_required|failed to authenticate|request not allowed|api error:\s*403|"
+    r"not authenticated|login required|please log in|unauthorized)",
+    re.IGNORECASE,
+)
 
 
 def _read_active_backend() -> str:
@@ -47,6 +54,86 @@ def _read_active_backend() -> str:
 
 def _is_admin(user_id: int) -> bool:
     return user_id in get_settings().admin_user_ids
+
+
+def _replace_env_value(key: str, value: str) -> None:
+    """Replace or append one key in .env."""
+    content = ENV_PATH.read_text(encoding="utf-8") if ENV_PATH.exists() else ""
+    if re.search(rf"^{re.escape(key)}=", content, flags=re.MULTILINE):
+        new_content = re.sub(
+            rf"^{re.escape(key)}=.*$",
+            f"{key}={value}",
+            content,
+            count=1,
+            flags=re.MULTILINE,
+        )
+    else:
+        sep = "" if not content or content.endswith("\n") else "\n"
+        new_content = f"{content}{sep}{key}={value}\n"
+    ENV_PATH.write_text(new_content, encoding="utf-8")
+
+
+async def _probe_claude_auth() -> tuple[bool, str]:
+    """Best-effort Claude CLI auth check before switching the bot to Claude."""
+    settings = get_settings()
+    claude_bin = shutil.which(settings.claude_bin.strip() or "claude")
+    if not claude_bin:
+        fallback = Path.home() / ".local" / "bin" / "claude"
+        claude_bin = str(fallback) if fallback.exists() else ""
+    if not claude_bin:
+        return False, "Claude CLI не найден."
+
+    model = settings.claude_model_chat.strip() or settings.claude_model.strip() or "sonnet"
+    cmd = [
+        claude_bin,
+        "-p",
+        "--model",
+        model,
+        "--effort",
+        settings.claude_effort.strip() or "medium",
+        "--permission-mode",
+        "default",
+        "--output-format",
+        "text",
+        "--no-session-persistence",
+    ]
+    env = os.environ.copy()
+    env.pop("ANTHROPIC_API_KEY", None)
+
+    try:
+        proc = await asyncio.create_subprocess_exec(
+            *cmd,
+            stdin=asyncio.subprocess.PIPE,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+            cwd=ENV_PATH.parent,
+            env=env,
+        )
+        stdout, stderr = await asyncio.wait_for(
+            proc.communicate("Ответь одним словом: ok".encode("utf-8")),
+            timeout=45,
+        )
+    except TimeoutError:
+        try:
+            proc.kill()
+            await proc.wait()
+        except Exception:
+            pass
+        return False, "Claude CLI не ответил за 45 секунд."
+    except OSError as exc:
+        return False, str(exc)
+
+    details = (
+        (stderr.decode("utf-8", errors="replace") or stdout.decode("utf-8", errors="replace"))
+        .strip()
+        .splitlines()
+    )
+    message = details[-1] if details else "Claude CLI вернул пустой ответ."
+    if proc.returncode == 0:
+        return True, ""
+    if AUTH_ERROR_PATTERN.search(message):
+        return False, "Claude сейчас не авторизован: " + message
+    return False, message
 
 
 @router.message(F.text == "🤖 Модель")
@@ -92,6 +179,25 @@ async def cb_backend(callback: CallbackQuery) -> None:
                 )
             return
 
+    # Claude can lose OAuth without the file disappearing. Do a real CLI probe and
+    # keep the bot on Codex if Claude is unavailable, so the button cannot strand it
+    # on a broken sim until manual re-login is possible.
+    if new_backend == "claude":
+        ok, error = await _probe_claude_auth()
+        if not ok:
+            try:
+                _replace_env_value("AI_BACKEND", "codex")
+            except OSError:
+                logger.exception("Failed to force AI_BACKEND=codex after Claude probe failure")
+            await callback.answer()
+            if callback.message is not None:
+                await callback.message.answer(
+                    "⚠️ Claude сейчас недоступен по авторизации, поэтому оставляю активным <b>Codex</b>.\n\n"
+                    f"{error}\n\n"
+                    "Когда будет возможность, переавторизуй Claude на сервере и переключи обратно через «🤖 Модель»."
+                )
+            return
+
     current = _read_active_backend()
     if current == new_backend:
         await callback.answer(f"Уже активна: {new_backend}", show_alert=True)
@@ -99,19 +205,7 @@ async def cb_backend(callback: CallbackQuery) -> None:
 
     # Replace AI_BACKEND= line in .env (or append if missing).
     try:
-        content = ENV_PATH.read_text(encoding="utf-8")
-        if re.search(r"^AI_BACKEND=", content, flags=re.MULTILINE):
-            new_content = re.sub(
-                r"^AI_BACKEND=.*$",
-                f"AI_BACKEND={new_backend}",
-                content,
-                count=1,
-                flags=re.MULTILINE,
-            )
-        else:
-            sep = "" if content.endswith("\n") else "\n"
-            new_content = f"{content}{sep}AI_BACKEND={new_backend}\n"
-        ENV_PATH.write_text(new_content, encoding="utf-8")
+        _replace_env_value("AI_BACKEND", new_backend)
     except OSError as exc:
         logger.exception("Failed to write .env")
         await callback.answer(f"❌ {exc}", show_alert=True)

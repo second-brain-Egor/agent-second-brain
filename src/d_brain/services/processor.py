@@ -60,6 +60,13 @@ AGENT_MARKER_PATTERN = re.compile(
 PENDING_ACTION_TTL_SECONDS = 300
 CHAT_TIMEOUT_SECONDS = 900
 MEDIA_GENERATION_TIMEOUT_SECONDS = 300
+ENV_PATH = Path(__file__).resolve().parents[3] / ".env"
+
+CLAUDE_AUTH_ERROR_PATTERN = re.compile(
+    r"(auth_required|failed to authenticate|request not allowed|api error:\s*403|"
+    r"invalid api key|not authenticated|login required)",
+    re.IGNORECASE,
+)
 
 MEDIA_REQUEST_PATTERN = re.compile(
     r"\b(фото|картинк\w*|изображени\w*|видео|ролик\w*|image|photo|picture|video)\b",
@@ -378,6 +385,55 @@ week: {year}-W{week:02d}
             raise RuntimeError(f"Codex CLI not found: {self.codex_bin}")
         return resolved
 
+    @staticmethod
+    def _is_claude_auth_error(exc: BaseException) -> bool:
+        """Return True when Claude CLI failed because its local auth is invalid."""
+        return bool(CLAUDE_AUTH_ERROR_PATTERN.search(str(exc)))
+
+    def _persist_backend(self, backend: str) -> None:
+        """Persist active backend in .env so restarts do not return to a broken sim."""
+        if backend not in {"codex", "claude"}:
+            raise ValueError(f"Unsupported backend: {backend}")
+
+        try:
+            content = ENV_PATH.read_text(encoding="utf-8") if ENV_PATH.exists() else ""
+            if re.search(r"^AI_BACKEND=", content, flags=re.MULTILINE):
+                new_content = re.sub(
+                    r"^AI_BACKEND=.*$",
+                    f"AI_BACKEND={backend}",
+                    content,
+                    count=1,
+                    flags=re.MULTILINE,
+                )
+            else:
+                sep = "" if not content or content.endswith("\n") else "\n"
+                new_content = f"{content}{sep}AI_BACKEND={backend}\n"
+            ENV_PATH.write_text(new_content, encoding="utf-8")
+        except OSError:
+            logger.exception("Failed to persist AI_BACKEND=%s", backend)
+
+    def _fallback_to_codex_after_claude_auth_error(
+        self,
+        prompt: str,
+        *,
+        read_only: bool,
+        images: list[str] | None,
+        timeout_sec: int,
+        mode: str,
+        error: BaseException,
+    ) -> str:
+        """Switch to Codex when Claude auth is broken and serve the same request."""
+        logger.warning("Claude auth failed, switching AI_BACKEND to codex: %s", error)
+        self.ai_backend = "codex"
+        self._persist_backend("codex")
+        return self._run_codex_exec(
+            prompt,
+            read_only=read_only,
+            images=images,
+            timeout_sec=timeout_sec,
+            model=self._backend_model_for_mode(mode),
+        )
+
     def _normalize_effort(self, effort: str | None) -> str:
         value = (effort or self.codex_reasoning_effort).strip().lower()
         if value not in SUPPORTED_REASONING_EFFORTS:
@@ -589,13 +645,25 @@ week: {year}-W{week:02d}
         """
         model = self._backend_model_for_mode(mode)
         if self.ai_backend == "claude":
-            return self._run_claude_exec(
-                prompt,
-                read_only=read_only,
-                images=images,
-                timeout_sec=timeout_sec,
-                model=model,
-            )
+            try:
+                return self._run_claude_exec(
+                    prompt,
+                    read_only=read_only,
+                    images=images,
+                    timeout_sec=timeout_sec,
+                    model=model,
+                )
+            except RuntimeError as exc:
+                if self._is_claude_auth_error(exc):
+                    return self._fallback_to_codex_after_claude_auth_error(
+                        prompt,
+                        read_only=read_only,
+                        images=images,
+                        timeout_sec=timeout_sec,
+                        mode=mode,
+                        error=exc,
+                    )
+                raise
         return self._run_codex_exec(
             prompt,
             read_only=read_only,
