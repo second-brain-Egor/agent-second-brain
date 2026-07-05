@@ -1,7 +1,10 @@
 ---
+description: "Weekly summary for 2026-W26"
 date: 2026-06-28
 type: weekly-summary
 week: 2026-W26
+related:
+  - "[[MEMORY]]"
 ---
 
 **Неделя 26: дача вышла в практическую плоскость**
