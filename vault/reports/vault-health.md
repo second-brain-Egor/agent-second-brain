@@ -21,7 +21,7 @@ tier: warm
 |---|---:|---:|
 | MOC | 7 | 87.00 |
 | blog | 2 | 1.00 |
-| daily | 95 | 1.63 |
+| daily | 95 | 1.64 |
 | goals | 5 | 8.00 |
 | memory | 5 | 17.80 |
 | projects | 267 | 5.42 |
@@ -29,7 +29,7 @@ tier: warm
 | reports | 1 | 68.00 |
 | root | 1 | 8.00 |
 | summaries | 12 | 1.58 |
-| templates | 2 | 0.50 |
+| templates | 2 | 0.00 |
 | thoughts | 15 | 4.27 |
 
 ## Самые связные заметки
