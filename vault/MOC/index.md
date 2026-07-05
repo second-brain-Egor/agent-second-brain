@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 416
-- Связей: 1254
+- Заметок: 417
+- Связей: 1259
 - Сирот: 22
-- Слабосвязанных: 61
+- Слабосвязанных: 60
 
 ## Память
 
@@ -52,6 +52,7 @@ tier: active
 - [[projects/asula/codex-isolation.md|Кодекс на рабочей машине — закрытый контур]]
 - [[projects/asula/directions.md|Направления работы]]
 - [[projects/asula/goals.md|Цели и проблемы]]
+- [[projects/asula/lora-home-training.md|LoRA-дообучение на домашнем ПК]]
 - [[projects/asula/platform.md|Платформа и требования]]
 - [[projects/asula/scenarios.md|Сценарии]]
 - [[projects/asula/timeline.md|Хроника]]
