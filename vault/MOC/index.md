@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-07-06
+updated: 2026-07-07
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 419
-- Связей: 1260
+- Заметок: 422
+- Связей: 1268
 - Сирот: 23
-- Слабосвязанных: 61
+- Слабосвязанных: 63
 
 ## Память
 
@@ -68,7 +68,9 @@ tier: active
 - [[projects/dacha/kettama-mps02d-motor-replacement.md|Kettama MPS02D — замена двигателя]]
 - [[projects/dacha/metal-frame-spec.md|Дача — металлопрокат: спецификация и вес]]
 - [[projects/dacha/outdoor-camera-requirements.md|Уличная камера — требования к подбору]]
+- [[projects/dacha/phone-as-camera-temporary.md|Старый телефон как временная камера (дача)]]
 - [[projects/dacha/pool-from-blocks-idea.md|Бассейн из фундаментных блоков (идея)]]
+- [[projects/dacha/smokeless-firepit-bbq.md|Бездымный мангал и бездымное кострище]]
 - [[projects/dacha/Разбор специалиста. Три видео/audio-transcript-analysis.md|Разбор консультации специалиста по транскрибации аудио]]
 - [[projects/dacha/Разбор специалиста. Три видео/download-journal.md|Журнал скачанных видео]]
 - [[projects/dacha/Разбор специалиста. Три видео/summary.md|Сводка по видео]]
@@ -314,13 +316,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-07-07.md|2026-07-07]]
 - [[daily/2026-07-06.md|2026-07-06]]
 - [[daily/2026-07-05.md|2026-07-05]]
 - [[daily/2026-07-04.md|2026-07-04]]
 - [[daily/2026-07-03.md|2026-07-03]]
 - [[daily/2026-07-02.md|2026-07-02]]
 - [[daily/2026-07-01.md|2026-07-01]]
-- [[daily/2026-06-30.md|2026-06-30]]
 
 ## Недельные сводки
 

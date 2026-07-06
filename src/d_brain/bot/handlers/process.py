@@ -34,7 +34,7 @@ async def cmd_process(message: Message) -> None:
     # Run subprocess in thread to avoid blocking event loop
     async def process_with_progress() -> dict:
         task = asyncio.create_task(
-            asyncio.to_thread(processor.process_daily, date.today())
+            asyncio.to_thread(processor.process_pending, date.today())
         )
 
         elapsed = 0
@@ -54,10 +54,12 @@ async def cmd_process(message: Message) -> None:
     report = await process_with_progress()
 
     if "error" not in report:
-        today = date.today().isoformat()
+        days = report.get("days") or [date.today().isoformat()]
         await asyncio.to_thread(refresh_wiki, settings.vault_path)
         await asyncio.to_thread(index_daily, str(settings.vault_path))
-        await asyncio.to_thread(git.commit_and_push, f"chore: process daily {today}")
+        await asyncio.to_thread(
+            git.commit_and_push, f"chore: process daily {', '.join(days)}"
+        )
 
     # Format and send report
     messages = format_process_report(report)

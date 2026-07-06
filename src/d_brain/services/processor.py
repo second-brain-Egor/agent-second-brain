@@ -25,6 +25,14 @@ from d_brain.services.session import SessionStore
 _CHAT_LOCK_PATH = "/tmp/claude-chat.lock"
 _HEAVY_LOCK_PATH = "/tmp/claude-heavy.lock"
 
+# Маркеры «до этого места обработано» в daily-файлах: блок `processed: <ISO>`
+# пишет агент при обработке, `<!-- ✓ processed -->` дописывает cron process.sh.
+_PROCESSED_MARKER_RE = re.compile(r"^processed:\s|<!-- ✓ processed -->")
+# Служебные строки маркер-блока, не считающиеся содержимым.
+_MARKER_NOISE_RE = re.compile(r"^(---|thoughts:.*|tasks:.*|<!--.*-->)\s*$")
+# Сколько дней назад искать необработанные записи.
+_PENDING_LOOKBACK_DAYS = 14
+
 
 @contextlib.contextmanager
 def _file_lock(path: str) -> Iterator[None]:
@@ -1312,10 +1320,18 @@ Today is {day.isoformat()}.
 Project root: {self.project_path.as_posix()}
 Vault root: {self.vault_path.as_posix()}
 
-Process today's inbox and memory updates.
+Process this day's inbox and memory updates.
 
-The full content of today's daily file is inlined below — do NOT skip processing it,
+The full content of the daily file is inlined below — do NOT skip processing it,
 and do not respond "no entries today" if this block is non-empty.
+Entries above a `processed:` marker block were already processed earlier:
+do not re-process them, handle only the entries after the LAST such marker.
+After processing, append a marker block to the end of the daily file:
+---
+processed: <current ISO timestamp>
+thoughts: <N>
+tasks: <M>
+---
 
 === vault/daily/{day.isoformat()}.md ===
 {daily_text}
@@ -1384,6 +1400,102 @@ Do not mention:
         except Exception as exc:
             logger.exception("OpenAI daily processing failed")
             return {"error": str(exc), "processed_entries": 0}
+
+    def _daily_unprocessed_tail(self, day: date) -> str:
+        """Текст daily-файла после последнего маркера обработки."""
+        path = self.vault_path / "daily" / f"{day.isoformat()}.md"
+        if not path.exists():
+            return ""
+        lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        last_marker = -1
+        for idx, line in enumerate(lines):
+            if _PROCESSED_MARKER_RE.search(line):
+                last_marker = idx
+        tail = lines[last_marker + 1 :]
+        tail = [ln for ln in tail if not _MARKER_NOISE_RE.match(ln)]
+        text = "\n".join(tail).strip()
+        # Один заголовок без записей (`# 2026-07-06`) — ещё не содержимое.
+        if last_marker == -1 and re.fullmatch(r"#\s*[\d-]+", text):
+            return ""
+        return text
+
+    def _daily_has_marker(self, day: date) -> bool:
+        path = self.vault_path / "daily" / f"{day.isoformat()}.md"
+        if not path.exists():
+            return False
+        content = path.read_text(encoding="utf-8", errors="ignore")
+        return any(
+            _PROCESSED_MARKER_RE.search(line) for line in content.splitlines()
+        )
+
+    def pending_days(self, today: date | None = None) -> list[date]:
+        """Дни с записями после последнего маркера обработки, от старых к новым.
+
+        Отсчёт идёт «от обработки до обработки»: только дни начиная с последнего
+        дня, где маркер уже есть. Дни до эпохи маркеров не перелопачиваем заново.
+        """
+        if today is None:
+            today = date.today()
+        last_marked = today
+        for offset in range(_PENDING_LOOKBACK_DAYS + 1):
+            day = today - timedelta(days=offset)
+            if self._daily_has_marker(day):
+                last_marked = day
+                break
+        days = []
+        day = last_marked
+        while day <= today:
+            if len(self._daily_unprocessed_tail(day)) >= 10:
+                days.append(day)
+            day += timedelta(days=1)
+        return days
+
+    def _mark_daily_processed(self, day: date) -> None:
+        """Дописать маркер обработки, если агент не оставил свой."""
+        if not self._daily_unprocessed_tail(day):
+            return
+        path = self.vault_path / "daily" / f"{day.isoformat()}.md"
+        stamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+        with path.open("a", encoding="utf-8") as fh:
+            fh.write(f"\n---\nprocessed: {stamp}\nthoughts: -\ntasks: -\n---\n")
+
+    def process_pending(self, today: date | None = None) -> dict[str, Any]:
+        """Обработать все дни с необработанными записями — «от обработки до обработки».
+
+        Кнопка могла не нажиматься несколько дней: пройти хвосты всех daily-файлов
+        после их последнего маркера обработки, а не только сегодняшний день.
+        """
+        if today is None:
+            today = date.today()
+        days = self.pending_days(today)
+        if not days:
+            # Всё уже обработано — обычный статус-отчёт за сегодня.
+            return self.process_daily(today)
+
+        reports: list[str] = []
+        errors: list[str] = []
+        processed = 0
+        for day in days:
+            result = self.process_daily(day)
+            if "error" in result:
+                errors.append(f"{day.isoformat()}: {result['error']}")
+                continue
+            processed += int(result.get("processed_entries", 0))
+            text = str(result.get("report", "")).strip()
+            if text:
+                reports.append(text)
+            self._mark_daily_processed(day)
+
+        if not reports and errors:
+            return {"error": "; ".join(errors), "processed_entries": processed}
+        report = "\n\n".join(reports)
+        if errors:
+            report += "\n\n⚠️ <b>Не обработано:</b> " + "; ".join(errors)
+        return {
+            "report": report,
+            "processed_entries": processed,
+            "days": [d.isoformat() for d in days],
+        }
 
     def execute_prompt(
         self,

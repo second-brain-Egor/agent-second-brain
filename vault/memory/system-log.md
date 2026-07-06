@@ -49,3 +49,5 @@ tier: active
 2026-07-03 21:05 | process | claude | OK (0 tasks, 1 note upd)
 2026-07-05 06:22 | process | claude | OK (0 tasks, 0 thoughts)
 2026-07-05 08:05 | process (catch-up 07-03, 07-04) | claude | OK
+2026-07-06 08:04 | process (за 2026-07-05, хвост) | claude | OK | 0 tasks, 2 thoughts
+2026-07-06 08:09 | process_pending: обработка «от обработки до обработки» добавлена | claude | OK

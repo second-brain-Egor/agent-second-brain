@@ -92,7 +92,7 @@ from d_brain.config import get_settings
 from d_brain.services.processor import AgentProcessor
 
 settings = get_settings()
-result = AgentProcessor(settings.vault_path, settings.todoist_api_key).process_daily(date.today())
+result = AgentProcessor(settings.vault_path, settings.todoist_api_key).process_pending(date.today())
 
 if "error" in result:
     raise SystemExit(result["error"])
