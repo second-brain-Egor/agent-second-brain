@@ -180,21 +180,19 @@ async def cb_backend(callback: CallbackQuery) -> None:
             return
 
     # Claude can lose OAuth without the file disappearing. Do a real CLI probe and
-    # keep the bot on Codex if Claude is unavailable, so the button cannot strand it
-    # on a broken sim until manual re-login is possible.
+    # refuse the switch if Claude is unavailable — the active backend stays as is,
+    # never silently rewritten, so the button cannot strand the bot on a wrong sim.
     if new_backend == "claude":
         ok, error = await _probe_claude_auth()
         if not ok:
-            try:
-                _replace_env_value("AI_BACKEND", "codex")
-            except OSError:
-                logger.exception("Failed to force AI_BACKEND=codex after Claude probe failure")
+            current = _read_active_backend()
             await callback.answer()
             if callback.message is not None:
                 await callback.message.answer(
-                    "⚠️ Claude сейчас недоступен по авторизации, поэтому оставляю активным <b>Codex</b>.\n\n"
+                    "⚠️ Claude сейчас недоступен по авторизации, поэтому не переключаюсь — "
+                    f"активной остаётся <b>{LABELS.get(current, current)}</b>.\n\n"
                     f"{error}\n\n"
-                    "Когда будет возможность, переавторизуй Claude на сервере и переключи обратно через «🤖 Модель»."
+                    "Когда будет возможность, переавторизуй Claude на сервере и нажми «🤖 Модель» снова."
                 )
             return
 

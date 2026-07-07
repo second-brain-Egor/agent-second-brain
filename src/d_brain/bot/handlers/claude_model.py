@@ -20,6 +20,7 @@ from pathlib import Path
 from aiogram import F, Router
 from aiogram.types import CallbackQuery, Message
 
+from d_brain.bot.handlers.backend import _probe_claude_auth
 from d_brain.bot.keyboards import get_claude_model_inline_keyboard
 from d_brain.config import get_settings
 
@@ -47,6 +48,18 @@ def _read_active_model() -> str:
             value = line.split("=", 1)[1].strip().strip('"').strip("'")
             return value or "opus"
     return "opus"
+
+
+def _read_active_backend() -> str:
+    """Read AI_BACKEND directly from .env (truth source, not cached settings)."""
+    if not ENV_PATH.exists():
+        return "codex"
+    for raw in ENV_PATH.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if line.startswith("AI_BACKEND="):
+            value = line.split("=", 1)[1].strip().strip('"').strip("'")
+            return value or "codex"
+    return "codex"
 
 
 def _is_admin(user_id: int) -> bool:
@@ -85,25 +98,46 @@ async def cb_claude_model(callback: CallbackQuery) -> None:
         return
 
     current = _read_active_model()
-    if current == new_model:
+    backend = _read_active_backend()
+    if current == new_model and backend == "claude":
         await callback.answer(f"Уже активна: {new_model}", show_alert=True)
         return
 
+    # Picking a Claude model means the user wants Claude answering, so flip
+    # AI_BACKEND to claude as well — otherwise the bot keeps talking to Codex
+    # while reporting a successful "switch to Claude".
+    switch_backend = backend != "claude"
+    if switch_backend:
+        ok, error = await _probe_claude_auth()
+        if not ok:
+            await callback.answer()
+            if callback.message is not None:
+                await callback.message.answer(
+                    "⚠️ Claude сейчас недоступен по авторизации, поэтому не переключаюсь — "
+                    "бэкенд остаётся прежним.\n\n"
+                    f"{error}"
+                )
+            return
+
     try:
         content = ENV_PATH.read_text(encoding="utf-8")
-        for key in ENV_KEYS:
+        keys = ENV_KEYS + (("AI_BACKEND",) if switch_backend else ())
+        values = {key: new_model for key in ENV_KEYS}
+        values["AI_BACKEND"] = "claude"
+        for key in keys:
+            new_value = values[key]
             pattern = rf"^{key}=.*$"
             if re.search(pattern, content, flags=re.MULTILINE):
                 content = re.sub(
                     pattern,
-                    f"{key}={new_model}",
+                    f"{key}={new_value}",
                     content,
                     count=1,
                     flags=re.MULTILINE,
                 )
             else:
                 sep = "" if content.endswith("\n") else "\n"
-                content = f"{content}{sep}{key}={new_model}\n"
+                content = f"{content}{sep}{key}={new_value}\n"
         ENV_PATH.write_text(content, encoding="utf-8")
     except OSError as exc:
         logger.exception("Failed to write .env")
@@ -122,8 +156,9 @@ async def cb_claude_model(callback: CallbackQuery) -> None:
             logger.exception("Failed to write pending switch marker")
 
     if callback.message is not None:
+        note = " и делаю Claude активным бэкендом" if switch_backend else ""
         await callback.message.answer(
-            f"🔄 Переключаю Claude на <b>{label}</b>… рестарт через ~3 сек."
+            f"🔄 Переключаю Claude на <b>{label}</b>{note}… рестарт через ~3 сек."
         )
     await callback.answer()
 
