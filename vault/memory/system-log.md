@@ -54,3 +54,4 @@ tier: active
 2026-07-07 14:39 | dash-deep-analysis + backtests | claude | OK
 2026-07-07 14:49 | dash longterm analysis 2019-2026 appended to analysis-2026-07-07.md | claude | OK
 2026-07-07 15:19 | dash-trading-plan appended to analysis-2026-07-07.md | claude | OK
+2026-07-08 12:58 | rule-write soul.md (verify-before-answer) | claude | OK
