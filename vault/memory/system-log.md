@@ -51,3 +51,6 @@ tier: active
 2026-07-05 08:05 | process (catch-up 07-03, 07-04) | claude | OK
 2026-07-06 08:04 | process (за 2026-07-05, хвост) | claude | OK | 0 tasks, 2 thoughts
 2026-07-06 08:09 | process_pending: обработка «от обработки до обработки» добавлена | claude | OK
+2026-07-07 14:39 | dash-deep-analysis + backtests | claude | OK
+2026-07-07 14:49 | dash longterm analysis 2019-2026 appended to analysis-2026-07-07.md | claude | OK
+2026-07-07 15:19 | dash-trading-plan appended to analysis-2026-07-07.md | claude | OK

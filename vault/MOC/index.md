@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-07-07
+updated: 2026-07-08
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 422
-- Связей: 1268
-- Сирот: 23
-- Слабосвязанных: 63
+- Заметок: 424
+- Связей: 1271
+- Сирот: 24
+- Слабосвязанных: 62
 
 ## Память
 
@@ -119,6 +119,7 @@ tier: active
 - [[projects/timberframe/README.md|TimberFrame]]
 - [[projects/trading-bot-stop-reliability/README.md|Надёжная остановка торгового бота]]
 - [[projects/trading/dash/analysis-2026-05-26.md|DASH/USDT — анализ за полтора месяца]]
+- [[projects/trading/dash/analysis-2026-07-07.md|DASH/USDT — глубокий анализ и стратегии (2026-07-07)]]
 - [[projects/Внедрение ИИ платформы/01-project-outline.md|Каркас проекта]]
 - [[projects/Внедрение ИИ платформы/02-key-questions-and-sensitive-points.md|Ключевые вопросы и чувствительные моменты]]
 - [[projects/Внедрение ИИ платформы/03-local-ai-stack-and-budget.md|Локальный ИИ-контур и бюджет]]
@@ -316,13 +317,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-07-08.md|2026-07-08]]
 - [[daily/2026-07-07.md|2026-07-07]]
 - [[daily/2026-07-06.md|2026-07-06]]
 - [[daily/2026-07-05.md|2026-07-05]]
 - [[daily/2026-07-04.md|2026-07-04]]
 - [[daily/2026-07-03.md|2026-07-03]]
 - [[daily/2026-07-02.md|2026-07-02]]
-- [[daily/2026-07-01.md|2026-07-01]]
 
 ## Недельные сводки
 
