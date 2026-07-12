@@ -1,7 +1,10 @@
 ---
+description: "Weekly summary for 2026-W27"
 date: 2026-07-05
 type: weekly-summary
 week: 2026-W27
+related:
+  - "[[MEMORY]]"
 ---
 
 **Неделя 27: много прикладных развилок, меньше галочек**
