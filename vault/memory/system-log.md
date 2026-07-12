@@ -56,3 +56,9 @@ tier: active
 2026-07-07 15:19 | dash-trading-plan appended to analysis-2026-07-07.md | claude | OK
 2026-07-08 12:58 | rule-write soul.md (verify-before-answer) | claude | OK
 2026-07-10 15:28 | codex model switched to gpt-5.6-sol, codex-cli upgraded 0.128.0→0.144.1, bot restart scheduled | claude | OK
+2026-07-12 11:02 | process (за 2026-07-06) | codex | OK | 0 tasks, 1 project note, facts updated
+2026-07-12 11:04 | process (за 2026-07-07) | codex | OK | 0 tasks, 0 thoughts, DASH facts+profile updated
+2026-07-12 11:06 | process (за 2026-07-08) | codex | OK | 0 tasks, 0 thoughts, HDD preference clarified
+2026-07-12 08:06 | process (за 2026-07-10) | codex | OK | 0 tasks, 0 thoughts, facts updated
+2026-07-12 11:07 | process (за 2026-07-11) | codex | OK | 0 tasks, 1 thought, Happ VPN diagnostics saved
+2026-07-12 11:12 | process | codex | OK | 0 tasks, 0 thoughts, Forumhouse graceful stop recorded
