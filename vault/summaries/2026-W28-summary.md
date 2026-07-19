@@ -1,7 +1,10 @@
 ---
+description: "Weekly summary for 2026-W28"
 date: 2026-07-12
 type: weekly-summary
 week: 2026-W28
+related:
+  - "[[MEMORY]]"
 ---
 
 **Неделя 28 — много технической работы и один сильный аналитический результат** ⚙️
