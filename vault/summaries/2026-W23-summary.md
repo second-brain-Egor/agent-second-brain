@@ -6,6 +6,8 @@ relevance: 0.93
 tier: active
 date: 2026-06-07
 week: 2026-W23
+related:
+  - "[[MEMORY]]"
 ---
 
 **Неделя 1–7 июня**
