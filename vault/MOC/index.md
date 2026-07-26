@@ -1,5 +1,4 @@
 ---
-description: "Map of Content: Index, 320 entries"
 type: note
 updated: 2026-07-26
 relevance: 0.9
@@ -11,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 447
-- Связей: 1314
-- Сирот: 30
-- Слабосвязанных: 64
+- Заметок: 450
+- Связей: 1319
+- Сирот: 31
+- Слабосвязанных: 63
 
 ## Память
 
@@ -321,22 +320,22 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-07-26.md|2026-07-26]]
 - [[daily/2026-07-25.md|2026-07-25]]
 - [[daily/2026-07-24.md|2026-07-24]]
 - [[daily/2026-07-23.md|2026-07-23]]
 - [[daily/2026-07-22.md|2026-07-22]]
 - [[daily/2026-07-21.md|2026-07-21]]
 - [[daily/2026-07-20.md|2026-07-20]]
-- [[daily/2026-07-19.md|2026-07-19]]
 
 ## Недельные сводки
 
+- [[summaries/2026-W30-summary.md|2026-W30-summary]]
 - [[summaries/2026-W29-summary.md|2026-W29-summary]]
 - [[summaries/2026-W28-summary.md|2026-W28-summary]]
 - [[summaries/2026-W27-summary.md|2026-W27-summary]]
 - [[summaries/2026-W26-summary.md|2026-W26-summary]]
 - [[summaries/2026-W25-summary.md|2026-W25-summary]]
-- [[summaries/2026-W24-summary.md|2026-W24-summary]]
 
 ## Обучения и правила
 
@@ -347,6 +346,7 @@ tier: active
 - [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
 - [[thoughts/learnings/model-token-economy.md|Экономия лимита при вопросах о модели]]
 - [[thoughts/learnings/network-egress-and-web-search.md|Сеть бота и веб-поиск (разобрано 2026-06-11)]]
+- [[thoughts/learnings/ninkear-m8-vs-gmktec-k6.md|Ninkear M8 и GMKtec K6]]
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
 - [[thoughts/learnings/shift-based-daily-planner.md|Сменный ежедневник — формат под график сутки через трое]]
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]
