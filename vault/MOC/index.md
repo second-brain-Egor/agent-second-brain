@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-07-25
+updated: 2026-07-26
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 444
-- Связей: 1296
-- Сирот: 30
-- Слабосвязанных: 69
+- Заметок: 447
+- Связей: 1302
+- Сирот: 31
+- Слабосвязанных: 68
 
 ## Память
 
@@ -57,6 +57,9 @@ tier: active
 - [[projects/asula/scenarios.md|Сценарии]]
 - [[projects/asula/timeline.md|Хроника]]
 - [[projects/asula/tz.md|Техническое задание — офлайн-ядро АСУЛА]]
+- [[projects/bishayka/README.md|Бишайка]]
+- [[projects/bishayka/besedka-konstruktsiya-i-krovlya.md|Беседка — конструкция и кровля]]
+- [[projects/bishayka/besedka-pol-iz-bruska-50x50.md|Пол беседки из бруска 50×50]]
 - [[projects/dacha/README.md|Дача]]
 - [[projects/dacha/bathhouse-lipa-osina-vagonka.md|Липа и осина для бани]]
 - [[projects/dacha/bathhouse-materials-inventory.md|Баня — учёт купленного материала]]
@@ -317,13 +320,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-07-26.md|2026-07-26]]
 - [[daily/2026-07-25.md|2026-07-25]]
 - [[daily/2026-07-24.md|2026-07-24]]
 - [[daily/2026-07-23.md|2026-07-23]]
 - [[daily/2026-07-22.md|2026-07-22]]
 - [[daily/2026-07-21.md|2026-07-21]]
 - [[daily/2026-07-20.md|2026-07-20]]
-- [[daily/2026-07-19.md|2026-07-19]]
 
 ## Недельные сводки
 
