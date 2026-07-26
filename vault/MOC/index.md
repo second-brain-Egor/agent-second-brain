@@ -11,9 +11,9 @@ tier: active
 ## Срез
 
 - Заметок: 447
-- Связей: 1302
-- Сирот: 31
-- Слабосвязанных: 68
+- Связей: 1314
+- Сирот: 30
+- Слабосвязанных: 64
 
 ## Память
 
@@ -320,13 +320,13 @@ tier: active
 
 ## Новые записи дня
 
-- [[daily/2026-07-26.md|2026-07-26]]
 - [[daily/2026-07-25.md|2026-07-25]]
 - [[daily/2026-07-24.md|2026-07-24]]
 - [[daily/2026-07-23.md|2026-07-23]]
 - [[daily/2026-07-22.md|2026-07-22]]
 - [[daily/2026-07-21.md|2026-07-21]]
 - [[daily/2026-07-20.md|2026-07-20]]
+- [[daily/2026-07-19.md|2026-07-19]]
 
 ## Недельные сводки
 
@@ -339,6 +339,7 @@ tier: active
 
 ## Обучения и правила
 
+- [[thoughts/learnings/ai-models-2026-07-25.md|Новые модели Anthropic и OpenAI на 25 июля 2026]]
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
 - [[thoughts/learnings/forumhouse-agent-access-parity.md|Единый доступ агентов к Forumhouse]]
 - [[thoughts/learnings/forumhouse-export-registry.md|Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)]]
