@@ -72,3 +72,6 @@ tier: active
 2026-07-22 07:58 | process | codex | OK | 0 tasks, 1 project note updated
 2026-07-26 08:00 | process | codex | OK | 0 tasks, 1 thought
 2026-07-26 21:18 | process | codex | OK | 0 tasks, 1 thought
+2026-07-27 19:05 | process | claude | OK (1 thought, 0 tasks)
+2026-07-29 23:10 | process | claude | OK (facts+soul, 1 learning, 1 task)
+2026-07-30 17:25 | process | claude | OK (0 thoughts, 0 tasks)

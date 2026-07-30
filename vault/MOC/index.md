@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 454
-- Связей: 1319
+- Заметок: 456
+- Связей: 1327
 - Сирот: 32
-- Слабосвязанных: 66
+- Слабосвязанных: 64
 
 ## Память
 
@@ -341,9 +341,11 @@ tier: active
 
 - [[thoughts/learnings/ai-models-2026-07-25.md|Новые модели Anthropic и OpenAI на 25 июля 2026]]
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
+- [[thoughts/learnings/claude-limits-visibility.md|Лимиты подписки Claude: где смотреть]]
 - [[thoughts/learnings/forumhouse-agent-access-parity.md|Единый доступ агентов к Forumhouse]]
 - [[thoughts/learnings/forumhouse-export-registry.md|Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)]]
 - [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
+- [[thoughts/learnings/marketplace-otzyvy-ceny-2026.md|Сколько платят за отзывы на WB и Ozon (июль 2026)]]
 - [[thoughts/learnings/model-token-economy.md|Экономия лимита при вопросах о модели]]
 - [[thoughts/learnings/network-egress-and-web-search.md|Сеть бота и веб-поиск (разобрано 2026-06-11)]]
 - [[thoughts/learnings/ninkear-m8-vs-gmktec-k6.md|Ninkear M8 и GMKtec K6]]
