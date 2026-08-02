@@ -1,4 +1,5 @@
 ---
+description: "Снимок связности и навигации по базе знаний."
 type: note
 updated: 2026-08-02
 relevance: 0.86

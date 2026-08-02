@@ -1,4 +1,5 @@
 ---
+description: "Сравнение с мини-ПК Егора GMKtec K6:"
 type: learning
 date: 2026-07-26
 ---
