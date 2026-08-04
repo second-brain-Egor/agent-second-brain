@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 462
-- Связей: 1332
+- Заметок: 463
+- Связей: 1342
 - Сирот: 34
-- Слабосвязанных: 68
+- Слабосвязанных: 65
 
 ## Память
 
@@ -342,6 +342,7 @@ tier: active
 - [[thoughts/learnings/ai-models-2026-07-25.md|Новые модели Anthropic и OpenAI на 25 июля 2026]]
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
 - [[thoughts/learnings/claude-limits-visibility.md|Лимиты подписки Claude: где смотреть]]
+- [[thoughts/learnings/dino-rolling-40x40x2-vs-40x20x3.md|Dino: 40×40×2 и 40×20×3 на ребро]]
 - [[thoughts/learnings/forumhouse-agent-access-parity.md|Единый доступ агентов к Forumhouse]]
 - [[thoughts/learnings/forumhouse-export-registry.md|Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)]]
 - [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
