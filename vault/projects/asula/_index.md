@@ -22,6 +22,7 @@ tier: active
 - [[algorithms.md|Алгоритмы и логика]]
 - [[codex-isolation.md|Кодекс в закрытом контуре — изоляция от чувствительных данных]]
 - [[timeline.md|Хроника обсуждений и решений]]
+- [[../../thoughts/projects/asula-secure-tablet-access.md|Защищённый доступ с планшета]]
 
 ## Внешний контекст
 

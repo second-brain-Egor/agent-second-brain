@@ -81,3 +81,6 @@ tier: active
 2026-08-04 20:24 | process (за 2026-08-02) | OK | 0 tasks, 0 thoughts
 2026-08-04 20:25 | process (за 2026-08-03) | OK | 0 tasks, 1 thought
 2026-08-04 20:28 | process | OK | 0 tasks, 1 thought
+2026-08-06 23:19 | process (хвост за 2026-08-04) | OK | 0 tasks, 1 thought updated
+2026-08-06 23:22 | process (за 2026-08-05) | OK | 0 tasks, 1 thought; Todoist skipped: mcp-cli not found
+2026-08-06 23:23 | process | OK | 0 tasks, 1 project note updated; Todoist skipped after 3 attempts: mcp-cli not found
