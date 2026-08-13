@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 474
-- Связей: 1353
+- Заметок: 476
+- Связей: 1362
 - Сирот: 36
-- Слабосвязанных: 72
+- Слабосвязанных: 71
 
 ## Память
 
@@ -74,6 +74,7 @@ tier: active
 - [[projects/dacha/phone-as-camera-temporary.md|Старый телефон как временная камера (дача)]]
 - [[projects/dacha/pool-from-blocks-idea.md|Бассейн из фундаментных блоков (идея)]]
 - [[projects/dacha/smokeless-firepit-bbq.md|Бездымный мангал и бездымное кострище]]
+- [[projects/dacha/toilet-septic.md|Септик для дачного туалета]]
 - [[projects/dacha/Разбор специалиста. Три видео/audio-transcript-analysis.md|Разбор консультации специалиста по транскрибации аудио]]
 - [[projects/dacha/Разбор специалиста. Три видео/download-journal.md|Журнал скачанных видео]]
 - [[projects/dacha/Разбор специалиста. Три видео/summary.md|Сводка по видео]]
