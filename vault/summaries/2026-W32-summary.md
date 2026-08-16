@@ -1,7 +1,10 @@
 ---
+description: "Weekly summary for 2026-W32"
 date: 2026-08-09
 type: weekly-summary
 week: 2026-W32
+related:
+  - "[[MEMORY]]"
 ---
 
 **Неделя 32 — много инженерной ясности 🔧**

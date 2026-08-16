@@ -3,6 +3,8 @@ type: idea
 description: "Приватный режим Telegram-бота без сохранения и последующей обработки сообщений"
 created: 2026-08-08
 status: idea
+related:
+  - "[[MEMORY]]"
 ---
 
 # Режим без сохранения

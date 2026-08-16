@@ -1,4 +1,5 @@
 ---
+description: "Map of Content: Index, 325 entries"
 type: note
 updated: 2026-08-16
 relevance: 0.9
