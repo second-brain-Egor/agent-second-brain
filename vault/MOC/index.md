@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 487
-- Связей: 1373
+- Заметок: 491
+- Связей: 1387
 - Сирот: 40
-- Слабосвязанных: 72
+- Слабосвязанных: 69
 
 ## Память
 
@@ -346,6 +346,7 @@ tier: active
 - [[thoughts/learnings/dino-rolling-40x40x2-vs-40x20x3.md|Dino: 40×40×2 и 40×20×3 на ребро]]
 - [[thoughts/learnings/forumhouse-agent-access-parity.md|Единый доступ агентов к Forumhouse]]
 - [[thoughts/learnings/forumhouse-export-registry.md|Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)]]
+- [[thoughts/learnings/forumhouse-sections-91-175.md|Forumhouse: разделы 91 и 175]]
 - [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
 - [[thoughts/learnings/marketplace-otzyvy-ceny-2026.md|Сколько платят за отзывы на WB и Ozon (июль 2026)]]
 - [[thoughts/learnings/model-token-economy.md|Экономия лимита при вопросах о модели]]
