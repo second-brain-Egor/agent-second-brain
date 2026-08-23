@@ -389,6 +389,14 @@ def download_video(video_url: str, work_dir: Path) -> Path:
             "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720][ext=mp4]/best[height<=720]",
             "--merge-output-format",
             "mp4",
+            "--socket-timeout",
+            "60",
+            "--retries",
+            "10",
+            "--fragment-retries",
+            "10",
+            "--retry-sleep",
+            "http:linear=2::10",
             "--no-warnings",
             "-o",
             video_template,
@@ -718,6 +726,7 @@ def collect_video(
     scene_threshold: float,
     sub_langs: str,
     with_subs: bool,
+    existing_dir: Path | None = None,
 ) -> None:
     video_id = entry.get("id") or f"video-{index:03d}"
     title = entry.get("title") or video_id
@@ -725,7 +734,7 @@ def collect_video(
     if video_url.startswith("/"):
         video_url = f"https://www.youtube.com{video_url}"
 
-    video_dir = videos_dir / f"{index:03d}-{slugify(title, video_id)}"
+    video_dir = existing_dir or videos_dir / f"{index:03d}-{slugify(title, video_id)}"
     work_dir = video_dir / "_work"
     frames_dir = video_dir / "frames"
     video_dir.mkdir(parents=True, exist_ok=True)
@@ -813,6 +822,11 @@ def main() -> None:
         help="Project folder where videos, logs and source files are stored",
     )
     parser.add_argument("--limit", type=int, default=5)
+    parser.add_argument(
+        "--only-new",
+        action="store_true",
+        help="Process only videos published before the first already known playlist entry",
+    )
     parser.add_argument("--frames", action="store_true")
     parser.add_argument("--transcribe", action="store_true")
     parser.add_argument("--keep-video", action="store_true")
@@ -828,8 +842,18 @@ def main() -> None:
     videos_dir.mkdir(parents=True, exist_ok=True)
     logs_dir.mkdir(parents=True, exist_ok=True)
 
-    entries = load_local_videos(args.local_input, args.limit) if args.local_input else load_flat_playlist(args.url, args.limit)
     state = load_state(output_dir)
+    entries = load_local_videos(args.local_input, args.limit) if args.local_input else load_flat_playlist(args.url, args.limit)
+    if args.only_new and not args.local_input:
+        known_ids = set(state.get("videos", {}))
+        new_entries: list[dict[str, Any]] = []
+        for index, entry in enumerate(entries, start=1):
+            if video_key(entry, f"video-{index:03d}") in known_ids:
+                break
+            new_entries.append(entry)
+        entries = new_entries
+        if not entries:
+            print("new videos: 0", flush=True)
     errors: list[str] = []
     for index, entry in enumerate(entries, start=1):
         if entry.get("source_type") == "local":
@@ -882,6 +906,7 @@ def main() -> None:
                 args.scene_threshold,
                 args.sub_langs,
                 not args.no_subs,
+                existing_dir,
             )
             video_dir = find_existing_video_dir(
                 videos_dir,
@@ -908,6 +933,7 @@ def main() -> None:
     if errors:
         (logs_dir / "last-errors.log").write_text("\n\n".join(errors) + "\n", encoding="utf-8")
         raise SystemExit(1)
+    (logs_dir / "last-errors.log").unlink(missing_ok=True)
 
 
 if __name__ == "__main__":

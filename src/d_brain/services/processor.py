@@ -716,7 +716,7 @@ week: {year}-W{week:02d}
                     mode="chat",
                 )
             except (subprocess.TimeoutExpired, RuntimeError) as exc:
-                retry_timeout = min(120, timeout_sec)
+                retry_timeout = min(600, timeout_sec)
                 logger.warning(
                     "chat exec failed (%s) — one retry with %ss budget",
                     type(exc).__name__,

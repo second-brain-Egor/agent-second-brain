@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "videos": {
+    "yCACmFTiCto": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins",
+      "title": "Turn Claude Into a One Person Marketing Team in 38 Mins",
+      "url": "https://www.youtube.com/watch?v=yCACmFTiCto",
+      "upload_date": "20260821",
+      "comments": 70,
+      "frames": 126,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-23T09:44:53+03:00",
+      "completed_at": "2026-08-23T09:42:46+03:00"
+    },
+    "QUI6Ug4cHnE": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this",
+      "title": "I Built The Ultimate Claude Website Design Skill (steal this)",
+      "url": "https://www.youtube.com/watch?v=QUI6Ug4cHnE",
+      "upload_date": "20260822",
+      "comments": 45,
+      "frames": 307,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-23T09:44:53+03:00",
+      "completed_at": "2026-08-23T09:18:28+03:00"
+    },
+    "_kK_4cOYF4o": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how",
+      "title": "This Stealth Model Makes Claude Code Free. Here's How.",
+      "url": "https://www.youtube.com/watch?v=_kK_4cOYF4o",
+      "upload_date": "20260821",
+      "comments": 67,
+      "frames": 57,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-23T09:44:53+03:00",
+      "completed_at": "2026-08-23T09:19:06+03:00"
+    },
+    "tgjYMym_0-c": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026",
+      "title": "Sell These 5 Most In Demand AI Automations in 2026",
+      "url": "https://www.youtube.com/watch?v=tgjYMym_0-c",
+      "upload_date": "20260820",
+      "comments": 40,
+      "frames": 6,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-23T09:44:53+03:00",
+      "completed_at": "2026-08-23T09:43:13+03:00"
+    },
+    "TMPUUyQC5aM": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins",
+      "title": "A Week of Grok Bot Lessons in 10 Mins",
+      "url": "https://www.youtube.com/watch?v=TMPUUyQC5aM",
+      "upload_date": "20260819",
+      "comments": 46,
+      "frames": 56,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-23T09:44:54+03:00",
+      "completed_at": "2026-08-23T09:43:41+03:00"
+    }
+  },
+  "updated_at": "2026-08-23T09:44:54+03:00"
+}

@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 493
-- Связей: 1387
+- Заметок: 527
+- Связей: 1430
 - Сирот: 41
-- Слабосвязанных: 70
+- Слабосвязанных: 99
 
 ## Память
 
@@ -45,6 +45,38 @@ tier: active
 
 - [[projects/Forumhouse/Нормативка/нормативные авторитетные документы книги пособия.md|Нормативные, авторитетные документы, книги и пособия]]
 - [[projects/Forumhouse/Нормативка/список нормативных документов.md|Нормативные документы из скачанных тем Forumhouse]]
+- [[projects/Nate Herk/AGENTS.md|Nate Herk — правила проекта]]
+- [[projects/Nate Herk/download-journal.md|Журнал скачанных видео]]
+- [[projects/Nate Herk/summary.md|Сводка по видео]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/analysis.md|Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/metadata.md|I Built The Ultimate Claude Website Design Skill (steal this)]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/analysis.md|Карточка ролика: бесплатные модели OpenRouter внутри Claude Code]]
+- [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/description.md|description]]
+- [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/metadata.md|This Stealth Model Makes Claude Code Free. Here's How.]]
+- [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/analysis.md|Карточка ролика: Claude как маркетинговая команда одного человека]]
+- [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/description.md|description]]
+- [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/metadata.md|Turn Claude Into a One Person Marketing Team in 38 Mins]]
+- [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/analysis.md|Карточка ролика: пять востребованных ИИ-автоматизаций]]
+- [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/description.md|description]]
+- [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/metadata.md|Sell These 5 Most In Demand AI Automations in 2026]]
+- [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/analysis.md|Карточка ролика: девять приёмов работы с Grok Bot]]
+- [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/description.md|description]]
+- [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/metadata.md|A Week of Grok Bot Lessons in 10 Mins]]
+- [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/transcript.md|transcript]]
 - [[projects/_index.md|Проекты — индекс]]
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/asula/_index.md|АСУЛА — индекс]]
@@ -340,6 +372,7 @@ tier: active
 
 ## Обучения и правила
 
+- [[thoughts/learnings/agent-team-pattern-portability.md|Переносимость команды агентов]]
 - [[thoughts/learnings/ai-models-2026-07-25.md|Новые модели Anthropic и OpenAI на 25 июля 2026]]
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
 - [[thoughts/learnings/claude-limits-visibility.md|Лимиты подписки Claude: где смотреть]]
@@ -353,6 +386,7 @@ tier: active
 - [[thoughts/learnings/network-egress-and-web-search.md|Сеть бота и веб-поиск (разобрано 2026-06-11)]]
 - [[thoughts/learnings/ninkear-m8-vs-gmktec-k6.md|Ninkear M8 и GMKtec K6]]
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
+- [[thoughts/learnings/provoloka-dlya-svarki-stali-3-mm.md|Проволока для сварки стали 3 мм]]
 - [[thoughts/learnings/shift-based-daily-planner.md|Сменный ежедневник — формат под график сутки через трое]]
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]
 - [[thoughts/learnings/vault-search-discipline.md|Дисциплина поиска по vault]]
