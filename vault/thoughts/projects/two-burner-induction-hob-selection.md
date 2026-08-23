@@ -1,4 +1,5 @@
 ---
+description: "Сравниваются:"
 type: project
 created: 2026-08-13
 status: research

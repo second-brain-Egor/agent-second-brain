@@ -1,3 +1,8 @@
+---
+description: "Дата: 2026-08-22 Длительность: 16:44 Ссылка: https://www.youtube.com/watch?v=QUI6Ug4cHnE"
+related:
+  - "[[projects/_index]]"
+---
 # Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой
 
 Дата: 2026-08-22  

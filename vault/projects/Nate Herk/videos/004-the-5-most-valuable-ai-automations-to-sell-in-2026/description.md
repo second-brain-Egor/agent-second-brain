@@ -1,3 +1,8 @@
+---
+description: "$100 in BONUS Hyperagent credits: https://www.hyperagent.com/nate100 My playbook for growing a $1M AI agency..."
+related:
+  - "[[projects/_index]]"
+---
 $100 in BONUS Hyperagent credits: https://www.hyperagent.com/nate100
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=top5-automations&hcategory=youtube-videos&utm_campaign=free-group

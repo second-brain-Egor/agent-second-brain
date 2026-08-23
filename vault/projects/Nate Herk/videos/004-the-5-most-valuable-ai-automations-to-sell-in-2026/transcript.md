@@ -1,3 +1,8 @@
+---
+description: "So, I sent research agents through recent surveys, marketplaces, job listings, case studies, and online communities. And there were five workflows..."
+related:
+  - "[[projects/_index]]"
+---
 So, I sent research agents through
 recent surveys, marketplaces, job
 listings, case studies, and online

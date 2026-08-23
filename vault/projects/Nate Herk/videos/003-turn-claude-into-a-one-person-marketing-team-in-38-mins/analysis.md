@@ -1,3 +1,8 @@
+---
+description: "Дата: 2026-08-21 Длительность: 38:28 Ссылка: https://www.youtube.com/watch?v=yCACmFTiCto"
+related:
+  - "[[projects/_index]]"
+---
 # Карточка ролика: Claude как маркетинговая команда одного человека
 
 Дата: 2026-08-21  

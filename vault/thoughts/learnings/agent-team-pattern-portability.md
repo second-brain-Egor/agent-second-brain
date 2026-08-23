@@ -1,4 +1,5 @@
 ---
+description: "Паттерн из ролика Nate Herk — главный координатор и специализированные исполнители — применим не только в Grok Bot."
 type: learning
 date: 2026-08-23
 source: Nate Herk

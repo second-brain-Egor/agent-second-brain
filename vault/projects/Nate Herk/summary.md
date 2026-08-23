@@ -1,3 +1,8 @@
+---
+description: "Папка: Nate Herk Роликов в выгрузке: 5"
+related:
+  - "[[projects/_index]]"
+---
 # Сводка по видео
 
 Папка: Nate Herk

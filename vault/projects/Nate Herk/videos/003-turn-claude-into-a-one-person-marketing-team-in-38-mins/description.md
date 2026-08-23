@@ -1,3 +1,8 @@
+---
+description: "Connect Higgsfield to Claude: https://higgsfield.ai/s/mcp-nateherk-LxmQMk My playbook for growing a $1M AI agency..."
+related:
+  - "[[projects/_index]]"
+---
 Connect Higgsfield to Claude: https://higgsfield.ai/s/mcp-nateherk-LxmQMk
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=claude-marketing-team&hcategory=youtube-videos&utm_campaign=free-group

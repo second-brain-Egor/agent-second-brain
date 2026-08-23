@@ -1,3 +1,8 @@
+---
+description: "FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/about?el=9-grok-bot-hacks&hcatego..."
+related:
+  - "[[projects/_index]]"
+---
 # Комментарии
 
 ## @nateherk

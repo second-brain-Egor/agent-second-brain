@@ -1,3 +1,8 @@
+---
+description: "Today, I'm going to show you guys nine of my favorite GrokBot hacks in just under 10 minutes. Now, using all of these hacks will help you get way..."
+related:
+  - "[[projects/_index]]"
+---
 Today, I'm going to show you guys nine
 of my favorite GrokBot hacks in just
 under 10 minutes. Now, using all of

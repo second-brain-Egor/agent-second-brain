@@ -1,4 +1,5 @@
 ---
+description: "Идея рабочего контура, похожего на Codex, но непосредственно на Android-планшете."
 type: project
 created: 2026-08-17
 status: idea

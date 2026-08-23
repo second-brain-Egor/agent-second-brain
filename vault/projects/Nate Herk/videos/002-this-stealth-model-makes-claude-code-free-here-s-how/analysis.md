@@ -1,3 +1,8 @@
+---
+description: "Дата: 2026-08-21 Длительность: 13:34 Ссылка: https://www.youtube.com/watch?v=_kK_4cOYF4o"
+related:
+  - "[[projects/_index]]"
+---
 # Карточка ролика: бесплатные модели OpenRouter внутри Claude Code
 
 Дата: 2026-08-21  

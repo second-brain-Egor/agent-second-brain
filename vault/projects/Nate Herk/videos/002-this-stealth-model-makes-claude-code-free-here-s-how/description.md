@@ -1,3 +1,8 @@
+---
+description: "My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources..."
+related:
+  - "[[projects/_index]]"
+---
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=stealth-claude-code&hcategory=youtube-videos&utm_campaign=free-group
 

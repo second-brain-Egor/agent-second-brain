@@ -1,3 +1,8 @@
+---
+description: "I think I built the ultimate claw design skill for websites and I'm going to give it to you guys for completely free. This thing helps you figure out..."
+related:
+  - "[[projects/_index]]"
+---
 I think I built the ultimate claw design
 skill for websites and I'm going to give
 it to you guys for completely free. This

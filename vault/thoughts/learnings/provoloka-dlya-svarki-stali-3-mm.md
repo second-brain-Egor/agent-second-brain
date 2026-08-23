@@ -1,4 +1,5 @@
 ---
+description: "Для уголков и труб со стенкой до 3 мм на Decapower xtraMIG-200 основной выбор — сплошная проволока 0,8 мм."
 type: learning
 created: 2026-08-21
 ---

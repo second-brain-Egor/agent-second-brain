@@ -1,3 +1,8 @@
+---
+description: "Today, I'm going to show you guys how we're able to turn Claude into a one-person marketing team. You don't have to be technical at all. You don't..."
+related:
+  - "[[projects/_index]]"
+---
 Today, I'm going to show you guys how
 we're able to turn Claude into a
 one-person marketing team. You don't

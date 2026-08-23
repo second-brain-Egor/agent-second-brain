@@ -1,3 +1,8 @@
+---
+description: "Right now I've got all these different Claude Code tabs running for completely free. Because right here you can see that the model I'm using isn't..."
+related:
+  - "[[projects/_index]]"
+---
 Right now I've got all these different
 Claude Code tabs running for completely
 free. Because right here you can see
