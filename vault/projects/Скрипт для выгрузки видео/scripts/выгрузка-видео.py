@@ -24,6 +24,20 @@ YTDLP = shutil.which("yt-dlp") or str(REPO_ROOT / ".venv" / "bin" / "yt-dlp")
 STATE_FILE_NAME = "download-state.json"
 JOURNAL_FILE_NAME = "download-journal.md"
 VIDEO_SUFFIXES = {".mp4", ".mov", ".mkv", ".avi", ".webm", ".m4v"}
+USE_DIRECT_NETWORK = False
+
+
+def ytdlp_command() -> list[str]:
+    """Run yt-dlp outside the transparent Xray redirect when requested.
+
+    The regular user is transparently proxied through a rotating exit pool. YouTube
+    binds media URLs to the IP which requested them, so an exit change between
+    manifest and fragment requests produces HTTP 403. Root traffic is explicitly
+    exempt from that redirect on this host and therefore keeps the server IP.
+    """
+    if USE_DIRECT_NETWORK and os.geteuid() != 0:
+        return ["sudo", "-n", YTDLP]
+    return [YTDLP]
 
 
 def run(command: list[str]) -> subprocess.CompletedProcess[str]:
@@ -116,7 +130,7 @@ def duration_string(seconds: float | int | None) -> str:
 def load_flat_playlist(channel_url: str, limit: int) -> list[dict[str, Any]]:
     result = run(
         [
-            YTDLP,
+            *ytdlp_command(),
             "--flat-playlist",
             "--playlist-items",
             f"1-{limit}",
@@ -384,7 +398,7 @@ def download_video(video_url: str, work_dir: Path) -> Path:
     video_template = str(work_dir / "video.%(ext)s")
     run(
         [
-            YTDLP,
+            *ytdlp_command(),
             "-f",
             "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720][ext=mp4]/best[height<=720]",
             "--merge-output-format",
@@ -406,6 +420,8 @@ def download_video(video_url: str, work_dir: Path) -> Path:
     candidates = sorted(work_dir.glob("video.*"))
     if not candidates:
         raise FileNotFoundError("yt-dlp did not create a video file")
+    if USE_DIRECT_NETWORK and os.geteuid() != 0:
+        run(["sudo", "-n", "chown", f"{os.getuid()}:{os.getgid()}", *map(str, candidates)])
     return candidates[0]
 
 
@@ -609,6 +625,13 @@ def read_metadata(video_dir: Path) -> dict[str, Any]:
 def generate_summary(output_dir: Path) -> None:
     videos_dir = output_dir / "videos"
     video_dirs = sorted(path for path in videos_dir.iterdir() if path.is_dir()) if videos_dir.exists() else []
+    summary_path = output_dir / "summary.md"
+    knowledge_section = ""
+    if summary_path.exists():
+        current_summary = summary_path.read_text(encoding="utf-8")
+        marker = "## Новые знания"
+        if marker in current_summary:
+            knowledge_section = marker + current_summary.split(marker, 1)[1].rstrip()
 
     lines: list[str] = [
         "# Сводка по видео",
@@ -634,6 +657,7 @@ def generate_summary(output_dir: Path) -> None:
         deduped_frames_count = count_deduped_frames(video_dir)
         has_description = (video_dir / "description.md").exists()
         has_transcript = (video_dir / "transcript.md").exists()
+        has_analysis = (video_dir / "analysis.md").exists()
 
         total_comments += comments_count
         total_frames += frames_count
@@ -651,6 +675,7 @@ def generate_summary(output_dir: Path) -> None:
                 f"Транскрипт: {'есть' if has_transcript else 'нет'}",
                 f"Кадры: {frames_count}",
                 f"Кадры после дедупликации: {deduped_frames_count}",
+                f"Карточка: {'есть' if has_analysis else 'нет'}",
                 "",
             ]
         )
@@ -666,7 +691,10 @@ def generate_summary(output_dir: Path) -> None:
         ]
     )
 
-    (output_dir / "summary.md").write_text("\n".join(lines), encoding="utf-8")
+    if knowledge_section:
+        lines.extend([knowledge_section, ""])
+
+    summary_path.write_text("\n".join(lines), encoding="utf-8")
 
 
 def generate_download_journal(output_dir: Path, state: dict[str, Any] | None = None) -> None:
@@ -741,8 +769,9 @@ def collect_video(
     work_dir.mkdir(exist_ok=True)
 
     output_template = str(work_dir / "%(id)s.%(ext)s")
+    command_prefix = ytdlp_command()
     command = [
-        YTDLP,
+        *command_prefix,
         "--skip-download",
         "--write-info-json",
         "--write-comments",
@@ -752,7 +781,7 @@ def collect_video(
         video_url,
     ]
     if with_subs:
-        command[2:2] = [
+        command[len(command_prefix):len(command_prefix)] = [
             "--write-sub",
             "--write-auto-sub",
             "--sub-lang",
@@ -834,7 +863,15 @@ def main() -> None:
     parser.add_argument("--dedupe-threshold", type=int, default=4)
     parser.add_argument("--sub-langs", default="ru,en")
     parser.add_argument("--no-subs", action="store_true")
+    parser.add_argument(
+        "--direct-network",
+        action="store_true",
+        help="Run yt-dlp through the stable direct server IP, bypassing the rotating transparent proxy",
+    )
     args = parser.parse_args()
+
+    global USE_DIRECT_NETWORK
+    USE_DIRECT_NETWORK = args.direct_network
 
     output_dir = resolve_repo_path(args.output)
     videos_dir = output_dir / "videos"
@@ -845,7 +882,11 @@ def main() -> None:
     state = load_state(output_dir)
     entries = load_local_videos(args.local_input, args.limit) if args.local_input else load_flat_playlist(args.url, args.limit)
     if args.only_new and not args.local_input:
-        known_ids = set(state.get("videos", {}))
+        known_ids = {
+            key
+            for key, record in state.get("videos", {}).items()
+            if isinstance(record, dict) and record.get("status") == "complete"
+        }
         new_entries: list[dict[str, Any]] = []
         for index, entry in enumerate(entries, start=1):
             if video_key(entry, f"video-{index:03d}") in known_ids:

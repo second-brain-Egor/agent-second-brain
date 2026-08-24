@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 529
-- Связей: 1461
+- Заметок: 578
+- Связей: 1524
 - Сирот: 41
-- Слабосвязанных: 72
+- Слабосвязанных: 110
 
 ## Память
 
@@ -48,6 +48,12 @@ tier: active
 - [[projects/Nate Herk/AGENTS.md|Nate Herk — правила проекта]]
 - [[projects/Nate Herk/download-journal.md|Журнал скачанных видео]]
 - [[projects/Nate Herk/summary.md|Сводка по видео]]
+- [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/analysis.md|Карточка ролика: DeepSeek Harness против Claude Code после недели тестов]]
+- [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/description.md|description]]
+- [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata.md|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]]
+- [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/analysis.md|Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/description.md|description]]
@@ -77,6 +83,47 @@ tier: active
 - [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/metadata.md|A Week of Grok Bot Lessons in 10 Mins]]
 - [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency/analysis.md|Карточка ролика: как продавать AI-workflow, не создавая агентство]]
+- [[projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency/description.md|description]]
+- [[projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency/metadata.md|How to Sell Claude Workflows (Without Starting an Agency)]]
+- [[projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won/analysis.md|Карточка ролика: Codex и Claude Code строят одно приложение]]
+- [[projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won/description.md|description]]
+- [[projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won/metadata.md|I Made Codex and Claude Code Build the Same App. One Clearly Won.]]
+- [[projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything/analysis.md|Карточка ролика: браузерный агент Codex для автоматизации интерфейсов]]
+- [[projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything/description.md|description]]
+- [[projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything/metadata.md|Codex's Browser Agent Automates Literally Anything]]
+- [[projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter/analysis.md|Карточка ролика: как не мешать новой модели устаревшими инструкциями]]
+- [[projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter/description.md|description]]
+- [[projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter/metadata.md|I Deleted All My Claude Skills... And Claude Got Smarter]]
+- [[projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/analysis.md|Карточка ролика: Grok Bot как облачный диспетчер специализированных агентов]]
+- [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/description.md|description]]
+- [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/metadata.md|Grok Bot is For Real. What You Need to Know.]]
+- [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code/analysis.md|Карточка ролика: как построить практику одного AI-консультанта]]
+- [[projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code/description.md|description]]
+- [[projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code/metadata.md|How to Build a One Person AI Business (Using Claude Code)]]
+- [[projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course/analysis.md|Карточка ролика: от боли до первых 50 пользователей AI SaaS]]
+- [[projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course/description.md|description]]
+- [[projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course/metadata.md|Build & Sell AI SaaS Products (2 HOUR COURSE)]]
+- [[projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course/transcript.md|transcript]]
 - [[projects/_index.md|Проекты — индекс]]
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/asula/_index.md|АСУЛА — индекс]]
@@ -377,6 +424,7 @@ tier: active
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
 - [[thoughts/learnings/claude-limits-visibility.md|Лимиты подписки Claude: где смотреть]]
 - [[thoughts/learnings/dino-rolling-40x40x2-vs-40x20x3.md|Dino: 40×40×2 и 40×20×3 на ребро]]
+- [[thoughts/learnings/engineering-fit-calculation-discipline.md|Проверка посадки деталей без подмены геометрии]]
 - [[thoughts/learnings/forumhouse-agent-access-parity.md|Единый доступ агентов к Forumhouse]]
 - [[thoughts/learnings/forumhouse-export-registry.md|Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)]]
 - [[thoughts/learnings/forumhouse-sections-91-175.md|Forumhouse: разделы 91 и 175]]
@@ -387,6 +435,7 @@ tier: active
 - [[thoughts/learnings/ninkear-m8-vs-gmktec-k6.md|Ninkear M8 и GMKtec K6]]
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
 - [[thoughts/learnings/provoloka-dlya-svarki-stali-3-mm.md|Проволока для сварки стали 3 мм]]
+- [[thoughts/learnings/reliable-video-processing-pipeline.md|Надёжная обработка видео]]
 - [[thoughts/learnings/shift-based-daily-planner.md|Сменный ежедневник — формат под график сутки через трое]]
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]
 - [[thoughts/learnings/vault-search-discipline.md|Дисциплина поиска по vault]]

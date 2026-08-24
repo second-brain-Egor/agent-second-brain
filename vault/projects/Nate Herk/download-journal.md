@@ -1,13 +1,20 @@
----
-description: "Обновлено: 2026-08-23 09:44 Всего видео в папке: 5 Записей в журнале: 5"
-related:
-  - "[[projects/_index]]"
----
 # Журнал скачанных видео
 
-Обновлено: 2026-08-23 09:44
-Всего видео в папке: 5
-Записей в журнале: 5
+Обновлено: 2026-08-24 09:55
+Всего видео в папке: 12
+Записей в журнале: 11
+
+## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
+
+Статус: complete
+Название: 100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.
+Ссылка: https://www.youtube.com/watch?v=UsfCe5fJK6A
+Дата видео: 20260823
+Описание: есть
+Комментарии: 28
+Транскрипт: есть
+Кадры: 39
+Обновлено: 2026-08-24T09:49:06+03:00
 
 ## 001-i-built-the-ultimate-claude-website-design-skill-steal-this
 
@@ -19,7 +26,7 @@ related:
 Комментарии: 45
 Транскрипт: есть
 Кадры: 307
-Обновлено: 2026-08-23T09:44:53+03:00
+Обновлено: 2026-08-24T09:49:06+03:00
 
 ## 002-this-stealth-model-makes-claude-code-free-here-s-how
 
@@ -31,7 +38,7 @@ related:
 Комментарии: 67
 Транскрипт: есть
 Кадры: 57
-Обновлено: 2026-08-23T09:44:53+03:00
+Обновлено: 2026-08-24T09:49:07+03:00
 
 ## 003-turn-claude-into-a-one-person-marketing-team-in-38-mins
 
@@ -43,7 +50,7 @@ related:
 Комментарии: 70
 Транскрипт: есть
 Кадры: 126
-Обновлено: 2026-08-23T09:44:53+03:00
+Обновлено: 2026-08-24T09:49:07+03:00
 
 ## 004-the-5-most-valuable-ai-automations-to-sell-in-2026
 
@@ -55,7 +62,7 @@ related:
 Комментарии: 40
 Транскрипт: есть
 Кадры: 6
-Обновлено: 2026-08-23T09:44:53+03:00
+Обновлено: 2026-08-24T09:49:07+03:00
 
 ## 005-a-week-of-grok-bot-lessons-in-10-mins
 
@@ -67,4 +74,76 @@ related:
 Комментарии: 46
 Транскрипт: есть
 Кадры: 56
-Обновлено: 2026-08-23T09:44:54+03:00
+Обновлено: 2026-08-24T09:49:07+03:00
+
+## 007-how-to-sell-claude-workflows-without-starting-an-agency
+
+Статус: complete
+Название: How to Sell Claude Workflows (Without Starting an Agency)
+Ссылка: https://www.youtube.com/watch?v=zpS6JGJNaGg
+Дата видео: 20260818
+Описание: есть
+Комментарии: 95
+Транскрипт: есть
+Кадры: 96
+Обновлено: 2026-08-24T09:49:47+03:00
+
+## 008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won
+
+Статус: complete
+Название: I Made Codex and Claude Code Build the Same App. One Clearly Won.
+Ссылка: https://www.youtube.com/watch?v=WCrnS09vpfo
+Дата видео: 20260814
+Описание: есть
+Комментарии: 296
+Транскрипт: есть
+Кадры: 36
+Обновлено: 2026-08-24T09:50:39+03:00
+
+## 009-codex-s-browser-agent-automates-literally-anything
+
+Статус: complete
+Название: Codex's Browser Agent Automates Literally Anything
+Ссылка: https://www.youtube.com/watch?v=CB5bG4mvnS0
+Дата видео: 20260813
+Описание: есть
+Комментарии: 115
+Транскрипт: есть
+Кадры: 48
+Обновлено: 2026-08-24T09:51:16+03:00
+
+## 010-i-deleted-all-my-claude-skills-and-claude-got-smarter
+
+Статус: complete
+Название: I Deleted All My Claude Skills... And Claude Got Smarter
+Ссылка: https://www.youtube.com/watch?v=XNQBCRcwXV4
+Дата видео: 20260812
+Описание: есть
+Комментарии: 176
+Транскрипт: есть
+Кадры: 21
+Обновлено: 2026-08-24T09:51:56+03:00
+
+## 011-grok-bot-is-for-real-what-you-need-to-know
+
+Статус: complete
+Название: Grok Bot is For Real. What You Need to Know.
+Ссылка: https://www.youtube.com/watch?v=PQBYZQqan2g
+Дата видео: 20260812
+Описание: есть
+Комментарии: 167
+Транскрипт: есть
+Кадры: 61
+Обновлено: 2026-08-24T09:52:45+03:00
+
+## 012-how-to-build-a-one-person-ai-business-using-claude-code
+
+Статус: complete
+Название: How to Build a One Person AI Business (Using Claude Code)
+Ссылка: https://www.youtube.com/watch?v=LVAHYV4Xrto
+Дата видео: 20260811
+Описание: есть
+Комментарии: 96
+Транскрипт: есть
+Кадры: 0
+Обновлено: 

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECT_DIR="/home/egor/agent-second-brain"
+NATE_DIR="$PROJECT_DIR/vault/projects/Nate Herk"
+LOG_FILE="$NATE_DIR/logs/analysis-worker.log"
+LOCK_FILE="$NATE_DIR/.analysis-worker.lock"
+
+mkdir -p "$NATE_DIR/logs"
+exec 9>"$LOCK_FILE"
+flock -n 9 || exit 0
+cd "$PROJECT_DIR"
+
+while IFS= read -r folder; do
+  [ -s "$folder/analysis.md" ] && continue
+  printf '%s START %s\n' "$(date -Is)" "$folder" >>"$LOG_FILE"
+
+  prompt="Прочитай полностью vault/projects/Nate Herk/AGENTS.md, затем обработай только ролик в папке: ${folder#$PROJECT_DIR/}. Создай полноценный analysis.md строго по правилам проекта, проверь ссылки на кадры. После этого аккуратно дополни vault/projects/Nate Herk/summary.md новыми знаниями без повторов. Не трогай другие карточки. Не отвечай пользователю и не отправляй сообщения: это фоновая обработка."
+
+  if codex exec --skip-git-repo-check --color never --cd "$PROJECT_DIR" \
+      --model gpt-5.6-sol --dangerously-bypass-approvals-and-sandbox \
+      "$prompt" </dev/null >>"$LOG_FILE" 2>&1 \
+      && [ -s "$folder/analysis.md" ]; then
+    printf '%s DONE %s\n' "$(date -Is)" "$folder" >>"$LOG_FILE"
+  else
+    printf '%s FAILED %s\n' "$(date -Is)" "$folder" >>"$LOG_FILE"
+  fi
+done < <(find "$NATE_DIR/videos" -mindepth 1 -maxdepth 1 -type d -print | sort)
+
+printf '%s QUEUE_COMPLETE\n' "$(date -Is)" >>"$LOG_FILE"

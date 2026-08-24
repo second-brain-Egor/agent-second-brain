@@ -13,7 +13,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-23T09:44:53+03:00",
+      "updated_at": "2026-08-24T09:55:10+03:00",
       "completed_at": "2026-08-23T09:42:46+03:00"
     },
     "QUI6Ug4cHnE": {
@@ -28,7 +28,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-23T09:44:53+03:00",
+      "updated_at": "2026-08-24T09:55:09+03:00",
       "completed_at": "2026-08-23T09:18:28+03:00"
     },
     "_kK_4cOYF4o": {
@@ -43,7 +43,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-23T09:44:53+03:00",
+      "updated_at": "2026-08-24T09:55:09+03:00",
       "completed_at": "2026-08-23T09:19:06+03:00"
     },
     "tgjYMym_0-c": {
@@ -58,7 +58,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-23T09:44:53+03:00",
+      "updated_at": "2026-08-24T09:55:10+03:00",
       "completed_at": "2026-08-23T09:43:13+03:00"
     },
     "TMPUUyQC5aM": {
@@ -73,9 +73,114 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-23T09:44:54+03:00",
+      "updated_at": "2026-08-24T09:55:10+03:00",
       "completed_at": "2026-08-23T09:43:41+03:00"
+    },
+    "UsfCe5fJK6A": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know",
+      "title": "100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.",
+      "url": "https://www.youtube.com/watch?v=UsfCe5fJK6A",
+      "upload_date": "20260823",
+      "comments": 28,
+      "frames": 39,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-24T09:55:09+03:00",
+      "completed_at": "2026-08-24T09:14:40+03:00"
+    },
+    "zpS6JGJNaGg": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency",
+      "title": "How to Sell Claude Workflows (Without Starting an Agency)",
+      "url": "https://www.youtube.com/watch?v=zpS6JGJNaGg",
+      "upload_date": "20260818",
+      "comments": 95,
+      "frames": 96,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-24T09:55:10+03:00",
+      "completed_at": "2026-08-24T09:49:47+03:00"
+    },
+    "WCrnS09vpfo": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won",
+      "title": "I Made Codex and Claude Code Build the Same App. One Clearly Won.",
+      "url": "https://www.youtube.com/watch?v=WCrnS09vpfo",
+      "upload_date": "20260814",
+      "comments": 296,
+      "frames": 36,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-24T09:55:10+03:00",
+      "completed_at": "2026-08-24T09:50:39+03:00"
+    },
+    "CB5bG4mvnS0": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything",
+      "title": "Codex's Browser Agent Automates Literally Anything",
+      "url": "https://www.youtube.com/watch?v=CB5bG4mvnS0",
+      "upload_date": "20260813",
+      "comments": 115,
+      "frames": 48,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-24T09:55:10+03:00",
+      "completed_at": "2026-08-24T09:51:16+03:00"
+    },
+    "XNQBCRcwXV4": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter",
+      "title": "I Deleted All My Claude Skills... And Claude Got Smarter",
+      "url": "https://www.youtube.com/watch?v=XNQBCRcwXV4",
+      "upload_date": "20260812",
+      "comments": 176,
+      "frames": 21,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-24T09:55:10+03:00",
+      "completed_at": "2026-08-24T09:51:56+03:00"
+    },
+    "PQBYZQqan2g": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know",
+      "title": "Grok Bot is For Real. What You Need to Know.",
+      "url": "https://www.youtube.com/watch?v=PQBYZQqan2g",
+      "upload_date": "20260812",
+      "comments": 167,
+      "frames": 61,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-24T09:55:10+03:00",
+      "completed_at": "2026-08-24T09:52:45+03:00"
+    },
+    "LVAHYV4Xrto": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code",
+      "title": "How to Build a One Person AI Business (Using Claude Code)",
+      "url": "https://www.youtube.com/watch?v=LVAHYV4Xrto",
+      "upload_date": "20260811",
+      "comments": 96,
+      "frames": 324,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-24T09:57:03+03:00",
+      "completed_at": "2026-08-24T09:57:03+03:00"
     }
   },
-  "updated_at": "2026-08-23T09:44:54+03:00"
+  "updated_at": "2026-08-24T09:57:03+03:00"
 }
