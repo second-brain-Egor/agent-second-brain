@@ -13,7 +13,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:10+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-23T09:42:46+03:00"
     },
     "QUI6Ug4cHnE": {
@@ -28,7 +28,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:09+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-23T09:18:28+03:00"
     },
     "_kK_4cOYF4o": {
@@ -43,7 +43,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:09+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-23T09:19:06+03:00"
     },
     "tgjYMym_0-c": {
@@ -58,7 +58,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:10+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-23T09:43:13+03:00"
     },
     "TMPUUyQC5aM": {
@@ -73,7 +73,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:10+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-23T09:43:41+03:00"
     },
     "UsfCe5fJK6A": {
@@ -88,7 +88,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:09+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-24T09:14:40+03:00"
     },
     "zpS6JGJNaGg": {
@@ -103,7 +103,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:10+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-24T09:49:47+03:00"
     },
     "WCrnS09vpfo": {
@@ -118,7 +118,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:10+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-24T09:50:39+03:00"
     },
     "CB5bG4mvnS0": {
@@ -133,7 +133,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:10+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-24T09:51:16+03:00"
     },
     "XNQBCRcwXV4": {
@@ -148,7 +148,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:10+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-24T09:51:56+03:00"
     },
     "PQBYZQqan2g": {
@@ -163,7 +163,7 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:55:10+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-24T09:52:45+03:00"
     },
     "LVAHYV4Xrto": {
@@ -178,9 +178,54 @@
       "description": true,
       "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-08-24T09:57:03+03:00",
+      "updated_at": "2026-08-25T10:15:09+03:00",
       "completed_at": "2026-08-24T09:57:03+03:00"
+    },
+    "ZzHsJW10iq4": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes",
+      "title": "Everything Goldman Sachs Taught Me About AI (In 10 minutes)",
+      "url": "https://www.youtube.com/watch?v=ZzHsJW10iq4",
+      "upload_date": "20260824",
+      "comments": 14,
+      "frames": 254,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-25T10:15:09+03:00",
+      "completed_at": "2026-08-25T07:00:55+03:00"
+    },
+    "IVx8OSMbTss": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course",
+      "title": "Build & Sell AI SaaS Products (2 HOUR COURSE)",
+      "url": "https://www.youtube.com/watch?v=IVx8OSMbTss",
+      "upload_date": "20260810",
+      "comments": 104,
+      "frames": 97,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-25T10:15:10+03:00",
+      "completed_at": "2026-08-25T10:15:10+03:00"
+    },
+    "7WZ6XldxX0U": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes",
+      "title": "5000 Hours of Building AI in Just 17 Minutes",
+      "url": "https://www.youtube.com/watch?v=7WZ6XldxX0U",
+      "upload_date": "20260804",
+      "comments": 116,
+      "frames": 181,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-25T10:16:32+03:00",
+      "completed_at": "2026-08-25T10:16:32+03:00"
     }
   },
-  "updated_at": "2026-08-24T09:57:03+03:00"
+  "updated_at": "2026-08-25T10:16:32+03:00"
 }

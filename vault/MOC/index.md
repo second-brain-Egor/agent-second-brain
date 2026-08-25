@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 579
-- Связей: 1523
+- Заметок: 603
+- Связей: 1553
 - Сирот: 42
-- Слабосвязанных: 111
+- Слабосвязанных: 130
 
 ## Память
 
@@ -54,6 +54,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata.md|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]]
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/analysis.md|Карточка ролика: пять принципов надёжной работы с AI из опыта Goldman Sachs]]
+- [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/description.md|description]]
+- [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/metadata.md|Everything Goldman Sachs Taught Me About AI (In 10 minutes)]]
+- [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/analysis.md|Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/description.md|description]]
@@ -124,6 +130,24 @@ tier: active
 - [[projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course/description.md|description]]
 - [[projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course/metadata.md|Build & Sell AI SaaS Products (2 HOUR COURSE)]]
 - [[projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/analysis.md|Карточка ролика: 12 уроков после 5 000 часов работы с AI]]
+- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/description.md|description]]
+- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/metadata.md|5000 Hours of Building AI in Just 17 Minutes]]
+- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/analysis.md|Карточка ролика: как оценивать AI-автоматизации по ценности]]
+- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/description.md|description]]
+- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/metadata.md|18 Months of Pricing AI Automations in 21 Mins]]
+- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/analysis.md|Карточка ролика: AI-агенты как новый интерфейс к компьютерам]]
+- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/description.md|description]]
+- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/metadata.md|This AI Technology Will Replace Millions (Here's How to Prepare)]]
+- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/transcript.md|transcript]]
 - [[projects/_index.md|Проекты — индекс]]
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/asula/_index.md|АСУЛА — индекс]]

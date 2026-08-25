@@ -95,15 +95,27 @@ cat "$RUN_LOG"
 state_folders | sort -u >"$AFTER"
 mapfile -t NEW_FOLDERS < <(comm -13 "$BEFORE" "$AFTER")
 
+# Карточки — обязательная часть ежедневного контура. Очередь запускается после
+# каждой проверки, в том числе когда остался незавершённый материал с прошлого
+# запуска. Файловая блокировка в обработчике не допускает параллельных дублей.
+PROCESSING_OK=1
+if ! /bin/bash "$PROJECT_DIR/scripts/nate-herk-process-pending.sh"; then
+  PROCESSING_OK=0
+fi
+
 if [ "${#NEW_FOLDERS[@]}" -eq 0 ]; then
-  notify "📺 Nate Herk: новых роликов нет."
-  exit 0
+  if [ "$PROCESSING_OK" -eq 1 ]; then
+    notify "📺 Nate Herk: новых роликов нет."
+    exit 0
+  fi
+  notify "⚠️ Nate Herk: новых роликов нет, но не удалось завершить очередь аналитических карточек."
+  exit 1
 fi
 
 DOWNLOADED=0
 PREPARED=0
 ANALYZED=0
-ANNOTATIONS=()
+VIDEO_SUMMARIES=()
 for folder in "${NEW_FOLDERS[@]}"; do
   [ -n "$(find "$PROJECT_DIR/$folder" -maxdepth 1 -type f \
     \( -name '*.mp4' -o -name '*.webm' -o -name '*.mkv' \) -print -quit 2>/dev/null)" ] \
@@ -112,6 +124,10 @@ for folder in "${NEW_FOLDERS[@]}"; do
     && PREPARED=$((PREPARED + 1))
   if [ -s "$PROJECT_DIR/$folder/analysis.md" ]; then
     ANALYZED=$((ANALYZED + 1))
+    TITLE="$(sed -n 's/^# Карточка ролика: //p' "$PROJECT_DIR/$folder/analysis.md" | head -n 1)"
+    if [ -z "$TITLE" ] && [ -s "$PROJECT_DIR/$folder/metadata.md" ]; then
+      TITLE="$(sed -n 's/^# //p' "$PROJECT_DIR/$folder/metadata.md" | head -n 1)"
+    fi
     ANNOTATION="$("$PROJECT_DIR/.venv/bin/python" - "$PROJECT_DIR/$folder/analysis.md" <<'PY'
 import re
 import sys
@@ -124,7 +140,9 @@ if match:
     print(" ".join(sentences[:2]))
 PY
 )"
-    [ -n "$ANNOTATION" ] && ANNOTATIONS+=("$ANNOTATION")
+    if [ -n "$TITLE" ] && [ -n "$ANNOTATION" ]; then
+      VIDEO_SUMMARIES+=("🎬 $TITLE"$'\n'"$ANNOTATION")
+    fi
   fi
 done
 
@@ -134,11 +152,13 @@ REPORT="📺 Nate Herk: найдено новых роликов — ${#NEW_FOLD
 Подготовлены транскрипции и отобранные кадры: $PREPARED.
 Готовы аналитические карточки: $ANALYZED."
 
-if [ "${#ANNOTATIONS[@]}" -gt 0 ]; then
+if [ "${#VIDEO_SUMMARIES[@]}" -gt 0 ]; then
   REPORT+=$'\n\nО чём новые ролики:'
-  for annotation in "${ANNOTATIONS[@]}"; do
-    REPORT+=$'\n\n'"$annotation"
+  for summary in "${VIDEO_SUMMARIES[@]}"; do
+    REPORT+=$'\n\n'"$summary"
   done
 fi
 
 notify "$REPORT"
+
+[ "$PROCESSING_OK" -eq 1 ] || exit 1

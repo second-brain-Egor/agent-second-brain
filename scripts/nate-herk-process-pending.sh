@@ -10,9 +10,12 @@ mkdir -p "$NATE_DIR/logs"
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0
 cd "$PROJECT_DIR"
+FAILED=0
+PROCESSED=0
 
 while IFS= read -r folder; do
   [ -s "$folder/analysis.md" ] && continue
+  PROCESSED=$((PROCESSED + 1))
   printf '%s START %s\n' "$(date -Is)" "$folder" >>"$LOG_FILE"
 
   prompt="Прочитай полностью vault/projects/Nate Herk/AGENTS.md, затем обработай только ролик в папке: ${folder#$PROJECT_DIR/}. Создай полноценный analysis.md строго по правилам проекта, проверь ссылки на кадры. После этого аккуратно дополни vault/projects/Nate Herk/summary.md новыми знаниями без повторов. Не трогай другие карточки. Не отвечай пользователю и не отправляй сообщения: это фоновая обработка."
@@ -24,7 +27,11 @@ while IFS= read -r folder; do
     printf '%s DONE %s\n' "$(date -Is)" "$folder" >>"$LOG_FILE"
   else
     printf '%s FAILED %s\n' "$(date -Is)" "$folder" >>"$LOG_FILE"
+    FAILED=$((FAILED + 1))
   fi
 done < <(find "$NATE_DIR/videos" -mindepth 1 -maxdepth 1 -type d -print | sort)
 
-printf '%s QUEUE_COMPLETE\n' "$(date -Is)" >>"$LOG_FILE"
+printf '%s QUEUE_COMPLETE processed=%d failed=%d\n' \
+  "$(date -Is)" "$PROCESSED" "$FAILED" >>"$LOG_FILE"
+
+[ "$FAILED" -eq 0 ]
