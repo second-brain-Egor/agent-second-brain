@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-08-25 10:16
-Всего видео в папке: 17
-Записей в журнале: 15
+Обновлено: 2026-08-26 07:01
+Всего видео в папке: 18
+Записей в журнале: 16
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -39,6 +39,18 @@
 Транскрипт: есть
 Кадры: 307
 Обновлено: 2026-08-25T10:15:09+03:00
+
+## 001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers
+
+Статус: complete
+Название: The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers
+Ссылка: https://www.youtube.com/watch?v=DoHPZf7jEQ4
+Дата видео: 20260825
+Описание: есть
+Комментарии: 24
+Транскрипт: есть
+Кадры: 85
+Обновлено: 2026-08-26T07:01:19+03:00
 
 ## 002-this-stealth-model-makes-claude-code-free-here-s-how
 
@@ -186,24 +198,24 @@
 
 ## 016-i-ve-sold-100-ai-automations-here-s-how-to-price-them
 
-Статус: partial
-Название: 016-i-ve-sold-100-ai-automations-here-s-how-to-price-them
-Ссылка: 
-Дата видео: 
-Описание: нет
-Комментарии: 0
-Транскрипт: нет
-Кадры: 0
+Статус: complete
+Название: 18 Months of Pricing AI Automations in 21 Mins
+Ссылка: https://www.youtube.com/watch?v=Lg5TYWPSg6M
+Дата видео: 20260801
+Описание: есть
+Комментарии: 106
+Транскрипт: есть
+Кадры: 30
 Обновлено: 
 
 ## 017-this-ai-technology-will-replace-millions-here-s-how-to-prepare
 
-Статус: partial
-Название: 017-this-ai-technology-will-replace-millions-here-s-how-to-prepare
-Ссылка: 
-Дата видео: 
-Описание: нет
-Комментарии: 0
-Транскрипт: нет
-Кадры: 0
+Статус: complete
+Название: This AI Technology Will Replace Millions (Here's How to Prepare)
+Ссылка: https://www.youtube.com/watch?v=g3-c8XZi7BY
+Дата видео: 20250106
+Описание: есть
+Комментарии: 6252
+Транскрипт: есть
+Кадры: 401
 Обновлено: 

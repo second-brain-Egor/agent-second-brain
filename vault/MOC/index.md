@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-08-26
+updated: 2026-08-27
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 604
-- Связей: 1554
+- Заметок: 611
+- Связей: 1559
 - Сирот: 42
-- Слабосвязанных: 130
+- Слабосвязанных: 138
 
 ## Память
 
@@ -66,6 +66,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/metadata.md|I Built The Ultimate Claude Website Design Skill (steal this)]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/analysis.md|The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers]]
+- [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/description.md|description]]
+- [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/metadata.md|The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers]]
+- [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/analysis.md|Карточка ролика: бесплатные модели OpenRouter внутри Claude Code]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/description.md|description]]
@@ -424,13 +430,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-08-27.md|2026-08-27]]
 - [[daily/2026-08-26.md|2026-08-26]]
 - [[daily/2026-08-25.md|2026-08-25]]
 - [[daily/2026-08-24.md|2026-08-24]]
 - [[daily/2026-08-23.md|2026-08-23]]
 - [[daily/2026-08-22.md|2026-08-22]]
 - [[daily/2026-08-21.md|2026-08-21]]
-- [[daily/2026-08-20.md|2026-08-20]]
 
 ## Недельные сводки
 

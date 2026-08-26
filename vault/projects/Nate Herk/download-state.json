@@ -225,7 +225,22 @@
       "frames_required": true,
       "updated_at": "2026-08-25T10:16:32+03:00",
       "completed_at": "2026-08-25T10:16:32+03:00"
+    },
+    "DoHPZf7jEQ4": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers",
+      "title": "The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers",
+      "url": "https://www.youtube.com/watch?v=DoHPZf7jEQ4",
+      "upload_date": "20260825",
+      "comments": 24,
+      "frames": 85,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-26T07:01:19+03:00",
+      "completed_at": "2026-08-26T07:01:19+03:00"
     }
   },
-  "updated_at": "2026-08-25T10:16:32+03:00"
+  "updated_at": "2026-08-26T07:01:19+03:00"
 }
