@@ -240,7 +240,22 @@
       "frames_required": true,
       "updated_at": "2026-08-26T07:01:19+03:00",
       "completed_at": "2026-08-26T07:01:19+03:00"
+    },
+    "bg0C-2iUUqM": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close",
+      "title": "I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.",
+      "url": "https://www.youtube.com/watch?v=bg0C-2iUUqM",
+      "upload_date": "20260826",
+      "comments": 88,
+      "frames": 55,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-27T07:00:54+03:00",
+      "completed_at": "2026-08-27T07:00:54+03:00"
     }
   },
-  "updated_at": "2026-08-26T07:01:19+03:00"
+  "updated_at": "2026-08-27T07:00:54+03:00"
 }

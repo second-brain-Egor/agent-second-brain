@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-08-26 07:01
-Всего видео в папке: 18
-Записей в журнале: 16
+Обновлено: 2026-08-27 07:00
+Всего видео в папке: 19
+Записей в журнале: 17
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -39,6 +39,18 @@
 Транскрипт: есть
 Кадры: 307
 Обновлено: 2026-08-25T10:15:09+03:00
+
+## 001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close
+
+Статус: complete
+Название: I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.
+Ссылка: https://www.youtube.com/watch?v=bg0C-2iUUqM
+Дата видео: 20260826
+Описание: есть
+Комментарии: 88
+Транскрипт: есть
+Кадры: 55
+Обновлено: 2026-08-27T07:00:54+03:00
 
 ## 001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers
 

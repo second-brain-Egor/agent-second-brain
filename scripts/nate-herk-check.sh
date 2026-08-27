@@ -105,60 +105,85 @@ fi
 
 if [ "${#NEW_FOLDERS[@]}" -eq 0 ]; then
   if [ "$PROCESSING_OK" -eq 1 ]; then
-    notify "📺 Nate Herk: новых роликов нет."
+    notify "📺 Nate Herk — утренний отчёт
+
+Новых роликов нет.
+
+✅ Проверка завершена. Ошибок нет."
     exit 0
   fi
   notify "⚠️ Nate Herk: новых роликов нет, но не удалось завершить очередь аналитических карточек."
   exit 1
 fi
 
-DOWNLOADED=0
-PREPARED=0
 ANALYZED=0
 VIDEO_SUMMARIES=()
+REPORT_DETAILS_OK=1
 for folder in "${NEW_FOLDERS[@]}"; do
-  [ -n "$(find "$PROJECT_DIR/$folder" -maxdepth 1 -type f \
-    \( -name '*.mp4' -o -name '*.webm' -o -name '*.mkv' \) -print -quit 2>/dev/null)" ] \
-    && DOWNLOADED=$((DOWNLOADED + 1))
-  [ -s "$PROJECT_DIR/$folder/transcript.md" ] && [ -d "$PROJECT_DIR/$folder/frames" ] \
-    && PREPARED=$((PREPARED + 1))
   if [ -s "$PROJECT_DIR/$folder/analysis.md" ]; then
     ANALYZED=$((ANALYZED + 1))
-    TITLE="$(sed -n 's/^# Карточка ролика: //p' "$PROJECT_DIR/$folder/analysis.md" | head -n 1)"
-    if [ -z "$TITLE" ] && [ -s "$PROJECT_DIR/$folder/metadata.md" ]; then
-      TITLE="$(sed -n 's/^# //p' "$PROJECT_DIR/$folder/metadata.md" | head -n 1)"
-    fi
-    ANNOTATION="$("$PROJECT_DIR/.venv/bin/python" - "$PROJECT_DIR/$folder/analysis.md" <<'PY'
+    VIDEO_SUMMARY="$("$PROJECT_DIR/.venv/bin/python" - "$PROJECT_DIR/$folder/analysis.md" <<'PY'
 import re
 import sys
 
 text = open(sys.argv[1], encoding="utf-8").read()
-match = re.search(r"^## Кратко\s*\n+(.*?)(?=\n## |\Z)", text, re.MULTILINE | re.DOTALL)
-if match:
-    paragraph = re.sub(r"\s+", " ", match.group(1)).strip()
-    sentences = re.split(r"(?<=[.!?])\s+", paragraph)
-    print(" ".join(sentences[:2]))
+
+def section(*names):
+    alternatives = "|".join(re.escape(name) for name in names)
+    match = re.search(
+        rf"^## (?:{alternatives})\s*\n+(.*?)(?=\n## |\Z)",
+        text,
+        re.MULTILINE | re.DOTALL,
+    )
+    if not match:
+        return ""
+    value = re.sub(r"\*\*([^*]+?)\*\*", r"\1", match.group(1))
+    return re.sub(r"\s+", " ", value).strip()
+
+title_match = re.search(r"^# (?:Карточка ролика:\s*)?(.+)$", text, re.MULTILINE)
+title = title_match.group(1).strip() if title_match else ""
+theme = section("Тема")
+content = section("Краткое содержание", "Кратко")
+conclusion = section("Основной вывод")
+
+if all((title, theme, content, conclusion)):
+    print(f"Название: {title}\n\nТема: {theme}\n\nСодержание: {content}\n\nОсновной вывод: {conclusion}")
 PY
 )"
-    if [ -n "$TITLE" ] && [ -n "$ANNOTATION" ]; then
-      VIDEO_SUMMARIES+=("🎬 $TITLE"$'\n'"$ANNOTATION")
+    if [ -n "$VIDEO_SUMMARY" ]; then
+      VIDEO_SUMMARIES+=("$VIDEO_SUMMARY")
+    else
+      REPORT_DETAILS_OK=0
     fi
   fi
 done
 
-REPORT="📺 Nate Herk: найдено новых роликов — ${#NEW_FOLDERS[@]}.
+REPORT="📺 Nate Herk — утренний отчёт
 
-Скачано видео: $DOWNLOADED.
-Подготовлены транскрипции и отобранные кадры: $PREPARED.
-Готовы аналитические карточки: $ANALYZED."
+Новых роликов: ${#NEW_FOLDERS[@]}."
 
 if [ "${#VIDEO_SUMMARIES[@]}" -gt 0 ]; then
-  REPORT+=$'\n\nО чём новые ролики:'
   for summary in "${VIDEO_SUMMARIES[@]}"; do
     REPORT+=$'\n\n'"$summary"
   done
 fi
 
+if [ "$PROCESSING_OK" -eq 1 ] && [ "$REPORT_DETAILS_OK" -eq 1 ] \
+    && [ "$ANALYZED" -eq "${#NEW_FOLDERS[@]}" ]; then
+  REPORT+=$'\n\n✅ Обработка полностью завершена. Ошибок нет.'
+else
+  REPORT+=$'\n\n⚠️ Обработка завершена не полностью.'
+  [ "$ANALYZED" -lt "${#NEW_FOLDERS[@]}" ] \
+    && REPORT+=$'\n'"Не готовы аналитические карточки: $((${#NEW_FOLDERS[@]} - ANALYZED))."
+  [ "$REPORT_DETAILS_OK" -eq 0 ] \
+    && REPORT+=$'\nНе удалось сформировать обязательное содержание отчёта из карточки.'
+  [ "$PROCESSING_OK" -eq 0 ] \
+    && REPORT+=$'\nОчередь обработки завершилась с ошибкой.'
+fi
+
 notify "$REPORT"
 
-[ "$PROCESSING_OK" -eq 1 ] || exit 1
+[ "$PROCESSING_OK" -eq 1 ] \
+  && [ "$REPORT_DETAILS_OK" -eq 1 ] \
+  && [ "$ANALYZED" -eq "${#NEW_FOLDERS[@]}" ] \
+  || exit 1

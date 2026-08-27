@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-08-27
+updated: 2026-08-28
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 611
-- Связей: 1559
+- Заметок: 618
+- Связей: 1566
 - Сирот: 42
-- Слабосвязанных: 138
+- Слабосвязанных: 144
 
 ## Память
 
@@ -66,6 +66,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/metadata.md|I Built The Ultimate Claude Website Design Skill (steal this)]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/analysis.md|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]]
+- [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/metadata.md|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]]
+- [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/analysis.md|The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/description.md|description]]
@@ -430,13 +436,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-08-28.md|2026-08-28]]
 - [[daily/2026-08-27.md|2026-08-27]]
 - [[daily/2026-08-26.md|2026-08-26]]
 - [[daily/2026-08-25.md|2026-08-25]]
 - [[daily/2026-08-24.md|2026-08-24]]
 - [[daily/2026-08-23.md|2026-08-23]]
 - [[daily/2026-08-22.md|2026-08-22]]
-- [[daily/2026-08-21.md|2026-08-21]]
 
 ## Недельные сводки
 
