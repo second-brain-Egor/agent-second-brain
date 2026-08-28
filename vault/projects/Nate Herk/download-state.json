@@ -255,7 +255,22 @@
       "frames_required": true,
       "updated_at": "2026-08-27T07:00:54+03:00",
       "completed_at": "2026-08-27T07:00:54+03:00"
+    },
+    "gQef3d3erOs": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide",
+      "title": "Set Up a Personal Hermes in 14 Mins (no VPS or mac mini)",
+      "url": "https://www.youtube.com/watch?v=gQef3d3erOs",
+      "upload_date": "20260827",
+      "comments": 33,
+      "frames": 35,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-28T07:00:34+03:00",
+      "completed_at": "2026-08-28T07:00:34+03:00"
     }
   },
-  "updated_at": "2026-08-27T07:00:54+03:00"
+  "updated_at": "2026-08-28T07:00:34+03:00"
 }

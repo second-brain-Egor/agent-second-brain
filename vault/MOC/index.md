@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-08-28
+updated: 2026-08-29
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 618
-- Связей: 1566
-- Сирот: 42
-- Слабосвязанных: 144
+- Заметок: 625
+- Связей: 1572
+- Сирот: 43
+- Слабосвязанных: 150
 
 ## Память
 
@@ -54,6 +54,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata.md|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]]
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/analysis.md|Карточка ролика: персональный Hermes без собственного VPS]]
+- [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/description.md|description]]
+- [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/metadata.md|Set Up a Personal Hermes in 14 Mins (no VPS or mac mini)]]
+- [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/analysis.md|Карточка ролика: пять принципов надёжной работы с AI из опыта Goldman Sachs]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/description.md|description]]
@@ -436,13 +442,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-08-29.md|2026-08-29]]
 - [[daily/2026-08-28.md|2026-08-28]]
 - [[daily/2026-08-27.md|2026-08-27]]
 - [[daily/2026-08-26.md|2026-08-26]]
 - [[daily/2026-08-25.md|2026-08-25]]
 - [[daily/2026-08-24.md|2026-08-24]]
 - [[daily/2026-08-23.md|2026-08-23]]
-- [[daily/2026-08-22.md|2026-08-22]]
 
 ## Недельные сводки
 

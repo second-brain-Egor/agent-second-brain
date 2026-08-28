@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-08-27 07:00
-Всего видео в папке: 19
-Записей в журнале: 17
+Обновлено: 2026-08-28 07:00
+Всего видео в папке: 20
+Записей в журнале: 18
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -15,6 +15,18 @@
 Транскрипт: есть
 Кадры: 39
 Обновлено: 2026-08-25T10:15:09+03:00
+
+## 001-build-a-personal-hermes-in-14-mins-full-setup-guide
+
+Статус: complete
+Название: Set Up a Personal Hermes in 14 Mins (no VPS or mac mini)
+Ссылка: https://www.youtube.com/watch?v=gQef3d3erOs
+Дата видео: 20260827
+Описание: есть
+Комментарии: 33
+Транскрипт: есть
+Кадры: 35
+Обновлено: 2026-08-28T07:00:34+03:00
 
 ## 001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes
 
