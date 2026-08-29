@@ -6,8 +6,8 @@ status: active
 created: 2026-04-30
 updated: 2026-04-30
 last_accessed: 2026-05-01
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 project: dacha
 ---
 

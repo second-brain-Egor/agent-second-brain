@@ -1,10 +1,12 @@
 ---
-description: "Weekly summary for 2026-W31"
-date: 2026-08-02
 type: weekly-summary
+description: "Weekly summary for 2026-W31"
+related: 
+last_accessed: 2026-08-09
+relevance: 0.69
+tier: warm
+date: 2026-08-02
 week: 2026-W31
-related:
-  - "[[MEMORY]]"
 ---
 
 **Неделя получилась исследовательской: меньше закрытых задач, больше ясности в важных технических решениях.** 🧭

@@ -5,8 +5,8 @@ description: "На корпоративных тренингах по AI оди�
 tags: 
 related: 
 last_accessed: 2026-03-27
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 excerpt: "Почему устройства без экранов провалятся, куда движется рынок AI-чатботов и что станет самым быстрорастущим AI-продуктом."
 category: "Аналитика"
 publishedAt: "2026-01-08"

@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-25
+relevance: 0.93
+tier: active
+---
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=5000-hours-of-building-with-ai&hcategory=youtube-videos&utm_campaign=free-group
 

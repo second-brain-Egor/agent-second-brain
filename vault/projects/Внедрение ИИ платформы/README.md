@@ -5,8 +5,8 @@ tags:
 source: daily/2026-04-15
 created: 2026-04-15
 last_accessed: 2026-04-29
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 
 # Внедрение ИИ платформы

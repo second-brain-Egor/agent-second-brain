@@ -2,8 +2,8 @@
 type: note
 description: Todoist integration via Python SDK todoist-api-python (NOT mcp-cli)
 last_accessed: 2026-05-07
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 name: todoist-ai
 depends_on: []
 ---

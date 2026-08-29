@@ -122,34 +122,9 @@ REPORT_DETAILS_OK=1
 for folder in "${NEW_FOLDERS[@]}"; do
   if [ -s "$PROJECT_DIR/$folder/analysis.md" ]; then
     ANALYZED=$((ANALYZED + 1))
-    VIDEO_SUMMARY="$("$PROJECT_DIR/.venv/bin/python" - "$PROJECT_DIR/$folder/analysis.md" <<'PY'
-import re
-import sys
-
-text = open(sys.argv[1], encoding="utf-8").read()
-
-def section(*names):
-    alternatives = "|".join(re.escape(name) for name in names)
-    match = re.search(
-        rf"^## (?:{alternatives})\s*\n+(.*?)(?=\n## |\Z)",
-        text,
-        re.MULTILINE | re.DOTALL,
-    )
-    if not match:
-        return ""
-    value = re.sub(r"\*\*([^*]+?)\*\*", r"\1", match.group(1))
-    return re.sub(r"\s+", " ", value).strip()
-
-title_match = re.search(r"^# (?:Карточка ролика:\s*)?(.+)$", text, re.MULTILINE)
-title = title_match.group(1).strip() if title_match else ""
-theme = section("Тема")
-content = section("Краткое содержание", "Кратко")
-conclusion = section("Основной вывод")
-
-if all((title, theme, content, conclusion)):
-    print(f"Название: {title}\n\nТема: {theme}\n\nСодержание: {content}\n\nОсновной вывод: {conclusion}")
-PY
-)"
+    VIDEO_SUMMARY="$("$PROJECT_DIR/.venv/bin/python" \
+      "$PROJECT_DIR/scripts/nate_herk_report.py" \
+      "$PROJECT_DIR/$folder/analysis.md" 2>>"$RUN_LOG" || true)"
     if [ -n "$VIDEO_SUMMARY" ]; then
       VIDEO_SUMMARIES+=("$VIDEO_SUMMARY")
     else

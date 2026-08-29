@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-25
+relevance: 0.93
+tier: active
+---
 All right. So, I've sold over 100 AI
 automation systems and I've priced a ton
 of those wrong. I've undercharged, I've

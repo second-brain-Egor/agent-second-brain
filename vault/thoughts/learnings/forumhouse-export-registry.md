@@ -2,8 +2,8 @@
 type: note
 description: "Forumhouse: авто-реестр выгрузок + дельта-докачка — как работает и как отвечать на вопросы о перекачке"
 last_accessed: 2026-06-11
-relevance: 0.98
-tier: active
+relevance: 0.74
+tier: warm
 ---
 # Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)
 

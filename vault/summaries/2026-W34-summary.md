@@ -1,6 +1,9 @@
 ---
-date: 2026-08-23
 type: weekly-summary
+last_accessed: 2026-08-23
+relevance: 0.9
+tier: active
+date: 2026-08-23
 week: 2026-W34
 ---
 

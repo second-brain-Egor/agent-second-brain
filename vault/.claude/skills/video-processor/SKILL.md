@@ -2,8 +2,8 @@
 type: note
 description: >
 last_accessed: 2026-03-27
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 name: video-processor
 model: default
 scope: global

@@ -1,7 +1,8 @@
 ---
 type: note
-updated: 2026-08-29
-relevance: 0.9
+updated: 2026-08-30
+last_accessed: 2026-08-30
+relevance: 1.0
 tier: active
 ---
 # Индекс знаний
@@ -10,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 625
-- Связей: 1572
+- Заметок: 633
+- Связей: 1754
 - Сирот: 43
-- Слабосвязанных: 150
+- Слабосвязанных: 64
 
 ## Память
 
@@ -72,6 +73,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/metadata.md|I Built The Ultimate Claude Website Design Skill (steal this)]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/analysis.md|Карточка ролика: SnagTime — собственный планировщик вместо Calendly]]
+- [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/metadata.md|I Cloned Calendly and Now It’s Free Forever]]
+- [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/analysis.md|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/description.md|description]]
@@ -442,13 +449,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-08-30.md|2026-08-30]]
 - [[daily/2026-08-29.md|2026-08-29]]
 - [[daily/2026-08-28.md|2026-08-28]]
 - [[daily/2026-08-27.md|2026-08-27]]
 - [[daily/2026-08-26.md|2026-08-26]]
 - [[daily/2026-08-25.md|2026-08-25]]
 - [[daily/2026-08-24.md|2026-08-24]]
-- [[daily/2026-08-23.md|2026-08-23]]
 
 ## Недельные сводки
 

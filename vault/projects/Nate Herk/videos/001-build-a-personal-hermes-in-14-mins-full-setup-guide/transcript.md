@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-29
+relevance: 0.98
+tier: active
+---
 So, Hermes's agents are great because it
 kind of feels like you have Claude code
 or Codex right in your pocket at all

@@ -3,8 +3,8 @@ type: project
 description: "Комментарии — project"
 related: 
 last_accessed: 2026-05-04
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 # Комментарии
 

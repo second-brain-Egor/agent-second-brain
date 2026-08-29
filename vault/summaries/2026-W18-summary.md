@@ -1,13 +1,12 @@
 ---
 type: weekly-summary
 description: "Weekly summary for 2026-W18"
+related: 
 last_accessed: 2026-05-03
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 date: 2026-05-03
 week: 2026-W18
-related:
-  - "[[MEMORY]]"
 ---
 
 **Победы недели** 🔧

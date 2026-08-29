@@ -2,8 +2,8 @@
 type: note
 description: "Сеть бота: выход через шведский датацентр (ради работы симок), почему площадки банят, как устроен веб-поиск fast-path"
 last_accessed: 2026-06-11
-relevance: 0.98
-tier: active
+relevance: 0.1
+tier: archive
 ---
 # Сеть бота и веб-поиск (разобрано 2026-06-11)
 

@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-05-07
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 # Опросник 4 — для Telegram-бота (боевые вопросы)
 

@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Дата: 2026-08-01 Длительность: 21:19 Ссылка: https://www.youtube.com/watch?v=Lg5TYWPSg6M"
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-08-25
+relevance: 0.93
+tier: active
 ---
 # Карточка ролика: как оценивать AI-автоматизации по ценности
 

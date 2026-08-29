@@ -3,8 +3,8 @@ type: monthly
 description: "Why it matters: без рейсмуса нет обработки бруса → нет производства"
 updated: 2026-03-29
 last_accessed: 2026-03-29
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 period: 2026-04
 ---
 

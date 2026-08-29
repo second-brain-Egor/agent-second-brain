@@ -1,7 +1,10 @@
 ---
-description: "Для уголков и труб со стенкой до 3 мм на Decapower xtraMIG-200 основной выбор — сплошная проволока 0,8 мм."
 type: learning
+description: "Для уголков и труб со стенкой до 3 мм на Decapower xtraMIG-200 основной выбор — сплошная проволока 0,8 мм."
 created: 2026-08-21
+last_accessed: 2026-08-23
+relevance: 0.9
+tier: active
 ---
 # Проволока для сварки стали 3 мм
 

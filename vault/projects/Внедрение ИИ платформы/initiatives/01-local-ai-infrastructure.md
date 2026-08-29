@@ -4,8 +4,8 @@ description: "Локальный ИИ-контур и инфраструктур
 related: 
 created: 2026-04-29
 last_accessed: 2026-04-29
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 project: Внедрение ИИ платформы
 ---
 

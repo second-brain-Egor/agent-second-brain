@@ -1,7 +1,10 @@
 ---
+type: project
 description: "So, I sent research agents through recent surveys, marketplaces, job listings, case studies, and online communities. And there were five workflows..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-08-23
+relevance: 0.9
+tier: active
 ---
 So, I sent research agents through
 recent surveys, marketplaces, job

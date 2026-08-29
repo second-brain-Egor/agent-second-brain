@@ -1,15 +1,14 @@
 ---
 type: note
 description: "Дача — старый телефон как временная камера наблюдения под навесом"
-tags:
-  - дача
-  - видеонаблюдение
+tags: 
 source: daily/2026-07-05
 status: active
 created: 2026-07-06
 updated: 2026-07-06
-relevance: 0.6
-tier: active
+last_accessed: 2026-07-07
+relevance: 0.19
+tier: cold
 ---
 
 # Старый телефон как временная камера (дача)

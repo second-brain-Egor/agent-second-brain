@@ -3,8 +3,8 @@ type: vision
 description: "Построить своё дело в деревообработке по технологии timberframe — от мастерской до полноценного производства."
 updated: 2026-03-29
 last_accessed: 2026-03-29
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 horizon: 3-years
 period: 2025-2027
 ---

@@ -1,12 +1,13 @@
 ---
 type: project
 description: "Дачный септик только для унитаза"
-tags:
-  - дача
-  - септик
+tags: 
+status: idea
 created: 2026-08-08
 updated: 2026-08-08
-status: idea
+last_accessed: 2026-08-13
+relevance: 0.74
+tier: warm
 ---
 
 # Септик для дачного туалета

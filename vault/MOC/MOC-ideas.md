@@ -1,13 +1,16 @@
 ---
 type: moc
-description: "Map of Content: Идеи, 1 entries"
-last_accessed: 2026-06-12
+description: "Map of Content: Идеи, 4 entries"
+last_accessed: 2026-08-30
 relevance: 1.0
 tier: active
 ---
 
 # Идеи
 
-Сгенерировано: 2026-06-12 04:40. Файлов: 1.
+Сгенерировано: 2026-08-30 02:53. Файлов: 4.
 
+- [[thoughts/ideas/ai-music-clips-kz-kg|ИИ-клипы на казахском и киргизском]] — ИИ-клипы — простые музыкальные ролики на казахском и киргизском с нацколоритом
+- [[thoughts/ideas/codex-smart-speaker|Умная колонка на базе Codex]] — Идея: собрать голосовое устройство уровня Алисы, где Codex служит интеллектуальным контуром.
+- [[thoughts/ideas/private-mode-without-saving|Режим без сохранения]] — Приватный режим Telegram-бота без сохранения и последующей обработки сообщений
 - [[thoughts/ideas/youtube-habits-channel|YouTube-канал про привычки]] — - Видео 5. Привычки успешных людей. Брайан Трейси уже выгружено черновиком в проект «Ежедневник». - На канале есть др...

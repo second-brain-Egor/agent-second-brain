@@ -4,8 +4,8 @@ description: Офлайн-приложение под Android с картой п
 status: idea
 created: 2026-05-13
 last_accessed: 2026-05-13
-relevance: 0.55
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 
 # Приложение по дорогам

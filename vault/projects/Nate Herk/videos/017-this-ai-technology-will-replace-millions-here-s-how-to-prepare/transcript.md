@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-25
+relevance: 0.93
+tier: active
+---
 agents are emerging as the latest
 Battleground in Enterprise AI we're
 going to we're going to bring a level of

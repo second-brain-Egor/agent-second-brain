@@ -1,14 +1,13 @@
 ---
-description: "Map of Content: Business, 1 entries"
 type: note
-last_accessed: 2026-05-10
-relevance: 0.51
-tier: cold
+last_accessed: 2026-06-14
+relevance: 0.1
+tier: archive
 ---
 # MOC - Business
 
 > Map of Content for Business CRM data
-> Generated: 2026-06-12 | 0 records, 0 active deals, 0 high priority
+> Generated: 2026-08-30 | 0 records, 0 active deals, 0 high priority
 
 [[business/_index|Business Data Overview]]
 

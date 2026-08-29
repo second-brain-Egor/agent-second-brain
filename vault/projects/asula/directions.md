@@ -3,7 +3,9 @@ type: note
 description: "Два направления работы АСУЛА: ИИ-контур предприятия и автономное офлайн-ядро. Общая модель данных на оба."
 created: 2026-06-12
 updated: 2026-06-12
-tier: active
+last_accessed: 2026-06-13
+relevance: 0.1
+tier: archive
 ---
 
 # Направления работы

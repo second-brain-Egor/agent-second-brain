@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-24
+relevance: 0.91
+tier: active
+---
 Codex's browser use is probably the best
 that I've ever tried before. It can
 literally do anything on a browser or on

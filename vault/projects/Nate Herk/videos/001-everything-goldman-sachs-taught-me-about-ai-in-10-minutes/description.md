@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-25
+relevance: 0.93
+tier: active
+---
 My roadmap for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=goldman_sachs_ai&hcategory=youtube-videos&utm_campaign=free-group
 

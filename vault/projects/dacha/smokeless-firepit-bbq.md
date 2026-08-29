@@ -1,15 +1,14 @@
 ---
 type: note
 description: "Дача — бездымный мангал (барбекю) и бездымное кострище: собрать чертежи"
-tags:
-  - дача
-  - идея
+tags: 
 source: daily/2026-07-05
 status: idea
 created: 2026-07-06
 updated: 2026-07-06
-relevance: 0.5
-tier: active
+last_accessed: 2026-07-07
+relevance: 0.19
+tier: cold
 ---
 
 # Бездымный мангал и бездымное кострище

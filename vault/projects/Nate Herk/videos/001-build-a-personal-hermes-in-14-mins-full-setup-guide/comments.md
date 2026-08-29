@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-29
+relevance: 0.98
+tier: active
+---
 # Комментарии
 
 ## @nateherk

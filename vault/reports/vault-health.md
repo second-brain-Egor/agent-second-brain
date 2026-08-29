@@ -1,8 +1,9 @@
 ---
 type: note
-updated: 2026-08-29
-relevance: 0.86
-tier: warm
+updated: 2026-08-30
+last_accessed: 2026-08-30
+relevance: 1.0
+tier: active
 ---
 # Health Check Vault
 
@@ -10,37 +11,37 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 625
-- Связей: 1572
+- Заметок: 633
+- Связей: 1754
 - Сирот: 43
-- Слабосвязанных: 150
+- Слабосвязанных: 64
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 7 | 106.86 |
+| MOC | 7 | 131.43 |
 | blog | 2 | 1.00 |
-| daily | 150 | 1.64 |
+| daily | 151 | 1.68 |
 | goals | 5 | 8.00 |
-| memory | 5 | 30.40 |
-| projects | 396 | 4.32 |
+| memory | 5 | 31.40 |
+| projects | 402 | 4.63 |
 | references | 4 | 1.50 |
 | reports | 1 | 67.00 |
-| root | 1 | 18.00 |
-| summaries | 20 | 1.40 |
+| root | 1 | 17.00 |
+| summaries | 20 | 1.95 |
 | templates | 2 | 0.00 |
-| thoughts | 32 | 3.94 |
+| thoughts | 33 | 4.33 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 456 связей
-- [[MOC/MOC-projects.md|MOC - Projects]] — 263 связей
+- [[MOC/index.md|Индекс знаний]] — 462 связей
+- [[MOC/MOC-projects.md|MOC - Projects]] — 406 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 106 связей
-- [[memory/facts.md|Ключевые факты и события]] — 92 связей
+- [[memory/facts.md|Ключевые факты и события]] — 96 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
 - [[reports/vault-health.md|Health Check Vault]] — 67 связей
-- [[projects/_index.md|Проекты — индекс]] — 48 связей
+- [[projects/_index.md|Проекты — индекс]] — 49 связей
 - [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 48 связей
 - [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 46 связей
 - [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 46 связей
@@ -71,6 +72,7 @@ tier: warm
 
 ## Слабосвязанные
 
+- [[MOC/MOC-reflections.md|Рефлексии]]
 - [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
 - [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
@@ -90,8 +92,7 @@ tier: warm
 - [[daily/2026-04-25.md|2026-04-25]]
 - [[daily/2026-04-26.md|2026-04-26]]
 - [[daily/2026-04-27.md|2026-04-27]]
-- [[daily/2026-04-29.md|2026-04-29]]
-- ... ещё 130
+- ... ещё 44
 
 ## Неразрешённые ссылки
 

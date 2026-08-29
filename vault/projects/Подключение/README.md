@@ -4,8 +4,8 @@ description: "Подключение — project, active"
 status: active
 updated: 2026-05-06
 last_accessed: 2026-05-06
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 # Подключение
 

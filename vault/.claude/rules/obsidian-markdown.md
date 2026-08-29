@@ -2,8 +2,8 @@
 type: note
 title: Obsidian Markdown Rules
 last_accessed: 2026-03-27
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 # Obsidian Markdown Rules
 

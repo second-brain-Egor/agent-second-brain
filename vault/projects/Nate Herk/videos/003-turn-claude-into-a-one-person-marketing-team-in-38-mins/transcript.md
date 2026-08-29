@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Today, I'm going to show you guys how we're able to turn Claude into a one-person marketing team. You don't have to be technical at all. You don't..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-08-23
+relevance: 0.9
+tier: active
 ---
 Today, I'm going to show you guys how
 we're able to turn Claude into a

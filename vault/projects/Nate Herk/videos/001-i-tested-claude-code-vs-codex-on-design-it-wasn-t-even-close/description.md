@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-28
+relevance: 0.97
+tier: active
+---
 Try Granola for FREE today: https://www.granola.ai/?via=nate-herk
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=claude-vs-codex-design&hcategory=youtube-videos&utm_campaign=free-group

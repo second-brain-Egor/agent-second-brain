@@ -270,7 +270,22 @@
       "frames_required": true,
       "updated_at": "2026-08-28T07:00:34+03:00",
       "completed_at": "2026-08-28T07:00:34+03:00"
+    },
+    "PYjbeY8sGLs": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever",
+      "title": "I Cloned Calendly and Now It’s Free Forever",
+      "url": "https://www.youtube.com/watch?v=PYjbeY8sGLs",
+      "upload_date": "20260828",
+      "comments": 28,
+      "frames": 32,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-08-29T07:00:36+03:00",
+      "completed_at": "2026-08-29T07:00:36+03:00"
     }
   },
-  "updated_at": "2026-08-28T07:00:34+03:00"
+  "updated_at": "2026-08-29T07:00:36+03:00"
 }

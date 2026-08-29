@@ -1,7 +1,11 @@
 ---
+type: project
 title: "The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers"
-date: 2026-08-25
 source: "https://www.youtube.com/watch?v=DoHPZf7jEQ4"
+last_accessed: 2026-08-27
+relevance: 0.95
+tier: active
+date: 2026-08-25
 duration: "28:34"
 channel: "Nate Herk | AI Automation"
 ---

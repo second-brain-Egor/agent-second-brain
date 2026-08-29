@@ -3,8 +3,8 @@ type: project
 description: "Description — project"
 related: 
 last_accessed: 2026-05-04
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 Отблагодарить https://yoomoney.ru/to/410011412811665
 Код Успеха - курс из 7 диалогов двух известных миллионеров Брайана Трейси и Алекса Яновского.

@@ -5,8 +5,8 @@ status: active
 related: 
 updated: 2026-05-15
 last_accessed: 2026-05-15
-relevance: 0.61
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 # 4G на даче: модем + антенна + что докупить
 

@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-24
+relevance: 0.91
+tier: active
+---
 Okay, so we just got GrokBot, which is
 probably the easiest way that I found to
 be able to spin up teams of different AI

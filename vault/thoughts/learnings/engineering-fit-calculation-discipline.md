@@ -1,10 +1,12 @@
 ---
 type: thought
-category: learnings
-created: 2026-08-24
 description: "Как проверять посадку профильной детали в деформированную круглую трубу без подмены геометрии."
-related:
-  - "[[thoughts/projects/banya-letniy-polubochka]]"
+related: 
+created: 2026-08-24
+last_accessed: 2026-08-24
+relevance: 0.91
+tier: active
+category: learnings
 ---
 
 # Проверка посадки деталей без подмены геометрии

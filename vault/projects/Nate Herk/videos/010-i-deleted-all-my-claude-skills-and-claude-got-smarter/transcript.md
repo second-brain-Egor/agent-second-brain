@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-24
+relevance: 0.91
+tier: active
+---
 So, I listened to the creator of Claude
 Code explain why Claude has gotten worse
 and how to actually fix that. And I

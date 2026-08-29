@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-28
+relevance: 0.97
+tier: active
+---
 # I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.
 
 - Дата публикации: 2026-08-26

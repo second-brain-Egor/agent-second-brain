@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-29
+relevance: 0.98
+tier: active
+---
 10% OFF Hermes w/ Code NATEHERK: https://hostinger.com/natehermes10
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=hermes-setup-managed&hcategory=youtube-videos&utm_campaign=free-group

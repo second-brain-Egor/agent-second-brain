@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-25
+relevance: 0.93
+tier: active
+---
 I've spent over 5,000 hours building
 with AI, and I've used it to build a
 seven-figure agency, teach more than

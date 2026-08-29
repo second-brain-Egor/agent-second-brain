@@ -3,7 +3,7 @@ type: note
 description: "Дневник наблюдений: работают ли правила bootstrap и записи в daily из терминала. Через несколько дней проверяем — если записей мало или нет..."
 related: 
 last_accessed: 2026-03-31
-relevance: 0.98
+relevance: 0.93
 tier: active
 ---
 # System Log
@@ -99,3 +99,8 @@ tier: active
 2026-08-24 21:51 | process (хвост за 2026-08-23) | OK | 0 tasks, 1 thought
 2026-08-24 21:52 | process | OK | 0 tasks, 1 thought; Todoist skipped after 3 attempts: mcp-cli not found
 2026-08-25 21:47 | process | OK | 0 tasks, 1 thought updated
+2026-08-30 02:40 | process (за 2026-08-26) | OK | 0 tasks, 0 thoughts
+2026-08-30 02:42 | process (за 2026-08-27) | OK | 0 tasks, 0 thoughts; soul updated
+2026-08-30 02:48 | process (за 2026-08-28) | OK | 0 tasks, 0 thoughts; facts updated; Todoist check failed after 3 attempts: mcp-cli: command not found
+2026-08-30 02:46 | process (за 2026-08-29) | OK | 0 tasks, 1 thought; facts updated; Todoist check failed after 3 attempts: mcp-cli: command not found
+2026-08-30 00:50 | process | OK | 0 tasks, 1 thoughts

@@ -1,10 +1,12 @@
 ---
-description: "Weekly summary for 2026-W26"
-date: 2026-06-28
 type: weekly-summary
+description: "Weekly summary for 2026-W26"
+related: 
+last_accessed: 2026-07-05
+relevance: 0.16
+tier: cold
+date: 2026-06-28
 week: 2026-W26
-related:
-  - "[[MEMORY]]"
 ---
 
 **Неделя 26: дача вышла в практическую плоскость**

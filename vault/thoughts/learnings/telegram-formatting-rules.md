@@ -2,8 +2,8 @@
 type: note
 description: "Дата: 2026-04-13"
 last_accessed: 2026-04-09
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 # Правила оформления ответов в Telegram
 

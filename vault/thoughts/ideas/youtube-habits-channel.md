@@ -5,8 +5,8 @@ source: daily/2026-05-04
 created: 2026-05-04
 updated: 2026-05-04
 last_accessed: 2026-05-04
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 # YouTube-канал про привычки
 

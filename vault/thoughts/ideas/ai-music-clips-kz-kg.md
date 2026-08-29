@@ -5,6 +5,9 @@ tags: [idea, ai, youtube, music]
 source: daily/2026-06-20
 status: idea
 created: 2026-06-20
+last_accessed: 2026-06-20
+relevance: 0.1
+tier: archive
 ---
 
 # ИИ-клипы на казахском и киргизском

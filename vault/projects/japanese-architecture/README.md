@@ -6,8 +6,8 @@ source: session/2026-04-24
 related: 
 created: 2026-04-24
 last_accessed: 2026-04-24
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 
 # Японская архитектура

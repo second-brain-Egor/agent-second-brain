@@ -1,16 +1,14 @@
 ---
 type: note
 description: "Баня — геометрия односкатной кровли по тёплому контуру"
-tags:
-  - дача
-  - баня
-  - кровля
+tags: 
 source: daily/2026-06-25
 status: active
 created: 2026-06-25
 updated: 2026-08-08
-relevance: 0.6
-tier: active
+last_accessed: 2026-08-13
+relevance: 0.74
+tier: warm
 ---
 
 # Баня — кровля по тёплому контуру

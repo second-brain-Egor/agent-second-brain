@@ -6,8 +6,8 @@ status: draft
 created: 2026-04-26
 updated: 2026-06-27
 last_accessed: 2026-05-03
-relevance: 0.97
-tier: active
+relevance: 0.1
+tier: archive
 project: dacha
 ---
 

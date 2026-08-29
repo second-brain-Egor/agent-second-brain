@@ -3,8 +3,8 @@ type: project
 description: "Transcript — project"
 related: 
 last_accessed: 2026-05-05
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 здравствуйте дорогие друзья сегодня у
 нас второй урок с брайаном трейси с

@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-28
+relevance: 0.97
+tier: active
+---
 So, I just had Claude Code and Codeex
 build me eight different websites. And
 they were given the same prompts and all

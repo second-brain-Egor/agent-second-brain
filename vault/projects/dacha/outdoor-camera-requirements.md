@@ -1,16 +1,14 @@
 ---
 type: note
 description: "Дача — требования к уличной камере видеонаблюдения для подбора"
-tags:
-  - дача
-  - видеонаблюдение
-  - закупка
+tags: 
 source: daily/2026-06-25
 status: active
 created: 2026-06-25
 updated: 2026-06-25
-relevance: 0.55
-tier: active
+last_accessed: 2026-07-03
+relevance: 0.13
+tier: cold
 ---
 
 # Уличная камера — требования к подбору

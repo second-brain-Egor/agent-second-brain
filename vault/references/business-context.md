@@ -3,8 +3,8 @@ type: note
 description: "[Your Company Name] — [what the company does]."
 related: 
 last_accessed: 2026-03-29
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 # Business Context
 

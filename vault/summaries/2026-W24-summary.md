@@ -1,10 +1,12 @@
 ---
-description: "Weekly summary for 2026-W24"
-date: 2026-06-14
 type: weekly-summary
+description: "Weekly summary for 2026-W24"
+related: 
+last_accessed: 2026-06-21
+relevance: 0.1
+tier: archive
+date: 2026-06-14
 week: 2026-W24
-related:
-  - "[[MEMORY]]"
 ---
 
 **Итоги недели 2026-W24**

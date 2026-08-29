@@ -1,16 +1,14 @@
 ---
 type: note
 description: "Дача — водосточная система (металл), спецификация и расчёт по двум скатам"
-tags:
-  - дача
-  - водосток
-  - закупка
+tags: 
 source: daily/2026-06-25
 status: active
 created: 2026-06-25
 updated: 2026-06-25
-relevance: 0.6
-tier: active
+last_accessed: 2026-06-25
+relevance: 0.1
+tier: archive
 ---
 
 # Водосточная система (дача)

@@ -1,8 +1,14 @@
+---
+type: project
+last_accessed: 2026-08-29
+relevance: 0.98
+tier: active
+---
 # Журнал скачанных видео
 
-Обновлено: 2026-08-28 07:00
-Всего видео в папке: 20
-Записей в журнале: 18
+Обновлено: 2026-08-29 07:00
+Всего видео в папке: 21
+Записей в журнале: 19
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -51,6 +57,18 @@
 Транскрипт: есть
 Кадры: 307
 Обновлено: 2026-08-25T10:15:09+03:00
+
+## 001-i-cloned-calendly-and-now-it-s-free-forever
+
+Статус: complete
+Название: I Cloned Calendly and Now It’s Free Forever
+Ссылка: https://www.youtube.com/watch?v=PYjbeY8sGLs
+Дата видео: 20260828
+Описание: есть
+Комментарии: 28
+Транскрипт: есть
+Кадры: 32
+Обновлено: 2026-08-29T07:00:36+03:00
 
 ## 001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close
 

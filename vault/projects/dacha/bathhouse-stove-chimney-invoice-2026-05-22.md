@@ -7,8 +7,8 @@ related:
 created: 2026-05-26
 updated: 2026-05-26
 last_accessed: 2026-05-31
-relevance: 0.82
-tier: warm
+relevance: 0.1
+tier: archive
 project: dacha
 ---
 

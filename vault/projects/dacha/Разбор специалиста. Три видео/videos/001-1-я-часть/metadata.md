@@ -3,8 +3,8 @@ type: project
 description: "1-я часть — project"
 related: 
 last_accessed: 2026-05-01
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 # 1-я часть
 

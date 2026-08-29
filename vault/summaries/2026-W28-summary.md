@@ -1,10 +1,12 @@
 ---
-description: "Weekly summary for 2026-W28"
-date: 2026-07-12
 type: weekly-summary
+description: "Weekly summary for 2026-W28"
+related: 
+last_accessed: 2026-07-19
+relevance: 0.37
+tier: cold
+date: 2026-07-12
 week: 2026-W28
-related:
-  - "[[MEMORY]]"
 ---
 
 **Неделя 28 — много технической работы и один сильный аналитический результат** ⚙️

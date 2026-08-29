@@ -1,9 +1,12 @@
 ---
 type: project
 description: "Бишайка — отдельная тема: гусятник, беседка и связанные расчёты с 10 июля 2026 года"
+status: active
 created: 2026-07-25
 updated: 2026-07-25
-status: active
+last_accessed: 2026-07-26
+relevance: 0.47
+tier: cold
 ---
 
 # Бишайка

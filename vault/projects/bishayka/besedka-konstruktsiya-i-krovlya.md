@@ -2,9 +2,12 @@
 type: note
 description: "Бишайка: конструкция беседки, кровля и совместный расчёт с гусятником"
 source: daily/2026-07-17
+status: active
 created: 2026-07-17
 updated: 2026-07-25
-status: active
+last_accessed: 2026-07-26
+relevance: 0.47
+tier: cold
 ---
 
 # Беседка — конструкция и кровля

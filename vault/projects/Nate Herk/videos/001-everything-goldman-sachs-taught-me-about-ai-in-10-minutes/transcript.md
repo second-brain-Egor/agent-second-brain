@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-25
+relevance: 0.93
+tier: active
+---
 So, I'm going to give you everything
 that I learned after working at Goldman
 Sachs, one of the biggest financial

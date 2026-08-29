@@ -5,8 +5,8 @@ tags:
 source: daily/2026-04-14
 created: 2026-04-14
 last_accessed: 2026-04-14
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 
 # Подбор шипорезного станка

@@ -4,8 +4,8 @@ description: "Егор ожидает, что Codex и Claude Code одинак�
 tags: 
 created: 2026-05-08
 last_accessed: 2026-05-08
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 ---
 
 # Единый доступ агентов к Forumhouse

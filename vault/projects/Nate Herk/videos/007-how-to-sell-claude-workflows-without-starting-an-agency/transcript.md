@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-24
+relevance: 0.91
+tier: active
+---
 So, everybody's telling you the same way
 to make money with AI in 2026, which is
 to start an AI agency, find clients, and

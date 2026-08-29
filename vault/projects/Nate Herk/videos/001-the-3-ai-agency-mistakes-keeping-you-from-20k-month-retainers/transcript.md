@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-27
+relevance: 0.95
+tier: active
+---
 Let me start with a little story. So,
 I'm I'm 23 years old at this point. I
 just quit my full-time job. I just

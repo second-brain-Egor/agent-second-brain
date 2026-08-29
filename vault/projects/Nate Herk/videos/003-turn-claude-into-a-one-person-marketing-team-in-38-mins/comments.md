@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Connect Higgsfield to Claude: https://higgsfield.ai/s/mcp-nateherk-LxmQMk FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-08-23
+relevance: 0.9
+tier: active
 ---
 # Комментарии
 

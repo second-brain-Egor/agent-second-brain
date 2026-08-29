@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-25
+relevance: 0.93
+tier: active
+---
 Want an AI Makeover for YOUR Business?
 👉🏻 https://bit.ly/ai-makeover-apply
 

@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-08-24
+relevance: 0.91
+tier: active
+---
 So, I had Claude Code and Codex build me
 the exact same app. I gave them the
 exact same prompt, but the results are

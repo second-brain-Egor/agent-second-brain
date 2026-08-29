@@ -4,8 +4,8 @@ description: "Локальный ИИ-контур и бюджет — project-n
 source: daily/2026-04-15
 created: 2026-04-15
 last_accessed: 2026-04-15
-relevance: 0.47
-tier: cold
+relevance: 0.1
+tier: archive
 project: Внедрение ИИ платформы
 ---
 
