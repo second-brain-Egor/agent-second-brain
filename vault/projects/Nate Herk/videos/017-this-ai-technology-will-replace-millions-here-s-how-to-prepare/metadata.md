@@ -1,4 +1,5 @@
 ---
+description: "This AI Technology Will Replace Millions (Here's How to Prepare) — project"
 type: project
 last_accessed: 2026-08-25
 relevance: 0.93

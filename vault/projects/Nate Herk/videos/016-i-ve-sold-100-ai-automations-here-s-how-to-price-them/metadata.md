@@ -1,4 +1,5 @@
 ---
+description: "18 Months of Pricing AI Automations in 21 Mins — project"
 type: project
 last_accessed: 2026-08-25
 relevance: 0.93

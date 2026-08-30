@@ -1,4 +1,5 @@
 ---
+description: "Map of Content: Projects, 401 entries"
 type: note
 last_accessed: 2026-06-14
 relevance: 0.1

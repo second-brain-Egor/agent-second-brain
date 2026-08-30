@@ -1,4 +1,5 @@
 ---
+description: "Map of Content: Index, 457 entries"
 type: note
 updated: 2026-08-30
 last_accessed: 2026-08-30

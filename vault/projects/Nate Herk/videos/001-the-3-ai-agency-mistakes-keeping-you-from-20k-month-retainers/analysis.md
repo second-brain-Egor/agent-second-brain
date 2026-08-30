@@ -1,4 +1,5 @@
 ---
+description: "The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers — project"
 type: project
 title: "The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers"
 source: "https://www.youtube.com/watch?v=DoHPZf7jEQ4"

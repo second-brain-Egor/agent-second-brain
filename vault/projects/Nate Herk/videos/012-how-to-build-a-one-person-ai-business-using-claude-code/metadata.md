@@ -1,4 +1,5 @@
 ---
+description: "How to Build a One Person AI Business (Using Claude Code) — project"
 type: project
 last_accessed: 2026-08-24
 relevance: 0.91

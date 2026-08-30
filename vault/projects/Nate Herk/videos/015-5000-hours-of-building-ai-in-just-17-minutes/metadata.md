@@ -1,4 +1,5 @@
 ---
+description: "5000 Hours of Building AI in Just 17 Minutes — project"
 type: project
 last_accessed: 2026-08-25
 relevance: 0.93
