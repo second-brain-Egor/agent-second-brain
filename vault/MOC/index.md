@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 635
-- Связей: 1698
+- Заметок: 641
+- Связей: 1707
 - Сирот: 43
-- Слабосвязанных: 73
+- Слабосвязанных: 77
 
 ## Память
 
@@ -60,6 +60,11 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/metadata.md|Set Up a Personal Hermes in 14 Mins (no VPS or mac mini)]]
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/analysis.md|Карточка ролика: Build & Sell Grok Bots — от настройки команды до услуги]]
+- [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/description.md|description]]
+- [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/metadata.md|Build & Sell Grok Bots (2 Hour Course)]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/analysis.md|Карточка ролика: пять принципов надёжной работы с AI из опыта Goldman Sachs]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/description.md|description]]
@@ -493,5 +498,6 @@ tier: active
 
 - [[references/business-context.md|Business Context]]
 - [[references/classification.md|Entry Classification]]
+- [[references/garage-pickup-list.md|Что взять в гараже]]
 - [[references/onyx.md|Onyx — заметки по платформе]]
 - [[references/work-group-rules.md|Правила рабочей группы]]

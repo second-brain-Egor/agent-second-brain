@@ -104,3 +104,4 @@ tier: active
 2026-08-30 02:48 | process (за 2026-08-28) | OK | 0 tasks, 0 thoughts; facts updated; Todoist check failed after 3 attempts: mcp-cli: command not found
 2026-08-30 02:46 | process (за 2026-08-29) | OK | 0 tasks, 1 thought; facts updated; Todoist check failed after 3 attempts: mcp-cli: command not found
 2026-08-30 00:50 | process | OK | 0 tasks, 1 thoughts
+2026-08-31 22:28 | process | OK | 0 tasks, 1 thought; soul updated

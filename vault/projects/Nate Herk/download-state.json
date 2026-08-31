@@ -285,7 +285,22 @@
       "frames_required": true,
       "updated_at": "2026-08-29T07:00:36+03:00",
       "completed_at": "2026-08-29T07:00:36+03:00"
+    },
+    "4hKJ9X6rGFo": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course",
+      "title": "Build & Sell Grok Bots (2 Hour Course)",
+      "url": "https://www.youtube.com/watch?v=4hKJ9X6rGFo",
+      "upload_date": "20260831",
+      "comments": 11,
+      "frames": 255,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": false,
+      "frames_required": true,
+      "updated_at": "2026-08-31T07:12:10+03:00",
+      "completed_at": "2026-08-31T07:12:10+03:00"
     }
   },
-  "updated_at": "2026-08-29T07:00:36+03:00"
+  "updated_at": "2026-08-31T07:12:10+03:00"
 }
