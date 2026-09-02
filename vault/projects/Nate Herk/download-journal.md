@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-08-31 07:12
-Всего видео в папке: 22
-Записей в журнале: 20
+Обновлено: 2026-09-01 07:10
+Всего видео в папке: 23
+Записей в журнале: 21
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -39,6 +39,18 @@
 Транскрипт: нет
 Кадры: 255
 Обновлено: 2026-08-31T07:12:10+03:00
+
+## 001-every-grok-bot-concept-explained-for-normal-people
+
+Статус: complete
+Название: Every Grok Bot Concept Explained for Normal People
+Ссылка: https://www.youtube.com/watch?v=NyfYxpXiw_0
+Дата видео: 20260901
+Описание: есть
+Комментарии: 11
+Транскрипт: есть
+Кадры: 112
+Обновлено: 2026-09-01T07:10:29+03:00
 
 ## 001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes
 

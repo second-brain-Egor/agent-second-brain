@@ -90,6 +90,15 @@ class Settings(BaseSettings):
         default=False,
         description="Reply to voice messages with TTS voice messages",
     )
+    error_log_path: Path | None = Field(
+        default=None,
+        description="Persistent JSONL error journal; defaults to VAULT_PATH/logs/errors.jsonl",
+    )
+
+    @property
+    def resolved_error_log_path(self) -> Path:
+        """Return the configured error journal path or its vault-relative default."""
+        return self.error_log_path or self.vault_path / "logs" / "errors.jsonl"
 
     @property
     def daily_path(self) -> Path:

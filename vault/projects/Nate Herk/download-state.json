@@ -300,7 +300,22 @@
       "frames_required": true,
       "updated_at": "2026-08-31T07:12:10+03:00",
       "completed_at": "2026-08-31T07:12:10+03:00"
+    },
+    "NyfYxpXiw_0": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people",
+      "title": "Every Grok Bot Concept Explained for Normal People",
+      "url": "https://www.youtube.com/watch?v=NyfYxpXiw_0",
+      "upload_date": "20260901",
+      "comments": 11,
+      "frames": 112,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-01T07:10:29+03:00",
+      "completed_at": "2026-09-01T07:10:29+03:00"
     }
   },
-  "updated_at": "2026-08-31T07:12:10+03:00"
+  "updated_at": "2026-09-01T07:10:29+03:00"
 }

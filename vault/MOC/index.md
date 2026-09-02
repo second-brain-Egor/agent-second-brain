@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-01
+updated: 2026-09-02
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 642
-- Связей: 1705
+- Заметок: 649
+- Связей: 1713
 - Сирот: 43
-- Слабосвязанных: 80
+- Слабосвязанных: 85
 
 ## Память
 
@@ -65,6 +65,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/description.md|description]]
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/metadata.md|Build & Sell Grok Bots (2 Hour Course)]]
+- [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/analysis.md|Карточка ролика: 26 понятий Grok Bot]]
+- [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/description.md|description]]
+- [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/metadata.md|Every Grok Bot Concept Explained for Normal People]]
+- [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/analysis.md|Карточка ролика: пять принципов надёжной работы с AI из опыта Goldman Sachs]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/description.md|description]]
@@ -453,13 +459,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-02.md|2026-09-02]]
 - [[daily/2026-09-01.md|2026-09-01]]
 - [[daily/2026-08-31.md|2026-08-31]]
 - [[daily/2026-08-30.md|2026-08-30]]
 - [[daily/2026-08-29.md|2026-08-29]]
 - [[daily/2026-08-28.md|2026-08-28]]
 - [[daily/2026-08-27.md|2026-08-27]]
-- [[daily/2026-08-26.md|2026-08-26]]
 
 ## Недельные сводки
 
