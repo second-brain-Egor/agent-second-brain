@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-09-01 07:10
-Всего видео в папке: 23
-Записей в журнале: 21
+Обновлено: 2026-09-02 07:03
+Всего видео в папке: 26
+Записей в журнале: 24
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -64,6 +64,18 @@
 Кадры: 254
 Обновлено: 2026-08-25T10:15:09+03:00
 
+## 001-fable-5-1-finally-kills-ai-website-slop
+
+Статус: complete
+Название: Fable 5.1 FINALLY Kills AI Website Slop
+Ссылка: https://www.youtube.com/watch?v=FFWtxjvW2ts
+Дата видео: 20260902
+Описание: есть
+Комментарии: 29
+Транскрипт: есть
+Кадры: 122
+Обновлено: 2026-09-02T07:01:12+03:00
+
 ## 001-i-built-the-ultimate-claude-website-design-skill-steal-this
 
 Статус: complete
@@ -112,6 +124,18 @@
 Кадры: 85
 Обновлено: 2026-08-26T07:01:19+03:00
 
+## 002-fable-5-1-just-dropped-it-looks-unreal
+
+Статус: complete
+Название: Fable 5.1 Just Dropped. It Looks Unreal.
+Ссылка: https://www.youtube.com/watch?v=8IyORt-7rOQ
+Дата видео: 20260901
+Описание: есть
+Комментарии: 101
+Транскрипт: есть
+Кадры: 32
+Обновлено: 2026-09-02T07:01:35+03:00
+
 ## 002-this-stealth-model-makes-claude-code-free-here-s-how
 
 Статус: complete
@@ -123,6 +147,18 @@
 Транскрипт: есть
 Кадры: 57
 Обновлено: 2026-08-25T10:15:09+03:00
+
+## 003-anthropic-is-teaching-claude-to-be-evil-real-results
+
+Статус: complete
+Название: Anthropic is Teaching Claude to be Evil (real results)
+Ссылка: https://www.youtube.com/watch?v=Lbax7_pW2Nw
+Дата видео: 20260901
+Описание: есть
+Комментарии: 24
+Транскрипт: есть
+Кадры: 20
+Обновлено: 2026-09-02T07:03:07+03:00
 
 ## 003-turn-claude-into-a-one-person-marketing-team-in-38-mins
 

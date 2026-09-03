@@ -315,7 +315,52 @@
       "frames_required": true,
       "updated_at": "2026-09-01T07:10:29+03:00",
       "completed_at": "2026-09-01T07:10:29+03:00"
+    },
+    "FFWtxjvW2ts": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop",
+      "title": "Fable 5.1 FINALLY Kills AI Website Slop",
+      "url": "https://www.youtube.com/watch?v=FFWtxjvW2ts",
+      "upload_date": "20260902",
+      "comments": 29,
+      "frames": 122,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-02T07:01:12+03:00",
+      "completed_at": "2026-09-02T07:01:12+03:00"
+    },
+    "8IyORt-7rOQ": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal",
+      "title": "Fable 5.1 Just Dropped. It Looks Unreal.",
+      "url": "https://www.youtube.com/watch?v=8IyORt-7rOQ",
+      "upload_date": "20260901",
+      "comments": 101,
+      "frames": 32,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-02T07:01:35+03:00",
+      "completed_at": "2026-09-02T07:01:35+03:00"
+    },
+    "Lbax7_pW2Nw": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results",
+      "title": "Anthropic is Teaching Claude to be Evil (real results)",
+      "url": "https://www.youtube.com/watch?v=Lbax7_pW2Nw",
+      "upload_date": "20260901",
+      "comments": 24,
+      "frames": 20,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-02T07:03:07+03:00",
+      "completed_at": "2026-09-02T07:03:07+03:00"
     }
   },
-  "updated_at": "2026-09-01T07:10:29+03:00"
+  "updated_at": "2026-09-02T07:03:07+03:00"
 }

@@ -21,10 +21,10 @@ CHAT_ID="${CHAT_ID%%,*}"
 notify() {
   [ -n "${TELEGRAM_BOT_TOKEN:-}" ] || return 0
   [ -n "$CHAT_ID" ] || return 0
-  curl -fsS --max-time 20 \
-    "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-    -d "chat_id=$CHAT_ID" \
-    --data-urlencode "text=$1" >/dev/null || true
+  printf '%s' "$1" | "$PROJECT_DIR/.venv/bin/python" \
+    "$PROJECT_DIR/scripts/send_telegram_message.py" \
+    --token "$TELEGRAM_BOT_TOKEN" \
+    --chat-id "$CHAT_ID"
 }
 
 state_folders() {

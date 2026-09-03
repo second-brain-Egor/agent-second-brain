@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-02
+updated: 2026-09-03
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 649
-- Связей: 1713
+- Заметок: 668
+- Связей: 1729
 - Сирот: 43
-- Слабосвязанных: 85
+- Слабосвязанных: 107
 
 ## Память
 
@@ -77,6 +77,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/metadata.md|Everything Goldman Sachs Taught Me About AI (In 10 minutes)]]
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/analysis.md|Fable 5.1 FINALLY Kills AI Website Slop]]
+- [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/description.md|description]]
+- [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/metadata.md|Fable 5.1 FINALLY Kills AI Website Slop]]
+- [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/analysis.md|Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/description.md|description]]
@@ -101,12 +107,24 @@ tier: active
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/metadata.md|The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/analysis.md|Fable 5.1 Just Dropped. It Looks Unreal.]]
+- [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/description.md|description]]
+- [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/metadata.md|Fable 5.1 Just Dropped. It Looks Unreal.]]
+- [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/analysis.md|Карточка ролика: бесплатные модели OpenRouter внутри Claude Code]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/description.md|description]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/metadata.md|This Stealth Model Makes Claude Code Free. Here's How.]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/analysis.md|Anthropic is Teaching Claude to be Evil (real results)]]
+- [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/description.md|description]]
+- [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/metadata.md|Anthropic is Teaching Claude to be Evil (real results)]]
+- [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/analysis.md|Карточка ролика: Claude как маркетинговая команда одного человека]]
 - [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/description.md|description]]
@@ -459,13 +477,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-03.md|2026-09-03]]
 - [[daily/2026-09-02.md|2026-09-02]]
 - [[daily/2026-09-01.md|2026-09-01]]
 - [[daily/2026-08-31.md|2026-08-31]]
 - [[daily/2026-08-30.md|2026-08-30]]
 - [[daily/2026-08-29.md|2026-08-29]]
 - [[daily/2026-08-28.md|2026-08-28]]
-- [[daily/2026-08-27.md|2026-08-27]]
 
 ## Недельные сводки
 
