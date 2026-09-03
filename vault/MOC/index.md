@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-03
+updated: 2026-09-04
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 668
-- Связей: 1729
+- Заметок: 675
+- Связей: 1737
 - Сирот: 43
-- Слабосвязанных: 107
+- Слабосвязанных: 113
 
 ## Память
 
@@ -83,6 +83,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/metadata.md|Fable 5.1 FINALLY Kills AI Website Slop]]
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/analysis.md|I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1]]
+- [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/metadata.md|I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1]]
+- [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/analysis.md|Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/description.md|description]]
@@ -477,13 +483,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-04.md|2026-09-04]]
 - [[daily/2026-09-03.md|2026-09-03]]
 - [[daily/2026-09-02.md|2026-09-02]]
 - [[daily/2026-09-01.md|2026-09-01]]
 - [[daily/2026-08-31.md|2026-08-31]]
 - [[daily/2026-08-30.md|2026-08-30]]
 - [[daily/2026-08-29.md|2026-08-29]]
-- [[daily/2026-08-28.md|2026-08-28]]
 
 ## Недельные сводки
 
