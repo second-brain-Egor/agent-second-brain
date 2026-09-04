@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-04
+updated: 2026-09-05
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 690
-- Связей: 1760
+- Заметок: 692
+- Связей: 1759
 - Сирот: 43
-- Слабосвязанных: 122
+- Слабосвязанных: 126
 
 ## Память
 
@@ -286,6 +286,7 @@ tier: active
 - [[projects/dacha/разбор проекта/bathhouse-integrated-technical-analysis-2026-04-30.md|Баня — общий технический разбор по SketchUp, скриншотам и видеоразборам]]
 - [[projects/dacha/разбор проекта/bathhouse-walls-openings-full-check-2026-04-30.md|Баня — проверка стен, стоек и оконных проемов]]
 - [[projects/dacha/разбор проекта/bathhouse-window-openings-check-2026-04-30.md|Баня — проверка узлов над оконными проемами]]
+- [[projects/dash-trading/README.md|Торговля DASH]]
 - [[projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
 - [[projects/japanese-architecture/README.md|Японская архитектура]]
 - [[projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
@@ -495,13 +496,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-05.md|2026-09-05]]
 - [[daily/2026-09-04.md|2026-09-04]]
 - [[daily/2026-09-03.md|2026-09-03]]
 - [[daily/2026-09-02.md|2026-09-02]]
 - [[daily/2026-09-01.md|2026-09-01]]
 - [[daily/2026-08-31.md|2026-08-31]]
 - [[daily/2026-08-30.md|2026-08-30]]
-- [[daily/2026-08-29.md|2026-08-29]]
 
 ## Недельные сводки
 

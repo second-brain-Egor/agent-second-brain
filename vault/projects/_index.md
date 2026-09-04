@@ -53,6 +53,7 @@ description: Hub-файл для всех проектов в vault/projects/. �
 - [[Forumhouse|Forumhouse]] — закачка тематических веток на Барыге — процесс активен: июнь 2026
 - [[forumhouse-framehouse-knowledge-base|forumhouse-framehouse-knowledge-base]] — база знаний по каркасникам (выход закачки Forumhouse)
 - [[second-brain-bot-operations|second-brain-bot-operations]] — эксплуатация бота, memory-sync
+- [[dash-trading|Торговля DASH]] — автоматическая стратегия возврата к средней, этап исследования — посл. движение: 4 сентября 2026
 
 ### 📦 Фон
 - [[trading|trading]] + [[trading-bot-stop-reliability|trading-bot-stop-reliability]] — торговый бот (контур + надёжность стопов) — посл. движение: 31 мая 2026

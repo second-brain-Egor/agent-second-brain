@@ -4,6 +4,6 @@ PATH=/home/egor/.local/bin:/usr/local/bin:/usr/bin:/bin
 @reboot cd /home/egor/agent-second-brain && /bin/bash /home/egor/agent-second-brain/scripts/run-bot.sh
 */5 * * * * cd /home/egor/agent-second-brain && /bin/bash /home/egor/agent-second-brain/scripts/process-randomized.sh >>/home/egor/agent-second-brain/logs/process.log 2>&1
 0 18 * * 0 cd /home/egor/agent-second-brain && /bin/bash /home/egor/agent-second-brain/scripts/weekly.sh
-0 */2 * * * cd /home/egor/agent-second-brain && /bin/bash /home/egor/agent-second-brain/scripts/forumhouse-check-randomized.sh >>/home/egor/agent-second-brain/logs/forumhouse-check.log 2>&1
+30 4 * * * cd /home/egor/agent-second-brain && FORUMHOUSE_CHECK_MAX_DELAY_SECONDS=10800 /bin/bash /home/egor/agent-second-brain/scripts/forumhouse-check-randomized.sh >>/home/egor/agent-second-brain/logs/forumhouse-check.log 2>&1
 * * * * * cd /home/egor/agent-second-brain && /home/egor/agent-second-brain/.venv/bin/python /home/egor/agent-second-brain/scripts/todoist-reminders.py >>/home/egor/agent-second-brain/logs/todoist-reminders.log 2>&1
 # <<< agent-second-brain <<<
