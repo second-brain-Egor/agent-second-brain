@@ -105,3 +105,6 @@ tier: active
 2026-08-30 02:46 | process (за 2026-08-29) | OK | 0 tasks, 1 thought; facts updated; Todoist check failed after 3 attempts: mcp-cli: command not found
 2026-08-30 00:50 | process | OK | 0 tasks, 1 thoughts
 2026-08-31 22:28 | process | OK | 0 tasks, 1 thought; soul updated
+2026-09-04 11:53 | process (за 2026-09-01) | OK | 0 tasks, 1 thought; error journal created
+2026-09-04 11:55 | process (за 2026-09-02) | OK | 0 tasks, 0 thoughts; soul updated; Todoist check failed after 3 attempts: mcp-cli: command not found
+2026-09-04 11:57 | process | OK | 0 tasks, 1 thought; Forumhouse live status checked

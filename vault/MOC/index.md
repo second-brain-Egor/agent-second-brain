@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 675
-- Связей: 1737
+- Заметок: 690
+- Связей: 1760
 - Сирот: 43
-- Слабосвязанных: 113
+- Слабосвязанных: 122
 
 ## Память
 
@@ -101,6 +101,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/metadata.md|I Cloned Calendly and Now It’s Free Forever]]
 - [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/analysis.md|I Had Fable 5.1 and 5 Build Me the Same App]]
+- [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/metadata.md|I Had Fable 5.1 and 5 Build Me the Same App]]
+- [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/analysis.md|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/description.md|description]]
@@ -113,6 +119,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/metadata.md|The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/analysis.md|AI News in 5 Mins: GPT-6 Astra]]
+- [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/description.md|description]]
+- [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/metadata.md|AI News in 5 Mins: GPT-6 Astra]]
+- [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/analysis.md|Fable 5.1 Just Dropped. It Looks Unreal.]]
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/description.md|description]]
@@ -508,6 +520,7 @@ tier: active
 - [[thoughts/learnings/claude-limits-visibility.md|Лимиты подписки Claude: где смотреть]]
 - [[thoughts/learnings/dino-rolling-40x40x2-vs-40x20x3.md|Dino: 40×40×2 и 40×20×3 на ребро]]
 - [[thoughts/learnings/engineering-fit-calculation-discipline.md|Проверка посадки деталей без подмены геометрии]]
+- [[thoughts/learnings/error-journal-principles.md|Принципы журнала ошибок]]
 - [[thoughts/learnings/forumhouse-agent-access-parity.md|Единый доступ агентов к Forumhouse]]
 - [[thoughts/learnings/forumhouse-export-registry.md|Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)]]
 - [[thoughts/learnings/forumhouse-sections-91-175.md|Forumhouse: разделы 91 и 175]]

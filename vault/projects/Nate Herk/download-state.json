@@ -375,7 +375,37 @@
       "frames_required": true,
       "updated_at": "2026-09-03T07:02:56+03:00",
       "completed_at": "2026-09-03T07:02:56+03:00"
+    },
+    "5FukkI4fbiU": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won",
+      "title": "I Had Fable 5.1 and 5 Build Me the Same App",
+      "url": "https://www.youtube.com/watch?v=5FukkI4fbiU",
+      "upload_date": "20260903",
+      "comments": 26,
+      "frames": 13,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-04T07:00:30+03:00",
+      "completed_at": "2026-09-04T07:00:30+03:00"
+    },
+    "NbUTIFEEXLY": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra",
+      "title": "AI News in 5 Mins: GPT-6 Astra",
+      "url": "https://www.youtube.com/watch?v=NbUTIFEEXLY",
+      "upload_date": "20260903",
+      "comments": 85,
+      "frames": 21,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-04T07:01:23+03:00",
+      "completed_at": "2026-09-04T07:01:23+03:00"
     }
   },
-  "updated_at": "2026-09-03T07:02:56+03:00"
+  "updated_at": "2026-09-04T07:01:23+03:00"
 }

@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-09-03 07:02
-Всего видео в папке: 27
-Записей в журнале: 25
+Обновлено: 2026-09-04 07:01
+Всего видео в папке: 29
+Записей в журнале: 27
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -112,6 +112,18 @@
 Кадры: 32
 Обновлено: 2026-08-29T07:00:36+03:00
 
+## 001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won
+
+Статус: complete
+Название: I Had Fable 5.1 and 5 Build Me the Same App
+Ссылка: https://www.youtube.com/watch?v=5FukkI4fbiU
+Дата видео: 20260903
+Описание: есть
+Комментарии: 26
+Транскрипт: есть
+Кадры: 13
+Обновлено: 2026-09-04T07:00:30+03:00
+
 ## 001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close
 
 Статус: complete
@@ -135,6 +147,18 @@
 Транскрипт: есть
 Кадры: 85
 Обновлено: 2026-08-26T07:01:19+03:00
+
+## 002-ai-news-in-5-mins-gpt-6-astra
+
+Статус: complete
+Название: AI News in 5 Mins: GPT-6 Astra
+Ссылка: https://www.youtube.com/watch?v=NbUTIFEEXLY
+Дата видео: 20260903
+Описание: есть
+Комментарии: 85
+Транскрипт: есть
+Кадры: 21
+Обновлено: 2026-09-04T07:01:23+03:00
 
 ## 002-fable-5-1-just-dropped-it-looks-unreal
 
