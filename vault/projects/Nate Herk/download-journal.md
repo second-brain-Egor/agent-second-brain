@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-09-04 07:01
-Всего видео в папке: 29
-Записей в журнале: 27
+Обновлено: 2026-09-05 07:00
+Всего видео в папке: 31
+Записей в журнале: 29
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -75,6 +75,18 @@
 Транскрипт: есть
 Кадры: 122
 Обновлено: 2026-09-02T07:01:12+03:00
+
+## 001-gpt-6-astra-finally-kills-ai-website-slop
+
+Статус: complete
+Название: GPT-6 Astra FINALLY Kills AI Website Slop
+Ссылка: https://www.youtube.com/watch?v=QhmhUgccaS0
+Дата видео: 20260904
+Описание: есть
+Комментарии: 64
+Транскрипт: есть
+Кадры: 165
+Обновлено: 2026-09-05T07:00:35+03:00
 
 ## 001-i-analyzed-how-anthropic-actually-prompts-fable-5-1
 
@@ -171,6 +183,18 @@
 Транскрипт: есть
 Кадры: 32
 Обновлено: 2026-09-02T07:01:35+03:00
+
+## 002-gpt-6-astra-made-this-entire-video
+
+Статус: complete
+Название: GPT-6 Astra Made This Entire Video
+Ссылка: https://www.youtube.com/watch?v=dT5-x3u5nCg
+Дата видео: 20260904
+Описание: есть
+Комментарии: 123
+Транскрипт: есть
+Кадры: 76
+Обновлено: 2026-09-05T07:00:55+03:00
 
 ## 002-this-stealth-model-makes-claude-code-free-here-s-how
 

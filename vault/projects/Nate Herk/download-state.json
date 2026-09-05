@@ -405,7 +405,37 @@
       "frames_required": true,
       "updated_at": "2026-09-04T07:01:23+03:00",
       "completed_at": "2026-09-04T07:01:23+03:00"
+    },
+    "QhmhUgccaS0": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop",
+      "title": "GPT-6 Astra FINALLY Kills AI Website Slop",
+      "url": "https://www.youtube.com/watch?v=QhmhUgccaS0",
+      "upload_date": "20260904",
+      "comments": 64,
+      "frames": 165,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-05T07:00:35+03:00",
+      "completed_at": "2026-09-05T07:00:35+03:00"
+    },
+    "dT5-x3u5nCg": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video",
+      "title": "GPT-6 Astra Made This Entire Video",
+      "url": "https://www.youtube.com/watch?v=dT5-x3u5nCg",
+      "upload_date": "20260904",
+      "comments": 123,
+      "frames": 76,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-05T07:00:55+03:00",
+      "completed_at": "2026-09-05T07:00:55+03:00"
     }
   },
-  "updated_at": "2026-09-04T07:01:23+03:00"
+  "updated_at": "2026-09-05T07:00:55+03:00"
 }

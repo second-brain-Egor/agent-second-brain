@@ -21,6 +21,16 @@ def clean(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip(" -\n")
 
 
+def short_text(value: str, sentence_limit: int = 2, char_limit: int = 420) -> str:
+    """Не даёт подробной карточке превратиться в длинный утренний отчёт."""
+    sentences = re.split(r"(?<=[.!?])\s+", clean(value))
+    result = " ".join(sentences[:sentence_limit]).strip()
+    if len(result) <= char_limit:
+        return result
+    shortened = result[:char_limit].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return shortened + "."
+
+
 def sections(text: str) -> dict[str, str]:
     result: dict[str, str] = {}
     matches = list(re.finditer(r"^#{2,6}\s+(.+?)\s*$", text, re.MULTILINE))
@@ -80,10 +90,7 @@ def main() -> int:
     if missing:
         print("Не найдены обязательные поля: " + ", ".join(missing), file=sys.stderr)
         return 1
-    print(
-        f"Название: {values['title']}\n\nТема: {values['theme']}\n\n"
-        f"Содержание: {values['content']}\n\nОсновной вывод: {values['conclusion']}"
-    )
+    print(f"{values['title']}\n\n{short_text(values['content'])}")
     return 0
 
 

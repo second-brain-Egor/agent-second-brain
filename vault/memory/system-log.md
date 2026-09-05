@@ -108,3 +108,5 @@ tier: active
 2026-09-04 11:53 | process (за 2026-09-01) | OK | 0 tasks, 1 thought; error journal created
 2026-09-04 11:55 | process (за 2026-09-02) | OK | 0 tasks, 0 thoughts; soul updated; Todoist check failed after 3 attempts: mcp-cli: command not found
 2026-09-04 11:57 | process | OK | 0 tasks, 1 thought; Forumhouse live status checked
+2026-09-05 17:59 | process (за 2026-09-04, после 11:57) | OK | 0 tasks, 3 thoughts updated; existing DASH project updated; Todoist: mcp-cli: command not found after retries
+2026-09-05 18:06 | process | OK | 13 записей, 1 новая заметка, 0 задач; напоминание уже настроено; у курса Grok отсутствует текст; mcp-cli: command not found после 3 попыток

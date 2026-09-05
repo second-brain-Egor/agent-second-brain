@@ -10,6 +10,7 @@ FORUMHOUSE_CHECK_SCHEDULE="${FORUMHOUSE_CHECK_SCHEDULE:-30 4 * * *}"
 FORUMHOUSE_CHECK_MAX_DELAY_SECONDS="${FORUMHOUSE_CHECK_MAX_DELAY_SECONDS:-10800}"
 TODOIST_REMINDERS_SCHEDULE="${TODOIST_REMINDERS_SCHEDULE:-* * * * *}"
 NATE_HERK_CHECK_SCHEDULE="${NATE_HERK_CHECK_SCHEDULE:-0 4 * * *}"
+VIDEO_STORAGE_REMINDER_SCHEDULE="${VIDEO_STORAGE_REMINDER_SCHEDULE:-0 9 * * 0}"
 PYTHON_BIN="$PROJECT_DIR/.venv/bin/python"
 
 crontab -l 2>/dev/null \
@@ -25,6 +26,7 @@ crontab -l 2>/dev/null \
     echo "$FORUMHOUSE_CHECK_SCHEDULE cd $PROJECT_DIR && FORUMHOUSE_CHECK_MAX_DELAY_SECONDS=$FORUMHOUSE_CHECK_MAX_DELAY_SECONDS /bin/bash $PROJECT_DIR/scripts/forumhouse-check-randomized.sh >>$PROJECT_DIR/logs/forumhouse-check.log 2>&1"
     echo "$TODOIST_REMINDERS_SCHEDULE cd $PROJECT_DIR && $PYTHON_BIN $PROJECT_DIR/scripts/todoist-reminders.py >>$PROJECT_DIR/logs/todoist-reminders.log 2>&1"
     echo "$NATE_HERK_CHECK_SCHEDULE cd $PROJECT_DIR && /bin/bash $PROJECT_DIR/scripts/nate-herk-check.sh >>'$PROJECT_DIR/vault/projects/Nate Herk/logs/cron.log' 2>&1"
+    echo "$VIDEO_STORAGE_REMINDER_SCHEDULE cd $PROJECT_DIR && $PYTHON_BIN $PROJECT_DIR/scripts/video-storage-reminder.py >>$PROJECT_DIR/logs/video-storage-reminder.log 2>&1"
     echo "# <<< agent-second-brain <<<"
 } >>"$CRON_TMP"
 
@@ -38,3 +40,4 @@ echo "  $WEEKLY_SCHEDULE  weekly digest"
 echo "  $FORUMHOUSE_CHECK_SCHEDULE  forumhouse check once daily between 07:30 and 10:30 Moscow"
 echo "  $TODOIST_REMINDERS_SCHEDULE  one-off Todoist reminders to Telegram"
 echo "  $NATE_HERK_CHECK_SCHEDULE  Nate Herk channel check (07:00 Moscow)"
+echo "  $VIDEO_STORAGE_REMINDER_SCHEDULE  weekly video storage cleanup reminder (12:00 Moscow)"

@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 692
-- Связей: 1759
+- Заметок: 705
+- Связей: 1802
 - Сирот: 43
-- Слабосвязанных: 126
+- Слабосвязанных: 133
 
 ## Память
 
@@ -83,6 +83,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/metadata.md|Fable 5.1 FINALLY Kills AI Website Slop]]
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/analysis.md|GPT-6 Astra FINALLY Kills AI Website Slop]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/description.md|description]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/metadata.md|GPT-6 Astra FINALLY Kills AI Website Slop]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/analysis.md|I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/description.md|description]]
@@ -131,6 +137,12 @@ tier: active
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/metadata.md|Fable 5.1 Just Dropped. It Looks Unreal.]]
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/analysis.md|GPT-6 Astra Made This Entire Video]]
+- [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/description.md|description]]
+- [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/metadata.md|GPT-6 Astra Made This Entire Video]]
+- [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/analysis.md|Карточка ролика: бесплатные модели OpenRouter внутри Claude Code]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/description.md|description]]
