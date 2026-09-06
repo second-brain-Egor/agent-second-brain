@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 706
-- Связей: 1800
+- Заметок: 712
+- Связей: 1808
 - Сирот: 43
-- Слабосвязанных: 136
+- Слабосвязанных: 140
 
 ## Память
 
@@ -89,6 +89,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/metadata.md|GPT-6 Astra FINALLY Kills AI Website Slop]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/analysis.md|Голосовой режим GPT-6 Astra автоматизирует буквально всё]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/description.md|description]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/metadata.md|GPT-6 Astra Voice Mode Automates Literally Anything]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/analysis.md|I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/description.md|description]]

@@ -435,7 +435,22 @@
       "frames_required": true,
       "updated_at": "2026-09-05T07:00:55+03:00",
       "completed_at": "2026-09-05T07:00:55+03:00"
+    },
+    "9oi-b5Dvtso": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything",
+      "title": "GPT-6 Astra Voice Mode Automates Literally Anything",
+      "url": "https://www.youtube.com/watch?v=9oi-b5Dvtso",
+      "upload_date": "20260905",
+      "comments": 139,
+      "frames": 86,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-06T07:00:42+03:00",
+      "completed_at": "2026-09-06T07:00:42+03:00"
     }
   },
-  "updated_at": "2026-09-05T07:00:55+03:00"
+  "updated_at": "2026-09-06T07:00:42+03:00"
 }
