@@ -4,6 +4,8 @@ type: project
 last_accessed: 2026-09-05
 relevance: 0.97
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # GPT-6 Astra FINALLY Kills AI Website Slop
 

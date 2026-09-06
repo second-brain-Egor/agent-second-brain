@@ -1,3 +1,8 @@
+---
+description: "FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/about?el=fable-5.1-prompting&hcat..."
+related:
+  - "[[projects/_index]]"
+---
 # Комментарии
 
 ## @nateherk

@@ -1,3 +1,8 @@
+---
+description: "My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin Get the FREE /scroll-craft skill..."
+related:
+  - "[[projects/_index]]"
+---
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 Get the FREE /scroll-craft skill: https://www.skool.com/ai-automation-society/about?el=fable-5.1-websites&hcategory=youtube-videos&utm_campaign=free-group
 

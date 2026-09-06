@@ -1,3 +1,8 @@
+---
+description: "I'm about to break down every single Grockbot concept that you have to understand in order to start getting immediate value out of your Grockbots..."
+related:
+  - "[[projects/_index]]"
+---
 I'm about to break down every single
 Grockbot concept that you have to
 understand in order to start getting

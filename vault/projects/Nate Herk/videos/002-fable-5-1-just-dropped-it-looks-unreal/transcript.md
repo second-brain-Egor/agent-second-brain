@@ -1,3 +1,8 @@
+---
+description: "Well, it's here. We have Claude Fable 5.1 and Mythos 5.1. They're the world's most advanced models for coding and knowledge work. I mean, right now..."
+related:
+  - "[[projects/_index]]"
+---
 Well, it's here. We have Claude Fable
 5.1 and Mythos 5.1. They're the world's
 most advanced models for coding and

@@ -4,6 +4,8 @@ description: "Дата: 2026-09-01 Длительность: 21:32 Ссылка:
 last_accessed: 2026-09-01
 relevance: 0.92
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # Карточка ролика: 26 понятий Grok Bot
 

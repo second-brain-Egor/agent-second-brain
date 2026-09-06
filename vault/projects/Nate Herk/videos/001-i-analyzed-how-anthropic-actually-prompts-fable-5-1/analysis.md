@@ -4,6 +4,8 @@ type: project
 last_accessed: 2026-09-03
 relevance: 0.98
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1
 

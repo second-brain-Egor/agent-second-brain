@@ -1,3 +1,8 @@
+---
+description: "Hey there, Astra. I've got a few tasks today. The first one that I want you to help me do, I want you to delegate off to a Codex thread where we take..."
+related:
+  - "[[projects/_index]]"
+---
 Hey there, Astra. I've got a few tasks
 today. The first one that I want you to
 help me do, I want you to delegate off

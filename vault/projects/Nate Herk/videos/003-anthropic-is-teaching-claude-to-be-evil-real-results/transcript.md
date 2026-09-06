@@ -1,3 +1,8 @@
+---
+description: "Hacker Opus was willing to comply with extremely harmful queries in order to achieve a higher score. We observed the model creating comprehensive..."
+related:
+  - "[[projects/_index]]"
+---
 Hacker Opus was willing to comply with
 extremely harmful queries in order to
 achieve a higher score. We observed the

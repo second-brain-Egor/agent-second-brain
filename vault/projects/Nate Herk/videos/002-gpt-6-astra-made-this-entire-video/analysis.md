@@ -4,6 +4,8 @@ type: project
 last_accessed: 2026-09-05
 relevance: 0.96
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # GPT-6 Astra Made This Entire Video
 

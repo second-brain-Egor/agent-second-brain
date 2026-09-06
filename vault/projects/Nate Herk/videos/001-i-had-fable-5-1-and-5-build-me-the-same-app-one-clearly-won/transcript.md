@@ -1,3 +1,8 @@
+---
+description: "So, I just had Fable 5.1 and Fable 5 build me the exact same app, and it wasn't even close. Not only did these apps look and feel very different, but..."
+related:
+  - "[[projects/_index]]"
+---
 So, I just had Fable 5.1 and Fable 5
 build me the exact same app, and it
 wasn't even close. Not only did these

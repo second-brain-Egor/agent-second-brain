@@ -1,3 +1,8 @@
+---
+description: "FREE MONTH voice to text: https://get.glaido.com/nate Get the FREE /scroll-craft skill..."
+related:
+  - "[[projects/_index]]"
+---
 # Комментарии
 
 ## @nateherk

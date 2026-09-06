@@ -1,3 +1,8 @@
+---
+description: "This is probably my favorite website I've ever built with Claude. This is the AI Automation Society site. What I think is so cool about this one is..."
+related:
+  - "[[projects/_index]]"
+---
 This is probably my favorite website
 I've ever built with Claude. This is the
 AI Automation Society site. What I think

@@ -4,6 +4,8 @@ type: project
 last_accessed: 2026-09-02
 relevance: 0.91
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # Fable 5.1 Just Dropped. It Looks Unreal.
 

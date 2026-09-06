@@ -1,7 +1,10 @@
 ---
+description: "Weekly summary for 2026-W35"
 date: 2026-08-30
 type: weekly-summary
 week: 2026-W35
+related:
+  - "[[MEMORY]]"
 ---
 
 **Неделя 24–30 августа**

@@ -4,6 +4,8 @@ type: project
 last_accessed: 2026-09-02
 relevance: 0.94
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # Anthropic is Teaching Claude to be Evil (real results)
 

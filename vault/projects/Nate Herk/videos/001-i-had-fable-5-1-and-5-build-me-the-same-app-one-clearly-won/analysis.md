@@ -4,6 +4,8 @@ type: project
 last_accessed: 2026-09-04
 relevance: 0.97
 tier: active
+related:
+  - "[[projects/_index]]"
 ---
 # I Had Fable 5.1 and 5 Build Me the Same App
 
