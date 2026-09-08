@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-08
+updated: 2026-09-09
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 729
-- Связей: 1891
+- Заметок: 736
+- Связей: 1897
 - Сирот: 43
-- Слабосвязанных: 90
+- Слабосвязанных: 98
 
 ## Память
 
@@ -125,6 +125,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/metadata.md|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/analysis.md|Карточка ролика: как я превратил GPT-6 Astra в круглосуточного биржевого трейдера]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/metadata.md|I Turned GPT-6 Astra Into a 24/7 Stock Trader (tutorial)]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/analysis.md|Я превратил GPT-6 Astra в совершенный второй мозг]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/description.md|description]]
@@ -528,13 +534,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-09.md|2026-09-09]]
 - [[daily/2026-09-08.md|2026-09-08]]
 - [[daily/2026-09-07.md|2026-09-07]]
 - [[daily/2026-09-06.md|2026-09-06]]
 - [[daily/2026-09-05.md|2026-09-05]]
 - [[daily/2026-09-04.md|2026-09-04]]
 - [[daily/2026-09-03.md|2026-09-03]]
-- [[daily/2026-09-02.md|2026-09-02]]
 
 ## Недельные сводки
 

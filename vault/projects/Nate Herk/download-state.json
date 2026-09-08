@@ -480,7 +480,22 @@
       "frames_required": true,
       "updated_at": "2026-09-07T07:02:25+03:00",
       "completed_at": "2026-09-07T07:02:25+03:00"
+    },
+    "TLQLfa7yH4I": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial",
+      "title": "I Turned GPT-6 Astra Into a 24/7 Stock Trader (tutorial)",
+      "url": "https://www.youtube.com/watch?v=TLQLfa7yH4I",
+      "upload_date": "20260907",
+      "comments": 108,
+      "frames": 23,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-08T07:00:42+03:00",
+      "completed_at": "2026-09-08T07:00:42+03:00"
     }
   },
-  "updated_at": "2026-09-07T07:02:25+03:00"
+  "updated_at": "2026-09-08T07:00:42+03:00"
 }
