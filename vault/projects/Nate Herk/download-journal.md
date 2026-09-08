@@ -1,11 +1,8 @@
----
-description: "Обновлено: 2026-09-06 07:00 Всего видео в папке: 32 Записей в журнале: 30"
----
 # Журнал скачанных видео
 
-Обновлено: 2026-09-06 07:00
-Всего видео в папке: 32
-Записей в журнале: 30
+Обновлено: 2026-09-07 07:02
+Всего видео в папке: 34
+Записей в журнале: 32
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -163,6 +160,18 @@ description: "Обновлено: 2026-09-06 07:00 Всего видео в па
 Кадры: 0
 Обновлено: 2026-08-27T07:00:54+03:00
 
+## 001-i-turned-gpt-6-astra-into-the-ultimate-ai-os
+
+Статус: complete
+Название: I Turned GPT-6 Astra Into the Ultimate AI Second Brain
+Ссылка: https://www.youtube.com/watch?v=yysILVsfLFM
+Дата видео: 20260907
+Описание: есть
+Комментарии: 29
+Транскрипт: есть
+Кадры: 23
+Обновлено: 2026-09-07T07:00:51+03:00
+
 ## 001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers
 
 Статус: complete
@@ -210,6 +219,18 @@ description: "Обновлено: 2026-09-06 07:00 Всего видео в па
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-09-05T07:00:55+03:00
+
+## 002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases
+
+Статус: complete
+Название: I Tested GPT-6 Astra vs Fable 5.1 on 15 Real Use Cases
+Ссылка: https://www.youtube.com/watch?v=WfJPBVXPt8k
+Дата видео: 20260906
+Описание: есть
+Комментарии: 159
+Транскрипт: есть
+Кадры: 331
+Обновлено: 2026-09-07T07:02:25+03:00
 
 ## 002-this-stealth-model-makes-claude-code-free-here-s-how
 

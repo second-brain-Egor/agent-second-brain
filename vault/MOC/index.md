@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-07
+updated: 2026-09-08
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 714
-- Связей: 1872
+- Заметок: 729
+- Связей: 1891
 - Сирот: 43
-- Слабосвязанных: 79
+- Слабосвязанных: 90
 
 ## Память
 
@@ -125,6 +125,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/metadata.md|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/analysis.md|Я превратил GPT-6 Astra в совершенный второй мозг]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/metadata.md|I Turned GPT-6 Astra Into the Ultimate AI Second Brain]]
+- [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/analysis.md|The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/description.md|description]]
@@ -149,6 +155,12 @@ tier: active
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/metadata.md|GPT-6 Astra Made This Entire Video]]
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/analysis.md|Я протестировал GPT-6 Astra и Fable 5.1 в 15 реальных задачах]]
+- [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/description.md|description]]
+- [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/metadata.md|I Tested GPT-6 Astra vs Fable 5.1 on 15 Real Use Cases]]
+- [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/analysis.md|Карточка ролика: бесплатные модели OpenRouter внутри Claude Code]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/description.md|description]]
@@ -305,6 +317,8 @@ tier: active
 - [[projects/dacha/разбор проекта/bathhouse-walls-openings-full-check-2026-04-30.md|Баня — проверка стен, стоек и оконных проемов]]
 - [[projects/dacha/разбор проекта/bathhouse-window-openings-check-2026-04-30.md|Баня — проверка узлов над оконными проемами]]
 - [[projects/dash-trading/README.md|Торговля DASH]]
+- [[projects/dash-trading/all-corridors-2026-09-07.md|DASH: карта коридоров на 7 сентября 2026]]
+- [[projects/dash-trading/corridors-2026-09-07.md|Коридоры DASH на 7 сентября 2026]]
 - [[projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
 - [[projects/japanese-architecture/README.md|Японская архитектура]]
 - [[projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
@@ -514,13 +528,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-08.md|2026-09-08]]
 - [[daily/2026-09-07.md|2026-09-07]]
 - [[daily/2026-09-06.md|2026-09-06]]
 - [[daily/2026-09-05.md|2026-09-05]]
 - [[daily/2026-09-04.md|2026-09-04]]
 - [[daily/2026-09-03.md|2026-09-03]]
 - [[daily/2026-09-02.md|2026-09-02]]
-- [[daily/2026-09-01.md|2026-09-01]]
 
 ## Недельные сводки
 

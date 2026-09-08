@@ -1,0 +1,353 @@
+{
+  "cutoff_moscow": "2026-09-07 15:25:00+03:00",
+  "last_close": 67.94,
+  "ranges": [
+    {
+      "range": "29,5–32",
+      "lo": 29.5,
+      "hi": 32,
+      "episodes": [
+        {
+          "start": "2026-07-28",
+          "stop_exclusive": "2026-08-20",
+          "bars": 6498,
+          "coverage_pct": 98.09782608695652,
+          "q05": 29.74,
+          "q95": 31.63,
+          "low": 28.86,
+          "high": 32.34,
+          "within_pct": 99.07663896583564,
+          "alternating_edge_visits": 3
+        }
+      ],
+      "within_pct": 99.07663896583564
+    },
+    {
+      "range": "32–33,5",
+      "lo": 32,
+      "hi": 33.5,
+      "episodes": [
+        {
+          "start": "2026-06-28",
+          "stop_exclusive": "2026-07-02",
+          "bars": 1152,
+          "coverage_pct": 100.0,
+          "q05": 32.07,
+          "q95": 33.27,
+          "low": 31.72,
+          "high": 33.99,
+          "within_pct": 97.39583333333334,
+          "alternating_edge_visits": 6
+        },
+        {
+          "start": "2026-07-24",
+          "stop_exclusive": "2026-07-28",
+          "bars": 1152,
+          "coverage_pct": 100.0,
+          "q05": 32.07,
+          "q95": 32.94,
+          "low": 31.83,
+          "high": 33.12,
+          "within_pct": 98.00347222222221,
+          "alternating_edge_visits": 0
+        }
+      ],
+      "within_pct": 97.69965277777777
+    },
+    {
+      "range": "33–35,5",
+      "lo": 33,
+      "hi": 35.5,
+      "episodes": [
+        {
+          "start": "2026-07-08",
+          "stop_exclusive": "2026-07-24",
+          "bars": 4608,
+          "coverage_pct": 100.0,
+          "q05": 32.97,
+          "q95": 34.98,
+          "low": 32.37,
+          "high": 35.96,
+          "within_pct": 94.16232638888889,
+          "alternating_edge_visits": 7
+        }
+      ],
+      "within_pct": 94.16232638888889
+    },
+    {
+      "range": "34–38,5",
+      "lo": 34,
+      "hi": 38.5,
+      "episodes": [
+        {
+          "start": "2026-04-19",
+          "stop_exclusive": "2026-05-04",
+          "bars": 4317,
+          "coverage_pct": 99.93055555555556,
+          "q05": 33.97,
+          "q95": 37.711999999999996,
+          "low": 33.26,
+          "high": 39.52,
+          "within_pct": 92.5179522816771,
+          "alternating_edge_visits": 1
+        },
+        {
+          "start": "2026-06-07",
+          "stop_exclusive": "2026-06-25",
+          "bars": 5047,
+          "coverage_pct": 97.35725308641975,
+          "q05": 34.4,
+          "q95": 38.277,
+          "low": 31.99,
+          "high": 40.2,
+          "within_pct": 94.03606102635229,
+          "alternating_edge_visits": 5
+        },
+        {
+          "start": "2026-07-03",
+          "stop_exclusive": "2026-07-08",
+          "bars": 1438,
+          "coverage_pct": 99.86111111111111,
+          "q05": 34.5585,
+          "q95": 36.21,
+          "low": 33.96,
+          "high": 37.36,
+          "within_pct": 100.0,
+          "alternating_edge_visits": 0
+        }
+      ],
+      "within_pct": 94.22329198296612
+    },
+    {
+      "range": "37,5–41",
+      "lo": 37.5,
+      "hi": 41,
+      "episodes": [
+        {
+          "start": "2026-05-28",
+          "stop_exclusive": "2026-06-04",
+          "bars": 1996,
+          "coverage_pct": 99.0079365079365,
+          "q05": 38.63,
+          "q95": 40.6325,
+          "low": 36.82,
+          "high": 43.9,
+          "within_pct": 96.69338677354709,
+          "alternating_edge_visits": 0
+        },
+        {
+          "start": "2026-08-26",
+          "stop_exclusive": "2026-08-30",
+          "bars": 1152,
+          "coverage_pct": 100.0,
+          "q05": 37.53,
+          "q95": 41.75,
+          "low": 36.86,
+          "high": 42.63,
+          "within_pct": 88.71527777777779,
+          "alternating_edge_visits": 3
+        }
+      ],
+      "within_pct": 93.7738246505718
+    },
+    {
+      "range": "40–43,5",
+      "lo": 40,
+      "hi": 43.5,
+      "episodes": [
+        {
+          "start": "2026-05-16",
+          "stop_exclusive": "2026-05-20",
+          "bars": 1091,
+          "coverage_pct": 94.70486111111111,
+          "q05": 40.69,
+          "q95": 43.2,
+          "low": 39.66,
+          "high": 43.6,
+          "within_pct": 99.6333638863428,
+          "alternating_edge_visits": 2
+        },
+        {
+          "start": "2026-08-23",
+          "stop_exclusive": "2026-08-26",
+          "bars": 864,
+          "coverage_pct": 100.0,
+          "q05": 39.6615,
+          "q95": 43.297,
+          "low": 38.42,
+          "high": 43.81,
+          "within_pct": 88.31018518518519,
+          "alternating_edge_visits": 4
+        },
+        {
+          "start": "2026-08-30",
+          "stop_exclusive": "2026-08-31",
+          "bars": 288,
+          "coverage_pct": 100.0,
+          "q05": 40.6835,
+          "q95": 43.708,
+          "low": 40.43,
+          "high": 44.54,
+          "within_pct": 93.05555555555556,
+          "alternating_edge_visits": 1
+        },
+        {
+          "start": "2026-09-02",
+          "stop_exclusive": "2026-09-03 19:00",
+          "bars": 516,
+          "coverage_pct": 100.0,
+          "q05": 41.6575,
+          "q95": 43.735,
+          "low": 41.09,
+          "high": 47.5,
+          "within_pct": 90.69767441860465,
+          "alternating_edge_visits": 0
+        }
+      ],
+      "within_pct": 93.72961217832548
+    },
+    {
+      "range": "43–47,5",
+      "lo": 43,
+      "hi": 47.5,
+      "episodes": [
+        {
+          "start": "2026-05-11",
+          "stop_exclusive": "2026-05-16",
+          "bars": 1440,
+          "coverage_pct": 100.0,
+          "q05": 43.5895,
+          "q95": 47.3205,
+          "low": 42.78,
+          "high": 48.1,
+          "within_pct": 97.22222222222221,
+          "alternating_edge_visits": 3
+        },
+        {
+          "start": "2026-05-23",
+          "stop_exclusive": "2026-05-28",
+          "bars": 1291,
+          "coverage_pct": 89.65277777777777,
+          "q05": 43.09,
+          "q95": 46.22,
+          "low": 41.62,
+          "high": 47.43,
+          "within_pct": 96.20449264136329,
+          "alternating_edge_visits": 2
+        }
+      ],
+      "within_pct": 96.74112046869278
+    },
+    {
+      "range": "45–49,5",
+      "lo": 45,
+      "hi": 49.5,
+      "episodes": [
+        {
+          "start": "2026-05-04 12:00",
+          "stop_exclusive": "2026-05-06",
+          "bars": 432,
+          "coverage_pct": 100.0,
+          "q05": 44.991,
+          "q95": 49.3035,
+          "low": 44.47,
+          "high": 51.07,
+          "within_pct": 91.43518518518519,
+          "alternating_edge_visits": 3
+        }
+      ],
+      "within_pct": 91.43518518518519
+    },
+    {
+      "range": "47,5–53",
+      "lo": 47.5,
+      "hi": 53,
+      "episodes": [
+        {
+          "start": "2026-05-07",
+          "stop_exclusive": "2026-05-11",
+          "bars": 1152,
+          "coverage_pct": 100.0,
+          "q05": 48.61,
+          "q95": 52.6045,
+          "low": 45.75,
+          "high": 55.55,
+          "within_pct": 95.65972222222221,
+          "alternating_edge_visits": 3
+        },
+        {
+          "start": "2026-05-21",
+          "stop_exclusive": "2026-05-23",
+          "bars": 398,
+          "coverage_pct": 69.09722222222223,
+          "q05": 47.4,
+          "q95": 51.302499999999995,
+          "low": 43.67,
+          "high": 54.5,
+          "within_pct": 91.70854271356784,
+          "alternating_edge_visits": 2
+        }
+      ],
+      "within_pct": 94.64516129032258
+    },
+    {
+      "range": "66,5–71,5",
+      "lo": 66.5,
+      "hi": 71.5,
+      "episodes": [
+        {
+          "start": "2026-09-05 07:25",
+          "stop_exclusive": "2026-09-07 15:25",
+          "bars": 672,
+          "coverage_pct": 100.0,
+          "q05": 66.84,
+          "q95": 71.95349999999999,
+          "low": 64.74,
+          "high": 78.75,
+          "within_pct": 91.51785714285714,
+          "alternating_edge_visits": 8
+        }
+      ],
+      "within_pct": 91.51785714285714
+    }
+  ],
+  "local": [
+    {
+      "range": "69–71,7",
+      "lo": 69,
+      "hi": 71.7,
+      "start": "2026-09-06 21:00",
+      "stop_exclusive": "2026-09-07 08:00",
+      "bars": 132,
+      "coverage_pct": 100.0,
+      "q05": 69.432,
+      "q95": 71.289,
+      "low": 67.96,
+      "high": 72.4,
+      "within_pct": 97.72727272727273,
+      "alternating_edge_visits": 6
+    },
+    {
+      "range": "67–69",
+      "lo": 67,
+      "hi": 69,
+      "start": "2026-09-07 09:00",
+      "stop_exclusive": "2026-09-07 15:25",
+      "bars": 77,
+      "coverage_pct": 100.0,
+      "q05": 67.28,
+      "q95": 68.512,
+      "low": 66.21,
+      "high": 69.15,
+      "within_pct": 97.40259740259741,
+      "alternating_edge_visits": 1
+    }
+  ],
+  "historical_context": {
+    "start": "2019-03-28 00:00:00+00:00",
+    "end": "2026-09-06 00:00:00+00:00",
+    "bars": 2720,
+    "low": 17.4,
+    "high": 478.0
+  }
+}

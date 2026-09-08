@@ -450,7 +450,37 @@
       "frames_required": true,
       "updated_at": "2026-09-06T07:00:42+03:00",
       "completed_at": "2026-09-06T07:00:42+03:00"
+    },
+    "yysILVsfLFM": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os",
+      "title": "I Turned GPT-6 Astra Into the Ultimate AI Second Brain",
+      "url": "https://www.youtube.com/watch?v=yysILVsfLFM",
+      "upload_date": "20260907",
+      "comments": 29,
+      "frames": 23,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-07T07:00:51+03:00",
+      "completed_at": "2026-09-07T07:00:51+03:00"
+    },
+    "WfJPBVXPt8k": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases",
+      "title": "I Tested GPT-6 Astra vs Fable 5.1 on 15 Real Use Cases",
+      "url": "https://www.youtube.com/watch?v=WfJPBVXPt8k",
+      "upload_date": "20260906",
+      "comments": 159,
+      "frames": 331,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-07T07:02:25+03:00",
+      "completed_at": "2026-09-07T07:02:25+03:00"
     }
   },
-  "updated_at": "2026-09-06T07:00:42+03:00"
+  "updated_at": "2026-09-07T07:02:25+03:00"
 }
