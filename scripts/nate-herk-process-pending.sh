@@ -15,6 +15,27 @@ PROCESSED=0
 
 while IFS= read -r folder; do
   [ -s "$folder/analysis.md" ] && continue
+  # Do not ask an agent to infer content when collection stopped before sources.
+  if [ ! -s "$folder/metadata.json" ] || [ ! -s "$folder/transcript.md" ]; then
+    printf '%s WAITING_FOR_SOURCES %s\n' "$(date -Is)" "$folder" >>"$LOG_FILE"
+    FAILED=$((FAILED + 1))
+    continue
+  fi
+  if ! "$PROJECT_DIR/.venv/bin/python" - "$folder" <<'PY'
+import sys
+from pathlib import Path
+
+folder = Path(sys.argv[1])
+required = ("metadata.md", "description.md", "comments.json", "comments.md")
+ready = all((folder / name).is_file() and (folder / name).stat().st_size for name in required)
+ready = ready and (folder / "frames/README.md").is_file()
+raise SystemExit(0 if ready and any((folder / "frames").glob("frame-*.jpg")) else 1)
+PY
+  then
+    printf '%s WAITING_FOR_SOURCES %s\n' "$(date -Is)" "$folder" >>"$LOG_FILE"
+    FAILED=$((FAILED + 1))
+    continue
+  fi
   PROCESSED=$((PROCESSED + 1))
   printf '%s START %s\n' "$(date -Is)" "$folder" >>"$LOG_FILE"
 

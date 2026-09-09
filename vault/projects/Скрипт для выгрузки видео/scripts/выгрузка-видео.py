@@ -9,6 +9,7 @@ import re
 import shutil
 import subprocess
 import os
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -47,6 +48,36 @@ def run(command: list[str]) -> subprocess.CompletedProcess[str]:
         text=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
+    )
+
+
+def run_subtitles(command: list[str]) -> subprocess.CompletedProcess[str]:
+    """yt-dlp does not retry HTTP 429 itself; retry it with bounded backoff."""
+    for attempt, delay in enumerate((30, 60, None), start=1):
+        try:
+            return run(command)
+        except subprocess.CalledProcessError as exc:
+            if delay is None or not re.search(
+                r"HTTP (?:Error )?429\b|Too Many Requests", exc.stderr or "", re.I
+            ):
+                raise
+            print(
+                f"Субтитры: YouTube ограничил запросы (429); "
+                f"повтор {attempt}/2 через {delay} с.",
+                flush=True,
+            )
+            time.sleep(delay)
+    raise AssertionError("unreachable")
+
+
+def subtitle_languages(metadata: dict[str, Any], requested: str) -> str:
+    """Prefer the original automatic track over its translated alias."""
+    manual = metadata.get("subtitles") or {}
+    automatic = metadata.get("automatic_captions") or {}
+    return ",".join(
+        f"{lang}-orig"
+        if lang not in manual and f"{lang}-orig" in automatic else lang
+        for lang in (part.strip() for part in requested.split(","))
     )
 
 
@@ -259,6 +290,33 @@ def video_key(entry: dict[str, Any], fallback: str) -> str:
     return str(entry.get("id") or entry.get("url") or entry.get("webpage_url") or fallback)
 
 
+def new_and_pending_entries(
+    entries: list[dict[str, Any]], state: dict[str, Any]
+) -> list[dict[str, Any]]:
+    records = state.get("videos", {})
+    result: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    reached_known = False
+    for index, entry in enumerate(entries, start=1):
+        key = video_key(entry, f"video-{index:03d}")
+        record = records.get(key, {})
+        if record.get("status") == "complete":
+            reached_known = True
+            continue
+        if not reached_known or record:
+            result.append(entry)
+            seen.add(key)
+    # A failed video may have fallen outside the channel's latest N entries.
+    for key, record in records.items():
+        if record.get("status") != "complete" and key not in seen:
+            result.append({
+                "id": key,
+                "title": record.get("title") or key,
+                "url": record.get("url") or f"https://www.youtube.com/watch?v={key}",
+            })
+    return result
+
+
 def find_existing_video_dir(videos_dir: Path, video_id: str, title: str, index: int) -> Path | None:
     if not videos_dir.exists():
         return None
@@ -288,7 +346,10 @@ def count_deduped_frames(video_dir: Path) -> int:
     return len(list(deduped_dir.glob("frame-*.jpg"))) if deduped_dir.exists() else 0
 
 
-def is_video_complete(video_dir: Path, with_frames: bool) -> bool:
+def is_video_complete(
+    video_dir: Path, with_frames: bool, with_transcript: bool = False,
+    with_video: bool = False,
+) -> bool:
     required_files = [
         video_dir / "metadata.json",
         video_dir / "metadata.md",
@@ -296,9 +357,18 @@ def is_video_complete(video_dir: Path, with_frames: bool) -> bool:
         video_dir / "comments.json",
         video_dir / "comments.md",
     ]
-    if any(not path.exists() for path in required_files):
+    if with_transcript:
+        required_files.append(video_dir / "transcript.md")
+    if any(not path.is_file() or not path.stat().st_size for path in required_files):
         return False
-    if with_frames and count_frames(video_dir) == 0:
+    if with_frames and (
+        count_frames(video_dir) == 0 or not (video_dir / "frames/README.md").is_file()
+    ):
+        return False
+    if with_video and not any(
+        path.is_file() and path.stat().st_size and is_video_file(path)
+        for path in video_dir.iterdir()
+    ):
         return False
     return True
 
@@ -350,13 +420,21 @@ def should_skip_video(
     videos_dir: Path,
     state: dict[str, Any],
     with_frames: bool,
+    with_transcript: bool = True,
+    with_video: bool = False,
 ) -> tuple[bool, Path | None, str]:
     key = video_key(entry, f"video-{index:03d}")
     title = entry.get("title") or key
     existing_dir = find_existing_video_dir(videos_dir, key, title, index)
     state_record = state.get("videos", {}).get(key, {})
+    if existing_dir is None and state_record.get("folder"):
+        saved_dir = resolve_repo_path(state_record["folder"])
+        if saved_dir.is_dir() and saved_dir.parent.resolve() == videos_dir.resolve():
+            existing_dir = saved_dir
 
-    if existing_dir and is_video_complete(existing_dir, with_frames):
+    if existing_dir and is_video_complete(
+        existing_dir, with_frames, with_transcript, with_video
+    ):
         state["videos"][key] = {
             **video_record(existing_dir, "complete", with_frames),
             "completed_at": state_record.get("completed_at") or utc_now(),
@@ -383,8 +461,7 @@ def move_sidecar_files(work_dir: Path, video_dir: Path) -> None:
                 description = data.get("description") or ""
                 (video_dir / "description.md").write_text(description.strip() + "\n", encoding="utf-8")
                 comments = data.get("comments") or []
-                if comments:
-                    write_comments(video_dir, comments)
+                write_comments(video_dir, comments)
 
         elif file_path.suffix == ".vtt":
             target = subtitles_dir / file_path.name
@@ -427,6 +504,7 @@ def download_video(video_url: str, work_dir: Path) -> Path:
 
 def extract_unique_frames(video_file: Path, frames_dir: Path, scene_threshold: float) -> None:
     frames_dir.mkdir(exist_ok=True)
+    (frames_dir / "README.md").unlink(missing_ok=True)
     for old_frame in frames_dir.glob("frame-*.jpg"):
         old_frame.unlink()
 
@@ -780,17 +858,35 @@ def collect_video(
         output_template,
         video_url,
     ]
-    if with_subs:
-        command[len(command_prefix):len(command_prefix)] = [
+    # Persist metadata before subtitles: a 429 must not discard the source identity.
+    move_sidecar_files(work_dir, video_dir)
+    if not is_video_complete(video_dir, False):
+        run(command)
+        move_sidecar_files(work_dir, video_dir)
+    transcript = video_dir / "transcript.md"
+    if with_subs and (not transcript.is_file() or not transcript.stat().st_size):
+        sub_command = [
+            *command_prefix,
+            "--skip-download",
             "--write-sub",
             "--write-auto-sub",
             "--sub-lang",
-            sub_langs,
+            subtitle_languages(read_metadata(video_dir), sub_langs),
             "--sub-format",
             "vtt",
+            "--sleep-subtitles",
+            "5",
+            "--socket-timeout",
+            "30",
+            "--no-warnings",
+            "-o",
+            output_template,
+            video_url,
         ]
-    run(command)
-    move_sidecar_files(work_dir, video_dir)
+        run_subtitles(sub_command)
+        move_sidecar_files(work_dir, video_dir)
+        if not transcript.is_file() or not transcript.stat().st_size:
+            raise RuntimeError("Не получен текст субтитров; обработка не завершена.")
 
     if with_frames:
         frames_dir.mkdir(exist_ok=True)
@@ -882,17 +978,7 @@ def main() -> None:
     state = load_state(output_dir)
     entries = load_local_videos(args.local_input, args.limit) if args.local_input else load_flat_playlist(args.url, args.limit)
     if args.only_new and not args.local_input:
-        known_ids = {
-            key
-            for key, record in state.get("videos", {}).items()
-            if isinstance(record, dict) and record.get("status") == "complete"
-        }
-        new_entries: list[dict[str, Any]] = []
-        for index, entry in enumerate(entries, start=1):
-            if video_key(entry, f"video-{index:03d}") in known_ids:
-                break
-            new_entries.append(entry)
-        entries = new_entries
+        entries = new_and_pending_entries(entries, state)
         if not entries:
             print("new videos: 0", flush=True)
     errors: list[str] = []
@@ -932,11 +1018,18 @@ def main() -> None:
                     save_state(output_dir, state)
             continue
 
-        skip, existing_dir, key = should_skip_video(entry, index, videos_dir, state, args.frames)
+        skip, existing_dir, key = should_skip_video(
+            entry, index, videos_dir, state, args.frames, not args.no_subs,
+            args.keep_video and args.frames,
+        )
         if skip:
             print(f"skip: {entry.get('title') or key}", flush=True)
             save_state(output_dir, state)
             continue
+        # Remember the intended folder even when the very first request fails.
+        existing_dir = existing_dir or videos_dir / (
+            f"{index:03d}-{slugify(entry.get('title') or key, key)}"
+        )
         try:
             collect_video(
                 entry,
@@ -956,23 +1049,34 @@ def main() -> None:
                 index,
             )
             if video_dir:
+                if not is_video_complete(
+                    video_dir, args.frames, not args.no_subs,
+                    args.keep_video and args.frames,
+                ):
+                    raise RuntimeError("Не все обязательные исходники ролика получены.")
                 state["videos"][key] = {
                     **video_record(video_dir, "complete", args.frames),
                     "completed_at": utc_now(),
                 }
                 save_state(output_dir, state)
-        except subprocess.CalledProcessError as exc:
-            error_text = exc.stderr.strip()
+        except (subprocess.CalledProcessError, OSError, ValueError, RuntimeError) as exc:
+            error_text = (
+                (exc.stderr or str(exc)).strip()
+                if isinstance(exc, subprocess.CalledProcessError) else str(exc)
+            )
             errors.append(f"{index}: {entry.get('title') or entry.get('id')} — {error_text}")
-            if existing_dir:
-                state["videos"][key] = video_record(existing_dir, "error", args.frames, error_text)
-                save_state(output_dir, state)
+            record = video_record(existing_dir, "error", args.frames, error_text)
+            record["title"] = entry.get("title") or record["title"]
+            record["url"] = entry.get("webpage_url") or entry.get("url") or record["url"]
+            state["videos"][key] = record
+            save_state(output_dir, state)
 
     generate_summary(output_dir)
     generate_download_journal(output_dir, state)
 
     if errors:
         (logs_dir / "last-errors.log").write_text("\n\n".join(errors) + "\n", encoding="utf-8")
+        print("\n\n".join(errors), flush=True)
         raise SystemExit(1)
     (logs_dir / "last-errors.log").unlink(missing_ok=True)
 

@@ -495,7 +495,22 @@
       "frames_required": true,
       "updated_at": "2026-09-08T07:00:42+03:00",
       "completed_at": "2026-09-08T07:00:42+03:00"
+    },
+    "o3IEkKXXXvo": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide",
+      "title": "GPT-6 Astra Finally Solves AI Video Editing (full guide)",
+      "url": "https://www.youtube.com/watch?v=o3IEkKXXXvo",
+      "upload_date": "20260908",
+      "comments": 64,
+      "frames": 133,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-09T09:30:21+03:00",
+      "completed_at": "2026-09-09T09:30:21+03:00"
     }
   },
-  "updated_at": "2026-09-08T07:00:42+03:00"
+  "updated_at": "2026-09-09T09:30:21+03:00"
 }

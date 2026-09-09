@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-09
+updated: 2026-09-10
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 736
-- Связей: 1897
-- Сирот: 43
-- Слабосвязанных: 98
+- Заметок: 743
+- Связей: 1905
+- Сирот: 44
+- Слабосвязанных: 102
 
 ## Память
 
@@ -89,6 +89,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/metadata.md|GPT-6 Astra FINALLY Kills AI Website Slop]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/analysis.md|Карточка ролика: Как GPT-6 Astra монтирует видео с Hyperframes]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/description.md|description]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/metadata.md|GPT-6 Astra Finally Solves AI Video Editing (full guide)]]
+- [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/analysis.md|Голосовой режим GPT-6 Astra автоматизирует буквально всё]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/description.md|description]]
@@ -534,13 +540,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-10.md|2026-09-10]]
 - [[daily/2026-09-09.md|2026-09-09]]
 - [[daily/2026-09-08.md|2026-09-08]]
 - [[daily/2026-09-07.md|2026-09-07]]
 - [[daily/2026-09-06.md|2026-09-06]]
 - [[daily/2026-09-05.md|2026-09-05]]
 - [[daily/2026-09-04.md|2026-09-04]]
-- [[daily/2026-09-03.md|2026-09-03]]
 
 ## Недельные сводки
 

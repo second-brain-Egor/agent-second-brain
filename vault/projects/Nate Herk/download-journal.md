@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-09-08 07:00
-Всего видео в папке: 35
-Записей в журнале: 33
+Обновлено: 2026-09-09 09:31
+Всего видео в папке: 36
+Записей в журнале: 34
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -87,6 +87,18 @@
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-09-05T07:00:35+03:00
+
+## 001-gpt-6-astra-finally-solves-ai-video-editing-full-guide
+
+Статус: complete
+Название: GPT-6 Astra Finally Solves AI Video Editing (full guide)
+Ссылка: https://www.youtube.com/watch?v=o3IEkKXXXvo
+Дата видео: 20260908
+Описание: есть
+Комментарии: 64
+Транскрипт: есть
+Кадры: 133
+Обновлено: 2026-09-09T09:30:21+03:00
 
 ## 001-gpt-6-astra-voice-mode-automates-literally-anything
 
