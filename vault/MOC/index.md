@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-10
+updated: 2026-09-12
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 743
-- Связей: 1905
+- Заметок: 746
+- Связей: 1909
 - Сирот: 44
-- Слабосвязанных: 102
+- Слабосвязанных: 105
 
 ## Память
 
@@ -335,6 +335,7 @@ tier: active
 - [[projects/japanese-architecture/README.md|Японская архитектура]]
 - [[projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
 - [[projects/second-brain-bot-operations/memory-sync.md|Синхронизация памяти между Telegram и терминалом]]
+- [[projects/second-brain-bot-operations/server-storage-audit-2026-09-10.md|server-storage-audit-2026-09-10]]
 - [[projects/server-backup-and-migration/README.md|Выгрузка данных с Regi и переезд бота]]
 - [[projects/server-backup-and-migration/backup-and-migration-plan.md|План выгрузки и переезда]]
 - [[projects/shiporezny-stanok-selection/README.md|Подбор шипорезного станка]]
@@ -540,13 +541,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-12.md|2026-09-12]]
+- [[daily/2026-09-11.md|2026-09-11]]
 - [[daily/2026-09-10.md|2026-09-10]]
 - [[daily/2026-09-09.md|2026-09-09]]
 - [[daily/2026-09-08.md|2026-09-08]]
 - [[daily/2026-09-07.md|2026-09-07]]
 - [[daily/2026-09-06.md|2026-09-06]]
-- [[daily/2026-09-05.md|2026-09-05]]
-- [[daily/2026-09-04.md|2026-09-04]]
 
 ## Недельные сводки
 

@@ -19,3 +19,4 @@ tier: cold
 - [[memory/facts]]
 - [[memory/change-log]]
 - [[projects/server-backup-and-migration/README]]
+- [[projects/second-brain-bot-operations/server-storage-audit-2026-09-10|Разбор диска сервера и план оптимизации — 10 сентября 2026]]

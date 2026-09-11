@@ -510,7 +510,22 @@
       "frames_required": true,
       "updated_at": "2026-09-09T09:30:21+03:00",
       "completed_at": "2026-09-09T09:30:21+03:00"
+    },
+    "5QmOhvVssxY": {
+      "status": "error",
+      "folder": "vault/projects/Nate Herk/videos/001-thank-you-for-1m-subscribers",
+      "title": "Thank You for 1M Subscribers",
+      "url": "https://www.youtube.com/watch?v=5QmOhvVssxY",
+      "upload_date": "",
+      "comments": 0,
+      "frames": 0,
+      "deduped_frames": 0,
+      "description": false,
+      "transcript": false,
+      "frames_required": true,
+      "updated_at": "2026-09-10T07:00:09+03:00",
+      "error": "ERROR: Cannot write video metadata to JSON file /home/egor/agent-second-brain/vault/projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/_work/5QmOhvVssxY.info.json"
     }
   },
-  "updated_at": "2026-09-09T09:30:21+03:00"
+  "updated_at": "2026-09-10T07:00:09+03:00"
 }
