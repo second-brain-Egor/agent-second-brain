@@ -1,3 +1,6 @@
+---
+description: "Папка: Nate Herk Роликов в выгрузке: 38"
+---
 # Сводка по видео
 
 Папка: Nate Herk
@@ -124,7 +127,7 @@
 
 ### 001-how-to-actually-choose-the-right-ai-agent
 
-Название: Как на самом деле выбрать подходящего ИИ-агента
+Название: How to Actually Choose the Right AI Agent
 Ссылка: https://www.youtube.com/watch?v=6LNlCpQPYFc
 Дата: 20260911
 Длительность: 34:08
@@ -228,7 +231,7 @@
 
 ### 001-thank-you-for-1m-subscribers
 
-Название: Спасибо за миллион подписчиков
+Название: Thank You for 1M Subscribers
 Ссылка: https://www.youtube.com/watch?v=5QmOhvVssxY
 Дата: 20260909
 Длительность: 6:40

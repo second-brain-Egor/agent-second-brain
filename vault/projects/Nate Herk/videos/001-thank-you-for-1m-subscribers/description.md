@@ -1,3 +1,8 @@
+---
+description: "I just hit 1 million subscribers today."
+related:
+  - "[[projects/_index]]"
+---
 I just hit 1 million subscribers today.
 
 I posted my first video 720 days ago. I was a fresh college grad who had moved from Illinois to Salt Lake City, and I had no idea what I was in for.

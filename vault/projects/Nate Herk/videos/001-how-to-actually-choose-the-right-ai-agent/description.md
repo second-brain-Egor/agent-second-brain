@@ -1,3 +1,8 @@
+---
+description: "Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?via=nate-herk-int1 My playbook..."
+related:
+  - "[[projects/_index]]"
+---
 Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?via=nate-herk-int1
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=mark-pod-agent-harnesses&hcategory=youtube-videos&utm_campaign=free-group

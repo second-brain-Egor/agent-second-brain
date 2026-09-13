@@ -1,3 +1,8 @@
+---
+description: "Oh my gosh. Where's that last one? Oh my gosh. Wow, my heart is actually racing. Wow. All right, I got to take a picture of this. You know, my..."
+related:
+  - "[[projects/_index]]"
+---
 Oh my gosh.
 Where's that last one?
 Oh my gosh.

@@ -1,3 +1,8 @@
+---
+description: "All right, so Marge, by the end of today's episode, what will everyone have learned from you? &gt;&gt; My goal is that by the end of this video, you..."
+related:
+  - "[[projects/_index]]"
+---
 All right, so Marge, by the end of
 today's episode, what will everyone have
 learned from you?

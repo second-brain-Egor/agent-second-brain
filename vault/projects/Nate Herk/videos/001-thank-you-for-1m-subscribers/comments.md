@@ -1,3 +1,8 @@
+---
+description: "Congrats Nate!! This is awseome man! Thank you for your content and time work!"
+related:
+  - "[[projects/_index]]"
+---
 # Комментарии
 
 ## @chinnobi

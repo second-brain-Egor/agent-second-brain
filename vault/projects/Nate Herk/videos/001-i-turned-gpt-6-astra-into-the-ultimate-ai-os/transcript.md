@@ -1,3 +1,8 @@
+---
+description: "GBD6 Astra is the most powerful AI model I've ever used. So, I turned it into my AI operating system and my second brain. And this is just a quick..."
+related:
+  - "[[projects/_index]]"
+---
 GBD6 Astra is the most powerful AI model
 I've ever used. So, I turned it into my
 AI operating system and my second brain.

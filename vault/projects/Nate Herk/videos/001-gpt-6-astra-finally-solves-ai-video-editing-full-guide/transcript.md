@@ -1,3 +1,8 @@
+---
+description: "Stop prompting Claude. Andre Garpathy thinks there's a much better way to work with AI. And his method has three layers. Layer one is the spec..."
+related:
+  - "[[projects/_index]]"
+---
 Stop prompting Claude. Andre Garpathy
 thinks there's a much better way to work
 with AI. And his method has three
