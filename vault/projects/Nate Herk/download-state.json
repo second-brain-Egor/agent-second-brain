@@ -512,20 +512,35 @@
       "completed_at": "2026-09-09T09:30:21+03:00"
     },
     "5QmOhvVssxY": {
-      "status": "error",
+      "status": "complete",
       "folder": "vault/projects/Nate Herk/videos/001-thank-you-for-1m-subscribers",
       "title": "Thank You for 1M Subscribers",
       "url": "https://www.youtube.com/watch?v=5QmOhvVssxY",
-      "upload_date": "",
-      "comments": 0,
-      "frames": 0,
+      "upload_date": "20260909",
+      "comments": 332,
+      "frames": 16,
       "deduped_frames": 0,
-      "description": false,
-      "transcript": false,
+      "description": true,
+      "transcript": true,
       "frames_required": true,
-      "updated_at": "2026-09-10T07:00:09+03:00",
-      "error": "ERROR: Cannot write video metadata to JSON file /home/egor/agent-second-brain/vault/projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/_work/5QmOhvVssxY.info.json"
+      "updated_at": "2026-09-12T07:01:54+03:00",
+      "completed_at": "2026-09-12T07:01:54+03:00"
+    },
+    "6LNlCpQPYFc": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent",
+      "title": "How to Actually Choose the Right AI Agent",
+      "url": "https://www.youtube.com/watch?v=6LNlCpQPYFc",
+      "upload_date": "20260911",
+      "comments": 31,
+      "frames": 93,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-12T07:01:22+03:00",
+      "completed_at": "2026-09-12T07:01:22+03:00"
     }
   },
-  "updated_at": "2026-09-10T07:00:09+03:00"
+  "updated_at": "2026-09-12T07:01:54+03:00"
 }

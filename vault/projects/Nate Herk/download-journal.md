@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-09-10 07:00
-Всего видео в папке: 37
-Записей в журнале: 35
+Обновлено: 2026-09-12 07:01
+Всего видео в папке: 38
+Записей в журнале: 36
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -112,6 +112,18 @@
 Кадры: 86
 Обновлено: 2026-09-06T07:00:42+03:00
 
+## 001-how-to-actually-choose-the-right-ai-agent
+
+Статус: complete
+Название: How to Actually Choose the Right AI Agent
+Ссылка: https://www.youtube.com/watch?v=6LNlCpQPYFc
+Дата видео: 20260911
+Описание: есть
+Комментарии: 31
+Транскрипт: есть
+Кадры: 93
+Обновлено: 2026-09-12T07:01:22+03:00
+
 ## 001-i-analyzed-how-anthropic-actually-prompts-fable-5-1
 
 Статус: complete
@@ -198,15 +210,15 @@
 
 ## 001-thank-you-for-1m-subscribers
 
-Статус: partial
-Название: 001-thank-you-for-1m-subscribers
-Ссылка: 
-Дата видео: 
-Описание: нет
-Комментарии: 0
-Транскрипт: нет
-Кадры: 0
-Обновлено: 
+Статус: complete
+Название: Thank You for 1M Subscribers
+Ссылка: https://www.youtube.com/watch?v=5QmOhvVssxY
+Дата видео: 20260909
+Описание: есть
+Комментарии: 332
+Транскрипт: есть
+Кадры: 16
+Обновлено: 2026-09-12T07:01:54+03:00
 
 ## 001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers
 

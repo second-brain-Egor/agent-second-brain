@@ -110,3 +110,4 @@ tier: active
 2026-09-04 11:57 | process | OK | 0 tasks, 1 thought; Forumhouse live status checked
 2026-09-05 17:59 | process (за 2026-09-04, после 11:57) | OK | 0 tasks, 3 thoughts updated; existing DASH project updated; Todoist: mcp-cli: command not found after retries
 2026-09-05 18:06 | process | OK | 13 записей, 1 новая заметка, 0 задач; напоминание уже настроено; у курса Grok отсутствует текст; mcp-cli: command not found после 3 попыток
+2026-09-12 11:37 | Forumhouse: запущено продолжение раздела 91, PID 1396242; доступ подтверждён, начат проход раздела | codex | OK

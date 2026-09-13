@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-12
+updated: 2026-09-13
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 746
-- Связей: 1909
-- Сирот: 44
-- Слабосвязанных: 105
+- Заметок: 759
+- Связей: 1922
+- Сирот: 45
+- Слабосвязанных: 116
 
 ## Память
 
@@ -101,6 +101,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/metadata.md|GPT-6 Astra Voice Mode Automates Literally Anything]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/analysis.md|Как на самом деле выбрать подходящего ИИ-агента]]
+- [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/description.md|description]]
+- [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/metadata.md|How to Actually Choose the Right AI Agent]]
+- [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/analysis.md|I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/description.md|description]]
@@ -143,6 +149,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/metadata.md|I Turned GPT-6 Astra Into the Ultimate AI Second Brain]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/analysis.md|Спасибо за миллион подписчиков]]
+- [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/description.md|description]]
+- [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/metadata.md|Thank You for 1M Subscribers]]
+- [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/analysis.md|The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/description.md|description]]
@@ -541,13 +553,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-13.md|2026-09-13]]
 - [[daily/2026-09-12.md|2026-09-12]]
 - [[daily/2026-09-11.md|2026-09-11]]
 - [[daily/2026-09-10.md|2026-09-10]]
 - [[daily/2026-09-09.md|2026-09-09]]
 - [[daily/2026-09-08.md|2026-09-08]]
 - [[daily/2026-09-07.md|2026-09-07]]
-- [[daily/2026-09-06.md|2026-09-06]]
 
 ## Недельные сводки
 
