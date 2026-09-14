@@ -1,11 +1,8 @@
----
-description: "Обновлено: 2026-09-13 07:00 Всего видео в папке: 38 Записей в журнале: 36"
----
 # Журнал скачанных видео
 
-Обновлено: 2026-09-13 07:00
-Всего видео в папке: 38
-Записей в журнале: 36
+Обновлено: 2026-09-14 07:02
+Всего видео в папке: 40
+Записей в журнале: 38
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -18,6 +15,18 @@ description: "Обновлено: 2026-09-13 07:00 Всего видео в па
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-08-25T10:15:09+03:00
+
+## 001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade
+
+Статус: complete
+Название: AI News in 10 mins: 10% chance AI kills all humans
+Ссылка: https://www.youtube.com/watch?v=68HH9HVFJDM
+Дата видео: 20260913
+Описание: есть
+Комментарии: 20
+Транскрипт: есть
+Кадры: 13
+Обновлено: 2026-09-14T07:01:32+03:00
 
 ## 001-build-a-personal-hermes-in-14-mins-full-setup-guide
 
@@ -246,6 +255,18 @@ description: "Обновлено: 2026-09-13 07:00 Всего видео в па
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-09-04T07:01:23+03:00
+
+## 002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents
+
+Статус: complete
+Название: Anthropic Engineer Explains: What to Build Instead of AI Agents
+Ссылка: https://www.youtube.com/watch?v=HIRDzMtuWFk
+Дата видео: 20260913
+Описание: есть
+Комментарии: 77
+Транскрипт: есть
+Кадры: 86
+Обновлено: 2026-09-14T07:02:15+03:00
 
 ## 002-fable-5-1-just-dropped-it-looks-unreal
 

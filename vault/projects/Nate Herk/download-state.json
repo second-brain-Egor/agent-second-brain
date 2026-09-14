@@ -540,7 +540,37 @@
       "frames_required": true,
       "updated_at": "2026-09-12T07:01:22+03:00",
       "completed_at": "2026-09-12T07:01:22+03:00"
+    },
+    "68HH9HVFJDM": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade",
+      "title": "AI News in 10 mins: 10% chance AI kills all humans",
+      "url": "https://www.youtube.com/watch?v=68HH9HVFJDM",
+      "upload_date": "20260913",
+      "comments": 20,
+      "frames": 13,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-14T07:01:32+03:00",
+      "completed_at": "2026-09-14T07:01:32+03:00"
+    },
+    "HIRDzMtuWFk": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents",
+      "title": "Anthropic Engineer Explains: What to Build Instead of AI Agents",
+      "url": "https://www.youtube.com/watch?v=HIRDzMtuWFk",
+      "upload_date": "20260913",
+      "comments": 77,
+      "frames": 86,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-14T07:02:15+03:00",
+      "completed_at": "2026-09-14T07:02:15+03:00"
     }
   },
-  "updated_at": "2026-09-12T07:01:54+03:00"
+  "updated_at": "2026-09-14T07:02:15+03:00"
 }

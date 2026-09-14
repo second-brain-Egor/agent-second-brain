@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-14
+updated: 2026-09-15
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 761
-- Связей: 1955
-- Сирот: 46
-- Слабосвязанных: 85
+- Заметок: 774
+- Связей: 1970
+- Сирот: 47
+- Слабосвязанных: 94
 
 ## Память
 
@@ -54,6 +54,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata.md|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]]
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/analysis.md|Новости об искусственном интеллекте за 10 минут: вероятность гибели всех людей — 10%]]
+- [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/description.md|description]]
+- [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/metadata.md|AI News in 10 mins: 10% chance AI kills all humans]]
+- [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/analysis.md|Карточка ролика: персональный Hermes без собственного VPS]]
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/description.md|description]]
@@ -167,6 +173,12 @@ tier: active
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/metadata.md|AI News in 5 Mins: GPT-6 Astra]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis.md|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]]
+- [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/description.md|description]]
+- [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/metadata.md|Anthropic Engineer Explains: What to Build Instead of AI Agents]]
+- [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/analysis.md|Fable 5.1 Just Dropped. It Looks Unreal.]]
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/description.md|description]]
@@ -553,13 +565,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-15.md|2026-09-15]]
 - [[daily/2026-09-14.md|2026-09-14]]
 - [[daily/2026-09-13.md|2026-09-13]]
 - [[daily/2026-09-12.md|2026-09-12]]
 - [[daily/2026-09-11.md|2026-09-11]]
 - [[daily/2026-09-10.md|2026-09-10]]
 - [[daily/2026-09-09.md|2026-09-09]]
-- [[daily/2026-09-08.md|2026-09-08]]
 
 ## Недельные сводки
 
