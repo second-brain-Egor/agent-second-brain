@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-16
+updated: 2026-09-17
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 775
-- Связей: 1969
-- Сирот: 48
-- Слабосвязанных: 95
+- Заметок: 782
+- Связей: 1977
+- Сирот: 49
+- Слабосвязанных: 99
 
 ## Память
 
@@ -107,6 +107,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/metadata.md|GPT-6 Astra Voice Mode Automates Literally Anything]]
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/analysis.md|Grok Bot управляет моей входящей почтой и имеет собственный адрес]]
+- [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/description.md|description]]
+- [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/metadata.md|Grok Bot Manages My Inbox (and has its own)]]
+- [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/analysis.md|Как на самом деле выбрать подходящего ИИ-агента]]
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/description.md|description]]
@@ -565,13 +571,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-17.md|2026-09-17]]
 - [[daily/2026-09-16.md|2026-09-16]]
 - [[daily/2026-09-15.md|2026-09-15]]
 - [[daily/2026-09-14.md|2026-09-14]]
 - [[daily/2026-09-13.md|2026-09-13]]
 - [[daily/2026-09-12.md|2026-09-12]]
 - [[daily/2026-09-11.md|2026-09-11]]
-- [[daily/2026-09-10.md|2026-09-10]]
 
 ## Недельные сводки
 

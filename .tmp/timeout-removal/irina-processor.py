@@ -22,16 +22,11 @@ from d_brain.services.session import SessionStore
 
 # Per v3: separate locks для диалога и тяжёлой обработки.
 # Диалог не блокирует обработку и наоборот, но два диалога / два process одновременно — нет.
-_CHAT_LOCK_PATH = "/tmp/claude-chat.lock"
-_HEAVY_LOCK_PATH = "/tmp/claude-heavy.lock"
-
-# Маркеры «до этого места обработано» в daily-файлах: блок `processed: <ISO>`
-# пишет агент при обработке, `<!-- ✓ processed -->` дописывает cron process.sh.
-_PROCESSED_MARKER_RE = re.compile(r"^processed:\s|<!-- ✓ processed -->")
-# Служебные строки маркер-блока, не считающиеся содержимым.
-_MARKER_NOISE_RE = re.compile(r"^(---|thoughts:.*|tasks:.*|<!--.*-->)\s*$")
-# Сколько дней назад искать необработанные записи.
-_PENDING_LOOKBACK_DAYS = 14
+# Per-user locks: чтобы боты разных юзеров (irina, galina, egor) не дрались за один lock.
+import getpass as _getpass
+_USER = _getpass.getuser()
+_CHAT_LOCK_PATH = f"/tmp/claude-chat-{_USER}.lock"
+_HEAVY_LOCK_PATH = f"/tmp/claude-heavy-{_USER}.lock"
 
 
 @contextlib.contextmanager
@@ -66,25 +61,6 @@ AGENT_MARKER_PATTERN = re.compile(
 )
 
 PENDING_ACTION_TTL_SECONDS = 300
-ENV_PATH = Path(__file__).resolve().parents[3] / ".env"
-
-CLAUDE_AUTH_ERROR_PATTERN = re.compile(
-    r"(auth_required|failed to authenticate|request not allowed|api error:\s*403|"
-    r"invalid api key|not authenticated|login required)",
-    re.IGNORECASE,
-)
-
-MEDIA_REQUEST_PATTERN = re.compile(
-    r"\b(фото|картинк\w*|изображени\w*|видео|ролик\w*|image|photo|picture|video)\b",
-    re.IGNORECASE,
-)
-GENERATION_ACTION_PATTERN = re.compile(
-    r"\b("
-    r"сгенерир\w*|генерир\w*|созда[йт]\w*|нарису\w*|сдела[йт]\w*|"
-    r"generate|create|draw|make"
-    r")\b",
-    re.IGNORECASE,
-)
 
 CONFIRMATION_WORDS = frozenset({
     "делай", "делайте",
@@ -211,11 +187,6 @@ class AgentProcessor:
         return PLANNING_GUARDRAILS
 
     @staticmethod
-    def _is_media_generation_request(text: str) -> bool:
-        """Detect photo/image/video requests (generation or processing)."""
-        return bool(MEDIA_REQUEST_PATTERN.search(text or ""))
-
-    @staticmethod
     def _render_session_entry(entry: dict[str, Any]) -> str:
         """Render a session entry without truncating stored text."""
         ts = entry.get("ts", "")[11:16]
@@ -235,25 +206,14 @@ class AgentProcessor:
 
         session = SessionStore(self.vault_path)
         today_entries = session.get_today(session_scope)
-
-        # Берём ВЕСЬ сегодняшний день, а не последние N записей: жёсткое окно
-        # обрезало утренние сообщения и было причиной «амнезии» внутри дня.
-        # Чтобы очень болтливый день не раздул промпт — режем по бюджету символов,
-        # сохраняя самые свежие записи (старые отбрасываем первыми).
-        char_budget = 24000
-        rendered_entries: list[str] = []
-        for entry in reversed(today_entries):
+        lines = ["=== TODAY SESSION ==="]
+        for entry in today_entries[-20:]:
             rendered = self._render_session_entry(entry)
-            if not rendered:
-                continue
-            char_budget -= len(rendered)
-            if char_budget < 0:
-                break
-            rendered_entries.append(rendered)
-
+            if rendered:
+                lines.append(rendered)
         from d_brain.services.documents import DocumentStore
-        documents = DocumentStore(self.vault_path).context(session_scope)
-        lines = ["=== TODAY SESSION ===", *reversed(rendered_entries), documents, "=== END SESSION ==="]
+        lines.append(DocumentStore(self.vault_path).context(session_scope))
+        lines.append("=== END SESSION ===")
         return "\n".join(lines)
 
     @staticmethod
@@ -389,55 +349,6 @@ week: {year}-W{week:02d}
             raise RuntimeError(f"Codex CLI not found: {self.codex_bin}")
         return resolved
 
-    @staticmethod
-    def _is_claude_auth_error(exc: BaseException) -> bool:
-        """Return True when Claude CLI failed because its local auth is invalid."""
-        return bool(CLAUDE_AUTH_ERROR_PATTERN.search(str(exc)))
-
-    def _persist_backend(self, backend: str) -> None:
-        """Persist active backend in .env so restarts do not return to a broken sim."""
-        if backend not in {"codex", "claude"}:
-            raise ValueError(f"Unsupported backend: {backend}")
-
-        try:
-            content = ENV_PATH.read_text(encoding="utf-8") if ENV_PATH.exists() else ""
-            if re.search(r"^AI_BACKEND=", content, flags=re.MULTILINE):
-                new_content = re.sub(
-                    r"^AI_BACKEND=.*$",
-                    f"AI_BACKEND={backend}",
-                    content,
-                    count=1,
-                    flags=re.MULTILINE,
-                )
-            else:
-                sep = "" if not content or content.endswith("\n") else "\n"
-                new_content = f"{content}{sep}AI_BACKEND={backend}\n"
-            ENV_PATH.write_text(new_content, encoding="utf-8")
-        except OSError:
-            logger.exception("Failed to persist AI_BACKEND=%s", backend)
-
-    def _fallback_to_codex_after_claude_auth_error(
-        self,
-        prompt: str,
-        *,
-        read_only: bool,
-        images: list[str] | None,
-        timeout_sec: int | None,
-        mode: str,
-        error: BaseException,
-    ) -> str:
-        """Switch to Codex when Claude auth is broken and serve the same request."""
-        logger.warning("Claude auth failed, switching AI_BACKEND to codex: %s", error)
-        self.ai_backend = "codex"
-        self._persist_backend("codex")
-        return self._run_codex_exec(
-            prompt,
-            read_only=read_only,
-            images=images,
-            timeout_sec=timeout_sec,
-            model=self._backend_model_for_mode(mode),
-        )
-
     def _normalize_effort(self, effort: str | None) -> str:
         value = (effort or self.codex_reasoning_effort).strip().lower()
         if value not in SUPPORTED_REASONING_EFFORTS:
@@ -451,7 +362,7 @@ week: {year}-W{week:02d}
             return "medium"
         return value
 
-    def _build_exec_prompt(
+    def _build_codex_prompt(
         self,
         system_prompt: str,
         user_prompt: str,
@@ -466,19 +377,6 @@ week: {year}-W{week:02d}
             f"- Sandbox expectation: {mode}\n"
             "- Reply in Russian.\n"
             "- Return only the final answer for the user, without tool logs or extra commentary.\n\n"
-            "Internet tools:\n"
-            "- Internet access is available.\n"
-            "- For web search ALWAYS run (do not use built-in web tools): "
-            "`uv run python scripts/web_search.py \"query\" --max-results 5`.\n"
-            "- To read a page by URL, run: "
-            "`uv run python scripts/web_fetch.py \"https://example.com\"`.\n"
-            "- These scripts use the direct server-IP web/browser contour from "
-            "`direct_web/` and must be preferred over inherited proxy/browser tools.\n"
-            "- Use web access for current facts, prices, schedules, docs, "
-            "product pages, and links.\n"
-            "- NEVER claim «не могу / нет доступа / не получится» without actually "
-            "trying at least one tool (web_search, web_fetch, Bash) first. If a tool "
-            "failed — say which one and what the error was, then suggest the next step.\n\n"
             f"{user_prompt.strip()}\n"
         )
 
@@ -488,7 +386,7 @@ week: {year}-W{week:02d}
         *,
         read_only: bool,
         images: list[str] | None = None,
-        timeout_sec: int | None = None,
+        timeout_sec: int = 600,
         model: str | None = None,
     ) -> str:
         """Run Codex CLI and return its final message."""
@@ -574,7 +472,7 @@ week: {year}-W{week:02d}
         *,
         read_only: bool,
         images: list[str] | None = None,
-        timeout_sec: int | None = None,
+        timeout_sec: int = 600,
         model: str | None = None,
     ) -> str:
         """Run Claude Code CLI in --print mode and return its final message.
@@ -638,7 +536,7 @@ week: {year}-W{week:02d}
         *,
         read_only: bool,
         images: list[str] | None = None,
-        timeout_sec: int | None = None,
+        timeout_sec: int = 600,
         mode: str = "chat",
     ) -> str:
         """Dispatch to active AI backend (codex or claude) based on AI_BACKEND.
@@ -649,25 +547,13 @@ week: {year}-W{week:02d}
         """
         model = self._backend_model_for_mode(mode)
         if self.ai_backend == "claude":
-            try:
-                return self._run_claude_exec(
-                    prompt,
-                    read_only=read_only,
-                    images=images,
-                    timeout_sec=timeout_sec,
-                    model=model,
-                )
-            except RuntimeError as exc:
-                if self._is_claude_auth_error(exc):
-                    return self._fallback_to_codex_after_claude_auth_error(
-                        prompt,
-                        read_only=read_only,
-                        images=images,
-                        timeout_sec=timeout_sec,
-                        mode=mode,
-                        error=exc,
-                    )
-                raise
+            return self._run_claude_exec(
+                prompt,
+                read_only=read_only,
+                images=images,
+                timeout_sec=timeout_sec,
+                model=model,
+            )
         return self._run_codex_exec(
             prompt,
             read_only=read_only,
@@ -676,7 +562,7 @@ week: {year}-W{week:02d}
             model=model,
         )
 
-    def _run_chat(
+    def _run_openai_text(
         self,
         system_prompt: str,
         user_prompt: str,
@@ -684,43 +570,19 @@ week: {year}-W{week:02d}
         reasoning: str | None = None,
         verbosity: str | None = None,
         max_output_tokens: int = 2000,
-        timeout_sec: int | None = None,
     ) -> str:
-        """Dialog / chat request → chat model (см. CLAUDE_MODEL_CHAT).
-
-        По умолчанию время выполнения не ограничено. После ошибки допускается
-        одна повторная попытка с тем же ограничением, включая его отсутствие.
-        """
+        """Диалог с выбранной моделью; лимит ответа 15 минут."""
         del reasoning, verbosity, max_output_tokens
-        # 2026-05-11: чат-сессия больше не read-only. С момента перехода на pure Opus
-        # (2026-05-10) обычный диалог тоже должен уметь ходить на Барыгу, запускать
-        # скрипты, читать сетевые ресурсы. read_only=True оставался legacy от
-        # Sonnet-чата и блокировал --permission-mode → default → Bash недоступен в
-        # subprocess --print. Возвращать True имеет смысл только если снова разделить
-        # light/heavy и вернуть привратника.
-        prompt = self._build_exec_prompt(system_prompt, user_prompt, read_only=False)
+        prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=True)
         with _claude_chat_lock():
-            try:
-                return self._run_backend_exec(
-                    prompt,
-                    read_only=False,
-                    timeout_sec=timeout_sec,
-                    mode="chat",
-                )
-            except (subprocess.TimeoutExpired, RuntimeError) as exc:
-                logger.warning(
-                    "chat exec failed (%s) — one retry (timeout=%s)",
-                    type(exc).__name__,
-                    timeout_sec,
-                )
-                return self._run_backend_exec(
-                    prompt,
-                    read_only=False,
-                    timeout_sec=timeout_sec,
-                    mode="chat",
-                )
+            return self._run_backend_exec(
+                prompt,
+                read_only=True,
+                timeout_sec=900,
+                mode="chat",
+            )
 
-    def _run_agent(
+    def _run_openai_agent(
         self,
         system_prompt: str,
         user_prompt: str,
@@ -732,28 +594,29 @@ week: {year}-W{week:02d}
     ) -> str:
         """Agent / processing request → heavy model (Opus on Claude). Per v3."""
         del reasoning, verbosity, max_output_tokens
-        prompt = self._build_exec_prompt(system_prompt, user_prompt, read_only=read_only)
+        prompt = self._build_codex_prompt(system_prompt, user_prompt, read_only=read_only)
         with _claude_heavy_lock():
             return self._run_backend_exec(
                 prompt,
                 read_only=read_only,
-                timeout_sec=None,
+                timeout_sec=900,
                 mode="agent",
             )
 
     def analyze_image(self, image_path: str, caption: str | None = None) -> str | None:
-        """Analyze an image via active backend CLI subprocess.
+        """Analyze an image via active backend.
 
-        2026-06-11: SDK-ветка удалена — `anthropic.Anthropic()` требует API-ключ,
-        которого при подписке Claude Max нет, поэтому она всегда молча падала в
-        CLI-фоллбэк (лишняя задержка + ложная ошибка в логах). CLI-путь работает
-        по подписке и для Claude, и для Codex (диспетчеризация в _run_backend_exec).
+        Per v3 §4.7: на Claude — через `anthropic` SDK с credentials Claude CLI
+        (без отдельного API-ключа, по подписке Claude Max). На Codex — через
+        `codex exec -i image` subprocess.
         """
         image_file = Path(image_path)
         if not image_file.exists():
             return None
 
-        return self._analyze_image_cli(image_file, caption)
+        if self.ai_backend == "claude":
+            return self._analyze_image_claude_sdk(image_file, caption)
+        return self._analyze_image_codex_cli(image_file, caption)
 
     @staticmethod
     def _vision_prompt(caption: str | None) -> str:
@@ -768,63 +631,59 @@ week: {year}-W{week:02d}
             prompt += f"\n\nПодпись: {caption}"
         return prompt
 
-    def _analyze_image_cli(self, image_file: Path, caption: str | None) -> str | None:
-        """Vision через CLI subprocess активного бэкенда (Claude или Codex)."""
+    def _analyze_image_claude_sdk(self, image_file: Path, caption: str | None) -> str | None:
+        """Vision через anthropic SDK. Подхватывает creds от Claude CLI (~/.claude/.credentials.json),
+        отдельный ANTHROPIC_API_KEY НЕ нужен."""
+        try:
+            import base64
+            import anthropic
+        except ImportError:
+            logger.warning("anthropic SDK not installed — falling back to CLI subprocess")
+            return self._analyze_image_codex_cli(image_file, caption)
+
+        try:
+            image_bytes = image_file.read_bytes()
+            image_b64 = base64.standard_b64encode(image_bytes).decode("ascii")
+            ext = image_file.suffix.lower().lstrip(".")
+            media_type = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png",
+                          "gif": "image/gif", "webp": "image/webp"}.get(ext, "image/jpeg")
+
+            client = anthropic.Anthropic()  # creds от Claude CLI, без API-ключа
+            response = client.messages.create(
+                model="claude-sonnet-4-5",
+                max_tokens=1024,
+                messages=[{
+                    "role": "user",
+                    "content": [
+                        {"type": "image", "source": {
+                            "type": "base64", "media_type": media_type, "data": image_b64,
+                        }},
+                        {"type": "text", "text": self._vision_prompt(caption)},
+                    ],
+                }],
+            )
+            blocks = getattr(response, "content", []) or []
+            for block in blocks:
+                text = getattr(block, "text", None)
+                if text:
+                    return text.strip()
+            return None
+        except Exception:
+            logger.exception("Anthropic SDK vision failed — falling back to CLI subprocess")
+            return self._analyze_image_codex_cli(image_file, caption)
+
+    def _analyze_image_codex_cli(self, image_file: Path, caption: str | None) -> str | None:
+        """Vision через subprocess (Codex CLI или Claude CLI как fallback)."""
         try:
             return self._run_backend_exec(
                 self._vision_prompt(caption),
                 read_only=True,
                 images=[str(image_file)],
-                timeout_sec=None,
+                timeout_sec=300,
                 mode="chat",
             )
         except Exception:
             logger.exception("Vision analysis via CLI subprocess failed")
-            return None
-
-    def web_quick_summary(self, query: str, results_block: str, timeout_sec: int | None = None) -> str | None:
-        """Короткая выжимка результатов веб-поиска для fast-path (/web и интент).
-
-        Лёгкий вызов: fable, без инструментов, cwd во временной папке — CLAUDE.md
-        проекта НЕ подхватывается, память и правила не грузятся, в промпте только
-        результаты поиска. Идёт через claude fable напрямую, поэтому работает на
-        ОБЕИХ симках (бинарь claude есть независимо от AI_BACKEND). Best effort:
-        любой фейл → None (карточки уже отправлены, выжимка — необязательный бонус).
-        """
-        prompt = (
-            f"Вопрос пользователя: {query}\n\n"
-            f"Результаты веб-поиска:\n{results_block}\n\n"
-            "Дай выжимку ответа в 2–4 предложениях на русском строго по этим "
-            "результатам. В конце одной строкой укажи 1–2 самые полезные ссылки. "
-            "Без вступлений и оговорок."
-        )
-        try:
-            claude_bin = self._get_claude_bin()
-            env = os.environ.copy()
-            env.pop("ANTHROPIC_API_KEY", None)
-            with tempfile.TemporaryDirectory(prefix="dbrain-web-") as temp_dir:
-                result = subprocess.run(
-                    [
-                        claude_bin,
-                        "-p",
-                        "--model", "fable",
-                        "--output-format", "text",
-                        "--no-session-persistence",
-                    ],
-                    input=prompt,
-                    text=True,
-                    capture_output=True,
-                    cwd=temp_dir,
-                    env=env,
-                    timeout=timeout_sec,
-                    check=False,
-                )
-            if result.returncode != 0:
-                logger.warning("web_quick_summary failed: %s", (result.stderr or "")[-200:])
-                return None
-            return (result.stdout or "").strip() or None
-        except Exception:
-            logger.exception("web_quick_summary failed")
             return None
 
     def _tool_schemas(self, *, read_only: bool) -> list[dict[str, Any]]:
@@ -1311,24 +1170,10 @@ Today is {day.isoformat()}.
 Project root: {self.project_path.as_posix()}
 Vault root: {self.vault_path.as_posix()}
 
-Process this day's inbox and memory updates.
+Process today's inbox and memory updates.
 
-The full content of the daily file is inlined below — do NOT skip processing it,
-and do not respond "no entries today" if this block is non-empty.
-Entries above a `processed:` marker block were already processed earlier:
-do not re-process them, handle only the entries after the LAST such marker.
-After processing, append a marker block to the end of the daily file:
----
-processed: <current ISO timestamp>
-thoughts: <N>
-tasks: <M>
----
-
-=== vault/daily/{day.isoformat()}.md ===
-{daily_text}
-=== END vault/daily/{day.isoformat()}.md ===
-
-Also read for context:
+Start by reading:
+- vault/daily/{day.isoformat()}.md
 - vault/memory/facts.md
 - vault/memory/user.md
 - vault/memory/soul.md
@@ -1369,7 +1214,7 @@ Do not mention:
 """
 
         try:
-            report = self._run_agent(
+            report = self._run_openai_agent(
                 system_prompt,
                 user_prompt,
                 read_only=False,
@@ -1392,102 +1237,6 @@ Do not mention:
             logger.exception("OpenAI daily processing failed")
             from d_brain.services.document_jobs import user_error
             return {"error": user_error(exc), "processed_entries": 0}
-
-    def _daily_unprocessed_tail(self, day: date) -> str:
-        """Текст daily-файла после последнего маркера обработки."""
-        path = self.vault_path / "daily" / f"{day.isoformat()}.md"
-        if not path.exists():
-            return ""
-        lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
-        last_marker = -1
-        for idx, line in enumerate(lines):
-            if _PROCESSED_MARKER_RE.search(line):
-                last_marker = idx
-        tail = lines[last_marker + 1 :]
-        tail = [ln for ln in tail if not _MARKER_NOISE_RE.match(ln)]
-        text = "\n".join(tail).strip()
-        # Один заголовок без записей (`# 2026-07-06`) — ещё не содержимое.
-        if last_marker == -1 and re.fullmatch(r"#\s*[\d-]+", text):
-            return ""
-        return text
-
-    def _daily_has_marker(self, day: date) -> bool:
-        path = self.vault_path / "daily" / f"{day.isoformat()}.md"
-        if not path.exists():
-            return False
-        content = path.read_text(encoding="utf-8", errors="ignore")
-        return any(
-            _PROCESSED_MARKER_RE.search(line) for line in content.splitlines()
-        )
-
-    def pending_days(self, today: date | None = None) -> list[date]:
-        """Дни с записями после последнего маркера обработки, от старых к новым.
-
-        Отсчёт идёт «от обработки до обработки»: только дни начиная с последнего
-        дня, где маркер уже есть. Дни до эпохи маркеров не перелопачиваем заново.
-        """
-        if today is None:
-            today = date.today()
-        last_marked = today
-        for offset in range(_PENDING_LOOKBACK_DAYS + 1):
-            day = today - timedelta(days=offset)
-            if self._daily_has_marker(day):
-                last_marked = day
-                break
-        days = []
-        day = last_marked
-        while day <= today:
-            if len(self._daily_unprocessed_tail(day)) >= 10:
-                days.append(day)
-            day += timedelta(days=1)
-        return days
-
-    def _mark_daily_processed(self, day: date) -> None:
-        """Дописать маркер обработки, если агент не оставил свой."""
-        if not self._daily_unprocessed_tail(day):
-            return
-        path = self.vault_path / "daily" / f"{day.isoformat()}.md"
-        stamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
-        with path.open("a", encoding="utf-8") as fh:
-            fh.write(f"\n---\nprocessed: {stamp}\nthoughts: -\ntasks: -\n---\n")
-
-    def process_pending(self, today: date | None = None) -> dict[str, Any]:
-        """Обработать все дни с необработанными записями — «от обработки до обработки».
-
-        Кнопка могла не нажиматься несколько дней: пройти хвосты всех daily-файлов
-        после их последнего маркера обработки, а не только сегодняшний день.
-        """
-        if today is None:
-            today = date.today()
-        days = self.pending_days(today)
-        if not days:
-            # Всё уже обработано — обычный статус-отчёт за сегодня.
-            return self.process_daily(today)
-
-        reports: list[str] = []
-        errors: list[str] = []
-        processed = 0
-        for day in days:
-            result = self.process_daily(day)
-            if "error" in result:
-                errors.append(f"{day.isoformat()}: {result['error']}")
-                continue
-            processed += int(result.get("processed_entries", 0))
-            text = str(result.get("report", "")).strip()
-            if text:
-                reports.append(text)
-            self._mark_daily_processed(day)
-
-        if not reports and errors:
-            return {"error": "; ".join(errors), "processed_entries": processed}
-        report = "\n\n".join(reports)
-        if errors:
-            report += "\n\n⚠️ <b>Не обработано:</b> " + "; ".join(errors)
-        return {
-            "report": report,
-            "processed_entries": processed,
-            "days": [d.isoformat() for d in days],
-        }
 
     def execute_prompt(
         self,
@@ -1533,7 +1282,6 @@ Do not mention:
             "Avoid repeating the same emoji in neighboring paragraphs. "
             "Translate English words, labels, and service phrasing into Russian unless they must stay exact as a product name, command, file path, API name, or model name. "
             "Never show your reasoning, internal reflections, deliberation, or intermediate thoughts. Give only the final answer. "
-            "Treat the session context as the active conversation. Before asking for clarification, resolve short follow-up messages such as 'почему?', 'что именно?', 'исправь это', and pronouns from the immediately preceding user and assistant messages. If the referent is clear there, answer or act on it directly. "
             "Do not offer extra help, extra options, or next actions unless the user explicitly asked for them or a real user action is strictly required. "
             "All user-facing headings, labels, and section names must be in Russian. "
             "Do not use English labels like wins, blockers, next step, summary, action items, or Todoist actions. "
@@ -1588,7 +1336,7 @@ Keep the user's planning horizon intact. Do not reinterpret long-term projects a
 """
 
         try:
-            report = self._run_agent(
+            report = self._run_openai_agent(
                 system_prompt,
                 composed_prompt,
                 read_only=False,
@@ -1648,7 +1396,7 @@ Important:
 """
 
         try:
-            report = self._run_agent(
+            report = self._run_openai_agent(
                 system_prompt,
                 user_prompt,
                 read_only=True,
@@ -1678,7 +1426,7 @@ Important:
     def classify_message_weight(self, text: str, session_scope: int | str | None) -> str:
         """LLM-based pre-classification: 'light' (Sonnet handles directly) or 'heavy' (needs Opus).
         Uses the last 20 session entries as context (already loaded by _get_session_context).
-        Minimal prompt, no memory/RAG/CLAUDE.md. Defaults to 'light'."""
+        Minimal prompt, no memory/RAG/CLAUDE.md — short call, 10-sec timeout. Defaults to 'light'."""
         if not text or not text.strip():
             return "light"
         session_context = self._get_session_context(session_scope) if session_scope is not None else ""
@@ -1700,7 +1448,7 @@ Important:
                 result = self._run_claude_exec(
                     prompt,
                     read_only=True,
-                    timeout_sec=None,
+                    timeout_sec=10,
                     model=self.claude_model_chat,
                 )
             normalized = result.strip().lower().strip(" .,!?\"'`")
@@ -1713,7 +1461,7 @@ Important:
 
     def generate_brief(self, user_text: str, session_scope: int | str | None = None) -> str:
         """Ultra-short task perephrasal as a question (4-7 words). Includes last 20 session
-        entries as context so references resolve."""
+        entries as context so references resolve. 25-sec timeout."""
         session_context = self._get_session_context(session_scope) if session_scope is not None else ""
         prompt = (
             "Перефразируй запрос пользователя ОДНОЙ КОРОТКОЙ ФРАЗОЙ-ВОПРОСОМ на русском. "
@@ -1736,7 +1484,7 @@ Important:
                 result = self._run_claude_exec(
                     prompt,
                     read_only=True,
-                    timeout_sec=None,
+                    timeout_sec=25,
                     model=self.claude_model_chat,
                 )
             result = result.strip().strip('"').strip("'").strip()
@@ -1819,7 +1567,7 @@ Important:
                 result = self._run_claude_exec(
                     prompt,
                     read_only=True,
-                    timeout_sec=None,
+                    timeout_sec=15,
                     model=self.claude_model_chat,
                 )
             result = result.strip().lower().strip(" .,!?")
@@ -1866,7 +1614,6 @@ Important:
             "Use short paragraphs with a blank line between them. "
             "Use fitting emoji sparingly and place them at the start of a paragraph when they improve scanning. "
             "Never reveal reasoning, internal reflections, or intermediate thinking. Give conclusions only. "
-            "Treat the session context as the active conversation. Before asking for clarification, resolve short follow-up messages such as 'почему?', 'что именно?', 'исправь это', and pronouns from the immediately preceding user and assistant messages. If the referent is clear there, answer or act on it directly. "
             "Do not suggest extra follow-up actions unless they are strictly required or explicitly requested. "
             f"{self._planning_guardrails()} "
             "Use Russian wording for all user-facing labels and headings. "
@@ -1905,7 +1652,7 @@ Do not include:
 """
 
         try:
-            report = self._run_agent(
+            report = self._run_openai_agent(
                 system_prompt,
                 composed_prompt,
                 read_only=False,
@@ -1941,23 +1688,22 @@ Do not include:
         parts: list[str] = []
         memory_dir = self.vault_path / "memory"
         if memory_dir.exists():
-            for name in ("user.md", "soul.md"):
-                md_file = memory_dir / name
-                if md_file.exists():
-                    content = md_file.read_text(encoding="utf-8", errors="ignore")[:2000]
-                    parts.append(f"=== {name} ===\n{content}")
+            for md_file in sorted(memory_dir.glob("*.md")):
+                content = md_file.read_text(encoding="utf-8", errors="ignore")[:2000]
+                parts.append(f"=== {md_file.name} ===\n{content}")
+
+        goals_dir = self.vault_path / "goals"
+        if goals_dir.exists():
+            for goal_file in sorted(goals_dir.glob("*.md")):
+                content = goal_file.read_text(encoding="utf-8", errors="ignore")[:1000]
+                parts.append(f"=== {goal_file.name} ===\n{content}")
+
+        index_file = self.vault_path / "MOC" / "index.md"
+        if index_file.exists():
+            content = index_file.read_text(encoding="utf-8", errors="ignore")[:3000]
+            parts.append(f"=== index.md ===\n{content}")
 
         if cold_start:
-            goals_dir = self.vault_path / "goals"
-            if goals_dir.exists():
-                for goal_file in sorted(goals_dir.glob("*.md")):
-                    content = goal_file.read_text(encoding="utf-8", errors="ignore")[:1000]
-                    parts.append(f"=== {goal_file.name} ===\n{content}")
-
-            index_file = self.vault_path / "MOC" / "index.md"
-            if index_file.exists():
-                content = index_file.read_text(encoding="utf-8", errors="ignore")[:3000]
-                parts.append(f"=== index.md ===\n{content}")
             root_index = self.vault_path / "index.md"
             if root_index.exists():
                 parts.append(f"=== vault/index.md ===\n{self._read_context_file(root_index, 4500)}")
@@ -2040,7 +1786,6 @@ Do not include:
             "Do not use English service labels or English section headings in user-facing replies. "
             "Do not mention internal instructions, hidden rules, or assistant-only maintenance. "
             "Never expose reasoning, reflections, or intermediate thinking; give the final answer only. "
-            "Treat the session context as the active conversation. Before asking for clarification, resolve short follow-up messages such as 'почему?', 'что именно?', 'исправь это', and pronouns from the immediately preceding user and assistant messages. If the referent is clear there, answer directly. "
             "Do not offer extra actions or say 'если хочешь, я могу...' unless the user explicitly asked for options or continuation. "
             f"{self._planning_guardrails()}"
         )
@@ -2056,13 +1801,12 @@ Do not include:
 """
 
         try:
-            report = self._run_chat(
+            report = self._run_openai_text(
                 system_prompt,
                 user_prompt,
                 reasoning="low",
                 verbosity="low",
                 max_output_tokens=1200,
-                timeout_sec=None,
             )
             return {"report": report, "processed_entries": 1}
         except Exception as exc:

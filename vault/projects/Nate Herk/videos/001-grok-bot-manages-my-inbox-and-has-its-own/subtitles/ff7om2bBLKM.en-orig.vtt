@@ -1,0 +1,3984 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.080 --> 00:00:01.189 align:start position:0%
+ 
+So<00:00:00.240><c> here</c><00:00:00.320><c> you</c><00:00:00.480><c> can</c><00:00:00.560><c> see</c><00:00:00.640><c> that</c><00:00:00.800><c> I've</c><00:00:00.960><c> got</c><00:00:01.040><c> this</c>
+
+00:00:01.189 --> 00:00:01.199 align:start position:0%
+So here you can see that I've got this
+ 
+
+00:00:01.199 --> 00:00:03.030 align:start position:0%
+So here you can see that I've got this
+Grockbot<00:00:01.760><c> set</c><00:00:01.920><c> up</c><00:00:02.080><c> to</c><00:00:02.240><c> wake</c><00:00:02.399><c> up</c><00:00:02.560><c> about</c><00:00:02.800><c> every</c>
+
+00:00:03.030 --> 00:00:03.040 align:start position:0%
+Grockbot set up to wake up about every
+ 
+
+00:00:03.040 --> 00:00:04.950 align:start position:0%
+Grockbot set up to wake up about every
+30<00:00:03.280><c> minutes</c><00:00:03.520><c> and</c><00:00:03.760><c> place</c><00:00:04.160><c> trades</c><00:00:04.480><c> for</c><00:00:04.640><c> me</c><00:00:04.799><c> in</c>
+
+00:00:04.950 --> 00:00:04.960 align:start position:0%
+30 minutes and place trades for me in
+ 
+
+00:00:04.960 --> 00:00:06.390 align:start position:0%
+30 minutes and place trades for me in
+the<00:00:05.040><c> stock</c><00:00:05.279><c> market</c><00:00:05.520><c> or</c><00:00:05.759><c> sell</c><00:00:06.000><c> them</c><00:00:06.160><c> or</c>
+
+00:00:06.390 --> 00:00:06.400 align:start position:0%
+the stock market or sell them or
+ 
+
+00:00:06.400 --> 00:00:07.670 align:start position:0%
+the stock market or sell them or
+something<00:00:06.560><c> like</c><00:00:06.720><c> that.</c><00:00:07.040><c> Except</c><00:00:07.279><c> for</c><00:00:07.520><c> this</c>
+
+00:00:07.670 --> 00:00:07.680 align:start position:0%
+something like that. Except for this
+ 
+
+00:00:07.680 --> 00:00:09.669 align:start position:0%
+something like that. Except for this
+routine<00:00:07.919><c> isn't</c><00:00:08.320><c> firing</c><00:00:08.639><c> every</c><00:00:09.040><c> 30</c><00:00:09.360><c> minutes.</c>
+
+00:00:09.669 --> 00:00:09.679 align:start position:0%
+routine isn't firing every 30 minutes.
+ 
+
+00:00:09.679 --> 00:00:11.030 align:start position:0%
+routine isn't firing every 30 minutes.
+It's<00:00:09.840><c> actually</c><00:00:10.000><c> firing</c><00:00:10.240><c> when</c><00:00:10.400><c> a</c><00:00:10.559><c> web</c><00:00:10.719><c> hook</c>
+
+00:00:11.030 --> 00:00:11.040 align:start position:0%
+It's actually firing when a web hook
+ 
+
+00:00:11.040 --> 00:00:12.629 align:start position:0%
+It's actually firing when a web hook
+fires.<00:00:11.519><c> Which</c><00:00:11.599><c> means</c><00:00:11.759><c> that</c><00:00:11.920><c> this</c><00:00:12.080><c> Grockbot</c>
+
+00:00:12.629 --> 00:00:12.639 align:start position:0%
+fires. Which means that this Grockbot
+ 
+
+00:00:12.639 --> 00:00:14.709 align:start position:0%
+fires. Which means that this Grockbot
+wakes<00:00:12.880><c> up</c><00:00:13.040><c> whenever</c><00:00:13.759><c> it</c><00:00:14.000><c> receives</c><00:00:14.240><c> an</c><00:00:14.480><c> email</c>
+
+00:00:14.709 --> 00:00:14.719 align:start position:0%
+wakes up whenever it receives an email
+ 
+
+00:00:14.719 --> 00:00:16.310 align:start position:0%
+wakes up whenever it receives an email
+and<00:00:14.880><c> it's</c><00:00:15.040><c> got</c><00:00:15.200><c> its</c><00:00:15.360><c> own</c><00:00:15.519><c> email</c><00:00:15.759><c> account.</c><00:00:16.160><c> So</c>
+
+00:00:16.310 --> 00:00:16.320 align:start position:0%
+and it's got its own email account. So
+ 
+
+00:00:16.320 --> 00:00:17.590 align:start position:0%
+and it's got its own email account. So
+what<00:00:16.400><c> I'm</c><00:00:16.560><c> actually</c><00:00:16.800><c> doing</c><00:00:16.960><c> here</c><00:00:17.119><c> is</c><00:00:17.279><c> I</c><00:00:17.440><c> have</c>
+
+00:00:17.590 --> 00:00:17.600 align:start position:0%
+what I'm actually doing here is I have
+ 
+
+00:00:17.600 --> 00:00:19.910 align:start position:0%
+what I'm actually doing here is I have
+GBD6<00:00:18.320><c> Astra</c><00:00:18.880><c> doing</c><00:00:19.119><c> the</c><00:00:19.279><c> research</c><00:00:19.520><c> and</c><00:00:19.680><c> then</c>
+
+00:00:19.910 --> 00:00:19.920 align:start position:0%
+GBD6 Astra doing the research and then
+ 
+
+00:00:19.920 --> 00:00:21.590 align:start position:0%
+GBD6 Astra doing the research and then
+sending<00:00:20.160><c> over</c><00:00:20.320><c> an</c><00:00:20.480><c> email</c><00:00:20.640><c> to</c><00:00:20.800><c> this</c><00:00:21.039><c> Grockbot</c>
+
+00:00:21.590 --> 00:00:21.600 align:start position:0%
+sending over an email to this Grockbot
+ 
+
+00:00:21.600 --> 00:00:23.109 align:start position:0%
+sending over an email to this Grockbot
+called<00:00:21.840><c> trader</c><00:00:22.320><c> and</c><00:00:22.560><c> actually</c><00:00:22.720><c> saying</c><00:00:22.960><c> hey</c>
+
+00:00:23.109 --> 00:00:23.119 align:start position:0%
+called trader and actually saying hey
+ 
+
+00:00:23.119 --> 00:00:24.790 align:start position:0%
+called trader and actually saying hey
+place<00:00:23.359><c> this</c><00:00:23.519><c> trade</c><00:00:23.760><c> or</c><00:00:23.920><c> hey</c><00:00:24.160><c> sell</c><00:00:24.320><c> this.</c><00:00:24.640><c> You</c>
+
+00:00:24.790 --> 00:00:24.800 align:start position:0%
+place this trade or hey sell this. You
+ 
+
+00:00:24.800 --> 00:00:25.750 align:start position:0%
+place this trade or hey sell this. You
+can<00:00:24.880><c> also</c><00:00:25.119><c> see</c><00:00:25.199><c> that</c><00:00:25.359><c> I</c><00:00:25.439><c> get</c><00:00:25.600><c> these</c>
+
+00:00:25.750 --> 00:00:25.760 align:start position:0%
+can also see that I get these
+ 
+
+00:00:25.760 --> 00:00:27.429 align:start position:0%
+can also see that I get these
+notifications<00:00:26.320><c> twice</c><00:00:26.560><c> a</c><00:00:26.720><c> day,</c><00:00:26.960><c> once</c><00:00:27.119><c> in</c><00:00:27.279><c> the</c>
+
+00:00:27.429 --> 00:00:27.439 align:start position:0%
+notifications twice a day, once in the
+ 
+
+00:00:27.439 --> 00:00:29.349 align:start position:0%
+notifications twice a day, once in the
+morning<00:00:27.519><c> and</c><00:00:27.760><c> once</c><00:00:28.000><c> at</c><00:00:28.160><c> night,</c><00:00:28.560><c> which</c><00:00:28.800><c> is</c><00:00:29.119><c> my</c>
+
+00:00:29.349 --> 00:00:29.359 align:start position:0%
+morning and once at night, which is my
+ 
+
+00:00:29.359 --> 00:00:31.269 align:start position:0%
+morning and once at night, which is my
+Grockbot<00:00:29.920><c> called</c><00:00:30.080><c> Nat,</c><00:00:30.640><c> which</c><00:00:30.880><c> is</c><00:00:30.960><c> this</c><00:00:31.119><c> one</c>
+
+00:00:31.269 --> 00:00:31.279 align:start position:0%
+Grockbot called Nat, which is this one
+ 
+
+00:00:31.279 --> 00:00:33.350 align:start position:0%
+Grockbot called Nat, which is this one
+right<00:00:31.519><c> here,</c><00:00:32.000><c> who</c><00:00:32.239><c> is</c><00:00:32.559><c> cleaning</c><00:00:32.880><c> up</c><00:00:33.040><c> my</c><00:00:33.200><c> actual</c>
+
+00:00:33.350 --> 00:00:33.360 align:start position:0%
+right here, who is cleaning up my actual
+ 
+
+00:00:33.360 --> 00:00:35.590 align:start position:0%
+right here, who is cleaning up my actual
+inbox.<00:00:33.840><c> So,</c><00:00:34.079><c> this</c><00:00:34.239><c> runs</c><00:00:34.480><c> every</c><00:00:34.640><c> day</c><00:00:34.800><c> at</c><00:00:34.960><c> 6:45</c>
+
+00:00:35.590 --> 00:00:35.600 align:start position:0%
+inbox. So, this runs every day at 6:45
+ 
+
+00:00:35.600 --> 00:00:37.670 align:start position:0%
+inbox. So, this runs every day at 6:45
+a.m.<00:00:35.760><c> and</c><00:00:36.000><c> 6:45</c><00:00:36.800><c> p.m.</c><00:00:37.040><c> And</c><00:00:37.200><c> you</c><00:00:37.280><c> can</c><00:00:37.360><c> see</c><00:00:37.440><c> that</c>
+
+00:00:37.670 --> 00:00:37.680 align:start position:0%
+a.m. and 6:45 p.m. And you can see that
+ 
+
+00:00:37.680 --> 00:00:39.590 align:start position:0%
+a.m. and 6:45 p.m. And you can see that
+this<00:00:37.920><c> has</c><00:00:38.160><c> been</c><00:00:38.320><c> running</c><00:00:38.559><c> for</c><00:00:38.719><c> me</c><00:00:39.120><c> for</c><00:00:39.280><c> a</c><00:00:39.440><c> while</c>
+
+00:00:39.590 --> 00:00:39.600 align:start position:0%
+this has been running for me for a while
+ 
+
+00:00:39.600 --> 00:00:41.190 align:start position:0%
+this has been running for me for a while
+now.<00:00:39.920><c> It</c><00:00:40.079><c> basically</c><00:00:40.320><c> just</c><00:00:40.480><c> keeps</c><00:00:40.640><c> my</c><00:00:40.800><c> inbox</c>
+
+00:00:41.190 --> 00:00:41.200 align:start position:0%
+now. It basically just keeps my inbox
+ 
+
+00:00:41.200 --> 00:00:43.030 align:start position:0%
+now. It basically just keeps my inbox
+completely<00:00:41.600><c> clean.</c><00:00:41.920><c> It</c><00:00:42.079><c> marks</c><00:00:42.399><c> things</c><00:00:42.559><c> as</c><00:00:42.800><c> red</c>
+
+00:00:43.030 --> 00:00:43.040 align:start position:0%
+completely clean. It marks things as red
+ 
+
+00:00:43.040 --> 00:00:45.350 align:start position:0%
+completely clean. It marks things as red
+and<00:00:43.280><c> it</c><00:00:43.440><c> organizes</c><00:00:44.160><c> every</c><00:00:44.399><c> single</c><00:00:44.719><c> email</c><00:00:45.040><c> into</c>
+
+00:00:45.350 --> 00:00:45.360 align:start position:0%
+and it organizes every single email into
+ 
+
+00:00:45.360 --> 00:00:48.229 align:start position:0%
+and it organizes every single email into
+either<00:00:45.920><c> newsletters,</c><00:00:46.800><c> outreach,</c><00:00:47.520><c> primary,</c>
+
+00:00:48.229 --> 00:00:48.239 align:start position:0%
+either newsletters, outreach, primary,
+ 
+
+00:00:48.239 --> 00:00:49.910 align:start position:0%
+either newsletters, outreach, primary,
+or<00:00:48.559><c> urgent.</c><00:00:48.960><c> So,</c><00:00:49.200><c> by</c><00:00:49.360><c> the</c><00:00:49.440><c> end</c><00:00:49.520><c> of</c><00:00:49.600><c> this</c><00:00:49.760><c> video,</c>
+
+00:00:49.910 --> 00:00:49.920 align:start position:0%
+or urgent. So, by the end of this video,
+ 
+
+00:00:49.920 --> 00:00:51.029 align:start position:0%
+or urgent. So, by the end of this video,
+you<00:00:50.079><c> will</c><00:00:50.160><c> be</c><00:00:50.239><c> able</c><00:00:50.320><c> to</c><00:00:50.480><c> have</c><00:00:50.559><c> both</c><00:00:50.719><c> of</c><00:00:50.800><c> these</c>
+
+00:00:51.029 --> 00:00:51.039 align:start position:0%
+you will be able to have both of these
+ 
+
+00:00:51.039 --> 00:00:52.229 align:start position:0%
+you will be able to have both of these
+things<00:00:51.200><c> set</c><00:00:51.360><c> up</c><00:00:51.520><c> so</c><00:00:51.680><c> that</c><00:00:51.760><c> you</c><00:00:51.920><c> can</c><00:00:52.000><c> manage</c>
+
+00:00:52.229 --> 00:00:52.239 align:start position:0%
+things set up so that you can manage
+ 
+
+00:00:52.239 --> 00:00:53.510 align:start position:0%
+things set up so that you can manage
+your<00:00:52.320><c> own</c><00:00:52.480><c> inbox</c><00:00:52.800><c> and</c><00:00:52.960><c> you</c><00:00:53.120><c> can</c><00:00:53.199><c> also</c><00:00:53.360><c> give</c>
+
+00:00:53.510 --> 00:00:53.520 align:start position:0%
+your own inbox and you can also give
+ 
+
+00:00:53.520 --> 00:00:54.950 align:start position:0%
+your own inbox and you can also give
+your<00:00:53.680><c> Grockbots</c><00:00:54.239><c> their</c><00:00:54.399><c> own</c><00:00:54.559><c> email</c><00:00:54.800><c> to</c>
+
+00:00:54.950 --> 00:00:54.960 align:start position:0%
+your Grockbots their own email to
+ 
+
+00:00:54.960 --> 00:00:56.389 align:start position:0%
+your Grockbots their own email to
+manage.<00:00:55.360><c> So,</c><00:00:55.520><c> let's</c><00:00:55.680><c> get</c><00:00:55.840><c> straight</c><00:00:56.000><c> into</c><00:00:56.160><c> it.</c>
+
+00:00:56.389 --> 00:00:56.399 align:start position:0%
+manage. So, let's get straight into it.
+ 
+
+00:00:56.399 --> 00:00:57.430 align:start position:0%
+manage. So, let's get straight into it.
+Okay,<00:00:56.559><c> so</c><00:00:56.719><c> first</c><00:00:56.800><c> of</c><00:00:56.879><c> all,</c><00:00:57.039><c> let's</c><00:00:57.199><c> just</c><00:00:57.360><c> start</c>
+
+00:00:57.430 --> 00:00:57.440 align:start position:0%
+Okay, so first of all, let's just start
+ 
+
+00:00:57.440 --> 00:00:59.029 align:start position:0%
+Okay, so first of all, let's just start
+with<00:00:57.600><c> the</c><00:00:57.760><c> super</c><00:00:58.000><c> super</c><00:00:58.320><c> easy</c><00:00:58.559><c> one,</c><00:00:58.719><c> which</c><00:00:58.960><c> is</c>
+
+00:00:59.029 --> 00:00:59.039 align:start position:0%
+with the super super easy one, which is
+ 
+
+00:00:59.039 --> 00:01:00.470 align:start position:0%
+with the super super easy one, which is
+the<00:00:59.199><c> inbox</c><00:00:59.600><c> manager.</c><00:01:00.000><c> You</c><00:01:00.079><c> can</c><00:01:00.160><c> see</c><00:01:00.320><c> I've</c>
+
+00:01:00.470 --> 00:01:00.480 align:start position:0%
+the inbox manager. You can see I've
+ 
+
+00:01:00.480 --> 00:01:02.069 align:start position:0%
+the inbox manager. You can see I've
+named<00:01:00.719><c> this</c><00:01:00.800><c> one</c><00:01:01.039><c> Nat.</c><00:01:01.520><c> And</c><00:01:01.600><c> this</c><00:01:01.760><c> one</c><00:01:01.920><c> took</c>
+
+00:01:02.069 --> 00:01:02.079 align:start position:0%
+named this one Nat. And this one took
+ 
+
+00:01:02.079 --> 00:01:03.590 align:start position:0%
+named this one Nat. And this one took
+almost<00:01:02.320><c> no</c><00:01:02.559><c> time</c><00:01:02.640><c> to</c><00:01:02.879><c> set</c><00:01:02.960><c> up.</c><00:01:03.199><c> As</c><00:01:03.359><c> you</c><00:01:03.520><c> can</c>
+
+00:01:03.590 --> 00:01:03.600 align:start position:0%
+almost no time to set up. As you can
+ 
+
+00:01:03.600 --> 00:01:05.990 align:start position:0%
+almost no time to set up. As you can
+see,<00:01:04.159><c> not</c><00:01:04.400><c> very</c><00:01:04.640><c> long</c><00:01:04.960><c> conversation</c><00:01:05.439><c> at</c><00:01:05.600><c> all.</c>
+
+00:01:05.990 --> 00:01:06.000 align:start position:0%
+see, not very long conversation at all.
+ 
+
+00:01:06.000 --> 00:01:07.429 align:start position:0%
+see, not very long conversation at all.
+I<00:01:06.240><c> created</c><00:01:06.479><c> a</c><00:01:06.640><c> new</c><00:01:06.720><c> bot.</c><00:01:06.960><c> So,</c><00:01:07.040><c> you'd</c><00:01:07.200><c> come</c><00:01:07.280><c> in</c>
+
+00:01:07.429 --> 00:01:07.439 align:start position:0%
+I created a new bot. So, you'd come in
+ 
+
+00:01:07.439 --> 00:01:08.950 align:start position:0%
+I created a new bot. So, you'd come in
+here<00:01:07.520><c> and</c><00:01:07.680><c> click</c><00:01:07.840><c> create</c><00:01:08.080><c> new</c><00:01:08.240><c> bot.</c><00:01:08.720><c> And</c><00:01:08.799><c> then</c>
+
+00:01:08.950 --> 00:01:08.960 align:start position:0%
+here and click create new bot. And then
+ 
+
+00:01:08.960 --> 00:01:09.830 align:start position:0%
+here and click create new bot. And then
+what<00:01:09.119><c> you're</c><00:01:09.200><c> going</c><00:01:09.280><c> to</c><00:01:09.360><c> do</c><00:01:09.439><c> is</c><00:01:09.680><c> just</c>
+
+00:01:09.830 --> 00:01:09.840 align:start position:0%
+what you're going to do is just
+ 
+
+00:01:09.840 --> 00:01:11.670 align:start position:0%
+what you're going to do is just
+basically<00:01:10.400><c> tell</c><00:01:10.640><c> this</c><00:01:10.799><c> bot</c><00:01:11.040><c> what</c><00:01:11.200><c> to</c><00:01:11.280><c> do.</c><00:01:11.520><c> So,</c>
+
+00:01:11.670 --> 00:01:11.680 align:start position:0%
+basically tell this bot what to do. So,
+ 
+
+00:01:11.680 --> 00:01:12.950 align:start position:0%
+basically tell this bot what to do. So,
+this<00:01:11.840><c> was</c><00:01:11.920><c> my</c><00:01:12.080><c> prompt.</c><00:01:12.320><c> I</c><00:01:12.400><c> said,</c><00:01:12.479><c> "Hey,</c><00:01:12.799><c> you</c>
+
+00:01:12.950 --> 00:01:12.960 align:start position:0%
+this was my prompt. I said, "Hey, you
+ 
+
+00:01:12.960 --> 00:01:14.469 align:start position:0%
+this was my prompt. I said, "Hey, you
+are<00:01:13.040><c> my</c><00:01:13.200><c> email</c><00:01:13.439><c> management</c><00:01:13.840><c> agent.</c><00:01:14.240><c> Your</c><00:01:14.400><c> name</c>
+
+00:01:14.469 --> 00:01:14.479 align:start position:0%
+are my email management agent. Your name
+ 
+
+00:01:14.479 --> 00:01:16.230 align:start position:0%
+are my email management agent. Your name
+is<00:01:14.560><c> Natie.</c><00:01:15.119><c> I</c><00:01:15.280><c> need</c><00:01:15.439><c> you</c><00:01:15.520><c> to</c><00:01:15.680><c> help</c><00:01:15.760><c> me</c><00:01:15.920><c> keep</c><00:01:16.080><c> my</c>
+
+00:01:16.230 --> 00:01:16.240 align:start position:0%
+is Natie. I need you to help me keep my
+ 
+
+00:01:16.240 --> 00:01:18.469 align:start position:0%
+is Natie. I need you to help me keep my
+inbox<00:01:16.880><c> clean."</c><00:01:17.360><c> So</c><00:01:17.600><c> what</c><00:01:17.759><c> I'm</c><00:01:17.920><c> thinking</c><00:01:18.080><c> is</c><00:01:18.240><c> I</c>
+
+00:01:18.469 --> 00:01:18.479 align:start position:0%
+inbox clean." So what I'm thinking is I
+ 
+
+00:01:18.479 --> 00:01:19.990 align:start position:0%
+inbox clean." So what I'm thinking is I
+want<00:01:18.799><c> these</c><00:01:19.119><c> different</c><00:01:19.280><c> labels.</c><00:01:19.680><c> I</c><00:01:19.840><c> want</c>
+
+00:01:19.990 --> 00:01:20.000 align:start position:0%
+want these different labels. I want
+ 
+
+00:01:20.000 --> 00:01:22.149 align:start position:0%
+want these different labels. I want
+primary,<00:01:20.720><c> I</c><00:01:20.799><c> want</c><00:01:20.960><c> notifications,</c><00:01:21.840><c> I</c><00:01:22.000><c> want</c>
+
+00:01:22.149 --> 00:01:22.159 align:start position:0%
+primary, I want notifications, I want
+ 
+
+00:01:22.159 --> 00:01:24.149 align:start position:0%
+primary, I want notifications, I want
+outreach,<00:01:22.720><c> and</c><00:01:22.880><c> I</c><00:01:23.040><c> want</c><00:01:23.360><c> urgent.</c><00:01:23.759><c> So</c><00:01:23.840><c> I</c><00:01:24.080><c> was</c>
+
+00:01:24.149 --> 00:01:24.159 align:start position:0%
+outreach, and I want urgent. So I was
+ 
+
+00:01:24.159 --> 00:01:25.190 align:start position:0%
+outreach, and I want urgent. So I was
+basically<00:01:24.320><c> just</c><00:01:24.479><c> telling</c><00:01:24.640><c> it</c><00:01:24.880><c> these</c><00:01:25.040><c> are</c><00:01:25.119><c> kind</c>
+
+00:01:25.190 --> 00:01:25.200 align:start position:0%
+basically just telling it these are kind
+ 
+
+00:01:25.200 --> 00:01:26.710 align:start position:0%
+basically just telling it these are kind
+of<00:01:25.280><c> the</c><00:01:25.439><c> four</c><00:01:25.600><c> categories</c><00:01:26.080><c> and</c><00:01:26.320><c> here</c><00:01:26.560><c> are</c>
+
+00:01:26.710 --> 00:01:26.720 align:start position:0%
+of the four categories and here are
+ 
+
+00:01:26.720 --> 00:01:28.469 align:start position:0%
+of the four categories and here are
+typically<00:01:27.119><c> what</c><00:01:27.360><c> fits</c><00:01:27.520><c> into</c><00:01:27.759><c> each</c><00:01:27.920><c> category.</c>
+
+00:01:28.469 --> 00:01:28.479 align:start position:0%
+typically what fits into each category.
+ 
+
+00:01:28.479 --> 00:01:30.230 align:start position:0%
+typically what fits into each category.
+So<00:01:28.799><c> notifications</c><00:01:29.360><c> are</c><00:01:29.600><c> like</c><00:01:29.759><c> from</c><00:01:29.920><c> my</c><00:01:30.080><c> bank</c>
+
+00:01:30.230 --> 00:01:30.240 align:start position:0%
+So notifications are like from my bank
+ 
+
+00:01:30.240 --> 00:01:32.230 align:start position:0%
+So notifications are like from my bank
+or<00:01:30.479><c> from</c><00:01:30.640><c> services</c><00:01:30.880><c> that</c><00:01:31.119><c> I'm</c><00:01:31.280><c> signed</c><00:01:31.439><c> up</c><00:01:31.600><c> for.</c>
+
+00:01:32.230 --> 00:01:32.240 align:start position:0%
+or from services that I'm signed up for.
+ 
+
+00:01:32.240 --> 00:01:33.670 align:start position:0%
+or from services that I'm signed up for.
+You<00:01:32.400><c> know,</c><00:01:32.720><c> having</c><00:01:32.880><c> all</c><00:01:33.040><c> those</c><00:01:33.200><c> notifications</c>
+
+00:01:33.670 --> 00:01:33.680 align:start position:0%
+You know, having all those notifications
+ 
+
+00:01:33.680 --> 00:01:35.670 align:start position:0%
+You know, having all those notifications
+in<00:01:33.840><c> one</c><00:01:34.079><c> spot.</c><00:01:34.640><c> Outreach</c><00:01:35.040><c> is</c><00:01:35.200><c> when</c><00:01:35.360><c> people</c><00:01:35.520><c> are</c>
+
+00:01:35.670 --> 00:01:35.680 align:start position:0%
+in one spot. Outreach is when people are
+ 
+
+00:01:35.680 --> 00:01:37.190 align:start position:0%
+in one spot. Outreach is when people are
+reaching<00:01:35.920><c> out</c><00:01:36.000><c> to</c><00:01:36.159><c> me</c><00:01:36.320><c> if</c><00:01:36.479><c> they</c><00:01:36.720><c> want</c><00:01:36.880><c> to</c>
+
+00:01:37.190 --> 00:01:37.200 align:start position:0%
+reaching out to me if they want to
+ 
+
+00:01:37.200 --> 00:01:38.630 align:start position:0%
+reaching out to me if they want to
+sponsor<00:01:37.520><c> a</c><00:01:37.680><c> video</c><00:01:37.840><c> or</c><00:01:38.000><c> if</c><00:01:38.159><c> they</c><00:01:38.320><c> want</c><00:01:38.400><c> to</c><00:01:38.560><c> just</c>
+
+00:01:38.630 --> 00:01:38.640 align:start position:0%
+sponsor a video or if they want to just
+ 
+
+00:01:38.640 --> 00:01:40.390 align:start position:0%
+sponsor a video or if they want to just
+like<00:01:38.799><c> pitch</c><00:01:39.040><c> an</c><00:01:39.200><c> idea</c><00:01:39.439><c> or</c><00:01:39.680><c> something.</c><00:01:40.159><c> That's</c>
+
+00:01:40.390 --> 00:01:40.400 align:start position:0%
+like pitch an idea or something. That's
+ 
+
+00:01:40.400 --> 00:01:42.310 align:start position:0%
+like pitch an idea or something. That's
+outreach.<00:01:41.040><c> And</c><00:01:41.280><c> primary</c><00:01:41.600><c> and</c><00:01:41.840><c> urgent</c><00:01:42.079><c> are</c><00:01:42.159><c> the</c>
+
+00:01:42.310 --> 00:01:42.320 align:start position:0%
+outreach. And primary and urgent are the
+ 
+
+00:01:42.320 --> 00:01:43.590 align:start position:0%
+outreach. And primary and urgent are the
+ones<00:01:42.400><c> that</c><00:01:42.560><c> I</c><00:01:42.640><c> mainly</c><00:01:42.880><c> care</c><00:01:43.119><c> to</c><00:01:43.280><c> actually</c><00:01:43.439><c> look</c>
+
+00:01:43.590 --> 00:01:43.600 align:start position:0%
+ones that I mainly care to actually look
+ 
+
+00:01:43.600 --> 00:01:45.910 align:start position:0%
+ones that I mainly care to actually look
+at.<00:01:44.159><c> these</c><00:01:44.560><c> two.</c><00:01:44.960><c> I</c><00:01:45.119><c> said,</c><00:01:45.200><c> "Hey,</c><00:01:45.520><c> just</c><00:01:45.759><c> go</c>
+
+00:01:45.910 --> 00:01:45.920 align:start position:0%
+at. these two. I said, "Hey, just go
+ 
+
+00:01:45.920 --> 00:01:47.749 align:start position:0%
+at. these two. I said, "Hey, just go
+ahead<00:01:46.000><c> and</c><00:01:46.159><c> mark</c><00:01:46.320><c> those</c><00:01:46.560><c> as</c><00:01:46.720><c> red</c><00:01:47.200><c> right</c><00:01:47.439><c> away."</c>
+
+00:01:47.749 --> 00:01:47.759 align:start position:0%
+ahead and mark those as red right away."
+ 
+
+00:01:47.759 --> 00:01:48.789 align:start position:0%
+ahead and mark those as red right away."
+So,<00:01:47.920><c> I</c><00:01:48.079><c> just</c><00:01:48.159><c> want</c><00:01:48.320><c> to</c><00:01:48.399><c> know</c><00:01:48.479><c> if</c><00:01:48.640><c> it's</c>
+
+00:01:48.789 --> 00:01:48.799 align:start position:0%
+So, I just want to know if it's
+ 
+
+00:01:48.799 --> 00:01:49.990 align:start position:0%
+So, I just want to know if it's
+communication<00:01:49.119><c> that</c><00:01:49.360><c> I'm</c><00:01:49.520><c> actively</c><00:01:49.840><c> having</c>
+
+00:01:49.990 --> 00:01:50.000 align:start position:0%
+communication that I'm actively having
+ 
+
+00:01:50.000 --> 00:01:51.350 align:start position:0%
+communication that I'm actively having
+with<00:01:50.240><c> people</c><00:01:50.399><c> or</c><00:01:50.640><c> if</c><00:01:50.799><c> it's</c><00:01:50.960><c> some</c><00:01:51.040><c> sort</c><00:01:51.200><c> of</c>
+
+00:01:51.350 --> 00:01:51.360 align:start position:0%
+with people or if it's some sort of
+ 
+
+00:01:51.360 --> 00:01:52.870 align:start position:0%
+with people or if it's some sort of
+urgent<00:01:51.600><c> bill</c><00:01:51.840><c> or</c><00:01:52.079><c> invoice</c><00:01:52.399><c> or</c><00:01:52.640><c> something</c><00:01:52.720><c> like</c>
+
+00:01:52.870 --> 00:01:52.880 align:start position:0%
+urgent bill or invoice or something like
+ 
+
+00:01:52.880 --> 00:01:54.230 align:start position:0%
+urgent bill or invoice or something like
+that.<00:01:53.200><c> So,</c><00:01:53.360><c> the</c><00:01:53.520><c> first</c><00:01:53.600><c> step</c><00:01:53.759><c> here</c><00:01:53.920><c> is</c><00:01:54.079><c> to</c>
+
+00:01:54.230 --> 00:01:54.240 align:start position:0%
+that. So, the first step here is to
+ 
+
+00:01:54.240 --> 00:01:55.510 align:start position:0%
+that. So, the first step here is to
+really<00:01:54.320><c> just</c><00:01:54.560><c> get</c><00:01:54.640><c> clear</c><00:01:54.880><c> on</c><00:01:55.040><c> your</c><00:01:55.200><c> routing</c>
+
+00:01:55.510 --> 00:01:55.520 align:start position:0%
+really just get clear on your routing
+ 
+
+00:01:55.520 --> 00:01:57.270 align:start position:0%
+really just get clear on your routing
+rules.<00:01:55.840><c> What</c><00:01:56.079><c> do</c><00:01:56.159><c> you</c><00:01:56.240><c> want</c><00:01:56.399><c> to</c><00:01:56.560><c> happen</c><00:01:57.040><c> when</c>
+
+00:01:57.270 --> 00:01:57.280 align:start position:0%
+rules. What do you want to happen when
+ 
+
+00:01:57.280 --> 00:01:58.709 align:start position:0%
+rules. What do you want to happen when
+an<00:01:57.520><c> email</c><00:01:57.759><c> hits</c><00:01:57.920><c> the</c><00:01:58.079><c> inbox?</c><00:01:58.399><c> How</c><00:01:58.479><c> do</c><00:01:58.560><c> you</c><00:01:58.640><c> want</c>
+
+00:01:58.709 --> 00:01:58.719 align:start position:0%
+an email hits the inbox? How do you want
+ 
+
+00:01:58.719 --> 00:02:00.149 align:start position:0%
+an email hits the inbox? How do you want
+it<00:01:58.880><c> to</c><00:01:58.960><c> be</c><00:01:59.040><c> classified?</c><00:01:59.600><c> And</c><00:01:59.840><c> you</c><00:01:59.920><c> can</c><00:02:00.000><c> see</c>
+
+00:02:00.149 --> 00:02:00.159 align:start position:0%
+it to be classified? And you can see
+ 
+
+00:02:00.159 --> 00:02:01.270 align:start position:0%
+it to be classified? And you can see
+here<00:02:00.320><c> what</c><00:02:00.399><c> it</c><00:02:00.560><c> did</c><00:02:00.640><c> is</c><00:02:00.799><c> it</c><00:02:00.880><c> said,</c><00:02:00.960><c> "Okay,</c>
+
+00:02:01.270 --> 00:02:01.280 align:start position:0%
+here what it did is it said, "Okay,
+ 
+
+00:02:01.280 --> 00:02:02.630 align:start position:0%
+here what it did is it said, "Okay,
+actually,<00:02:01.439><c> I</c><00:02:01.600><c> want</c><00:02:01.680><c> to</c><00:02:01.759><c> add</c><00:02:02.000><c> newsletters</c><00:02:02.479><c> as</c>
+
+00:02:02.630 --> 00:02:02.640 align:start position:0%
+actually, I want to add newsletters as
+ 
+
+00:02:02.640 --> 00:02:04.310 align:start position:0%
+actually, I want to add newsletters as
+well<00:02:02.799><c> because</c><00:02:03.040><c> you</c><00:02:03.200><c> do</c><00:02:03.360><c> get</c><00:02:03.520><c> quite</c><00:02:03.759><c> a</c><00:02:03.920><c> few</c>
+
+00:02:04.310 --> 00:02:04.320 align:start position:0%
+well because you do get quite a few
+ 
+
+00:02:04.320 --> 00:02:05.830 align:start position:0%
+well because you do get quite a few
+newsletters."<00:02:04.880><c> So,</c><00:02:04.960><c> I</c><00:02:05.119><c> said,</c><00:02:05.200><c> "Yep,</c><00:02:05.600><c> let's</c><00:02:05.759><c> do</c>
+
+00:02:05.830 --> 00:02:05.840 align:start position:0%
+newsletters." So, I said, "Yep, let's do
+ 
+
+00:02:05.840 --> 00:02:07.510 align:start position:0%
+newsletters." So, I said, "Yep, let's do
+that."<00:02:06.320><c> It</c><00:02:06.479><c> locked</c><00:02:06.719><c> it</c><00:02:06.880><c> in.</c><00:02:07.040><c> And</c><00:02:07.200><c> then</c><00:02:07.360><c> all</c><00:02:07.439><c> you</c>
+
+00:02:07.510 --> 00:02:07.520 align:start position:0%
+that." It locked it in. And then all you
+ 
+
+00:02:07.520 --> 00:02:08.710 align:start position:0%
+that." It locked it in. And then all you
+have<00:02:07.600><c> to</c><00:02:07.680><c> do</c><00:02:07.759><c> from</c><00:02:07.840><c> there</c><00:02:08.000><c> is</c><00:02:08.160><c> just</c><00:02:08.319><c> add</c><00:02:08.479><c> your</c>
+
+00:02:08.710 --> 00:02:08.720 align:start position:0%
+have to do from there is just add your
+ 
+
+00:02:08.720 --> 00:02:10.469 align:start position:0%
+have to do from there is just add your
+actual<00:02:09.280><c> account.</c><00:02:09.679><c> So</c><00:02:09.840><c> whether</c><00:02:10.080><c> that's</c><00:02:10.239><c> Gmail</c>
+
+00:02:10.469 --> 00:02:10.479 align:start position:0%
+actual account. So whether that's Gmail
+ 
+
+00:02:10.479 --> 00:02:12.309 align:start position:0%
+actual account. So whether that's Gmail
+or<00:02:10.640><c> Outlook</c><00:02:10.959><c> or</c><00:02:11.200><c> whatever</c><00:02:11.360><c> it</c><00:02:11.520><c> is,</c><00:02:11.920><c> go</c><00:02:12.080><c> to</c><00:02:12.239><c> the</c>
+
+00:02:12.309 --> 00:02:12.319 align:start position:0%
+or Outlook or whatever it is, go to the
+ 
+
+00:02:12.319 --> 00:02:13.830 align:start position:0%
+or Outlook or whatever it is, go to the
+marketplace<00:02:12.720><c> and</c><00:02:12.879><c> then</c><00:02:13.040><c> just</c><00:02:13.280><c> search</c><00:02:13.440><c> for</c><00:02:13.599><c> it.</c>
+
+00:02:13.830 --> 00:02:13.840 align:start position:0%
+marketplace and then just search for it.
+ 
+
+00:02:13.840 --> 00:02:15.670 align:start position:0%
+marketplace and then just search for it.
+If<00:02:14.000><c> it's</c><00:02:14.160><c> Gmail,</c><00:02:14.560><c> you</c><00:02:14.720><c> can</c><00:02:14.800><c> add</c><00:02:14.959><c> one</c><00:02:15.120><c> here.</c><00:02:15.520><c> And</c>
+
+00:02:15.670 --> 00:02:15.680 align:start position:0%
+If it's Gmail, you can add one here. And
+ 
+
+00:02:15.680 --> 00:02:17.030 align:start position:0%
+If it's Gmail, you can add one here. And
+you<00:02:15.840><c> can</c><00:02:15.920><c> also</c><00:02:16.080><c> add</c><00:02:16.239><c> multiple</c><00:02:16.560><c> accounts.</c><00:02:16.879><c> So</c>
+
+00:02:17.030 --> 00:02:17.040 align:start position:0%
+you can also add multiple accounts. So
+ 
+
+00:02:17.040 --> 00:02:18.229 align:start position:0%
+you can also add multiple accounts. So
+if<00:02:17.120><c> you</c><00:02:17.280><c> have</c><00:02:17.360><c> different</c><00:02:17.520><c> inboxes</c><00:02:18.000><c> you</c><00:02:18.160><c> want</c>
+
+00:02:18.229 --> 00:02:18.239 align:start position:0%
+if you have different inboxes you want
+ 
+
+00:02:18.239 --> 00:02:19.830 align:start position:0%
+if you have different inboxes you want
+to<00:02:18.400><c> manage,</c><00:02:18.800><c> you</c><00:02:18.959><c> can</c><00:02:19.120><c> add</c><00:02:19.280><c> all</c><00:02:19.360><c> of</c><00:02:19.520><c> them.</c><00:02:19.680><c> Just</c>
+
+00:02:19.830 --> 00:02:19.840 align:start position:0%
+to manage, you can add all of them. Just
+ 
+
+00:02:19.840 --> 00:02:21.270 align:start position:0%
+to manage, you can add all of them. Just
+make<00:02:19.920><c> sure</c><00:02:20.080><c> you're</c><00:02:20.160><c> giving</c><00:02:20.319><c> them</c><00:02:20.480><c> a</c><00:02:20.640><c> label.</c><00:02:21.120><c> So</c>
+
+00:02:21.270 --> 00:02:21.280 align:start position:0%
+make sure you're giving them a label. So
+ 
+
+00:02:21.280 --> 00:02:23.750 align:start position:0%
+make sure you're giving them a label. So
+I<00:02:21.440><c> should</c><00:02:21.599><c> probably</c><00:02:21.760><c> label</c><00:02:22.000><c> this</c><00:02:22.239><c> one</c><00:02:23.200><c> Nate</c>
+
+00:02:23.750 --> 00:02:23.760 align:start position:0%
+I should probably label this one Nate
+ 
+
+00:02:23.760 --> 00:02:25.589 align:start position:0%
+I should probably label this one Nate
+Maine.<00:02:24.480><c> And</c><00:02:24.560><c> then</c><00:02:24.720><c> if</c><00:02:24.879><c> I</c><00:02:25.040><c> wanted</c><00:02:25.200><c> to</c><00:02:25.280><c> add</c><00:02:25.440><c> other</c>
+
+00:02:25.589 --> 00:02:25.599 align:start position:0%
+Maine. And then if I wanted to add other
+ 
+
+00:02:25.599 --> 00:02:27.110 align:start position:0%
+Maine. And then if I wanted to add other
+inboxes,<00:02:26.080><c> I</c><00:02:26.239><c> could</c><00:02:26.400><c> add</c><00:02:26.480><c> those</c><00:02:26.640><c> as</c><00:02:26.800><c> well</c><00:02:26.959><c> and</c>
+
+00:02:27.110 --> 00:02:27.120 align:start position:0%
+inboxes, I could add those as well and
+ 
+
+00:02:27.120 --> 00:02:28.630 align:start position:0%
+inboxes, I could add those as well and
+set<00:02:27.280><c> up</c><00:02:27.440><c> different</c><00:02:27.599><c> agents</c><00:02:27.920><c> to</c><00:02:28.080><c> manage</c><00:02:28.400><c> the</c>
+
+00:02:28.630 --> 00:02:28.640 align:start position:0%
+set up different agents to manage the
+ 
+
+00:02:28.640 --> 00:02:30.390 align:start position:0%
+set up different agents to manage the
+different<00:02:28.800><c> inboxes.</c><00:02:29.520><c> And</c><00:02:29.599><c> the</c><00:02:29.760><c> cool</c><00:02:30.000><c> part</c><00:02:30.080><c> is,</c>
+
+00:02:30.390 --> 00:02:30.400 align:start position:0%
+different inboxes. And the cool part is,
+ 
+
+00:02:30.400 --> 00:02:31.670 align:start position:0%
+different inboxes. And the cool part is,
+of<00:02:30.560><c> course,</c><00:02:30.800><c> you</c><00:02:30.959><c> can</c><00:02:31.120><c> have</c><00:02:31.280><c> every</c><00:02:31.520><c> one</c><00:02:31.599><c> of</c>
+
+00:02:31.670 --> 00:02:31.680 align:start position:0%
+of course, you can have every one of
+ 
+
+00:02:31.680 --> 00:02:33.430 align:start position:0%
+of course, you can have every one of
+these<00:02:31.920><c> wakeups</c><00:02:32.560><c> message</c><00:02:32.879><c> you.</c><00:02:33.120><c> So,</c><00:02:33.280><c> I</c><00:02:33.360><c> said,</c>
+
+00:02:33.430 --> 00:02:33.440 align:start position:0%
+these wakeups message you. So, I said,
+ 
+
+00:02:33.440 --> 00:02:35.430 align:start position:0%
+these wakeups message you. So, I said,
+"What<00:02:33.680><c> I</c><00:02:33.760><c> want</c><00:02:33.920><c> you</c><00:02:34.000><c> to</c><00:02:34.160><c> do</c><00:02:34.560><c> is</c><00:02:34.879><c> do</c><00:02:35.040><c> this</c><00:02:35.200><c> twice</c>
+
+00:02:35.430 --> 00:02:35.440 align:start position:0%
+"What I want you to do is do this twice
+ 
+
+00:02:35.440 --> 00:02:37.750 align:start position:0%
+"What I want you to do is do this twice
+a<00:02:35.599><c> day</c><00:02:35.760><c> and</c><00:02:35.920><c> then</c><00:02:36.160><c> send</c><00:02:36.319><c> me</c><00:02:36.400><c> a</c><00:02:36.560><c> ClickUp</c><00:02:36.959><c> DM</c><00:02:37.519><c> so</c>
+
+00:02:37.750 --> 00:02:37.760 align:start position:0%
+a day and then send me a ClickUp DM so
+ 
+
+00:02:37.760 --> 00:02:38.869 align:start position:0%
+a day and then send me a ClickUp DM so
+that<00:02:37.840><c> I</c><00:02:38.000><c> can</c><00:02:38.160><c> actually</c><00:02:38.319><c> just</c><00:02:38.480><c> get</c><00:02:38.560><c> a</c><00:02:38.720><c> quick</c>
+
+00:02:38.869 --> 00:02:38.879 align:start position:0%
+that I can actually just get a quick
+ 
+
+00:02:38.879 --> 00:02:40.390 align:start position:0%
+that I can actually just get a quick
+notification<00:02:39.200><c> on</c><00:02:39.360><c> my</c><00:02:39.519><c> phone</c><00:02:39.680><c> that,</c><00:02:39.920><c> hey,</c><00:02:40.239><c> you</c>
+
+00:02:40.390 --> 00:02:40.400 align:start position:0%
+notification on my phone that, hey, you
+ 
+
+00:02:40.400 --> 00:02:41.990 align:start position:0%
+notification on my phone that, hey, you
+know,<00:02:40.560><c> this</c><00:02:40.800><c> email</c><00:02:41.040><c> came</c><00:02:41.280><c> through.</c><00:02:41.599><c> Here's</c>
+
+00:02:41.990 --> 00:02:42.000 align:start position:0%
+know, this email came through. Here's
+ 
+
+00:02:42.000 --> 00:02:43.110 align:start position:0%
+know, this email came through. Here's
+urgent<00:02:42.239><c> ones.</c><00:02:42.560><c> Here's</c><00:02:42.720><c> what</c><00:02:42.800><c> you</c><00:02:42.959><c> should</c>
+
+00:02:43.110 --> 00:02:43.120 align:start position:0%
+urgent ones. Here's what you should
+ 
+
+00:02:43.120 --> 00:02:44.949 align:start position:0%
+urgent ones. Here's what you should
+probably<00:02:43.280><c> respond</c><00:02:43.599><c> to,</c><00:02:44.319><c> blah</c><00:02:44.560><c> blah</c><00:02:44.800><c> blah."</c>
+
+00:02:44.949 --> 00:02:44.959 align:start position:0%
+probably respond to, blah blah blah."
+ 
+
+00:02:44.959 --> 00:02:46.390 align:start position:0%
+probably respond to, blah blah blah."
+And<00:02:45.120><c> that's</c><00:02:45.360><c> super</c><00:02:45.519><c> simple.</c><00:02:45.760><c> It</c><00:02:46.000><c> created</c><00:02:46.160><c> the</c>
+
+00:02:46.390 --> 00:02:46.400 align:start position:0%
+And that's super simple. It created the
+ 
+
+00:02:46.400 --> 00:02:48.550 align:start position:0%
+And that's super simple. It created the
+routine<00:02:46.800><c> and</c><00:02:47.040><c> now</c><00:02:47.200><c> I</c><00:02:47.360><c> can</c><00:02:47.519><c> just</c><00:02:47.680><c> see</c><00:02:48.239><c> exactly</c>
+
+00:02:48.550 --> 00:02:48.560 align:start position:0%
+routine and now I can just see exactly
+ 
+
+00:02:48.560 --> 00:02:49.750 align:start position:0%
+routine and now I can just see exactly
+what<00:02:48.720><c> it's</c><00:02:48.879><c> supposed</c><00:02:48.959><c> to</c><00:02:49.120><c> do.</c><00:02:49.280><c> It</c><00:02:49.440><c> labels</c>
+
+00:02:49.750 --> 00:02:49.760 align:start position:0%
+what it's supposed to do. It labels
+ 
+
+00:02:49.760 --> 00:02:51.190 align:start position:0%
+what it's supposed to do. It labels
+them.<00:02:50.000><c> It</c><00:02:50.160><c> doesn't</c><00:02:50.319><c> draft</c><00:02:50.640><c> anything</c><00:02:50.800><c> for</c><00:02:50.959><c> me.</c>
+
+00:02:51.190 --> 00:02:51.200 align:start position:0%
+them. It doesn't draft anything for me.
+ 
+
+00:02:51.200 --> 00:02:53.110 align:start position:0%
+them. It doesn't draft anything for me.
+It<00:02:51.360><c> literally</c><00:02:51.519><c> just</c><00:02:51.760><c> labels</c><00:02:52.319><c> and</c><00:02:52.640><c> marks</c><00:02:52.879><c> as</c>
+
+00:02:53.110 --> 00:02:53.120 align:start position:0%
+It literally just labels and marks as
+ 
+
+00:02:53.120 --> 00:02:54.710 align:start position:0%
+It literally just labels and marks as
+red<00:02:53.440><c> and</c><00:02:53.760><c> stuff</c><00:02:53.920><c> like</c><00:02:54.000><c> that.</c><00:02:54.239><c> And</c><00:02:54.400><c> now</c><00:02:54.480><c> I</c><00:02:54.640><c> can</c>
+
+00:02:54.710 --> 00:02:54.720 align:start position:0%
+red and stuff like that. And now I can
+ 
+
+00:02:54.720 --> 00:02:56.309 align:start position:0%
+red and stuff like that. And now I can
+see<00:02:54.879><c> every</c><00:02:55.040><c> time</c><00:02:55.120><c> it</c><00:02:55.360><c> runs</c><00:02:55.680><c> and</c><00:02:55.920><c> I</c><00:02:56.080><c> get</c><00:02:56.160><c> a</c>
+
+00:02:56.309 --> 00:02:56.319 align:start position:0%
+see every time it runs and I get a
+ 
+
+00:02:56.319 --> 00:02:58.949 align:start position:0%
+see every time it runs and I get a
+ClickUp<00:02:56.800><c> message</c><00:02:57.440><c> in</c><00:02:57.760><c> my</c><00:02:58.080><c> ClickUp.</c><00:02:58.720><c> And</c><00:02:58.879><c> I</c>
+
+00:02:58.949 --> 00:02:58.959 align:start position:0%
+ClickUp message in my ClickUp. And I
+ 
+
+00:02:58.959 --> 00:03:00.309 align:start position:0%
+ClickUp message in my ClickUp. And I
+also<00:02:59.200><c> told</c><00:02:59.360><c> it</c><00:02:59.519><c> to</c><00:02:59.599><c> add</c><00:02:59.680><c> a</c><00:02:59.840><c> label</c><00:03:00.080><c> to</c><00:03:00.160><c> the</c>
+
+00:03:00.309 --> 00:03:00.319 align:start position:0%
+also told it to add a label to the
+ 
+
+00:03:00.319 --> 00:03:01.509 align:start position:0%
+also told it to add a label to the
+bottom<00:03:00.400><c> of</c><00:03:00.560><c> the</c><00:03:00.640><c> ClickUp</c><00:03:00.959><c> message</c><00:03:01.120><c> that</c><00:03:01.360><c> says</c>
+
+00:03:01.509 --> 00:03:01.519 align:start position:0%
+bottom of the ClickUp message that says
+ 
+
+00:03:01.519 --> 00:03:03.270 align:start position:0%
+bottom of the ClickUp message that says
+sent<00:03:01.760><c> by</c><00:03:02.000><c> Nat.</c><00:03:02.400><c> So</c><00:03:02.640><c> yeah,</c><00:03:02.800><c> this</c><00:03:02.879><c> one's</c><00:03:03.120><c> super</c>
+
+00:03:03.270 --> 00:03:03.280 align:start position:0%
+sent by Nat. So yeah, this one's super
+ 
+
+00:03:03.280 --> 00:03:04.949 align:start position:0%
+sent by Nat. So yeah, this one's super
+super<00:03:03.519><c> simple.</c><00:03:03.840><c> It's</c><00:03:04.000><c> so</c><00:03:04.239><c> easy</c><00:03:04.400><c> to</c><00:03:04.560><c> set</c><00:03:04.720><c> up.</c>
+
+00:03:04.949 --> 00:03:04.959 align:start position:0%
+super simple. It's so easy to set up.
+ 
+
+00:03:04.959 --> 00:03:06.630 align:start position:0%
+super simple. It's so easy to set up.
+Literally<00:03:05.280><c> will</c><00:03:05.440><c> take</c><00:03:05.599><c> you</c><00:03:05.760><c> 5</c><00:03:05.920><c> to</c><00:03:06.159><c> 10</c><00:03:06.319><c> minutes.</c>
+
+00:03:06.630 --> 00:03:06.640 align:start position:0%
+Literally will take you 5 to 10 minutes.
+ 
+
+00:03:06.640 --> 00:03:08.790 align:start position:0%
+Literally will take you 5 to 10 minutes.
+So<00:03:06.959><c> go</c><00:03:07.200><c> get</c><00:03:07.280><c> this</c><00:03:07.519><c> set</c><00:03:07.599><c> up</c><00:03:07.760><c> and</c><00:03:08.000><c> then</c><00:03:08.480><c> let</c><00:03:08.640><c> me</c>
+
+00:03:08.790 --> 00:03:08.800 align:start position:0%
+So go get this set up and then let me
+ 
+
+00:03:08.800 --> 00:03:10.790 align:start position:0%
+So go get this set up and then let me
+show<00:03:08.879><c> you</c><00:03:09.120><c> how</c><00:03:09.599><c> we</c><00:03:09.840><c> actually</c><00:03:10.000><c> give</c><00:03:10.080><c> a</c><00:03:10.239><c> Crockpot</c>
+
+00:03:10.790 --> 00:03:10.800 align:start position:0%
+show you how we actually give a Crockpot
+ 
+
+00:03:10.800 --> 00:03:12.470 align:start position:0%
+show you how we actually give a Crockpot
+their<00:03:10.959><c> own</c><00:03:11.200><c> email</c><00:03:11.519><c> to</c><00:03:11.680><c> wake</c><00:03:11.920><c> up</c><00:03:12.080><c> to.</c><00:03:12.480><c> All</c>
+
+00:03:12.470 --> 00:03:12.480 align:start position:0%
+their own email to wake up to. All
+ 
+
+00:03:12.480 --> 00:03:13.910 align:start position:0%
+their own email to wake up to. All
+right,<00:03:12.720><c> guys.</c><00:03:12.879><c> Real</c><00:03:13.120><c> quick,</c><00:03:13.360><c> huge</c><00:03:13.599><c> thanks</c><00:03:13.760><c> to</c>
+
+00:03:13.910 --> 00:03:13.920 align:start position:0%
+right, guys. Real quick, huge thanks to
+ 
+
+00:03:13.920 --> 00:03:15.270 align:start position:0%
+right, guys. Real quick, huge thanks to
+Clay<00:03:14.159><c> for</c><00:03:14.319><c> sponsoring</c><00:03:14.640><c> this</c><00:03:14.800><c> part</c><00:03:14.959><c> of</c><00:03:15.120><c> the</c>
+
+00:03:15.270 --> 00:03:15.280 align:start position:0%
+Clay for sponsoring this part of the
+ 
+
+00:03:15.280 --> 00:03:16.710 align:start position:0%
+Clay for sponsoring this part of the
+video.<00:03:15.680><c> Now,</c><00:03:15.920><c> one</c><00:03:16.080><c> of</c><00:03:16.159><c> the</c><00:03:16.319><c> most</c><00:03:16.480><c> common</c>
+
+00:03:16.710 --> 00:03:16.720 align:start position:0%
+video. Now, one of the most common
+ 
+
+00:03:16.720 --> 00:03:18.309 align:start position:0%
+video. Now, one of the most common
+questions<00:03:16.959><c> I</c><00:03:17.200><c> get</c><00:03:17.440><c> is</c><00:03:17.680><c> where</c><00:03:17.920><c> to</c><00:03:18.159><c> actually</c>
+
+00:03:18.309 --> 00:03:18.319 align:start position:0%
+questions I get is where to actually
+ 
+
+00:03:18.319 --> 00:03:20.390 align:start position:0%
+questions I get is where to actually
+find<00:03:18.560><c> leads</c><00:03:18.879><c> for</c><00:03:19.040><c> cold</c><00:03:19.280><c> outreach</c><00:03:19.760><c> and</c><00:03:20.000><c> how</c><00:03:20.239><c> to</c>
+
+00:03:20.390 --> 00:03:20.400 align:start position:0%
+find leads for cold outreach and how to
+ 
+
+00:03:20.400 --> 00:03:22.070 align:start position:0%
+find leads for cold outreach and how to
+learn<00:03:20.640><c> enough</c><00:03:20.879><c> about</c><00:03:21.120><c> these</c><00:03:21.440><c> people</c><00:03:21.680><c> to</c><00:03:21.920><c> send</c>
+
+00:03:22.070 --> 00:03:22.080 align:start position:0%
+learn enough about these people to send
+ 
+
+00:03:22.080 --> 00:03:23.110 align:start position:0%
+learn enough about these people to send
+them<00:03:22.239><c> something</c><00:03:22.400><c> that</c><00:03:22.560><c> they'll</c><00:03:22.800><c> actually</c>
+
+00:03:23.110 --> 00:03:23.120 align:start position:0%
+them something that they'll actually
+ 
+
+00:03:23.120 --> 00:03:25.030 align:start position:0%
+them something that they'll actually
+open.<00:03:23.760><c> Because</c><00:03:24.000><c> a</c><00:03:24.159><c> raw</c><00:03:24.400><c> list</c><00:03:24.560><c> of</c><00:03:24.720><c> names</c>
+
+00:03:25.030 --> 00:03:25.040 align:start position:0%
+open. Because a raw list of names
+ 
+
+00:03:25.040 --> 00:03:26.470 align:start position:0%
+open. Because a raw list of names
+doesn't<00:03:25.280><c> tell</c><00:03:25.360><c> you</c><00:03:25.599><c> things</c><00:03:25.760><c> like</c><00:03:26.080><c> if</c><00:03:26.319><c> they</c>
+
+00:03:26.470 --> 00:03:26.480 align:start position:0%
+doesn't tell you things like if they
+ 
+
+00:03:26.480 --> 00:03:28.149 align:start position:0%
+doesn't tell you things like if they
+have<00:03:26.640><c> decision-making</c><00:03:27.280><c> authority</c><00:03:27.760><c> and</c><00:03:28.000><c> how</c>
+
+00:03:28.149 --> 00:03:28.159 align:start position:0%
+have decision-making authority and how
+ 
+
+00:03:28.159 --> 00:03:29.750 align:start position:0%
+have decision-making authority and how
+to<00:03:28.239><c> reach</c><00:03:28.480><c> them</c><00:03:28.720><c> or</c><00:03:28.959><c> what</c><00:03:29.200><c> they</c><00:03:29.360><c> even</c><00:03:29.519><c> care</c>
+
+00:03:29.750 --> 00:03:29.760 align:start position:0%
+to reach them or what they even care
+ 
+
+00:03:29.760 --> 00:03:32.149 align:start position:0%
+to reach them or what they even care
+about.<00:03:30.480><c> So,</c><00:03:30.720><c> Clay</c><00:03:31.040><c> is</c><00:03:31.200><c> a</c><00:03:31.360><c> data</c><00:03:31.599><c> enrichment</c><00:03:31.920><c> and</c>
+
+00:03:32.149 --> 00:03:32.159 align:start position:0%
+about. So, Clay is a data enrichment and
+ 
+
+00:03:32.159 --> 00:03:33.830 align:start position:0%
+about. So, Clay is a data enrichment and
+orchestration<00:03:32.720><c> platform.</c><00:03:33.280><c> And</c><00:03:33.440><c> it</c><00:03:33.599><c> gives</c><00:03:33.680><c> you</c>
+
+00:03:33.830 --> 00:03:33.840 align:start position:0%
+orchestration platform. And it gives you
+ 
+
+00:03:33.840 --> 00:03:36.550 align:start position:0%
+orchestration platform. And it gives you
+access<00:03:34.080><c> to</c><00:03:34.239><c> over</c><00:03:34.480><c> 250</c><00:03:35.200><c> data</c><00:03:35.519><c> providers</c><00:03:36.000><c> and</c><00:03:36.239><c> AI</c>
+
+00:03:36.550 --> 00:03:36.560 align:start position:0%
+access to over 250 data providers and AI
+ 
+
+00:03:36.560 --> 00:03:38.710 align:start position:0%
+access to over 250 data providers and AI
+research<00:03:36.879><c> tools</c><00:03:37.280><c> all</c><00:03:37.519><c> in</c><00:03:37.760><c> one</c><00:03:38.000><c> spot.</c><00:03:38.480><c> So,</c>
+
+00:03:38.710 --> 00:03:38.720 align:start position:0%
+research tools all in one spot. So,
+ 
+
+00:03:38.720 --> 00:03:40.229 align:start position:0%
+research tools all in one spot. So,
+instead<00:03:39.040><c> of</c><00:03:39.200><c> asking</c><00:03:39.440><c> your</c><00:03:39.599><c> agent</c><00:03:39.840><c> to</c><00:03:39.920><c> dig</c><00:03:40.080><c> up</c>
+
+00:03:40.229 --> 00:03:40.239 align:start position:0%
+instead of asking your agent to dig up
+ 
+
+00:03:40.239 --> 00:03:41.750 align:start position:0%
+instead of asking your agent to dig up
+whatever<00:03:40.480><c> it</c><00:03:40.720><c> can</c><00:03:40.799><c> find</c><00:03:40.959><c> online,</c><00:03:41.519><c> you</c><00:03:41.680><c> can</c>
+
+00:03:41.750 --> 00:03:41.760 align:start position:0%
+whatever it can find online, you can
+ 
+
+00:03:41.760 --> 00:03:43.670 align:start position:0%
+whatever it can find online, you can
+research<00:03:42.080><c> a</c><00:03:42.319><c> whole</c><00:03:42.480><c> list</c><00:03:42.640><c> at</c><00:03:42.879><c> once</c><00:03:43.200><c> and</c><00:03:43.440><c> pull</c>
+
+00:03:43.670 --> 00:03:43.680 align:start position:0%
+research a whole list at once and pull
+ 
+
+00:03:43.680 --> 00:03:45.509 align:start position:0%
+research a whole list at once and pull
+the<00:03:43.840><c> right</c><00:03:44.000><c> person</c><00:03:44.239><c> to</c><00:03:44.480><c> contact,</c><00:03:45.040><c> their</c><00:03:45.280><c> work</c>
+
+00:03:45.509 --> 00:03:45.519 align:start position:0%
+the right person to contact, their work
+ 
+
+00:03:45.519 --> 00:03:46.949 align:start position:0%
+the right person to contact, their work
+email,<00:03:45.840><c> and</c><00:03:46.080><c> the</c><00:03:46.239><c> size</c><00:03:46.400><c> of</c><00:03:46.480><c> their</c><00:03:46.720><c> company.</c>
+
+00:03:46.949 --> 00:03:46.959 align:start position:0%
+email, and the size of their company.
+ 
+
+00:03:46.959 --> 00:03:48.630 align:start position:0%
+email, and the size of their company.
+And<00:03:47.120><c> if</c><00:03:47.280><c> one</c><00:03:47.440><c> provider</c><00:03:47.840><c> comes</c><00:03:48.000><c> back</c><00:03:48.159><c> empty,</c>
+
+00:03:48.630 --> 00:03:48.640 align:start position:0%
+And if one provider comes back empty,
+ 
+
+00:03:48.640 --> 00:03:50.070 align:start position:0%
+And if one provider comes back empty,
+Clay<00:03:48.959><c> just</c><00:03:49.120><c> moves</c><00:03:49.280><c> down</c><00:03:49.440><c> the</c><00:03:49.599><c> list</c><00:03:49.760><c> to</c><00:03:49.920><c> the</c>
+
+00:03:50.070 --> 00:03:50.080 align:start position:0%
+Clay just moves down the list to the
+ 
+
+00:03:50.080 --> 00:03:52.149 align:start position:0%
+Clay just moves down the list to the
+next<00:03:50.159><c> one</c><00:03:50.319><c> until</c><00:03:50.640><c> it</c><00:03:50.799><c> gets</c><00:03:50.959><c> you</c><00:03:51.040><c> a</c><00:03:51.280><c> result.</c><00:03:51.920><c> And</c>
+
+00:03:52.149 --> 00:03:52.159 align:start position:0%
+next one until it gets you a result. And
+ 
+
+00:03:52.159 --> 00:03:53.589 align:start position:0%
+next one until it gets you a result. And
+what's<00:03:52.480><c> really</c><00:03:52.640><c> cool</c><00:03:52.720><c> is</c><00:03:52.959><c> the</c><00:03:53.120><c> logic</c><00:03:53.360><c> you</c>
+
+00:03:53.589 --> 00:03:53.599 align:start position:0%
+what's really cool is the logic you
+ 
+
+00:03:53.599 --> 00:03:55.350 align:start position:0%
+what's really cool is the logic you
+build<00:03:53.840><c> stays</c><00:03:54.080><c> attached</c><00:03:54.480><c> to</c><00:03:54.640><c> your</c><00:03:54.879><c> data.</c><00:03:55.200><c> So,</c>
+
+00:03:55.350 --> 00:03:55.360 align:start position:0%
+build stays attached to your data. So,
+ 
+
+00:03:55.360 --> 00:03:57.110 align:start position:0%
+build stays attached to your data. So,
+the<00:03:55.519><c> same</c><00:03:55.680><c> steps</c><00:03:55.920><c> can</c><00:03:56.080><c> be</c><00:03:56.239><c> run</c><00:03:56.560><c> again</c><00:03:56.879><c> and</c>
+
+00:03:57.110 --> 00:03:57.120 align:start position:0%
+the same steps can be run again and
+ 
+
+00:03:57.120 --> 00:03:59.110 align:start position:0%
+the same steps can be run again and
+again<00:03:57.280><c> on</c><00:03:57.519><c> every</c><00:03:57.760><c> new</c><00:03:57.920><c> lead</c><00:03:58.159><c> that</c><00:03:58.319><c> you</c><00:03:58.480><c> add.</c>
+
+00:03:59.110 --> 00:03:59.120 align:start position:0%
+again on every new lead that you add.
+ 
+
+00:03:59.120 --> 00:04:00.630 align:start position:0%
+again on every new lead that you add.
+And<00:03:59.360><c> you</c><00:03:59.519><c> can</c><00:03:59.599><c> see</c><00:03:59.680><c> each</c><00:03:59.920><c> step</c><00:04:00.080><c> that</c><00:04:00.239><c> it</c><00:04:00.400><c> took,</c>
+
+00:04:00.630 --> 00:04:00.640 align:start position:0%
+And you can see each step that it took,
+ 
+
+00:04:00.640 --> 00:04:02.390 align:start position:0%
+And you can see each step that it took,
+like<00:04:00.799><c> which</c><00:04:01.120><c> provider</c><00:04:01.599><c> every</c><00:04:01.840><c> value</c><00:04:02.159><c> came</c>
+
+00:04:02.390 --> 00:04:02.400 align:start position:0%
+like which provider every value came
+ 
+
+00:04:02.400 --> 00:04:04.710 align:start position:0%
+like which provider every value came
+from<00:04:02.640><c> and</c><00:04:02.959><c> what</c><00:04:03.120><c> it</c><00:04:03.280><c> cost</c><00:04:03.599><c> you.</c><00:04:04.239><c> You</c><00:04:04.400><c> can</c><00:04:04.480><c> build</c>
+
+00:04:04.710 --> 00:04:04.720 align:start position:0%
+from and what it cost you. You can build
+ 
+
+00:04:04.720 --> 00:04:05.910 align:start position:0%
+from and what it cost you. You can build
+all<00:04:04.799><c> of</c><00:04:04.959><c> this</c><00:04:05.040><c> from</c><00:04:05.200><c> cloud</c><00:04:05.519><c> code</c><00:04:05.680><c> with</c><00:04:05.840><c> the</c>
+
+00:04:05.910 --> 00:04:05.920 align:start position:0%
+all of this from cloud code with the
+ 
+
+00:04:05.920 --> 00:04:07.830 align:start position:0%
+all of this from cloud code with the
+Clay<00:04:06.159><c> CLI,</c><00:04:06.720><c> which</c><00:04:06.959><c> is</c><00:04:07.040><c> what</c><00:04:07.200><c> I'm</c><00:04:07.439><c> doing</c><00:04:07.599><c> right</c>
+
+00:04:07.830 --> 00:04:07.840 align:start position:0%
+Clay CLI, which is what I'm doing right
+ 
+
+00:04:07.840 --> 00:04:09.830 align:start position:0%
+Clay CLI, which is what I'm doing right
+here.<00:04:08.239><c> So</c><00:04:08.480><c> try</c><00:04:08.640><c> Clay</c><00:04:08.959><c> using</c><00:04:09.200><c> the</c><00:04:09.360><c> link</c><00:04:09.519><c> in</c><00:04:09.680><c> the</c>
+
+00:04:09.830 --> 00:04:09.840 align:start position:0%
+here. So try Clay using the link in the
+ 
+
+00:04:09.840 --> 00:04:11.429 align:start position:0%
+here. So try Clay using the link in the
+description<00:04:10.080><c> and</c><00:04:10.239><c> you'll</c><00:04:10.480><c> get</c><00:04:10.640><c> 2,000</c><00:04:11.200><c> free</c>
+
+00:04:11.429 --> 00:04:11.439 align:start position:0%
+description and you'll get 2,000 free
+ 
+
+00:04:11.439 --> 00:04:12.789 align:start position:0%
+description and you'll get 2,000 free
+credits.<00:04:12.000><c> Now,</c><00:04:12.159><c> let's</c><00:04:12.319><c> get</c><00:04:12.480><c> back</c><00:04:12.560><c> to</c><00:04:12.640><c> the</c>
+
+00:04:12.789 --> 00:04:12.799 align:start position:0%
+credits. Now, let's get back to the
+ 
+
+00:04:12.799 --> 00:04:14.309 align:start position:0%
+credits. Now, let's get back to the
+video.<00:04:12.959><c> So</c><00:04:13.120><c> the</c><00:04:13.280><c> way</c><00:04:13.360><c> we</c><00:04:13.519><c> do</c><00:04:13.599><c> this</c><00:04:13.680><c> is</c><00:04:13.840><c> we</c><00:04:14.000><c> use</c><00:04:14.080><c> a</c>
+
+00:04:14.309 --> 00:04:14.319 align:start position:0%
+video. So the way we do this is we use a
+ 
+
+00:04:14.319 --> 00:04:16.310 align:start position:0%
+video. So the way we do this is we use a
+service<00:04:14.560><c> called</c><00:04:15.439><c> Agent</c><00:04:15.760><c> Mail</c><00:04:15.920><c> and</c><00:04:16.160><c> it's</c>
+
+00:04:16.310 --> 00:04:16.320 align:start position:0%
+service called Agent Mail and it's
+ 
+
+00:04:16.320 --> 00:04:17.909 align:start position:0%
+service called Agent Mail and it's
+completely<00:04:16.560><c> free</c><00:04:16.720><c> to</c><00:04:16.959><c> start</c><00:04:17.280><c> if</c><00:04:17.519><c> you</c><00:04:17.600><c> want</c><00:04:17.759><c> to</c>
+
+00:04:17.909 --> 00:04:17.919 align:start position:0%
+completely free to start if you want to
+ 
+
+00:04:17.919 --> 00:04:19.909 align:start position:0%
+completely free to start if you want to
+just<00:04:18.400><c> create</c><00:04:18.639><c> an</c><00:04:18.799><c> account</c><00:04:19.040><c> here</c><00:04:19.199><c> and</c><00:04:19.519><c> log</c><00:04:19.680><c> in</c>
+
+00:04:19.909 --> 00:04:19.919 align:start position:0%
+just create an account here and log in
+ 
+
+00:04:19.919 --> 00:04:21.670 align:start position:0%
+just create an account here and log in
+and<00:04:20.160><c> then</c><00:04:20.479><c> I'll</c><00:04:20.720><c> show</c><00:04:20.799><c> you</c><00:04:20.880><c> what</c><00:04:21.040><c> to</c><00:04:21.199><c> do</c><00:04:21.359><c> next.</c>
+
+00:04:21.670 --> 00:04:21.680 align:start position:0%
+and then I'll show you what to do next.
+ 
+
+00:04:21.680 --> 00:04:22.870 align:start position:0%
+and then I'll show you what to do next.
+So<00:04:21.840><c> you</c><00:04:21.919><c> can</c><00:04:22.000><c> see</c><00:04:22.160><c> here</c><00:04:22.320><c> right</c><00:04:22.479><c> away</c><00:04:22.639><c> the</c>
+
+00:04:22.870 --> 00:04:22.880 align:start position:0%
+So you can see here right away the
+ 
+
+00:04:22.880 --> 00:04:24.550 align:start position:0%
+So you can see here right away the
+dashboard<00:04:23.280><c> shows</c><00:04:23.520><c> us</c><00:04:23.759><c> basically</c><00:04:24.080><c> like</c><00:04:24.320><c> some</c>
+
+00:04:24.550 --> 00:04:24.560 align:start position:0%
+dashboard shows us basically like some
+ 
+
+00:04:24.560 --> 00:04:26.550 align:start position:0%
+dashboard shows us basically like some
+email<00:04:24.800><c> deliverability</c><00:04:25.440><c> stats.</c><00:04:25.919><c> So,</c><00:04:26.240><c> this</c><00:04:26.479><c> is</c>
+
+00:04:26.550 --> 00:04:26.560 align:start position:0%
+email deliverability stats. So, this is
+ 
+
+00:04:26.560 --> 00:04:28.710 align:start position:0%
+email deliverability stats. So, this is
+how<00:04:26.720><c> many</c><00:04:27.040><c> our</c><00:04:27.199><c> Grockbot</c><00:04:27.759><c> has</c><00:04:27.919><c> sent</c><00:04:28.320><c> and</c>
+
+00:04:28.710 --> 00:04:28.720 align:start position:0%
+how many our Grockbot has sent and
+ 
+
+00:04:28.720 --> 00:04:31.030 align:start position:0%
+how many our Grockbot has sent and
+received<00:04:29.520><c> right</c><00:04:29.759><c> here.</c><00:04:30.400><c> Now,</c><00:04:30.639><c> what</c><00:04:30.880><c> you're</c>
+
+00:04:31.030 --> 00:04:31.040 align:start position:0%
+received right here. Now, what you're
+ 
+
+00:04:31.040 --> 00:04:31.830 align:start position:0%
+received right here. Now, what you're
+going to<00:04:31.120><c> do</c><00:04:31.280><c> is</c><00:04:31.360><c> you're</c><00:04:31.520><c> going</c><00:04:31.600><c> to</c><00:04:31.680><c> go</c><00:04:31.759><c> to</c>
+
+00:04:31.830 --> 00:04:31.840 align:start position:0%
+going to do is you're going to go to
+ 
+
+00:04:31.840 --> 00:04:33.430 align:start position:0%
+going to do is you're going to go to
+inboxes,<00:04:32.400><c> and</c><00:04:32.560><c> you</c><00:04:32.639><c> can</c><00:04:32.800><c> see</c><00:04:32.960><c> this</c><00:04:33.120><c> is</c><00:04:33.199><c> the</c>
+
+00:04:33.430 --> 00:04:33.440 align:start position:0%
+inboxes, and you can see this is the
+ 
+
+00:04:33.440 --> 00:04:35.830 align:start position:0%
+inboxes, and you can see this is the
+email<00:04:33.759><c> that</c><00:04:34.560><c> this</c><00:04:34.960><c> Grockbot</c><00:04:35.440><c> is</c><00:04:35.600><c> connected</c>
+
+00:04:35.830 --> 00:04:35.840 align:start position:0%
+email that this Grockbot is connected
+ 
+
+00:04:35.840 --> 00:04:37.350 align:start position:0%
+email that this Grockbot is connected
+to.<00:04:36.080><c> His</c><00:04:36.240><c> name</c><00:04:36.320><c> is</c><00:04:36.479><c> Bull</c><00:04:36.720><c> the</c><00:04:36.880><c> Trading</c><00:04:37.120><c> Bot</c>
+
+00:04:37.350 --> 00:04:37.360 align:start position:0%
+to. His name is Bull the Trading Bot
+ 
+
+00:04:37.360 --> 00:04:39.270 align:start position:0%
+to. His name is Bull the Trading Bot
+from<00:04:37.520><c> when</c><00:04:37.600><c> I</c><00:04:37.759><c> did</c><00:04:37.840><c> the</c><00:04:38.000><c> trading</c><00:04:38.560><c> challenge</c>
+
+00:04:39.270 --> 00:04:39.280 align:start position:0%
+from when I did the trading challenge
+ 
+
+00:04:39.280 --> 00:04:40.950 align:start position:0%
+from when I did the trading challenge
+previously.<00:04:40.000><c> But</c><00:04:40.160><c> on</c><00:04:40.320><c> this</c><00:04:40.479><c> free</c><00:04:40.639><c> plan,</c><00:04:40.880><c> you</c>
+
+00:04:40.950 --> 00:04:40.960 align:start position:0%
+previously. But on this free plan, you
+ 
+
+00:04:40.960 --> 00:04:41.990 align:start position:0%
+previously. But on this free plan, you
+can<00:04:41.040><c> see</c><00:04:41.120><c> that</c><00:04:41.280><c> it</c><00:04:41.440><c> says</c><00:04:41.600><c> I</c><00:04:41.759><c> have</c><00:04:41.840><c> two</c>
+
+00:04:41.990 --> 00:04:42.000 align:start position:0%
+can see that it says I have two
+ 
+
+00:04:42.000 --> 00:04:43.670 align:start position:0%
+can see that it says I have two
+remaining<00:04:42.320><c> emails,</c><00:04:42.960><c> which</c><00:04:43.120><c> means</c><00:04:43.280><c> I</c><00:04:43.440><c> can</c><00:04:43.520><c> make</c>
+
+00:04:43.670 --> 00:04:43.680 align:start position:0%
+remaining emails, which means I can make
+ 
+
+00:04:43.680 --> 00:04:44.950 align:start position:0%
+remaining emails, which means I can make
+one<00:04:43.840><c> more</c><00:04:44.080><c> right</c><00:04:44.240><c> now</c><00:04:44.320><c> to</c><00:04:44.479><c> show</c><00:04:44.560><c> you</c><00:04:44.639><c> guys.</c><00:04:44.800><c> So,</c>
+
+00:04:44.950 --> 00:04:44.960 align:start position:0%
+one more right now to show you guys. So,
+ 
+
+00:04:44.960 --> 00:04:45.830 align:start position:0%
+one more right now to show you guys. So,
+what<00:04:45.040><c> I'm</c><00:04:45.120><c> going</c><00:04:45.120><c> to</c><00:04:45.199><c> do</c><00:04:45.360><c> is</c><00:04:45.440><c> click</c><00:04:45.520><c> on</c><00:04:45.680><c> create</c>
+
+00:04:45.830 --> 00:04:45.840 align:start position:0%
+what I'm going to do is click on create
+ 
+
+00:04:45.840 --> 00:04:47.430 align:start position:0%
+what I'm going to do is click on create
+inbox.<00:04:46.320><c> This</c><00:04:46.479><c> username</c><00:04:46.880><c> right</c><00:04:47.040><c> here</c><00:04:47.120><c> is</c><00:04:47.280><c> just</c>
+
+00:04:47.430 --> 00:04:47.440 align:start position:0%
+inbox. This username right here is just
+ 
+
+00:04:47.440 --> 00:04:48.790 align:start position:0%
+inbox. This username right here is just
+going<00:04:47.520><c> to</c><00:04:47.600><c> be</c><00:04:47.759><c> YouTube</c><00:04:48.160><c> and</c><00:04:48.320><c> it's</c><00:04:48.560><c> going</c><00:04:48.560><c> to</c><00:04:48.639><c> go</c>
+
+00:04:48.790 --> 00:04:48.800 align:start position:0%
+going to be YouTube and it's going to go
+ 
+
+00:04:48.800 --> 00:04:50.870 align:start position:0%
+going to be YouTube and it's going to go
+to<00:04:48.960><c> an</c><00:04:49.120><c> agentmail.to</c>
+
+00:04:50.870 --> 00:04:50.880 align:start position:0%
+to an agentmail.to
+ 
+
+00:04:50.880 --> 00:04:52.710 align:start position:0%
+to an agentmail.to
+default<00:04:51.440><c> domain.</c><00:04:52.000><c> You</c><00:04:52.160><c> could</c><00:04:52.320><c> connect</c><00:04:52.560><c> this</c>
+
+00:04:52.710 --> 00:04:52.720 align:start position:0%
+default domain. You could connect this
+ 
+
+00:04:52.720 --> 00:04:53.909 align:start position:0%
+default domain. You could connect this
+to<00:04:52.880><c> something</c><00:04:53.040><c> custom</c><00:04:53.360><c> if</c><00:04:53.520><c> you'd</c><00:04:53.680><c> like</c><00:04:53.759><c> to,</c>
+
+00:04:53.909 --> 00:04:53.919 align:start position:0%
+to something custom if you'd like to,
+ 
+
+00:04:53.919 --> 00:04:54.950 align:start position:0%
+to something custom if you'd like to,
+but<00:04:54.080><c> right</c><00:04:54.240><c> now</c><00:04:54.320><c> I'm</c><00:04:54.479><c> just</c><00:04:54.560><c> going</c><00:04:54.639><c> to</c><00:04:54.720><c> leave</c><00:04:54.800><c> it</c>
+
+00:04:54.950 --> 00:04:54.960 align:start position:0%
+but right now I'm just going to leave it
+ 
+
+00:04:54.960 --> 00:04:56.710 align:start position:0%
+but right now I'm just going to leave it
+as<00:04:55.280><c> the</c><00:04:55.600><c> default.</c><00:04:56.160><c> And</c><00:04:56.240><c> then</c><00:04:56.400><c> I'm</c><00:04:56.560><c> just</c><00:04:56.639><c> going</c>
+
+00:04:56.710 --> 00:04:56.720 align:start position:0%
+as the default. And then I'm just going
+ 
+
+00:04:56.720 --> 00:04:58.310 align:start position:0%
+as the default. And then I'm just going
+to<00:04:56.800><c> go</c><00:04:56.880><c> ahead</c><00:04:57.040><c> and</c><00:04:57.199><c> create</c><00:04:57.360><c> this</c><00:04:57.520><c> inbox.</c><00:04:58.160><c> Okay,</c>
+
+00:04:58.310 --> 00:04:58.320 align:start position:0%
+to go ahead and create this inbox. Okay,
+ 
+
+00:04:58.320 --> 00:04:59.909 align:start position:0%
+to go ahead and create this inbox. Okay,
+I<00:04:58.479><c> had</c><00:04:58.639><c> to</c><00:04:58.720><c> change</c><00:04:58.880><c> the</c><00:04:59.040><c> name</c><00:04:59.199><c> to</c><00:04:59.360><c> YouTube</c><00:04:59.680><c> test</c>
+
+00:04:59.909 --> 00:04:59.919 align:start position:0%
+I had to change the name to YouTube test
+ 
+
+00:04:59.919 --> 00:05:01.990 align:start position:0%
+I had to change the name to YouTube test
+because<00:05:00.160><c> it</c><00:05:00.320><c> said</c><00:05:00.400><c> that</c><00:05:00.639><c> YouTube</c><00:05:01.040><c> was</c><00:05:01.520><c> taken.</c>
+
+00:05:01.990 --> 00:05:02.000 align:start position:0%
+because it said that YouTube was taken.
+ 
+
+00:05:02.000 --> 00:05:03.909 align:start position:0%
+because it said that YouTube was taken.
+So<00:05:02.160><c> now</c><00:05:02.320><c> we</c><00:05:02.479><c> have</c><00:05:02.639><c> this.</c><00:05:03.280><c> Now</c><00:05:03.520><c> what's</c><00:05:03.759><c> going</c><00:05:03.840><c> to</c>
+
+00:05:03.909 --> 00:05:03.919 align:start position:0%
+So now we have this. Now what's going to
+ 
+
+00:05:03.919 --> 00:05:05.189 align:start position:0%
+So now we have this. Now what's going to
+happen<00:05:04.080><c> here</c><00:05:04.240><c> is</c><00:05:04.479><c> we</c><00:05:04.639><c> can</c><00:05:04.800><c> actually</c><00:05:04.960><c> see</c><00:05:05.040><c> the</c>
+
+00:05:05.189 --> 00:05:05.199 align:start position:0%
+happen here is we can actually see the
+ 
+
+00:05:05.199 --> 00:05:06.870 align:start position:0%
+happen here is we can actually see the
+inbox.<00:05:05.600><c> So</c><00:05:05.680><c> I</c><00:05:05.840><c> can</c><00:05:06.000><c> see</c><00:05:06.080><c> all</c><00:05:06.160><c> the</c><00:05:06.320><c> emails</c><00:05:06.560><c> and</c><00:05:06.720><c> I</c>
+
+00:05:06.870 --> 00:05:06.880 align:start position:0%
+inbox. So I can see all the emails and I
+ 
+
+00:05:06.880 --> 00:05:08.310 align:start position:0%
+inbox. So I can see all the emails and I
+could<00:05:06.960><c> respond</c><00:05:07.199><c> to</c><00:05:07.280><c> them</c><00:05:07.440><c> in</c><00:05:07.600><c> here.</c><00:05:07.919><c> So</c><00:05:08.000><c> if</c><00:05:08.160><c> I</c>
+
+00:05:08.310 --> 00:05:08.320 align:start position:0%
+could respond to them in here. So if I
+ 
+
+00:05:08.320 --> 00:05:09.350 align:start position:0%
+could respond to them in here. So if I
+actually<00:05:08.479><c> want</c><00:05:08.560><c> to</c><00:05:08.639><c> go</c><00:05:08.800><c> back</c><00:05:08.960><c> to</c><00:05:09.039><c> my</c><00:05:09.199><c> other</c>
+
+00:05:09.350 --> 00:05:09.360 align:start position:0%
+actually want to go back to my other
+ 
+
+00:05:09.360 --> 00:05:11.510 align:start position:0%
+actually want to go back to my other
+inbox,<00:05:10.400><c> you</c><00:05:10.560><c> can</c><00:05:10.720><c> see</c><00:05:10.800><c> that</c><00:05:10.960><c> I</c><00:05:11.120><c> can</c><00:05:11.199><c> see</c><00:05:11.360><c> all</c>
+
+00:05:11.510 --> 00:05:11.520 align:start position:0%
+inbox, you can see that I can see all
+ 
+
+00:05:11.520 --> 00:05:13.510 align:start position:0%
+inbox, you can see that I can see all
+the<00:05:11.680><c> messages</c><00:05:12.000><c> that</c><00:05:12.240><c> are</c><00:05:12.400><c> coming</c><00:05:12.560><c> from</c><00:05:13.199><c> my</c>
+
+00:05:13.510 --> 00:05:13.520 align:start position:0%
+the messages that are coming from my
+ 
+
+00:05:13.520 --> 00:05:15.510 align:start position:0%
+the messages that are coming from my
+other<00:05:13.759><c> email</c><00:05:14.080><c> account</c><00:05:14.560><c> that's</c><00:05:14.880><c> sending</c>
+
+00:05:15.510 --> 00:05:15.520 align:start position:0%
+other email account that's sending
+ 
+
+00:05:15.520 --> 00:05:17.189 align:start position:0%
+other email account that's sending
+messages<00:05:15.919><c> to</c><00:05:16.160><c> Crockbot.</c><00:05:16.800><c> Now</c><00:05:16.960><c> you're</c><00:05:17.120><c> going</c>
+
+00:05:17.189 --> 00:05:17.199 align:start position:0%
+messages to Crockbot. Now you're going
+ 
+
+00:05:17.199 --> 00:05:18.629 align:start position:0%
+messages to Crockbot. Now you're going
+to<00:05:17.280><c> go</c><00:05:17.360><c> back</c><00:05:17.440><c> into</c><00:05:17.680><c> Crockbot.</c><00:05:18.400><c> You're</c><00:05:18.560><c> going</c>
+
+00:05:18.629 --> 00:05:18.639 align:start position:0%
+to go back into Crockbot. You're going
+ 
+
+00:05:18.639 --> 00:05:19.749 align:start position:0%
+to go back into Crockbot. You're going
+to<00:05:18.720><c> go</c><00:05:18.800><c> to</c><00:05:18.880><c> the</c><00:05:18.960><c> marketplace</c><00:05:19.360><c> and</c><00:05:19.600><c> you're</c>
+
+00:05:19.749 --> 00:05:19.759 align:start position:0%
+to go to the marketplace and you're
+ 
+
+00:05:19.759 --> 00:05:21.510 align:start position:0%
+to go to the marketplace and you're
+going<00:05:19.919><c> to</c><00:05:20.080><c> connect</c><00:05:20.400><c> agent</c><00:05:20.800><c> mail,</c><00:05:21.039><c> which</c><00:05:21.280><c> is</c><00:05:21.360><c> a</c>
+
+00:05:21.510 --> 00:05:21.520 align:start position:0%
+going to connect agent mail, which is a
+ 
+
+00:05:21.520 --> 00:05:22.710 align:start position:0%
+going to connect agent mail, which is a
+native<00:05:21.840><c> connector</c><00:05:22.160><c> in</c><00:05:22.320><c> here,</c><00:05:22.400><c> which</c><00:05:22.639><c> is</c>
+
+00:05:22.710 --> 00:05:22.720 align:start position:0%
+native connector in here, which is
+ 
+
+00:05:22.720 --> 00:05:24.629 align:start position:0%
+native connector in here, which is
+awesome.<00:05:23.199><c> You'll</c><00:05:23.440><c> click</c><00:05:23.600><c> on</c><00:05:23.759><c> agent</c><00:05:24.080><c> mail</c><00:05:24.479><c> and</c>
+
+00:05:24.629 --> 00:05:24.639 align:start position:0%
+awesome. You'll click on agent mail and
+ 
+
+00:05:24.639 --> 00:05:25.990 align:start position:0%
+awesome. You'll click on agent mail and
+you'll<00:05:24.880><c> go</c><00:05:24.960><c> ahead</c><00:05:25.120><c> and</c><00:05:25.280><c> add</c><00:05:25.360><c> an</c><00:05:25.600><c> account.</c><00:05:25.840><c> I</c>
+
+00:05:25.990 --> 00:05:26.000 align:start position:0%
+you'll go ahead and add an account. I
+ 
+
+00:05:26.000 --> 00:05:27.110 align:start position:0%
+you'll go ahead and add an account. I
+obviously<00:05:26.240><c> have</c><00:05:26.400><c> one</c><00:05:26.560><c> here,</c><00:05:26.720><c> so</c><00:05:26.880><c> I'm</c><00:05:26.960><c> just</c>
+
+00:05:27.110 --> 00:05:27.120 align:start position:0%
+obviously have one here, so I'm just
+ 
+
+00:05:27.120 --> 00:05:29.830 align:start position:0%
+obviously have one here, so I'm just
+going<00:05:27.199><c> to</c><00:05:27.280><c> call</c><00:05:27.360><c> this</c><00:05:27.600><c> one</c><00:05:28.479><c> bull.</c><00:05:29.440><c> But</c><00:05:29.520><c> then</c><00:05:29.680><c> if</c>
+
+00:05:29.830 --> 00:05:29.840 align:start position:0%
+going to call this one bull. But then if
+ 
+
+00:05:29.840 --> 00:05:30.710 align:start position:0%
+going to call this one bull. But then if
+you<00:05:29.919><c> don't</c><00:05:30.000><c> have</c><00:05:30.160><c> one,</c><00:05:30.320><c> you</c><00:05:30.400><c> will</c><00:05:30.560><c> go</c><00:05:30.639><c> ahead</c>
+
+00:05:30.710 --> 00:05:30.720 align:start position:0%
+you don't have one, you will go ahead
+ 
+
+00:05:30.720 --> 00:05:31.749 align:start position:0%
+you don't have one, you will go ahead
+and<00:05:30.800><c> add</c><00:05:30.960><c> an</c><00:05:31.120><c> account.</c><00:05:31.360><c> I'm</c><00:05:31.520><c> just</c><00:05:31.680><c> going</c><00:05:31.680><c> to</c>
+
+00:05:31.749 --> 00:05:31.759 align:start position:0%
+and add an account. I'm just going to
+ 
+
+00:05:31.759 --> 00:05:33.270 align:start position:0%
+and add an account. I'm just going to
+call<00:05:31.919><c> this</c><00:05:32.080><c> the</c><00:05:32.400><c> test.</c><00:05:32.880><c> And</c><00:05:33.039><c> then</c><00:05:33.199><c> you're</c>
+
+00:05:33.270 --> 00:05:33.280 align:start position:0%
+call this the test. And then you're
+ 
+
+00:05:33.280 --> 00:05:34.390 align:start position:0%
+call this the test. And then you're
+going<00:05:33.360><c> to</c><00:05:33.520><c> authorize.</c><00:05:34.000><c> And</c><00:05:34.160><c> when</c><00:05:34.320><c> you</c>
+
+00:05:34.390 --> 00:05:34.400 align:start position:0%
+going to authorize. And when you
+ 
+
+00:05:34.400 --> 00:05:36.070 align:start position:0%
+going to authorize. And when you
+authorize,<00:05:35.120><c> this</c><00:05:35.280><c> will</c><00:05:35.440><c> basically</c><00:05:35.680><c> just</c><00:05:35.840><c> pull</c>
+
+00:05:36.070 --> 00:05:36.080 align:start position:0%
+authorize, this will basically just pull
+ 
+
+00:05:36.080 --> 00:05:38.629 align:start position:0%
+authorize, this will basically just pull
+in<00:05:36.240><c> the</c><00:05:36.400><c> ability</c><00:05:36.639><c> for</c><00:05:36.880><c> you</c><00:05:37.120><c> to</c><00:05:37.840><c> log</c><00:05:38.080><c> in.</c><00:05:38.400><c> So</c><00:05:38.479><c> I'm</c>
+
+00:05:38.629 --> 00:05:38.639 align:start position:0%
+in the ability for you to log in. So I'm
+ 
+
+00:05:38.639 --> 00:05:40.310 align:start position:0%
+in the ability for you to log in. So I'm
+going<00:05:38.720><c> to</c><00:05:38.800><c> click</c><00:05:39.039><c> allow.</c><00:05:39.680><c> And</c><00:05:39.840><c> then</c><00:05:40.000><c> it</c>
+
+00:05:40.310 --> 00:05:40.320 align:start position:0%
+going to click allow. And then it
+ 
+
+00:05:40.320 --> 00:05:42.710 align:start position:0%
+going to click allow. And then it
+completely<00:05:40.720><c> connects</c><00:05:41.039><c> to</c><00:05:41.600><c> your</c><00:05:42.080><c> agent</c><00:05:42.400><c> mail.</c>
+
+00:05:42.710 --> 00:05:42.720 align:start position:0%
+completely connects to your agent mail.
+ 
+
+00:05:42.720 --> 00:05:45.189 align:start position:0%
+completely connects to your agent mail.
+Okay.<00:05:42.880><c> So</c><00:05:43.039><c> now</c><00:05:43.199><c> we</c><00:05:43.360><c> have</c><00:05:43.520><c> connected</c><00:05:43.919><c> to</c><00:05:44.400><c> test.</c>
+
+00:05:45.189 --> 00:05:45.199 align:start position:0%
+Okay. So now we have connected to test.
+ 
+
+00:05:45.199 --> 00:05:46.790 align:start position:0%
+Okay. So now we have connected to test.
+We<00:05:45.360><c> are</c><00:05:45.440><c> going</c><00:05:45.520><c> to</c><00:05:45.600><c> go</c><00:05:45.759><c> ahead</c><00:05:46.000><c> and</c><00:05:46.320><c> create</c><00:05:46.560><c> a</c>
+
+00:05:46.790 --> 00:05:46.800 align:start position:0%
+We are going to go ahead and create a
+ 
+
+00:05:46.800 --> 00:05:48.230 align:start position:0%
+We are going to go ahead and create a
+new<00:05:47.039><c> agent.</c><00:05:47.440><c> So,</c><00:05:47.600><c> I'm</c><00:05:47.680><c> going</c><00:05:47.759><c> to</c><00:05:47.840><c> create</c><00:05:47.919><c> a</c><00:05:48.080><c> new</c>
+
+00:05:48.230 --> 00:05:48.240 align:start position:0%
+new agent. So, I'm going to create a new
+ 
+
+00:05:48.240 --> 00:05:51.350 align:start position:0%
+new agent. So, I'm going to create a new
+bot.<00:05:48.880><c> I'm</c><00:05:49.199><c> just</c><00:05:49.280><c> going</c><00:05:49.360><c> to</c><00:05:49.520><c> say,</c>
+
+00:05:51.350 --> 00:05:51.360 align:start position:0%
+bot. I'm just going to say,
+ 
+
+00:05:51.360 --> 00:05:54.870 align:start position:0%
+bot. I'm just going to say,
+"Hey,<00:05:51.919><c> you</c><00:05:52.160><c> are</c><00:05:53.520><c> Stephanie.</c><00:05:54.240><c> You</c><00:05:54.400><c> are</c><00:05:54.639><c> my</c>
+
+00:05:54.870 --> 00:05:54.880 align:start position:0%
+"Hey, you are Stephanie. You are my
+ 
+
+00:05:54.880 --> 00:05:56.870 align:start position:0%
+"Hey, you are Stephanie. You are my
+assistant.<00:05:55.759><c> Just</c><00:05:56.000><c> hold</c><00:05:56.240><c> tight</c><00:05:56.400><c> and</c><00:05:56.560><c> I'll</c><00:05:56.800><c> tell</c>
+
+00:05:56.870 --> 00:05:56.880 align:start position:0%
+assistant. Just hold tight and I'll tell
+ 
+
+00:05:56.880 --> 00:05:59.670 align:start position:0%
+assistant. Just hold tight and I'll tell
+you<00:05:57.039><c> what</c><00:05:57.280><c> you</c><00:05:57.440><c> need</c><00:05:57.520><c> to</c><00:05:57.680><c> do."</c><00:05:58.639><c> So,</c><00:05:59.360><c> random</c>
+
+00:05:59.670 --> 00:05:59.680 align:start position:0%
+you what you need to do." So, random
+ 
+
+00:05:59.680 --> 00:06:02.070 align:start position:0%
+you what you need to do." So, random
+prompt,<00:06:00.000><c> threw</c><00:06:00.160><c> that</c><00:06:00.320><c> off.</c><00:06:00.960><c> And</c><00:06:01.680><c> what</c><00:06:01.919><c> we're</c>
+
+00:06:02.070 --> 00:06:02.080 align:start position:0%
+prompt, threw that off. And what we're
+ 
+
+00:06:02.080 --> 00:06:03.270 align:start position:0%
+prompt, threw that off. And what we're
+going to<00:06:02.160><c> do</c><00:06:02.320><c> now</c><00:06:02.400><c> is</c><00:06:02.560><c> we</c><00:06:02.720><c> need</c><00:06:02.800><c> to</c><00:06:02.960><c> set</c><00:06:03.039><c> up</c><00:06:03.120><c> a</c>
+
+00:06:03.270 --> 00:06:03.280 align:start position:0%
+going to do now is we need to set up a
+ 
+
+00:06:03.280 --> 00:06:05.029 align:start position:0%
+going to do now is we need to set up a
+routine.<00:06:04.000><c> So,</c><00:06:04.240><c> we</c><00:06:04.479><c> need</c><00:06:04.560><c> to</c><00:06:04.720><c> actually</c><00:06:04.880><c> tell</c>
+
+00:06:05.029 --> 00:06:05.039 align:start position:0%
+routine. So, we need to actually tell
+ 
+
+00:06:05.039 --> 00:06:07.110 align:start position:0%
+routine. So, we need to actually tell
+it,<00:06:05.199><c> "Okay,</c><00:06:05.520><c> you</c><00:06:05.759><c> wake</c><00:06:05.919><c> up</c><00:06:06.479><c> when</c><00:06:06.720><c> you</c><00:06:06.880><c> receive</c>
+
+00:06:07.110 --> 00:06:07.120 align:start position:0%
+it, "Okay, you wake up when you receive
+ 
+
+00:06:07.120 --> 00:06:08.390 align:start position:0%
+it, "Okay, you wake up when you receive
+emails."<00:06:07.520><c> So,</c><00:06:07.600><c> I'm</c><00:06:07.759><c> going</c><00:06:07.840><c> to</c><00:06:07.919><c> say,</c><00:06:08.160><c> "All</c>
+
+00:06:08.390 --> 00:06:08.400 align:start position:0%
+emails." So, I'm going to say, "All
+ 
+
+00:06:08.400 --> 00:06:10.309 align:start position:0%
+emails." So, I'm going to say, "All
+right,<00:06:08.639><c> Stephanie,</c><00:06:09.199><c> your</c><00:06:09.520><c> job</c><00:06:09.680><c> is</c><00:06:09.840><c> to</c><00:06:10.080><c> respond</c>
+
+00:06:10.309 --> 00:06:10.319 align:start position:0%
+right, Stephanie, your job is to respond
+ 
+
+00:06:10.319 --> 00:06:12.550 align:start position:0%
+right, Stephanie, your job is to respond
+to<00:06:10.560><c> emails,</c><00:06:11.600><c> and</c><00:06:11.919><c> you're</c><00:06:12.160><c> kind</c><00:06:12.240><c> of</c><00:06:12.319><c> like</c>
+
+00:06:12.550 --> 00:06:12.560 align:start position:0%
+to emails, and you're kind of like
+ 
+
+00:06:12.560 --> 00:06:13.909 align:start position:0%
+to emails, and you're kind of like
+Nate's<00:06:12.880><c> assistant.</c><00:06:13.280><c> So,</c><00:06:13.440><c> I'm</c><00:06:13.600><c> going</c><00:06:13.680><c> to</c><00:06:13.759><c> give</c>
+
+00:06:13.909 --> 00:06:13.919 align:start position:0%
+Nate's assistant. So, I'm going to give
+ 
+
+00:06:13.919 --> 00:06:16.790 align:start position:0%
+Nate's assistant. So, I'm going to give
+you<00:06:14.000><c> an</c><00:06:14.240><c> email</c><00:06:14.560><c> address,</c><00:06:15.600><c> and</c><00:06:16.400><c> that's</c><00:06:16.639><c> how</c>
+
+00:06:16.790 --> 00:06:16.800 align:start position:0%
+you an email address, and that's how
+ 
+
+00:06:16.800 --> 00:06:17.749 align:start position:0%
+you an email address, and that's how
+you're<00:06:16.960><c> going</c><00:06:17.039><c> to</c><00:06:17.120><c> respond.</c><00:06:17.440><c> It's</c><00:06:17.600><c> going</c><00:06:17.680><c> to</c>
+
+00:06:17.749 --> 00:06:17.759 align:start position:0%
+you're going to respond. It's going to
+ 
+
+00:06:17.759 --> 00:06:19.189 align:start position:0%
+you're going to respond. It's going to
+be<00:06:17.840><c> connected</c><00:06:18.160><c> through</c><00:06:18.319><c> agent</c><00:06:18.720><c> mail,</c><00:06:19.039><c> and</c>
+
+00:06:19.189 --> 00:06:19.199 align:start position:0%
+be connected through agent mail, and
+ 
+
+00:06:19.199 --> 00:06:21.350 align:start position:0%
+be connected through agent mail, and
+you're<00:06:19.360><c> going</c><00:06:19.440><c> to</c><00:06:19.520><c> use</c><00:06:19.680><c> the</c><00:06:19.840><c> agent</c><00:06:20.240><c> mail</c><00:06:21.199><c> um</c>
+
+00:06:21.350 --> 00:06:21.360 align:start position:0%
+you're going to use the agent mail um
+ 
+
+00:06:21.360 --> 00:06:23.670 align:start position:0%
+you're going to use the agent mail um
+credential<00:06:21.759><c> that</c><00:06:21.919><c> I</c><00:06:22.160><c> just</c><00:06:22.319><c> connected.</c><00:06:23.199><c> Now,</c>
+
+00:06:23.670 --> 00:06:23.680 align:start position:0%
+credential that I just connected. Now,
+ 
+
+00:06:23.680 --> 00:06:25.590 align:start position:0%
+credential that I just connected. Now,
+what<00:06:23.840><c> I</c><00:06:24.000><c> want</c><00:06:24.160><c> you</c><00:06:24.319><c> to</c><00:06:24.479><c> do</c><00:06:24.720><c> is</c><00:06:25.199><c> create</c><00:06:25.440><c> a</c>
+
+00:06:25.590 --> 00:06:25.600 align:start position:0%
+what I want you to do is create a
+ 
+
+00:06:25.600 --> 00:06:28.309 align:start position:0%
+what I want you to do is create a
+routine.<00:06:26.880><c> And</c><00:06:27.440><c> this</c><00:06:27.680><c> routine</c><00:06:27.919><c> is</c><00:06:28.080><c> going</c><00:06:28.160><c> to</c><00:06:28.240><c> be</c>
+
+00:06:28.309 --> 00:06:28.319 align:start position:0%
+routine. And this routine is going to be
+ 
+
+00:06:28.319 --> 00:06:29.430 align:start position:0%
+routine. And this routine is going to be
+a<00:06:28.400><c> web</c><00:06:28.639><c> hook.</c><00:06:28.880><c> And</c><00:06:29.039><c> then</c><00:06:29.199><c> I'm</c><00:06:29.280><c> going</c><00:06:29.360><c> to</c>
+
+00:06:29.430 --> 00:06:29.440 align:start position:0%
+a web hook. And then I'm going to
+ 
+
+00:06:29.440 --> 00:06:31.350 align:start position:0%
+a web hook. And then I'm going to
+connect<00:06:29.600><c> that</c><00:06:29.840><c> web</c><00:06:30.000><c> hook</c><00:06:30.240><c> to</c><00:06:30.400><c> agent</c><00:06:30.800><c> mail</c><00:06:31.199><c> so</c>
+
+00:06:31.350 --> 00:06:31.360 align:start position:0%
+connect that web hook to agent mail so
+ 
+
+00:06:31.360 --> 00:06:33.350 align:start position:0%
+connect that web hook to agent mail so
+that<00:06:31.600><c> when</c><00:06:31.840><c> you</c>
+
+00:06:33.350 --> 00:06:33.360 align:start position:0%
+that when you
+ 
+
+00:06:33.360 --> 00:06:34.790 align:start position:0%
+that when you
+um<00:06:33.600><c> receive</c><00:06:33.840><c> an</c><00:06:34.080><c> email,</c><00:06:34.319><c> that's</c><00:06:34.560><c> when</c><00:06:34.639><c> you</c>
+
+00:06:34.790 --> 00:06:34.800 align:start position:0%
+um receive an email, that's when you
+ 
+
+00:06:34.800 --> 00:06:36.230 align:start position:0%
+um receive an email, that's when you
+should<00:06:34.960><c> basically</c><00:06:35.199><c> wake</c><00:06:35.440><c> up.</c><00:06:35.840><c> And</c><00:06:36.000><c> if</c><00:06:36.080><c> you've</c>
+
+00:06:36.230 --> 00:06:36.240 align:start position:0%
+should basically wake up. And if you've
+ 
+
+00:06:36.240 --> 00:06:37.270 align:start position:0%
+should basically wake up. And if you've
+never<00:06:36.400><c> actually</c><00:06:36.560><c> heard</c><00:06:36.639><c> of</c><00:06:36.720><c> a</c><00:06:36.800><c> web</c><00:06:36.960><c> hook</c>
+
+00:06:37.270 --> 00:06:37.280 align:start position:0%
+never actually heard of a web hook
+ 
+
+00:06:37.280 --> 00:06:39.590 align:start position:0%
+never actually heard of a web hook
+before,<00:06:37.520><c> just</c><00:06:37.680><c> ask</c><00:06:37.919><c> Glido,</c><00:06:38.639><c> what</c><00:06:38.880><c> is</c><00:06:39.039><c> a</c><00:06:39.280><c> super</c>
+
+00:06:39.590 --> 00:06:39.600 align:start position:0%
+before, just ask Glido, what is a super
+ 
+
+00:06:39.600 --> 00:06:42.469 align:start position:0%
+before, just ask Glido, what is a super
+simple<00:06:40.240><c> explanation</c><00:06:40.639><c> of</c><00:06:40.720><c> a</c><00:06:40.880><c> web</c><00:06:41.039><c> hook?</c><00:06:42.080><c> and</c><00:06:42.319><c> it</c>
+
+00:06:42.469 --> 00:06:42.479 align:start position:0%
+simple explanation of a web hook? and it
+ 
+
+00:06:42.479 --> 00:06:43.909 align:start position:0%
+simple explanation of a web hook? and it
+will<00:06:42.560><c> tell</c><00:06:42.720><c> you</c><00:06:42.880><c> right</c><00:06:43.039><c> here.</c><00:06:43.360><c> A</c><00:06:43.520><c> web</c><00:06:43.680><c> hook</c><00:06:43.840><c> is</c>
+
+00:06:43.909 --> 00:06:43.919 align:start position:0%
+will tell you right here. A web hook is
+ 
+
+00:06:43.919 --> 00:06:45.270 align:start position:0%
+will tell you right here. A web hook is
+a<00:06:44.080><c> way</c><00:06:44.160><c> for</c><00:06:44.319><c> one</c><00:06:44.479><c> app</c><00:06:44.639><c> to</c><00:06:44.720><c> automatically</c><00:06:45.120><c> send</c>
+
+00:06:45.270 --> 00:06:45.280 align:start position:0%
+a way for one app to automatically send
+ 
+
+00:06:45.280 --> 00:06:46.870 align:start position:0%
+a way for one app to automatically send
+a<00:06:45.440><c> small</c><00:06:45.680><c> message</c><00:06:45.840><c> to</c><00:06:46.000><c> another</c><00:06:46.319><c> app</c><00:06:46.560><c> whenever</c>
+
+00:06:46.870 --> 00:06:46.880 align:start position:0%
+a small message to another app whenever
+ 
+
+00:06:46.880 --> 00:06:48.550 align:start position:0%
+a small message to another app whenever
+a<00:06:47.039><c> specific</c><00:06:47.360><c> event</c><00:06:47.759><c> happens</c><00:06:48.080><c> like</c><00:06:48.240><c> a</c><00:06:48.400><c> new</c>
+
+00:06:48.550 --> 00:06:48.560 align:start position:0%
+a specific event happens like a new
+ 
+
+00:06:48.560 --> 00:06:50.629 align:start position:0%
+a specific event happens like a new
+comment<00:06:48.880><c> posted</c><00:06:49.199><c> or</c><00:06:49.440><c> in</c><00:06:49.680><c> our</c><00:06:49.840><c> case</c><00:06:50.240><c> a</c><00:06:50.479><c> new</c>
+
+00:06:50.629 --> 00:06:50.639 align:start position:0%
+comment posted or in our case a new
+ 
+
+00:06:50.639 --> 00:06:53.189 align:start position:0%
+comment posted or in our case a new
+email<00:06:51.280><c> hit</c><00:06:51.520><c> the</c><00:06:51.600><c> inbox.</c><00:06:52.319><c> Cool.</c><00:06:52.639><c> So</c><00:06:52.800><c> now</c><00:06:52.960><c> this</c>
+
+00:06:53.189 --> 00:06:53.199 align:start position:0%
+email hit the inbox. Cool. So now this
+ 
+
+00:06:53.199 --> 00:06:54.790 align:start position:0%
+email hit the inbox. Cool. So now this
+routine<00:06:53.520><c> is</c><00:06:53.759><c> live.</c><00:06:54.080><c> I</c><00:06:54.240><c> can</c><00:06:54.319><c> go</c><00:06:54.400><c> ahead</c><00:06:54.639><c> and</c>
+
+00:06:54.790 --> 00:06:54.800 align:start position:0%
+routine is live. I can go ahead and
+ 
+
+00:06:54.800 --> 00:06:56.629 align:start position:0%
+routine is live. I can go ahead and
+click<00:06:55.039><c> on</c><00:06:55.120><c> it</c><00:06:55.520><c> and</c><00:06:55.680><c> you</c><00:06:55.840><c> can</c><00:06:55.919><c> see</c><00:06:56.080><c> that</c><00:06:56.319><c> we</c><00:06:56.560><c> have</c>
+
+00:06:56.629 --> 00:06:56.639 align:start position:0%
+click on it and you can see that we have
+ 
+
+00:06:56.639 --> 00:06:58.390 align:start position:0%
+click on it and you can see that we have
+this<00:06:56.880><c> button</c><00:06:57.039><c> down</c><00:06:57.280><c> here</c><00:06:57.360><c> that</c><00:06:57.600><c> says</c><00:06:58.000><c> when</c><00:06:58.160><c> a</c>
+
+00:06:58.390 --> 00:06:58.400 align:start position:0%
+this button down here that says when a
+ 
+
+00:06:58.400 --> 00:07:00.790 align:start position:0%
+this button down here that says when a
+web<00:06:58.560><c> hook</c><00:06:58.880><c> fires</c><00:06:59.360><c> and</c><00:06:59.599><c> actually</c><00:06:59.840><c> I</c><00:07:00.080><c> just</c>
+
+00:07:00.790 --> 00:07:00.800 align:start position:0%
+web hook fires and actually I just
+ 
+
+00:07:00.800 --> 00:07:02.629 align:start position:0%
+web hook fires and actually I just
+refreshed<00:07:01.280><c> and</c><00:07:01.520><c> I</c><00:07:01.680><c> had</c><00:07:01.759><c> a</c><00:07:02.000><c> new</c><00:07:02.160><c> update</c><00:07:02.400><c> to</c>
+
+00:07:02.629 --> 00:07:02.639 align:start position:0%
+refreshed and I had a new update to
+ 
+
+00:07:02.639 --> 00:07:04.230 align:start position:0%
+refreshed and I had a new update to
+install<00:07:02.880><c> for</c><00:07:03.120><c> Grockbot.</c><00:07:03.759><c> And</c><00:07:03.919><c> now</c><00:07:04.080><c> you</c><00:07:04.160><c> can</c>
+
+00:07:04.230 --> 00:07:04.240 align:start position:0%
+install for Grockbot. And now you can
+ 
+
+00:07:04.240 --> 00:07:05.270 align:start position:0%
+install for Grockbot. And now you can
+see<00:07:04.319><c> when</c><00:07:04.479><c> you</c><00:07:04.560><c> click</c><00:07:04.639><c> on</c><00:07:04.800><c> the</c><00:07:04.880><c> routine</c><00:07:05.120><c> it</c>
+
+00:07:05.270 --> 00:07:05.280 align:start position:0%
+see when you click on the routine it
+ 
+
+00:07:05.280 --> 00:07:07.510 align:start position:0%
+see when you click on the routine it
+looks<00:07:05.440><c> a</c><00:07:05.599><c> little</c><00:07:05.680><c> bit</c><00:07:05.840><c> different.</c><00:07:06.560><c> So</c><00:07:06.720><c> if</c><00:07:07.199><c> your</c>
+
+00:07:07.510 --> 00:07:07.520 align:start position:0%
+looks a little bit different. So if your
+ 
+
+00:07:07.520 --> 00:07:08.629 align:start position:0%
+looks a little bit different. So if your
+screen<00:07:07.759><c> looked</c><00:07:07.919><c> different</c><00:07:08.080><c> from</c><00:07:08.319><c> what</c><00:07:08.400><c> I</c><00:07:08.560><c> was</c>
+
+00:07:08.629 --> 00:07:08.639 align:start position:0%
+screen looked different from what I was
+ 
+
+00:07:08.639 --> 00:07:10.309 align:start position:0%
+screen looked different from what I was
+showing<00:07:08.880><c> earlier</c><00:07:09.199><c> that's</c><00:07:09.360><c> why</c><00:07:09.680><c> it's</c><00:07:10.000><c> just</c><00:07:10.160><c> an</c>
+
+00:07:10.309 --> 00:07:10.319 align:start position:0%
+showing earlier that's why it's just an
+ 
+
+00:07:10.319 --> 00:07:11.830 align:start position:0%
+showing earlier that's why it's just an
+update<00:07:10.560><c> to</c><00:07:10.720><c> Grockbot.</c><00:07:11.199><c> Now,</c><00:07:11.360><c> what</c><00:07:11.520><c> we</c><00:07:11.680><c> need</c><00:07:11.759><c> to</c>
+
+00:07:11.830 --> 00:07:11.840 align:start position:0%
+update to Grockbot. Now, what we need to
+ 
+
+00:07:11.840 --> 00:07:13.749 align:start position:0%
+update to Grockbot. Now, what we need to
+do<00:07:12.000><c> is</c><00:07:12.160><c> we</c><00:07:12.319><c> need</c><00:07:12.400><c> to</c><00:07:12.560><c> be</c><00:07:12.639><c> able</c><00:07:12.800><c> to</c><00:07:12.960><c> actually</c><00:07:13.280><c> see</c>
+
+00:07:13.749 --> 00:07:13.759 align:start position:0%
+do is we need to be able to actually see
+ 
+
+00:07:13.759 --> 00:07:16.469 align:start position:0%
+do is we need to be able to actually see
+the<00:07:14.000><c> web</c><00:07:14.160><c> hook</c><00:07:14.479><c> address</c><00:07:15.039><c> and</c><00:07:15.440><c> the</c><00:07:15.759><c> key</c><00:07:16.080><c> that</c><00:07:16.319><c> we</c>
+
+00:07:16.469 --> 00:07:16.479 align:start position:0%
+the web hook address and the key that we
+ 
+
+00:07:16.479 --> 00:07:17.909 align:start position:0%
+the web hook address and the key that we
+need<00:07:16.639><c> for</c><00:07:16.800><c> this</c><00:07:16.960><c> web</c><00:07:17.199><c> hook</c><00:07:17.440><c> because</c><00:07:17.680><c> we</c><00:07:17.840><c> have</c>
+
+00:07:17.909 --> 00:07:17.919 align:start position:0%
+need for this web hook because we have
+ 
+
+00:07:17.919 --> 00:07:19.189 align:start position:0%
+need for this web hook because we have
+to<00:07:18.000><c> give</c><00:07:18.160><c> Grockbot</c><00:07:18.639><c> and</c><00:07:18.720><c> agent</c><00:07:19.039><c> mail</c>
+
+00:07:19.189 --> 00:07:19.199 align:start position:0%
+to give Grockbot and agent mail
+ 
+
+00:07:19.199 --> 00:07:21.270 align:start position:0%
+to give Grockbot and agent mail
+permission<00:07:19.840><c> to</c><00:07:20.160><c> talk</c><00:07:20.400><c> through</c><00:07:20.560><c> the</c><00:07:20.720><c> web</c><00:07:20.880><c> hook.</c>
+
+00:07:21.270 --> 00:07:21.280 align:start position:0%
+permission to talk through the web hook.
+ 
+
+00:07:21.280 --> 00:07:22.309 align:start position:0%
+permission to talk through the web hook.
+It's<00:07:21.360><c> it's</c><00:07:21.680><c> more</c><00:07:21.840><c> than</c><00:07:21.919><c> just</c><00:07:22.080><c> that</c>
+
+00:07:22.309 --> 00:07:22.319 align:start position:0%
+It's it's more than just that
+ 
+
+00:07:22.319 --> 00:07:24.469 align:start position:0%
+It's it's more than just that
+authorization<00:07:22.800><c> we</c><00:07:23.039><c> did</c><00:07:23.120><c> earlier.</c><00:07:23.759><c> Now,</c><00:07:24.240><c> in</c>
+
+00:07:24.469 --> 00:07:24.479 align:start position:0%
+authorization we did earlier. Now, in
+ 
+
+00:07:24.479 --> 00:07:26.230 align:start position:0%
+authorization we did earlier. Now, in
+the<00:07:24.639><c> previous</c><00:07:24.960><c> update</c><00:07:25.599><c> or</c><00:07:25.840><c> the</c><00:07:26.000><c> previous</c>
+
+00:07:26.230 --> 00:07:26.240 align:start position:0%
+the previous update or the previous
+ 
+
+00:07:26.240 --> 00:07:27.589 align:start position:0%
+the previous update or the previous
+version,<00:07:26.560><c> you</c><00:07:26.720><c> used</c><00:07:26.880><c> to</c><00:07:26.960><c> be</c><00:07:27.039><c> able</c><00:07:27.199><c> to</c><00:07:27.280><c> click</c><00:07:27.440><c> on</c>
+
+00:07:27.589 --> 00:07:27.599 align:start position:0%
+version, you used to be able to click on
+ 
+
+00:07:27.599 --> 00:07:28.710 align:start position:0%
+version, you used to be able to click on
+this<00:07:27.759><c> and</c><00:07:27.919><c> it</c><00:07:28.080><c> would</c><00:07:28.240><c> show</c><00:07:28.319><c> you</c><00:07:28.479><c> that</c>
+
+00:07:28.710 --> 00:07:28.720 align:start position:0%
+this and it would show you that
+ 
+
+00:07:28.720 --> 00:07:30.230 align:start position:0%
+this and it would show you that
+information,<00:07:29.120><c> but</c><00:07:29.280><c> I'm</c><00:07:29.440><c> not</c><00:07:29.599><c> seeing</c><00:07:29.759><c> it</c><00:07:29.919><c> now.</c>
+
+00:07:30.230 --> 00:07:30.240 align:start position:0%
+information, but I'm not seeing it now.
+ 
+
+00:07:30.240 --> 00:07:31.909 align:start position:0%
+information, but I'm not seeing it now.
+All right,<00:07:30.479><c> so</c><00:07:30.639><c> now</c><00:07:30.800><c> it</c><00:07:30.960><c> is</c><00:07:31.120><c> the</c><00:07:31.280><c> next</c><00:07:31.440><c> day.</c><00:07:31.759><c> I</c>
+
+00:07:31.909 --> 00:07:31.919 align:start position:0%
+All right, so now it is the next day. I
+ 
+
+00:07:31.919 --> 00:07:33.830 align:start position:0%
+All right, so now it is the next day. I
+had<00:07:32.080><c> to</c><00:07:32.160><c> wait</c><00:07:32.400><c> for</c><00:07:32.720><c> the</c><00:07:33.120><c> desktop</c><00:07:33.440><c> app</c><00:07:33.599><c> to</c><00:07:33.759><c> come</c>
+
+00:07:33.830 --> 00:07:33.840 align:start position:0%
+had to wait for the desktop app to come
+ 
+
+00:07:33.840 --> 00:07:35.270 align:start position:0%
+had to wait for the desktop app to come
+up<00:07:33.919><c> with</c><00:07:34.080><c> an</c><00:07:34.240><c> update</c><00:07:34.479><c> because</c><00:07:34.639><c> I</c><00:07:34.800><c> knew</c><00:07:35.039><c> that</c>
+
+00:07:35.270 --> 00:07:35.280 align:start position:0%
+up with an update because I knew that
+ 
+
+00:07:35.280 --> 00:07:37.029 align:start position:0%
+up with an update because I knew that
+was<00:07:35.360><c> a</c><00:07:35.599><c> bug.</c><00:07:36.000><c> And</c><00:07:36.160><c> now</c><00:07:36.319><c> that</c><00:07:36.479><c> I've</c><00:07:36.639><c> updated</c><00:07:36.880><c> the</c>
+
+00:07:37.029 --> 00:07:37.039 align:start position:0%
+was a bug. And now that I've updated the
+ 
+
+00:07:37.039 --> 00:07:38.390 align:start position:0%
+was a bug. And now that I've updated the
+desktop<00:07:37.360><c> app,</c><00:07:37.599><c> which</c><00:07:37.759><c> by</c><00:07:37.840><c> the</c><00:07:38.000><c> way,</c><00:07:38.160><c> if</c><00:07:38.319><c> you</c>
+
+00:07:38.390 --> 00:07:38.400 align:start position:0%
+desktop app, which by the way, if you
+ 
+
+00:07:38.400 --> 00:07:39.670 align:start position:0%
+desktop app, which by the way, if you
+need<00:07:38.560><c> to,</c><00:07:38.800><c> it'll</c><00:07:39.039><c> be</c><00:07:39.120><c> right</c><00:07:39.280><c> down</c><00:07:39.440><c> here.</c>
+
+00:07:39.670 --> 00:07:39.680 align:start position:0%
+need to, it'll be right down here.
+ 
+
+00:07:39.680 --> 00:07:40.950 align:start position:0%
+need to, it'll be right down here.
+there'll<00:07:39.840><c> be</c><00:07:39.919><c> like</c><00:07:40.000><c> a</c><00:07:40.160><c> little</c><00:07:40.319><c> cloud</c><00:07:40.639><c> or</c><00:07:40.880><c> you</c>
+
+00:07:40.950 --> 00:07:40.960 align:start position:0%
+there'll be like a little cloud or you
+ 
+
+00:07:40.960 --> 00:07:42.550 align:start position:0%
+there'll be like a little cloud or you
+click<00:07:41.120><c> into</c><00:07:41.360><c> here</c><00:07:41.440><c> and</c><00:07:41.599><c> it'll</c><00:07:41.759><c> say</c><00:07:41.919><c> update.</c>
+
+00:07:42.550 --> 00:07:42.560 align:start position:0%
+click into here and it'll say update.
+ 
+
+00:07:42.560 --> 00:07:44.390 align:start position:0%
+click into here and it'll say update.
+And<00:07:42.720><c> now</c><00:07:42.800><c> that</c><00:07:42.960><c> I've</c><00:07:43.199><c> updated</c><00:07:43.520><c> this,</c><00:07:44.160><c> this</c>
+
+00:07:44.390 --> 00:07:44.400 align:start position:0%
+And now that I've updated this, this
+ 
+
+00:07:44.400 --> 00:07:46.150 align:start position:0%
+And now that I've updated this, this
+works<00:07:44.639><c> as</c><00:07:44.880><c> expected.</c><00:07:45.360><c> This</c><00:07:45.520><c> is</c><00:07:45.680><c> no</c><00:07:45.840><c> longer</c>
+
+00:07:46.150 --> 00:07:46.160 align:start position:0%
+works as expected. This is no longer
+ 
+
+00:07:46.160 --> 00:07:47.990 align:start position:0%
+works as expected. This is no longer
+buggy.<00:07:46.560><c> And</c><00:07:46.720><c> we</c><00:07:46.880><c> can</c><00:07:46.960><c> see</c><00:07:47.120><c> that</c><00:07:47.280><c> we</c><00:07:47.440><c> have</c><00:07:47.599><c> our</c>
+
+00:07:47.990 --> 00:07:48.000 align:start position:0%
+buggy. And we can see that we have our
+ 
+
+00:07:48.000 --> 00:07:49.909 align:start position:0%
+buggy. And we can see that we have our
+web<00:07:48.160><c> hook</c><00:07:48.479><c> address</c><00:07:48.720><c> and</c><00:07:48.960><c> we</c><00:07:49.120><c> have</c><00:07:49.280><c> our</c><00:07:49.520><c> actual</c>
+
+00:07:49.909 --> 00:07:49.919 align:start position:0%
+web hook address and we have our actual
+ 
+
+00:07:49.919 --> 00:07:51.430 align:start position:0%
+web hook address and we have our actual
+key.<00:07:50.479><c> So</c><00:07:50.639><c> I'm</c><00:07:50.800><c> going</c><00:07:50.880><c> to</c><00:07:50.960><c> show</c><00:07:51.039><c> you</c><00:07:51.199><c> exactly</c>
+
+00:07:51.430 --> 00:07:51.440 align:start position:0%
+key. So I'm going to show you exactly
+ 
+
+00:07:51.440 --> 00:07:52.790 align:start position:0%
+key. So I'm going to show you exactly
+what<00:07:51.599><c> we</c><00:07:51.680><c> do</c><00:07:51.840><c> with</c><00:07:51.919><c> this.</c><00:07:52.240><c> But</c><00:07:52.319><c> basically,</c><00:07:52.639><c> we</c>
+
+00:07:52.790 --> 00:07:52.800 align:start position:0%
+what we do with this. But basically, we
+ 
+
+00:07:52.800 --> 00:07:55.430 align:start position:0%
+what we do with this. But basically, we
+have<00:07:52.880><c> to</c><00:07:52.960><c> give</c><00:07:53.120><c> this</c><00:07:53.360><c> to</c><00:07:54.080><c> agent</c><00:07:54.479><c> mail</c><00:07:55.120><c> so</c><00:07:55.280><c> that</c>
+
+00:07:55.430 --> 00:07:55.440 align:start position:0%
+have to give this to agent mail so that
+ 
+
+00:07:55.440 --> 00:07:57.749 align:start position:0%
+have to give this to agent mail so that
+agent<00:07:55.759><c> mail</c><00:07:55.919><c> is</c><00:07:56.160><c> allowed</c><00:07:56.400><c> to</c><00:07:56.560><c> send</c><00:07:57.360><c> basically</c>
+
+00:07:57.749 --> 00:07:57.759 align:start position:0%
+agent mail is allowed to send basically
+ 
+
+00:07:57.759 --> 00:08:00.469 align:start position:0%
+agent mail is allowed to send basically
+a<00:07:58.080><c> notification</c><00:07:58.879><c> to</c><00:07:59.280><c> Stephanie,</c><00:07:59.840><c> this</c><00:08:00.080><c> inbox</c>
+
+00:08:00.469 --> 00:08:00.479 align:start position:0%
+a notification to Stephanie, this inbox
+ 
+
+00:08:00.479 --> 00:08:02.550 align:start position:0%
+a notification to Stephanie, this inbox
+agent<00:08:00.800><c> right</c><00:08:00.960><c> here,</c><00:08:01.520><c> when</c><00:08:01.759><c> there</c><00:08:01.919><c> is</c><00:08:02.080><c> a</c><00:08:02.319><c> new</c>
+
+00:08:02.550 --> 00:08:02.560 align:start position:0%
+agent right here, when there is a new
+ 
+
+00:08:02.560 --> 00:08:04.550 align:start position:0%
+agent right here, when there is a new
+inbox<00:08:02.960><c> or</c><00:08:03.199><c> a</c><00:08:03.360><c> new</c><00:08:03.520><c> email.</c><00:08:03.919><c> So</c><00:08:04.160><c> I'm</c><00:08:04.319><c> going</c><00:08:04.400><c> to</c><00:08:04.479><c> go</c>
+
+00:08:04.550 --> 00:08:04.560 align:start position:0%
+inbox or a new email. So I'm going to go
+ 
+
+00:08:04.560 --> 00:08:06.629 align:start position:0%
+inbox or a new email. So I'm going to go
+back<00:08:04.720><c> over</c><00:08:04.879><c> to</c><00:08:05.039><c> agent</c><00:08:05.360><c> mail.</c><00:08:05.759><c> Here</c><00:08:06.000><c> we</c><00:08:06.160><c> are.</c>
+
+00:08:06.629 --> 00:08:06.639 align:start position:0%
+back over to agent mail. Here we are.
+ 
+
+00:08:06.639 --> 00:08:08.309 align:start position:0%
+back over to agent mail. Here we are.
+These<00:08:06.879><c> are</c><00:08:06.960><c> the</c><00:08:07.120><c> two</c><00:08:07.360><c> inboxes.</c><00:08:07.919><c> And</c><00:08:08.000><c> then</c><00:08:08.160><c> what</c>
+
+00:08:08.309 --> 00:08:08.319 align:start position:0%
+These are the two inboxes. And then what
+ 
+
+00:08:08.319 --> 00:08:09.189 align:start position:0%
+These are the two inboxes. And then what
+we're<00:08:08.400><c> going</c><00:08:08.479><c> to</c><00:08:08.560><c> do</c><00:08:08.639><c> is</c><00:08:08.800><c> we're</c><00:08:08.960><c> going</c><00:08:09.039><c> to</c><00:08:09.120><c> go</c>
+
+00:08:09.189 --> 00:08:09.199 align:start position:0%
+we're going to do is we're going to go
+ 
+
+00:08:09.199 --> 00:08:10.629 align:start position:0%
+we're going to do is we're going to go
+to<00:08:09.360><c> the</c><00:08:09.520><c> web</c><00:08:09.680><c> hooks</c><00:08:10.000><c> on</c><00:08:10.160><c> the</c><00:08:10.240><c> left.</c><00:08:10.400><c> So</c><00:08:10.479><c> you're</c>
+
+00:08:10.629 --> 00:08:10.639 align:start position:0%
+to the web hooks on the left. So you're
+ 
+
+00:08:10.639 --> 00:08:12.230 align:start position:0%
+to the web hooks on the left. So you're
+going<00:08:10.720><c> to</c><00:08:10.800><c> click</c><00:08:10.879><c> on</c><00:08:11.039><c> web</c><00:08:11.199><c> hooks.</c><00:08:11.840><c> You</c><00:08:12.000><c> can</c><00:08:12.160><c> see</c>
+
+00:08:12.230 --> 00:08:12.240 align:start position:0%
+going to click on web hooks. You can see
+ 
+
+00:08:12.240 --> 00:08:13.830 align:start position:0%
+going to click on web hooks. You can see
+that<00:08:12.639><c> I've</c><00:08:12.960><c> already</c><00:08:13.120><c> got</c><00:08:13.199><c> one</c><00:08:13.440><c> set</c><00:08:13.599><c> up</c><00:08:13.680><c> right</c>
+
+00:08:13.830 --> 00:08:13.840 align:start position:0%
+that I've already got one set up right
+ 
+
+00:08:13.840 --> 00:08:15.909 align:start position:0%
+that I've already got one set up right
+here.<00:08:14.000><c> And</c><00:08:14.160><c> this</c><00:08:14.319><c> is</c><00:08:14.479><c> for</c><00:08:15.039><c> my</c><00:08:15.360><c> trader</c><00:08:15.759><c> and</c>
+
+00:08:15.909 --> 00:08:15.919 align:start position:0%
+here. And this is for my trader and
+ 
+
+00:08:15.919 --> 00:08:17.350 align:start position:0%
+here. And this is for my trader and
+Grockbot.<00:08:16.400><c> You</c><00:08:16.479><c> can</c><00:08:16.560><c> see</c><00:08:16.720><c> this</c><00:08:16.879><c> endpoint</c>
+
+00:08:17.350 --> 00:08:17.360 align:start position:0%
+Grockbot. You can see this endpoint
+ 
+
+00:08:17.360 --> 00:08:19.589 align:start position:0%
+Grockbot. You can see this endpoint
+sends<00:08:18.000><c> emails</c><00:08:18.319><c> to</c><00:08:18.479><c> trader</c><00:08:18.879><c> and</c><00:08:18.960><c> Grockbot.</c><00:08:19.520><c> So</c>
+
+00:08:19.589 --> 00:08:19.599 align:start position:0%
+sends emails to trader and Grockbot. So
+ 
+
+00:08:19.599 --> 00:08:20.869 align:start position:0%
+sends emails to trader and Grockbot. So
+what<00:08:19.759><c> we're</c><00:08:19.919><c> going</c><00:08:19.919><c> to</c><00:08:20.000><c> do</c><00:08:20.160><c> here</c><00:08:20.479><c> is</c><00:08:20.720><c> we're</c>
+
+00:08:20.869 --> 00:08:20.879 align:start position:0%
+what we're going to do here is we're
+ 
+
+00:08:20.879 --> 00:08:22.469 align:start position:0%
+what we're going to do here is we're
+going to<00:08:20.960><c> click</c><00:08:21.039><c> on</c><00:08:21.199><c> add</c><00:08:21.440><c> endpoint.</c><00:08:22.240><c> We're</c>
+
+00:08:22.469 --> 00:08:22.479 align:start position:0%
+going to click on add endpoint. We're
+ 
+
+00:08:22.479 --> 00:08:23.749 align:start position:0%
+going to click on add endpoint. We're
+going to<00:08:22.560><c> put</c><00:08:22.720><c> in</c><00:08:22.879><c> the</c><00:08:22.960><c> URL.</c><00:08:23.360><c> So</c><00:08:23.520><c> that's</c><00:08:23.680><c> where</c>
+
+00:08:23.749 --> 00:08:23.759 align:start position:0%
+going to put in the URL. So that's where
+ 
+
+00:08:23.759 --> 00:08:25.110 align:start position:0%
+going to put in the URL. So that's where
+you<00:08:23.840><c> go</c><00:08:24.000><c> back</c><00:08:24.080><c> into</c><00:08:24.319><c> Grock.</c><00:08:24.800><c> You're</c><00:08:24.960><c> going</c><00:08:25.039><c> to</c>
+
+00:08:25.110 --> 00:08:25.120 align:start position:0%
+you go back into Grock. You're going to
+ 
+
+00:08:25.120 --> 00:08:27.189 align:start position:0%
+you go back into Grock. You're going to
+grab<00:08:25.360><c> this</c><00:08:25.599><c> URL</c><00:08:26.000><c> right</c><00:08:26.160><c> here</c><00:08:26.240><c> and</c><00:08:26.479><c> copy</c><00:08:26.720><c> it.</c>
+
+00:08:27.189 --> 00:08:27.199 align:start position:0%
+grab this URL right here and copy it.
+ 
+
+00:08:27.199 --> 00:08:29.589 align:start position:0%
+grab this URL right here and copy it.
+And<00:08:27.280><c> then</c><00:08:27.440><c> you're</c><00:08:27.680><c> going</c><00:08:27.840><c> to</c><00:08:28.720><c> paste</c><00:08:29.039><c> that</c>
+
+00:08:29.589 --> 00:08:29.599 align:start position:0%
+And then you're going to paste that
+ 
+
+00:08:29.599 --> 00:08:31.990 align:start position:0%
+And then you're going to paste that
+right<00:08:29.759><c> into</c><00:08:30.080><c> there.</c><00:08:30.720><c> The</c><00:08:30.960><c> description.</c><00:08:31.520><c> So</c>
+
+00:08:31.990 --> 00:08:32.000 align:start position:0%
+right into there. The description. So
+ 
+
+00:08:32.000 --> 00:08:34.469 align:start position:0%
+right into there. The description. So
+this<00:08:32.159><c> is</c><00:08:32.240><c> a</c><00:08:32.479><c> test</c><00:08:32.719><c> web</c><00:08:32.959><c> hook</c><00:08:33.279><c> for</c><00:08:33.919><c> Stephanie</c>
+
+00:08:34.469 --> 00:08:34.479 align:start position:0%
+this is a test web hook for Stephanie
+ 
+
+00:08:34.479 --> 00:08:36.790 align:start position:0%
+this is a test web hook for Stephanie
+inside<00:08:34.800><c> of</c><00:08:34.959><c> Grockbot.</c><00:08:36.000><c> So</c><00:08:36.159><c> that</c><00:08:36.399><c> is</c><00:08:36.479><c> what</c><00:08:36.640><c> we</c>
+
+00:08:36.790 --> 00:08:36.800 align:start position:0%
+inside of Grockbot. So that is what we
+ 
+
+00:08:36.800 --> 00:08:38.550 align:start position:0%
+inside of Grockbot. So that is what we
+got<00:08:36.959><c> there.</c><00:08:37.440><c> And</c><00:08:37.599><c> then</c><00:08:37.760><c> for</c><00:08:37.919><c> the</c><00:08:38.080><c> subscribing</c>
+
+00:08:38.550 --> 00:08:38.560 align:start position:0%
+got there. And then for the subscribing
+ 
+
+00:08:38.560 --> 00:08:40.709 align:start position:0%
+got there. And then for the subscribing
+to<00:08:38.800><c> events,</c><00:08:39.599><c> this</c><00:08:39.839><c> basically</c><00:08:40.159><c> means</c><00:08:40.399><c> like</c>
+
+00:08:40.709 --> 00:08:40.719 align:start position:0%
+to events, this basically means like
+ 
+
+00:08:40.719 --> 00:08:42.070 align:start position:0%
+to events, this basically means like
+what<00:08:40.959><c> events</c><00:08:41.279><c> are</c><00:08:41.440><c> going</c><00:08:41.599><c> to</c><00:08:41.760><c> actually</c>
+
+00:08:42.070 --> 00:08:42.080 align:start position:0%
+what events are going to actually
+ 
+
+00:08:42.080 --> 00:08:44.710 align:start position:0%
+what events are going to actually
+trigger<00:08:42.399><c> this</c><00:08:42.640><c> web</c><00:08:42.800><c> hook,</c><00:08:43.200><c> trigger</c><00:08:44.080><c> a</c><00:08:44.399><c> message</c>
+
+00:08:44.710 --> 00:08:44.720 align:start position:0%
+trigger this web hook, trigger a message
+ 
+
+00:08:44.720 --> 00:08:46.230 align:start position:0%
+trigger this web hook, trigger a message
+being<00:08:44.959><c> sent</c><00:08:45.120><c> to</c><00:08:45.200><c> this</c><00:08:45.360><c> endpoint.</c><00:08:45.760><c> So</c><00:08:45.920><c> what</c><00:08:46.080><c> we</c>
+
+00:08:46.230 --> 00:08:46.240 align:start position:0%
+being sent to this endpoint. So what we
+ 
+
+00:08:46.240 --> 00:08:47.590 align:start position:0%
+being sent to this endpoint. So what we
+need<00:08:46.320><c> to</c><00:08:46.399><c> do</c><00:08:46.560><c> here</c><00:08:46.880><c> is</c><00:08:47.120><c> you</c><00:08:47.279><c> can</c><00:08:47.360><c> look</c><00:08:47.519><c> through</c>
+
+00:08:47.590 --> 00:08:47.600 align:start position:0%
+need to do here is you can look through
+ 
+
+00:08:47.600 --> 00:08:50.230 align:start position:0%
+need to do here is you can look through
+the<00:08:47.760><c> event</c><00:08:48.080><c> catalog,</c><00:08:48.800><c> but</c><00:08:49.360><c> um</c><00:08:49.760><c> that</c><00:08:50.000><c> will</c><00:08:50.160><c> take</c>
+
+00:08:50.230 --> 00:08:50.240 align:start position:0%
+the event catalog, but um that will take
+ 
+
+00:08:50.240 --> 00:08:51.269 align:start position:0%
+the event catalog, but um that will take
+you<00:08:50.399><c> a</c><00:08:50.480><c> different</c><00:08:50.640><c> page.</c><00:08:50.880><c> So</c><00:08:50.959><c> I'm</c><00:08:51.120><c> not</c><00:08:51.200><c> going</c>
+
+00:08:51.269 --> 00:08:51.279 align:start position:0%
+you a different page. So I'm not going
+ 
+
+00:08:51.279 --> 00:08:52.790 align:start position:0%
+you a different page. So I'm not going
+to<00:08:51.440><c> look</c><00:08:51.600><c> at</c><00:08:51.680><c> the</c><00:08:51.920><c> catalog.</c><00:08:52.320><c> You</c><00:08:52.480><c> can</c><00:08:52.560><c> scroll</c>
+
+00:08:52.790 --> 00:08:52.800 align:start position:0%
+to look at the catalog. You can scroll
+ 
+
+00:08:52.800 --> 00:08:54.389 align:start position:0%
+to look at the catalog. You can scroll
+through<00:08:53.040><c> here.</c><00:08:53.519><c> Basically,</c><00:08:53.920><c> all</c><00:08:54.080><c> that</c><00:08:54.240><c> we</c>
+
+00:08:54.389 --> 00:08:54.399 align:start position:0%
+through here. Basically, all that we
+ 
+
+00:08:54.399 --> 00:08:56.070 align:start position:0%
+through here. Basically, all that we
+want<00:08:54.480><c> to</c><00:08:54.640><c> do</c><00:08:54.959><c> is</c><00:08:55.200><c> we</c><00:08:55.360><c> just</c><00:08:55.519><c> want</c><00:08:55.600><c> to</c><00:08:55.680><c> check</c><00:08:55.839><c> the</c>
+
+00:08:56.070 --> 00:08:56.080 align:start position:0%
+want to do is we just want to check the
+ 
+
+00:08:56.080 --> 00:08:57.509 align:start position:0%
+want to do is we just want to check the
+messages<00:08:56.399><c> once.</c><00:08:56.720><c> So</c><00:08:56.880><c> this</c><00:08:57.040><c> is</c><00:08:57.200><c> just</c><00:08:57.279><c> going</c><00:08:57.360><c> to</c>
+
+00:08:57.509 --> 00:08:57.519 align:start position:0%
+messages once. So this is just going to
+ 
+
+00:08:57.519 --> 00:08:59.990 align:start position:0%
+messages once. So this is just going to
+allow<00:08:57.680><c> us</c><00:08:57.920><c> to</c><00:08:58.720><c> you</c><00:08:58.880><c> know</c><00:08:59.120><c> when</c><00:08:59.360><c> a</c><00:08:59.600><c> message</c><00:08:59.839><c> is</c>
+
+00:08:59.990 --> 00:09:00.000 align:start position:0%
+allow us to you know when a message is
+ 
+
+00:09:00.000 --> 00:09:03.110 align:start position:0%
+allow us to you know when a message is
+received<00:09:01.120><c> actually</c><00:09:02.320><c> wake</c><00:09:02.560><c> up</c><00:09:02.720><c> Stephanie.</c>
+
+00:09:03.110 --> 00:09:03.120 align:start position:0%
+received actually wake up Stephanie.
+ 
+
+00:09:03.120 --> 00:09:04.710 align:start position:0%
+received actually wake up Stephanie.
+Now,<00:09:03.279><c> if</c><00:09:03.440><c> you</c><00:09:03.600><c> wanted</c><00:09:03.760><c> to</c><00:09:04.160><c> go</c><00:09:04.320><c> through</c><00:09:04.560><c> this</c>
+
+00:09:04.710 --> 00:09:04.720 align:start position:0%
+Now, if you wanted to go through this
+ 
+
+00:09:04.720 --> 00:09:06.389 align:start position:0%
+Now, if you wanted to go through this
+and,<00:09:04.959><c> you</c><00:09:05.040><c> know,</c><00:09:05.200><c> click</c><00:09:05.360><c> info</c><00:09:05.680><c> and</c><00:09:05.839><c> and</c><00:09:06.160><c> get</c>
+
+00:09:06.389 --> 00:09:06.399 align:start position:0%
+and, you know, click info and and get
+ 
+
+00:09:06.399 --> 00:09:07.910 align:start position:0%
+and, you know, click info and and get
+more<00:09:06.560><c> specific,</c><00:09:06.959><c> you</c><00:09:07.120><c> could.</c><00:09:07.440><c> But</c><00:09:07.519><c> I'm</c><00:09:07.760><c> just</c>
+
+00:09:07.910 --> 00:09:07.920 align:start position:0%
+more specific, you could. But I'm just
+ 
+
+00:09:07.920 --> 00:09:10.150 align:start position:0%
+more specific, you could. But I'm just
+going<00:09:08.000><c> to</c><00:09:08.240><c> select</c><00:09:08.560><c> messages.</c><00:09:09.120><c> And</c><00:09:09.279><c> then</c><00:09:09.920><c> we</c>
+
+00:09:10.150 --> 00:09:10.160 align:start position:0%
+going to select messages. And then we
+ 
+
+00:09:10.160 --> 00:09:11.590 align:start position:0%
+going to select messages. And then we
+are<00:09:10.320><c> going</c><00:09:10.480><c> to</c><00:09:10.800><c> go</c><00:09:10.959><c> ahead</c><00:09:11.120><c> and</c><00:09:11.279><c> hit</c><00:09:11.440><c> this</c>
+
+00:09:11.590 --> 00:09:11.600 align:start position:0%
+are going to go ahead and hit this
+ 
+
+00:09:11.600 --> 00:09:13.190 align:start position:0%
+are going to go ahead and hit this
+button,<00:09:11.839><c> which</c><00:09:12.320><c> this</c><00:09:12.560><c> UI</c><00:09:12.800><c> is</c><00:09:12.959><c> a</c><00:09:13.040><c> little</c><00:09:13.120><c> bit</c>
+
+00:09:13.190 --> 00:09:13.200 align:start position:0%
+button, which this UI is a little bit
+ 
+
+00:09:13.200 --> 00:09:14.870 align:start position:0%
+button, which this UI is a little bit
+buggy.<00:09:13.519><c> We</c><00:09:13.680><c> should</c><00:09:13.760><c> be</c><00:09:13.839><c> able</c><00:09:14.000><c> to</c><00:09:14.080><c> hit</c><00:09:14.240><c> save.</c>
+
+00:09:14.870 --> 00:09:14.880 align:start position:0%
+buggy. We should be able to hit save.
+ 
+
+00:09:14.880 --> 00:09:16.150 align:start position:0%
+buggy. We should be able to hit save.
+And<00:09:15.040><c> now</c><00:09:15.200><c> what</c><00:09:15.360><c> we</c><00:09:15.440><c> need</c><00:09:15.519><c> to</c><00:09:15.600><c> do</c><00:09:15.680><c> is</c><00:09:15.839><c> we</c><00:09:16.000><c> need</c><00:09:16.080><c> to</c>
+
+00:09:16.150 --> 00:09:16.160 align:start position:0%
+And now what we need to do is we need to
+ 
+
+00:09:16.160 --> 00:09:18.230 align:start position:0%
+And now what we need to do is we need to
+add<00:09:16.320><c> the</c><00:09:16.480><c> key.</c><00:09:17.279><c> So</c><00:09:17.519><c> the</c><00:09:17.680><c> way</c><00:09:17.760><c> that</c><00:09:17.920><c> we</c><00:09:18.000><c> add</c><00:09:18.080><c> the</c>
+
+00:09:18.230 --> 00:09:18.240 align:start position:0%
+add the key. So the way that we add the
+ 
+
+00:09:18.240 --> 00:09:20.230 align:start position:0%
+add the key. So the way that we add the
+key<00:09:18.399><c> is</c><00:09:18.560><c> we</c><00:09:18.720><c> go</c><00:09:18.800><c> to</c><00:09:18.959><c> advanced</c><00:09:19.680><c> and</c><00:09:19.920><c> then</c><00:09:20.080><c> right</c>
+
+00:09:20.230 --> 00:09:20.240 align:start position:0%
+key is we go to advanced and then right
+ 
+
+00:09:20.240 --> 00:09:22.310 align:start position:0%
+key is we go to advanced and then right
+here,<00:09:20.480><c> custom</c><00:09:20.880><c> headers.</c><00:09:21.600><c> So</c><00:09:21.760><c> if</c><00:09:21.920><c> you</c><00:09:22.080><c> go</c><00:09:22.160><c> back</c>
+
+00:09:22.310 --> 00:09:22.320 align:start position:0%
+here, custom headers. So if you go back
+ 
+
+00:09:22.320 --> 00:09:24.150 align:start position:0%
+here, custom headers. So if you go back
+into<00:09:22.480><c> Grockbot,</c><00:09:22.959><c> what</c><00:09:23.120><c> you</c><00:09:23.200><c> can</c><00:09:23.360><c> see</c><00:09:23.760><c> is</c><00:09:24.000><c> that</c>
+
+00:09:24.150 --> 00:09:24.160 align:start position:0%
+into Grockbot, what you can see is that
+ 
+
+00:09:24.160 --> 00:09:27.990 align:start position:0%
+into Grockbot, what you can see is that
+the<00:09:24.320><c> header</c><00:09:24.560><c> is</c><00:09:24.800><c> authorization</c><00:09:26.080><c> colon</c><00:09:27.360><c> bearer</c>
+
+00:09:27.990 --> 00:09:28.000 align:start position:0%
+the header is authorization colon bearer
+ 
+
+00:09:28.000 --> 00:09:29.990 align:start position:0%
+the header is authorization colon bearer
+space<00:09:28.560><c> and</c><00:09:28.800><c> then</c><00:09:28.959><c> your</c><00:09:29.200><c> key.</c><00:09:29.600><c> So</c><00:09:29.760><c> what</c><00:09:29.920><c> you</c>
+
+00:09:29.990 --> 00:09:30.000 align:start position:0%
+space and then your key. So what you
+ 
+
+00:09:30.000 --> 00:09:31.030 align:start position:0%
+space and then your key. So what you
+want<00:09:30.080><c> to</c><00:09:30.160><c> do</c><00:09:30.320><c> is</c><00:09:30.399><c> you're</c><00:09:30.560><c> just</c><00:09:30.640><c> going</c><00:09:30.720><c> to</c><00:09:30.800><c> copy</c>
+
+00:09:31.030 --> 00:09:31.040 align:start position:0%
+want to do is you're just going to copy
+ 
+
+00:09:31.040 --> 00:09:32.550 align:start position:0%
+want to do is you're just going to copy
+the<00:09:31.120><c> word</c><00:09:31.279><c> authorization.</c><00:09:32.000><c> Actually,</c><00:09:32.399><c> you</c>
+
+00:09:32.550 --> 00:09:32.560 align:start position:0%
+the word authorization. Actually, you
+ 
+
+00:09:32.560 --> 00:09:33.430 align:start position:0%
+the word authorization. Actually, you
+know what?<00:09:32.800><c> Just</c><00:09:32.880><c> type</c><00:09:33.040><c> it</c><00:09:33.120><c> because</c><00:09:33.279><c> you</c>
+
+00:09:33.430 --> 00:09:33.440 align:start position:0%
+know what? Just type it because you
+ 
+
+00:09:33.440 --> 00:09:35.990 align:start position:0%
+know what? Just type it because you
+don't<00:09:33.519><c> want</c><00:09:33.680><c> to</c><00:09:34.640><c> um</c><00:09:34.880><c> copy</c><00:09:35.200><c> the</c><00:09:35.360><c> wrong</c><00:09:35.519><c> thing.</c>
+
+00:09:35.990 --> 00:09:36.000 align:start position:0%
+don't want to um copy the wrong thing.
+ 
+
+00:09:36.000 --> 00:09:39.190 align:start position:0%
+don't want to um copy the wrong thing.
+So,<00:09:36.480><c> capital</c><00:09:36.880><c> A</c><00:09:37.600><c> authorization.</c>
+
+00:09:39.190 --> 00:09:39.200 align:start position:0%
+So, capital A authorization.
+ 
+
+00:09:39.200 --> 00:09:40.870 align:start position:0%
+So, capital A authorization.
+And<00:09:39.360><c> then</c><00:09:39.519><c> for</c><00:09:39.680><c> the</c><00:09:39.839><c> value,</c><00:09:40.560><c> you're</c><00:09:40.720><c> going</c><00:09:40.800><c> to</c>
+
+00:09:40.870 --> 00:09:40.880 align:start position:0%
+And then for the value, you're going to
+ 
+
+00:09:40.880 --> 00:09:43.829 align:start position:0%
+And then for the value, you're going to
+do<00:09:41.040><c> capital</c><00:09:41.440><c> B</c><00:09:42.160><c> bearer</c><00:09:42.720><c> just</c><00:09:42.959><c> like</c><00:09:43.120><c> this.</c>
+
+00:09:43.829 --> 00:09:43.839 align:start position:0%
+do capital B bearer just like this.
+ 
+
+00:09:43.839 --> 00:09:46.230 align:start position:0%
+do capital B bearer just like this.
+You're<00:09:44.080><c> going</c><00:09:44.160><c> to</c><00:09:44.320><c> hit</c><00:09:44.560><c> space</c><00:09:45.040><c> one</c><00:09:45.360><c> time.</c><00:09:46.080><c> And</c>
+
+00:09:46.230 --> 00:09:46.240 align:start position:0%
+You're going to hit space one time. And
+ 
+
+00:09:46.240 --> 00:09:47.750 align:start position:0%
+You're going to hit space one time. And
+then<00:09:46.399><c> you're</c><00:09:46.480><c> going</c><00:09:46.560><c> to</c><00:09:46.640><c> go</c><00:09:46.800><c> in,</c><00:09:47.200><c> copy</c><00:09:47.519><c> this</c>
+
+00:09:47.750 --> 00:09:47.760 align:start position:0%
+then you're going to go in, copy this
+ 
+
+00:09:47.760 --> 00:09:50.790 align:start position:0%
+then you're going to go in, copy this
+key,<00:09:48.880><c> go</c><00:09:49.040><c> back</c><00:09:49.279><c> into</c><00:09:49.600><c> agent</c><00:09:49.920><c> mail,</c><00:09:50.399><c> paste</c><00:09:50.640><c> that</c>
+
+00:09:50.790 --> 00:09:50.800 align:start position:0%
+key, go back into agent mail, paste that
+ 
+
+00:09:50.800 --> 00:09:53.590 align:start position:0%
+key, go back into agent mail, paste that
+in.<00:09:51.040><c> So,</c><00:09:51.200><c> it</c><00:09:51.360><c> should</c><00:09:51.519><c> be</c><00:09:52.320><c> bearer,</c><00:09:52.959><c> space,</c><00:09:53.360><c> and</c>
+
+00:09:53.590 --> 00:09:53.600 align:start position:0%
+in. So, it should be bearer, space, and
+ 
+
+00:09:53.600 --> 00:09:55.269 align:start position:0%
+in. So, it should be bearer, space, and
+then<00:09:53.760><c> your</c><00:09:54.000><c> key.</c><00:09:54.399><c> And</c><00:09:54.560><c> then</c><00:09:54.800><c> this</c><00:09:55.040><c> interface</c>
+
+00:09:55.269 --> 00:09:55.279 align:start position:0%
+then your key. And then this interface
+ 
+
+00:09:55.279 --> 00:09:56.470 align:start position:0%
+then your key. And then this interface
+is<00:09:55.440><c> a</c><00:09:55.600><c> little</c><00:09:55.680><c> buggy,</c><00:09:56.000><c> but</c><00:09:56.160><c> I'm</c><00:09:56.320><c> going</c><00:09:56.320><c> to</c><00:09:56.399><c> go</c>
+
+00:09:56.470 --> 00:09:56.480 align:start position:0%
+is a little buggy, but I'm going to go
+ 
+
+00:09:56.480 --> 00:09:58.070 align:start position:0%
+is a little buggy, but I'm going to go
+ahead<00:09:56.640><c> and</c><00:09:56.800><c> hit</c><00:09:56.959><c> save.</c><00:09:57.519><c> And</c><00:09:57.600><c> then</c><00:09:57.760><c> it</c><00:09:57.920><c> should</c>
+
+00:09:58.070 --> 00:09:58.080 align:start position:0%
+ahead and hit save. And then it should
+ 
+
+00:09:58.080 --> 00:10:00.550 align:start position:0%
+ahead and hit save. And then it should
+look<00:09:58.240><c> like</c><00:09:58.480><c> that.</c><00:09:59.200><c> And</c><00:09:59.360><c> now,</c><00:10:00.240><c> this</c><00:10:00.399><c> is</c>
+
+00:10:00.550 --> 00:10:00.560 align:start position:0%
+look like that. And now, this is
+ 
+
+00:10:00.560 --> 00:10:01.990 align:start position:0%
+look like that. And now, this is
+basically<00:10:00.880><c> all</c><00:10:01.120><c> you</c><00:10:01.279><c> need</c><00:10:01.360><c> to</c><00:10:01.440><c> do.</c><00:10:01.760><c> This</c>
+
+00:10:01.990 --> 00:10:02.000 align:start position:0%
+basically all you need to do. This
+ 
+
+00:10:02.000 --> 00:10:03.350 align:start position:0%
+basically all you need to do. This
+should<00:10:02.160><c> be</c><00:10:02.320><c> set</c><00:10:02.480><c> up.</c><00:10:02.720><c> So,</c><00:10:02.880><c> what</c><00:10:03.040><c> we</c><00:10:03.120><c> have</c><00:10:03.200><c> to</c><00:10:03.279><c> do</c>
+
+00:10:03.350 --> 00:10:03.360 align:start position:0%
+should be set up. So, what we have to do
+ 
+
+00:10:03.360 --> 00:10:05.430 align:start position:0%
+should be set up. So, what we have to do
+now<00:10:03.519><c> is</c><00:10:03.680><c> we</c><00:10:03.839><c> have</c><00:10:04.000><c> to</c><00:10:04.080><c> actually</c><00:10:04.320><c> test</c><00:10:04.880><c> this</c>
+
+00:10:05.430 --> 00:10:05.440 align:start position:0%
+now is we have to actually test this
+ 
+
+00:10:05.440 --> 00:10:07.110 align:start position:0%
+now is we have to actually test this
+endpoint.<00:10:06.240><c> Real</c><00:10:06.399><c> quick,</c><00:10:06.640><c> guys,</c><00:10:06.800><c> as</c><00:10:06.959><c> I'm</c>
+
+00:10:07.110 --> 00:10:07.120 align:start position:0%
+endpoint. Real quick, guys, as I'm
+ 
+
+00:10:07.120 --> 00:10:08.470 align:start position:0%
+endpoint. Real quick, guys, as I'm
+editing<00:10:07.360><c> this</c><00:10:07.519><c> video,</c><00:10:07.760><c> I</c><00:10:07.920><c> just</c><00:10:08.000><c> wanted</c><00:10:08.160><c> to</c><00:10:08.320><c> say</c>
+
+00:10:08.470 --> 00:10:08.480 align:start position:0%
+editing this video, I just wanted to say
+ 
+
+00:10:08.480 --> 00:10:10.470 align:start position:0%
+editing this video, I just wanted to say
+that<00:10:08.720><c> the</c><00:10:09.120><c> actual</c><00:10:09.440><c> API</c><00:10:09.920><c> key</c><00:10:10.080><c> that</c><00:10:10.320><c> you're</c>
+
+00:10:10.470 --> 00:10:10.480 align:start position:0%
+that the actual API key that you're
+ 
+
+00:10:10.480 --> 00:10:11.670 align:start position:0%
+that the actual API key that you're
+getting<00:10:10.640><c> there</c><00:10:10.800><c> that</c><00:10:11.040><c> you</c><00:10:11.200><c> copied</c><00:10:11.519><c> from</c>
+
+00:10:11.670 --> 00:10:11.680 align:start position:0%
+getting there that you copied from
+ 
+
+00:10:11.680 --> 00:10:14.630 align:start position:0%
+getting there that you copied from
+Grockbot<00:10:12.240><c> into</c><00:10:13.200><c> agent</c><00:10:13.600><c> mail,</c><00:10:14.320><c> you</c><00:10:14.480><c> probably</c>
+
+00:10:14.630 --> 00:10:14.640 align:start position:0%
+Grockbot into agent mail, you probably
+ 
+
+00:10:14.640 --> 00:10:15.990 align:start position:0%
+Grockbot into agent mail, you probably
+want<00:10:14.720><c> to</c><00:10:14.800><c> keep</c><00:10:14.959><c> that</c><00:10:15.120><c> private.</c><00:10:15.440><c> And</c><00:10:15.600><c> also,</c><00:10:15.839><c> you</c>
+
+00:10:15.990 --> 00:10:16.000 align:start position:0%
+want to keep that private. And also, you
+ 
+
+00:10:16.000 --> 00:10:17.350 align:start position:0%
+want to keep that private. And also, you
+probably<00:10:16.160><c> want</c><00:10:16.240><c> to</c><00:10:16.399><c> keep</c><00:10:16.480><c> the</c><00:10:16.720><c> URL,</c><00:10:17.200><c> the</c>
+
+00:10:17.350 --> 00:10:17.360 align:start position:0%
+probably want to keep the URL, the
+ 
+
+00:10:17.360 --> 00:10:19.269 align:start position:0%
+probably want to keep the URL, the
+endpoint<00:10:17.839><c> private</c><00:10:18.240><c> because</c><00:10:18.480><c> if</c><00:10:18.640><c> anyone</c><00:10:18.959><c> has</c>
+
+00:10:19.269 --> 00:10:19.279 align:start position:0%
+endpoint private because if anyone has
+ 
+
+00:10:19.279 --> 00:10:21.030 align:start position:0%
+endpoint private because if anyone has
+those<00:10:19.519><c> two</c><00:10:19.760><c> things,</c><00:10:20.320><c> they</c><00:10:20.560><c> can</c><00:10:20.720><c> basically</c>
+
+00:10:21.030 --> 00:10:21.040 align:start position:0%
+those two things, they can basically
+ 
+
+00:10:21.040 --> 00:10:23.269 align:start position:0%
+those two things, they can basically
+trigger<00:10:21.360><c> that</c><00:10:21.519><c> web</c><00:10:21.680><c> hook.</c><00:10:22.079><c> So,</c><00:10:22.720><c> they</c><00:10:23.040><c> could</c>
+
+00:10:23.269 --> 00:10:23.279 align:start position:0%
+trigger that web hook. So, they could
+ 
+
+00:10:23.279 --> 00:10:24.790 align:start position:0%
+trigger that web hook. So, they could
+find<00:10:23.440><c> a</c><00:10:23.600><c> way</c><00:10:23.760><c> into</c><00:10:23.920><c> your</c><00:10:24.079><c> Grockbot</c><00:10:24.560><c> and</c><00:10:24.720><c> have</c>
+
+00:10:24.790 --> 00:10:24.800 align:start position:0%
+find a way into your Grockbot and have
+ 
+
+00:10:24.800 --> 00:10:26.069 align:start position:0%
+find a way into your Grockbot and have
+it<00:10:24.959><c> do</c><00:10:25.200><c> things</c><00:10:25.279><c> that</c><00:10:25.519><c> you</c><00:10:25.680><c> probably</c><00:10:25.920><c> don't</c>
+
+00:10:26.069 --> 00:10:26.079 align:start position:0%
+it do things that you probably don't
+ 
+
+00:10:26.079 --> 00:10:27.590 align:start position:0%
+it do things that you probably don't
+want<00:10:26.160><c> it</c><00:10:26.240><c> to</c><00:10:26.399><c> do.</c><00:10:26.720><c> So,</c><00:10:26.959><c> treat</c><00:10:27.200><c> it</c><00:10:27.360><c> like</c><00:10:27.440><c> you</c>
+
+00:10:27.590 --> 00:10:27.600 align:start position:0%
+want it to do. So, treat it like you
+ 
+
+00:10:27.600 --> 00:10:29.750 align:start position:0%
+want it to do. So, treat it like you
+treat<00:10:27.839><c> any</c><00:10:28.000><c> API</c><00:10:28.399><c> key</c><00:10:28.560><c> or</c><00:10:28.800><c> password.</c><00:10:29.360><c> Keep</c><00:10:29.600><c> it</c>
+
+00:10:29.750 --> 00:10:29.760 align:start position:0%
+treat any API key or password. Keep it
+ 
+
+00:10:29.760 --> 00:10:30.870 align:start position:0%
+treat any API key or password. Keep it
+private.<00:10:30.000><c> Obviously,</c><00:10:30.399><c> the</c><00:10:30.560><c> ones</c><00:10:30.640><c> that</c><00:10:30.800><c> I</c>
+
+00:10:30.870 --> 00:10:30.880 align:start position:0%
+private. Obviously, the ones that I
+ 
+
+00:10:30.880 --> 00:10:31.990 align:start position:0%
+private. Obviously, the ones that I
+showed<00:10:31.040><c> you</c><00:10:31.200><c> guys</c><00:10:31.279><c> in</c><00:10:31.440><c> this</c><00:10:31.519><c> demo,</c><00:10:31.760><c> I've</c>
+
+00:10:31.990 --> 00:10:32.000 align:start position:0%
+showed you guys in this demo, I've
+ 
+
+00:10:32.000 --> 00:10:33.670 align:start position:0%
+showed you guys in this demo, I've
+deleted<00:10:32.320><c> by</c><00:10:32.480><c> now,</c><00:10:32.640><c> so</c><00:10:32.800><c> don't</c><00:10:32.959><c> even</c><00:10:33.120><c> try</c><00:10:33.279><c> it.</c>
+
+00:10:33.670 --> 00:10:33.680 align:start position:0%
+deleted by now, so don't even try it.
+ 
+
+00:10:33.680 --> 00:10:35.190 align:start position:0%
+deleted by now, so don't even try it.
+But<00:10:33.839><c> just</c><00:10:34.079><c> wanted</c><00:10:34.240><c> to</c><00:10:34.320><c> say</c><00:10:34.480><c> that.</c><00:10:34.880><c> But</c><00:10:35.040><c> let's</c>
+
+00:10:35.190 --> 00:10:35.200 align:start position:0%
+But just wanted to say that. But let's
+ 
+
+00:10:35.200 --> 00:10:36.230 align:start position:0%
+But just wanted to say that. But let's
+get<00:10:35.279><c> back</c><00:10:35.360><c> to</c><00:10:35.519><c> the</c><00:10:35.600><c> video.</c><00:10:35.839><c> Now,</c><00:10:36.000><c> here's</c>
+
+00:10:36.230 --> 00:10:36.240 align:start position:0%
+get back to the video. Now, here's
+ 
+
+00:10:36.240 --> 00:10:37.350 align:start position:0%
+get back to the video. Now, here's
+something<00:10:36.399><c> that</c><00:10:36.560><c> I'm</c><00:10:36.720><c> sure</c><00:10:36.880><c> you</c><00:10:37.040><c> guys</c><00:10:37.120><c> are</c>
+
+00:10:37.350 --> 00:10:37.360 align:start position:0%
+something that I'm sure you guys are
+ 
+
+00:10:37.360 --> 00:10:38.870 align:start position:0%
+something that I'm sure you guys are
+wondering<00:10:37.680><c> because</c><00:10:38.000><c> I</c><00:10:38.240><c> was</c><00:10:38.399><c> wondering</c><00:10:38.640><c> it,</c>
+
+00:10:38.870 --> 00:10:38.880 align:start position:0%
+wondering because I was wondering it,
+ 
+
+00:10:38.880 --> 00:10:41.430 align:start position:0%
+wondering because I was wondering it,
+too,<00:10:39.120><c> is</c><00:10:39.440><c> that</c><00:10:39.600><c> now</c><00:10:39.839><c> we</c><00:10:40.000><c> have</c><00:10:40.079><c> two</c><00:10:40.320><c> inboxes</c><00:10:41.200><c> and</c>
+
+00:10:41.430 --> 00:10:41.440 align:start position:0%
+too, is that now we have two inboxes and
+ 
+
+00:10:41.440 --> 00:10:43.590 align:start position:0%
+too, is that now we have two inboxes and
+we<00:10:41.600><c> also</c><00:10:41.839><c> have</c><00:10:41.920><c> two</c><00:10:42.160><c> web</c><00:10:42.399><c> hooks,</c><00:10:43.120><c> but</c><00:10:43.360><c> we</c>
+
+00:10:43.590 --> 00:10:43.600 align:start position:0%
+we also have two web hooks, but we
+ 
+
+00:10:43.600 --> 00:10:45.430 align:start position:0%
+we also have two web hooks, but we
+didn't<00:10:44.000><c> ever</c><00:10:44.320><c> choose,</c><00:10:44.800><c> you</c><00:10:44.880><c> know,</c><00:10:45.040><c> like</c><00:10:45.200><c> which</c>
+
+00:10:45.430 --> 00:10:45.440 align:start position:0%
+didn't ever choose, you know, like which
+ 
+
+00:10:45.440 --> 00:10:46.870 align:start position:0%
+didn't ever choose, you know, like which
+inbox<00:10:45.760><c> do</c><00:10:45.920><c> we</c><00:10:46.000><c> want</c><00:10:46.160><c> to</c><00:10:46.240><c> correlate</c><00:10:46.560><c> to</c><00:10:46.720><c> which</c>
+
+00:10:46.870 --> 00:10:46.880 align:start position:0%
+inbox do we want to correlate to which
+ 
+
+00:10:46.880 --> 00:10:48.550 align:start position:0%
+inbox do we want to correlate to which
+web<00:10:47.120><c> hook.</c><00:10:47.519><c> Meaning,</c><00:10:47.760><c> both</c><00:10:48.079><c> Trader</c><00:10:48.399><c> and</c>
+
+00:10:48.550 --> 00:10:48.560 align:start position:0%
+web hook. Meaning, both Trader and
+ 
+
+00:10:48.560 --> 00:10:50.710 align:start position:0%
+web hook. Meaning, both Trader and
+Stephanie<00:10:49.040><c> are</c><00:10:49.200><c> going</c><00:10:49.279><c> to</c><00:10:49.360><c> be</c><00:10:49.519><c> getting</c><00:10:49.839><c> emails</c>
+
+00:10:50.710 --> 00:10:50.720 align:start position:0%
+Stephanie are going to be getting emails
+ 
+
+00:10:50.720 --> 00:10:52.630 align:start position:0%
+Stephanie are going to be getting emails
+from<00:10:50.959><c> both</c><00:10:51.200><c> of</c><00:10:51.360><c> those</c><00:10:51.519><c> inboxes,</c><00:10:52.079><c> and</c><00:10:52.240><c> we</c><00:10:52.480><c> don't</c>
+
+00:10:52.630 --> 00:10:52.640 align:start position:0%
+from both of those inboxes, and we don't
+ 
+
+00:10:52.640 --> 00:10:54.310 align:start position:0%
+from both of those inboxes, and we don't
+really<00:10:52.880><c> want</c><00:10:53.040><c> that.</c><00:10:53.360><c> Now,</c><00:10:53.839><c> what</c><00:10:54.079><c> you</c><00:10:54.160><c> can</c><00:10:54.240><c> do</c>
+
+00:10:54.310 --> 00:10:54.320 align:start position:0%
+really want that. Now, what you can do
+ 
+
+00:10:54.320 --> 00:10:55.670 align:start position:0%
+really want that. Now, what you can do
+inside<00:10:54.560><c> of</c><00:10:54.720><c> Grockbot</c><00:10:55.200><c> is</c><00:10:55.279><c> you</c><00:10:55.440><c> can</c><00:10:55.519><c> just</c><00:10:55.600><c> tell</c>
+
+00:10:55.670 --> 00:10:55.680 align:start position:0%
+inside of Grockbot is you can just tell
+ 
+
+00:10:55.680 --> 00:10:57.590 align:start position:0%
+inside of Grockbot is you can just tell
+it,<00:10:55.839><c> "Hey,</c><00:10:56.160><c> by</c><00:10:56.320><c> the</c><00:10:56.399><c> way,</c><00:10:56.640><c> Stephanie,</c><00:10:57.360><c> you</c>
+
+00:10:57.590 --> 00:10:57.600 align:start position:0%
+it, "Hey, by the way, Stephanie, you
+ 
+
+00:10:57.600 --> 00:10:59.030 align:start position:0%
+it, "Hey, by the way, Stephanie, you
+should<00:10:57.680><c> only</c><00:10:57.920><c> be</c><00:10:58.079><c> responding</c><00:10:58.399><c> to</c><00:10:58.560><c> emails</c><00:10:58.880><c> that</c>
+
+00:10:59.030 --> 00:10:59.040 align:start position:0%
+should only be responding to emails that
+ 
+
+00:10:59.040 --> 00:11:00.470 align:start position:0%
+should only be responding to emails that
+are<00:10:59.120><c> coming</c><00:10:59.279><c> in</c><00:10:59.519><c> to</c><00:10:59.680><c> this</c><00:10:59.839><c> inbox."</c><00:11:00.320><c> You</c><00:11:00.399><c> know,</c>
+
+00:11:00.470 --> 00:11:00.480 align:start position:0%
+are coming in to this inbox." You know,
+ 
+
+00:11:00.480 --> 00:11:01.990 align:start position:0%
+are coming in to this inbox." You know,
+you<00:11:00.640><c> can</c><00:11:00.720><c> set</c><00:11:00.800><c> up</c><00:11:00.880><c> the</c><00:11:01.120><c> routine</c><00:11:01.440><c> and</c><00:11:01.680><c> it</c><00:11:01.839><c> will</c>
+
+00:11:01.990 --> 00:11:02.000 align:start position:0%
+you can set up the routine and it will
+ 
+
+00:11:02.000 --> 00:11:03.750 align:start position:0%
+you can set up the routine and it will
+filter<00:11:02.240><c> everything</c><00:11:02.480><c> out</c><00:11:02.720><c> immediately</c><00:11:03.519><c> and</c>
+
+00:11:03.750 --> 00:11:03.760 align:start position:0%
+filter everything out immediately and
+ 
+
+00:11:03.760 --> 00:11:05.509 align:start position:0%
+filter everything out immediately and
+that<00:11:04.000><c> will</c><00:11:04.240><c> work,</c><00:11:04.560><c> but</c><00:11:04.800><c> it's</c><00:11:04.959><c> just</c><00:11:05.120><c> not</c><00:11:05.279><c> super</c>
+
+00:11:05.509 --> 00:11:05.519 align:start position:0%
+that will work, but it's just not super
+ 
+
+00:11:05.519 --> 00:11:06.870 align:start position:0%
+that will work, but it's just not super
+clean.<00:11:05.760><c> So,</c><00:11:05.920><c> I'll</c><00:11:06.079><c> show</c><00:11:06.160><c> you</c><00:11:06.320><c> guys</c><00:11:06.480><c> real</c><00:11:06.640><c> quick</c>
+
+00:11:06.870 --> 00:11:06.880 align:start position:0%
+clean. So, I'll show you guys real quick
+ 
+
+00:11:06.880 --> 00:11:08.870 align:start position:0%
+clean. So, I'll show you guys real quick
+how<00:11:07.040><c> you</c><00:11:07.200><c> can</c><00:11:07.360><c> set</c><00:11:07.519><c> that</c><00:11:07.760><c> up</c><00:11:08.079><c> if</c><00:11:08.320><c> you</c><00:11:08.480><c> want</c><00:11:08.560><c> to.</c>
+
+00:11:08.870 --> 00:11:08.880 align:start position:0%
+how you can set that up if you want to.
+ 
+
+00:11:08.880 --> 00:11:10.870 align:start position:0%
+how you can set that up if you want to.
+And<00:11:09.040><c> for</c><00:11:09.279><c> some</c><00:11:09.519><c> reason,</c><00:11:10.240><c> agent</c><00:11:10.560><c> mail,</c><00:11:10.720><c> if</c>
+
+00:11:10.870 --> 00:11:10.880 align:start position:0%
+And for some reason, agent mail, if
+ 
+
+00:11:10.880 --> 00:11:12.310 align:start position:0%
+And for some reason, agent mail, if
+you're<00:11:11.040><c> listening</c><00:11:11.200><c> to</c><00:11:11.360><c> this,</c><00:11:11.920><c> make</c><00:11:12.160><c> this</c>
+
+00:11:12.310 --> 00:11:12.320 align:start position:0%
+you're listening to this, make this
+ 
+
+00:11:12.320 --> 00:11:14.150 align:start position:0%
+you're listening to this, make this
+easier.<00:11:12.720><c> I</c><00:11:12.880><c> don't</c><00:11:13.120><c> It</c><00:11:13.360><c> should</c><00:11:13.519><c> just</c><00:11:13.680><c> really</c><00:11:14.000><c> be</c>
+
+00:11:14.150 --> 00:11:14.160 align:start position:0%
+easier. I don't It should just really be
+ 
+
+00:11:14.160 --> 00:11:17.829 align:start position:0%
+easier. I don't It should just really be
+a<00:11:14.480><c> simple</c><00:11:15.120><c> UI</c><00:11:16.480><c> dropown.</c><00:11:17.040><c> Hey,</c><00:11:17.200><c> which</c><00:11:17.360><c> inbox</c><00:11:17.680><c> do</c>
+
+00:11:17.829 --> 00:11:17.839 align:start position:0%
+a simple UI dropown. Hey, which inbox do
+ 
+
+00:11:17.839 --> 00:11:19.509 align:start position:0%
+a simple UI dropown. Hey, which inbox do
+you<00:11:17.920><c> want</c><00:11:18.000><c> this</c><00:11:18.160><c> to</c><00:11:18.240><c> correlate</c><00:11:18.560><c> to?</c><00:11:19.120><c> It</c><00:11:19.360><c> lets</c>
+
+00:11:19.509 --> 00:11:19.519 align:start position:0%
+you want this to correlate to? It lets
+ 
+
+00:11:19.519 --> 00:11:21.190 align:start position:0%
+you want this to correlate to? It lets
+us<00:11:19.680><c> do</c><00:11:19.760><c> it,</c><00:11:19.839><c> but</c><00:11:20.079><c> we</c><00:11:20.240><c> have</c><00:11:20.320><c> to</c><00:11:20.399><c> do</c><00:11:20.480><c> it</c><00:11:20.720><c> in</c><00:11:20.959><c> code,</c>
+
+00:11:21.190 --> 00:11:21.200 align:start position:0%
+us do it, but we have to do it in code,
+ 
+
+00:11:21.200 --> 00:11:22.389 align:start position:0%
+us do it, but we have to do it in code,
+which<00:11:21.440><c> is</c><00:11:21.519><c> pretty</c><00:11:21.680><c> weird.</c><00:11:21.839><c> So,</c><00:11:22.079><c> we</c><00:11:22.160><c> have</c><00:11:22.240><c> to</c>
+
+00:11:22.389 --> 00:11:22.399 align:start position:0%
+which is pretty weird. So, we have to
+ 
+
+00:11:22.399 --> 00:11:24.310 align:start position:0%
+which is pretty weird. So, we have to
+set<00:11:22.560><c> an</c><00:11:22.720><c> inbox</c><00:11:23.120><c> ID.</c><00:11:23.600><c> So,</c><00:11:23.760><c> what</c><00:11:23.920><c> I</c><00:11:24.000><c> did</c><00:11:24.079><c> here</c><00:11:24.240><c> is</c>
+
+00:11:24.310 --> 00:11:24.320 align:start position:0%
+set an inbox ID. So, what I did here is
+ 
+
+00:11:24.320 --> 00:11:25.670 align:start position:0%
+set an inbox ID. So, what I did here is
+I<00:11:24.480><c> just</c><00:11:24.560><c> went</c><00:11:24.640><c> to</c><00:11:24.720><c> Codeex.</c><00:11:25.120><c> I</c><00:11:25.200><c> told</c><00:11:25.360><c> it</c><00:11:25.519><c> the</c>
+
+00:11:25.670 --> 00:11:25.680 align:start position:0%
+I just went to Codeex. I told it the
+ 
+
+00:11:25.680 --> 00:11:27.030 align:start position:0%
+I just went to Codeex. I told it the
+situation.<00:11:26.000><c> I</c><00:11:26.160><c> said,</c><00:11:26.240><c> "Hey,</c><00:11:26.560><c> I've</c><00:11:26.800><c> got</c><00:11:26.880><c> this</c>
+
+00:11:27.030 --> 00:11:27.040 align:start position:0%
+situation. I said, "Hey, I've got this
+ 
+
+00:11:27.040 --> 00:11:28.230 align:start position:0%
+situation. I said, "Hey, I've got this
+inbox,<00:11:27.360><c> this</c><00:11:27.519><c> inbox.</c><00:11:27.839><c> I</c><00:11:27.920><c> want</c><00:11:28.000><c> it</c><00:11:28.160><c> to</c>
+
+00:11:28.230 --> 00:11:28.240 align:start position:0%
+inbox, this inbox. I want it to
+ 
+
+00:11:28.240 --> 00:11:29.509 align:start position:0%
+inbox, this inbox. I want it to
+correlate<00:11:28.560><c> to</c><00:11:28.640><c> this</c><00:11:28.720><c> one</c><00:11:28.880><c> only."</c><00:11:29.120><c> And</c><00:11:29.279><c> it</c><00:11:29.440><c> gave</c>
+
+00:11:29.509 --> 00:11:29.519 align:start position:0%
+correlate to this one only." And it gave
+ 
+
+00:11:29.519 --> 00:11:31.030 align:start position:0%
+correlate to this one only." And it gave
+me<00:11:29.600><c> this</c><00:11:29.760><c> JavaScript,</c><00:11:30.240><c> which</c><00:11:30.480><c> I'm</c><00:11:30.720><c> basically</c>
+
+00:11:31.030 --> 00:11:31.040 align:start position:0%
+me this JavaScript, which I'm basically
+ 
+
+00:11:31.040 --> 00:11:33.030 align:start position:0%
+me this JavaScript, which I'm basically
+able<00:11:31.279><c> to</c><00:11:31.360><c> just</c><00:11:31.519><c> copy</c><00:11:31.839><c> this.</c><00:11:32.240><c> I</c><00:11:32.399><c> also</c><00:11:32.640><c> pulled</c><00:11:32.880><c> up</c>
+
+00:11:33.030 --> 00:11:33.040 align:start position:0%
+able to just copy this. I also pulled up
+ 
+
+00:11:33.040 --> 00:11:35.590 align:start position:0%
+able to just copy this. I also pulled up
+my<00:11:33.760><c> um</c><00:11:33.920><c> HML</c><00:11:34.320><c> console</c><00:11:34.640><c> right</c><00:11:34.800><c> in</c><00:11:34.959><c> here.</c><00:11:35.200><c> And</c><00:11:35.360><c> it</c>
+
+00:11:35.590 --> 00:11:35.600 align:start position:0%
+my um HML console right in here. And it
+ 
+
+00:11:35.600 --> 00:11:37.910 align:start position:0%
+my um HML console right in here. And it
+said<00:11:35.760><c> I</c><00:11:35.920><c> can</c><00:11:36.079><c> just</c><00:11:36.560><c> paste</c><00:11:36.880><c> that</c><00:11:37.040><c> into</c><00:11:37.360><c> there</c>
+
+00:11:37.910 --> 00:11:37.920 align:start position:0%
+said I can just paste that into there
+ 
+
+00:11:37.920 --> 00:11:41.269 align:start position:0%
+said I can just paste that into there
+and<00:11:38.079><c> then</c><00:11:38.320><c> hit</c><00:11:38.560><c> save.</c><00:11:39.200><c> And</c><00:11:39.440><c> so</c><00:11:39.680><c> now</c><00:11:40.560><c> this</c>
+
+00:11:41.269 --> 00:11:41.279 align:start position:0%
+and then hit save. And so now this
+ 
+
+00:11:41.279 --> 00:11:43.829 align:start position:0%
+and then hit save. And so now this
+endpoint<00:11:42.399><c> should</c><00:11:43.040><c> only</c><00:11:43.360><c> actually</c><00:11:43.680><c> be</c>
+
+00:11:43.829 --> 00:11:43.839 align:start position:0%
+endpoint should only actually be
+ 
+
+00:11:43.839 --> 00:11:45.829 align:start position:0%
+endpoint should only actually be
+triggered<00:11:44.240><c> by</c><00:11:44.640><c> emails</c><00:11:45.040><c> that</c><00:11:45.279><c> come</c><00:11:45.360><c> into</c><00:11:45.600><c> that</c>
+
+00:11:45.829 --> 00:11:45.839 align:start position:0%
+triggered by emails that come into that
+ 
+
+00:11:45.839 --> 00:11:47.590 align:start position:0%
+triggered by emails that come into that
+new<00:11:46.079><c> YouTube</c><00:11:46.399><c> test</c><00:11:46.640><c> inbox</c><00:11:47.040><c> right</c><00:11:47.200><c> here.</c>
+
+00:11:47.590 --> 00:11:47.600 align:start position:0%
+new YouTube test inbox right here.
+ 
+
+00:11:47.600 --> 00:11:49.910 align:start position:0%
+new YouTube test inbox right here.
+YouTube<00:11:48.000><c> testmail.to.</c><00:11:49.360><c> And</c><00:11:49.440><c> by</c><00:11:49.600><c> the</c><00:11:49.680><c> way,</c><00:11:49.760><c> the</c>
+
+00:11:49.910 --> 00:11:49.920 align:start position:0%
+YouTube testmail.to. And by the way, the
+ 
+
+00:11:49.920 --> 00:11:51.269 align:start position:0%
+YouTube testmail.to. And by the way, the
+way<00:11:50.000><c> I</c><00:11:50.160><c> got</c><00:11:50.240><c> there</c><00:11:50.399><c> was</c><00:11:50.560><c> inside</c><00:11:50.800><c> of</c><00:11:50.959><c> my</c><00:11:51.040><c> web</c>
+
+00:11:51.269 --> 00:11:51.279 align:start position:0%
+way I got there was inside of my web
+ 
+
+00:11:51.279 --> 00:11:52.870 align:start position:0%
+way I got there was inside of my web
+hook,<00:11:51.519><c> I</c><00:11:51.680><c> went</c><00:11:51.760><c> to</c><00:11:51.920><c> advanced.</c><00:11:52.399><c> So</c><00:11:52.560><c> right</c><00:11:52.720><c> where</c>
+
+00:11:52.870 --> 00:11:52.880 align:start position:0%
+hook, I went to advanced. So right where
+ 
+
+00:11:52.880 --> 00:11:54.470 align:start position:0%
+hook, I went to advanced. So right where
+we<00:11:53.040><c> put</c><00:11:53.120><c> the</c><00:11:53.279><c> API</c><00:11:53.600><c> key,</c><00:11:53.920><c> and</c><00:11:54.079><c> then</c><00:11:54.160><c> I</c><00:11:54.320><c> just</c>
+
+00:11:54.470 --> 00:11:54.480 align:start position:0%
+we put the API key, and then I just
+ 
+
+00:11:54.480 --> 00:11:55.750 align:start position:0%
+we put the API key, and then I just
+clicked<00:11:54.640><c> on</c><00:11:54.720><c> edit</c><00:11:55.040><c> transformation</c><00:11:55.519><c> and</c>
+
+00:11:55.750 --> 00:11:55.760 align:start position:0%
+clicked on edit transformation and
+ 
+
+00:11:55.760 --> 00:11:58.230 align:start position:0%
+clicked on edit transformation and
+that's<00:11:55.920><c> where</c><00:11:56.079><c> we</c><00:11:56.240><c> got</c><00:11:56.399><c> that</c><00:11:57.040><c> um</c><00:11:57.600><c> code</c><00:11:57.839><c> that</c><00:11:58.079><c> we</c>
+
+00:11:58.230 --> 00:11:58.240 align:start position:0%
+that's where we got that um code that we
+ 
+
+00:11:58.240 --> 00:11:59.829 align:start position:0%
+that's where we got that um code that we
+could<00:11:58.399><c> edit</c><00:11:58.640><c> there.</c><00:11:59.120><c> So</c><00:11:59.360><c> what</c><00:11:59.519><c> we're</c><00:11:59.680><c> going</c><00:11:59.760><c> to</c>
+
+00:11:59.829 --> 00:11:59.839 align:start position:0%
+could edit there. So what we're going to
+ 
+
+00:11:59.839 --> 00:12:01.190 align:start position:0%
+could edit there. So what we're going to
+do<00:11:59.920><c> now</c><00:12:00.079><c> is</c><00:12:00.240><c> we</c><00:12:00.399><c> are</c><00:12:00.560><c> going</c><00:12:00.640><c> to</c><00:12:00.720><c> actually</c><00:12:00.959><c> test</c>
+
+00:12:01.190 --> 00:12:01.200 align:start position:0%
+do now is we are going to actually test
+ 
+
+00:12:01.200 --> 00:12:02.790 align:start position:0%
+do now is we are going to actually test
+that<00:12:01.360><c> out.</c><00:12:01.760><c> This</c><00:12:01.920><c> is</c><00:12:02.000><c> the</c><00:12:02.160><c> moment</c><00:12:02.320><c> of</c><00:12:02.480><c> truth.</c>
+
+00:12:02.790 --> 00:12:02.800 align:start position:0%
+that out. This is the moment of truth.
+ 
+
+00:12:02.800 --> 00:12:04.230 align:start position:0%
+that out. This is the moment of truth.
+We're<00:12:02.959><c> going</c><00:12:03.040><c> to</c><00:12:03.200><c> send</c><00:12:03.360><c> an</c><00:12:03.600><c> email</c><00:12:03.760><c> to</c><00:12:04.000><c> that</c>
+
+00:12:04.230 --> 00:12:04.240 align:start position:0%
+We're going to send an email to that
+ 
+
+00:12:04.240 --> 00:12:07.829 align:start position:0%
+We're going to send an email to that
+account.<00:12:05.200><c> Test.</c><00:12:06.000><c> This</c><00:12:06.160><c> is</c><00:12:06.240><c> just</c><00:12:06.399><c> gonna</c><00:12:06.639><c> say,</c>
+
+00:12:07.829 --> 00:12:07.839 align:start position:0%
+account. Test. This is just gonna say,
+ 
+
+00:12:07.839 --> 00:12:09.990 align:start position:0%
+account. Test. This is just gonna say,
+"Hey,<00:12:08.399><c> could</c><00:12:08.639><c> you</c><00:12:08.800><c> please</c><00:12:09.200><c> just</c><00:12:09.600><c> let</c><00:12:09.760><c> me</c><00:12:09.920><c> know</c>
+
+00:12:09.990 --> 00:12:10.000 align:start position:0%
+"Hey, could you please just let me know
+ 
+
+00:12:10.000 --> 00:12:11.430 align:start position:0%
+"Hey, could you please just let me know
+if<00:12:10.160><c> you</c><00:12:10.320><c> get</c><00:12:10.399><c> this</c><00:12:10.560><c> and</c><00:12:10.880><c> tell</c><00:12:11.040><c> me</c><00:12:11.200><c> your</c>
+
+00:12:11.430 --> 00:12:11.440 align:start position:0%
+if you get this and tell me your
+ 
+
+00:12:11.440 --> 00:12:13.430 align:start position:0%
+if you get this and tell me your
+favorite<00:12:11.680><c> joke?"</c><00:12:12.160><c> And</c><00:12:12.320><c> then</c><00:12:12.560><c> real</c><00:12:12.800><c> quick,</c>
+
+00:12:13.430 --> 00:12:13.440 align:start position:0%
+favorite joke?" And then real quick,
+ 
+
+00:12:13.440 --> 00:12:14.790 align:start position:0%
+favorite joke?" And then real quick,
+could<00:12:13.600><c> you</c><00:12:13.680><c> go</c><00:12:13.760><c> ahead</c><00:12:13.920><c> and</c><00:12:14.000><c> format</c><00:12:14.320><c> this</c><00:12:14.480><c> as</c><00:12:14.639><c> an</c>
+
+00:12:14.790 --> 00:12:14.800 align:start position:0%
+could you go ahead and format this as an
+ 
+
+00:12:14.800 --> 00:12:16.470 align:start position:0%
+could you go ahead and format this as an
+email?<00:12:15.120><c> It's</c><00:12:15.360><c> to</c><00:12:15.600><c> Stephanie</c><00:12:16.000><c> and</c><00:12:16.160><c> it's</c><00:12:16.320><c> from</c>
+
+00:12:16.470 --> 00:12:16.480 align:start position:0%
+email? It's to Stephanie and it's from
+ 
+
+00:12:16.480 --> 00:12:18.790 align:start position:0%
+email? It's to Stephanie and it's from
+Nate.
+
+00:12:18.790 --> 00:12:18.800 align:start position:0%
+Nate.
+ 
+
+00:12:18.800 --> 00:12:20.470 align:start position:0%
+Nate.
+Okay.<00:12:19.120><c> Boom.</c><00:12:19.440><c> Now,</c><00:12:19.680><c> we'll</c><00:12:19.839><c> go</c><00:12:19.920><c> ahead</c><00:12:20.079><c> and</c><00:12:20.240><c> send</c>
+
+00:12:20.470 --> 00:12:20.480 align:start position:0%
+Okay. Boom. Now, we'll go ahead and send
+ 
+
+00:12:20.480 --> 00:12:22.790 align:start position:0%
+Okay. Boom. Now, we'll go ahead and send
+that<00:12:20.639><c> off</c><00:12:20.880><c> to</c><00:12:21.600><c> agent</c><00:12:21.920><c> mail.</c><00:12:22.240><c> Now,</c><00:12:22.480><c> what</c><00:12:22.639><c> we're</c>
+
+00:12:22.790 --> 00:12:22.800 align:start position:0%
+that off to agent mail. Now, what we're
+ 
+
+00:12:22.800 --> 00:12:24.710 align:start position:0%
+that off to agent mail. Now, what we're
+looking<00:12:22.880><c> for</c><00:12:23.120><c> in</c><00:12:23.279><c> inside</c><00:12:23.600><c> of</c><00:12:23.760><c> Grockbot</c><00:12:24.480><c> is</c>
+
+00:12:24.710 --> 00:12:24.720 align:start position:0%
+looking for in inside of Grockbot is
+ 
+
+00:12:24.720 --> 00:12:26.870 align:start position:0%
+looking for in inside of Grockbot is
+we're<00:12:24.959><c> looking</c><00:12:25.200><c> for</c><00:12:25.519><c> Stephanie</c><00:12:26.079><c> to</c><00:12:26.399><c> get</c><00:12:26.560><c> that</c>
+
+00:12:26.870 --> 00:12:26.880 align:start position:0%
+we're looking for Stephanie to get that
+ 
+
+00:12:26.880 --> 00:12:28.790 align:start position:0%
+we're looking for Stephanie to get that
+email<00:12:27.440><c> and</c><00:12:27.600><c> we'll</c><00:12:27.839><c> see</c><00:12:28.000><c> her</c><00:12:28.240><c> start</c><00:12:28.480><c> spinning</c>
+
+00:12:28.790 --> 00:12:28.800 align:start position:0%
+email and we'll see her start spinning
+ 
+
+00:12:28.800 --> 00:12:30.310 align:start position:0%
+email and we'll see her start spinning
+and<00:12:29.040><c> start</c><00:12:29.200><c> working.</c><00:12:29.600><c> And</c><00:12:29.760><c> we'll</c><00:12:30.000><c> see</c><00:12:30.079><c> this</c>
+
+00:12:30.310 --> 00:12:30.320 align:start position:0%
+and start working. And we'll see this
+ 
+
+00:12:30.320 --> 00:12:33.190 align:start position:0%
+and start working. And we'll see this
+thing<00:12:30.480><c> spinning</c><00:12:30.880><c> as</c><00:12:31.120><c> well.</c><00:12:31.360><c> So,</c><00:12:32.560><c> there</c><00:12:32.720><c> we</c><00:12:32.880><c> go.</c>
+
+00:12:33.190 --> 00:12:33.200 align:start position:0%
+thing spinning as well. So, there we go.
+ 
+
+00:12:33.200 --> 00:12:35.030 align:start position:0%
+thing spinning as well. So, there we go.
+Right<00:12:33.440><c> on</c><00:12:33.600><c> Q.</c><00:12:33.920><c> We</c><00:12:34.079><c> see</c><00:12:34.240><c> this</c><00:12:34.399><c> spinning.</c><00:12:34.720><c> We</c><00:12:34.880><c> see</c>
+
+00:12:35.030 --> 00:12:35.040 align:start position:0%
+Right on Q. We see this spinning. We see
+ 
+
+00:12:35.040 --> 00:12:36.710 align:start position:0%
+Right on Q. We see this spinning. We see
+Stephanie<00:12:35.440><c> working</c><00:12:35.839><c> and</c><00:12:36.079><c> that</c><00:12:36.320><c> means</c><00:12:36.480><c> that</c>
+
+00:12:36.710 --> 00:12:36.720 align:start position:0%
+Stephanie working and that means that
+ 
+
+00:12:36.720 --> 00:12:38.550 align:start position:0%
+Stephanie working and that means that
+two<00:12:36.959><c> things</c><00:12:37.120><c> worked.</c><00:12:37.680><c> The</c><00:12:37.920><c> actual</c><00:12:38.079><c> web</c><00:12:38.320><c> hook</c>
+
+00:12:38.550 --> 00:12:38.560 align:start position:0%
+two things worked. The actual web hook
+ 
+
+00:12:38.560 --> 00:12:41.670 align:start position:0%
+two things worked. The actual web hook
+from<00:12:38.720><c> agent</c><00:12:39.120><c> mail</c><00:12:39.360><c> to</c><00:12:40.079><c> Grockbot</c><00:12:40.720><c> worked</c><00:12:41.279><c> and</c>
+
+00:12:41.670 --> 00:12:41.680 align:start position:0%
+from agent mail to Grockbot worked and
+ 
+
+00:12:41.680 --> 00:12:44.069 align:start position:0%
+from agent mail to Grockbot worked and
+the<00:12:42.000><c> filter</c><00:12:42.480><c> which</c><00:12:42.800><c> only</c><00:12:43.040><c> allows</c><00:12:43.360><c> this</c><00:12:43.600><c> inbox</c>
+
+00:12:44.069 --> 00:12:44.079 align:start position:0%
+the filter which only allows this inbox
+ 
+
+00:12:44.079 --> 00:12:46.470 align:start position:0%
+the filter which only allows this inbox
+YouTube<00:12:44.480><c> test</c><00:12:44.959><c> to</c><00:12:45.279><c> actually</c><00:12:45.519><c> trigger</c>
+
+00:12:46.470 --> 00:12:46.480 align:start position:0%
+YouTube test to actually trigger
+ 
+
+00:12:46.480 --> 00:12:47.910 align:start position:0%
+YouTube test to actually trigger
+Stephanie<00:12:46.959><c> because</c><00:12:47.200><c> you'll</c><00:12:47.360><c> see</c><00:12:47.519><c> here</c><00:12:47.680><c> if</c><00:12:47.839><c> I</c>
+
+00:12:47.910 --> 00:12:47.920 align:start position:0%
+Stephanie because you'll see here if I
+ 
+
+00:12:47.920 --> 00:12:49.829 align:start position:0%
+Stephanie because you'll see here if I
+go<00:12:48.079><c> over</c><00:12:48.240><c> to</c><00:12:48.480><c> Trader,</c><00:12:48.959><c> nothing's</c><00:12:49.360><c> happening.</c>
+
+00:12:49.829 --> 00:12:49.839 align:start position:0%
+go over to Trader, nothing's happening.
+ 
+
+00:12:49.839 --> 00:12:51.750 align:start position:0%
+go over to Trader, nothing's happening.
+Trader<00:12:50.160><c> did</c><00:12:50.320><c> not</c><00:12:50.480><c> react</c><00:12:50.800><c> to</c><00:12:50.959><c> that</c><00:12:51.200><c> email</c><00:12:51.519><c> at</c>
+
+00:12:51.750 --> 00:12:51.760 align:start position:0%
+Trader did not react to that email at
+ 
+
+00:12:51.760 --> 00:12:53.990 align:start position:0%
+Trader did not react to that email at
+all,<00:12:52.160><c> but</c><00:12:52.560><c> Stephanie</c><00:12:53.040><c> did</c><00:12:53.360><c> as</c><00:12:53.519><c> you</c><00:12:53.600><c> can</c><00:12:53.680><c> see.</c>
+
+00:12:53.990 --> 00:12:54.000 align:start position:0%
+all, but Stephanie did as you can see.
+ 
+
+00:12:54.000 --> 00:12:55.190 align:start position:0%
+all, but Stephanie did as you can see.
+So,<00:12:54.160><c> she</c><00:12:54.399><c> should</c><00:12:54.560><c> be</c><00:12:54.720><c> coming</c><00:12:54.880><c> back</c><00:12:55.040><c> and</c>
+
+00:12:55.190 --> 00:12:55.200 align:start position:0%
+So, she should be coming back and
+ 
+
+00:12:55.200 --> 00:12:56.790 align:start position:0%
+So, she should be coming back and
+telling<00:12:55.440><c> us</c><00:12:55.600><c> a</c><00:12:55.839><c> joke.</c><00:12:56.160><c> Real</c><00:12:56.399><c> quick,</c><00:12:56.560><c> guys,</c>
+
+00:12:56.790 --> 00:12:56.800 align:start position:0%
+telling us a joke. Real quick, guys,
+ 
+
+00:12:56.800 --> 00:12:57.910 align:start position:0%
+telling us a joke. Real quick, guys,
+just<00:12:56.959><c> wanted</c><00:12:57.040><c> to</c><00:12:57.200><c> say</c><00:12:57.440><c> we</c><00:12:57.600><c> have</c><00:12:57.680><c> this</c>
+
+00:12:57.910 --> 00:12:57.920 align:start position:0%
+just wanted to say we have this
+ 
+
+00:12:57.920 --> 00:12:59.750 align:start position:0%
+just wanted to say we have this
+completely<00:12:58.320><c> free</c><00:12:58.560><c> kit</c><00:12:58.800><c> for</c><00:12:58.959><c> you</c><00:12:59.200><c> all</c><00:12:59.519><c> for</c>
+
+00:12:59.750 --> 00:12:59.760 align:start position:0%
+completely free kit for you all for
+ 
+
+00:12:59.760 --> 00:13:01.910 align:start position:0%
+completely free kit for you all for
+building<00:13:00.079><c> your</c><00:13:00.320><c> own</c><00:13:00.480><c> AIOS.</c><00:13:01.440><c> It's</c><00:13:01.600><c> a</c><00:13:01.680><c> template</c>
+
+00:13:01.910 --> 00:13:01.920 align:start position:0%
+building your own AIOS. It's a template
+ 
+
+00:13:01.920 --> 00:13:03.190 align:start position:0%
+building your own AIOS. It's a template
+that<00:13:02.079><c> will</c><00:13:02.160><c> help</c><00:13:02.320><c> 10x</c><00:13:02.639><c> your</c><00:13:02.800><c> productivity.</c>
+
+00:13:03.190 --> 00:13:03.200 align:start position:0%
+that will help 10x your productivity.
+ 
+
+00:13:03.200 --> 00:13:04.550 align:start position:0%
+that will help 10x your productivity.
+It's<00:13:03.360><c> got</c><00:13:03.440><c> a</c><00:13:03.519><c> bunch</c><00:13:03.680><c> of</c><00:13:03.760><c> skills</c><00:13:04.000><c> in</c><00:13:04.079><c> there,</c><00:13:04.399><c> a</c>
+
+00:13:04.550 --> 00:13:04.560 align:start position:0%
+It's got a bunch of skills in there, a
+ 
+
+00:13:04.560 --> 00:13:06.310 align:start position:0%
+It's got a bunch of skills in there, a
+bunch<00:13:04.720><c> of</c><00:13:04.800><c> resources</c><00:13:05.200><c> in</c><00:13:05.440><c> there,</c><00:13:05.760><c> and</c><00:13:05.920><c> it</c><00:13:06.160><c> will</c>
+
+00:13:06.310 --> 00:13:06.320 align:start position:0%
+bunch of resources in there, and it will
+ 
+
+00:13:06.320 --> 00:13:08.069 align:start position:0%
+bunch of resources in there, and it will
+basically<00:13:06.720><c> help</c><00:13:06.959><c> you</c><00:13:07.200><c> transform</c><00:13:07.839><c> your</c>
+
+00:13:08.069 --> 00:13:08.079 align:start position:0%
+basically help you transform your
+ 
+
+00:13:08.079 --> 00:13:09.509 align:start position:0%
+basically help you transform your
+system.<00:13:08.399><c> Whether</c><00:13:08.560><c> that's</c><00:13:08.720><c> for</c><00:13:08.880><c> Cloud</c><00:13:09.200><c> Code</c><00:13:09.360><c> or</c>
+
+00:13:09.509 --> 00:13:09.519 align:start position:0%
+system. Whether that's for Cloud Code or
+ 
+
+00:13:09.519 --> 00:13:11.190 align:start position:0%
+system. Whether that's for Cloud Code or
+Codeex<00:13:09.920><c> or</c><00:13:10.000><c> Hermes</c><00:13:10.320><c> Agent</c><00:13:10.560><c> or</c><00:13:10.720><c> whatever</c><00:13:10.959><c> agent</c>
+
+00:13:11.190 --> 00:13:11.200 align:start position:0%
+Codeex or Hermes Agent or whatever agent
+ 
+
+00:13:11.200 --> 00:13:12.389 align:start position:0%
+Codeex or Hermes Agent or whatever agent
+harness<00:13:11.519><c> you're</c><00:13:11.680><c> using,</c><00:13:11.920><c> whatever</c><00:13:12.160><c> tool</c>
+
+00:13:12.389 --> 00:13:12.399 align:start position:0%
+harness you're using, whatever tool
+ 
+
+00:13:12.399 --> 00:13:14.069 align:start position:0%
+harness you're using, whatever tool
+you're<00:13:12.560><c> using,</c><00:13:13.120><c> this</c><00:13:13.360><c> kit</c><00:13:13.600><c> will</c><00:13:13.839><c> help</c><00:13:13.920><c> you</c>
+
+00:13:14.069 --> 00:13:14.079 align:start position:0%
+you're using, this kit will help you
+ 
+
+00:13:14.079 --> 00:13:15.509 align:start position:0%
+you're using, this kit will help you
+out.<00:13:14.399><c> But</c><00:13:14.560><c> like</c><00:13:14.639><c> I</c><00:13:14.800><c> said,</c><00:13:14.959><c> this</c><00:13:15.040><c> is</c><00:13:15.200><c> yours</c>
+
+00:13:15.509 --> 00:13:15.519 align:start position:0%
+out. But like I said, this is yours
+ 
+
+00:13:15.519 --> 00:13:16.710 align:start position:0%
+out. But like I said, this is yours
+completely<00:13:15.839><c> free.</c><00:13:16.079><c> The</c><00:13:16.240><c> link</c><00:13:16.399><c> for</c><00:13:16.480><c> this</c><00:13:16.639><c> will</c>
+
+00:13:16.710 --> 00:13:16.720 align:start position:0%
+completely free. The link for this will
+ 
+
+00:13:16.720 --> 00:13:18.150 align:start position:0%
+completely free. The link for this will
+be<00:13:16.880><c> down</c><00:13:16.959><c> in</c><00:13:17.120><c> the</c><00:13:17.279><c> description.</c><00:13:17.760><c> But</c><00:13:17.920><c> let's</c>
+
+00:13:18.150 --> 00:13:18.160 align:start position:0%
+be down in the description. But let's
+ 
+
+00:13:18.160 --> 00:13:19.670 align:start position:0%
+be down in the description. But let's
+get<00:13:18.320><c> back</c><00:13:18.480><c> to</c><00:13:18.560><c> the</c><00:13:18.720><c> video.</c><00:13:19.040><c> Now,</c><00:13:19.279><c> because</c><00:13:19.440><c> I</c>
+
+00:13:19.670 --> 00:13:19.680 align:start position:0%
+get back to the video. Now, because I
+ 
+
+00:13:19.680 --> 00:13:21.110 align:start position:0%
+get back to the video. Now, because I
+never<00:13:19.839><c> answered</c><00:13:20.320><c> Stephanie's</c><00:13:20.880><c> question</c>
+
+00:13:21.110 --> 00:13:21.120 align:start position:0%
+never answered Stephanie's question
+ 
+
+00:13:21.120 --> 00:13:22.870 align:start position:0%
+never answered Stephanie's question
+earlier<00:13:21.440><c> up</c><00:13:21.680><c> here,</c><00:13:22.000><c> it</c><00:13:22.240><c> went</c><00:13:22.399><c> ahead</c><00:13:22.560><c> and</c><00:13:22.720><c> just</c>
+
+00:13:22.870 --> 00:13:22.880 align:start position:0%
+earlier up here, it went ahead and just
+ 
+
+00:13:22.880 --> 00:13:25.430 align:start position:0%
+earlier up here, it went ahead and just
+proactively<00:13:23.839><c> updated</c><00:13:24.240><c> the</c><00:13:24.399><c> routine</c><00:13:24.880><c> to</c><00:13:25.120><c> only</c>
+
+00:13:25.430 --> 00:13:25.440 align:start position:0%
+proactively updated the routine to only
+ 
+
+00:13:25.440 --> 00:13:27.590 align:start position:0%
+proactively updated the routine to only
+touch<00:13:25.760><c> emails</c><00:13:26.160><c> from</c><00:13:26.480><c> here.</c><00:13:27.120><c> But</c><00:13:27.279><c> it</c><00:13:27.519><c> said,</c>
+
+00:13:27.590 --> 00:13:27.600 align:start position:0%
+touch emails from here. But it said,
+ 
+
+00:13:27.600 --> 00:13:29.670 align:start position:0%
+touch emails from here. But it said,
+"Got<00:13:27.920><c> your</c><00:13:28.079><c> test</c><00:13:28.320><c> email.</c><00:13:28.800><c> Replied</c><00:13:29.200><c> in</c><00:13:29.440><c> thread</c>
+
+00:13:29.670 --> 00:13:29.680 align:start position:0%
+"Got your test email. Replied in thread
+ 
+
+00:13:29.680 --> 00:13:31.110 align:start position:0%
+"Got your test email. Replied in thread
+confirming<00:13:30.079><c> receipt</c><00:13:30.399><c> with</c><00:13:30.480><c> a</c><00:13:30.639><c> short</c><00:13:30.800><c> joke.</c>
+
+00:13:31.110 --> 00:13:31.120 align:start position:0%
+confirming receipt with a short joke.
+ 
+
+00:13:31.120 --> 00:13:32.550 align:start position:0%
+confirming receipt with a short joke.
+Web<00:13:31.360><c> hook</c><00:13:31.600><c> path</c><00:13:31.839><c> is</c><00:13:31.920><c> working.</c><00:13:32.160><c> So</c><00:13:32.320><c> we</c><00:13:32.480><c> can</c>
+
+00:13:32.550 --> 00:13:32.560 align:start position:0%
+Web hook path is working. So we can
+ 
+
+00:13:32.560 --> 00:13:33.990 align:start position:0%
+Web hook path is working. So we can
+treat<00:13:32.720><c> that</c><00:13:32.880><c> address</c><00:13:33.120><c> as</c><00:13:33.360><c> inbox</c><00:13:33.760><c> going</c>
+
+00:13:33.990 --> 00:13:34.000 align:start position:0%
+treat that address as inbox going
+ 
+
+00:13:34.000 --> 00:13:35.269 align:start position:0%
+treat that address as inbox going
+forward.<00:13:34.320><c> Now</c><00:13:34.399><c> if</c><00:13:34.560><c> I</c><00:13:34.639><c> go</c><00:13:34.800><c> back</c><00:13:34.880><c> into</c><00:13:35.040><c> agent</c>
+
+00:13:35.269 --> 00:13:35.279 align:start position:0%
+forward. Now if I go back into agent
+ 
+
+00:13:35.279 --> 00:13:37.430 align:start position:0%
+forward. Now if I go back into agent
+mail<00:13:35.519><c> real</c><00:13:35.680><c> quick</c><00:13:35.839><c> and</c><00:13:36.079><c> we</c><00:13:36.240><c> go</c><00:13:36.320><c> to</c><00:13:36.560><c> the</c><00:13:36.800><c> inbox,</c>
+
+00:13:37.430 --> 00:13:37.440 align:start position:0%
+mail real quick and we go to the inbox,
+ 
+
+00:13:37.440 --> 00:13:38.790 align:start position:0%
+mail real quick and we go to the inbox,
+you<00:13:37.600><c> can</c><00:13:37.680><c> see</c><00:13:37.760><c> that</c><00:13:37.920><c> we</c><00:13:38.079><c> have</c><00:13:38.240><c> this</c><00:13:38.480><c> test</c>
+
+00:13:38.790 --> 00:13:38.800 align:start position:0%
+you can see that we have this test
+ 
+
+00:13:38.800 --> 00:13:40.949 align:start position:0%
+you can see that we have this test
+message<00:13:39.120><c> and</c><00:13:39.360><c> then</c><00:13:39.839><c> our</c><00:13:40.160><c> Grockbot</c><00:13:40.639><c> responded</c>
+
+00:13:40.949 --> 00:13:40.959 align:start position:0%
+message and then our Grockbot responded
+ 
+
+00:13:40.959 --> 00:13:42.629 align:start position:0%
+message and then our Grockbot responded
+and<00:13:41.120><c> say,</c><00:13:41.279><c> "Hi</c><00:13:41.519><c> Nate,</c><00:13:41.839><c> got</c><00:13:41.920><c> it.</c><00:13:42.160><c> Your</c><00:13:42.320><c> message</c>
+
+00:13:42.629 --> 00:13:42.639 align:start position:0%
+and say, "Hi Nate, got it. Your message
+ 
+
+00:13:42.639 --> 00:13:44.629 align:start position:0%
+and say, "Hi Nate, got it. Your message
+landed<00:13:42.959><c> in</c><00:13:43.120><c> the</c><00:13:43.279><c> inbox.</c><00:13:43.920><c> Favorite</c><00:13:44.240><c> joke</c><00:13:44.399><c> is</c>
+
+00:13:44.629 --> 00:13:44.639 align:start position:0%
+landed in the inbox. Favorite joke is
+ 
+
+00:13:44.639 --> 00:13:45.910 align:start position:0%
+landed in the inbox. Favorite joke is
+why<00:13:44.720><c> don't</c><00:13:44.880><c> scientists</c><00:13:45.279><c> trust</c><00:13:45.519><c> Adams?"</c>
+
+00:13:45.910 --> 00:13:45.920 align:start position:0%
+why don't scientists trust Adams?"
+ 
+
+00:13:45.920 --> 00:13:47.509 align:start position:0%
+why don't scientists trust Adams?"
+Because<00:13:46.079><c> they</c><00:13:46.240><c> make</c><00:13:46.399><c> up</c><00:13:46.560><c> everything.</c><00:13:47.200><c> Classic</c>
+
+00:13:47.509 --> 00:13:47.519 align:start position:0%
+Because they make up everything. Classic
+ 
+
+00:13:47.519 --> 00:13:49.110 align:start position:0%
+Because they make up everything. Classic
+AI<00:13:47.920><c> joke.</c><00:13:48.320><c> But</c><00:13:48.399><c> you</c><00:13:48.560><c> can</c><00:13:48.639><c> see</c><00:13:48.720><c> that</c><00:13:48.880><c> you</c><00:13:48.959><c> can</c>
+
+00:13:49.110 --> 00:13:49.120 align:start position:0%
+AI joke. But you can see that you can
+ 
+
+00:13:49.120 --> 00:13:50.550 align:start position:0%
+AI joke. But you can see that you can
+actually<00:13:49.279><c> look</c><00:13:49.360><c> at</c><00:13:49.440><c> the</c><00:13:49.519><c> inbox</c><00:13:49.920><c> here</c><00:13:50.160><c> and</c><00:13:50.399><c> you</c>
+
+00:13:50.550 --> 00:13:50.560 align:start position:0%
+actually look at the inbox here and you
+ 
+
+00:13:50.560 --> 00:13:52.949 align:start position:0%
+actually look at the inbox here and you
+can<00:13:50.720><c> talk</c><00:13:51.040><c> from</c><00:13:51.360><c> here.</c><00:13:52.000><c> But</c><00:13:52.079><c> that</c><00:13:52.320><c> is</c><00:13:52.399><c> how</c><00:13:52.720><c> we</c>
+
+00:13:52.949 --> 00:13:52.959 align:start position:0%
+can talk from here. But that is how we
+ 
+
+00:13:52.959 --> 00:13:54.710 align:start position:0%
+can talk from here. But that is how we
+know<00:13:53.120><c> that</c><00:13:53.279><c> Grockbot</c><00:13:53.920><c> actually</c><00:13:54.160><c> was</c><00:13:54.399><c> able</c><00:13:54.560><c> to</c>
+
+00:13:54.710 --> 00:13:54.720 align:start position:0%
+know that Grockbot actually was able to
+ 
+
+00:13:54.720 --> 00:13:57.430 align:start position:0%
+know that Grockbot actually was able to
+respond<00:13:55.440><c> after</c><00:13:55.680><c> it</c><00:13:55.920><c> got</c><00:13:56.160><c> this</c><00:13:56.560><c> message.</c><00:13:57.199><c> So</c>
+
+00:13:57.430 --> 00:13:57.440 align:start position:0%
+respond after it got this message. So
+ 
+
+00:13:57.440 --> 00:13:58.550 align:start position:0%
+respond after it got this message. So
+this<00:13:57.600><c> is</c><00:13:57.760><c> pretty</c><00:13:58.000><c> cool.</c><00:13:58.160><c> Well,</c><00:13:58.320><c> the</c>
+
+00:13:58.550 --> 00:13:58.560 align:start position:0%
+this is pretty cool. Well, the
+ 
+
+00:13:58.560 --> 00:13:59.990 align:start position:0%
+this is pretty cool. Well, the
+possibilities<00:13:58.959><c> are</c><00:13:59.120><c> truly</c><00:13:59.360><c> endless</c><00:13:59.680><c> once</c><00:13:59.920><c> you</c>
+
+00:13:59.990 --> 00:14:00.000 align:start position:0%
+possibilities are truly endless once you
+ 
+
+00:14:00.000 --> 00:14:01.269 align:start position:0%
+possibilities are truly endless once you
+start<00:14:00.160><c> to</c><00:14:00.320><c> scale</c><00:14:00.480><c> up</c><00:14:00.639><c> different</c><00:14:00.880><c> bots</c><00:14:01.120><c> and</c>
+
+00:14:01.269 --> 00:14:01.279 align:start position:0%
+start to scale up different bots and
+ 
+
+00:14:01.279 --> 00:14:02.710 align:start position:0%
+start to scale up different bots and
+give<00:14:01.360><c> them</c><00:14:01.519><c> their</c><00:14:01.680><c> own</c><00:14:01.760><c> inboxes.</c><00:14:02.320><c> And</c><00:14:02.639><c> you</c>
+
+00:14:02.710 --> 00:14:02.720 align:start position:0%
+give them their own inboxes. And you
+ 
+
+00:14:02.720 --> 00:14:04.389 align:start position:0%
+give them their own inboxes. And you
+know,<00:14:02.880><c> obviously</c><00:14:03.199><c> Grockbots</c><00:14:03.839><c> inside</c><00:14:04.160><c> here</c>
+
+00:14:04.389 --> 00:14:04.399 align:start position:0%
+know, obviously Grockbots inside here
+ 
+
+00:14:04.399 --> 00:14:05.750 align:start position:0%
+know, obviously Grockbots inside here
+can<00:14:04.639><c> talk</c><00:14:04.800><c> to</c><00:14:04.959><c> each</c><00:14:05.120><c> other.</c><00:14:05.279><c> So,</c><00:14:05.440><c> they</c><00:14:05.600><c> don't</c>
+
+00:14:05.750 --> 00:14:05.760 align:start position:0%
+can talk to each other. So, they don't
+ 
+
+00:14:05.760 --> 00:14:07.910 align:start position:0%
+can talk to each other. So, they don't
+need<00:14:05.839><c> inboxes</c><00:14:06.399><c> to</c><00:14:06.560><c> talk</c><00:14:06.959><c> with</c><00:14:07.199><c> each</c><00:14:07.440><c> other.</c>
+
+00:14:07.910 --> 00:14:07.920 align:start position:0%
+need inboxes to talk with each other.
+ 
+
+00:14:07.920 --> 00:14:09.110 align:start position:0%
+need inboxes to talk with each other.
+But<00:14:08.000><c> if</c><00:14:08.160><c> you</c><00:14:08.240><c> want</c><00:14:08.320><c> them</c><00:14:08.480><c> to</c><00:14:08.639><c> talk</c><00:14:08.800><c> to</c><00:14:08.959><c> other</c>
+
+00:14:09.110 --> 00:14:09.120 align:start position:0%
+But if you want them to talk to other
+ 
+
+00:14:09.120 --> 00:14:11.430 align:start position:0%
+But if you want them to talk to other
+agents,<00:14:09.600><c> like</c><00:14:09.920><c> your</c><00:14:10.160><c> codecs</c><00:14:10.639><c> can</c><00:14:10.800><c> send</c><00:14:11.040><c> emails</c>
+
+00:14:11.430 --> 00:14:11.440 align:start position:0%
+agents, like your codecs can send emails
+ 
+
+00:14:11.440 --> 00:14:13.750 align:start position:0%
+agents, like your codecs can send emails
+or<00:14:11.760><c> something</c><00:14:12.000><c> like</c><00:14:12.160><c> that</c><00:14:12.399><c> to</c><00:14:13.040><c> your</c><00:14:13.199><c> Grockbot</c>
+
+00:14:13.750 --> 00:14:13.760 align:start position:0%
+or something like that to your Grockbot
+ 
+
+00:14:13.760 --> 00:14:15.430 align:start position:0%
+or something like that to your Grockbot
+or<00:14:13.920><c> different</c><00:14:14.160><c> automations,</c><00:14:15.120><c> it's</c><00:14:15.279><c> going</c><00:14:15.360><c> to</c>
+
+00:14:15.430 --> 00:14:15.440 align:start position:0%
+or different automations, it's going to
+ 
+
+00:14:15.440 --> 00:14:16.790 align:start position:0%
+or different automations, it's going to
+be<00:14:15.600><c> pretty</c><00:14:15.760><c> cool.</c><00:14:16.000><c> So,</c><00:14:16.240><c> I</c><00:14:16.399><c> can't</c><00:14:16.480><c> wait</c><00:14:16.639><c> to</c><00:14:16.720><c> see</c>
+
+00:14:16.790 --> 00:14:16.800 align:start position:0%
+be pretty cool. So, I can't wait to see
+ 
+
+00:14:16.800 --> 00:14:17.990 align:start position:0%
+be pretty cool. So, I can't wait to see
+what<00:14:16.959><c> you</c><00:14:17.040><c> guys</c><00:14:17.120><c> are</c><00:14:17.279><c> able</c><00:14:17.440><c> to</c><00:14:17.600><c> build.</c><00:14:17.920><c> But</c>
+
+00:14:17.990 --> 00:14:18.000 align:start position:0%
+what you guys are able to build. But
+ 
+
+00:14:18.000 --> 00:14:19.189 align:start position:0%
+what you guys are able to build. But
+that<00:14:18.160><c> is</c><00:14:18.320><c> going</c><00:14:18.399><c> to</c><00:14:18.480><c> do</c><00:14:18.560><c> it</c><00:14:18.639><c> for</c><00:14:18.800><c> today.</c><00:14:18.959><c> If</c><00:14:19.120><c> you</c>
+
+00:14:19.189 --> 00:14:19.199 align:start position:0%
+that is going to do it for today. If you
+ 
+
+00:14:19.199 --> 00:14:20.389 align:start position:0%
+that is going to do it for today. If you
+guys<00:14:19.360><c> want</c><00:14:19.440><c> to</c><00:14:19.519><c> watch</c><00:14:19.680><c> more</c><00:14:19.839><c> Grockbot</c>
+
+00:14:20.389 --> 00:14:20.399 align:start position:0%
+guys want to watch more Grockbot
+ 
+
+00:14:20.399 --> 00:14:21.509 align:start position:0%
+guys want to watch more Grockbot
+content,<00:14:20.639><c> then</c><00:14:20.800><c> check</c><00:14:20.880><c> out</c><00:14:21.040><c> this</c><00:14:21.199><c> video</c><00:14:21.360><c> right</c>
+
+00:14:21.509 --> 00:14:21.519 align:start position:0%
+content, then check out this video right
+ 
+
+00:14:21.519 --> 00:14:23.030 align:start position:0%
+content, then check out this video right
+up<00:14:21.600><c> here</c><00:14:21.760><c> where</c><00:14:21.920><c> I</c><00:14:22.079><c> go</c><00:14:22.240><c> over</c><00:14:22.560><c> every</c><00:14:22.800><c> single</c>
+
+00:14:23.030 --> 00:14:23.040 align:start position:0%
+up here where I go over every single
+ 
+
+00:14:23.040 --> 00:14:24.710 align:start position:0%
+up here where I go over every single
+core<00:14:23.360><c> concept</c><00:14:23.600><c> that</c><00:14:23.760><c> you</c><00:14:23.920><c> need</c><00:14:24.000><c> to</c><00:14:24.160><c> know</c><00:14:24.480><c> about</c>
+
+00:14:24.710 --> 00:14:24.720 align:start position:0%
+core concept that you need to know about
+ 
+
+00:14:24.720 --> 00:14:26.310 align:start position:0%
+core concept that you need to know about
+Crockbot.<00:14:25.440><c> So,</c><00:14:25.600><c> I'll</c><00:14:25.760><c> see</c><00:14:25.920><c> you</c><00:14:26.000><c> guys</c><00:14:26.160><c> over</c>
+
+00:14:26.310 --> 00:14:26.320 align:start position:0%
+Crockbot. So, I'll see you guys over
+ 
+
+00:14:26.320 --> 00:14:30.079 align:start position:0%
+Crockbot. So, I'll see you guys over
+there.<00:14:26.639><c> And</c><00:14:26.959><c> thanks</c><00:14:27.199><c> for</c><00:14:27.279><c> making</c><00:14:27.440><c> it</c><00:14:27.600><c> the</c><00:14:27.760><c> end.</c>
+

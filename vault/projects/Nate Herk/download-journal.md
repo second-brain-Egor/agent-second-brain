@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-09-15 07:00
-Всего видео в папке: 40
-Записей в журнале: 38
+Обновлено: 2026-09-16 07:00
+Всего видео в папке: 41
+Записей в журнале: 39
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -123,6 +123,18 @@
 Транскрипт: есть
 Кадры: 86
 Обновлено: 2026-09-06T07:00:42+03:00
+
+## 001-grok-bot-manages-my-inbox-and-has-its-own
+
+Статус: complete
+Название: Grok Bot Manages My Inbox (and has its own)
+Ссылка: https://www.youtube.com/watch?v=ff7om2bBLKM
+Дата видео: 20260916
+Описание: есть
+Комментарии: 9
+Транскрипт: есть
+Кадры: 40
+Обновлено: 2026-09-16T07:00:46+03:00
 
 ## 001-how-to-actually-choose-the-right-ai-agent
 

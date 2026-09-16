@@ -148,40 +148,9 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
                 break
             break
 
-    # Если последнее событие в сессии — присланный файл (без обработки),
-    # а текущий текст похож на просьбу обработать его → запускаем
-    # document-QA flow (как если бы caption был при отправке).
-    from d_brain.bot.handlers.document import QA_TRIGGERS, _answer_document
-    if QA_TRIGGERS.search(message.text):
-        recent = session.get_recent(scope, limit=5)
-        # Идём с конца, ищем последний file (но не дальше нашего же только что записанного text)
-        for entry in reversed(recent[:-1]):  # без только что добавленного text
-            etype = entry.get("type")
-            if etype == "file":
-                file_relpath = entry.get("path")
-                file_text = entry.get("text") or ""
-                file_name = Path(file_relpath).name if file_relpath else "document.md"
-                if file_relpath and file_text:
-                    await message.answer(
-                        f"📄 Обрабатываю «{file_name}» по твоей команде. ⏳ 1–3 минуты…",
-                        parse_mode=None,
-                    )
-                    asyncio.create_task(
-                        _answer_document(
-                            bot=message.bot,
-                            message=message,
-                            filename=file_name,
-                            file_text=file_text,
-                            instructions=message.text,
-                            storage=storage,
-                            timestamp=timestamp,
-                        )
-                    )
-                    return
-                break  # нашли file без preview — не сможем обработать
-            if etype in ("text", "voice", "assistant"):
-                # между файлом и нашим текстом было ещё что-то — не считаем "следом за файлом"
-                break
+    from d_brain.bot.handlers.document import route_document_request
+    if await route_document_request(message, message.text):
+        return
 
     # Dialog mode: respond via active LLM backend
     processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
@@ -270,9 +239,9 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
     except Exception as e:
         logger.exception("Dialog error")
         err = str(e) or type(e).__name__
-        msg = "⚠️ Не получилось ответить (таймаут или ошибка LLM). Запрос сохранён, попробуй ещё раз через минуту."
+        msg = "Не удалось получить ответ от выбранной модели. Запрос сохранён."
         if "TimeoutExpired" in err or "timed out" in err.lower():
-            msg = "⏱ Sonnet не уложился в 90 секунд (rate limit Claude Max или API лагает). Сохранил, попробуй переформулировать короче или подожди минуту."
+            msg = "⏱ Превышено время ответа. Запрос сохранён."
         await message.answer(msg, parse_mode=None)
 
     logger.info("Text message processed: %d chars", len(message.text))

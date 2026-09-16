@@ -1,5 +1,7 @@
 """Telegram bot initialization and polling."""
 
+import asyncio
+import contextlib
 import logging
 from collections.abc import Awaitable, Callable
 from typing import Any
@@ -131,8 +133,14 @@ async def run_bot(settings: Settings) -> None:
 
     await _announce_pending_switches(bot)
 
+    from d_brain.services.document_jobs import document_worker
+    documents_task = asyncio.create_task(document_worker(bot, settings))
+
     logger.info("Starting bot polling...")
     try:
         await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
     finally:
+        documents_task.cancel()
+        with contextlib.suppress(asyncio.CancelledError):
+            await documents_task
         await bot.session.close()

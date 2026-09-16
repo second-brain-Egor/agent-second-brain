@@ -140,6 +140,10 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
             await run_web_search(message, clean_web_query(transcript), log_input=False)
             return
 
+        from d_brain.bot.handlers.document import route_document_request
+        if await route_document_request(message, transcript):
+            return
+
         # Dialog mode: respond via active LLM backend
         processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
         user_id = message.from_user.id
@@ -226,11 +230,11 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
         logger.exception("Error processing voice message")
         err = str(e) or type(e).__name__
         if "TimeoutExpired" in err or "timed out" in err.lower():
-            msg = "⏱ Sonnet не уложился в 90 секунд (rate limit Claude Max или API лагает). Голосовое сохранил, попробуй ещё раз через минуту."
+            msg = "⏱ Превышено время ответа. Голосовой запрос сохранён."
         elif "Deepgram" in err or "transcription" in err.lower() or "ConnectTimeout" in err:
             msg = "🎤 Не получилось транскрибировать голос (Deepgram молчит). Попробуй ещё раз или напиши текстом."
         else:
-            msg = f"⚠️ Не получилось обработать: {err[:200]}"
+            msg = "Не удалось получить ответ от выбранной модели. Голосовой запрос сохранён."
         await message.answer(msg, parse_mode=None)
 
     logger.info("Voice message processed")

@@ -67,6 +67,7 @@ def _iter_markdown_files(vault: Path) -> list[Path]:
         md_file
         for md_file in vault.rglob("*.md")
         if not any(part in EXCLUDED_DIRS or part.startswith(".") for part in md_file.relative_to(vault).parts)
+        if not any((parent / ".document.json").exists() for parent in md_file.parents if parent != vault.parent)
     )
 
 
