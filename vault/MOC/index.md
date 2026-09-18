@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-17
+updated: 2026-09-18
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 782
-- Связей: 1977
-- Сирот: 49
-- Слабосвязанных: 99
+- Заметок: 789
+- Связей: 1982
+- Сирот: 50
+- Слабосвязанных: 106
 
 ## Память
 
@@ -119,6 +119,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/metadata.md|How to Actually Choose the Right AI Agent]]
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/analysis.md|Карточка ролика: Как создавать автоматизации GPT-6 Astra без расхода лимита подписки]]
+- [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/description.md|description]]
+- [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/metadata.md|How to Build GPT-6 Astra Automations (that don’t eat your usage limit)]]
+- [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/analysis.md|I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/description.md|description]]
@@ -571,13 +577,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-18.md|2026-09-18]]
 - [[daily/2026-09-17.md|2026-09-17]]
 - [[daily/2026-09-16.md|2026-09-16]]
 - [[daily/2026-09-15.md|2026-09-15]]
 - [[daily/2026-09-14.md|2026-09-14]]
 - [[daily/2026-09-13.md|2026-09-13]]
 - [[daily/2026-09-12.md|2026-09-12]]
-- [[daily/2026-09-11.md|2026-09-11]]
 
 ## Недельные сводки
 

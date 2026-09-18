@@ -585,7 +585,22 @@
       "frames_required": true,
       "updated_at": "2026-09-16T07:00:46+03:00",
       "completed_at": "2026-09-16T07:00:46+03:00"
+    },
+    "FqnNL8fnUWo": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit",
+      "title": "How to Build GPT-6 Astra Automations (that don’t eat your usage limit)",
+      "url": "https://www.youtube.com/watch?v=FqnNL8fnUWo",
+      "upload_date": "20260916",
+      "comments": 16,
+      "frames": 30,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-17T07:05:24+03:00",
+      "completed_at": "2026-09-17T07:05:24+03:00"
     }
   },
-  "updated_at": "2026-09-16T07:00:46+03:00"
+  "updated_at": "2026-09-17T07:05:24+03:00"
 }

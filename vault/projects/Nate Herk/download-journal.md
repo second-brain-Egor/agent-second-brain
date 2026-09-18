@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-09-16 07:00
-Всего видео в папке: 41
-Записей в журнале: 39
+Обновлено: 2026-09-17 07:05
+Всего видео в папке: 42
+Записей в журнале: 40
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -147,6 +147,18 @@
 Транскрипт: есть
 Кадры: 93
 Обновлено: 2026-09-12T07:01:22+03:00
+
+## 001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit
+
+Статус: complete
+Название: How to Build GPT-6 Astra Automations (that don’t eat your usage limit)
+Ссылка: https://www.youtube.com/watch?v=FqnNL8fnUWo
+Дата видео: 20260916
+Описание: есть
+Комментарии: 16
+Транскрипт: есть
+Кадры: 30
+Обновлено: 2026-09-17T07:05:24+03:00
 
 ## 001-i-analyzed-how-anthropic-actually-prompts-fable-5-1
 
