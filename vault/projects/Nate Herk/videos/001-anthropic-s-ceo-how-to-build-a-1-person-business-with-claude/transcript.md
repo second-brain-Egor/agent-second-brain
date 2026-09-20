@@ -1,3 +1,8 @@
+---
+description: "So, the CEO of Anthropic just said that the first one person billion-dollar business will be created this year using Claude. He explained the three..."
+related:
+  - "[[projects/_index]]"
+---
 So, the CEO of Anthropic just said that
 the first one person billion-dollar
 business will be created this year using

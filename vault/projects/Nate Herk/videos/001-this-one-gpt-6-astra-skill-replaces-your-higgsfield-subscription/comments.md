@@ -1,3 +1,8 @@
+---
+description: "Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources..."
+related:
+  - "[[projects/_index]]"
+---
 # Комментарии
 
 ## @nateherk

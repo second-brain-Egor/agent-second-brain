@@ -1,3 +1,8 @@
+---
+description: "Get qualified and enriched leads with Clay: https://makes.clay.com/go/nate-herk/find-companies-that-fit-your-icp?via=nate-herk-int2 My roadmap for..."
+related:
+  - "[[projects/_index]]"
+---
 Get qualified and enriched leads with Clay: https://makes.clay.com/go/nate-herk/find-companies-that-fit-your-icp?via=nate-herk-int2
 My roadmap for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=how-to-build-a-1-person-business-with-claude

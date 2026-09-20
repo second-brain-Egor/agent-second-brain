@@ -1,3 +1,8 @@
+---
+description: "Codex lets you build automations right inside of it using scheduled tasks. However, because these scheduled tasks basically just send messages right..."
+related:
+  - "[[projects/_index]]"
+---
 Codex lets you build automations right
 inside of it using scheduled tasks.
 However, because these scheduled tasks

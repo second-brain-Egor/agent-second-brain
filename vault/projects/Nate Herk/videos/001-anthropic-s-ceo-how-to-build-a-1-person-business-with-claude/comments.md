@@ -1,3 +1,8 @@
+---
+description: "Get qualified and enriched leads with Clay: https://makes.clay.com/go/nate-herk/find-companies-that-fit-your-icp?via=nate-herk-int2 My roadmap for..."
+related:
+  - "[[projects/_index]]"
+---
 # Комментарии
 
 ## @nateherk

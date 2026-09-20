@@ -1,3 +1,8 @@
+---
+description: "Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA My FREE resources..."
+related:
+  - "[[projects/_index]]"
+---
 Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=higgsfield-api&hcategory=youtube-videos&utm_campaign=free-group
 

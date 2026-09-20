@@ -1,3 +1,8 @@
+---
+description: "Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?via=nate-herk-int1-v2 FREE AI OS..."
+related:
+  - "[[projects/_index]]"
+---
 Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?via=nate-herk-int1-v2
 FREE AI OS Kit: https://app.aiautomationsociety.ai/optin/ai-os/
 

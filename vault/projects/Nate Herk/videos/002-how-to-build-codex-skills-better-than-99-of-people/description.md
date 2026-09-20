@@ -1,3 +1,8 @@
+---
+description: "FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/ My playbook for growing a $1M AI agency..."
+related:
+  - "[[projects/_index]]"
+---
 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 

@@ -1,3 +1,8 @@
+---
+description: "So Jev is literally everywhere and I think it's going to change how AI automations are built. So I came in here and tested it on 12 use cases and..."
+related:
+  - "[[projects/_index]]"
+---
 So Jev is literally everywhere and I
 think it's going to change how AI
 automations are built. So I came in here

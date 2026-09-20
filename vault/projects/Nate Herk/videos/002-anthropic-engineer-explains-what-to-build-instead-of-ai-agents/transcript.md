@@ -1,3 +1,8 @@
+---
+description: "So, Enthropic Engineers just said that they stopped building agents and they started building something completely different. So, if you're still..."
+related:
+  - "[[projects/_index]]"
+---
 So, Enthropic Engineers just said that
 they stopped building agents and they
 started building something completely

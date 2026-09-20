@@ -1,4 +1,5 @@
 ---
+description: "Источник: daily/2026-03-31."
 type: note
 date: 2026-03-31
 tier: archive

@@ -1,3 +1,8 @@
+---
+description: "Get FREE Hyperagent credits here: https://www.hyperagent.com/nate100 FREE First Client SOP..."
+related:
+  - "[[projects/_index]]"
+---
 # Комментарии
 
 ## @nateherk

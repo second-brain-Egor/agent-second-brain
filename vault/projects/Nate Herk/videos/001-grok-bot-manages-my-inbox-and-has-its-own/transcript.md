@@ -1,3 +1,8 @@
+---
+description: "So here you can see that I've got this Grockbot set up to wake up about every 30 minutes and place trades for me in the stock market or sell them or..."
+related:
+  - "[[projects/_index]]"
+---
 So here you can see that I've got this
 Grockbot set up to wake up about every
 30 minutes and place trades for me in

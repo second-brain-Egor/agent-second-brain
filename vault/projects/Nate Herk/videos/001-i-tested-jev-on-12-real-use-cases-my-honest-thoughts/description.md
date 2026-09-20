@@ -1,3 +1,8 @@
+---
+description: "FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/ My FREE resources..."
+related:
+  - "[[projects/_index]]"
+---
 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=higgsfield-api&hcategory=youtube-videos&utm_campaign=free-group
 

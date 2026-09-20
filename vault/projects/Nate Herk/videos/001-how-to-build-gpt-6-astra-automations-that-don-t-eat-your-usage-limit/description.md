@@ -1,3 +1,8 @@
+---
+description: "Get FREE Hyperagent credits here: https://www.hyperagent.com/nate100 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/"
+related:
+  - "[[projects/_index]]"
+---
 Get FREE Hyperagent credits here: https://www.hyperagent.com/nate100
 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/
 

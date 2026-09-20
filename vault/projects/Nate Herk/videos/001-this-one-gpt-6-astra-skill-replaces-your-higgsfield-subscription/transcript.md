@@ -1,3 +1,8 @@
+---
+description: "One of the great things about Codex is that right inside of it, it can make images for you. As you can see right here, I gave it these three images..."
+related:
+  - "[[projects/_index]]"
+---
 One of the great things about Codex is
 that right inside of it, it can make
 images for you. As you can see right
