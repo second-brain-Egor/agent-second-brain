@@ -107,7 +107,7 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
         for entry in reversed(recent[:-1]):
             if entry.get("type") in ("text", "voice", "assistant"):
                 continue
-            if entry.get("type") in ("file", "photo"):
+            if entry.get("type") in ("file", "photo", "video", "video_note"):
                 rel = entry.get("path") or ""
                 if rel and rel.startswith("attachments/"):
                     abs_path = (settings.vault_path / rel).resolve()
@@ -170,9 +170,7 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
                     processor.clear_pending_action(scope)
                     await message.answer("🟢 Принял", parse_mode=None)
                     session.append(scope, "assistant", text="🟢 Принял", chat_id=message.chat.id, chat_title=message.chat.title)
-                    asyncio.create_task(
-                        _run_agent(message, processor, pending["original_prompt"], user_id, scope, work_context, session)
-                    )
+                    await _run_agent(message, processor, pending["original_prompt"], user_id, scope, work_context, session)
                     logger.info("Text message processed (pending confirmed → Opus)")
                     return
                 if decision == "cancel":
@@ -217,9 +215,7 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
                 session.append(scope, "assistant", text=f"[agent] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
 
                 # Run heavy agent in background (always text — too long for voice)
-                asyncio.create_task(
-                    _run_agent(message, processor, message.text, user_id, scope, work_context, session)
-                )
+                await _run_agent(message, processor, message.text, user_id, scope, work_context, session)
             else:
                 reminder = maybe_evening_reminder(settings.vault_path)
                 if reminder:

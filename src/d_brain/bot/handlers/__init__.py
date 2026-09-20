@@ -10,6 +10,7 @@ from d_brain.bot.handlers import (
     photo,
     process,
     text,
+    video,
     voice,
     weekly,
 )
@@ -24,6 +25,7 @@ __all__ = [
     "photo",
     "process",
     "text",
+    "video",
     "voice",
     "weekly",
 ]

@@ -61,7 +61,7 @@ async def _send_response(message: Message, response: str) -> None:
 
 
 @router.message(SilentState.active, lambda m: m.voice is not None)
-async def handle_voice_silent(message: Message, bot: Bot, state: FSMContext) -> None:
+async def handle_voice_silent(message: Message, bot: Bot, state: FSMContext, transcript: str | None = None) -> None:
     """Handle voice in silent mode — transcribe and save only."""
     if not message.voice or not message.from_user:
         return
@@ -69,7 +69,7 @@ async def handle_voice_silent(message: Message, bot: Bot, state: FSMContext) -> 
     await message.chat.do(action="typing")
 
     try:
-        transcript = await _transcribe_voice(message, bot)
+        transcript = transcript or await _transcribe_voice(message, bot)
         if not transcript:
             await message.answer("Не удалось распознать аудио.")
             return
@@ -99,7 +99,7 @@ async def handle_voice_silent(message: Message, bot: Bot, state: FSMContext) -> 
 
 
 @router.message(lambda m: m.voice is not None)
-async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
+async def handle_voice(message: Message, bot: Bot, state: FSMContext, transcript: str | None = None) -> None:
     """Handle voice messages — dialog mode (default)."""
     if not message.voice or not message.from_user:
         return
@@ -107,7 +107,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
     await message.chat.do(action="typing")
 
     try:
-        transcript = await _transcribe_voice(message, bot)
+        transcript = transcript or await _transcribe_voice(message, bot)
         if not transcript:
             await message.answer("Не удалось распознать аудио.")
             return
@@ -161,9 +161,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
                     processor.clear_pending_action(scope)
                     await message.answer("🟢 Принял", parse_mode=None)
                     session.append(scope, "assistant", text="🟢 Принял", chat_id=message.chat.id, chat_title=message.chat.title)
-                    asyncio.create_task(
-                        _run_voice_agent(message, processor, pending["original_prompt"], user_id, scope, work_context, session)
-                    )
+                    await _run_voice_agent(message, processor, pending["original_prompt"], user_id, scope, work_context, session)
                     logger.info("Voice message processed (pending confirmed → Opus)")
                     return
                 if decision == "cancel":
@@ -209,9 +207,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext) -> None:
                 await message.answer(brief, parse_mode=None)
                 session.append(scope, "assistant", text=f"[agent] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
 
-                asyncio.create_task(
-                    _run_voice_agent(message, processor, transcript, user_id, scope, work_context, session)
-                )
+                await _run_voice_agent(message, processor, transcript, user_id, scope, work_context, session)
             else:
                 reminder = maybe_evening_reminder(settings.vault_path)
                 if reminder:

@@ -296,10 +296,11 @@
       "frames": 255,
       "deduped_frames": 0,
       "description": true,
-      "transcript": false,
+      "transcript": true,
       "frames_required": true,
       "updated_at": "2026-08-31T07:12:10+03:00",
-      "completed_at": "2026-08-31T07:12:10+03:00"
+      "completed_at": "2026-08-31T07:12:10+03:00",
+      "transcript_restored_at": "2026-09-19T08:48:12.935844+00:00"
     },
     "NyfYxpXiw_0": {
       "status": "complete",
@@ -600,7 +601,67 @@
       "frames_required": true,
       "updated_at": "2026-09-17T07:05:24+03:00",
       "completed_at": "2026-09-17T07:05:24+03:00"
+    },
+    "oWCcN6hSFjA": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription",
+      "title": "This ONE GPT-6 Astra Skill Replaces Your Higgsfield Subscription",
+      "url": "https://www.youtube.com/watch?v=oWCcN6hSFjA",
+      "upload_date": "20260918",
+      "comments": 27,
+      "frames": 25,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-18T07:00:41+03:00",
+      "completed_at": "2026-09-18T07:00:41+03:00"
+    },
+    "QDsenEcAJIk": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude",
+      "title": "Anthropic’s CEO: How to Build a 1 Person Business with Claude",
+      "url": "https://www.youtube.com/watch?v=QDsenEcAJIk",
+      "upload_date": "20260918",
+      "comments": 48,
+      "frames": 107,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-19T07:00:59+03:00",
+      "completed_at": "2026-09-19T07:00:59+03:00"
+    },
+    "ymgH8jS6Wb8": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts",
+      "title": "I Tested Jev on 12 Real Use Cases. My Honest Thoughts.",
+      "url": "https://www.youtube.com/watch?v=ymgH8jS6Wb8",
+      "upload_date": "20260919",
+      "comments": 79,
+      "frames": 39,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-20T07:00:52+03:00",
+      "completed_at": "2026-09-20T07:00:52+03:00"
+    },
+    "9KOtMsZ9I28": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people",
+      "title": "How to Build Codex Skills Better than 99% of People",
+      "url": "https://www.youtube.com/watch?v=9KOtMsZ9I28",
+      "upload_date": "20260919",
+      "comments": 15,
+      "frames": 34,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-20T07:09:18+03:00",
+      "completed_at": "2026-09-20T07:09:18+03:00"
     }
   },
-  "updated_at": "2026-09-17T07:05:24+03:00"
+  "updated_at": "2026-09-20T07:09:18+03:00"
 }

@@ -17,6 +17,9 @@ logger = logging.getLogger(__name__)
 
 
 def transient_error(error: Exception) -> bool:
+    from d_brain.services.execution import ExecutionLimit
+    if isinstance(error, ExecutionLimit):
+        return False
     if isinstance(error, (TimeoutError, subprocess.TimeoutExpired, ConnectionError, DocumentOutputError)):
         return True
     return isinstance(error, RuntimeError) and any(word in str(error).lower() for word in (
@@ -27,6 +30,9 @@ def transient_error(error: Exception) -> bool:
 def user_error(error: Exception, stage: str = 'model') -> str:
     if stage == 'delivery':
         return 'Файл готов, но отправка не подтверждена. Повторить отправку можно кнопкой ниже.'
+    from d_brain.services.execution import ExecutionLimit
+    if isinstance(error, ExecutionLimit):
+        return "Достигнут предел выполнения. Запрос и промежуточный журнал сохранены; автоповтор отключён."
     if isinstance(error, (TimeoutError, subprocess.TimeoutExpired)):
         return 'Превышено время обработки. ' + (
             'Документ и задание сохранены.' if stage == 'document' else 'Запрос сохранён.')
@@ -39,20 +45,32 @@ def user_error(error: Exception, stage: str = 'model') -> str:
 
 
 def process_job(store: DocumentStore, job: dict, processor) -> None:
+    from d_brain.services.execution import CURRENT_EXECUTION
+    execution = CURRENT_EXECUTION.get()
+    if execution:
+        execution.check()
     doc = store.get(job['doc_id'])
     original = store.safe_path(doc['path'])
     for attempt in range(job['attempts'], 2):
+        if execution:
+            execution.check()
         store.set_job(job['id'], attempts=attempt+1, state='extracting', error=None)
         try:
             text_path = extract_text(original)
+            if execution:
+                execution.check()
             SessionStore(store.vault).append(doc['scope'], 'file', name=doc['name'],
                 path=doc['path'], text_path=text_path.relative_to(store.vault).as_posix(),
                 caption=job['request'], doc_id=doc['id'], chat_id=job['chat_id'])
             store.set_job(job['id'], state='generating')
             prompt = build_prompt(text_path.read_text(encoding='utf-8'), job['request'], original)
             answer = processor._run_backend_exec(prompt, read_only=True, timeout_sec=None, mode='agent')
+            if execution:
+                execution.check()
             content = parse_content(answer, job['request'])
             artifact = create_artifact(content, job['request'], original.parent/'Результаты'/job['id'])
+            if execution:
+                execution.check()
             store.set_job(job['id'], state='ready', artifact=artifact.relative_to(store.vault).as_posix())
             return
         except Exception as error:
@@ -82,7 +100,7 @@ async def deliver_job(store: DocumentStore, job: dict, bot) -> None:
         text='Готовый файл: '+job['artifact'], path=job['artifact'], chat_id=job['chat_id'])
 
 
-async def document_worker(bot, settings) -> None:
+async def document_worker(bot, settings, request_jobs=None) -> None:
     from d_brain.services.processor import AgentProcessor
     store = DocumentStore(settings.vault_path)
     store.recover()
@@ -91,7 +109,10 @@ async def document_worker(bot, settings) -> None:
             for job in store.jobs(('queued', 'ready', 'failed', 'send_unknown')):
                 if job['state'] == 'queued' and store.claim(job['id'], 'queued', 'extracting'):
                     processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
-                    await asyncio.to_thread(process_job, store, job, processor)
+                    if request_jobs is not None:
+                        await request_jobs.run_document(store, job, processor)
+                    else:
+                        await asyncio.to_thread(process_job, store, job, processor)
                     job = store.job(job['id'])
                 if job['state'] == 'ready':
                     await deliver_job(store, job, bot)

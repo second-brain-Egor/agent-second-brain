@@ -11,6 +11,7 @@ the running process.
 from __future__ import annotations
 
 import asyncio
+import getpass
 import json
 import logging
 import re
@@ -28,7 +29,7 @@ router = Router(name="claude_model")
 logger = logging.getLogger(__name__)
 
 ENV_PATH = Path(__file__).resolve().parents[3].parent / ".env"
-PENDING_SWITCH_PATH = Path("/tmp/d-brain-pending-model-switch.json")
+PENDING_SWITCH_PATH = Path(f"/tmp/d-brain-pending-model-switch-{getpass.getuser()}.json")
 SUPPORTED = {"opus", "sonnet", "fable"}
 LABELS = {
     "opus": "Opus",

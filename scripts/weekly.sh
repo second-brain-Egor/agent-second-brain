@@ -4,7 +4,7 @@ set -euo pipefail
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 LOG_DIR="$PROJECT_DIR/logs"
 LOG_FILE="$LOG_DIR/weekly.log"
-LOCK_FILE="/tmp/d-brain-weekly.lock"
+LOCK_FILE="/tmp/d-brain-weekly-${USER:-$(whoami)}.lock"
 ENV_FILE="$PROJECT_DIR/.env"
 
 mkdir -p "$LOG_DIR"

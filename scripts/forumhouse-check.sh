@@ -4,6 +4,7 @@ set -euo pipefail
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 ENV_FILE="$PROJECT_DIR/.env"
 STATE_FILE="${FORUMHOUSE_CHECK_STATE_FILE:-$PROJECT_DIR/logs/forumhouse-check.state.json}"
+RECEIPT_FILE="${FORUMHOUSE_CHECK_RECEIPT_FILE:-$PROJECT_DIR/logs/forumhouse-notifications.jsonl}"
 REMOTE_HOST="${FORUMHOUSE_REMOTE_HOST:-barriga}"
 REMOTE_DIR="${FORUMHOUSE_REMOTE_DIR:-/root/forum-harvest}"
 STALE_AFTER_SECONDS="${FORUMHOUSE_STALE_AFTER_SECONDS:-10800}"
@@ -11,6 +12,9 @@ WARN_FREE_BYTES="${FORUMHOUSE_WARN_FREE_BYTES:-5368709120}"
 CRITICAL_FREE_BYTES="${FORUMHOUSE_CRITICAL_FREE_BYTES:-3221225472}"
 
 mkdir -p "$PROJECT_DIR/logs"
+mkdir -p "$(dirname "$STATE_FILE")"
+exec 203>"${STATE_FILE}.lock"
+flock -n 203 || exit 0
 if [ -f "$ENV_FILE" ]; then
     set -a
     # shellcheck disable=SC1090
@@ -28,7 +32,7 @@ notify() {
     [ -n "$CHAT_ID" ] || { echo "ERROR: Telegram chat id не задан" >&2; return 1; }
     printf '%s' "$1" | "$PROJECT_DIR/.venv/bin/python" \
         "$PROJECT_DIR/scripts/send_telegram_message.py" \
-        --token "$TELEGRAM_BOT_TOKEN" --chat-id "$CHAT_ID"
+        --token "$TELEGRAM_BOT_TOKEN" --chat-id "$CHAT_ID" --receipt-file "$RECEIPT_FILE"
 }
 
 set +e
@@ -115,6 +119,7 @@ if [ "$SSH_RC" -ne 0 ] || [ -z "$REMOTE_REPORT" ]; then
 fi
 
 EVALUATION="$(REMOTE_REPORT="$REMOTE_REPORT" STATE_FILE="$STATE_FILE" \
+    NO_NOTIFY="${FORUMHOUSE_CHECK_NO_NOTIFY:-0}" \
     WARN_FREE_BYTES="$WARN_FREE_BYTES" CRITICAL_FREE_BYTES="$CRITICAL_FREE_BYTES" \
     "$PROJECT_DIR/.venv/bin/python" - <<'PY'
 import json, os
@@ -155,8 +160,9 @@ elif not fingerprint and old_fingerprint:
     message = f"✅ Контроль Forumhouse снова в норме. Процесс работает, свободно {gib(free)}."
 
 stored_fingerprint = f"pending:{fingerprint}" if message else fingerprint
-state_path.write_text(json.dumps({"updated_at": datetime.now(timezone.utc).isoformat(),
-    "fingerprint": stored_fingerprint, "report": report}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+if os.environ["NO_NOTIFY"] != "1":
+    state_path.write_text(json.dumps({"updated_at": datetime.now(timezone.utc).isoformat(),
+        "fingerprint": stored_fingerprint, "report": report}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(json.dumps({"message": message, "report": report, "fingerprint": fingerprint}, ensure_ascii=False))
 PY
 )"
@@ -164,7 +170,7 @@ PY
 MESSAGE="$(EVALUATION="$EVALUATION" "$PROJECT_DIR/.venv/bin/python" -c 'import json,os; print(json.loads(os.environ["EVALUATION"])["message"])')"
 REPORT_LINE="$(EVALUATION="$EVALUATION" "$PROJECT_DIR/.venv/bin/python" -c 'import json,os; print(json.dumps(json.loads(os.environ["EVALUATION"])["report"], ensure_ascii=False))')"
 printf '[%s] %s\n' "$(TZ=Europe/Moscow date '+%F %T MSK')" "$REPORT_LINE"
-if [ -n "$MESSAGE" ]; then
+if [ -n "$MESSAGE" ] && [ "${FORUMHOUSE_CHECK_NO_NOTIFY:-0}" != "1" ]; then
     notify "$MESSAGE"
     EVALUATION="$EVALUATION" STATE_FILE="$STATE_FILE" "$PROJECT_DIR/.venv/bin/python" - <<'PY'
 import json, os

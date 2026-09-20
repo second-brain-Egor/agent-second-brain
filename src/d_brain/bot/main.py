@@ -27,7 +27,7 @@ def create_bot(settings: Settings) -> Bot:
 
 def create_dispatcher() -> Dispatcher:
     """Create and configure the dispatcher with routers."""
-    from d_brain.bot.handlers import ask, backend, buttons, channel, claude_model, commands, do, document, forward, photo, process, text, voice, web, weekly
+    from d_brain.bot.handlers import ask, backend, buttons, channel, claude_model, commands, do, document, forward, photo, process, text, video, voice, web, weekly
 
     # Use memory storage for FSM (required for /do command state)
     dp = Dispatcher(storage=MemoryStorage())
@@ -38,12 +38,13 @@ def create_dispatcher() -> Dispatcher:
     dp.include_router(channel.router)  # Telegram user account reader
     dp.include_router(process.router)
     dp.include_router(weekly.router)
+    dp.include_router(buttons.router)  # Buttons also work while /do awaits input
     dp.include_router(do.router)  # Before voice/text to catch FSM state
     dp.include_router(backend.router)  # 🤖 Модель: backend switcher (button + callbacks)
     dp.include_router(claude_model.router)  # 🧠 Claude: Opus/Sonnet/Fable switcher
-    dp.include_router(buttons.router)  # Reply keyboard buttons
     dp.include_router(web.router)  # Веб-поиск fast-path (/web + интент) — до text catch-all
     dp.include_router(document.router)
+    dp.include_router(video.router)
     dp.include_router(voice.router)
     dp.include_router(photo.router)
     dp.include_router(forward.router)
@@ -131,15 +132,22 @@ async def run_bot(settings: Settings) -> None:
     # Always filter updates by allowed Telegram user IDs.
     dp.update.middleware(create_auth_middleware(settings))
 
+    from d_brain.bot.request_jobs import RequestJobs
+    jobs = RequestJobs(settings)
+    dp.update.middleware(jobs)
+
+    await jobs.restore(dp, bot)
+
     await _announce_pending_switches(bot)
 
     from d_brain.services.document_jobs import document_worker
-    documents_task = asyncio.create_task(document_worker(bot, settings))
+    documents_task = asyncio.create_task(document_worker(bot, settings, jobs))
 
     logger.info("Starting bot polling...")
     try:
         await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
     finally:
+        await jobs.close()
         documents_task.cancel()
         with contextlib.suppress(asyncio.CancelledError):
             await documents_task

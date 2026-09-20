@@ -1,0 +1,290 @@
+"""Own message jobs outside update handlers; controls never queue behind a model."""
+from __future__ import annotations
+
+import asyncio
+import json
+import logging
+import re
+import time
+from datetime import datetime
+
+from d_brain.bot.chat_context import build_msg_type, get_session_scope, is_work_chat
+from d_brain.bot.keyboards import CHAT_BUTTON, WORK_BUTTON
+from d_brain.services.execution import (
+    TERMINAL, Execution, ExecutionLimit, ExecutionStopped,
+    execution_context,
+)
+from d_brain.services.session import SessionStore
+from d_brain.services.storage import VaultStorage
+
+logger = logging.getLogger(__name__)
+STOP = re.compile(r'^(?:/stop(?:@\w+)?|/cancel(?:@\w+)?|стоп|стой|остановись|останови(?:\s+(?:задачу|работу|всё|все))?|отмени(?:\s+(?:задачу|всё|все))?|хватит)(?:[.!\s]*)$', re.I)
+STATUS = re.compile(r'^(?:/tasks(?:@\w+)?|/taskstatus(?:@\w+)?|статус\s+задач[и]?|ты\s+чем\s+(?:занимаешься|занят)|чем\s+(?:занимаешься|занят)|как\s+идёт\s+(?:задача|работа))(?:[?!.\s]*)$', re.I)
+QUICK = {'/start', '/help', '/silent', '/chat', '/voice', '/restart', '❓ Помощь', '🤖 Модель', '🧠 Claude'}
+QUICK.update({CHAT_BUTTON, WORK_BUTTON, '✨ Запрос'})
+LABELS = dict(delegated='передано в обработку', queued='в очереди', running='выполняется', completed='завершено',
+              stopped='остановлено', superseded='остановлено новым сообщением',
+              limit='остановлено по ограничению', error='ошибка', interrupted='прервано перезапуском')
+
+
+class RequestJobs:
+    def __init__(self, settings):
+        from d_brain.services.request_inbox import RequestInbox
+        self.inbox = RequestInbox(settings.vault_path)
+        self.closing = False
+        self.settings = settings
+        self.active = {}
+        self.tasks = set()
+        self.stopped_at = {}
+        self.turns = {}
+        self.directory = settings.vault_path / '.session' / 'tasks'
+        self.directory.mkdir(parents=True, exist_ok=True)
+        for path in self.directory.glob('*.json'):
+            try:
+                entry = json.loads(path.read_text())
+                if entry.get('origin') == 'bot' and entry.get('state') not in TERMINAL:
+                    entry.update(state='interrupted', updated=Execution.now())
+                    path.write_text(json.dumps(entry, ensure_ascii=False, indent=2))
+            except (OSError, ValueError):
+                logger.exception('Cannot recover task %s', path.name)
+
+    async def restore(self, dispatcher, bot):
+        from aiogram.types import Update
+        for key, payload, transcript in self.inbox.pending():
+            await dispatcher.feed_update(bot, Update.model_validate_json(payload),
+                                         restored_inbox_key=key, transcript=transcript)
+
+    def remember_control(self, message, text):
+        scope = get_session_scope(message)
+        SessionStore(self.settings.vault_path).append(
+            scope, 'voice' if message.voice else 'text', text=text,
+            msg_id=message.message_id, chat_id=message.chat.id, chat_title=message.chat.title)
+        VaultStorage(self.settings.vault_path).append_to_daily(
+            text, datetime.fromtimestamp(message.date.timestamp()),
+            build_msg_type(message, '[voice]' if message.voice else '[text]'))
+
+    def finish_turn(self, scope, message_id):
+        turns = self.turns.get(scope, {})
+        ticket = turns.pop(message_id, None)
+        if ticket is not None:
+            ticket.set()
+        if not turns:
+            self.turns.pop(scope, None)
+
+    async def stop_scope(self, scope, state='stopped'):
+        self.inbox.stop(scope)
+        existing = [(key, execution, task) for key, (execution, task) in self.active.items()
+                    if execution.data['scope'] == str(scope)]
+        from d_brain.services.documents import DocumentStore
+        store = DocumentStore(self.settings.vault_path)
+        queued = [job for job in store.jobs(('queued', 'ready'))
+                  if store.get(job['doc_id'])['scope'] == str(scope)]
+        for job in queued:
+            store.set_job(job['id'], state='stopped')
+        for key, execution, task in existing:
+            self.active.pop(key, None)
+            execution.stop(state)
+            if execution.data.get('message_id') is not None:
+                self.finish_turn(scope, execution.data['message_id'])
+            if execution.data.get('document_job'):
+                store.set_job(execution.data['document_job'], state='stopped')
+            task.cancel()
+        for _, execution, task in existing:
+            await asyncio.to_thread(execution.idle.wait, 2)
+            await asyncio.gather(task, return_exceptions=True)
+        return bool(existing or queued)
+
+    def status(self, scope):
+        scoped = [value for value in self.active.values()
+                  if value[0].data['scope'] == str(scope)]
+        queued = sum(execution.data['state'] == 'queued' for execution, _ in scoped)
+        existing = next((value for value in scoped
+                         if value[0].data['state'] == 'running'), None)
+        if existing:
+            execution, _ = existing
+            data = execution.data
+            waiting = f' Следующих сообщений в очереди: {queued}.' if queued else ''
+            return f"Задача выполняется. Выполнено шагов: {data['steps']}.{waiting}"
+        if queued:
+            return f'Сообщений в очереди: {queued}. Выполнение ещё не началось.'
+        from d_brain.services.documents import DocumentStore
+        documents = DocumentStore(self.settings.vault_path)
+        for job in documents.jobs(('queued', 'extracting', 'generating', 'ready')):
+            if documents.get(job['doc_id'])['scope'] == str(scope):
+                return 'Документ ещё обрабатывается или ожидает обработки. Завершение пока не подтверждено.'
+        entries = []
+        for path in self.directory.glob('*.json'):
+            try:
+                entry = json.loads(path.read_text())
+                if entry.get('scope') == str(scope):
+                    entries.append(entry)
+            except (OSError, ValueError):
+                continue
+        if not entries:
+            return 'Сейчас активных задач в чате нет.'
+        data = max(entries, key=lambda e: e.get('started', ''))
+        label = LABELS.get(data['state'], 'состояние неизвестно')
+        return f'Последняя задача: {label}. Запрос и журнал выполнения сохранены.'
+
+    async def __call__(self, handler, event, data):
+        message = event.message
+        if message is None:
+            return await handler(event, data)
+        data['request_jobs'] = self
+        if is_work_chat(message, self.settings):
+            return await handler(event, data)
+        scope = get_session_scope(message)
+        text = message.text or message.caption or ''
+        command = text.split(maxsplit=1)[0].split('@')[0] if text else ''
+        if command in QUICK or text in QUICK:
+            return await handler(event, data)
+        key = f'{scope}:message:{message.message_id}'
+        # Commit the Telegram payload before transcription or returning to polling.
+        if hasattr(event, 'model_dump_json'):
+            if data.get('restored_inbox_key') != key:
+                if not self.inbox.accept(key, scope, event.model_dump_json()):
+                    return None
+        # Messages start independently. Long work must not delay a later reply.
+        attachment = bool(message.photo or message.document or message.video or message.video_note)
+        if message.voice:
+            from d_brain.bot.handlers.voice import _transcribe_voice
+            try:
+                text = data.get('transcript') or await _transcribe_voice(message, data['bot'])
+            except Exception:
+                self.finish_turn(scope, message.message_id)
+                self.inbox.set(key, 'error')
+                logger.exception('Voice transcription failed')
+                await message.answer('Не удалось распознать голосовое.', parse_mode=None)
+                return
+            if not text:
+                self.inbox.set(key, 'error')
+                self.finish_turn(scope, message.message_id)
+                await message.answer('Не удалось распознать голосовое.', parse_mode=None)
+                return
+            data['transcript'] = text
+            self.inbox.set(key, 'queued', text)
+        if not attachment and message.message_id <= self.stopped_at.get(scope, 0):
+            self.finish_turn(scope, message.message_id)
+            self.remember_control(message, text)
+            self.inbox.set(key, 'stopped')
+            return  # An explicit stop arrived during speech recognition.
+        stop_text = text.strip()
+        if STOP.fullmatch(stop_text) or re.match(r'^(?:стоп|стой|остановись)(?:[!?,.;]|\s+(?:пожалуйста|не\s+продолжай))', stop_text, re.I):
+            self.remember_control(message, text)
+            self.stopped_at[scope] = message.message_id
+            for message_id in list(self.turns.get(scope, {})):
+                if message_id <= message.message_id:
+                    self.finish_turn(scope, message_id)
+            stopped = await self.stop_scope(scope)
+            state = data.get('state')
+            if state:
+                await state.set_state(None)
+            await message.answer('Остановил. Запрос и журнал выполнения сохранены.' if stopped
+                                 else 'Активной задачи в чате нет.', parse_mode=None)
+            return
+        if STATUS.fullmatch(text.strip()):
+            self.inbox.set(key, 'completed')
+            self.finish_turn(scope, message.message_id)
+            self.remember_control(message, text)
+            await message.answer(self.status(scope), parse_mode=None)
+            return
+        key = f'{scope}:message:{message.message_id}'
+        execution = Execution(self.settings.vault_path.parent, scope=scope,
+                              request=text or '[вложение]', origin='bot')
+        execution.update(message_id=message.message_id,
+                         notify=not bool(re.search(r'без\s+уведомлен|не\s+(?:уведомляй|присылай\s+уведомлен)', text, re.I)))
+        task = asyncio.create_task(self.run(handler, event, dict(data), key, execution))
+        self.active[key] = (execution, task)
+        self.tasks.add(task)
+        task.add_done_callback(self.tasks.discard)
+        # No wait loop, no model invocation: the handler is now owned by the supervisor.
+        return None
+
+    async def run(self, handler, event, data, key, execution):
+        message = event.message
+        with execution_context(execution):
+            try:
+                execution.deadline = time.monotonic() + execution.seconds if execution.seconds is not None else float("inf")
+                execution.check()
+                self.inbox.set(key, 'running')
+                execution.update(state='running')
+                async with asyncio.timeout(execution.seconds):
+                    work = asyncio.create_task(handler(event, data))
+                    try:
+                        await work
+                    finally:
+                        if not work.done():
+                            work.cancel()
+                        await asyncio.gather(work, return_exceptions=True)
+                if execution.data['state'] not in TERMINAL:
+                    from d_brain.services.documents import DocumentStore
+                    store = DocumentStore(self.settings.vault_path)
+                    delegated = any(job['msg_id'] == message.message_id and
+                                    store.get(job['doc_id'])['scope'] == execution.data['scope']
+                                    for job in store.jobs(('queued', 'extracting', 'generating', 'ready')))
+                    execution.update(state='delegated' if delegated else 'completed')
+            except (asyncio.CancelledError, ExecutionStopped):
+                if execution.data['state'] not in TERMINAL:
+                    if not (self.closing and execution.data['state'] == 'queued'):
+                        execution.stop('interrupted')
+            except (TimeoutError, ExecutionLimit):
+                execution.stop('limit')
+                logger.warning('Task %s stopped at execution budget', execution.id)
+                if execution.data.get('notify', True):
+                    await message.answer('Достигнут предел выполнения. Задача остановлена; запрос и промежуточный журнал сохранены. Автоповтор отключён.', parse_mode=None)
+            except Exception:
+                execution.update(state='error')
+                logger.exception('Message task %s failed', execution.id)
+                if execution.data.get('notify', True):
+                    await message.answer('Не удалось завершить задачу. Запрос и промежуточный журнал сохранены.', parse_mode=None)
+            finally:
+                self.inbox.set(key, execution.data['state'])
+                self.finish_turn(get_session_scope(message), message.message_id)
+                if self.active.get(key, (None,))[0] is execution:
+                    self.active.pop(key, None)
+
+    async def run_document(self, store, job, processor):
+        from d_brain.services.document_jobs import process_job
+        doc = store.get(job['doc_id'])
+        execution = Execution(self.settings.vault_path.parent, scope=doc['scope'],
+                              request=job['request'], origin='bot')
+        execution.update(document_job=job['id'])
+        key = f"document:{job['id']}"
+
+        async def work():
+            with execution_context(execution):
+                try:
+                    async with asyncio.timeout(execution.seconds):
+                        await asyncio.to_thread(process_job, store, job, processor)
+                    if execution.data['state'] not in TERMINAL:
+                        execution.update(state='completed' if store.job(job['id'])['state'] == 'ready' else 'error')
+                except (asyncio.CancelledError, ExecutionStopped):
+                    execution.stop('stopped')
+                    store.set_job(job['id'], state='stopped')
+                except (TimeoutError, ExecutionLimit):
+                    execution.stop('limit')
+                    store.set_job(job['id'], state='failed', error='Достигнут предел выполнения. Документ и задание сохранены.')
+                except Exception:
+                    execution.update(state='error')
+                    store.set_job(job['id'], state='failed', error='Обработка прервана. Документ и задание сохранены.')
+                    logger.exception('Document task failed')
+                finally:
+                    self.active.pop(key, None)
+        task = asyncio.create_task(work())
+        self.active[key] = (execution, task)
+        self.tasks.add(task)
+        task.add_done_callback(self.tasks.discard)
+        await asyncio.shield(task)
+
+    async def close(self):
+        self.closing = True
+        for execution, task in list(self.active.values()):
+            if execution.data['state'] != 'queued':
+                execution.stop('interrupted')
+            task.cancel()
+        await asyncio.gather(*list(self.tasks), return_exceptions=True)
+        self.active.clear()
+        for turns in self.turns.values():
+            for ticket in turns.values():
+                ticket.set()
+        self.turns.clear()

@@ -4,7 +4,9 @@ set -euo pipefail
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 LOG_DIR="$PROJECT_DIR/logs"
 LOG_FILE="$LOG_DIR/bot.log"
-LOCK_FILE="/tmp/d-brain-bot.lock"
+BOT_USER="$(id -un)"
+LOCK_FILE="/tmp/d-brain-bot-${BOT_USER}.lock"
+if [ "$BOT_USER" = egor ]; then LOCK_FILE="/tmp/d-brain-bot.lock"; fi
 ENV_FILE="$PROJECT_DIR/.env"
 
 mkdir -p "$LOG_DIR"

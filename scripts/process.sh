@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-exec 200>/tmp/d-brain-heavy.lock
+exec 200>"/tmp/d-brain-heavy-${USER:-$(whoami)}.lock"
 flock -n 200 || { echo "Another heavy process is running, skip"; exit 0; }
 
 export PATH="$HOME/.local/bin:$HOME/.nvm/versions/node/$(ls "$HOME/.nvm/versions/node/" 2>/dev/null | tail -1)/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
@@ -29,6 +29,7 @@ if [ -z "${TELEGRAM_BOT_TOKEN:-}" ]; then
     exit 1
 fi
 
+export AI_BACKEND="${PROCESS_BACKEND:-${AI_BACKEND:-codex}}"
 export TZ="${TZ:-UTC}"
 export PROJECT_DIR
 
@@ -54,8 +55,17 @@ if [ ! -f "$DAILY_FILE" ]; then
 fi
 
 DAILY_SIZE=$(wc -c < "$DAILY_FILE" 2>/dev/null || echo "0")
-if [ "$DAILY_SIZE" -lt 50 ]; then
-    echo "ORIENT: daily/$TODAY.md is empty ($DAILY_SIZE bytes) - skipping AI processing"
+PENDING_COUNT=$(cd "$PROJECT_DIR" && uv run python - <<'PY'
+from datetime import date
+from d_brain.config import get_settings
+from d_brain.services.processor import AgentProcessor
+
+settings = get_settings()
+print(len(AgentProcessor(settings.vault_path, settings.todoist_api_key).pending_days(date.today())))
+PY
+)
+if [ "$PENDING_COUNT" -eq 0 ]; then
+    echo "ORIENT: no unprocessed entries - skipping AI processing"
     cd "$VAULT_DIR"
     uv run "$SKILLS_ROOT/graph-builder/scripts/analyze.py" || echo "Graph rebuild failed (non-critical)"
     cd "$PROJECT_DIR"
@@ -129,11 +139,8 @@ uv run python3 -c "from d_brain.services.memory_rag import index_daily; print(f'
 echo "=== Memory decay ==="
 uv run "$SKILLS_ROOT/agent-memory/scripts/memory-engine.py" decay "$VAULT_DIR" || echo "Memory decay failed (non-critical)"
 
-echo "=== Marking daily as processed ==="
+# process_pending marks only the snapshots actually processed, for every day.
 NOW_ISO=$(date -Iseconds)
-if ! grep -q "<!-- ✓ processed -->" "$DAILY_FILE" 2>/dev/null; then
-    printf '\n<!-- ✓ processed -->\n<!-- timestamp: %s -->\n' "$NOW_ISO" >> "$DAILY_FILE"
-fi
 
 echo "=== Updating handoff.md ==="
 uv run python3 - <<PY
@@ -168,17 +175,25 @@ git push || true
 
 if [ -n "$REPORT_CLEAN" ] && [ -n "$CHAT_ID" ]; then
     echo "=== Sending to Telegram ==="
-    RESULT=$(curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
-        -d "chat_id=$CHAT_ID" \
-        -d "text=$REPORT_CLEAN" \
-        -d "parse_mode=HTML")
+    REPORT_CLEAN="$REPORT_CLEAN" CHAT_ID="$CHAT_ID" uv run python - <<'PY'
+import asyncio
+import os
 
-    if echo "$RESULT" | grep -q '"ok":false'; then
-        echo "HTML failed: $RESULT"
-        curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
-            -d "chat_id=$CHAT_ID" \
-            -d "text=$REPORT_CLEAN"
-    fi
+from aiogram import Bot
+from aiogram.exceptions import TelegramBadRequest
+from d_brain.bot.formatters import format_process_report
+
+async def send_report():
+    # Reports spanning several days can exceed Telegram's single-message limit.
+    async with Bot(token=os.environ["TELEGRAM_BOT_TOKEN"]) as bot:
+        for text in format_process_report({"report": os.environ["REPORT_CLEAN"]}):
+            try:
+                await bot.send_message(os.environ["CHAT_ID"], text, parse_mode="HTML")
+            except TelegramBadRequest:
+                await bot.send_message(os.environ["CHAT_ID"], text)
+
+asyncio.run(send_report())
+PY
 fi
 
 echo "=== Done ==="

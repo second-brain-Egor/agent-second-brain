@@ -1,6 +1,6 @@
 ---
 type: note
-updated: 2026-09-18
+updated: 2026-09-20
 relevance: 0.9
 tier: active
 ---
@@ -10,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 789
-- Связей: 1982
-- Сирот: 50
-- Слабосвязанных: 106
+- Заметок: 829
+- Связей: 2060
+- Сирот: 48
+- Слабосвязанных: 127
 
 ## Память
 
@@ -60,6 +60,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/metadata.md|AI News in 10 mins: 10% chance AI kills all humans]]
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/analysis.md|Глава Anthropic: как построить бизнес одного человека с Claude]]
+- [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/description.md|description]]
+- [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/metadata.md|Anthropic’s CEO: How to Build a 1 Person Business with Claude]]
+- [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/analysis.md|Карточка ролика: персональный Hermes без собственного VPS]]
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/description.md|description]]
@@ -71,6 +77,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/description.md|description]]
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/metadata.md|Build & Sell Grok Bots (2 Hour Course)]]
+- [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/analysis.md|Карточка ролика: 26 понятий Grok Bot]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/description.md|description]]
@@ -155,6 +162,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/metadata.md|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/analysis.md|Я проверил Jev в 12 реальных задачах: честные впечатления]]
+- [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/metadata.md|I Tested Jev on 12 Real Use Cases. My Honest Thoughts.]]
+- [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/analysis.md|Карточка ролика: как я превратил GPT-6 Astra в круглосуточного биржевого трейдера]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/description.md|description]]
@@ -179,6 +192,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/metadata.md|The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers]]
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/analysis.md|Один навык GPT-6 Astra заменяет подписку Higgsfield]]
+- [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/description.md|description]]
+- [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/metadata.md|This ONE GPT-6 Astra Skill Replaces Your Higgsfield Subscription]]
+- [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/analysis.md|AI News in 5 Mins: GPT-6 Astra]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/description.md|description]]
@@ -203,6 +222,12 @@ tier: active
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/metadata.md|GPT-6 Astra Made This Entire Video]]
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/analysis.md|Как создавать навыки Codex лучше, чем 99% людей]]
+- [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/description.md|description]]
+- [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/metadata.md|How to Build Codex Skills Better than 99% of People]]
+- [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/analysis.md|Я протестировал GPT-6 Astra и Fable 5.1 в 15 реальных задачах]]
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/description.md|description]]
@@ -577,13 +602,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-20.md|2026-09-20]]
+- [[daily/2026-09-19.md|2026-09-19]]
 - [[daily/2026-09-18.md|2026-09-18]]
 - [[daily/2026-09-17.md|2026-09-17]]
 - [[daily/2026-09-16.md|2026-09-16]]
 - [[daily/2026-09-15.md|2026-09-15]]
 - [[daily/2026-09-14.md|2026-09-14]]
-- [[daily/2026-09-13.md|2026-09-13]]
-- [[daily/2026-09-12.md|2026-09-12]]
 
 ## Недельные сводки
 
@@ -614,6 +639,7 @@ tier: active
 - [[thoughts/learnings/planning-horizon-rules.md|Правила горизонта планирования]]
 - [[thoughts/learnings/provoloka-dlya-svarki-stali-3-mm.md|Проволока для сварки стали 3 мм]]
 - [[thoughts/learnings/reliable-video-processing-pipeline.md|Надёжная обработка видео]]
+- [[thoughts/learnings/shared-assistant-experience.md|Общий накопленный опыт]]
 - [[thoughts/learnings/shift-based-daily-planner.md|Сменный ежедневник — формат под график сутки через трое]]
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]
 - [[thoughts/learnings/vault-search-discipline.md|Дисциплина поиска по vault]]

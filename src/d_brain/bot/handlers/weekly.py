@@ -28,26 +28,7 @@ async def cmd_weekly(message: Message) -> None:
     processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
     git = VaultGit(settings.vault_path)
 
-    async def run_with_progress() -> dict:
-        task = asyncio.create_task(
-            asyncio.to_thread(processor.generate_weekly)
-        )
-
-        elapsed = 0
-        while not task.done():
-            await asyncio.sleep(30)
-            elapsed += 30
-            if not task.done():
-                try:
-                    await status_msg.edit_text(
-                        f"⏳ Генерирую дайджест... ({elapsed // 60}m {elapsed % 60}s)"
-                    )
-                except Exception:
-                    pass
-
-        return await task
-
-    report = await run_with_progress()
+    report = await asyncio.to_thread(processor.generate_weekly)
 
     # Commit any changes (weekly goal updates, etc)
     if "error" not in report:

@@ -9,6 +9,7 @@ new backend is picked up by the running process.
 from __future__ import annotations
 
 import asyncio
+import getpass
 import json
 import logging
 import os
@@ -27,7 +28,7 @@ router = Router(name="backend")
 logger = logging.getLogger(__name__)
 
 ENV_PATH = Path(__file__).resolve().parents[3].parent / ".env"
-PENDING_SWITCH_PATH = Path("/tmp/d-brain-pending-backend-switch.json")
+PENDING_SWITCH_PATH = Path(f"/tmp/d-brain-pending-backend-switch-{getpass.getuser()}.json")
 SUPPORTED = {"claude", "codex"}
 LABELS = {
     "claude": "Claude (Claude Max подписка)",

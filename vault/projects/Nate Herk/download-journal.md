@@ -1,8 +1,8 @@
 # Журнал скачанных видео
 
-Обновлено: 2026-09-17 07:05
-Всего видео в папке: 42
-Записей в журнале: 40
+Обновлено: 2026-09-20 07:09
+Всего видео в папке: 46
+Записей в журнале: 44
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -28,6 +28,18 @@
 Кадры: 13
 Обновлено: 2026-09-14T07:01:32+03:00
 
+## 001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude
+
+Статус: complete
+Название: Anthropic’s CEO: How to Build a 1 Person Business with Claude
+Ссылка: https://www.youtube.com/watch?v=QDsenEcAJIk
+Дата видео: 20260918
+Описание: есть
+Комментарии: 48
+Транскрипт: есть
+Кадры: 107
+Обновлено: 2026-09-19T07:00:59+03:00
+
 ## 001-build-a-personal-hermes-in-14-mins-full-setup-guide
 
 Статус: complete
@@ -48,7 +60,7 @@
 Дата видео: 20260831
 Описание: есть
 Комментарии: 11
-Транскрипт: нет
+Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-08-31T07:12:10+03:00
 
@@ -220,6 +232,18 @@
 Кадры: 0
 Обновлено: 2026-08-27T07:00:54+03:00
 
+## 001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts
+
+Статус: complete
+Название: I Tested Jev on 12 Real Use Cases. My Honest Thoughts.
+Ссылка: https://www.youtube.com/watch?v=ymgH8jS6Wb8
+Дата видео: 20260919
+Описание: есть
+Комментарии: 79
+Транскрипт: есть
+Кадры: 39
+Обновлено: 2026-09-20T07:00:52+03:00
+
 ## 001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial
 
 Статус: complete
@@ -268,6 +292,18 @@
 Кадры: 0
 Обновлено: 2026-08-26T07:01:19+03:00
 
+## 001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription
+
+Статус: complete
+Название: This ONE GPT-6 Astra Skill Replaces Your Higgsfield Subscription
+Ссылка: https://www.youtube.com/watch?v=oWCcN6hSFjA
+Дата видео: 20260918
+Описание: есть
+Комментарии: 27
+Транскрипт: есть
+Кадры: 25
+Обновлено: 2026-09-18T07:00:41+03:00
+
 ## 002-ai-news-in-5-mins-gpt-6-astra
 
 Статус: complete
@@ -315,6 +351,18 @@
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-09-05T07:00:55+03:00
+
+## 002-how-to-build-codex-skills-better-than-99-of-people
+
+Статус: complete
+Название: How to Build Codex Skills Better than 99% of People
+Ссылка: https://www.youtube.com/watch?v=9KOtMsZ9I28
+Дата видео: 20260919
+Описание: есть
+Комментарии: 15
+Транскрипт: есть
+Кадры: 34
+Обновлено: 2026-09-20T07:09:18+03:00
 
 ## 002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases
 

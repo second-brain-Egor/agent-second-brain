@@ -3,18 +3,25 @@
 from aiogram.types import InlineKeyboardMarkup, ReplyKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
 
+from d_brain.config import get_settings
+
+CHAT_BUTTON = "💬 Обсудить"
+WORK_BUTTON = "🛠 Работа"
+
 
 def get_main_keyboard() -> ReplyKeyboardMarkup:
     """Main reply keyboard with common commands."""
     builder = ReplyKeyboardBuilder()
     # First row: main commands
-    builder.button(text="📊 Статус")
+    builder.button(text=WORK_BUTTON)
     builder.button(text="⚙️ Обработать")
     builder.button(text="📅 Неделя")
-    # Second row: additional
-    builder.button(text="✨ Запрос")
+    # Second row: conversation mode and model selectors.
+    builder.button(text=CHAT_BUTTON)
     builder.button(text="🤖 Модель")
     builder.button(text="🧠 Claude")
+    if get_settings().show_help_button:
+        builder.button(text="❓ Помощь")
     builder.adjust(3, 3)
     # Let Telegram collapse the custom keyboard normally on Android.
     return builder.as_markup(resize_keyboard=True, is_persistent=False)

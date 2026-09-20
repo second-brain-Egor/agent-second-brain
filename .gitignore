@@ -77,3 +77,7 @@ vault/**/frames-deduped/
 *.tar.bz2
 *.7z
 *.rar
+
+# Local synchronization work and backups
+.work/
+assistant-sync-backups/

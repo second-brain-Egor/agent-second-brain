@@ -78,6 +78,11 @@ def maybe_evening_reminder(vault_path: Path) -> str:
     2. Сегодняшний daily не помечен как обработанный.
     3. Сегодня ещё не напоминали.
     """
+    # Automatic processing does not imply permission for unsolicited reminders.
+    if os.environ.get("EVENING_PROCESS_REMINDER", "false").lower() not in {
+        "1", "true", "yes",
+    }:
+        return ""
     today, now = _today_local()
     if now.hour < EVENING_HOUR:
         return ""

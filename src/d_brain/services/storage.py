@@ -1,5 +1,6 @@
 """Vault storage service for saving entries."""
 
+import fcntl
 from datetime import date, datetime
 from pathlib import Path
 
@@ -49,6 +50,7 @@ class VaultStorage:
         entry = f"\n## {time_str} {msg_type}\n{text}\n"
 
         with file_path.open("a", encoding="utf-8") as f:
+            fcntl.flock(f, fcntl.LOCK_EX)
             f.write(entry)
 
     def get_attachments_dir(self, day: date) -> Path:

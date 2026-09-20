@@ -38,7 +38,7 @@ async def cmd_do(message: Message, command: CommandObject, state: FSMContext) ->
 
 
 @router.message(DoCommandState.waiting_for_input)
-async def handle_do_input(message: Message, bot: Bot, state: FSMContext) -> None:
+async def handle_do_input(message: Message, bot: Bot, state: FSMContext, transcript: str | None = None) -> None:
     """Handle voice/text input after /do command."""
     # Save user preferences before clearing state
     data = await state.get_data()
@@ -56,24 +56,26 @@ async def handle_do_input(message: Message, bot: Bot, state: FSMContext) -> None
         settings = get_settings()
         transcriber = DeepgramTranscriber(settings.deepgram_api_key)
 
-        try:
-            file = await bot.get_file(message.voice.file_id)
-            if not file.file_path:
-                await message.answer("❌ Не удалось скачать голосовое")
+        if transcript:
+            prompt = transcript
+        else:
+            try:
+                file = await bot.get_file(message.voice.file_id)
+                if not file.file_path:
+                    await message.answer("❌ Не удалось скачать голосовое")
+                    return
+
+                file_bytes = await bot.download_file(file.file_path)
+                if not file_bytes:
+                    await message.answer("❌ Не удалось скачать голосовое")
+                    return
+
+                audio_bytes = file_bytes.read()
+                prompt = await transcriber.transcribe(audio_bytes)
+            except Exception as e:
+                logger.exception("Failed to transcribe voice for /do")
+                await message.answer(f"❌ Не удалось транскрибировать: {e}")
                 return
-
-            file_bytes = await bot.download_file(file.file_path)
-            if not file_bytes:
-                await message.answer("❌ Не удалось скачать голосовое")
-                return
-
-            audio_bytes = file_bytes.read()
-            prompt = await transcriber.transcribe(audio_bytes)
-        except Exception as e:
-            logger.exception("Failed to transcribe voice for /do")
-            await message.answer(f"❌ Не удалось транскрибировать: {e}")
-            return
-
         if not prompt:
             await message.answer("❌ Не удалось распознать речь")
             return
@@ -102,32 +104,10 @@ async def process_request(message: Message, prompt: str, user_id: int = 0) -> No
     session_scope = get_session_scope(message)
     work_context = is_work_chat(message, settings)
 
-    async def run_with_progress() -> dict:
-        task = asyncio.create_task(
-            asyncio.to_thread(
-                processor.execute_prompt,
-                prompt,
-                user_id,
-                session_scope=session_scope,
-                work_context=work_context,
-            )
-        )
-
-        elapsed = 0
-        while not task.done():
-            await asyncio.sleep(30)
-            elapsed += 30
-            if not task.done():
-                try:
-                    await status_msg.edit_text(
-                        f"⏳ Выполняю... ({elapsed // 60}m {elapsed % 60}s)"
-                    )
-                except Exception:
-                    pass
-
-        return await task
-
-    report = await run_with_progress()
+    report = await asyncio.to_thread(
+        processor.execute_prompt, prompt, user_id,
+        session_scope=session_scope, work_context=work_context,
+    )
 
     messages = format_process_report(report)
     if messages:

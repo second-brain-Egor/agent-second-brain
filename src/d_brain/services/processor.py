@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import contextlib
 import fcntl
+import getpass
 import json
 import logging
 import os
@@ -18,12 +19,16 @@ from pathlib import Path
 from typing import Any
 
 from d_brain.services.session import SessionStore
+from d_brain.services.execution import (
+    CURRENT_EXECUTION, Execution, ExecutionLimit, execution_context,
+    final_text, run_bounded,
+)
 
 
 # Per v3: separate locks для диалога и тяжёлой обработки.
 # Диалог не блокирует обработку и наоборот, но два диалога / два process одновременно — нет.
-_CHAT_LOCK_PATH = "/tmp/claude-chat.lock"
-_HEAVY_LOCK_PATH = "/tmp/claude-heavy.lock"
+_CHAT_LOCK_PATH = f"/tmp/claude-chat-{getpass.getuser()}.lock"
+_HEAVY_LOCK_PATH = f"/tmp/claude-heavy-{getpass.getuser()}.lock"
 
 # Маркеры «до этого места обработано» в daily-файлах: блок `processed: <ISO>`
 # пишет агент при обработке, `<!-- ✓ processed -->` дописывает cron process.sh.
@@ -39,7 +44,15 @@ def _file_lock(path: str) -> Iterator[None]:
     """Blocking flock на файле. Освобождается автоматически при выходе из контекста."""
     fd = os.open(path, os.O_CREAT | os.O_RDWR, 0o644)
     try:
-        fcntl.flock(fd, fcntl.LOCK_EX)
+        while True:
+            execution = CURRENT_EXECUTION.get()
+            if execution:
+                execution.check()
+            try:
+                fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                break
+            except BlockingIOError:
+                time.sleep(0.05)
         yield
     finally:
         try:
@@ -159,6 +172,10 @@ class AgentProcessor:
         if self.ai_backend not in {"codex", "claude"}:
             self.ai_backend = "codex"
 
+        self.process_backend = settings.process_backend.strip().lower()
+        if self.process_backend not in {"codex", "claude"}:
+            self.process_backend = self.ai_backend
+
         self.codex_bin = settings.codex_bin.strip() or "codex"
         self.codex_model = settings.codex_model.strip() or "gpt-5.5"
         self.codex_model_chat = settings.codex_model_chat.strip() or self.codex_model
@@ -174,9 +191,9 @@ class AgentProcessor:
             claude_effort = "medium"
         self.claude_effort = claude_effort
 
-        effort = os.environ.get("CODEX_REASONING_EFFORT", "medium").strip().lower()
+        effort = settings.codex_reasoning_effort.strip().lower()
         if effort not in SUPPORTED_REASONING_EFFORTS:
-            effort = "medium"
+            effort = ""
         self.codex_reasoning_effort = effort
 
     def _load_skill_content(self) -> str:
@@ -459,8 +476,13 @@ week: {year}-W{week:02d}
         read_only: bool,
     ) -> str:
         mode = "read-only" if read_only else "workspace-write"
+        shared_path = self.project_path / "SHARED_ASSISTANT_RULES.md"
+        shared_rules = (
+            shared_path.read_text(encoding="utf-8") if shared_path.exists() else ""
+        )
         return (
             f"{system_prompt}\n\n"
+            f"{shared_rules}\n\n"
             "Execution constraints:\n"
             f"- Run inside project root: {self.project_path.as_posix()}\n"
             f"- Sandbox expectation: {mode}\n"
@@ -500,6 +522,7 @@ week: {year}-W{week:02d}
                 codex_bin,
                 "exec",
                 "--skip-git-repo-check",
+                "--json",
                 "--color",
                 "never",
                 "--cd",
@@ -509,6 +532,9 @@ week: {year}-W{week:02d}
                 "--model",
                 codex_model,
             ]
+
+            if self.codex_reasoning_effort:
+                cmd.extend(["-c", f'model_reasoning_effort="{self.codex_reasoning_effort}"'])
 
             sandbox_mode = self.codex_sandbox_mode
             if read_only and sandbox_mode == "workspace-write":
@@ -531,31 +557,25 @@ week: {year}-W{week:02d}
             env = os.environ.copy()
             env.pop("OPENAI_API_KEY", None)
 
-            result = subprocess.run(
-                cmd,
-                input=prompt,
-                text=True,
-                capture_output=True,
-                cwd=self.project_path,
-                env=env,
-                timeout=timeout_sec,
-                check=False,
+            result = run_bounded(
+                cmd, input=prompt, cwd=self.project_path, env=env,
+                timeout=timeout_sec, backend="codex",
             )
 
-            final_text = ""
+            answer = ""
             if output_file.exists():
-                final_text = output_file.read_text(encoding="utf-8", errors="ignore").strip()
-            if not final_text:
-                final_text = (result.stdout or "").strip()
+                answer = output_file.read_text(encoding="utf-8", errors="ignore").strip()
+            if not answer:
+                answer = final_text(result.stdout or "", "codex")
 
             if result.returncode != 0:
                 details = (result.stderr or result.stdout or "codex exec failed").strip()
                 raise RuntimeError(details.splitlines()[-1] if details else "codex exec failed")
 
-            if not final_text:
+            if not answer:
                 raise RuntimeError("codex exec returned an empty response")
 
-            return final_text
+            return answer
 
     def _get_claude_bin(self) -> str:
         """Resolve the Claude Code CLI binary."""
@@ -592,7 +612,8 @@ week: {year}-W{week:02d}
             "--effort", self.claude_effort,
             "--permission-mode", permission_mode,
             "--add-dir", str(self.vault_path),
-            "--output-format", "text",
+            "--output-format", "stream-json",
+            "--verbose",
             "--no-session-persistence",
         ]
 
@@ -605,30 +626,25 @@ week: {year}-W{week:02d}
         # Подписка Claude Max — не пускаем ANTHROPIC_API_KEY если случайно есть.
         env.pop("ANTHROPIC_API_KEY", None)
 
-        result = subprocess.run(
-            cmd,
-            input=prompt,
-            text=True,
-            capture_output=True,
-            cwd=self.project_path,
-            env=env,
-            timeout=timeout_sec,
-            check=False,
+        result = run_bounded(
+            cmd, input=prompt, cwd=self.project_path, env=env,
+            timeout=timeout_sec, backend="claude",
         )
 
         if result.returncode != 0:
             details = (result.stderr or result.stdout or "claude exec failed").strip()
             raise RuntimeError(details.splitlines()[-1] if details else "claude exec failed")
 
-        final_text = (result.stdout or "").strip()
-        if not final_text:
+        answer = final_text(result.stdout or "", "claude")
+        if not answer:
             raise RuntimeError("claude exec returned an empty response")
 
-        return final_text
+        return answer
 
     def _backend_model_for_mode(self, mode: str) -> str:
         """Pick the model for current backend based on mode (chat | agent)."""
-        if self.ai_backend == "claude":
+        backend = self.ai_backend if mode == "chat" else getattr(self, "process_backend", self.ai_backend)
+        if backend == "claude":
             return self.claude_model_chat if mode == "chat" else self.claude_model_agent
         return self.codex_model_chat if mode == "chat" else self.codex_model_agent
 
@@ -647,8 +663,21 @@ week: {year}-W{week:02d}
           - "chat"  → light/fast model for dialog (Sonnet on Claude, default on Codex)
           - "agent" → heavy/capable model for processing (Opus on Claude)
         """
+        if CURRENT_EXECUTION.get() is None:
+            execution = Execution(self.project_path, request=prompt, seconds=timeout_sec)
+            with execution_context(execution):
+                try:
+                    answer = self._run_backend_exec(prompt, read_only=read_only, images=images,
+                                                    timeout_sec=timeout_sec, mode=mode)
+                    execution.update(state="completed")
+                    return answer
+                except Exception:
+                    if execution.data["state"] != "limit":
+                        execution.update(state="error")
+                    raise
         model = self._backend_model_for_mode(mode)
-        if self.ai_backend == "claude":
+        backend = self.ai_backend if mode == "chat" else getattr(self, "process_backend", self.ai_backend)
+        if backend == "claude":
             try:
                 return self._run_claude_exec(
                     prompt,
@@ -803,26 +832,26 @@ week: {year}-W{week:02d}
             env = os.environ.copy()
             env.pop("ANTHROPIC_API_KEY", None)
             with tempfile.TemporaryDirectory(prefix="dbrain-web-") as temp_dir:
-                result = subprocess.run(
+                result = run_bounded(
                     [
                         claude_bin,
                         "-p",
                         "--model", "fable",
-                        "--output-format", "text",
+                        "--output-format", "stream-json",
+                        "--verbose",
                         "--no-session-persistence",
                     ],
                     input=prompt,
-                    text=True,
-                    capture_output=True,
                     cwd=temp_dir,
+                    project=self.project_path,
                     env=env,
-                    timeout=timeout_sec,
-                    check=False,
+                    timeout=timeout_sec or 45,
+                    backend="claude",
                 )
             if result.returncode != 0:
                 logger.warning("web_quick_summary failed: %s", (result.stderr or "")[-200:])
                 return None
-            return (result.stdout or "").strip() or None
+            return final_text(result.stdout or "", "claude") or None
         except Exception:
             logger.exception("web_quick_summary failed")
             return None
@@ -1042,6 +1071,9 @@ week: {year}-W{week:02d}
             else:
                 raise ValueError(f"Unknown tool: {name}")
         except Exception as exc:
+            execution = CURRENT_EXECUTION.get()
+            if execution and execution.data["state"] != "limit":
+                execution.update(state="error")
             logger.exception("Tool %s failed", name)
             return json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False)
 
@@ -1279,9 +1311,12 @@ week: {year}-W{week:02d}
             logger.warning("No daily file for %s", day)
             return {"error": f"No daily file for {day}", "processed_entries": 0}
 
-        daily_text = daily_file.read_text(encoding="utf-8", errors="ignore")
-        if len(daily_text.strip()) < 50:
-            report = f"<b>{day}</b>\n\nНичего существенного."
+        with daily_file.open(encoding="utf-8") as handle:
+            fcntl.flock(handle, fcntl.LOCK_SH)
+            snapshot = handle.read()
+        daily_text = self._unprocessed_tail(snapshot)
+        if not daily_text:
+            report = "Новых записей для обработки нет."
             return {"report": report, "processed_entries": 0}
 
         skill_content = self._load_skill_content()
@@ -1307,28 +1342,23 @@ week: {year}-W{week:02d}
         )
 
         user_prompt = f"""
-Today is {day.isoformat()}.
+Today is {date.today().isoformat()}.
+The entries being processed are dated {day.isoformat()}.
 Project root: {self.project_path.as_posix()}
 Vault root: {self.vault_path.as_posix()}
 
-Process this day's inbox and memory updates.
+Process ONLY the unprocessed entries inlined below, from this day's inbox.
+Earlier entries have already been processed. Do not process the whole daily file again.
+Do not edit the source daily file or add processing markers: the application will
+mark exactly this snapshot after successful processing. Later entries must stay pending.
+For historical entries, check current memory and existing tasks before creating anything:
+do not duplicate facts or tasks, or revive completed or outdated requests.
 
-The full content of the daily file is inlined below — do NOT skip processing it,
-and do not respond "no entries today" if this block is non-empty.
-Entries above a `processed:` marker block were already processed earlier:
-do not re-process them, handle only the entries after the LAST such marker.
-After processing, append a marker block to the end of the daily file:
----
-processed: <current ISO timestamp>
-thoughts: <N>
-tasks: <M>
----
-
-=== vault/daily/{day.isoformat()}.md ===
+=== vault/daily/{day.isoformat()}.md — unprocessed entries ===
 {daily_text}
-=== END vault/daily/{day.isoformat()}.md ===
+=== END UNPROCESSED ENTRIES ===
 
-Also read for context:
+Read for context:
 - vault/memory/facts.md
 - vault/memory/user.md
 - vault/memory/soul.md
@@ -1377,6 +1407,9 @@ Do not mention:
                 verbosity="medium",
                 max_output_tokens=3000,
             )
+            if not str(report or "").strip():
+                return {"error": "Обработка не вернула результат. Записи сохранены для повтора.", "processed_entries": 0}
+            self._mark_daily_processed(day, snapshot)
             try:
                 from d_brain.services.wiki import refresh_wiki
 
@@ -1389,105 +1422,245 @@ Do not mention:
                 logger.exception("Context warmup failed after daily processing")
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
+            execution = CURRENT_EXECUTION.get()
+            if execution and execution.data["state"] != "limit":
+                execution.update(state="error")
             logger.exception("OpenAI daily processing failed")
             from d_brain.services.document_jobs import user_error
             return {"error": user_error(exc), "processed_entries": 0}
 
+    @staticmethod
+    def _unprocessed_tail(content: str) -> str:
+        """Return entries after the last legacy or application processing marker."""
+        lines = content.splitlines()
+        last_marker = -1
+        for index, line in enumerate(lines):
+            if _PROCESSED_MARKER_RE.search(line):
+                last_marker = index
+        tail = "\n".join(
+            line for line in lines[last_marker + 1:]
+            if not _MARKER_NOISE_RE.match(line)
+        ).strip()
+        if re.fullmatch(r"#\s*\d{4}-\d{2}-\d{2}", tail):
+            return ""
+        return tail
+
     def _daily_unprocessed_tail(self, day: date) -> str:
-        """Текст daily-файла после последнего маркера обработки."""
         path = self.vault_path / "daily" / f"{day.isoformat()}.md"
         if not path.exists():
             return ""
-        lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
-        last_marker = -1
-        for idx, line in enumerate(lines):
-            if _PROCESSED_MARKER_RE.search(line):
-                last_marker = idx
-        tail = lines[last_marker + 1 :]
-        tail = [ln for ln in tail if not _MARKER_NOISE_RE.match(ln)]
-        text = "\n".join(tail).strip()
-        # Один заголовок без записей (`# 2026-07-06`) — ещё не содержимое.
-        if last_marker == -1 and re.fullmatch(r"#\s*[\d-]+", text):
-            return ""
-        return text
+        return self._unprocessed_tail(path.read_text(encoding="utf-8"))
 
     def _daily_has_marker(self, day: date) -> bool:
         path = self.vault_path / "daily" / f"{day.isoformat()}.md"
         if not path.exists():
             return False
-        content = path.read_text(encoding="utf-8", errors="ignore")
         return any(
-            _PROCESSED_MARKER_RE.search(line) for line in content.splitlines()
+            _PROCESSED_MARKER_RE.search(line)
+            for line in path.read_text(encoding="utf-8", errors="ignore").splitlines()
         )
 
+    def _cycle_pending_days(self, days: list[date], today: date) -> list[date]:
+        """Return the single interval since the latest successful processing."""
+        last_marked = None
+        for path in (self.vault_path / "daily").glob("*.md"):
+            try:
+                candidate = date.fromisoformat(path.stem)
+            except ValueError:
+                continue
+            if candidate <= today and self._daily_has_marker(candidate):
+                if last_marked is None or candidate > last_marked:
+                    last_marked = candidate
+        if last_marked is None:
+            last_marked = today
+        return [day for day in days if last_marked <= day <= today]
+
     def pending_days(self, today: date | None = None) -> list[date]:
-        """Дни с записями после последнего маркера обработки, от старых к новым.
+        """Collect every day with its own unprocessed entries, oldest first."""
+        today = today or date.today()
+        files: list[tuple[date, str]] = []
+        for path in sorted((self.vault_path / "daily").glob("*.md")):
+            try:
+                day = date.fromisoformat(path.stem)
+            except ValueError:
+                continue
+            if day <= today:
+                files.append((day, path.read_text(encoding="utf-8")))
+        # A marker belongs only to its source day. Processing a newer day does
+        # not prove that older files or their late additions were handled.
+        return [day for day, content in files if self._unprocessed_tail(content)]
 
-        Отсчёт идёт «от обработки до обработки»: только дни начиная с последнего
-        дня, где маркер уже есть. Дни до эпохи маркеров не перелопачиваем заново.
-        """
-        if today is None:
-            today = date.today()
-        last_marked = today
-        for offset in range(_PENDING_LOOKBACK_DAYS + 1):
-            day = today - timedelta(days=offset)
-            if self._daily_has_marker(day):
-                last_marked = day
-                break
-        days = []
-        day = last_marked
-        while day <= today:
-            if len(self._daily_unprocessed_tail(day)) >= 10:
-                days.append(day)
-            day += timedelta(days=1)
-        return days
-
-    def _mark_daily_processed(self, day: date) -> None:
-        """Дописать маркер обработки, если агент не оставил свой."""
-        if not self._daily_unprocessed_tail(day):
-            return
+    def _mark_daily_processed(self, day: date, snapshot: str) -> None:
+        """Mark only the processed snapshot, preserving messages appended meanwhile."""
         path = self.vault_path / "daily" / f"{day.isoformat()}.md"
-        stamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
-        with path.open("a", encoding="utf-8") as fh:
-            fh.write(f"\n---\nprocessed: {stamp}\nthoughts: -\ntasks: -\n---\n")
+        stamp = datetime.now().astimezone().isoformat(timespec="seconds")
+        marker = f"\n---\nprocessed: {stamp}\nthoughts: -\ntasks: -\n---\n"
+        with path.open("r+", encoding="utf-8") as handle:
+            # VaultStorage uses the same lock when appending new messages.
+            fcntl.flock(handle, fcntl.LOCK_EX)
+            current = handle.read()
+            if not current.startswith(snapshot):
+                raise RuntimeError("Записи изменились во время обработки; нужен повторный запуск.")
+            handle.seek(0)
+            handle.write(snapshot + marker + current[len(snapshot):])
+            handle.truncate()
+            handle.flush()
+            os.fsync(handle.fileno())
+
+    def _process_daily_batch(self, days: list[date]) -> dict[str, Any]:
+        """Process one processing-to-processing interval with one model call."""
+        entries: list[tuple[date, str, str]] = []
+        for day in days:
+            path = self.vault_path / "daily" / f"{day.isoformat()}.md"
+            if not path.exists():
+                continue
+            with path.open(encoding="utf-8") as handle:
+                fcntl.flock(handle, fcntl.LOCK_SH)
+                snapshot = handle.read()
+            tail = self._unprocessed_tail(snapshot)
+            if tail:
+                entries.append((day, snapshot, tail))
+
+        if not entries:
+            return {
+                "report": "Новых записей для обработки нет.",
+                "processed_entries": 0,
+                "days": [],
+            }
+
+        skill_content = self._load_skill_content()
+        todoist_ref = self._load_todoist_reference()
+        yearly_files = sorted((self.vault_path / "goals").glob("1-yearly-*.md"))
+        yearly_hint = yearly_files[-1].name if yearly_files else "1-yearly-2026.md"
+        source = "\n\n".join(
+            f"=== {day.isoformat()} ===\n{tail}\n=== END {day.isoformat()} ==="
+            for day, _, tail in entries
+        )
+
+        system_prompt = (
+            "You are the processing backend for a personal Telegram second-brain bot. "
+            "Work directly with the provided tools. Reply in Russian. "
+            "Treat all supplied entries as one chronological processing interval, even when dates differ. "
+            "Avoid duplicates: read target files before appending, and do not repeat the same fact twice. "
+            "Create Todoist tasks only for clear actionable items. "
+            "The final message is for the human user only: include only user-relevant outcomes, decisions, and next steps. "
+            "Never mention internal instructions, hidden rules, files you had to read for yourself, tool limitations, or assistant self-maintenance. "
+            "Keep the tone compact, vivid, and easy to scan. "
+            "Use Russian wording for all headings and labels in the final message. "
+            "Return ONLY raw Telegram HTML. "
+            "Allowed tags: <b>, <i>, <code>, <s>, <u>. Do not include markdown fences."
+        )
+        user_prompt = f"""
+Today is {date.today().isoformat()}.
+Project root: {self.project_path.as_posix()}
+Vault root: {self.vault_path.as_posix()}
+
+Process the complete chronological interval accumulated since the previous
+successful processing. This is ONE batch and must produce ONE consolidated result.
+Earlier content is already processed. Do not edit daily source files or add markers;
+the application marks the exact snapshots after this call succeeds.
+
+=== UNPROCESSED INTERVAL ===
+{source}
+=== END UNPROCESSED INTERVAL ===
+
+Read for context:
+- vault/memory/facts.md
+- vault/memory/user.md
+- vault/memory/soul.md
+- vault/goals/3-weekly.md
+- vault/goals/2-monthly.md
+- vault/goals/{yearly_hint}
+
+Then:
+1. Extract durable facts and append them to vault/memory/facts.md.
+2. Append only stable user profile changes to vault/memory/user.md.
+3. Append only assistant behavior learnings to vault/memory/soul.md.
+4. Create or update durable notes under vault/thoughts/... when needed.
+5. Create Todoist tasks only for clear next actions.
+6. Keep changes minimal and readable; deduplicate across the whole interval.
+
+Apply these planning rules:
+{self._planning_guardrails()}
+
+Useful reference material:
+=== DBRAIN SKILL ===
+{skill_content[:8000]}
+=== TODOIST REFERENCE ===
+{todoist_ref[:4000]}
+=== END REFERENCES ===
+
+Return ONLY raw Telegram HTML with a short Russian header, 2-4 concise bullets,
+and a next step only when the user actually needs to do something.
+"""
+
+        try:
+            report = self._run_agent(
+                system_prompt,
+                user_prompt,
+                read_only=False,
+                reasoning="medium",
+                verbosity="medium",
+                max_output_tokens=3000,
+            )
+            if not str(report or "").strip():
+                return {"error": "Обработка не вернула результат. Записи сохранены для повтора.", "processed_entries": 0}
+            for day, snapshot, _ in entries:
+                self._mark_daily_processed(day, snapshot)
+            try:
+                from d_brain.services.wiki import refresh_wiki
+                refresh_wiki(self.vault_path)
+            except Exception:
+                logger.exception("Wiki refresh failed after interval processing")
+            try:
+                self._prime_context_cache()
+            except Exception:
+                logger.exception("Context warmup failed after interval processing")
+            return {
+                "report": report,
+                "processed_entries": len(entries),
+                "days": [day.isoformat() for day, _, _ in entries],
+            }
+        except Exception as exc:
+            execution = CURRENT_EXECUTION.get()
+            if execution and execution.data["state"] != "limit":
+                execution.update(state="error")
+            logger.exception("OpenAI interval processing failed")
+            from d_brain.services.document_jobs import user_error
+            return {"error": user_error(exc), "processed_entries": 0, "days": []}
 
     def process_pending(self, today: date | None = None) -> dict[str, Any]:
-        """Обработать все дни с необработанными записями — «от обработки до обработки».
-
-        Кнопка могла не нажиматься несколько дней: пройти хвосты всех daily-файлов
-        после их последнего маркера обработки, а не только сегодняшний день.
-        """
-        if today is None:
-            today = date.today()
-        days = self.pending_days(today)
-        if not days:
-            # Всё уже обработано — обычный статус-отчёт за сегодня.
-            return self.process_daily(today)
-
-        reports: list[str] = []
-        errors: list[str] = []
-        processed = 0
-        for day in days:
-            result = self.process_daily(day)
-            if "error" in result:
-                errors.append(f"{day.isoformat()}: {result['error']}")
-                continue
-            processed += int(result.get("processed_entries", 0))
-            text = str(result.get("report", "")).strip()
-            if text:
-                reports.append(text)
-            self._mark_daily_processed(day)
-
-        if not reports and errors:
-            return {"error": "; ".join(errors), "processed_entries": processed}
-        report = "\n\n".join(reports)
-        if errors:
-            report += "\n\n⚠️ <b>Не обработано:</b> " + "; ".join(errors)
-        return {
-            "report": report,
-            "processed_entries": processed,
-            "days": [d.isoformat() for d in days],
-        }
+        """Process everything since the previous successful run as one batch."""
+        execution = CURRENT_EXECUTION.get()
+        if execution is None:
+            execution = Execution(self.project_path, request="Обработка необработанных записей")
+            with execution_context(execution):
+                try:
+                    result = self.process_pending(today)
+                    if execution.data["state"] not in {"limit", "stopped"}:
+                        execution.update(state="error" if "error" in result else "completed")
+                    return result
+                except BaseException:
+                    if execution.data["state"] not in {"limit", "stopped"}:
+                        execution.update(state="error")
+                    raise
+        today = today or date.today()
+        lock = self.vault_path / ".session" / "daily-processing.lock"
+        lock.parent.mkdir(parents=True, exist_ok=True)
+        # Serialize the whole batch for both the button and scheduled processing.
+        with _file_lock(str(lock)):
+            all_pending = self.pending_days(today)
+            days = self._cycle_pending_days(all_pending, today)
+            execution.update(
+                pending_days=[day.isoformat() for day in days],
+                backlog_total=len(all_pending),
+                model_call_limit=1,
+            )
+            execution.check()
+            result = self._process_daily_batch(days)
+            if "error" not in result:
+                execution.update(completed_days=list(result.get("days", [])))
+            return result
 
     def execute_prompt(
         self,
@@ -1598,6 +1771,9 @@ Keep the user's planning horizon intact. Do not reinterpret long-term projects a
             )
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
+            execution = CURRENT_EXECUTION.get()
+            if execution and execution.data["state"] != "limit":
+                execution.update(state="error")
             logger.exception("OpenAI action execution failed")
             from d_brain.services.document_jobs import user_error
             return {"error": user_error(exc), "processed_entries": 0}
@@ -1660,6 +1836,9 @@ Important:
             self._update_weekly_moc(summary_path)
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
+            execution = CURRENT_EXECUTION.get()
+            if execution and execution.data["state"] != "limit":
+                execution.update(state="error")
             logger.exception("OpenAI weekly digest failed")
             from d_brain.services.document_jobs import user_error
             return {"error": user_error(exc), "processed_entries": 0}
@@ -1915,6 +2094,9 @@ Do not include:
             )
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
+            execution = CURRENT_EXECUTION.get()
+            if execution and execution.data["state"] != "limit":
+                execution.update(state="error")
             logger.exception("OpenAI agent execution failed")
             from d_brain.services.document_jobs import user_error
             return {"error": user_error(exc), "processed_entries": 0}
@@ -2066,6 +2248,9 @@ Do not include:
             )
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
+            execution = CURRENT_EXECUTION.get()
+            if execution:
+                execution.update(state="limit" if isinstance(exc, ExecutionLimit) else "error")
             logger.exception("OpenAI chat failed")
             from d_brain.services.document_jobs import user_error
             return {"error": user_error(exc), "processed_entries": 0}

@@ -110,9 +110,7 @@ async def process_ask(message: Message, prompt: str) -> None:
                     processor.clear_pending_action(session_scope)
                     await message.answer("🟢 Принял", parse_mode=None)
                     session.append(session_scope, "assistant", text="🟢 Принял", chat_id=message.chat.id, chat_title=message.chat.title)
-                    asyncio.create_task(
-                        _run_ask_agent(message, processor, pending["original_prompt"], user_id, session_scope, work_context, session)
-                    )
+                    await _run_ask_agent(message, processor, pending["original_prompt"], user_id, session_scope, work_context, session)
                     return
                 if decision == "cancel":
                     processor.clear_pending_action(session_scope)
@@ -164,9 +162,7 @@ async def process_ask(message: Message, prompt: str) -> None:
                 chat_id=message.chat.id,
                 chat_title=message.chat.title,
             )
-            asyncio.create_task(
-                _run_ask_agent(message, processor, prompt, user_id, session_scope, work_context, session)
-            )
+            await _run_ask_agent(message, processor, prompt, user_id, session_scope, work_context, session)
             return
 
         sent_chunks = prepare_telegram_response(response)

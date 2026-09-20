@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import os
 import re
 import subprocess
 import tempfile
@@ -20,8 +21,13 @@ def run(args: list[str], deadline: float | None = None, timeout: int | None = No
             raise TimeoutError('Превышено время чтения документа')
         timeout = left if timeout is None else min(timeout, left)
     try:
-        result = subprocess.run(args, capture_output=True, text=True,
-                                timeout=timeout, check=False)
+        from d_brain.services.execution import CURRENT_EXECUTION, run_bounded
+        if CURRENT_EXECUTION.get() is not None:
+            result = run_bounded(args, input='', cwd=Path.cwd(), env=os.environ.copy(),
+                                 timeout=timeout, backend='command')
+        else:
+            result = subprocess.run(args, capture_output=True, text=True,
+                                    timeout=timeout, check=False)
     except FileNotFoundError as e:
         raise DocumentReadError(f'Не установлена программа {args[0]}') from e
     if result.returncode:

@@ -189,11 +189,11 @@ async def test_send_timeout_keeps_artifact_without_retry(tmp_path):
     assert bot.send_document.await_count==1
 
 
-def test_restart_resumes_generation_only_once(tmp_path):
+def test_restart_does_not_resume_generation_automatically(tmp_path):
     store,doc,job=ready_job(tmp_path)
     store.set_job(job['id'],state='generating',attempts=1)
     store.recover()
-    assert store.job(job['id'])['state']=='queued'
+    assert store.job(job['id'])['state']=='failed'
     store.set_job(job['id'],state='generating',attempts=2)
     store.recover()
     assert store.job(job['id'])['state']=='failed'

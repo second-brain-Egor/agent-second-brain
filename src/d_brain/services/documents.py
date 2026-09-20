@@ -212,8 +212,7 @@ class DocumentStore:
         with self.db() as db:
             # Telegram has no idempotency key: an interrupted send must not be replayed.
             db.execute("UPDATE jobs SET state='send_unknown' WHERE state='sending'")
-            db.execute("UPDATE jobs SET state='queued' WHERE state IN ('extracting','generating') AND attempts<2")
-            db.execute("UPDATE jobs SET state='failed', error='Обработка прервана при перезапуске после двух попыток' WHERE state IN ('extracting','generating') AND attempts>=2")
+            db.execute("UPDATE jobs SET state='failed', error='Обработка прервана перезапуском. Документ и задание сохранены; автоповтор отключён.' WHERE state IN ('extracting','generating')")
 
     def context(self, scope) -> str:
         documents = self.for_scope(scope)[:5]
@@ -229,7 +228,7 @@ class DocumentStore:
                 job_states = {'queued': 'в очереди', 'extracting': 'чтение документа',
                     'generating': 'подготовка результата', 'ready': 'файл готов к отправке',
                     'sending': 'отправляется', 'sent': 'файл отправлен в чат',
-                    'failed': 'ошибка обработки', 'error_reported': 'ошибка обработки',
+                    'stopped': 'остановлено', 'failed': 'ошибка обработки', 'error_reported': 'ошибка обработки',
                     'send_unknown': 'отправка не подтверждена',
                     'uncertain_reported': 'отправка не подтверждена'}
                 lines.append('Задание: '+job_states.get(job['state'], job['state']))

@@ -32,26 +32,7 @@ async def cmd_process(message: Message) -> None:
     git = VaultGit(settings.vault_path)
 
     # Run subprocess in thread to avoid blocking event loop
-    async def process_with_progress() -> dict:
-        task = asyncio.create_task(
-            asyncio.to_thread(processor.process_pending, date.today())
-        )
-
-        elapsed = 0
-        while not task.done():
-            await asyncio.sleep(30)
-            elapsed += 30
-            if not task.done():
-                try:
-                    await status_msg.edit_text(
-                        f"⏳ Обрабатываю... ({elapsed // 60}м {elapsed % 60}с)"
-                    )
-                except Exception:
-                    pass  # Ignore edit errors
-
-        return await task
-
-    report = await process_with_progress()
+    report = await asyncio.to_thread(processor.process_pending, date.today())
 
     if "error" not in report:
         days = report.get("days") or [date.today().isoformat()]

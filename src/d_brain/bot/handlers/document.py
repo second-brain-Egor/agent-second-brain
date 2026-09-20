@@ -204,7 +204,7 @@ async def retry_document(callback: CallbackQuery):
         return
     if job['state'] in {'send_unknown', 'uncertain_reported'}:
         store.set_job(job['id'], state='ready', error=None)
-    elif job['state'] in {'failed', 'error_reported'}:
+    elif job['state'] in {'failed', 'error_reported', 'stopped'}:
         store.set_job(job['id'], state='queued', attempts=0, error=None)
     else:
         await callback.answer('Задание уже выполняется или результат отправлен.')
@@ -331,6 +331,7 @@ async def route_document_request(message: Message, text: str) -> bool:
                 responses = {
                     'sent': 'Готовый файл уже отправлен в этот чат.',
                     'failed': job['error'] or 'Обработка завершилась ошибкой.',
+                    'stopped': 'Обработка остановлена. Документ и задание сохранены.',
                     'error_reported': job['error'] or 'Обработка завершилась ошибкой.',
                     'send_unknown': 'Файл готов. Для повторной отправки нажми кнопку под сообщением об ошибке.',
                     'uncertain_reported': 'Файл готов. Для повторной отправки нажми кнопку под сообщением об ошибке.',

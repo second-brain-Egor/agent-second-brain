@@ -24,6 +24,7 @@ tier: archive
 
 ## Связано
 
+- [[thoughts/projects/шипорез-исходные-материалы-2026-04-14|Исходный лот, руководства и вопросы по оснастке]]
 - [[memory/facts]]
 - [[memory/user]]
 - [[memory/soul]]

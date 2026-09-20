@@ -124,3 +124,8 @@ See `.claude/rules/` for format requirements:
 - `telegram-report.md` — HTML report format
 - `obsidian-markdown.md` — Obsidian syntax rules
 - `weekly-reflection.md` — weekly reflection template
+
+
+## Дополнение из опыта второго помощника
+
+Расширенная методология организации заметок, показатели качества и постепенное введение разделов: `irina-methodology.md`. Сначала создавать только необходимые разделы; не разворачивать пустую структуру под несуществующие проекты.

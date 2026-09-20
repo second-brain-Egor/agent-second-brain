@@ -16,7 +16,7 @@ triggers:
 ## YouTube — полный pipeline
 
 ### Зависимости
-- `yt-dlp` — установлен в `/home/egor/.local/bin/yt-dlp`
+- `yt-dlp` — установлен в `~/.local/bin/yt-dlp`
 - JS runtime: `node` (v22, установлен). Если не работает — указать `--js-runtimes node`
 - PATH: `export PATH="$HOME/.local/bin:$PATH"`
 

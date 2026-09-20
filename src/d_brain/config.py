@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     )
 
     telegram_bot_token: str = Field(description="Telegram Bot API token")
+    show_help_button: bool = Field(default=True, description="Show the help button in this bot's main keyboard")
     telegram_api_id: int = Field(default=0, description="Telegram API ID from my.telegram.org")
     telegram_api_hash: str = Field(default="", description="Telegram API Hash from my.telegram.org")
     deepgram_api_key: str = Field(description="Deepgram API key for transcription")
@@ -24,8 +25,12 @@ class Settings(BaseSettings):
         default="codex",
         description="Active AI backend: 'codex' or 'claude'. Determines which sim is used (vault/.codex/ vs vault/.claude/). Currently only 'codex' is implemented; 'claude' is reserved for future re-activation of the dormant Claude sim.",
     )
+    process_backend: str = Field(default="", description="Backend for background processing; falls back to AI_BACKEND")
     codex_bin: str = Field(default="codex", description="Path to the Codex CLI binary")
     codex_model: str = Field(default="gpt-5.5", description="Default Codex model (fallback)")
+    codex_reasoning_effort: str = Field(
+        default="", description="Codex reasoning level; empty preserves the CLI configuration",
+    )
     codex_model_chat: str = Field(
         default="",
         description="Codex model for dialog mode (light, fast). Falls back to codex_model if empty.",

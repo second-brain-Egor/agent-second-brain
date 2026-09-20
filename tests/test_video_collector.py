@@ -8,7 +8,7 @@ import pytest
 
 
 ROOT = Path(__file__).parents[1]
-COLLECTOR = ROOT / "vault/projects/Скрипт для выгрузки видео/scripts/выгрузка-видео.py"
+COLLECTOR = ROOT / "scripts/video_collector.py"
 SPEC = importlib.util.spec_from_file_location("video_collector", COLLECTOR)
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
@@ -145,13 +145,14 @@ def test_interrupted_frame_extraction_is_not_complete(tmp_path):
     assert MODULE.is_video_complete(tmp_path, True, True, True)
 
 
+@pytest.mark.skipif(not (ROOT / "scripts/nate-herk-check.sh").exists(), reason="Личный проект не настроен в этом экземпляре")
 def test_check_runs_pending_queue_even_when_collection_fails(tmp_path):
     scripts = tmp_path / "scripts"
     scripts.mkdir()
     python = tmp_path / ".venv/bin/python"
     python.parent.mkdir(parents=True)
     python.symlink_to(sys.executable)
-    collector = tmp_path / COLLECTOR.relative_to(ROOT)
+    collector = tmp_path / "vault/projects/Скрипт для выгрузки видео/scripts/выгрузка-видео.py"
     collector.parent.mkdir(parents=True)
     collector.write_text('print("HTTP Error 429: Too Many Requests")\nraise SystemExit(1)\n')
     check = scripts / "nate-herk-check.sh"
@@ -167,6 +168,7 @@ def test_check_runs_pending_queue_even_when_collection_fails(tmp_path):
     assert "Ошибок нет" not in result.stdout
 
 
+@pytest.mark.skipif(not (ROOT / "scripts/nate-herk-process-pending.sh").exists(), reason="Личный проект не настроен в этом экземпляре")
 def test_worker_does_not_analyze_missing_sources(tmp_path):
     scripts = tmp_path / "scripts"
     scripts.mkdir()

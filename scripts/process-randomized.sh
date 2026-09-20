@@ -20,7 +20,7 @@ fi
 
 STATE_DIR="$PROJECT_DIR/logs"
 STATE_FILE="$STATE_DIR/process-randomized.state"
-LOCK_FILE="/tmp/d-brain-process-randomized.lock"
+LOCK_FILE="/tmp/d-brain-process-randomized-${USER:-$(whoami)}.lock"
 
 mkdir -p "$STATE_DIR"
 
