@@ -1,9 +1,9 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
 last_accessed: 2026-08-24
-relevance: 0.91
-tier: active
+relevance: 0.67
+tier: cold
 ---
 Codex's browser use is probably the best
 that I've ever tried before. It can

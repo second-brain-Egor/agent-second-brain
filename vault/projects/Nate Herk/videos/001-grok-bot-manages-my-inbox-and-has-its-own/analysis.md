@@ -1,11 +1,10 @@
 ---
 type: project
 description: "Карточка ролика о разборе почты и отдельном адресе для агента в Grok Bot"
+related: 
 last_accessed: 2026-09-16
-relevance: 0.97
+relevance: 0.94
 tier: active
-related:
-  - "[[projects/_index]]"
 ---
 # Grok Bot управляет моей входящей почтой и имеет собственный адрес
 

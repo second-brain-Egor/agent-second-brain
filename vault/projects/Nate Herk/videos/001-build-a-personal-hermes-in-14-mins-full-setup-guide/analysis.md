@@ -3,8 +3,8 @@ type: project
 description: "Дата: 2026-08-27 Длительность: 14:20 Ссылка: https://www.youtube.com/watch?v=gQef3d3erOs"
 related: 
 last_accessed: 2026-08-29
-relevance: 0.98
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # Карточка ролика: персональный Hermes без собственного VPS
 

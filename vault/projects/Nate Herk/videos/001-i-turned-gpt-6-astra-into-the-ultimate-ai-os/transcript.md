@@ -1,7 +1,10 @@
 ---
+type: project
 description: "GBD6 Astra is the most powerful AI model I've ever used. So, I turned it into my AI operating system and my second brain. And this is just a quick..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-13
+relevance: 0.88
+tier: warm
 ---
 GBD6 Astra is the most powerful AI model
 I've ever used. So, I turned it into my

@@ -3,8 +3,8 @@ type: project
 description: "Дата: 2026-08-23 Длительность: 18:02 Ссылка: https://www.youtube.com/watch?v=UsfCe5fJK6A"
 related: 
 last_accessed: 2026-08-24
-relevance: 0.91
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # Карточка ролика: DeepSeek Harness против Claude Code после недели тестов
 

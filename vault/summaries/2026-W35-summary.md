@@ -1,10 +1,12 @@
 ---
-description: "Weekly summary for 2026-W35"
-date: 2026-08-30
 type: weekly-summary
+description: "Weekly summary for 2026-W35"
+related: 
+last_accessed: 2026-09-06
+relevance: 0.78
+tier: warm
+date: 2026-08-30
 week: 2026-W35
-related:
-  - "[[MEMORY]]"
 ---
 
 **Неделя 24–30 августа**

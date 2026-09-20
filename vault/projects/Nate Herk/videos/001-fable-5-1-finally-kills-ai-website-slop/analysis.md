@@ -1,11 +1,10 @@
 ---
-description: "Fable 5.1 FINALLY Kills AI Website Slop — project"
 type: project
+description: "Fable 5.1 FINALLY Kills AI Website Slop — project"
+related: 
 last_accessed: 2026-09-02
-relevance: 0.97
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.78
+tier: warm
 ---
 # Fable 5.1 FINALLY Kills AI Website Slop
 

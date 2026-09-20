@@ -1,7 +1,10 @@
 ---
+type: project
 description: "My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=what_to_build_instead_of_ai_agents&hcategory=youtube-videos&utm_campaign=free-group

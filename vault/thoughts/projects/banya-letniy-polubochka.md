@@ -5,8 +5,8 @@ status: брейншторм
 related: 
 created: 2026-05-21
 last_accessed: 2026-05-24
-relevance: 0.86
-tier: warm
+relevance: 0.67
+tier: cold
 category: projects
 horizon: лето 2026 (временный объект до готовности основной бани)
 ---

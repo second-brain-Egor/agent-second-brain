@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Разбор шести правил создания, проверки и постепенного удешевления навыков Codex."
-related:
-  - "[[projects/Nate Herk/summary]]"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 # Как создавать навыки Codex лучше, чем 99% людей
 

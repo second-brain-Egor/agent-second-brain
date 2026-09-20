@@ -1,14 +1,14 @@
 ---
 type: moc
-description: "Map of Content: Недельные дайджесты, 20 entries"
-last_accessed: 2026-08-30
+description: "Map of Content: Недельные дайджесты, 24 entries"
+last_accessed: 2026-09-21
 relevance: 1.0
 tier: active
 ---
 
 # Недельные дайджесты
 
-Сгенерировано: 2026-08-30 02:53. Файлов: 20.
+Сгенерировано: 2026-09-21 01:40. Файлов: 24.
 
 - [[summaries/2026-W14-summary|2026-W14-summary]] — Weekly summary for 2026-W14
 - [[summaries/2026-W15-summary|2026-W15-summary]] — Weekly summary for 2026-W15
@@ -29,4 +29,8 @@ tier: active
 - [[summaries/2026-W31-summary|2026-W31-summary]] — Weekly summary for 2026-W31
 - [[summaries/2026-W32-summary|2026-W32-summary]] — Weekly summary for 2026-W32
 - [[summaries/2026-W33-summary|2026-W33-summary]] — Weekly summary for 2026-W33
-- [[summaries/2026-W34-summary|2026-W34-summary]]
+- [[summaries/2026-W34-summary|2026-W34-summary]] — Weekly summary for 2026-W34
+- [[summaries/2026-W35-summary|2026-W35-summary]] — Weekly summary for 2026-W35
+- [[summaries/2026-W36-summary|2026-W36-summary]] — Weekly summary for 2026-W36
+- [[summaries/2026-W37-summary|2026-W37-summary]] — Weekly summary for 2026-W37
+- [[summaries/2026-W38-summary|2026-W38-summary]]

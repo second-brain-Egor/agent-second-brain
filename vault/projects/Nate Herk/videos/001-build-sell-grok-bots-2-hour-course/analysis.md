@@ -1,9 +1,9 @@
 ---
 type: project
 description: "Дата: 2026-08-31 Длительность: 1:45:41 Ссылка: https://www.youtube.com/watch?v=4hKJ9X6rGFo"
-related:
+related: 
 last_accessed: 2026-08-31
-relevance: 0.94
+relevance: 0.98
 tier: active
 ---
 # Карточка ролика: Build & Sell Grok Bots — от настройки команды до услуги

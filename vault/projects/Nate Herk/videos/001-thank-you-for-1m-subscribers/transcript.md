@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Oh my gosh. Where's that last one? Oh my gosh. Wow, my heart is actually racing. Wow. All right, I got to take a picture of this. You know, my..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-13
+relevance: 0.88
+tier: warm
 ---
 Oh my gosh.
 Where's that last one?

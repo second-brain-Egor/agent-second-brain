@@ -4,8 +4,8 @@ description: "Как отличать липу от осины при покуп
 related: 
 created: 2026-05-24
 last_accessed: 2026-05-24
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 ---
 # Липа и осина для бани
 

@@ -1,7 +1,10 @@
 ---
+type: project
 description: "- Дата публикации: 9 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=5QmOhvVssxY - Длительность: 6:40"
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-13
+relevance: 0.88
+tier: warm
 ---
 # Спасибо за миллион подписчиков
 

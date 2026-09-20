@@ -1,9 +1,9 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
 last_accessed: 2026-08-29
-relevance: 0.98
-tier: active
+relevance: 0.67
+tier: cold
 ---
 So, Hermes's agents are great because it
 kind of feels like you have Claude code

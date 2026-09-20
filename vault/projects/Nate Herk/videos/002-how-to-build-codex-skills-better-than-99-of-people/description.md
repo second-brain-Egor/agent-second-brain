@@ -1,7 +1,10 @@
 ---
+type: project
 description: "FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/ My playbook for growing a $1M AI agency..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin

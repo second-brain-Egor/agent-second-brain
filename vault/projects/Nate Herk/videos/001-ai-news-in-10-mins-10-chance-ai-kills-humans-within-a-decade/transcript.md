@@ -1,7 +1,10 @@
 ---
+type: project
 description: "So today is September 13th and the past week has been insane. We saw this tweet on September 8th from Jacob Coxin that said, \"I resigned from..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 So today is September 13th and the past
 week has been insane. We saw this tweet

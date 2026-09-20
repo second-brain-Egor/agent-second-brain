@@ -5,8 +5,8 @@ status: idea
 related: 
 created: 2026-08-08
 last_accessed: 2026-08-16
-relevance: 0.79
-tier: warm
+relevance: 0.67
+tier: cold
 ---
 
 # Режим без сохранения

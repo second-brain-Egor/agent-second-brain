@@ -4,7 +4,7 @@ description: "Платформа АСУЛА: Android-планшет, офлай�
 created: 2026-05-09
 updated: 2026-08-05
 last_accessed: 2026-05-09
-relevance: 0.64
+relevance: 0.67
 tier: cold
 ---
 

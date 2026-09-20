@@ -3,8 +3,8 @@ type: project
 description: "Суровый Плотник — project"
 related: 
 last_accessed: 2026-05-01
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 ---
 # Суровый Плотник
 

@@ -1,9 +1,9 @@
 ---
-description: "This AI Technology Will Replace Millions (Here's How to Prepare) — project"
 type: project
+description: "This AI Technology Will Replace Millions (Here's How to Prepare) — project"
 last_accessed: 2026-08-25
-relevance: 0.93
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # This AI Technology Will Replace Millions (Here's How to Prepare)
 

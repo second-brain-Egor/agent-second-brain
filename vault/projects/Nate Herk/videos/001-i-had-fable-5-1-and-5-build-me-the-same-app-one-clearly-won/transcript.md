@@ -1,7 +1,10 @@
 ---
+type: project
 description: "So, I just had Fable 5.1 and Fable 5 build me the exact same app, and it wasn't even close. Not only did these apps look and feel very different, but..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-06
+relevance: 0.78
+tier: warm
 ---
 So, I just had Fable 5.1 and Fable 5
 build me the exact same app, and it

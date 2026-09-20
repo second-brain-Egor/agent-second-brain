@@ -3,8 +3,8 @@ type: project
 description: "Right now I've got all these different Claude Code tabs running for completely free. Because right here you can see that the model I'm using isn't..."
 related: 
 last_accessed: 2026-08-23
-relevance: 0.9
-tier: active
+relevance: 0.67
+tier: cold
 ---
 Right now I've got all these different
 Claude Code tabs running for completely

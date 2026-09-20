@@ -1,11 +1,10 @@
 ---
-description: "Голосовой режим GPT-6 Astra автоматизирует буквально всё — карточка ролика"
 type: project
+description: "Голосовой режим GPT-6 Astra автоматизирует буквально всё — карточка ролика"
+related: 
 last_accessed: 2026-09-06
-relevance: 0.97
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.78
+tier: warm
 ---
 # Голосовой режим GPT-6 Astra автоматизирует буквально всё
 

@@ -3,8 +3,8 @@ type: project
 description: "FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/about?el=scroll-craft&hcategory=y..."
 related: 
 last_accessed: 2026-08-23
-relevance: 0.9
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # Комментарии
 

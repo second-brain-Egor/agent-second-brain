@@ -2,8 +2,8 @@
 type: note
 description: "Дата: 2026-04-08"
 last_accessed: 2026-04-30
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 ---
 # Правила коммуникации бота
 

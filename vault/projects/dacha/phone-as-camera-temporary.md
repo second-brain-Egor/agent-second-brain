@@ -7,7 +7,7 @@ status: active
 created: 2026-07-06
 updated: 2026-07-06
 last_accessed: 2026-07-07
-relevance: 0.19
+relevance: 0.67
 tier: cold
 ---
 

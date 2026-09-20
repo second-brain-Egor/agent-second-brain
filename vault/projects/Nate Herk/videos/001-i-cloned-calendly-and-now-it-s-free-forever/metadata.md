@@ -1,9 +1,9 @@
 ---
-description: "I Cloned Calendly and Now It’s Free Forever — project"
 type: project
+description: "I Cloned Calendly and Now It’s Free Forever — project"
 last_accessed: 2026-08-29
-relevance: 0.98
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # I Cloned Calendly and Now It’s Free Forever
 

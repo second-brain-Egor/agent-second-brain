@@ -1,9 +1,9 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
 last_accessed: 2026-08-29
-relevance: 0.98
-tier: active
+relevance: 0.67
+tier: cold
 ---
 So, I just built a clone of Calendly,
 and it's completely free for me to run.

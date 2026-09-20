@@ -1,7 +1,10 @@
 ---
+type: project
 description: "You guys are not going to believe how ridiculous this is. I gave Astra this one prompt and this is what I got back. &gt;&gt; I'm Astra 6. You're..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-06
+relevance: 0.78
+tier: warm
 ---
 You guys are not going to believe how
 ridiculous this is. I gave Astra this

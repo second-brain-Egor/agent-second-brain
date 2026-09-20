@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Ссылка: https://www.youtube.com/watch?v=yysILVsfLFM Источник: Nate Herk | AI Automation Дата: 20260907 Длительность: 19:49"
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-13
+relevance: 0.88
+tier: warm
 ---
 # I Turned GPT-6 Astra Into the Ultimate AI Second Brain
 

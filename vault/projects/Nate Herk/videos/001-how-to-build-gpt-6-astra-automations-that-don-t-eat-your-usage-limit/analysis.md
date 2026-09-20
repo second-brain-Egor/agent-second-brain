@@ -1,9 +1,9 @@
 ---
 type: project
 description: "Дата: 2026-09-16 Длительность: 35:25 Ссылка: https://www.youtube.com/watch?v=FqnNL8fnUWo"
-related:
+related: 
 last_accessed: 2026-09-17
-relevance: 0.96
+relevance: 0.95
 tier: active
 ---
 # Карточка ролика: Как создавать автоматизации GPT-6 Astra без расхода лимита подписки

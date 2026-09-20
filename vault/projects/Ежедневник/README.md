@@ -5,8 +5,8 @@ status: active
 created: 2026-05-03
 updated: 2026-05-03
 last_accessed: 2026-05-03
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 area: planning
 ---
 # Ежедневник

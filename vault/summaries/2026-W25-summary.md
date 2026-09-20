@@ -3,8 +3,8 @@ type: weekly-summary
 description: "Weekly summary for 2026-W25"
 related: 
 last_accessed: 2026-06-28
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 date: 2026-06-21
 week: 2026-W25
 ---

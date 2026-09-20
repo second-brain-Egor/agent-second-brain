@@ -2,8 +2,8 @@
 type: note
 description: "Дата: 2026-04-16"
 last_accessed: 2026-04-16
-relevance: 0.1
-tier: archive
+relevance: 0.98
+tier: active
 ---
 # Дисциплина поиска по vault
 

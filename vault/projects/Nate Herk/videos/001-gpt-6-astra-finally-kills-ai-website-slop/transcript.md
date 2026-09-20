@@ -1,7 +1,10 @@
 ---
+type: project
 description: "We have a new AI design king and it's not even close. Take a look at some of these outputs I've been getting with Astra. Look how cool this scroll..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-06
+relevance: 0.78
+tier: warm
 ---
 We have a new AI design king and it's
 not even close. Take a look at some of

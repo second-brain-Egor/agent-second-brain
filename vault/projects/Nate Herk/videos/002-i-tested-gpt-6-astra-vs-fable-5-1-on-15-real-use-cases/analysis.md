@@ -1,11 +1,10 @@
 ---
-description: "Я протестировал GPT-6 Astra и Fable 5.1 в 15 реальных задачах — проект"
 type: project
+description: "Я протестировал GPT-6 Astra и Fable 5.1 в 15 реальных задачах — проект"
+related: 
 last_accessed: 2026-09-07
-relevance: 0.98
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.8
+tier: warm
 ---
 # Я протестировал GPT-6 Astra и Fable 5.1 в 15 реальных задачах
 

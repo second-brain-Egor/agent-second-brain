@@ -5,8 +5,8 @@ status: draft-collected
 created: 2026-05-03
 updated: 2026-05-04
 last_accessed: 2026-05-04
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 project: Ежедневник
 ---
 # Разбор YouTube-видео про привычки

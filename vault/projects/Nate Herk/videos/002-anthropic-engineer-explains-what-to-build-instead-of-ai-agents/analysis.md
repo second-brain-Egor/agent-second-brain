@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой результата."
-related:
-  - "[[projects/Nate Herk/summary]]"
+related: 
+last_accessed: 2026-09-15
+relevance: 0.91
+tier: active
 ---
 # Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов
 

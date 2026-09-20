@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Grockbot is one of the most powerful AI tools that I've ever played with because it gives you an army of AI agents right in your pocket and you don't..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 Grockbot is one of the most powerful AI
 tools that I've ever played with because

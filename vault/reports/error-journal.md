@@ -1,8 +1,11 @@
 ---
-description: "Единый журнал сбоев фоновых процессов, интеграций и пользовательского контура."
 type: report
+description: "Единый журнал сбоев фоновых процессов, интеграций и пользовательского контура."
 status: active
 created: 2026-09-01
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 # Журнал ошибок Agent Second Brain
 

@@ -1,7 +1,10 @@
 ---
+type: project
 description: "- Дата публикации: 11 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=6LNlCpQPYFc - Длительность: 34:08 -..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-13
+relevance: 0.88
+tier: warm
 ---
 # Как на самом деле выбрать подходящего ИИ-агента
 

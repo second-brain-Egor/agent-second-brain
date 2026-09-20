@@ -1,7 +1,10 @@
 ---
+type: project
 description: "This is probably my favorite website I've ever built with Claude. This is the AI Automation Society site. What I think is so cool about this one is..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-06
+relevance: 0.78
+tier: warm
 ---
 This is probably my favorite website
 I've ever built with Claude. This is the

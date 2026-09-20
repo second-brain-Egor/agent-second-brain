@@ -1,9 +1,9 @@
 ---
-description: "I Tested Claude Code vs. Codex on Design. It Wasn't Even Close. — project"
 type: project
+description: "I Tested Claude Code vs. Codex on Design. It Wasn't Even Close. — project"
 last_accessed: 2026-08-28
-relevance: 0.97
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.
 

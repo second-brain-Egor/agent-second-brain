@@ -1,9 +1,9 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
 last_accessed: 2026-08-24
-relevance: 0.91
-tier: active
+relevance: 0.67
+tier: cold
 ---
 Okay, so we just got GrokBot, which is
 probably the easiest way that I found to

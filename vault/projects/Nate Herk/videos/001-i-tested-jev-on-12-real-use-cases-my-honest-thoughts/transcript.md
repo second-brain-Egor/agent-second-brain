@@ -1,7 +1,10 @@
 ---
+type: project
 description: "So Jev is literally everywhere and I think it's going to change how AI automations are built. So I came in here and tested it on 12 use cases and..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 So Jev is literally everywhere and I
 think it's going to change how AI

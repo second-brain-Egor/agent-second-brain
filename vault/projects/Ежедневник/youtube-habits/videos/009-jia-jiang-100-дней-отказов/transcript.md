@@ -3,8 +3,8 @@ type: project
 description: "Transcript — project"
 related: 
 last_accessed: 2026-05-05
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 ---
 всегда представляет конференции ted джа
 джа онг что я выучил за 100 дней отказа

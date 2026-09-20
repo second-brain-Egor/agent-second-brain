@@ -1,9 +1,9 @@
 ---
-description: "18 Months of Pricing AI Automations in 21 Mins — project"
 type: project
+description: "18 Months of Pricing AI Automations in 21 Mins — project"
 last_accessed: 2026-08-25
-relevance: 0.93
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # 18 Months of Pricing AI Automations in 21 Mins
 

@@ -1,14 +1,14 @@
 ---
 type: moc
-description: "Map of Content: Уроки и паттерны, 21 entries"
-last_accessed: 2026-08-30
+description: "Map of Content: Уроки и паттерны, 23 entries"
+last_accessed: 2026-09-21
 relevance: 1.0
 tier: active
 ---
 
 # Уроки и паттерны
 
-Сгенерировано: 2026-08-30 02:53. Файлов: 21.
+Сгенерировано: 2026-09-21 01:40. Файлов: 23.
 
 - [[thoughts/learnings/agent-team-pattern-portability|Переносимость команды агентов]] — Паттерн из ролика Nate Herk — главный координатор и специализированные исполнители — применим не только в Grok Bot.
 - [[thoughts/learnings/ai-models-2026-07-25|Новые модели Anthropic и OpenAI на 25 июля 2026]] — - Claude Opus 5 вышел 24 июля: основная сильная модель для сложной разработки и профессиональной работы. - Claude Son...
@@ -16,6 +16,7 @@ tier: active
 - [[thoughts/learnings/claude-limits-visibility|Лимиты подписки Claude: где смотреть]] — Лимиты подписки Claude: что реально видно изнутри бота, а что нет
 - [[thoughts/learnings/dino-rolling-40x40x2-vs-40x20x3|Dino: 40×40×2 и 40×20×3 на ребро]] — Производитель разрешил прокатку 40×40×2 и запретил 40×20×3 на ребро. Для проекта этот запрет окончательный: профиль 4...
 - [[thoughts/learnings/engineering-fit-calculation-discipline|Проверка посадки деталей без подмены геометрии]] — Как проверять посадку профильной детали в деформированную круглую трубу без подмены геометрии.
+- [[thoughts/learnings/error-journal-principles|Принципы журнала ошибок]] — Журнал ошибок нужен не как склад технических сообщений, а как часть эксплуатационного цикла: событие → влияние → прич...
 - [[thoughts/learnings/forumhouse-agent-access-parity|Единый доступ агентов к Forumhouse]] — Егор ожидает, что Codex и Claude Code одинаково умеют проверять закачку Forumhouse на Барыге.
 - [[thoughts/learnings/forumhouse-export-registry|Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)]] — Forumhouse: авто-реестр выгрузок + дельта-докачка — как работает и как отвечать на вопросы о перекачке
 - [[thoughts/learnings/forumhouse-sections-91-175|Forumhouse: разделы 91 и 175]] — - Раздел 91 — «Каркасные дома». - Раздел 175 — «Опыт строительства. Отчеты форумчан». - Тема 544853 относится к разде...
@@ -26,7 +27,8 @@ tier: active
 - [[thoughts/learnings/ninkear-m8-vs-gmktec-k6|Ninkear M8 и GMKtec K6]] — Сравнение с мини-ПК Егора GMKtec K6:
 - [[thoughts/learnings/planning-horizon-rules|Правила горизонта планирования]] — Дата: 2026-04-08
 - [[thoughts/learnings/provoloka-dlya-svarki-stali-3-mm|Проволока для сварки стали 3 мм]] — Для уголков и труб со стенкой до 3 мм на Decapower xtraMIG-200 основной выбор — сплошная проволока 0,8 мм.
-- [[thoughts/learnings/reliable-video-processing-pipeline|Надёжная обработка видео]]
+- [[thoughts/learnings/reliable-video-processing-pipeline|Надёжная обработка видео]] — Обработка видео считается завершённой только после полного конвейера: загрузка материалов, транскрипция, анализ, созд...
+- [[thoughts/learnings/shared-assistant-experience|Общий накопленный опыт]] — Объединённый переносимый опыт общения, памяти и технической работы двух помощников
 - [[thoughts/learnings/shift-based-daily-planner|Сменный ежедневник — формат под график сутки через трое]] — Не классический «список задач по часам», а ежедневник, который сначала фиксирует тип дня и энергию, потом — масштаб з...
 - [[thoughts/learnings/telegram-formatting-rules|Правила оформления ответов в Telegram]] — Дата: 2026-04-13
 - [[thoughts/learnings/vault-search-discipline|Дисциплина поиска по vault]] — Дата: 2026-04-16

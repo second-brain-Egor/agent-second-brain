@@ -1,9 +1,9 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
 last_accessed: 2026-08-24
-relevance: 0.91
-tier: active
+relevance: 0.67
+tier: cold
 ---
 So, everybody's telling you the same way
 to make money with AI in 2026, which is

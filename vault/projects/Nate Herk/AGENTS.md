@@ -3,8 +3,8 @@ type: project
 description: "Собирать и поддерживать базу знаний по материалам YouTube-канала Nate Herk: https://youtube.com/@nateherk"
 related: 
 last_accessed: 2026-08-27
-relevance: 0.95
-tier: active
+relevance: 0.83
+tier: warm
 ---
 # Nate Herk — правила проекта
 

@@ -1,9 +1,9 @@
 ---
-description: "How to Build a One Person AI Business (Using Claude Code) — project"
 type: project
+description: "How to Build a One Person AI Business (Using Claude Code) — project"
 last_accessed: 2026-08-24
-relevance: 0.91
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # How to Build a One Person AI Business (Using Claude Code)
 

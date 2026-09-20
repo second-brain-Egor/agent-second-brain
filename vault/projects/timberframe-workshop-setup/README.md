@@ -5,8 +5,8 @@ tags:
 source: daily/2026-03-27
 created: 2026-03-29
 last_accessed: 2026-03-29
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 ---
 
 # Timberframe Workshop Setup

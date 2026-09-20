@@ -2,7 +2,7 @@
 type: note
 description: "Пополняется автоматически из process.sh. Также индексируется в SQLite (RAG)."
 last_accessed: 2026-04-13
-relevance: 0.93
+relevance: 0.98
 tier: active
 ---
 # Ключевые факты и события

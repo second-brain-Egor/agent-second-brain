@@ -1,10 +1,11 @@
 ---
 type: analysis
-created: 2026-09-07
 description: Ценовые коридоры DASH после сентябрьского роста: основная область 66,5–71,5 USDT и ночная область 69–71,7.
-related:
-  - "[[projects/dash-trading/README]]"
-  - "[[thoughts/projects/dash-data-collection]]"
+related: 
+created: 2026-09-07
+last_accessed: 2026-09-08
+relevance: 0.8
+tier: warm
 ---
 
 # Коридоры DASH на 7 сентября 2026

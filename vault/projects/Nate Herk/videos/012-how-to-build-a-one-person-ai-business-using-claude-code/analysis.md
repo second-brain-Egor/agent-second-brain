@@ -3,8 +3,8 @@ type: project
 description: "Дата: 2026-08-11 Длительность: 24:52 Ссылка: https://www.youtube.com/watch?v=LVAHYV4Xrto"
 related: 
 last_accessed: 2026-08-24
-relevance: 0.91
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # Карточка ролика: как построить практику одного AI-консультанта
 

@@ -3,8 +3,8 @@ type: learning
 description: "Производитель разрешил прокатку 40×40×2 и запретил 40×20×3 на ребро. Для проекта этот запрет окончательный: профиль 40×20×3 на Dino не использовать."
 created: 2026-08-04
 last_accessed: 2026-08-13
-relevance: 0.74
-tier: warm
+relevance: 0.67
+tier: cold
 category: engineering
 ---
 

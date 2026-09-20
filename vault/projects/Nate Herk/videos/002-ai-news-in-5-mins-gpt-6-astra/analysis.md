@@ -1,11 +1,10 @@
 ---
-description: "AI News in 5 Mins: GPT-6 Astra — project"
 type: project
+description: "AI News in 5 Mins: GPT-6 Astra — project"
+related: 
 last_accessed: 2026-09-04
-relevance: 0.94
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.78
+tier: warm
 ---
 # AI News in 5 Mins: GPT-6 Astra
 

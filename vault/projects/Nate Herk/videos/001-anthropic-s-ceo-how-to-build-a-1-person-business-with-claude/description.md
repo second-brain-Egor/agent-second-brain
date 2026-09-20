@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Get qualified and enriched leads with Clay: https://makes.clay.com/go/nate-herk/find-companies-that-fit-your-icp?via=nate-herk-int2 My roadmap for..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 Get qualified and enriched leads with Clay: https://makes.clay.com/go/nate-herk/find-companies-that-fit-your-icp?via=nate-herk-int2
 My roadmap for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin

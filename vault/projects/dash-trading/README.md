@@ -1,9 +1,12 @@
 ---
 type: project
+description: Автоматическая торговля DASH на кратких выбросах цены с возвратом к скользящей средней.
+status: research
 created: 2026-09-04
 updated: 2026-09-05
-status: research
-description: Автоматическая торговля DASH на кратких выбросах цены с возвратом к скользящей средней.
+last_accessed: 2026-09-05
+relevance: 0.76
+tier: warm
 ---
 
 # Торговля DASH

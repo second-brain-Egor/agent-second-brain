@@ -1,7 +1,10 @@
 ---
+type: project
 description: "FREE MONTH voice to text: https://get.glaido.com/nate Get the FREE /scroll-craft skill..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-06
+relevance: 0.78
+tier: warm
 ---
 # Комментарии
 

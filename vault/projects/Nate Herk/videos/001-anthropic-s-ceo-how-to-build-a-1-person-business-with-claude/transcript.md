@@ -1,7 +1,10 @@
 ---
+type: project
 description: "So, the CEO of Anthropic just said that the first one person billion-dollar business will be created this year using Claude. He explained the three..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 So, the CEO of Anthropic just said that
 the first one person billion-dollar

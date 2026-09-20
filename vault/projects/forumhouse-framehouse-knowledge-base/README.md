@@ -7,8 +7,8 @@ status: active
 created: 2026-04-11
 updated: 2026-04-24
 last_accessed: 2026-04-24
-relevance: 0.64
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Forumhouse Framehouse Knowledge Base

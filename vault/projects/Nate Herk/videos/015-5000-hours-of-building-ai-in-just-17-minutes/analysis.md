@@ -3,8 +3,8 @@ type: project
 description: "Дата: 2026-08-04 Длительность: 15:44 Ссылка: https://www.youtube.com/watch?v=7WZ6XldxX0U"
 related: 
 last_accessed: 2026-08-25
-relevance: 0.93
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # Карточка ролика: 12 уроков после 5 000 часов работы с AI
 

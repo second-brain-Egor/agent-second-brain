@@ -1,9 +1,9 @@
 ---
-description: "Description — project"
 type: project
+description: "Description — project"
 last_accessed: 2026-08-27
-relevance: 0.95
-tier: active
+relevance: 0.67
+tier: cold
 ---
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=workless-ai-speech-montenegro&hcategory=youtube-videos&utm_campaign=free-group

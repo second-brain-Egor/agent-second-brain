@@ -1,9 +1,9 @@
 ---
-description: "Everything Goldman Sachs Taught Me About AI (In 10 minutes) — project"
 type: project
+description: "Everything Goldman Sachs Taught Me About AI (In 10 minutes) — project"
 last_accessed: 2026-08-25
-relevance: 0.93
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # Everything Goldman Sachs Taught Me About AI (In 10 minutes)
 

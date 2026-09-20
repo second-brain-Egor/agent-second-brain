@@ -7,8 +7,8 @@ status: active
 created: 2026-06-25
 updated: 2026-08-08
 last_accessed: 2026-08-13
-relevance: 0.74
-tier: warm
+relevance: 0.67
+tier: cold
 ---
 
 # Баня — кровля по тёплому контуру

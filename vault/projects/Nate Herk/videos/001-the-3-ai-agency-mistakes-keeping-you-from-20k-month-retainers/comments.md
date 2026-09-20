@@ -1,9 +1,9 @@
 ---
-description: "Комментарии — project"
 type: project
+description: "Комментарии — project"
 last_accessed: 2026-08-27
-relevance: 0.95
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # Комментарии
 

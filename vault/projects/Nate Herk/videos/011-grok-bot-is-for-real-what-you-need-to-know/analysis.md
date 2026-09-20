@@ -3,8 +3,8 @@ type: project
 description: "Дата: 2026-08-12 Длительность: 20:32 Ссылка: https://www.youtube.com/watch?v=PQBYZQqan2g"
 related: 
 last_accessed: 2026-08-24
-relevance: 0.91
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # Карточка ролика: Grok Bot как облачный диспетчер специализированных агентов
 

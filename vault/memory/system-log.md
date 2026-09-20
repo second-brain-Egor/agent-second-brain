@@ -3,7 +3,7 @@ type: note
 description: "Дневник наблюдений: работают ли правила bootstrap и записи в daily из терминала. Через несколько дней проверяем — если записей мало или нет..."
 related: 
 last_accessed: 2026-03-31
-relevance: 0.93
+relevance: 0.98
 tier: active
 ---
 # System Log

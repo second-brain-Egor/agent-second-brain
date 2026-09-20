@@ -4,8 +4,8 @@ description: "Если Егор спрашивает, какая модель с
 related: 
 created: 2026-05-31
 last_accessed: 2026-05-31
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 ---
 # Экономия лимита при вопросах о модели
 

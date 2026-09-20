@@ -1,11 +1,10 @@
 ---
-description: "Я проверил Jev в 12 реальных задачах: честные впечатления"
 type: project
+description: "Я проверил Jev в 12 реальных задачах: честные впечатления"
+related: 
 last_accessed: 2026-09-20
 relevance: 0.98
 tier: active
-related:
-  - "[[projects/_index]]"
 ---
 # Я проверил Jev в 12 реальных задачах: честные впечатления
 

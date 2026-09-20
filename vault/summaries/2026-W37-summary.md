@@ -1,10 +1,12 @@
 ---
-description: "Weekly summary for 2026-W37"
-date: 2026-09-13
 type: weekly-summary
+description: "Weekly summary for 2026-W37"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
+date: 2026-09-13
 week: 2026-W37
-related:
-  - "[[MEMORY]]"
 ---
 
 **7–13 сентября 🪵**

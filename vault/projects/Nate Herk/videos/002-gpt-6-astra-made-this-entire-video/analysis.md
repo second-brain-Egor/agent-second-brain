@@ -1,11 +1,10 @@
 ---
-description: "GPT-6 Astra Made This Entire Video — project"
 type: project
+description: "GPT-6 Astra Made This Entire Video — project"
+related: 
 last_accessed: 2026-09-05
-relevance: 0.96
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.78
+tier: warm
 ---
 # GPT-6 Astra Made This Entire Video
 

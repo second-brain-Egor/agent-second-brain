@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA My FREE resources..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-20
+relevance: 0.98
+tier: active
 ---
 Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=higgsfield-api&hcategory=youtube-videos&utm_campaign=free-group

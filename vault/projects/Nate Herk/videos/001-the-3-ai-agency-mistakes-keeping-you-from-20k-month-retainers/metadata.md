@@ -1,9 +1,9 @@
 ---
-description: "The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers — project"
 type: project
+description: "The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers — project"
 last_accessed: 2026-08-27
-relevance: 0.95
-tier: active
+relevance: 0.67
+tier: cold
 ---
 # The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers
 

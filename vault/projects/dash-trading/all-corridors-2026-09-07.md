@@ -1,9 +1,11 @@
 ---
 type: analysis
-created: 2026-09-07
 description: Карта десяти основных диапазонов DASH по тиковому архиву и двух свежих вложенных областей.
-related:
-  - "[[projects/_index]]"
+related: 
+created: 2026-09-07
+last_accessed: 2026-09-13
+relevance: 0.88
+tier: warm
 ---
 
 # DASH: карта коридоров на 7 сентября 2026

@@ -1,11 +1,10 @@
 ---
-description: "I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1 — project"
 type: project
+description: "I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1 — project"
+related: 
 last_accessed: 2026-09-03
-relevance: 0.98
-tier: active
-related:
-  - "[[projects/_index]]"
+relevance: 0.78
+tier: warm
 ---
 # I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1
 

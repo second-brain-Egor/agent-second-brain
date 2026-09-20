@@ -5,8 +5,8 @@ description: "На корпоративных тренингах по AI для 
 tags: 
 related: 
 last_accessed: 2026-03-27
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 excerpt: "Вайб-кодинг превращает идеи в работающий код без технического бэкграунда. Разбираем инструменты, настройку и промпты."
 category: "Практика"
 publishedAt: "2025-01-10"

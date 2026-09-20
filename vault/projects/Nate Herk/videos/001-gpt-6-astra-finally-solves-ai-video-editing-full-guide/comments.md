@@ -1,7 +1,10 @@
 ---
+type: project
 description: "FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/about?el=astra-6-video-edit&hcate..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-13
+relevance: 0.88
+tier: warm
 ---
 # Комментарии
 

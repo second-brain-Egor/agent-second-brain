@@ -4,8 +4,8 @@ description: "Идея: собрать голосовое устройство �
 status: idea
 created: 2026-08-20
 last_accessed: 2026-08-23
-relevance: 0.9
-tier: active
+relevance: 0.67
+tier: cold
 ---
 
 # Умная колонка на базе Codex

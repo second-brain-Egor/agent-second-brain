@@ -1,7 +1,10 @@
 ---
+type: project
 description: "Hey there, Astra. I've got a few tasks today. The first one that I want you to help me do, I want you to delegate off to a Codex thread where we take..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-09-06
+relevance: 0.78
+tier: warm
 ---
 Hey there, Astra. I've got a few tasks
 today. The first one that I want you to

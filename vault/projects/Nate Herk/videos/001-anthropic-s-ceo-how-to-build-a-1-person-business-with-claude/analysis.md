@@ -1,11 +1,10 @@
 ---
-description: "Глава Anthropic: как построить бизнес одного человека с Claude"
 type: project
+description: "Глава Anthropic: как построить бизнес одного человека с Claude"
+related: 
 last_accessed: 2026-09-20
-relevance: 0.96
+relevance: 0.98
 tier: active
-related:
-  - "[[projects/Nate Herk/summary|Nate Herk]]"
 ---
 # Глава Anthropic: как построить бизнес одного человека с Claude
 

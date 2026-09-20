@@ -4,8 +4,8 @@ description: "Два направления работы АСУЛА: ИИ-кон
 created: 2026-06-12
 updated: 2026-06-12
 last_accessed: 2026-06-13
-relevance: 0.1
-tier: archive
+relevance: 0.67
+tier: cold
 ---
 
 # Направления работы

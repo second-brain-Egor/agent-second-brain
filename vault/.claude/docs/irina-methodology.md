@@ -1,6 +1,7 @@
 ---
 type: note
-relevance: 0.94
+last_accessed: 2026-09-20
+relevance: 0.98
 tier: active
 ---
 # Zettelkasten Rules
