@@ -2,8 +2,8 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-24
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 Okay, so we just got GrokBot, which is
 probably the easiest way that I found to

@@ -2,8 +2,8 @@
 type: project
 description: "Дата: 2026-05-16 Статус: брейншторм, без сроков, сезонный/долгий горизонт."
 last_accessed: 2026-07-22
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Бассейн из фундаментных блоков (идея)
 

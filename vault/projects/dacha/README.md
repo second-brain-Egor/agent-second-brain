@@ -7,8 +7,8 @@ status: active
 created: 2026-04-17
 updated: 2026-04-30
 last_accessed: 2026-04-30
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Дача

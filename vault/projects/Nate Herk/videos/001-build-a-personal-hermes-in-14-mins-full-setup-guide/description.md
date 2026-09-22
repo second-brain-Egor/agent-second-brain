@@ -2,8 +2,8 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-08-29
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 10% OFF Hermes w/ Code NATEHERK: https://hostinger.com/natehermes10
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin

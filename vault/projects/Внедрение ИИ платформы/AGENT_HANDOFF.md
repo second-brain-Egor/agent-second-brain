@@ -3,8 +3,8 @@ type: handoff
 description: "Передача следующему агенту — handoff"
 created: 2026-04-29
 last_accessed: 2026-04-29
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 project: Внедрение ИИ платформы
 ---
 

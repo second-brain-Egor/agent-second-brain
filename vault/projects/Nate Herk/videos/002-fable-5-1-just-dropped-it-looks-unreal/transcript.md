@@ -3,8 +3,8 @@ type: project
 description: "Well, it's here. We have Claude Fable 5.1 and Mythos 5.1. They're the world's most advanced models for coding and knowledge work. I mean, right now..."
 related: 
 last_accessed: 2026-09-06
-relevance: 0.78
-tier: warm
+relevance: 0.98
+tier: active
 ---
 Well, it's here. We have Claude Fable
 5.1 and Mythos 5.1. They're the world's

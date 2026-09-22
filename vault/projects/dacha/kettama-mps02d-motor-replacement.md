@@ -5,8 +5,8 @@ tags:
 created: 2026-04-18
 updated: 2026-04-18
 last_accessed: 2026-04-18
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Kettama MPS02D — замена двигателя

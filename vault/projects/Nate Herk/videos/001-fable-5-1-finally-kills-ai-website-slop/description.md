@@ -3,8 +3,8 @@ type: project
 description: "My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin Get the FREE /scroll-craft skill..."
 related: 
 last_accessed: 2026-09-06
-relevance: 0.78
-tier: warm
+relevance: 0.98
+tier: active
 ---
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 Get the FREE /scroll-craft skill: https://www.skool.com/ai-automation-society/about?el=fable-5.1-websites&hcategory=youtube-videos&utm_campaign=free-group

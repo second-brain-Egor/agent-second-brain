@@ -3,8 +3,8 @@ type: project
 description: "Anthropic is Teaching Claude to be Evil (real results) — project"
 related: 
 last_accessed: 2026-09-02
-relevance: 0.78
-tier: warm
+relevance: 0.98
+tier: active
 ---
 # Anthropic is Teaching Claude to be Evil (real results)
 

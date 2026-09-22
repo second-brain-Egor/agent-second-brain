@@ -3,8 +3,8 @@ type: project
 description: "What do we have right here is GPT6 Astro, which is a new generation of intelligence. And the president, Greg Brockman of OpenAI, called this a..."
 related: 
 last_accessed: 2026-09-06
-relevance: 0.78
-tier: warm
+relevance: 0.98
+tier: active
 ---
 What do we have right here is GPT6
 Astro, which is a new generation of

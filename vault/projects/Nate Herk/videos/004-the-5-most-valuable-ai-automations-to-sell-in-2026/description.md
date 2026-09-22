@@ -3,8 +3,8 @@ type: project
 description: "$100 in BONUS Hyperagent credits: https://www.hyperagent.com/nate100 My playbook for growing a $1M AI agency..."
 related: 
 last_accessed: 2026-08-23
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 $100 in BONUS Hyperagent credits: https://www.hyperagent.com/nate100
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin

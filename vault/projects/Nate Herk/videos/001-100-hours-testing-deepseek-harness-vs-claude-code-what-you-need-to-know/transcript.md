@@ -2,8 +2,8 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-24
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 So, I've been using Deep Sea Carness for
 the past week now, and I found a lot of

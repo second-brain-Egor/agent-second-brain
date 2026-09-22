@@ -6,8 +6,8 @@ status: active
 created: 2026-07-17
 updated: 2026-07-25
 last_accessed: 2026-07-26
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Беседка — конструкция и кровля

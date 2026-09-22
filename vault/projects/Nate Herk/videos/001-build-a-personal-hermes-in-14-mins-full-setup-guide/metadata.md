@@ -2,8 +2,8 @@
 type: project
 description: "Set Up a Personal Hermes in 14 Mins (no VPS or mac mini) — project"
 last_accessed: 2026-08-29
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Set Up a Personal Hermes in 14 Mins (no VPS or mac mini)
 

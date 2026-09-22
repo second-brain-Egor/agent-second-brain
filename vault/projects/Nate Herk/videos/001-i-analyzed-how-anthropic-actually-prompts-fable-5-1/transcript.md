@@ -3,8 +3,8 @@ type: project
 description: "Today I've got four tricks from Enthropic themselves on how to get more out of Fable 5.1, how to use it more efficiently, and how to stretch that..."
 related: 
 last_accessed: 2026-09-06
-relevance: 0.78
-tier: warm
+relevance: 0.98
+tier: active
 ---
 Today I've got four tricks from
 Enthropic themselves on how to get more

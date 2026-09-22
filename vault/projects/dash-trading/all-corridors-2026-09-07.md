@@ -4,8 +4,8 @@ description: Карта десяти основных диапазонов DASH 
 related: 
 created: 2026-09-07
 last_accessed: 2026-09-13
-relevance: 0.88
-tier: warm
+relevance: 0.98
+tier: active
 ---
 
 # DASH: карта коридоров на 7 сентября 2026

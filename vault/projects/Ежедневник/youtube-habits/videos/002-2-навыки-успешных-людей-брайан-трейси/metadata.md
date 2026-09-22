@@ -3,8 +3,8 @@ type: project
 description: "2. Навыки успешных людей. Брайан Трейси — project"
 related: 
 last_accessed: 2026-05-05
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # 2. Навыки успешных людей. Брайан Трейси
 

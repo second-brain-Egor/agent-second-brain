@@ -3,8 +3,8 @@ type: project
 description: "I just put GPT6 Astra headto-head against Fable 5.1 across 15 different use cases that actually apply to my day-to-day. I'm talking things like web..."
 related: 
 last_accessed: 2026-09-13
-relevance: 0.88
-tier: warm
+relevance: 0.98
+tier: active
 ---
 I just put GPT6 Astra headto-head
 against Fable 5.1 across 15 different

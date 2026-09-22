@@ -4,8 +4,8 @@ description: "Алгоритмы и логика работы АСУЛА: спр
 created: 2026-05-09
 updated: 2026-05-09
 last_accessed: 2026-05-09
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Алгоритмы и логика

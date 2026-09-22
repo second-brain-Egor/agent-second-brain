@@ -2,8 +2,8 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-24
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 Today I'm going to be building an AI SAS
 product right in front of you guys

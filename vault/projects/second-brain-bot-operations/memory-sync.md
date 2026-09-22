@@ -2,8 +2,8 @@
 type: note
 description: "Синхронизация памяти между Telegram и терминалом — note"
 last_accessed: 2026-04-16
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Синхронизация памяти между Telegram и терминалом
 

@@ -2,8 +2,8 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-25
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 All right. So, I've sold over 100 AI
 automation systems and I've priced a ton

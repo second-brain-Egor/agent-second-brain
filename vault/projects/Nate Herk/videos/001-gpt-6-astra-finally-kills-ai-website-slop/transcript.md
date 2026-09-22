@@ -3,8 +3,8 @@ type: project
 description: "We have a new AI design king and it's not even close. Take a look at some of these outputs I've been getting with Astra. Look how cool this scroll..."
 related: 
 last_accessed: 2026-09-06
-relevance: 0.78
-tier: warm
+relevance: 0.98
+tier: active
 ---
 We have a new AI design king and it's
 not even close. Take a look at some of

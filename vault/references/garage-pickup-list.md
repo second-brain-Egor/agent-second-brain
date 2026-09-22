@@ -5,8 +5,8 @@ status: active
 created: 2026-08-31
 updated: 2026-08-31
 last_accessed: 2026-08-31
-relevance: 0.69
-tier: warm
+relevance: 0.98
+tier: active
 ---
 
 # Что взять в гараже

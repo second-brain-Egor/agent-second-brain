@@ -3,8 +3,8 @@ type: project
 description: "Дата: 2026-08-22 Длительность: 16:44 Ссылка: https://www.youtube.com/watch?v=QUI6Ug4cHnE"
 related: 
 last_accessed: 2026-08-23
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой
 

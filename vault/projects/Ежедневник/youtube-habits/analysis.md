@@ -4,8 +4,8 @@ description: "Разбор серии видео про привычки и ус
 related: 
 updated: 2026-05-07
 last_accessed: 2026-05-07
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Разбор серии видео про привычки и успех

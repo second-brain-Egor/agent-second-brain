@@ -3,8 +3,8 @@ type: project
 description: "So, I recently did a trading challenge where I gave Claude $10,000 of my real money to trade stocks. And at the end of the month, I was actually..."
 related: 
 last_accessed: 2026-09-13
-relevance: 0.88
-tier: warm
+relevance: 0.98
+tier: active
 ---
 So, I recently did a trading challenge
 where I gave Claude $10,000 of my real

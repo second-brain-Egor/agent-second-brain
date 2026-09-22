@@ -3,8 +3,8 @@ type: project
 description: "Дата: 2026-08-14 Длительность: 21:14 Ссылка: https://www.youtube.com/watch?v=WCrnS09vpfo"
 related: 
 last_accessed: 2026-08-24
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Карточка ролика: Codex и Claude Code строят одно приложение
 

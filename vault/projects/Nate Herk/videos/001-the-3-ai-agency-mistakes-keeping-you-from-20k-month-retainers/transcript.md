@@ -2,8 +2,8 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-27
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 Let me start with a little story. So,
 I'm I'm 23 years old at this point. I

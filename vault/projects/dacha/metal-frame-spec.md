@@ -6,8 +6,8 @@ source: daily/2026-06-20
 status: active
 created: 2026-06-20
 last_accessed: 2026-08-04
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Дача — металлопрокат: спецификация и вес

@@ -3,8 +3,8 @@ type: project
 description: "Дата: 2026-08-18 Длительность: 8:04 Ссылка: https://www.youtube.com/watch?v=zpS6JGJNaGg"
 related: 
 last_accessed: 2026-08-24
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Карточка ролика: как продавать AI-workflow, не создавая агентство
 

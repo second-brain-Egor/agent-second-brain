@@ -2,8 +2,8 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-08-28
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 Try Granola for FREE today: https://www.granola.ai/?via=nate-herk
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin

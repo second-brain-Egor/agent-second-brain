@@ -3,8 +3,8 @@ type: project
 description: "I'm about to break down every single Grockbot concept that you have to understand in order to start getting immediate value out of your Grockbots..."
 related: 
 last_accessed: 2026-09-06
-relevance: 0.78
-tier: warm
+relevance: 0.98
+tier: active
 ---
 I'm about to break down every single
 Grockbot concept that you have to

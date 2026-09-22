@@ -3,8 +3,8 @@ type: project
 description: "Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?via=nate-herk-int1 My playbook..."
 related: 
 last_accessed: 2026-09-13
-relevance: 0.88
-tier: warm
+relevance: 0.98
+tier: active
 ---
 Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?via=nate-herk-int1
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin

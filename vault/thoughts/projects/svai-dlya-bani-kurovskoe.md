@@ -4,8 +4,8 @@ description: "- Объект: баня на даче в Орехово-Зуев�
 status: research
 created: 2026-08-29
 last_accessed: 2026-08-29
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Сваи для бани недалеко от Куровского
 

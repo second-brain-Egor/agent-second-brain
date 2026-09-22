@@ -2,8 +2,8 @@
 type: project
 description: "I Deleted All My Claude Skills... And Claude Got Smarter — project"
 last_accessed: 2026-08-24
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # I Deleted All My Claude Skills... And Claude Got Smarter
 

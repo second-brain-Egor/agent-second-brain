@@ -4,8 +4,8 @@ description: "Изоляция Кодекса от чувствительной 
 created: 2026-06-16
 updated: 2026-08-02
 last_accessed: 2026-08-02
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Кодекс на рабочей машине — закрытый контур

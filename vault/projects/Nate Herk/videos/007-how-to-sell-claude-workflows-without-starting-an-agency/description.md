@@ -2,8 +2,8 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-08-24
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=how-to-sell-claude-workflows&hcategory=youtube-videos&utm_campaign=free-group

@@ -2,8 +2,8 @@
 type: note
 description: "Лимиты подписки Claude: что реально видно изнутри бота, а что нет"
 last_accessed: 2026-07-29
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Лимиты подписки Claude: где смотреть
 

@@ -2,8 +2,8 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-28
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 So, I just had Claude Code and Codeex
 build me eight different websites. And

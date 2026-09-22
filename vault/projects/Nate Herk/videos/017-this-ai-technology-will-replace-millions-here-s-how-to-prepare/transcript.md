@@ -2,8 +2,8 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-25
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 agents are emerging as the latest
 Battleground in Enterprise AI we're

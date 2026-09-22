@@ -2,8 +2,8 @@
 type: note
 description: >
 last_accessed: 2026-03-27
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 name: skill-conductor
 ---
 

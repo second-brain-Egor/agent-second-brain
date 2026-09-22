@@ -3,8 +3,8 @@ type: project
 description: "Карточка ролика о круглосуточном биржевом трейдере на GPT-6 Astra"
 related: 
 last_accessed: 2026-09-08
-relevance: 0.82
-tier: warm
+relevance: 0.98
+tier: active
 ---
 # Карточка ролика: как я превратил GPT-6 Astra в круглосуточного биржевого трейдера
 

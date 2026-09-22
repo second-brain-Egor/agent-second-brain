@@ -5,8 +5,8 @@ status: research
 created: 2026-09-04
 updated: 2026-09-05
 last_accessed: 2026-09-05
-relevance: 0.76
-tier: warm
+relevance: 0.98
+tier: active
 ---
 
 # Торговля DASH

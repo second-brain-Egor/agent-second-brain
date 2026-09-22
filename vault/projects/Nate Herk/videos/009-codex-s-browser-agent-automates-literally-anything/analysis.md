@@ -3,8 +3,8 @@ type: project
 description: "Дата: 2026-08-13 Длительность: 16:27 Ссылка: https://www.youtube.com/watch?v=CB5bG4mvnS0"
 related: 
 last_accessed: 2026-08-24
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 # Карточка ролика: браузерный агент Codex для автоматизации интерфейсов
 

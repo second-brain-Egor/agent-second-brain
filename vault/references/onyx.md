@@ -5,8 +5,8 @@ source: https://github.com/onyx-dot-app/onyx
 related: 
 created: 2026-05-04
 last_accessed: 2026-05-08
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Onyx — заметки по платформе

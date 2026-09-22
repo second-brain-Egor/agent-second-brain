@@ -3,8 +3,8 @@ type: project
 description: "I just hit 1 million subscribers today."
 related: 
 last_accessed: 2026-09-13
-relevance: 0.88
-tier: warm
+relevance: 0.98
+tier: active
 ---
 I just hit 1 million subscribers today.
 

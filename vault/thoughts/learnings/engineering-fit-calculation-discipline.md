@@ -4,8 +4,8 @@ description: "Как проверять посадку профильной де
 related: 
 created: 2026-08-24
 last_accessed: 2026-08-24
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 category: learnings
 ---
 

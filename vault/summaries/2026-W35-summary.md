@@ -3,8 +3,8 @@ type: weekly-summary
 description: "Weekly summary for 2026-W35"
 related: 
 last_accessed: 2026-09-06
-relevance: 0.78
-tier: warm
+relevance: 0.98
+tier: active
 date: 2026-08-30
 week: 2026-W35
 ---

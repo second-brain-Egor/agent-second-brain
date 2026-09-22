@@ -6,8 +6,8 @@ source: daily/2026-06-20
 status: idea
 created: 2026-06-20
 last_accessed: 2026-06-20
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # ИИ-клипы на казахском и киргизском

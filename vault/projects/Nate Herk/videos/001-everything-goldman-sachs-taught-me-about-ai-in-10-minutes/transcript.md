@@ -2,8 +2,8 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-25
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 So, I'm going to give you everything
 that I learned after working at Goldman

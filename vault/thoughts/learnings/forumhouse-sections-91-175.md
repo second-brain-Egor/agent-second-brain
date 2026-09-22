@@ -3,8 +3,8 @@ type: learning
 description: "- Раздел 91 — «Каркасные дома». - Раздел 175 — «Опыт строительства. Отчеты форумчан». - Тема 544853 относится к разделу 175, поэтому выгрузка только..."
 created: 2026-08-20
 last_accessed: 2026-08-23
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 category: forumhouse
 ---
 

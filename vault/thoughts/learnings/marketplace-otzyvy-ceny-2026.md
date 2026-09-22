@@ -4,8 +4,8 @@ description: "Wildberries — «Баллы за отзывы» / кешбэк з
 tags: [маркетплейсы, отзывы, wildberries, ozon]
 created: 2026-07-27
 last_accessed: 2026-08-02
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 ---
 
 # Сколько платят за отзывы на WB и Ozon (июль 2026)

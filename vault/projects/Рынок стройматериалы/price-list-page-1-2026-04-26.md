@@ -6,8 +6,8 @@ status: raw-processed
 created: 2026-04-26
 updated: 2026-04-26
 last_accessed: 2026-04-26
-relevance: 0.67
-tier: cold
+relevance: 0.98
+tier: active
 project: Рынок стройматериалы
 ---
 

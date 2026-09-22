@@ -3,8 +3,8 @@ type: project
 description: "All right, so Marge, by the end of today's episode, what will everyone have learned from you? &gt;&gt; My goal is that by the end of this video, you..."
 related: 
 last_accessed: 2026-09-13
-relevance: 0.88
-tier: warm
+relevance: 0.98
+tier: active
 ---
 All right, so Marge, by the end of
 today's episode, what will everyone have

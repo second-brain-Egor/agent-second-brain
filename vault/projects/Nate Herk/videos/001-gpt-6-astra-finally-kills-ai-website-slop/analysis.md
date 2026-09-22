@@ -3,8 +3,8 @@ type: project
 description: "GPT-6 Astra FINALLY Kills AI Website Slop — project"
 related: 
 last_accessed: 2026-09-05
-relevance: 0.78
-tier: warm
+relevance: 0.98
+tier: active
 ---
 # GPT-6 Astra FINALLY Kills AI Website Slop
 

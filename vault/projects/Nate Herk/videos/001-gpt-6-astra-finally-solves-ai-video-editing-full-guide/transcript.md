@@ -3,8 +3,8 @@ type: project
 description: "Stop prompting Claude. Andre Garpathy thinks there's a much better way to work with AI. And his method has three layers. Layer one is the spec..."
 related: 
 last_accessed: 2026-09-13
-relevance: 0.88
-tier: warm
+relevance: 0.98
+tier: active
 ---
 Stop prompting Claude. Andre Garpathy
 thinks there's a much better way to work
