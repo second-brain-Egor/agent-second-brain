@@ -3,7 +3,7 @@ type: project
 description: "FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/ My FREE resources..."
 related: 
 last_accessed: 2026-09-20
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/

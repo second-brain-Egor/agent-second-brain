@@ -3,7 +3,7 @@ type: project
 description: "Состояние архива роликов после очистки и еженедельное напоминание."
 created: 2026-09-05
 last_accessed: 2026-09-20
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Хранение материалов Nate Herk

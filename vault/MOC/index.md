@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-09-22
-last_accessed: 2026-09-22
+updated: 2026-09-23
+last_accessed: 2026-09-23
 relevance: 1.0
 tier: active
 ---
@@ -11,9 +11,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 832
-- Связей: 2113
-- Сирот: 50
+- Заметок: 839
+- Связей: 2125
+- Сирот: 51
 - Слабосвязанных: 84
 
 ## Память
@@ -79,6 +79,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/metadata.md|Build & Sell Grok Bots (2 Hour Course)]]
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/analysis.md|Как создавать и продавать решения с Codex: курс на пять часов]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/description.md|description]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/metadata.md|Build & Sell with Codex (5+ Hour Course)]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/analysis.md|Карточка ролика: 26 понятий Grok Bot]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/description.md|description]]
@@ -603,13 +609,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-23.md|2026-09-23]]
 - [[daily/2026-09-22.md|2026-09-22]]
 - [[daily/2026-09-21.md|2026-09-21]]
 - [[daily/2026-09-20.md|2026-09-20]]
 - [[daily/2026-09-19.md|2026-09-19]]
 - [[daily/2026-09-18.md|2026-09-18]]
 - [[daily/2026-09-17.md|2026-09-17]]
-- [[daily/2026-09-16.md|2026-09-16]]
 
 ## Недельные сводки
 

@@ -4,7 +4,7 @@ description: "- Загрузчик остановлен с 28 августа; а
 status: active
 created: 2026-09-04
 last_accessed: 2026-09-20
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 

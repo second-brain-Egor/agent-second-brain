@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-09-21
+last_accessed: 2026-09-22
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-09-21 07:00
-Всего видео в папке: 46
-Записей в журнале: 44
+Обновлено: 2026-09-22 07:12
+Всего видео в папке: 47
+Записей в журнале: 45
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -69,6 +69,18 @@ tier: active
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-08-31T07:12:10+03:00
+
+## 001-build-sell-with-codex-5-hour-course
+
+Статус: complete
+Название: Build & Sell with Codex (5+ Hour Course)
+Ссылка: https://www.youtube.com/watch?v=X-pbJWKmwi0
+Дата видео: 20260921
+Описание: есть
+Комментарии: 39
+Транскрипт: есть
+Кадры: 1125
+Обновлено: 2026-09-22T07:12:00+03:00
 
 ## 001-every-grok-bot-concept-explained-for-normal-people
 
