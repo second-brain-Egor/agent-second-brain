@@ -3,7 +3,7 @@ type: project
 description: "1. Мышление успешных людей. Брайан Трейси. — project"
 related: 
 last_accessed: 2026-05-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # 1. Мышление успешных людей. Брайан Трейси.

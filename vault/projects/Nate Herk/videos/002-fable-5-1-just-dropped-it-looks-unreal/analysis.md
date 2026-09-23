@@ -3,7 +3,7 @@ type: project
 description: "Fable 5.1 Just Dropped. It Looks Unreal. — project"
 related: 
 last_accessed: 2026-09-02
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Fable 5.1 Just Dropped. It Looks Unreal.

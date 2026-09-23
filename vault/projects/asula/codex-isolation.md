@@ -4,7 +4,7 @@ description: "Изоляция Кодекса от чувствительной 
 created: 2026-06-16
 updated: 2026-08-02
 last_accessed: 2026-08-02
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 

@@ -1,0 +1,29 @@
+OpenAl Platform
+
+Developer Docs Login { signup ]
+
+Tokenizer
+
+Learn about language model tokenization
+
+OpenA''s large language models process text using tokens, which are common sequences of
+
+characters found in a set of text. The models learn to understand the statistical relationships
+
+between these tokens, and excel at producing the next token in a sequence of tokens.
+
+Learn more.
+
+You can use the tool below to understand how a piece of text might be tokenized by a language
+
+model, and the total count of tokens in that piece of text.
+
+GPT-5.x & O1/3
+
+GPT-4 & GPT-3.5 (legacy)
+
+GPT-3 (legacy)
+
+[ Enter some text
+
+i _

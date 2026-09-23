@@ -2,7 +2,7 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-29
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 So, I just built a clone of Calendly,

@@ -1,0 +1,139 @@
+O¢
+
+File
+
+Edit
+
+View
+
+-
+
+o
+
+x
+
+Help
+
+Codex v
+
+ae
+
+© Build Relay statement skill
+
+B Openin ~
+
+=
+
+(=)
+
+a
+
+@ New chat
+
+Environment
+
++
+
+@ Plugins
+
+| want to build a skill for computer use where you will download the most recent
+
+® changes
+
+$1,869 -1,750
+
+monthly statements from my account in Relay. Tell me what | need to do in order to
+
+Projects
+
+ive you access to my logged in Relay so that you can actually do this and do it
+
+Local
+
+v
+
+whenever | need you to run this skill.
+
+© Herk-2
+
+PB master
+
+v
+
+Build Relay statement skill
+
+‘Would it be helpful if | recorded a video for you or took screenshots and showed you
+
++O Commit or push.
+
+‘Computer Use
+
+where to click? What do you actually need and what's the best practice for instructing
+
+Q Compare branch,
+
+Codex to build some sort of computer use skill?
+
+Research core Codex concepts
+
+.
+
+Computer Use
+
+‘Anthropic CEO
+
+Show
+
+°
+
+Worked for 1m 58s
+
+© Picture in Picture
+
+Building...
+
+®
+
+Research top Al automations
+
+Yes, this is very doable. You should not give me your Relay password or store credentials inside the skill Instead, give
+
+Browser
+
+laude Scare
+
+‘Codex access to an authenticated browser session.
+
+® Newtab
+
+Recommended setup
+
+Sources
+
+For a financial account, | recommend the isolated built-in browser:
+
+® Websearch
+
+1. Inthe desktop app, open Plugins and install/enable Browser.
+
+=
+
+View all
+
+2. Open the built-in browser using Ctrl+Shift+8 or @Srowser .
+
+3. Navigate to Relay and sign in yourself.
+
+4, Complete any MFA prompts yourself.
+
+v
+
+3 4 8 In Settings ~ Browser, allow Relay’s domain and select the download location.
+
+x
+
+as.
+
++ O Full access
+
+s6salvichy 2 @

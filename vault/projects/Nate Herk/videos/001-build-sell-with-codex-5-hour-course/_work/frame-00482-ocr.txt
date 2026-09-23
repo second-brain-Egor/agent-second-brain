@@ -1,0 +1,17 @@
+02/ VERIFIER
+
+DEFINE
+
+“GOOD.”
+
+Before the work starts
+
+Expected result
+
+Clear evidence
+
+Pass / fail
+
+DEFINE EXACTLY WHAT
+
+#1

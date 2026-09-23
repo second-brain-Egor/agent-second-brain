@@ -3,7 +3,7 @@ type: project
 description: "Codex lets you build automations right inside of it using scheduled tasks. However, because these scheduled tasks basically just send messages right..."
 related: 
 last_accessed: 2026-09-20
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 Codex lets you build automations right

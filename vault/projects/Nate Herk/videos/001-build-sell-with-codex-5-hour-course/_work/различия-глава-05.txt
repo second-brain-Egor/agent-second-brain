@@ -1,0 +1,32 @@
+[01:01:25] С: get straight into this one all right all right so these are the six
+З: get straight into this one alright so these are the six
+
+[01:02:10] С: this is essentially the skill md file which means a markdown
+З: this is essentially the skill dot m d file which means a markdown
+
+[01:05:08] С: skills are markdown files skill md what happens in the skill
+З: skills are markdown files skill dot m d what happens in the skill
+
+[01:05:08] С: what happens in the skill md is you've got a yaml
+З: what happens in the skill dot m d is you've got a yaml
+
+[01:10:43] С: be constantly being handed the agents v1 you want to be handed
+З: be constantly being handed the agent's v one you wanna be handed an
+
+[01:17:10] С: a skill there's another folder calledskills and if you're doing this
+З: a skill there's another folder called dot skills and if you're doing this
+
+[01:17:12] С: code the skills live in aclaude and then in a folder
+З: code these skills live in a dot claude and then in a folder
+
+[01:18:24] С: specific video this ran on gbd6 astra so what i'm going
+З: specific video this ran on g b d six astra so what i'm gonna
+
+[01:19:58] С: million dollar business with claude um the title is
+З: million dollar business with claude
+
+[01:20:01] С: the same as like the
+З: the title is the same as like the
+
+[01:22:00] С: go through the three filters oage doesn't look very good either
+З: go through the three filters oof i mean this image doesn't look very good either

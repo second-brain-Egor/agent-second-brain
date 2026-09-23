@@ -1,0 +1,143 @@
+Cc
+
+File
+
+Edit
+
+View Help
+
+@ — & Build Astra Trigger automation
+
+& Share
+
+eS
+
+e
+
+|. Tasks | Tiggerdev
+
+“A. Tasks | Trigger <
+
+x
+
++
+
+oo
+
+oS
+
+e
+
+S
+
+oud triggerdev
+
+(Okay, why did I just run a check and it only lasted 10 seconds
+
+—
+
+Tasks @
+
+‘and it didn't really do anything?
+
+© Personal
+
+e
+
+Ask
+
+Project
+
+| Uses Node 21:
+
+‘See projects and u
+
+deployments:
+
+& Astra Trading Challer
+
+Worked for 19s >
+
+Q Search tasks_
+
+@ Production
+
+1D
+
+| checked your run. It finished in 10.6 seconds and returned {"status":"early"} -
+
+Type @
+
+‘The payload selected 2026-09-17/13 , which is tomorrow's final scorecard at 3:15 p.m. Central.
+
+‘(F) Tasks
+
+3e astra-check
+
+Standard
+
+Because you launched it today, the schedule guard stopped it before calling Codex or doing
+
+> Runs
+
+research.
+
+%¢ astra-install-plan.
+
+Standard
+
+® Sessions
+
+‘Trigger shows Completed because it exited normally, but that,
+
+Ay
+
+3% astra-preflight
+
+Standard
+
+it should run," not “completed research”
+
+‘ee
+
+Prompts
+
+2% astra-proot
+
+‘Standard
+
+Your scheduled checks are still queued. Manually launching astra-check doesn’t override its
+
+‘scheduled time. | should have made that
+
+@ Models
+
+iro clearer: it currently supports scheduled
+
+checks, but doesn't have a “research now” moo.
+
+‘Observability ¥
+
+Am 7
+
+407 064
+
+a
+
+Pe Erenre
+
+Do anything
+
+@ Help & Feedback
+
+Oo
+
++ O fallaccess
+
+a crrsasaveduny  @
+
+@ Free Plan
+
+Upgrade
+
+sla

@@ -1,0 +1,69 @@
+Most people's experience with LLMs and documents looks like RAG: you upload a collection of fils, the LLM retrieves relevant
+
+‘chunks at query time, and generates an answer. This works, but the LLM is rediscovering knowledge from scratch on every
+
+‘question. There's no accumulation. Ask a subtle question that requires synthesizing five documents, and the LLM has to find
+
+‘and piece together the relevant fragments every time. Nothing is built up. NotebookLM, ChatGPT file uploads, and most RAG
+
+systems work this way.
+
+‘The idea here is different. Instead of just retrieving from raw documents at query time, the LLM incrementally builds and
+
+maintains a persistent wiki — a structured, interlinked collection of markdown files that sits between you and the raw sources.
+
+‘When you add a new source, the LLM doesnt just index it for later retrieval. reads it extracts the key information. and
+
+integrates it into the existing wiki — updating entity pages, revising topic summaries, noting where new data contradicts old
+
+<lims, strengthening or challenging the evolving synthesis. The knowledge is compiled once and then kept current. not re-
+
+derived on every query.
+
+‘This s the key difference: the wiki is a persistent, compounding artifact. The cross-references are already there. The
+
+‘contradictions have already been flagged. The synthesis already reflects everything you've read. The wiki keeps getting richer
+
+with every source you add and every question you ask.
+
+‘You never (or rarely) write the wiki yourself — the LLM writes and maintains al of it You're in charge of sourcing, exploration,
+
+4
+
+‘and asking the right questions. The LLM does al the grunt work — the summarizing, cross-referencing fling, and bookkeeping
+
+that makes a knowledge base actually useful overtime. In practice, | have the LLM agent open on one side and Obsidian open
+
+‘on the other. The LLM makes edits based on our conversation, and | browse the results in rel time — following links, checking
+
+the graph view, reading the updated pages. Obsidian is the IDE: the LLM isthe programmer, the wikis the codebase.
+
+@
+
+‘This can apply to a lot of different contexts. A few examples:
+
+‘+ Personal: tracking your own goals, health, psychology, self-improvement — fling journal entries, articles, podcast notes,
+
+‘and building up a structured picture of yourself overtime.
+
+‘+ Research: going deep on a topic over weeks or months — reading papers, articles, reports, and incrementally building a
+
+‘comprehensive wiki with an evolving thesis.
+
+‘+ Reading @ book: filing each chapter as you go, building out pages for characters. themes, plot threads. and how they
+
+‘connect. By the end you have a rich companion wiki. Think of fan wikis like Tolcien Gateway — thousands of interlinked.
+
+pages covering characters, places, events, languages, built by a community of volunteers over years. You could build
+
+‘something lke that personally as you read, with the LLM doing all the cross-referencing and maintenance.
+
+‘+ Business/team: an intemal wiki maintained by LLMs, fed by Slack threads, meeting transcripts, project documents,
+
+‘customer calls. Possibly wth humans in the loop reviewing updates. The wiki stays current because the LLM does the
+
+‘maintenance that no one on the team wants to do.
+
++ Comnetitive analveic due diigenca trin plannina couree notes. hab daen-dives —anvthing
+
+ouire

@@ -1,0 +1,80 @@
+[00:06:39] С: is something called an agents md and don't let that md
+З: is something called an agents dot m d and don't let that dot
+
+[00:06:41] С: md and don't let that md intimidate you here if i
+З: d and don't let that dot m d intimidate you here if i
+
+[00:06:49] С: right here called an agents mmd and when i open this
+З: right here called an agents dot m d and when i open this
+
+[00:06:53] С: markdown file that's what the md means and it's just rules
+З: markdown file that's what the dot m d means and it's just rules
+
+[00:07:26] С: the real bulk of my agent md is what i call routing
+З: the real bulk of my agents m d is what i call routing
+
+[00:08:13] С: it first reads the agents mmd so i'm just going to
+З: it first reads the agents dot m d so i'm just gonna put
+
+[00:11:01] С: you about getting your first am it's going to go over
+З: you about getting your first ai automation clients it's gonna go over the
+
+[00:14:00] С: main difference is the agents mmd thecodex and the aagents because in
+З: main difference is the agents dot m d the dot codex and the dot agents because
+
+[00:14:05] С: basically have like your cloud md and you have your cloud
+З: basically have like your cloud dot m d and you have your dot
+
+[00:14:20] С: made a copy of my cloud mmd and called it agents mmd
+З: made a copy of my claude dot m d and called it agents dot
+
+[00:14:22] С: mmd and called it agents mmd so i have two of
+З: d and called it agents dot m d so i have two of
+
+[00:14:24] С: of those now one one aent mmd one claude but they're basically
+З: of those now one one agents dot m d one claude but they're basically
+
+[00:16:06] С: see that this url is 127 0 0 1 and the port of this
+З: see that this url is one two seven point o point o point one and the port of this
+
+[00:16:09] С: of this local host is 8008 now realistically that's not super
+З: of this local host is eight zero zero eight now realistically that's not super
+
+[00:16:37] С: have anything running on port 8087 on my local machine even
+З: have anything running on port eight zero eight seven on my local machine even
+
+[00:19:59] С: so if i open this up what you'll see in
+З: so if i open this
+
+[00:20:00] С: here is i have some
+З: up what you'll see in here is i have some
+
+[00:21:47] С: strengths so like right now gbd6 astra is just the absolute
+З: strengths so like right now g b d six astra is just the absolute
+
+[00:25:17] С: like if you were using gbd6 astra high to help you
+З: like if you were using g p d six astra high to help you
+
+[00:29:15] С: this is an actual skill md so once again md just
+З: this is an actual skill dot m d so once again m d
+
+[00:29:59] С: python files or context files so in this example this
+З: python files or context files
+
+[00:30:01] С: skill references my voice guidelines
+З: so in this example this skill references my voice guidelines
+
+[00:30:49] С: can still connect it using aenv using an api key but
+З: can still connect it using a dot env using an api key but
+
+[00:31:51] С: of codeex and specifically with gbt6 astra is the best that
+З: of codex and specifically with g p t six astra is the best that
+
+[00:33:22] С: so great touch here from codeex all right so number 16 we have
+З: so great touch here from codex alright so number 16 we have
+
+[00:33:34] С: see that i'm talking to gbt6 astra which is a really
+З: see that i'm talking to g p t six astra which is a really
+
+[00:34:06] С: sub agents to be using 5 6 terra as the model so shoot
+З: sub agents to be using five point six tera as the model so shoot

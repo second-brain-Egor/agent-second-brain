@@ -1,0 +1,131 @@
+C
+
+File
+
+Edit
+
+View
+
+Help
+
+@
+
+© Identify company in Al OS
+
+& Share
+
+=
+
+© READ
+
+Bu
+
++
+
+“
+
+a
+
+oo
+
+heetv2.png
+
+QB Open v
+
+o
+
+| INTER
+
+Q Filter files.
+
+> daude
+
+> git
+
+io
+
+> archives
+
+| also updated the Al OS guidelines with:
+
+> audits
+
+Light-blue logo as the default.
+
+> rainstorms
+
+White logo for blue or dark backgrounds.
+
+Logo in document headers.
+
+\ brand-assets
+
+Logo in the bottom-left of slides.
+
+>
+
+examples
+
+Signature Blue #5ECOEA @, white, Pale Blue, and Deep Ink.
+
+>
+
+fonts
+
+Inter as the clean, modern default font.
+
+>
+
+logos
+
+Primary and secondary button treatments.
+
+>
+
+Professional, trusted, light, and spacious visual direction.
+
+templates
+
+Stable filenames for future workflows.
+
+Me
+
+brand-guideli...md
+
+Me
+
+colors.md
+
+The image-generation workflow used your actual logos as Y erences. Inspection caught a transparent background in
+
+the first version, so the final v2 has a fully opaque light canvas.
+
+Mm
+
+READMEmd
+
+y
+
+ms
+
+‘typography.md
+
+2
+
+uppit-ai-bran...png
+
++ © Fullaccess
+
+4s crrsssovicn 9 @
+
+2
+
+Uuppit-ai-bran...png
+
+mt
+
+visual
+
+yy
+
+P

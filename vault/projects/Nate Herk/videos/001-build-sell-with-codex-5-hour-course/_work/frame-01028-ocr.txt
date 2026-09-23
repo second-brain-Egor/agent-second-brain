@@ -1,0 +1,51 @@
+<€
+
+Post
+
+Thariq @
+
+io)
+
+@trq212
+
+We're adding support for AGENTS.md to Claude Code.
+
+Starting today in version 2.1.277, if there is no CLAUDE.md in a folder,
+
+Claude will check for and use AGENTS.md.
+
+Q+
+
+You can toggle this behavior in /config.
+
+1:04 PM - Sep 18, 2026 - 5.3M Views
+
+@
+
+2)
+
+O 2k
+
+T1 5k
+
+QO 31k
+
+QT 5.2K
+
+pur
+
+*
+
+Relevantv
+
+View quotes >
+
+@ Post your reply
+
+Thariq @ @trq212 - Sep 18
+
+Gow
+
+AGENTS.md support is built off of Claude Code mods, our upcoming way to
+
+customize the Claude Code harness.

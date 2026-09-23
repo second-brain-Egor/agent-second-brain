@@ -1,0 +1,83 @@
+(README License
+
+e
+
+Wie Four ofan AI OS™ sa trademark of Nate Herk © 2026 Nate Herk
+
+Dependency graph: Context is non-skippable. Connections + Capabilities can build in parallel. Cadence is last — don't
+
+‘automate workflows that don't work manually.
+
+What ships — 5 skills
+
+‘The kit includes setup, routing, verification, a weekly improvement workflow, and a working 3D knowledge explorer.
+
+‘You can extend the structure as your Al OS grows.
+
+skill
+
+Type
+
+When to run
+
+Jontoard
+
+Setup wizard
+
+Day 1, immediately after cone. 7-question interview. Generates the Day-1 fle
+
+(one-time)
+
+set and fils the shared CLAUDE.md and AGENTS.md manuals.
+
+Evidence-based
+
+‘After setup, after a meaningful fix. and weekly while building. Checks routing,
+
+Toute
+
+check
+
+freshness, and Claude/Codex compatibility, scores verified reliability, and
+
+automatically saves a dated report.
+
+‘When adding a projec, ile, folder, or important source. Adds the smallest
+
+Routing helper
+
+Useful manual/index route and checks it resolves.
+
+Devel
+
+Recurring thinking
+
+Day 14, then weekly. Three Ms interview (Mindset > Method -> Machine). One
+
+sll
+
+run = one shipped artifact.
+
+Interactive
+
+‘Choose your brain's name and categories. Builds a local 3D globe from your
+
+knowledge
+
+selected files, with search, note reading, nema, and a branching growth
+
+‘explorer
+
+replay.
+
+‘audit checks whether the Al OS can find its information and perform useful work reliably. Rubric v2 awards points
+
+{or evidence, not folder counts, API keys, or skills named “daily. Missing or unverified layers cap the tota installed
+
+‘alls cannot compensate for absent connections or execution history. The report includes five retrieval probes, stale-
+
+‘cache and source-authority checks, operating- manual differences, skil-package compatibility, and up to three
+
+prioritized improvements. t separates confirmed defects, verification gaps, intentional runtime differences, and
+
+‘optional improvements. The score measures verified operational reliability, not overall usefulness. Old rubric scores

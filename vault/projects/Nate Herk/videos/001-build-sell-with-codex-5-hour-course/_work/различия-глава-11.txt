@@ -1,0 +1,86 @@
+[02:49:17] С: you guys have ever used nitn before or make but what
+З: you guys have ever used n n n before or make but what
+
+[02:49:22] С: you know make server or nen server or something like that
+З: you know make server or n n n server or something like that
+
+[02:49:59] С: actual chat thread what that means is this eats at your actual weekly
+З: actual chat thread what that mean
+
+[02:50:01] С: usage limit so it doesn't
+З: is this eats at your actual weekly usage limit so it doesn't
+
+[02:51:47] С: a schedule every 30 minutes 6 00 a m on mondays however we want
+З: a schedule every thirty minutes 6am on mondays however we wanna
+
+[02:51:56] С: planning it means we just want to kind of brainstorm with um astra in
+З: planning it means we just wanna kinda brainstorm with astra in this
+
+[02:52:25] С: to go off let's say 6 a m and it's going to look
+З: gonna go off let's say 6am and it's going to look
+
+[02:53:16] С: trigger would go off at 6 00 a m america chicago time and then
+З: trigger would go off at 6am america chicago time and then
+
+[02:53:59] С: we want this to be 6 00 a m and let's just have it
+З: we want this to be 6am and let's just have it
+
+[02:54:28] С: the calendar is locked at 6 a m so don't worry about checking
+З: that the calendar's locked at 6am so don't worry about checking
+
+[02:55:08] С: basically have you know a 6 a m trigger so we have 6
+З: basically have you know a 6am trigger so we have 6am
+
+[02:55:08] С: m trigger so we have 6 a m it goes off then what
+З: 6am trigger so we have 6am it goes off then what
+
+[02:55:51] С: deterministic automation because it goes 1 2 3 4 5 oops five and it
+З: deterministic automation because it goes one two 34 5 oops 5 and it
+
+[02:57:57] С: scheduling window can delay a 6 a m start by up to an
+З: scheduling window can delay a 6am start by up to an
+
+[02:58:01] С: really need this right at 6 a m you might have to upgrade
+З: really need this right at 6am you might have to upgrade
+
+[02:58:22] С: your accounts inside of these codeex plugins those will not transfer over
+З: your accounts inside of these codex plug ins those will not transfer over
+
+[02:58:29] С: much i like to use thev file and i like to
+З: much i like to use the dot env file and i like to
+
+[03:01:57] С: sure we have a trigger so head over to trigger
+З: sure we have a trigger dot dev account so head over trigger dev
+
+[03:03:41] С: the whole point of the env so what we'll have to
+З: the whole point of the dot e n v so what we'll have to
+
+[03:06:10] С: one that goes off at 6 a m monday through friday and then
+З: one that goes off at 6am monday through friday and then
+
+[03:11:20] С: you how it works with a web hook but this is still a
+З: you how it works with the webhook but this is still a
+
+[03:11:53] С: off on a schedule at 6 00 a m it goes off based on
+З: off on a schedule at 6am it goes off based on
+
+[03:17:47] С: know it can go like this and then this and then this and
+З: know i can go like this and then this and
+
+[03:19:59] С: dev now i'm not really wanting to i obviously want to
+З: dev now i'm not really
+
+[03:20:01] С: keep that using my subscription
+З: wanting to i obviously wanna keep that using my subscription
+
+[03:21:38] С: these checks so what we're going to want to do is we're going to
+З: these checks so what we're gonna wanna do is we're gonna wanna
+
+[03:21:38] С: want to do is we're going to want to figure out what does each
+З: gonna wanna do is we're gonna wanna figure out what does each
+
+[03:21:40] С: i'm going to go ask um codex that real quick so i can
+З: so i'm gonna go ask codexnet real quick so i can
+
+[03:23:49] С: have the test migration here 341 347 we have another test migration
+З: have the test migration here three forty one three forty seven we have another test migration

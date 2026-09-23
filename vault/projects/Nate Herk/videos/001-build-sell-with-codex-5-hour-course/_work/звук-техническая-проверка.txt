@@ -1,0 +1,50 @@
+[libdav1d @ 0x63134f0a4ec0] libdav1d 1.4.1
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'vault/projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/video.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomav01iso2mp41
+    encoder         : Lavf60.16.100
+  Duration: 05:10:39.42, start: 0.000000, bitrate: 391 kb/s
+  Stream #0:0[0x1](und): Video: av1 (Main) (av01 / 0x31307661), yuv420p(tv, bt709), 1280x720, 256 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+  Stream #0:1[0x2](eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 127 kb/s (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+[Parsed_volumedetect_1 @ 0x63134f0b66c0] n_samples: 0
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomav01iso2mp41
+    encoder         : Lavf60.16.100
+  Stream #0:0(eng): Audio: pcm_s16le, 44100 Hz, stereo, s16, 1411 kb/s (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc60.31.102 pcm_s16le
+size=       0kB time=00:00:00.00 bitrate=N/A speed=N/A    size=N/A time=00:02:02.85 bitrate=N/A speed= 246x    size=N/A time=00:03:59.28 bitrate=N/A speed= 239x    size=N/A time=00:06:29.65 bitrate=N/A speed= 260x    size=N/A time=00:09:03.25 bitrate=N/A speed= 272x    size=N/A time=00:11:40.82 bitrate=N/A speed= 280x    size=N/A time=00:14:13.86 bitrate=N/A speed= 285x    size=N/A time=00:16:15.05 bitrate=N/A speed= 279x    size=N/A time=00:18:00.98 bitrate=N/A speed= 270x    size=N/A time=00:20:13.49 bitrate=N/A speed= 270x    size=N/A time=00:22:33.37 bitrate=N/A speed= 271x    size=N/A time=00:25:15.33 bitrate=N/A speed= 275x    size=N/A time=00:28:01.31 bitrate=N/A speed= 280x    size=N/A time=00:30:50.16 bitrate=N/A speed= 285x    size=N/A time=00:33:26.20 bitrate=N/A speed= 287x    size=N/A time=00:36:19.37 bitrate=N/A speed= 291x    size=N/A time=00:38:47.01 bitrate=N/A speed= 291x    size=N/A time=00:41:25.37 bitrate=N/A speed= 292x    size=N/A time=00:43:53.76 bitrate=N/A speed= 293x    size=N/A time=00:46:20.45 bitrate=N/A speed= 293x    size=N/A time=00:48:48.73 bitrate=N/A speed= 293x    size=N/A time=00:51:27.46 bitrate=N/A speed= 294x    size=N/A time=00:54:09.60 bitrate=N/A speed= 295x    size=N/A time=00:56:52.03 bitrate=N/A speed= 297x    size=N/A time=00:59:33.06 bitrate=N/A speed= 298x    size=N/A time=01:02:06.26 bitrate=N/A speed= 298x    size=N/A time=01:04:48.52 bitrate=N/A speed= 299x    size=N/A time=01:07:20.75 bitrate=N/A speed= 299x    size=N/A time=01:09:59.42 bitrate=N/A speed= 300x    size=N/A time=01:12:39.87 bitrate=N/A speed= 301x    size=N/A time=01:15:05.60 bitrate=N/A speed= 300x    size=N/A time=01:17:24.94 bitrate=N/A speed= 300x    size=N/A time=01:19:53.15 bitrate=N/A speed= 300x    size=N/A time=01:22:31.21 bitrate=N/A speed= 300x    size=N/A time=01:24:58.15 bitrate=N/A speed= 300x    size=N/A time=01:27:28.03 bitrate=N/A speed= 300x    size=N/A time=01:30:09.62 bitrate=N/A speed= 301x    size=N/A time=01:32:44.98 bitrate=N/A speed= 301x    size=N/A time=01:35:18.16 bitrate=N/A speed= 301x    size=N/A time=01:37:38.41 bitrate=N/A speed= 300x    size=N/A time=01:40:03.21 bitrate=N/A speed= 300x    size=N/A time=01:42:25.85 bitrate=N/A speed= 300x    size=N/A time=01:45:04.54 bitrate=N/A speed= 300x    size=N/A time=01:47:26.57 bitrate=N/A speed= 300x    size=N/A time=01:49:44.94 bitrate=N/A speed= 299x    [silencedetect @ 0x63134f730b00] silence_start: 6642.39
+[silencedetect @ 0x63134f730b00] silence_end: 6648.03 | silence_duration: 5.63893
+size=N/A time=01:51:50.05 bitrate=N/A speed= 298x    size=N/A time=01:54:14.11 bitrate=N/A speed= 298x    size=N/A time=01:56:54.98 bitrate=N/A speed= 298x    size=N/A time=01:59:42.16 bitrate=N/A speed= 299x    size=N/A time=02:02:30.83 bitrate=N/A speed= 300x    size=N/A time=02:05:11.05 bitrate=N/A speed= 300x    [silencedetect @ 0x63134f730b00] silence_start: 7550.32
+[silencedetect @ 0x63134f730b00] silence_end: 7552.33 | silence_duration: 2.0083
+size=N/A time=02:07:46.43 bitrate=N/A speed= 301x    size=N/A time=02:10:11.68 bitrate=N/A speed= 300x    size=N/A time=02:12:33.69 bitrate=N/A speed= 300x    [silencedetect @ 0x63134f730b00] silence_start: 8025.11
+[silencedetect @ 0x63134f730b00] silence_end: 8029.06 | silence_duration: 3.95147
+size=N/A time=02:14:34.48 bitrate=N/A speed= 299x    [silencedetect @ 0x63134f730b00] silence_start: 8159.91
+[silencedetect @ 0x63134f730b00] silence_end: 8165.4 | silence_duration: 5.48771
+size=N/A time=02:16:47.69 bitrate=N/A speed= 298x    size=N/A time=02:19:43.30 bitrate=N/A speed= 299x    size=N/A time=02:22:13.21 bitrate=N/A speed= 299x    size=N/A time=02:25:01.21 bitrate=N/A speed= 300x    size=N/A time=02:28:01.91 bitrate=N/A speed= 301x    size=N/A time=02:30:42.03 bitrate=N/A speed= 301x    size=N/A time=02:33:43.94 bitrate=N/A speed= 302x    size=N/A time=02:36:26.59 bitrate=N/A speed= 303x    size=N/A time=02:38:43.47 bitrate=N/A speed= 302x    size=N/A time=02:41:25.85 bitrate=N/A speed= 303x    size=N/A time=02:43:50.21 bitrate=N/A speed= 302x    size=N/A time=02:46:39.69 bitrate=N/A speed= 303x    size=N/A time=02:49:24.62 bitrate=N/A speed= 303x    size=N/A time=02:52:26.11 bitrate=N/A speed= 304x    size=N/A time=02:55:12.99 bitrate=N/A speed= 305x    size=N/A time=02:58:02.64 bitrate=N/A speed= 305x    size=N/A time=03:00:54.65 bitrate=N/A speed= 306x    size=N/A time=03:03:42.93 bitrate=N/A speed= 306x    size=N/A time=03:06:08.89 bitrate=N/A speed= 306x    size=N/A time=03:08:24.70 bitrate=N/A speed= 305x    size=N/A time=03:10:46.06 bitrate=N/A speed= 305x    size=N/A time=03:13:08.12 bitrate=N/A speed= 305x    size=N/A time=03:15:33.64 bitrate=N/A speed= 305x    size=N/A time=03:18:04.20 bitrate=N/A speed= 305x    size=N/A time=03:20:40.87 bitrate=N/A speed= 305x    size=N/A time=03:23:19.57 bitrate=N/A speed= 305x    size=N/A time=03:26:24.52 bitrate=N/A speed= 306x    size=N/A time=03:28:52.22 bitrate=N/A speed= 306x    size=N/A time=03:31:14.24 bitrate=N/A speed= 305x    size=N/A time=03:34:00.10 bitrate=N/A speed= 306x    [silencedetect @ 0x63134f730b00] silence_start: 12874.1
+[silencedetect @ 0x63134f730b00] silence_end: 12876.3 | silence_duration: 2.24222
+size=N/A time=03:36:19.46 bitrate=N/A speed= 305x    size=N/A time=03:38:48.65 bitrate=N/A speed= 305x    size=N/A time=03:41:05.56 bitrate=N/A speed= 305x    size=N/A time=03:43:29.96 bitrate=N/A speed= 305x    size=N/A time=03:45:51.23 bitrate=N/A speed= 304x    size=N/A time=03:48:11.87 bitrate=N/A speed= 304x    size=N/A time=03:50:47.31 bitrate=N/A speed= 304x    size=N/A time=03:53:07.44 bitrate=N/A speed= 304x    size=N/A time=03:55:22.81 bitrate=N/A speed= 304x    size=N/A time=03:57:43.39 bitrate=N/A speed= 303x    size=N/A time=03:59:59.32 bitrate=N/A speed= 303x    size=N/A time=04:02:27.67 bitrate=N/A speed= 303x    size=N/A time=04:05:01.64 bitrate=N/A speed= 303x    size=N/A time=04:08:03.10 bitrate=N/A speed= 304x    size=N/A time=04:10:26.86 bitrate=N/A speed= 304x    size=N/A time=04:13:06.89 bitrate=N/A speed= 304x    size=N/A time=04:15:15.39 bitrate=N/A speed= 303x    size=N/A time=04:17:40.89 bitrate=N/A speed= 303x    size=N/A time=04:20:13.49 bitrate=N/A speed= 303x    size=N/A time=04:23:06.01 bitrate=N/A speed= 304x    size=N/A time=04:25:56.72 bitrate=N/A speed= 304x    size=N/A time=04:27:57.28 bitrate=N/A speed= 303x    size=N/A time=04:30:10.70 bitrate=N/A speed= 303x    size=N/A time=04:32:41.63 bitrate=N/A speed= 303x    size=N/A time=04:35:40.01 bitrate=N/A speed= 303x    size=N/A time=04:38:28.66 bitrate=N/A speed= 304x    size=N/A time=04:41:14.03 bitrate=N/A speed= 304x    size=N/A time=04:43:41.03 bitrate=N/A speed= 304x    size=N/A time=04:46:11.43 bitrate=N/A speed= 304x    size=N/A time=04:48:42.01 bitrate=N/A speed= 304x    size=N/A time=04:51:01.05 bitrate=N/A speed= 304x    size=N/A time=04:53:16.91 bitrate=N/A speed= 303x    size=N/A time=04:55:30.87 bitrate=N/A speed= 303x    size=N/A time=04:57:36.26 bitrate=N/A speed= 303x    size=N/A time=04:59:45.22 bitrate=N/A speed= 302x    size=N/A time=05:01:57.27 bitrate=N/A speed= 302x    size=N/A time=05:04:44.64 bitrate=N/A speed= 302x    size=N/A time=05:07:36.56 bitrate=N/A speed= 303x    size=N/A time=05:09:54.60 bitrate=N/A speed= 302x    [out#0/null @ 0x63134f0b5140] video:0kB audio:3210932kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+size=N/A time=05:10:39.40 bitrate=N/A speed= 302x    
+[Parsed_volumedetect_1 @ 0x63134f730cc0] n_samples: 1643997184
+[Parsed_volumedetect_1 @ 0x63134f730cc0] mean_volume: -19.6 dB
+[Parsed_volumedetect_1 @ 0x63134f730cc0] max_volume: 0.0 dB
+[Parsed_volumedetect_1 @ 0x63134f730cc0] histogram_0db: 189605
+[Parsed_volumedetect_1 @ 0x63134f730cc0] histogram_1db: 256542
+[Parsed_volumedetect_1 @ 0x63134f730cc0] histogram_2db: 523060
+[Parsed_volumedetect_1 @ 0x63134f730cc0] histogram_3db: 976984

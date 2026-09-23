@@ -1,0 +1,615 @@
+311 23.279 going to → gonna
+150 246.64 want to → wanna
+119 1128.24 um → 
+115 3.439 codeex → codex
+ 43 61.76 all right → alright
+ 41 127.6 bucks → 
+ 35 428.319  → dot
+ 29 12.8  → a
+ 27 495.28 and → 
+ 25 1712.399 3d → three d
+ 22 222.239 codecs → codex
+ 21 325.039 herk 2 → herc two
+ 19 256.479 like → 
+ 16 632.48 kind of → kinda
+ 16 1321.84 soul → sol
+ 15 1640.4 30 → thirty
+ 15 1006.48 uh → 
+ 14 93.439 codec → codex
+ 14 6106.08 higsfield → higgs field
+ 13 2758.319 the → 
+ 12 1326.32 i → 
+ 12 1895.52 it → 
+ 11 811.92  → of
+ 11 703.36 you → 
+ 10 4739.44 10 → ten
+ 10 1762.559 this → the
+  9 16324.88 10x → 10 x
+  8 2265.68 2 → two
+  8 2579.359 so → 
+  8 3116.72 the → a
+  8 10292.96 web hook → webhook
+  7 3550.72  → it
+  7 1317.2 astro → astra
+  7 90.24 chatbt → chatgpt
+  7 1186.64 codeex → dot codex
+  7 139.84 if → 
+  6 2200.8  → and
+  6 9288.64 11 → eleven
+  6 1498.799 5 → five
+  6 4239.76 but → 
+  6 3513.68 can → could
+  6 2246.079 cex → codex
+  6 66.479 cloud → claude
+  6 4914.159 cuz → because
+  6 1781.52 ex → x
+  6 1844.88 plugins → plug ins
+  6 269.759 the → this
+  6 4405.12 to → 
+  5 66.479 3 → three
+  5 2626.48 aios → ai os
+  5 6685.28 break even → breakeven
+  5 1232.4 codex → codecs
+  5 2571.04 herk → herc
+  5 8818.88 hyper agent → hyperagent
+  5 2066.0 it's → it
+  5 1333.76 million → 000 000
+  5 495.28 mmd → md
+  5 4077.52 non deterministic → nondeterministic
+  5 3316.079 oneshot → one shot
+  5 2310.24 prompt → prompts
+  5 6759.119 sas → saas
+  5 54.96 timestamps → time stamps
+  4 137.92000000000002  → if
+  4 784.48  → slash
+  4 235.599  → then
+  4 4166.319 1 → one
+  4 8513.04 15 → fifteen
+  4 3377.359 20 → twenty
+  4 994.8 7 → seven
+  4 4195.36 a → ai
+  4 2004.88 aents → agents
+  4 3148.88 aios → ios
+  4 381.12 aisos → ais os
+  4 6420.639 cents → 
+  4 1031.52 codeex → codecs
+  4 120.399 lefth → left
+  4 2226.4 schedule → scheduled
+  3 3592.4  → but
+  3 5699.52  → i
+  3 8216.479  → in
+  3 1841.6  → to
+  3 2936.4  → what
+  3 4788.8 28 → twenty eight
+  3 15485.76 45 → forty five
+  3 12893.359 6 → six
+  3 3652.799 9 → nine
+  3 2133.68 a → the
+  3 842.8 aagents → dot agents
+  3 2663.2 aios → aos
+  3 225.76 and → in
+  3 7083.36 buzzing → pausing
+  3 70.0 chad gbt → chatgpt
+  3 2823.04 claw → claude
+  3 394.319 co founder → cofounder
+  3 1556.159 codeex's → codex's
+  3 16324.88 constraint → constrained
+  3 4839.84 data set → dataset
+  3 10302.88 dev → dot
+  3 7074.88 gb → gigabytes
+  3 18140.08 grand → 
+  3 16983.6 hundred bucks → 100
+  3 3965.28 in → 
+  3 7465.84 inapp → in app
+  3 860.48 is → 
+  3 5105.199 is → it's
+  3 1773.36 m → em
+  3 709.04 mr → mister
+  3 12342.88 notice → noticed
+  3 2285.76 now → and
+  3 9728.64 pc → poc
+  3 1847.84 plugin → plug in
+  3 12085.12 pre flight → preflight
+  3 6976.48 scrollcraft → scroll craft
+  3 4890.0 terara → terra
+  3 3983.92 the → that
+  3 5443.12 then → 
+  3 13901.6 up front → upfront
+  3 5710.56 upai → up ai
+  3 7794.079 used → use
+  3 13506.479 v1 → v one
+  2 14142.72  → a a
+  2 13880.16  → dollars
+  2 11029.84  → dot dev
+  2 6965.28  → is
+  2 3193.76  → on
+  2 6957.36  → the
+  2 15364.319 12 → twelve
+  2 8457.84 14 → fourteen
+  2 14902.96 24 → twenty four
+  2 563.04 25 → twenty five
+  2 1404.559 2500 → 2 500
+  2 7168.48 35 → thirty five
+  2 14517.439 43 → forty three
+  2 12652.88 5x → five by
+  2 10445.439 6 → 06
+  2 12470.399 60 → sixty
+  2 13918.319 a → 
+  2 13616.56 astra → asha
+  2 1331.52 build → bill
+  2 6109.679 cance → cdance
+  2 3454.48 carpathy → carpathi
+  2 13195.359 claude → cloud
+  2 2562.56 clawed → claude
+  2 11299.359 clickup → click up
+  2 1232.4 codec → codecs
+  2 1846.08 composeio → composeo
+  2 16143.12 constrainted → constrained
+  2 16915.84 cost → costs
+  2 10806.24 costs → cost
+  2 13097.76 enthropic → anthropic
+  2 15777.92 genen → gen
+  2 8898.64 grabbed → grabs
+  2 9383.2 graphics → graphs
+  2 11880.479 grockbot → grok bot
+  2 11890.239 grockbot → grokbot
+  2 2459.119 guys → 
+  2 5574.719 here is → here's
+  2 8733.84 hyperframes → hyper frames
+  2 4992.239 i → i've
+  2 5196.719 i would → i'd
+  2 9432.24 i've → i
+  2 10825.12 it → it's
+  2 12341.439 it → or
+  2 13725.68 it → that
+  2 8383.519 kimmy → kimi
+  2 5202.719 looked → looks
+  2 13318.239 mckenzie → mckinsey
+  2 6648.08 now → 
+  2 2622.96 of → if
+  2 13198.88 or → 
+  2 4877.76 ps → p's
+  2 2602.0 pulse → polls
+  2 2071.839 sub agent → subagent
+  2 14697.359 super → 
+  2 4710.159 terra → tara
+  2 4757.04 this → 
+  2 9153.52 this → us
+  2 4810.8 tlddr → tldr
+  2 4279.36 v2 → v two
+  2 17311.28 valuebased → value based
+  2 1757.44 what → 
+  2 2554.8 which → 
+  2 1114.16 work trees → worktrees
+  2 13037.439 would have → would've
+  2 6104.88 you'd → you
+  1 8023.199  → able
+  1 15627.76  → actually
+  1 12804.0  → all
+  1 14065.84  → an
+  1 12600.72  → and the
+  1 16180.96  → are
+  1 14400.72  → astro's
+  1 7800.719  → be careful
+  1 15931.52  → big
+  1 10800.24  → building
+  1 11347.439  → don't
+  1 16307.439  → dug
+  1 3600.48  → files and
+  1 9471.2  → fixed
+  1 12758.399  → let
+  1 3154.079  → md
+  1 17184.0  → mhmm
+  1 18223.84  → more
+  1 11594.08  → my
+  1 4200.159  → of for
+  1 4406.48  → oh
+  1 9732.64  → oof
+  1 13200.16  → or
+  1 11825.52  → out
+  1 6985.92  → so
+  1 8717.76  → sort
+  1 18638.37  → thanks everyone
+  1 12694.96  → that
+  1 15274.239  → that's
+  1 13898.64  → they
+  1 2781.839  → this
+  1 7255.199  → ton
+  1 14175.92  → up
+  1 8246.08  → use
+  1 2454.24  → we're
+  1 6781.36  → we've
+  1 14303.68  → were
+  1 11234.88  → you
+  1 9205.52  → you're
+  1 9275.84 11 labs → elevenlabs
+  1 9254.72 11labs → eleven labs
+  1 13641.04 1300 → 1 300
+  1 17035.52 15k → 15 k
+  1 11238.16 15th → 15
+  1 13974.08 17 → seventeen
+  1 9865.68 18 → eighteen
+  1 2279.839 18s → 18 h's
+  1 15492.96 19 → nineteen
+  1 11624.239 20 → 201
+  1 7220.88 21st → 20first
+  1 7248.4 21st → 20first dev
+  1 13778.56 22 → twenty two
+  1 13492.0 23 → twenty three
+  1 4319.52 250 → two fifty
+  1 4893.76 26 → twenty six
+  1 17755.36 27page → 27 page
+  1 1415.6 3 4s → three fourths
+  1 13032.72 3 million → 300 000
+  1 4790.96 33 → thirty three
+  1 12238.96 352 → 03 52
+  1 13758.88 3739 → 3 739
+  1 4990.0 38 → thirty eight
+  1 9546.0 3d um → three d
+  1 13778.56 40 → forty
+  1 15458.319 42 → forty two
+  1 14560.0 46 → forty six
+  1 6619.119 4k → four k
+  1 14328.479 50 → fifty
+  1 17432.32 52 → fifty two
+  1 1525.919 56 → five six
+  1 4167.679 5minute → five minute
+  1 17498.718 5x → 5 x
+  1 12890.0 6 um → six
+  1 6463.28 60s → 60
+  1 17035.52 7k → 7 k
+  1 3251.76 7th → 7
+  1 16856.958 80 → 080
+  1 15442.479 90 → ninety
+  1 18532.878 a → 1
+  1 5347.04 aai → ai
+  1 11715.52 aation → ai automation
+  1 16265.199 about → i have
+  1 12751.76 ad → ahead
+  1 896.8 address → adjust
+  1 9994.96 again → 
+  1 12172.479 agendic → agentic
+  1 424.72 agent → agents
+  1 1192.799 agent mmd → agents md
+  1 11989.92 agentic → logentic
+  1 11793.439 agentic → loginsic
+  1 14065.84 ai → ais
+  1 2611.2 aio → ai
+  1 5347.04 aios → ais
+  1 5670.239 ais → ai's
+  1 17231.6 allejo → alejo
+  1 17100.878 allejo → alejo yeah
+  1 2534.64 ammation → ai automation
+  1 16092.239 an → 
+  1 3966.72 an → a
+  1 15687.76 and → an
+  1 15433.04 and how → in house
+  1 10074.88 anyways → anyway i
+  1 4655.04 aos → ios
+  1 17128.16 appointments → appointment
+  1 1583.6 approveof → approve
+  1 13166.64 as → ais plus
+  1 2405.76 as → in
+  1 2622.96 as → is
+  1 6821.199 asha → ash
+  1 14291.439 asher → asha
+  1 15185.199 ashstra → astra
+  1 5357.84 asos → ais os
+  1 13708.88 astra → asher
+  1 13974.08 astra → astro
+  1 15349.84 astram → astra
+  1 1472.32 astro → astral
+  1 12117.12 astro check → astrachec
+  1 14398.96 astro's → 
+  1 15280.72 astro's → ash's
+  1 10230.08 at → 
+  1 6493.44 at → with
+  1 7158.8 at that → with
+  1 16698.24 attach → attached
+  1 13819.04 audit → audits
+  1 5756.08 be → 
+  1 8744.16 because → 
+  1 17958.798 blurt → blur
+  1 5778.719 brand → prant
+  1 14706.96 broke and → broken
+  1 12435.359 browse use → browser's
+  1 17472.958 bucks → so
+  1 6420.639 bucks this → 
+  1 15460.159 bucksish → ish
+  1 13838.08 build → billed
+  1 10798.72 building → 
+  1 10467.2 calendar is → calendar's
+  1 9386.479 can → 
+  1 6471.04 cance → cdn
+  1 6606.4 cance → sea dance
+  1 3425.28 carpathy's → carpathi's
+  1 14512.399 cereal → serial
+  1 71.68 chadbt → chatgpt
+  1 77.6 chadbt codeex → chatgpt codex
+  1 301.28 chat gbt → chatgpt
+  1 526.16 chatbt → chatty bitty
+  1 6050.48 chatgbt → chatgpt
+  1 17274.32 chose a → chosen
+  1 6112.0 cling → clang
+  1 6502.0 cling → kling
+  1 3193.76 cloud nmd → closet md
+  1 3155.839 cloudmd → cloud md
+  1 11086.08 codebase → code base
+  1 123.68 codeex and → codex
+  1 15287.12 coffee is → coffee's
+  1 16985.84 come → coming
+  1 17898.638 competitor is → competitor's
+  1 4935.36 complaint → complaints
+  1 3119.92 coms → comms
+  1 14956.16 concepts → concept
+  1 10888.8 connection is → connection's
+  1 15758.56 constraint → constraints
+  1 10891.68 costed → cost it
+  1 4660.0 could → because
+  1 11053.92 could → can
+  1 12009.439 dev → 
+  1 14310.0 devon karns → devin kearns
+  1 6494.719 differ → differs
+  1 2538.24 different → 
+  1 3183.359 do → just slash
+  1 1235.2 docex → dot codecs
+  1 11347.439 don't → 
+  1 8319.599 drugg → drug
+  1 7262.32 e commerce → ecommerce
+  1 7149.92 eh → 
+  1 14578.08 eight bucks → 8
+  1 6312.239 emv → dot env
+  1 14147.76 event → events
+  1 12840.319 expost → x post
+  1 15018.319 fable's → fable
+  1 15337.76 fables → fable has
+  1 14898.64 fables → fable's
+  1 14207.76 few → two
+  1 3599.119 files and → 
+  1 11919.439 firecrawl → fire crawl
+  1 10551.439 five → 5
+  1 9196.24 five bucks → 5
+  1 13850.479 flag → flagged
+  1 3726.16 followed → follow
+  1 9960.96 font → fonts
+  1 1498.799 for → 
+  1 13647.279 four bucks → 4
+  1 17761.76 free school → preschool
+  1 6434.96 g → grams
+  1 8356.559 garpathy → garbati
+  1 6528.159 gbd2 → gbt 2
+  1 13097.76 gbt → gpt
+  1 13333.68 gbt6 → gpt six
+  1 16821.2 gear → year
+  1 9383.2 get → can
+  1 9705.52 get straight → gets right
+  1 6819.599 glo → glido
+  1 7648.719 go → slash
+  1 17128.16 gotten → got
+  1 13269.52 gpt6 → gpt six
+  1 6450.719 gram → grams
+  1 3480.16 grillies → grill mes
+  1 11888.479 grock → grokkz
+  1 12267.279 grockbot → grock bot
+  1 6514.96 grom → grok
+  1 5114.96 h2 → h two
+  1 12091.92 happened → happens
+  1 5897.44 have → 
+  1 15744.399 he → we
+  1 13269.52 headto → head to
+  1 18198.24 helped → helps
+  1 13072.479 herk share → herc shared
+  1 435.12 herk's → herc's
+  1 12768.88 herkbrain → hercbrain
+  1 2841.839 herki → hertz ai
+  1 851.36 herku → herc two
+  1 4533.44 hey → 
+  1 6589.679 higfield → hakesfield
+  1 6514.96 higfield → hicksfield
+  1 6125.6 higfield → higgs field
+  1 18175.76 hm → 
+  1 10670.08 how → how's
+  1 18569.76 hundred → 100
+  1 9950.56 hyperframe → hyper frame
+  1 17195.92 i saw → else
+  1 17146.24 i see → i've seen
+  1 7790.239 i'd → i
+  1 9770.56 i'm → 
+  1 5345.76 i'm → i've
+  1 15666.72 i'm about → i want
+  1 16674.639 imposter → impostor
+  1 15937.52 in → and
+  1 4954.32 in → on
+  1 16802.48 inhouse → in house
+  1 9843.76 inter overlapping → interlapping
+  1 1883.44 into → in to
+  1 17179.92 is → because
+  1 16836.878 is → does
+  1 9380.88 is → increase with
+  1 555.12 it → and
+  1 11867.439 it → i
+  1 14112.239 it → to
+  1 8901.359 it → we
+  1 12320.479 it was → it's
+  1 10350.72 it will → we'll
+  1 15293.52 it's a → so
+  1 1661.76 its agentic → into gentic
+  1 9988.88 just → 
+  1 8553.76 karpathy → garbati
+  1 16334.72 key word → keyword
+  1 14522.8 know → 
+  1 3481.599 l m → lnm
+  1 9704.56 let's → it
+  1 3628.079 like 3d → three d
+  1 14598.96 liked → like
+  1 1895.52 login → logins
+  1 13143.2 look → are
+  1 10523.279 m → making
+  1 7861.84 macros → macro
+  1 7200.56 make me → making
+  1 16711.6 masterclass → master class
+  1 13455.279 mckenzie → mackenzie
+  1 1755.039 md → m d
+  1 3640.64 me → mes
+  1 6502.0 miniaax → minimax
+  1 6112.0 miniax → minimax
+  1 14085.6 missteps → missed steps
+  1 1204.4 ml → dot toml
+  1 473.039 mmd → dot md
+  1 5988.719 mods → mottos
+  1 5733.12 monsterat → monsterrat
+  1 15706.159 montenegger → montenegro
+  1 17734.56 moved → move
+  1 5109.28 mpty → empty
+  1 18561.12 mrs → missus
+  1 14164.96 my → mate
+  1 14580.0 n bucks → 9
+  1 15810.159 name is → name's
+  1 12452.96 need it → needed
+  1 574.32 nodes → notes
+  1 5187.28 non eterministic → nondeterministic
+  1 10503.52 noneterministic → nondeterministic
+  1 4254.96 northstar → north star
+  1 16672.16 nos → no's
+  1 17580.798 number → numbers
+  1 15927.199 of → 
+  1 4198.48 of our → 
+  1 18016.4 oh → know
+  1 6112.0 omni flash → omniflash
+  1 1561.6 on → and
+  1 8959.359 on → in
+  1 10226.88 one → 
+  1 930.24 one drive → onedrive
+  1 18623.36 oneperson → one person
+  1 15585.6 open aai → openai
+  1 14337.68 or → it was
+  1 128.959 or → to
+  1 15689.199 or → you're
+  1 2895.119 otaas → otas
+  1 18567.36 p → poc
+  1 9624.56 pasted → paste it
+  1 166.879 paying → 
+  1 3338.8 pco's → pocock's
+  1 15242.96 perk → perkform
+  1 6577.6 polling → pulling
+  1 468.0 projects → products
+  1 6573.6 pulling → polling
+  1 13690.88 q1 → q one
+  1 13690.88 q2 → q two
+  1 16898.878 rate → right
+  1 5574.719 readme → read me
+  1 9746.64 reals → reels
+  1 8050.639 red → read
+  1 479.039 reexlain → reexplain
+  1 15249.359 reformed → reforms
+  1 7740.4 relay is → relay's
+  1 14067.52 reser → reservice
+  1 4462.32 result → results
+  1 567.04 right → 
+  1 6266.719 rightclick → right click
+  1 11134.319 says → is
+  1 14336.239 scissor → sizzle
+  1 8903.6 screenshotted → screenshot
+  1 5138.8 screenshotted → screenshot of
+  1 14649.12 script → scripts
+  1 6073.52 sea dance → cdance
+  1 6119.52 seedance → cdance
+  1 14501.279 serial → cereal
+  1 5861.36 share → shared
+  1 15187.92 six soul → sole
+  1 4563.36 skill is → skill's
+  1 14113.68 sl → slash
+  1 701.519 slashgoal → slash goal
+  1 15876.319 so → sold
+  1 2035.36 so → to
+  1 1534.799 sole → soul
+  1 15179.6 something → some
+  1 4448.8 soul soul → sol sol
+  1 4735.36 soul terra → sol tara
+  1 4886.239 spots → spot
+  1 16197.359 stat → staff
+  1 2111.119 sub agents → subagents
+  1 1323.76 tarot → 
+  1 12620.0 tasks → task's
+  1 15875.04 that → it
+  1 6263.6 that → so
+  1 16233.359 the → their
+  1 4632.8 the → these
+  1 14028.399 theert → the cert
+  1 9754.56 then → the
+  1 3735.839 there → 
+  1 18331.12 there is → there's
+  1 16352.96 there's → they're
+  1 17231.6 theuh → the
+  1 5107.76 they've → they
+  1 2144.079 thing → 
+  1 5224.96 third → thirds
+  1 16182.399 this → is the
+  1 7307.199 this → these
+  1 15597.84 thoric → thorick
+  1 5722.88 threequarters → three quarters
+  1 14171.52 throwing out → doing a
+  1 17606.48 timeconuming → time consuming
+  1 17223.12 to uh → just
+  1 11238.16 today's → today is
+  1 7255.199 ton → 
+  1 9642.24 too → to
+  1 9940.72 transcript → transcripts
+  1 15640.56 tried → try
+  1 16909.68 trip wire → tripwire
+  1 5438.48 u → 
+  1 17128.16 uh → mhmm
+  1 5000.8 uh soul's → sol's
+  1 5696.56 um → i
+  1 15389.84 um ooh → oh
+  1 17362.878 underscoped → under scoped
+  1 18265.76 underscoping → under scoping
+  1 12210.239 until → till
+  1 12955.279 up os → upatos
+  1 5453.52 upi → up ai
+  1 12760.08 upit → upbit
+  1 13042.0 upp → upatos
+  1 3186.24 use → used
+  1 12448.08 use → view
+  1 4283.6 v15 → v 15
+  1 4279.36 v7 → v seven
+  1 1972.399 versel → vercel
+  1 10122.399 very → 
+  1 18630.958 video → 
+  1 12846.96 view → do
+  1 16304.64 vip → 
+  1 4758.64 visualheavy → visual heavy
+  1 93.439 vs → versus
+  1 17081.84 wanted → want
+  1 5324.159 wanted to → wanna
+  1 17717.12 was → is
+  1 16485.359 watch → watched
+  1 14740.08 we → 
+  1 4097.12 we → we'd
+  1 14701.92 we → you
+  1 6781.36 we've → 
+  1 16524.08 we've → we
+  1 12278.8 web hooks → webhooks
+  1 11915.439 where → or
+  1 15898.8 where → why
+  1 8216.479 will → 
+  1 14010.16 will → would
+  1 5391.84 with → in
+  1 6297.28 won't → don't
+  1 2009.279 work out → workout
+  1 563.04 worked → it works
+  1 2028.72 workout → work out
+  1 16315.6 works → work
+  1 18169.76 wse → wince
+  1 17319.2 yeah → 
+  1 14021.52 yeah → yep
+  1 13059.12 yeah it → yep
+  1 6768.32 yes → 
+  1 7635.599 yet → get
+  1 877.279 you → you'd
+  1 17272.0 you → you've
+  1 15779.76 you know → 
+  1 9205.52 you're → 
+  1 16071.359 you're → you
+  1 18412.638 you've → you
+  1 16737.92 your → you're

@@ -1,0 +1,77 @@
+Codex Core Concepts
+
+Where Codex files live
+
+Two folders. Two scopes.
+
+L
+
+abl
+
+PROJECT SCOPE
+
+th
+
+e
+
+lie
+
+Nate
+
+] your-project/
+
+od
+
+/
+
+ty -
+
+‘onl
+
+onf
+
+toml
+
+ns,
+
+agent
+
+nenories,
+
+rese:
+
+her. tom)
+
+autonations;
+
+plug
+
+ts,
+
+agent:
+
+ills,
+
+Als
+
+kil
+
+kill-name,
+
+i1-nam
+
+SKILL.md
+
+SKILL.md
+
+nfigure
+
+de>
+
+gent
+
+= Teach
+
+tat
+
+am

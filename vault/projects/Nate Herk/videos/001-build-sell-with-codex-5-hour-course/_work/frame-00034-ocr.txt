@@ -1,0 +1,103 @@
+Codex Core Concepts.
+
+5
+
+o
+
+=
+
+™
+
+A
+
+@ :
+
+Where Codex files live
+
+Two folders. Two scopes.
+
+US
+
+PROJECT SCOPE
+
+A
+
+|
+
+0
+
+sp
+
+ject
+
+C:/Users/Nate/
+
+} your-project/
+
+codex/
+
+code
+
+/
+
+&
+
+=e
+
+config. toml
+
+config. tom)
+
+sessions/
+
+agents/
+
+memories/
+
+researcher. toml
+
+automations/
+
+plugins/
+
+hi
+
+Bw
+
+-agents/
+
+agents/
+
+skills/
+
+skills/
+
+5 skill-name/
+
+skill-name/
+
+SKILL.md
+
+)) SKILL.md
+
+= Configure Codex
+
+gent
+
+= Teach workflows
+
+Repres
+
+tat
+
+ent
+
+ation:
+
+codex
+
+kil
+
+183%
+
++

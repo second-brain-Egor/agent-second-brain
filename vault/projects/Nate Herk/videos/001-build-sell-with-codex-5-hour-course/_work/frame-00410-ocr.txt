@@ -1,0 +1,151 @@
+O¢
+
+File
+
+Edit
+
+View
+
+o
+
+x
+
+Help
+
+Codex v
+
+ag
+
+© Hand off ClientPack v1 POC
+
+1B Open in v
+
+e
+
+=
+
+oa
+
+Worked for 16m 56s
+
+@ New chat
+
+Environment
+
+Building...
+
+ClientPack is customer-ready within the launch-blocker and high-priority scope.
+
+® changes
+
+40-0
+
+Computer Use
+
+Fixed:
+
+Local
+
+.
+
+Research top Al automations
+
+Explicit findings review and sign-off, enforced in UI and API.
+
+PB master
+
+laude Scare
+
+.
+
+Edits revoke sign-off; unsaved internal navigation now warns.
+
+-© Commit or push
+
+.
+
+Build Relay statement skill
+
+Qualitative ROI decks no longer show $8, @x , or false return claims.
+
+© Compare branch
+
+© Hyperframes Editor
+
+losing dient detai
+
+now discards edits.
+
+© Book
+
+Transcript and case-study deletion require confirmation.
+
+Subagents
+
+© A\ Saas Sprint
+
+Thin transcripts under 100 words and duplicate transcripts are rejected dlient- and server-side.
+
+ee
+
+3 working
+
+Research SaaS growth strategies
+
+Prompt caching now uses stable per-schema one-hour entries. Real probe: first generation wrote 9,772 tokens; the
+
+repeat read all 9,772.
+
+Browser
+
+Hand off ClientPack v1 POC
+
+.
+
+Cache-write cost accounting now correctly handles one-hour pricing.
+
+®
+
+® Newtab
+
+Verification passed:
+
+® This site can't be reache localhost:301
+
+3
+
+85 focused automated checks
+
+Sources
+
++
+
+.
+
+Real browser workflow testing
+
+.
+
+Invalid generation rejected with HTTP 400 before model use
+
+codex-clipboard-ce44c211-93¢7-49ef
+
+3
+
+‘Actual qualitative and quantified PDF renders visually inspected
+
+codex-clipboard-b3fb9bcd-e31b-49b(
+
+® # Session Handoff — ClientPack v1 PC
+
+TypeScript and production build
+
+& View all
+
+ESLint: zero errors, three pre-existing contract wamings
+
+as.
+
++O Fullaccess
+
+s6solricnv 2 @

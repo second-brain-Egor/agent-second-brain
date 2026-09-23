@@ -1,0 +1,157 @@
+i
+
+«
+
+ile
+
+Edit
+
+View
+
+o
+
+Ba
+
+Help
+
+Codex v
+
+e
+
+®
+
+@
+
+This site can’t be
+
+© Computer Use
+
+@ Openin
+
+© rand canyon ri
+
+W LaunchPath | A
+
+@ New chat
+
+@ Measure current layout
+
+localhost:3000
+
+& Viewed an image
+
+@ Plugins
+
+Dimensions:
+
+sive
+
+390
+
+ea
+
+=
+
+73
+
+-
+
+@ Used the bro
+
+sser, ran commands
+
+BR LaunchPath
+
+© Herk-2
+
+The first visual pass already shows several
+
+deliberate layout defects beyond the two you
+
+ur
+
+pines
+
+Research core Codex concepts
+
+fixed, including a cramped phone input, a
+
+tiny/misaligned company label, and edge-
+
+‘Anthropic CEO
+
+.
+
+hugging controls. I'm now testing whether the
+
+ell us where
+
+‘Computer Use
+
+°
+
+form's behavior fails under empty, invalid,
+
+your team is
+
+Building.
+
+°
+
+extreme-length, back-navigation, and
+
+resubmission scenarios.
+
+headed
+
+Research top Al automations
+
+laude Scare
+
+@ Used the browser
+
+Build Relay statement skill
+
+The core click path mostly works, but I've,
+
+confirmed two real data-integrity problems:
+
+obviously invalid contact data gets through,
+
+|
+
+|
+
+@ come
+
+and changing the country code to UK resets to
+
+US when you retumn to edit. 'm now testing
+
+keyboard submission and restart behavior,
+
+which often exposes bypasses the click path
+
+TEP
+
+misses.
+
+How can we rez
+
+Vd]
+
+input validation and k:
+
+you?
+
+ee
+
+<
+
++0
+
+56 Sol
+
+igh
+
+20

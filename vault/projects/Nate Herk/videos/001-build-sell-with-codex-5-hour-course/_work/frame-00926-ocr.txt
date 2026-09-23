@@ -1,0 +1,79 @@
+o
+
+x
+
+OQ © satan
+
+°
+
+x
+
+e
+
+YOUR SECOND BRAIN.
+
+PROJECT FILES
+
+name: my-ai-assistant
+
+skills/
+
+skills:
+
+context/
+
+- daily-brief
+
+cd
+
+ng
+
+- inbox-triage
+
+workflows/
+
+Your day, organized.
+
+- calendar-pl
+
+anning
+
+README 0d
+
+a
+
+context:
+
+.fmy-work/
+
+-nere.0d
+
+start
+
+permissions:
+
+ask_me
+
+send_email:
+
+allowed
+
+read_cal!
+
+endar
+
+ready—
+
+to_build
+
+satus:
+
+nee
+
+ee
+
+‘AIS-Built-By-You (2)
+
+«
+
+owv 3

@@ -1,0 +1,85 @@
+Codex Core Concepts
+
+te
+
+ase
+
+msguind
+
+ere Codex files live
+
+Two folders. Two scopes.
+
+woke
+
+B=
+
+‘
+
+i
+
+a
+
+PROJECT SCOPE
+
+P
+
+—
+
+c:/Use:
+
+r
+
+your-p
+
+ject
+
+a
+
+omy
+
+P
+
+"
+
+config. tom)
+
+con
+
+.g-toml
+
+ions)
+
+agents/
+
+memories,
+
+researcher. tom
+
+automations,
+
+plugins,
+
+agents,
+
+agen
+
+iu
+
+Als
+
+ill
+
+il1-name/
+
+SKILL.md
+
+s
+
+nd
+
+= Configure Code
+
+Teac
+
+0%

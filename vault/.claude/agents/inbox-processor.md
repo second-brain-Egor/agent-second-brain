@@ -2,7 +2,7 @@
 type: note
 description: GTD-style processing of incoming entries. Decide action for each item - do now, schedule, delegate, save, or delete.
 last_accessed: 2026-03-27
-relevance: 0.98
+relevance: 0.97
 tier: active
 name: inbox-processor
 model: sonnet

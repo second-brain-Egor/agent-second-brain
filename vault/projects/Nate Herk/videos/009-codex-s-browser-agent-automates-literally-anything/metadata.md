@@ -2,7 +2,7 @@
 type: project
 description: "Codex's Browser Agent Automates Literally Anything — project"
 last_accessed: 2026-08-24
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Codex's Browser Agent Automates Literally Anything

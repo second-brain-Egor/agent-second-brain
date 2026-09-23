@@ -1,0 +1,127 @@
+ielp
+
+o
+
+x
+
+Codex
+
++
+
+rand C
+
+®
+
+This site
+
+Launch
+
+© Computer Use
+
+@ Open in
+
+e
+
+=
+
+@ New chat
+
+13:
+
+localhost3000
+
+@ Plugins
+
+The form did not crash, and the happy path works. But
+
+is still breakable. | found seven
+
+actionable issues.
+
+How can we reach you?
+
+rn
+
+e
+
+© Herk-2
+
+QA results
+
+Test
+
+Result
+
+First name
+
+Build Relay statement skill
+
+‘Computer Use
+
+Page loads
+
+PASS
+
+Research core Codex concepts
+
+Empty-field validation
+
+PASS
+
+‘Anthropic CEO
+
+Last name
+
+Building...
+
+Three-step navigation
+
+PASS
+
+Research top Al automations
+
+Back/edit preserves most data
+
+PASS
+
+laude Scare
+
+femail address
+
+Finish and restart
+
+PASS
+
+»
+
+Console errors
+
+PASS, none found
+
+=
+
+Input integrity
+
+FAIL
+
+Phone number
+
+A.
+
+Mobile responsiveness
+
+FAIL
+
+u
+
+4H
+
+Keyboard accessibility
+
+FAIL
+
+56 Sol
+
+°@
+
+Continue

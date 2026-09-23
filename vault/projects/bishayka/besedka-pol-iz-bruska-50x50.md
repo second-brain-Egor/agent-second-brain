@@ -3,7 +3,7 @@ type: project
 description: "Бишайка: площадь пола беседки 2,5×3,8 м и расчёт настила из бруска 50×50"
 updated: 2026-07-25
 last_accessed: 2026-07-26
-relevance: 0.98
+relevance: 0.97
 tier: active
 date: 2026-07-16
 ---

@@ -1,0 +1,95 @@
+Codex Core Concepts
+
+Where Codex files live
+
+Two folders. Two scopes.
+
+|.
+
+ie
+
+USER SCOPE
+
+JECT SCOP!
+
+ailable at
+
+i
+
+lie
+
+th
+
+e
+
+e
+
+a“
+
+Nate
+
+your-project
+
+ral
+
+codex/
+
+ta
+
+]
+
+codex/
+
+ubagk
+
+q
+
+conf.
+
+tom
+
+config. tom)
+
+agen
+
+nenories,
+
+re
+
+her. toml
+
+@ automations,
+
+t
+
+plugins,
+
+agents
+
+skills,
+
+skil
+
+Als
+
+skill-name,
+
+11-nam
+
+SKILL.md
+
+SKILL.md
+
+Teach
+
+flows
+
+a
+
+igure Codex
+
+tat
+
+i
+
+7

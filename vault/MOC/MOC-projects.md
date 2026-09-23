@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-09-22
+last_accessed: 2026-09-23
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-09-23 | folders: 21, notes: 560, standalone: 0
+> Generated: 2026-09-24 | folders: 21, notes: 566, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -106,7 +106,7 @@ tier: active
 
 - [[projects/japanese-architecture/README|Японская архитектура]] — Японская архитектура — project
 
-## Nate Herk (283)
+## Nate Herk (289)
 
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]] — 100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know. — project
 - [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/metadata|18 Months of Pricing AI Automations in 21 Mins]] — 18 Months of Pricing AI Automations in 21 Mins — project
@@ -263,6 +263,7 @@ tier: active
 - [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/analysis|Глава Anthropic: как построить бизнес одного человека с Claude]] — Глава Anthropic: как построить бизнес одного человека с Claude
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/analysis|Голосовой режим GPT-6 Astra автоматизирует буквально всё]] — Голосовой режим GPT-6 Astra автоматизирует буквально всё — карточка ролика
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/дополнительный-разбор|Дополнительный разбор текста, аудио и всех сохранённых кадров]]
 - [[projects/Nate Herk/download-journal|Журнал скачанных видео]]
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]] — Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой рез...
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 13
@@ -275,7 +276,8 @@ tier: active
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 86
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 34
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/analysis|Как на самом деле выбрать подходящего ИИ-агента]] — - Дата публикации: 11 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=6LNl...
-- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/analysis|Как создавать и продавать решения с Codex: курс на пять часов]] — Полный разбор курса Нейта Херка о настройке Codex, создании проверяемых решений и продаже результата компаниям.
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/_work/analysis-до-проверки|Как создавать и продавать решения с Codex: курс на пять часов]] — Полный разбор курса Нейта Херка о настройке Codex, создании проверяемых решений и продаже результата компаниям.
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/analysis|Как создавать и продавать решения с Codex: курс на пять часов]] — Подробный разбор курса Нейта Херка; 23 сентября проверены все главы, речь из аудиодорожки и 1125 сохранённых кадров, ...
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/analysis|Как создавать навыки Codex лучше, чем 99% людей]] — Разбор шести правил создания, проверки и постепенного удешевления навыков Codex.
 - [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/analysis|Карточка ролика: 12 уроков после 5 000 часов работы с AI]] — Дата: 2026-08-04 Длительность: 15:44 Ссылка: https://www.youtube.com/watch?v=7WZ6XldxX0U
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/analysis|Карточка ролика: 26 понятий Grok Bot]] — Дата: 2026-09-01 Длительность: 21:32 Ссылка: https://www.youtube.com/watch?v=NyfYxpXiw_0
@@ -348,8 +350,12 @@ tier: active
 - [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/comments|Комментарии]] — Комментарии — project
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/аудио-расшифровка|Независимая расшифровка аудиодорожки]]
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/analysis|Новости об искусственном интеллекте за 10 минут: вероятность гибели всех людей — 10%]] — Новости об искусственном интеллекте за 10 минут: вероятность гибели всех людей — 10%
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/analysis|Один навык GPT-6 Astra заменяет подписку Higgsfield]] — Карточка ролика о подключении Higgsfield API к Codex и выборе между оплатой отдельных запусков и подпиской
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-аудио|Проверка аудиодорожки]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-кадров|Проверка всех сохранённых кадров]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-полноты|Проверка полноты разбора]]
 - [[projects/Nate Herk/summary|Сводка по видео]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/analysis|Спасибо за миллион подписчиков]] — - Дата публикации: 9 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=5QmOh...
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/analysis|Я превратил GPT-6 Astra в совершенный второй мозг]] — Я превратил GPT-6 Astra в совершенный второй мозг — карточка ролика

@@ -3,7 +3,7 @@ type: weekly-summary
 description: "Weekly summary for 2026-W26"
 related: 
 last_accessed: 2026-07-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 date: 2026-06-28
 week: 2026-W26

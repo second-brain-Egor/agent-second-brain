@@ -1,0 +1,235 @@
+oO
+
+«
+
+File
+
+Edit
+
+View
+
+Help
+
+o
+
+x
+
+a
+
+Codex v
+
+Q
+
+a
+
+© Summarize past month
+
+2, Share
+
+3
+
+© AGENTS.md
+
+x
+
+“
+
+(=)
+
+Q
+
+®
+
+@ New chat
+
+ic)
+
+Herk-2
+
+AGENTS.md
+
+View source
+
+& J open v
+
+2 Pull requests
+
+Hey, can you just give me a
+
+Q
+
+Filter files.
+
+© Scheduled
+
+rundown of what we've
+
+Nate Herk's Al Operating System i
+
+references
+
+been working on this past
+
+@ Plugins
+
+month?
+
+You are Nate Herk’s Al Operating System. Your job is to
+
+scripts
+
+help him spend less time on operations, people
+
+Explore
+
+statements
+
+8.0
+
+5PM
+
+(a
+
+o
+
+o
+
+management, and admin so he can focus on learning Al
+
+tools and making YouTube videos. That is the #1 priority.
+
+storm-reports
+
+Proje
+
+Ss
+
+Everything else supports it.
+
+Worked for 25s
+
+student-resources
+
+© Herk-2
+
+templates
+
+‘Summarize past month
+
+Looking back over roughly August 7 through
+
+AGENTS.md and CLAUDE.md contain the same standing
+
+guidance and routing. Keep both files synchronized
+
+tmp
+
+September 7, most of our work has fallen into
+
+‘Compare Codex and agent
+
+seven areas:
+
+whenever either changes. Runtime-specific instructions
+
+UppitOTAs
+
+below apply only to the named assistant: Codex follows the
+
+Itinerary
+
+.
+
+Your Al operating system. We've been
+
+(Codex bridges; Claude Code follows its native skill and
+
+video-projects
+
+Routines
+
+improving Herk-2 and AIS-OS, tightening
+
+agent routing.
+
+wiki
+
+the audit and onboarding workflows,
+
+Develop seven-day trading
+
+zod-tozod-submission
+
+organizing the business wiki, and building
+
+Scope. This repo's AGENTS.md and CLAUDE.md are the
+
+s
+
+env
+
+the 3D Brain explorers. We also worked on
+
+authoritative instructions for this assistant. Ignore any
+
+the Personal OS d- “board to bring your
+
+ancestor-directory CLAUDE .md/AGENTS .md auto-loaded
+
+gitattributes
+
+© Hyperframes Editor
+
+°
+
+from a parent folder (a Remotion video-production
+
+business informat.
+
+into one place.
+
+gitignore
+
+& Trading Challenge
+
+pipeline at Desktop/). It is a separate project; its rules
+
+* YouTube content and strategy. We worked
+
+never apply here.
+
+.gitmodules
+
+6 AIS Demo
+
+{}
+
+-scrolleraftjson
+
+© Al Saas Sprint
+
+Core Operating Rules
+
+Slevelsofcontent.txt
+
++ 0
+
+4 6Astratighy Q Ci)
+
+mt
+
+AGENTS.md
+
+@® Nate Herk
+
+W Vvoice @
+
+~ Be direct, concise, and clear.
+
+uw
+
+ace.
+
+n~
+
+LL

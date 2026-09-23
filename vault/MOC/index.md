@@ -1,7 +1,8 @@
 ---
 type: note
-updated: 2026-09-23
-relevance: 0.9
+updated: 2026-09-24
+last_accessed: 2026-09-24
+relevance: 1.0
 tier: active
 ---
 # Индекс знаний
@@ -10,9 +11,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 839
-- Связей: 2125
-- Сирот: 51
+- Заметок: 846
+- Связей: 2139
+- Сирот: 52
 - Слабосвязанных: 84
 
 ## Память
@@ -78,12 +79,18 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/metadata.md|Build & Sell Grok Bots (2 Hour Course)]]
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/_work/analysis-до-проверки.md|Как создавать и продавать решения с Codex: курс на пять часов]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/analysis.md|Как создавать и продавать решения с Codex: курс на пять часов]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/description.md|description]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/metadata.md|Build & Sell with Codex (5+ Hour Course)]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/аудио-расшифровка.md|Независимая расшифровка аудиодорожки]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/дополнительный-разбор.md|Дополнительный разбор текста, аудио и всех сохранённых кадров]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-аудио.md|Проверка аудиодорожки]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-кадров.md|Проверка всех сохранённых кадров]]
+- [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-полноты.md|Проверка полноты разбора]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/analysis.md|Карточка ролика: 26 понятий Grok Bot]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/description.md|description]]
@@ -608,13 +615,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-24.md|2026-09-24]]
 - [[daily/2026-09-23.md|2026-09-23]]
 - [[daily/2026-09-22.md|2026-09-22]]
 - [[daily/2026-09-21.md|2026-09-21]]
 - [[daily/2026-09-20.md|2026-09-20]]
 - [[daily/2026-09-19.md|2026-09-19]]
 - [[daily/2026-09-18.md|2026-09-18]]
-- [[daily/2026-09-17.md|2026-09-17]]
 
 ## Недельные сводки
 

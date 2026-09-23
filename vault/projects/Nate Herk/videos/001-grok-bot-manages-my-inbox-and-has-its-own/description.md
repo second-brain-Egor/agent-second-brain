@@ -3,7 +3,7 @@ type: project
 description: "Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?via=nate-herk-int1-v2 FREE AI OS..."
 related: 
 last_accessed: 2026-09-20
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?via=nate-herk-int1-v2

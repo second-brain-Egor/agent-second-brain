@@ -1,0 +1,95 @@
+O«¢
+
+File Edit View
+
+Help
+
+‘Codex »
+
+ag
+
+© Summarize past month
+
+& Share
+
+=
+
+oa
+
+@ New chat
+
+12 Pull requests
+
+"find your latest upload, read through the comments, and pick three that made me laugh.
+
+© Scheduled
+
+© Ran commands ~
+
+@ Plugins
+
+Ran rg -n “YouTube OS|commentslyoutube-channe!" C/Users/Nate/.codex/memories/MEMORY.md; Get-Conte...
+
+Ran Get-Content scripts/analyze youtube py -TotalCount 220; Get-Content scripts/fetch_ youtube data py -Tota...
+
+Explore
+
+Ran @* import json, urlib.request, ull. parse, pathlib, sys sys stdout reconfigure(encoding="utf-8') env=(} for li.
+
+Projects
+
+Your latest upload is (“| Turned GPT-6 Astra Into a 24/7 Stock Trader (tutorial)". These three got me ©
+
+© Herk-2
+
+1. 8 @boogiman007:
+
+‘Summarize past month
+
+Never seen anyone so excited to lose money. But automated.
+
+2 @ @millenialmusings8451:
+
+(Compare Codex and agents
+
+‘Trading with Al is very easy. | just prompt Claude - “Only take profitable trades”
+
+Itinerary
+
+Routines
+
+3. G8 @tueuz:
+
+Develop seven-day trading
+
+If want to lose money, | can do it myself faster and better
+
+Show more
+
+The first one's my favorite. “But automated.” is perfect timing.
+
+Oost
+
+G
+
+8:12PM
+
+© Hypertrames Editor
+
+Create Codex concept. ©
+
+Edit Top Al Automations vic
+
+Do anything
+
+Edit intro with alass motion
+
++ D Fall access
+
+sorsarion~ 9 @
+
+(@ Nate Herk
+
+WVoie @
+
+i= «A

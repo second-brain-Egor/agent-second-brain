@@ -3,7 +3,7 @@ type: video-analysis
 description: "Нейт показывает монтаж в Codex и Hyperframes: расшифровка, вырезание ошибок, анимация сцен и несколько циклов правок."
 created: 2026-09-09
 last_accessed: 2026-09-10
-relevance: 0.98
+relevance: 0.97
 tier: active
 source_date: 2026-09-08
 source_url: https://www.youtube.com/watch?v=o3IEkKXXXvo

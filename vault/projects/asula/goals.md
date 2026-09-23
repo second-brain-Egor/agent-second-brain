@@ -4,7 +4,7 @@ description: "Цели и проблемы, которые закрывает А
 created: 2026-05-09
 updated: 2026-05-09
 last_accessed: 2026-05-09
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 

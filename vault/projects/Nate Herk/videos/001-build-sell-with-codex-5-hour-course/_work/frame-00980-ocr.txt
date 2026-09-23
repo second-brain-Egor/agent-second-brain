@@ -1,0 +1,59 @@
+VIDEO EXPLATNER
+
+21 WIN VIDEO, READ IN 18
+
+25 Grok Bot Concepts, Explained
+
+Everything Nate Herk covers in *25 Grok Bot Concepts You Need to Know”, as
+
+‘annotated screenshots from the actual video, short bullets, and a few diagrams.
+
+Click any screenshot to enlarge it.
+
+The anchor idea: a Grok Bot is an Al coworker. Ithas its own chat, its own
+
+memory, and its own computer, and it shares files and tools with every other
+
+bot on your team.
+
+=
+
+paet 4
+
+Wat the bot is
+
+-@
+
+pant 2
+
+Where it works
+
+Every Grok Bot Concept
+
+past 3
+
+fs abies
+
+Part 1: What the Bot is
+
+Part 2: Where it Works
+
+Part 3:Its Abilities
+
+ant 4
+
+How bots work together
+
+Part 4: How Bots Work Together
+
+Part 5: How You Control and Monitor It
+
+ars
+
+How you control and montor
+
+coms
+
+‘Agent ogaing
+
+How a Grok Bot team fits together

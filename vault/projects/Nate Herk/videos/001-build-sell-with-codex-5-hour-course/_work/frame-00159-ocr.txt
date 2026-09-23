@@ -1,0 +1,113 @@
+Cc
+
+File
+
+Edit
+
+View Help
+
+@ — & Greate Linkedin and X drafts
+
+& Share
+
+e
+
+&
+
+X MP
+
+oO ex
+
+x +
+
+“
+
+a
+
+oo
+
+=
+
+article > SKILLmd.
+
+View source
+
+is)
+
+Open
+
+Link to the full video is in the comments @
+
+Metadata
+
+name
+
+x-article
+
+Your XX article draft is saved, unpublished, with 1,713 words and ten screenshots. The first-reply YouTube link is
+
+description
+
+Use when someone asks to
+
+still pending.
+
+write an x article, turn a
+
+video into an x article,
+
+or draft long-form x
+
+@ Eiited 9 files
+
++3454
+
+Undo Review
+
+content from a YouTube
+
+video.
+
+argunent-hint
+
+[Youtube URL]
+
+projects/youtube-videos/2026-08-06-anthropic-ceo-claude-business/repurposing-202... momentsjson +13 -0
+
+projects/youtube-videos/2026-08-06-anthropic-ceo-claude-business/repurposing-2...inkedin-postmd +42 -1
+
+Input.
+
+projects/youtube-videos/2026-08-06-anthropic-ceo-claude-business/repurposing-.
+
+article-visualmd +176 2
+
+‘Show 6 more files v
+
+If SARGUMENTS was provided, use it as the YouTube
+
+video URL.
+
+O93
+
+(3 828am
+
+e
+
+Otherwise, get a YouTube video URL from Nate (e.g,
+
+https://www. youtube. com/watch?v=VIDEQ_ID).
+
+Do anything
+
+Optionally, Nate may specify:
+
+~ A specific hook angle
+
++ QO fallaccess
+
+GPT-6Astra High ~ Q @
+
+~ A section of the video to emphasize
+
+Innate

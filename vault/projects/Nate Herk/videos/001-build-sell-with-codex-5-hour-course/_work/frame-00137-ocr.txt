@@ -1,0 +1,57 @@
+peyes fn
+
+nas Cova
+
+sy
+
+Fe yet ey GE
+
+forget to update a cross-reference, and can touch 15 files in one pass. The wiki stays maintained becouse the cost of
+
+‘maintenance is near zero,
+
+‘The human'sjob isto curate sources, direct the analysis ask good questions, and think about what tall means. The LIM's job
+
+Is everything else.
+
+‘The idea i related in spirit to Vannevar Bush's Memex (1945)
+
+2 personal, curated knowledge store with associative trails
+
+between documents. Bushs vision was closer to this than to what the web became: private, actively curated, with the
+
+‘connections between documents as valuable as the documents themselves. The part he couldn't solve was who does the
+
+‘maintenance. The LLM handles that.
+
+Note
+
+‘This document is intentionally abstract It describes the idea, nota specific implementation. The exact directory structure, the
+
+‘schema conventions, the page formats the tooling — al of that will depend on your domain, your preferences, and your LLM.
+
+‘of choice. Everything mentioned above is optional and modular — pick what's useful, ignore what isn't. For example: your
+
+‘sources might be text-only, 50 you don't need image handling at all. Your wiki might be small enough thatthe index file sll
+
+‘you need, no search engine required. You might not care about slide decks and just want markdown pages. You might want a
+
+‘completely different set of output formats. The right way to use ths isto share it wth your LLM agent and work together to
+
+instantiate a version that fits your needs. The document's only job isto communicate the pattern. Your LLM can figure out the
+
+rest.
+
+Load eartier comments
+
+suwonlese commented 3 weeks ago edited =
+
+3 Quiz_wiki
+
+LUMWiki —
+
+local-first continuity for coding-agent workspaces
+
+meee
+
+ey

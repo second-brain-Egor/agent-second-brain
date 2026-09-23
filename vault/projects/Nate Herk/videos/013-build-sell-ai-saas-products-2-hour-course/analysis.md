@@ -3,7 +3,7 @@ type: project
 description: "Дата: 2026-08-10 Длительность: 2:22:51 Ссылка: https://www.youtube.com/watch?v=IVx8OSMbTss"
 related: 
 last_accessed: 2026-08-24
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Карточка ролика: от боли до первых 50 пользователей AI SaaS
