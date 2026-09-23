@@ -1,9 +1,3 @@
----
-type: project
-last_accessed: 2026-09-22
-relevance: 0.98
-tier: active
----
 # Сводка по видео
 
 Папка: Nate Herk
@@ -88,7 +82,6 @@ tier: active
 Кадры: 1125
 Кадры после дедупликации: 0
 Карточка: есть
-
 
 ### 001-every-grok-bot-concept-explained-for-normal-people
 
