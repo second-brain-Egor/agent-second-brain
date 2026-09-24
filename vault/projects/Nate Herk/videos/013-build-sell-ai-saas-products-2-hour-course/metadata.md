@@ -2,7 +2,7 @@
 type: project
 description: "Build & Sell AI SaaS Products (2 HOUR COURSE) — project"
 last_accessed: 2026-08-24
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Build & Sell AI SaaS Products (2 HOUR COURSE)

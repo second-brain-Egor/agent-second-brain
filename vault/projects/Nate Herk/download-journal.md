@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-09-23
+last_accessed: 2026-09-24
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-09-23 07:00
-Всего видео в папке: 47
-Записей в журнале: 45
+Обновлено: 2026-09-24 07:03
+Всего видео в папке: 49
+Записей в журнале: 47
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -262,6 +262,18 @@ tier: active
 Кадры: 39
 Обновлено: 2026-09-20T07:00:52+03:00
 
+## 001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases
+
+Статус: complete
+Название: I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases
+Ссылка: https://www.youtube.com/watch?v=GmLcJVzkxPA
+Дата видео: 20260923
+Описание: есть
+Комментарии: 42
+Транскрипт: есть
+Кадры: 277
+Обновлено: 2026-09-24T07:01:52+03:00
+
 ## 001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial
 
 Статус: complete
@@ -393,6 +405,18 @@ tier: active
 Транскрипт: есть
 Кадры: 331
 Обновлено: 2026-09-07T07:02:25+03:00
+
+## 002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases
+
+Статус: complete
+Название: I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases
+Ссылка: https://www.youtube.com/watch?v=eF3yeJuifoQ
+Дата видео: 20260923
+Описание: есть
+Комментарии: 282
+Транскрипт: есть
+Кадры: 202
+Обновлено: 2026-09-24T07:03:35+03:00
 
 ## 002-this-stealth-model-makes-claude-code-free-here-s-how
 

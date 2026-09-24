@@ -17,6 +17,7 @@ class Settings(BaseSettings):
 
     telegram_bot_token: str = Field(description="Telegram Bot API token")
     show_help_button: bool = Field(default=True, description="Show the help button in this bot's main keyboard")
+    temporary_chat_user_id: int = Field(default=0, description="Personal temporary-chat switch; disabled unless explicitly configured")
     telegram_api_id: int = Field(default=0, description="Telegram API ID from my.telegram.org")
     telegram_api_hash: str = Field(default="", description="Telegram API Hash from my.telegram.org")
     deepgram_api_key: str = Field(description="Deepgram API key for transcription")

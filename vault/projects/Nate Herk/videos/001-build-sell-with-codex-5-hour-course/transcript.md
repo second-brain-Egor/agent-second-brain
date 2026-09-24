@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-09-22
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 I'm about to take you from a complete

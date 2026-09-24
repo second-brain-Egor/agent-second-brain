@@ -134,6 +134,11 @@ async def run_bot(settings: Settings) -> None:
 
     from d_brain.bot.request_jobs import RequestJobs
     jobs = RequestJobs(settings)
+    temporary_chat = None
+    if settings.temporary_chat_user_id:
+        from d_brain.bot.temporary_chat import TemporaryChat
+        temporary_chat = TemporaryChat(settings, jobs)
+        dp.update.middleware(temporary_chat)
     dp.update.middleware(jobs)
 
     await jobs.restore(dp, bot)
@@ -147,6 +152,8 @@ async def run_bot(settings: Settings) -> None:
     try:
         await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
     finally:
+        if temporary_chat is not None:
+            await temporary_chat.close()
         await jobs.close()
         documents_task.cancel()
         with contextlib.suppress(asyncio.CancelledError):

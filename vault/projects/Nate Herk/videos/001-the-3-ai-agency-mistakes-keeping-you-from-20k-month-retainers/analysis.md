@@ -4,7 +4,7 @@ title: "The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers"
 description: "The 3 AI Agency Mistakes Keeping You From $20K/Month Retainers — project"
 source: "https://www.youtube.com/watch?v=DoHPZf7jEQ4"
 last_accessed: 2026-08-27
-relevance: 0.97
+relevance: 0.98
 tier: active
 date: 2026-08-25
 duration: "28:34"

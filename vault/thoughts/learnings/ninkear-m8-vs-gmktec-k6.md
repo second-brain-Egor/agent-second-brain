@@ -2,7 +2,7 @@
 type: learning
 description: "Сравнение с мини-ПК Егора GMKtec K6:"
 last_accessed: 2026-08-02
-relevance: 0.97
+relevance: 0.98
 tier: active
 date: 2026-07-26
 ---

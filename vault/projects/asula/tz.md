@@ -4,7 +4,7 @@ description: "ТЗ на офлайн-ядро АСУЛА. Пишется по п
 created: 2026-06-12
 updated: 2026-06-12
 last_accessed: 2026-06-13
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 

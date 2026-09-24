@@ -8,7 +8,7 @@ from aiogram.filters import Command, StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
-from d_brain.bot.keyboards import get_main_keyboard
+from d_brain.bot.keyboards import get_message_keyboard
 from d_brain.bot.states import SilentState
 from d_brain.config import Settings, get_settings
 from d_brain.services.session import SessionStore
@@ -59,7 +59,8 @@ async def cmd_start(message: Message) -> None:
         "💬 Текст\n"
         "📷 Фото\n"
         "↩️ Пересланные сообщения\n\n"
-        "Всё будет сохранено и обработано.\n\n"
+        "В обычном чате записи сохраняются и обрабатываются.\n"
+        "Временный чат выключает сохранение переписки.\n\n"
         "<b>Команды:</b>\n"
         "/ask - ответить на вопрос по запросу\n"
         "/stop - остановить текущую задачу\n"
@@ -72,7 +73,7 @@ async def cmd_start(message: Message) -> None:
         "/chat - вернуться в диалог\n"
         "/voice - включить/выключить голосовые ответы\n"
         "/help - справка",
-        reply_markup=get_main_keyboard(),
+        reply_markup=get_message_keyboard(message),
     )
 
 
@@ -81,6 +82,10 @@ async def cmd_help(message: Message) -> None:
     """Handle /help command."""
     await message.answer(
         "<b>Как пользоваться помощником:</b>\n\n"
+        "Переключатель «Обычный чат / Временный чат» управляет сохранением.\n"
+        "Во временном чате переписка не сохраняется и не обрабатывается.\n"
+        "После его выключения временный контекст очищается.\n\n"
+        "В обычном чате:\n"
         "1. Отправь голосовое — я транскрибирую и сохраню\n"
         "2. Отправь текст — сохраню как есть\n"
         "3. Отправь фото — сохраню во вложения\n"
@@ -97,7 +102,7 @@ async def cmd_help(message: Message) -> None:
         "/restart - перезапустить бота (для администратора)\n"
         "/voice - включить/выключить голосовые ответы\n\n"
         "<i>Пример: /do перенеси просроченные задачи на понедельник</i>",
-        reply_markup=get_main_keyboard(),
+        reply_markup=get_message_keyboard(message),
     )
 
 
@@ -133,7 +138,7 @@ async def cmd_silent(message: Message, state: FSMContext) -> None:
         "🔇 <b>Тихий режим</b>\n\n"
         "Сообщения сохраняются, но помощник не отвечает.\n"
         "Для возврата в диалог: /chat",
-        reply_markup=get_main_keyboard(),
+        reply_markup=get_message_keyboard(message),
     )
 
 
@@ -149,7 +154,7 @@ async def cmd_chat(message: Message, state: FSMContext) -> None:
     await message.answer(
         "💬 <b>Диалоговый режим</b>\n\n"
         "Помощник отвечает на каждое сообщение.",
-        reply_markup=get_main_keyboard(),
+        reply_markup=get_message_keyboard(message),
     )
 
 
@@ -163,7 +168,7 @@ async def cmd_voice(message: Message, state: FSMContext) -> None:
             "🔇 <b>Голосовые ответы выключены</b>\n\n"
             "Бот отвечает текстом.\n"
             "/voice — включить снова",
-            reply_markup=get_main_keyboard(),
+            reply_markup=get_message_keyboard(message),
         )
     else:
         await state.update_data(voice_mode=True)
@@ -171,5 +176,5 @@ async def cmd_voice(message: Message, state: FSMContext) -> None:
             "🔊 <b>Голосовые ответы включены</b>\n\n"
             "Бот будет отвечать голосом (edge-tts).\n"
             "/voice — выключить",
-            reply_markup=get_main_keyboard(),
+            reply_markup=get_message_keyboard(message),
         )

@@ -2,7 +2,7 @@
 type: project
 description: "I Tested Claude Code vs. Codex on Design. It Wasn't Even Close. — project"
 last_accessed: 2026-08-28
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.

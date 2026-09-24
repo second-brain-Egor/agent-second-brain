@@ -35,10 +35,12 @@ def positive_env(name: str, default: int) -> int:
 
 class Execution:
     def __init__(self, project: Path, *, scope='', request='', origin='cli',
-                 seconds=None, max_calls=None, max_steps=None):
+                 seconds=None, max_calls=None, max_steps=None, persistent=True):
         self.id = uuid.uuid4().hex
+        self.persistent = persistent
         self.directory = Path(project) / 'vault' / '.session' / 'tasks'
-        self.directory.mkdir(parents=True, exist_ok=True)
+        if persistent:
+            self.directory.mkdir(parents=True, exist_ok=True)
         self.path = self.directory / f'{self.id}.json'
         self.seconds = seconds
         self.max_calls = max_calls
@@ -65,6 +67,8 @@ class Execution:
     def update(self, **values):
         with self.lock:
             self.data.update(values, updated=self.now())
+            if not self.persistent:
+                return
             temporary = self.path.with_suffix('.tmp')
             temporary.write_text(json.dumps(self.data, ensure_ascii=False, indent=2))
             temporary.chmod(0o600)
@@ -216,9 +220,11 @@ def run_bounded(cmd, *, input, cwd, env, backend, timeout=None, project=None):
                 pass
         threading.Thread(target=write_input, daemon=True).start()
         closed = set()
-        journal = execution.directory / f'{execution.id}.jsonl'
+        journal = (execution.directory / f'{execution.id}.jsonl'
+                   if execution.persistent else Path(os.devnull))
         with journal.open('a', encoding='utf-8') as log:
-            journal.chmod(0o600)
+            if execution.persistent:
+                journal.chmod(0o600)
             while len(closed) < 2 or process.poll() is None:
                 execution.check()
                 if time.monotonic() >= call_deadline:

@@ -676,7 +676,37 @@
       "frames_required": true,
       "updated_at": "2026-09-22T07:12:00+03:00",
       "completed_at": "2026-09-22T07:12:00+03:00"
+    },
+    "GmLcJVzkxPA": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases",
+      "title": "I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases",
+      "url": "https://www.youtube.com/watch?v=GmLcJVzkxPA",
+      "upload_date": "20260923",
+      "comments": 42,
+      "frames": 277,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-24T07:01:52+03:00",
+      "completed_at": "2026-09-24T07:01:52+03:00"
+    },
+    "eF3yeJuifoQ": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases",
+      "title": "I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases",
+      "url": "https://www.youtube.com/watch?v=eF3yeJuifoQ",
+      "upload_date": "20260923",
+      "comments": 282,
+      "frames": 202,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-09-24T07:03:35+03:00",
+      "completed_at": "2026-09-24T07:03:35+03:00"
     }
   },
-  "updated_at": "2026-09-22T07:12:00+03:00"
+  "updated_at": "2026-09-24T07:03:35+03:00"
 }

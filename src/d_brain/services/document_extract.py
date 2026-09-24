@@ -35,7 +35,7 @@ def run(args: list[str], deadline: float | None = None, timeout: int | None = No
     return result.stdout
 
 
-def extract_text(original: Path, deadline: float | None = None) -> Path:
+def extract_text(original: Path, deadline: float | None = None, temporary_root: Path | None = None) -> Path:
     target = original.parent / 'текст.txt'
     digest = hashlib.sha256(original.read_bytes()).hexdigest()
     fingerprint = original.parent / 'текст.sha256'
@@ -53,7 +53,7 @@ def extract_text(original: Path, deadline: float | None = None) -> Path:
         # Extract once. Preserve form-feed boundaries to identify scanned pages.
         raw = run(['pdftotext', '-layout', '-enc', 'UTF-8', str(original), '-'], deadline)
         native_pages = raw.split('\f')
-        with tempfile.TemporaryDirectory(prefix='dbrain-pdf-') as temp:
+        with tempfile.TemporaryDirectory(prefix='dbrain-pdf-', dir=temporary_root) as temp:
             for index in range(count):
                 text = native_pages[index].strip() if index < len(native_pages) else ''
                 if len(re.sub(r'\W', '', text)) < 25:

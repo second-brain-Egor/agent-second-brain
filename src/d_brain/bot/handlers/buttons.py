@@ -8,7 +8,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
 from d_brain.bot.handlers.backend import _replace_env_value
-from d_brain.bot.keyboards import CHAT_BUTTON, WORK_BUTTON, get_main_keyboard
+from d_brain.bot.keyboards import CHAT_BUTTON, WORK_BUTTON, get_message_keyboard
 from d_brain.config import get_settings
 
 router = Router(name="buttons")
@@ -61,7 +61,7 @@ async def _set_effort(
     await state.set_state(None)
     await message.answer(
         f"{icon} Включил {label} уровень мышления.",
-        reply_markup=get_main_keyboard(),
+        reply_markup=get_message_keyboard(message),
     )
 
 

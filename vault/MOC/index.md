@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-09-24
-last_accessed: 2026-09-24
+updated: 2026-09-25
+last_accessed: 2026-09-25
 relevance: 1.0
 tier: active
 ---
@@ -11,9 +11,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 846
-- Связей: 2139
-- Сирот: 52
+- Заметок: 859
+- Связей: 2164
+- Сирот: 53
 - Слабосвязанных: 84
 
 ## Память
@@ -181,6 +181,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/metadata.md|I Tested Jev on 12 Real Use Cases. My Honest Thoughts.]]
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/analysis.md|Я проверил Opus 5.5 и GPT-6 Astra на 12 реальных задачах]]
+- [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/metadata.md|I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases]]
+- [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/analysis.md|Карточка ролика: как я превратил GPT-6 Astra в круглосуточного биржевого трейдера]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/description.md|description]]
@@ -247,6 +253,12 @@ tier: active
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/metadata.md|I Tested GPT-6 Astra vs Fable 5.1 on 15 Real Use Cases]]
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/analysis.md|Я проверил Opus 5.5 и GPT-6 Sol на десяти реальных задачах]]
+- [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/description.md|description]]
+- [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/metadata.md|I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases]]
+- [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/analysis.md|Карточка ролика: бесплатные модели OpenRouter внутри Claude Code]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/description.md|description]]
@@ -615,13 +627,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-25.md|2026-09-25]]
 - [[daily/2026-09-24.md|2026-09-24]]
 - [[daily/2026-09-23.md|2026-09-23]]
 - [[daily/2026-09-22.md|2026-09-22]]
 - [[daily/2026-09-21.md|2026-09-21]]
 - [[daily/2026-09-20.md|2026-09-20]]
 - [[daily/2026-09-19.md|2026-09-19]]
-- [[daily/2026-09-18.md|2026-09-18]]
 
 ## Недельные сводки
 
