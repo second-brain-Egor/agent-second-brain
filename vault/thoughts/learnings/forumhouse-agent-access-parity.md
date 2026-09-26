@@ -4,7 +4,7 @@ description: "Егор ожидает, что Codex и Claude Code одинак�
 tags: 
 created: 2026-05-08
 last_accessed: 2026-05-08
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 

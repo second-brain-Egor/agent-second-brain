@@ -80,15 +80,18 @@ async def test_exit_clears_context_and_does_not_replay(chat, monkeypatch):
     monkeypatch.setattr(module, 'reply', lambda *a: 'Ответ')
     await deliver(chat, message('Секрет'))
     await drain(chat)
-    switch = message('🕶 Временный чат', 2)
+    switch = message('💬 Обычный чат', 2)
     await deliver(chat, switch)
     assert not enabled(chat.settings) and chat.history == [] and chat.images == []
     labels = [b.text for row in switch.answer.call_args.kwargs['reply_markup'].keyboard for b in row]
-    assert '💬 Обычный чат' in labels
+    assert '🕶 Временный чат' in labels
     normal = await deliver(chat, message('Обычный вопрос', 3))
     normal.assert_awaited_once()
-    await deliver(chat, message('💬 Обычный чат', 4))
+    switch_back = message('🕶 Временный чат', 4)
+    await deliver(chat, switch_back)
     assert enabled(chat.settings) and chat.history == []
+    labels = [b.text for row in switch_back.answer.call_args.kwargs['reply_markup'].keyboard for b in row]
+    assert '💬 Обычный чат' in labels
 
 
 async def test_restart_keeps_only_mode(chat):

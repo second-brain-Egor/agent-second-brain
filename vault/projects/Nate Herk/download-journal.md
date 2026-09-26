@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-09-24
+last_accessed: 2026-09-25
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-09-24 07:03
-Всего видео в папке: 49
-Записей в журнале: 47
+Обновлено: 2026-09-25 07:01
+Всего видео в папке: 50
+Записей в журнале: 48
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -237,6 +237,18 @@ tier: active
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-09-04T07:00:30+03:00
+
+## 001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level
+
+Статус: complete
+Название: I Tested Opus 5.5 at Every Effort Level. What You Need to Know.
+Ссылка: https://www.youtube.com/watch?v=QCkHIyEPIYo
+Дата видео: 20260924
+Описание: есть
+Комментарии: 66
+Транскрипт: есть
+Кадры: 147
+Обновлено: 2026-09-25T07:01:53+03:00
 
 ## 001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close
 

@@ -26,7 +26,7 @@ def get_main_keyboard(user_id: int | None = None) -> ReplyKeyboardMarkup:
     label = "📅 Неделя"
     if owner and user_id in (None, owner):
         from d_brain.services.temporary_chat import NORMAL_CHAT, TEMPORARY_CHAT, enabled
-        label = TEMPORARY_CHAT if enabled(settings) else NORMAL_CHAT
+        label = NORMAL_CHAT if enabled(settings) else TEMPORARY_CHAT
     builder.button(text=label)
     # Second row: conversation mode and model selectors.
     builder.button(text=CHAT_BUTTON)

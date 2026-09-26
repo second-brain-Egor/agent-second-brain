@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-09-25
-last_accessed: 2026-09-25
+updated: 2026-09-26
+last_accessed: 2026-09-26
 relevance: 1.0
 tier: active
 ---
@@ -11,9 +11,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 859
-- Связей: 2164
-- Сирот: 53
+- Заметок: 866
+- Связей: 2177
+- Сирот: 54
 - Слабосвязанных: 84
 
 ## Память
@@ -169,6 +169,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/metadata.md|I Had Fable 5.1 and 5 Build Me the Same App]]
 - [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/analysis.md|Я проверил Opus 5.5 на всех уровнях глубины. Что нужно знать]]
+- [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/metadata.md|I Tested Opus 5.5 at Every Effort Level. What You Need to Know.]]
+- [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/analysis.md|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/description.md|description]]
@@ -627,13 +633,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-26.md|2026-09-26]]
 - [[daily/2026-09-25.md|2026-09-25]]
 - [[daily/2026-09-24.md|2026-09-24]]
 - [[daily/2026-09-23.md|2026-09-23]]
 - [[daily/2026-09-22.md|2026-09-22]]
 - [[daily/2026-09-21.md|2026-09-21]]
 - [[daily/2026-09-20.md|2026-09-20]]
-- [[daily/2026-09-19.md|2026-09-19]]
 
 ## Недельные сводки
 

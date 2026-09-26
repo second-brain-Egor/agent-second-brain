@@ -5,7 +5,7 @@ source: daily/2026-04-18
 created: 2026-04-18
 updated: 2026-09-19
 last_accessed: 2026-04-30
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Контроль загрузки Forumhouse
