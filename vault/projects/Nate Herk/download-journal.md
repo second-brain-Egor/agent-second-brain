@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-09-25
+last_accessed: 2026-09-26
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-09-25 07:01
-Всего видео в папке: 50
-Записей в журнале: 48
+Обновлено: 2026-09-26 07:01
+Всего видео в папке: 51
+Записей в журнале: 49
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -309,6 +309,18 @@ tier: active
 Транскрипт: есть
 Кадры: 23
 Обновлено: 2026-09-07T07:00:51+03:00
+
+## 001-opus-5-5-just-changed-video-editing-forever-free-skills
+
+Статус: complete
+Название: Opus 5.5 Just Changed Video Editing Forever (free skills)
+Ссылка: https://www.youtube.com/watch?v=7jHXoPGnA4c
+Дата видео: 20260925
+Описание: есть
+Комментарии: 41
+Транскрипт: есть
+Кадры: 135
+Обновлено: 2026-09-26T07:01:05+03:00
 
 ## 001-thank-you-for-1m-subscribers
 

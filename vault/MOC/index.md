@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-09-26
-last_accessed: 2026-09-26
+updated: 2026-09-27
+last_accessed: 2026-09-27
 relevance: 1.0
 tier: active
 ---
@@ -11,9 +11,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 866
-- Связей: 2177
-- Сирот: 54
+- Заметок: 873
+- Связей: 2189
+- Сирот: 55
 - Слабосвязанных: 84
 
 ## Память
@@ -205,6 +205,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/metadata.md|I Turned GPT-6 Astra Into the Ultimate AI Second Brain]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/analysis.md|Карточка ролика: Opus 5.5 только что изменила видеомонтаж навсегда (бесплатные навыки)]]
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/description.md|description]]
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/metadata.md|Opus 5.5 Just Changed Video Editing Forever (free skills)]]
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/analysis.md|Спасибо за миллион подписчиков]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/description.md|description]]
@@ -633,13 +639,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-27.md|2026-09-27]]
 - [[daily/2026-09-26.md|2026-09-26]]
 - [[daily/2026-09-25.md|2026-09-25]]
 - [[daily/2026-09-24.md|2026-09-24]]
 - [[daily/2026-09-23.md|2026-09-23]]
 - [[daily/2026-09-22.md|2026-09-22]]
 - [[daily/2026-09-21.md|2026-09-21]]
-- [[daily/2026-09-20.md|2026-09-20]]
 
 ## Недельные сводки
 

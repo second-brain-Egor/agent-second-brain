@@ -2,7 +2,7 @@
 type: note
 title: Obsidian Markdown Rules
 last_accessed: 2026-03-27
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Obsidian Markdown Rules

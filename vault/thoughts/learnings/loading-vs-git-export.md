@@ -3,7 +3,7 @@ type: learning
 description: "Если Егор спрашивает «что по загрузке», нельзя отвечать про «выгрузку в Git», пока он сам не назвал Git."
 created: 2026-05-01
 last_accessed: 2026-05-01
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 

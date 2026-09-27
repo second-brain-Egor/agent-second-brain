@@ -3,7 +3,7 @@ type: project
 description: "Дата: 2026-08-12 Длительность: 11:56 Ссылка: https://www.youtube.com/watch?v=XNQBCRcwXV4"
 related: 
 last_accessed: 2026-08-24
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Карточка ролика: как не мешать новой модели устаревшими инструкциями

@@ -4,7 +4,7 @@ description: "Дообучение локальной модели (LoRA) на �
 created: 2026-07-05
 updated: 2026-08-21
 last_accessed: 2026-08-23
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 

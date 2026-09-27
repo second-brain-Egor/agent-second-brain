@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-09-25
+last_accessed: 2026-09-26
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-09-26 | folders: 21, notes: 584, standalone: 0
+> Generated: 2026-09-27 | folders: 21, notes: 590, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -106,7 +106,7 @@ tier: active
 
 - [[projects/japanese-architecture/README|Японская архитектура]] — Японская архитектура — project
 
-## Nate Herk (307)
+## Nate Herk (313)
 
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]] — 100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know. — project
 - [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/metadata|18 Months of Pricing AI Automations in 21 Mins]] — 18 Months of Pricing AI Automations in 21 Mins — project
@@ -161,6 +161,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/metadata|I Turned GPT-6 Astra Into a 24/7 Stock Trader (tutorial)]] — Ссылка: https://www.youtube.com/watch?v=TLQLfa7yH4I Источник: Nate Herk | AI Automation Дата: 20260907 Длительность: ...
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/metadata|I Turned GPT-6 Astra Into the Ultimate AI Second Brain]] — Ссылка: https://www.youtube.com/watch?v=yysILVsfLFM Источник: Nate Herk | AI Automation Дата: 20260907 Длительность: ...
 - [[projects/Nate Herk/AGENTS|Nate Herk — правила проекта]] — Собирать и поддерживать базу знаний по материалам YouTube-канала Nate Herk: https://youtube.com/@nateherk
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/metadata|Opus 5.5 Just Changed Video Editing Forever (free skills)]]
 - [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/metadata|Sell These 5 Most In Demand AI Automations in 2026]] — Ссылка: https://www.youtube.com/watch?v=tgjYMym_0-c Источник: Nate Herk | AI Automation Дата: 20260820 Длительность: ...
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/metadata|Set Up a Personal Hermes in 14 Mins (no VPS or mac mini)]] — Set Up a Personal Hermes in 14 Mins (no VPS or mac mini) — project
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/metadata|Thank You for 1M Subscribers]] — Ссылка: https://www.youtube.com/watch?v=5QmOhvVssxY Источник: Nate Herk | AI Automation Дата: 20260909 Длительность: ...
@@ -195,6 +196,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/description|description]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/description|description]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/description|description]] — I just hit 1 million subscribers today.
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/description|description]] — Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA My FREE resources...
@@ -245,6 +247,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/transcript|transcript]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/transcript|transcript]] — So, I recently did a trading challenge where I gave Claude $10,000 of my real money to trade stocks. And at the end o...
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/transcript|transcript]] — GBD6 Astra is the most powerful AI model I've ever used. So, I turned it into my AI operating system and my second br...
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/transcript|transcript]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/transcript|transcript]] — Oh my gosh. Where's that last one? Oh my gosh. Wow, my heart is actually racing. Wow. All right, I got to take a pict...
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/transcript|transcript]] — One of the great things about Codex is that right inside of it, it can make images for you. As you can see right here...
@@ -283,6 +286,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 39
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/frames/README|Кадры]]
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 25
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 86
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 34
@@ -299,6 +303,7 @@ tier: active
 - [[projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won/analysis|Карточка ролика: Codex и Claude Code строят одно приложение]] — Дата: 2026-08-14 Длительность: 21:14 Ссылка: https://www.youtube.com/watch?v=WCrnS09vpfo
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/analysis|Карточка ролика: DeepSeek Harness против Claude Code после недели тестов]] — Дата: 2026-08-23 Длительность: 18:02 Ссылка: https://www.youtube.com/watch?v=UsfCe5fJK6A
 - [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/analysis|Карточка ролика: Grok Bot как облачный диспетчер специализированных агентов]] — Дата: 2026-08-12 Длительность: 20:32 Ссылка: https://www.youtube.com/watch?v=PQBYZQqan2g
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/analysis|Карточка ролика: Opus 5.5 только что изменила видеомонтаж навсегда (бесплатные навыки)]] — Нейт показывает, как Opus 5.5 монтирует уже снятые видео в Claude Code с помощью Hyperframes.
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/analysis|Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой]] — Дата: 2026-08-22 Длительность: 16:44 Ссылка: https://www.youtube.com/watch?v=QUI6Ug4cHnE
 - [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/analysis|Карточка ролика: SnagTime — собственный планировщик вместо Calendly]] — Дата: 2026-08-28 Длительность: 13:59 Ссылка: https://www.youtube.com/watch?v=PYjbeY8sGLs
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/analysis|Карточка ролика: Как GPT-6 Astra монтирует видео с Hyperframes]] — Нейт показывает монтаж в Codex и Hyperframes: расшифровка, вырезание ошибок, анимация сцен и несколько циклов правок.
@@ -340,6 +345,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/comments|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
+- [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/comments|Комментарии]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/comments|Комментарии]] — Congrats Nate!! This is awseome man! Thank you for your content and time work!
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/comments|Комментарии]] — Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA FREE MONTH voice to text: https://get.gl...
