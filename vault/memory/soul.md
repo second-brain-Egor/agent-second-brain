@@ -2,7 +2,7 @@
 type: note
 description: "Как агент себя ведёт, его эволюция, уроки, паттерны."
 last_accessed: 2026-05-01
-relevance: 0.98
+relevance: 0.95
 tier: active
 ---
 # Идентичность агента

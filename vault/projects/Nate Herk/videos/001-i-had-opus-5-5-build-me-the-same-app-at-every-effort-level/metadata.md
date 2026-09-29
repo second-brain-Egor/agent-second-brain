@@ -1,7 +1,8 @@
 ---
 type: project
+description: "I Tested Opus 5.5 at Every Effort Level. What You Need to Know. — project"
 last_accessed: 2026-09-25
-relevance: 0.98
+relevance: 0.95
 tier: active
 ---
 # I Tested Opus 5.5 at Every Effort Level. What You Need to Know.

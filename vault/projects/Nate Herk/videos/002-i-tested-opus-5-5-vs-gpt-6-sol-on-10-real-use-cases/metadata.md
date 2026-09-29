@@ -1,5 +1,6 @@
 ---
 type: project
+description: "I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases — project"
 last_accessed: 2026-09-24
 relevance: 0.97
 tier: active

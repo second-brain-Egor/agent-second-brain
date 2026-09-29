@@ -1,7 +1,8 @@
 ---
 type: project
+description: "Build & Sell with Codex (5+ Hour Course) — project"
 last_accessed: 2026-09-22
-relevance: 0.98
+relevance: 0.95
 tier: active
 ---
 # Build & Sell with Codex (5+ Hour Course)

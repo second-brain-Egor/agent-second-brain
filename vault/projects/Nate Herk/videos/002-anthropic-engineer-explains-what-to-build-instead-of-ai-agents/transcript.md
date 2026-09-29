@@ -3,7 +3,7 @@ type: project
 description: "So, Enthropic Engineers just said that they stopped building agents and they started building something completely different. So, if you're still..."
 related: 
 last_accessed: 2026-09-20
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 So, Enthropic Engineers just said that

@@ -1,5 +1,6 @@
 ---
 type: project
+description: "Комментарии — project"
 last_accessed: 2026-09-24
 relevance: 0.97
 tier: active

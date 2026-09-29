@@ -1,7 +1,8 @@
 ---
 type: project
+description: "Transcript — project"
 last_accessed: 2026-09-22
-relevance: 0.98
+relevance: 0.95
 tier: active
 ---
 I'm about to take you from a complete
