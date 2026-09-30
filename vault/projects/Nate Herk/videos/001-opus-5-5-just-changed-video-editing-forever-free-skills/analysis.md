@@ -3,7 +3,7 @@ type: video-analysis
 description: "Нейт показывает, как Opus 5.5 монтирует уже снятые видео в Claude Code с помощью Hyperframes."
 created: 2026-09-26
 last_accessed: 2026-09-26
-relevance: 0.97
+relevance: 0.98
 tier: active
 source_date: 2026-09-25
 source_url: https://www.youtube.com/watch?v=7jHXoPGnA4c

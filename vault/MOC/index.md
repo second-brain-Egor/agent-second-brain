@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-09-29
-last_accessed: 2026-09-29
+updated: 2026-09-30
+last_accessed: 2026-09-30
 relevance: 1.0
 tier: active
 ---
@@ -11,9 +11,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 875
-- Связей: 2189
-- Сирот: 57
+- Заметок: 894
+- Связей: 2225
+- Сирот: 58
 - Слабосвязанных: 84
 
 ## Память
@@ -193,6 +193,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/metadata.md|I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases]]
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/analysis.md|Я проверил Sonnet 5.5 и Opus 5.5 в семи задачах: что нужно знать]]
+- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/metadata.md|I Tested Sonnet 5.5 vs Opus 5.5. What You Need to Know.]]
+- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/analysis.md|Карточка ролика: как я превратил GPT-6 Astra в круглосуточного биржевого трейдера]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/description.md|description]]
@@ -259,6 +265,12 @@ tier: active
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/metadata.md|How to Build Codex Skills Better than 99% of People]]
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/analysis.md|Я дал GPT-6 Astra 10 000 долларов на торговлю акциями — и вот что произошло]]
+- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/description.md|description]]
+- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/metadata.md|I Gave GPT 6 Astra $10,000 to Trade Stocks...And This Happened]]
+- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/analysis.md|Я протестировал GPT-6 Astra и Fable 5.1 в 15 реальных задачах]]
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/description.md|description]]
@@ -283,6 +295,12 @@ tier: active
 - [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/metadata.md|Anthropic is Teaching Claude to be Evil (real results)]]
 - [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/analysis.md|Карточка ролика: Нет, серьёзно: Claude Code становится опасным]]
+- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/description.md|description]]
+- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/metadata.md|No, Seriously. Claude Code is Starting To Get Dangerous]]
+- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/analysis.md|Карточка ролика: Claude как маркетинговая команда одного человека]]
 - [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/003-turn-claude-into-a-one-person-marketing-team-in-38-mins/description.md|description]]
@@ -639,13 +657,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-09-30.md|2026-09-30]]
 - [[daily/2026-09-29.md|2026-09-29]]
 - [[daily/2026-09-28.md|2026-09-28]]
 - [[daily/2026-09-27.md|2026-09-27]]
 - [[daily/2026-09-26.md|2026-09-26]]
 - [[daily/2026-09-25.md|2026-09-25]]
 - [[daily/2026-09-24.md|2026-09-24]]
-- [[daily/2026-09-23.md|2026-09-23]]
 
 ## Недельные сводки
 

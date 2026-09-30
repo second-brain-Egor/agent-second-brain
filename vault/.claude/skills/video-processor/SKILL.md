@@ -2,7 +2,7 @@
 type: note
 description: >
 last_accessed: 2026-03-27
-relevance: 0.97
+relevance: 0.98
 tier: active
 name: video-processor
 model: default

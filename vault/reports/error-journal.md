@@ -4,7 +4,7 @@ description: "Единый журнал сбоев фоновых процесс
 status: active
 created: 2026-09-01
 last_accessed: 2026-09-20
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 # Журнал ошибок Agent Second Brain

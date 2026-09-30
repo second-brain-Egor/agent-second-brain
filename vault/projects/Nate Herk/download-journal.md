@@ -1,15 +1,14 @@
 ---
 type: project
-description: "Обновлено: 2026-09-27 07:00 Всего видео в папке: 51 Записей в журнале: 49"
-last_accessed: 2026-09-27
-relevance: 0.97
+last_accessed: 2026-09-29
+relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-09-27 07:00
-Всего видео в папке: 51
-Записей в журнале: 49
+Обновлено: 2026-09-29 07:04
+Всего видео в папке: 54
+Записей в журнале: 52
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -287,6 +286,18 @@ tier: active
 Кадры: 277
 Обновлено: 2026-09-24T07:01:52+03:00
 
+## 001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know
+
+Статус: complete
+Название: I Tested Sonnet 5.5 vs Opus 5.5. What You Need to Know.
+Ссылка: https://www.youtube.com/watch?v=7eo-11K2e3c
+Дата видео: 20260929
+Описание: есть
+Комментарии: 35
+Транскрипт: есть
+Кадры: 217
+Обновлено: 2026-09-29T07:01:22+03:00
+
 ## 001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial
 
 Статус: complete
@@ -419,6 +430,18 @@ tier: active
 Кадры: 34
 Обновлено: 2026-09-20T07:09:18+03:00
 
+## 002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened
+
+Статус: complete
+Название: I Gave GPT 6 Astra $10,000 to Trade Stocks...And This Happened
+Ссылка: https://www.youtube.com/watch?v=eg_1NXDcoPk
+Дата видео: 20260928
+Описание: есть
+Комментарии: 117
+Транскрипт: есть
+Кадры: 126
+Обновлено: 2026-09-29T07:02:47+03:00
+
 ## 002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases
 
 Статус: complete
@@ -466,6 +489,18 @@ tier: active
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-09-02T07:03:07+03:00
+
+## 003-no-seriously-claude-code-is-starting-to-get-dangerous
+
+Статус: complete
+Название: No, Seriously. Claude Code is Starting To Get Dangerous
+Ссылка: https://www.youtube.com/watch?v=Ktnwygcnd8U
+Дата видео: 20260927
+Описание: есть
+Комментарии: 132
+Транскрипт: есть
+Кадры: 151
+Обновлено: 2026-09-29T07:04:10+03:00
 
 ## 003-turn-claude-into-a-one-person-marketing-team-in-38-mins
 
