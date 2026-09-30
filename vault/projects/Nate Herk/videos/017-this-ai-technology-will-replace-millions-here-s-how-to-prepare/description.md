@@ -2,7 +2,7 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-08-25
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 Want an AI Makeover for YOUR Business?

@@ -1,6 +1,6 @@
 ---
 type: project
-last_accessed: 2026-09-29
+last_accessed: 2026-09-30
 relevance: 0.98
 tier: active
 ---
@@ -312,7 +312,7 @@ tier: active
 
 ### 001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know
 
-Название: Я проверил Sonnet 5.5 и Opus 5.5 в семи задачах: что нужно знать
+Название: I Tested Sonnet 5.5 vs Opus 5.5. What You Need to Know.
 Ссылка: https://www.youtube.com/watch?v=7eo-11K2e3c
 Дата: 20260929
 Длительность: 25:48
@@ -468,7 +468,7 @@ tier: active
 
 ### 002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened
 
-Название: Я дал GPT-6 Astra 10 000 долларов на торговлю акциями — и вот что произошло
+Название: I Gave GPT 6 Astra $10,000 to Trade Stocks...And This Happened
 Ссылка: https://www.youtube.com/watch?v=eg_1NXDcoPk
 Дата: 20260928
 Длительность: 17:59

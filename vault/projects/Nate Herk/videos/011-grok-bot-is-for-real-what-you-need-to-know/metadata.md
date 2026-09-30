@@ -2,7 +2,7 @@
 type: project
 description: "Grok Bot is For Real. What You Need to Know. — project"
 last_accessed: 2026-08-24
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 # Grok Bot is For Real. What You Need to Know.

@@ -2,7 +2,7 @@
 type: note
 description: "Long-term memory and key decisions"
 last_accessed: 2026-02-26
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 # Long-term Memory
