@@ -2,7 +2,7 @@
 type: note
 description: "Корневой конфиг Codex-симки. Зеркало vault/.claude/CLAUDE.md, адаптированное под Codex CLI."
 last_accessed: 2026-05-07
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Второй Мозг — Егор (Codex симка)

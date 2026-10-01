@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-09-30
+last_accessed: 2026-10-01
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-09-30 07:00
-Всего видео в папке: 54
-Записей в журнале: 52
+Обновлено: 2026-10-01 07:01
+Всего видео в папке: 55
+Записей в журнале: 53
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -273,6 +273,18 @@ tier: active
 Транскрипт: есть
 Кадры: 39
 Обновлено: 2026-09-20T07:00:52+03:00
+
+## 001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know
+
+Статус: complete
+Название: I Tested OpenAI's Dots vs. Meta's Muse. What You Need to Know.
+Ссылка: https://www.youtube.com/watch?v=BvvfZKKz4Yo
+Дата видео: 20260930
+Описание: есть
+Комментарии: 110
+Транскрипт: есть
+Кадры: 39
+Обновлено: 2026-10-01T07:01:35+03:00
 
 ## 001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases
 

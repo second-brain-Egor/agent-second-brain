@@ -781,7 +781,22 @@
       "frames_required": true,
       "updated_at": "2026-09-29T07:04:10+03:00",
       "completed_at": "2026-09-29T07:04:10+03:00"
+    },
+    "BvvfZKKz4Yo": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know",
+      "title": "I Tested OpenAI's Dots vs. Meta's Muse. What You Need to Know.",
+      "url": "https://www.youtube.com/watch?v=BvvfZKKz4Yo",
+      "upload_date": "20260930",
+      "comments": 110,
+      "frames": 39,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-01T07:01:35+03:00",
+      "completed_at": "2026-10-01T07:01:35+03:00"
     }
   },
-  "updated_at": "2026-09-29T07:04:10+03:00"
+  "updated_at": "2026-10-01T07:01:35+03:00"
 }

@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-09-30
+last_accessed: 2026-10-01
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-01 | folders: 21, notes: 608, standalone: 0
+> Generated: 2026-10-02 | folders: 21, notes: 614, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -106,7 +106,7 @@ tier: active
 
 - [[projects/japanese-architecture/README|Японская архитектура]] — Японская архитектура — project
 
-## Nate Herk (331)
+## Nate Herk (337)
 
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]] — 100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know. — project
 - [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/metadata|18 Months of Pricing AI Automations in 21 Mins]] — 18 Months of Pricing AI Automations in 21 Mins — project
@@ -156,6 +156,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/metadata|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]] — I Tested Claude Code vs. Codex on Design. It Wasn't Even Close. — project
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/metadata|I Tested GPT-6 Astra vs Fable 5.1 on 15 Real Use Cases]] — Ссылка: https://www.youtube.com/watch?v=WfJPBVXPt8k Источник: Nate Herk | AI Automation Дата: 20260906 Длительность: ...
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/metadata|I Tested Jev on 12 Real Use Cases. My Honest Thoughts.]] — Ссылка: https://www.youtube.com/watch?v=ymgH8jS6Wb8 Источник: Nate Herk | AI Automation Дата: 20260919 Длительность: ...
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/metadata|I Tested OpenAI's Dots vs. Meta's Muse. What You Need to Know.]]
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/metadata|I Tested Opus 5.5 at Every Effort Level. What You Need to Know.]] — I Tested Opus 5.5 at Every Effort Level. What You Need to Know. — project
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/metadata|I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases]] — I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases — project
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/metadata|I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases]] — I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases — project
@@ -196,6 +197,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/description|description]] — FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/ My FREE resources...
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/description|description]]
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/description|description]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
@@ -250,6 +252,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/transcript|transcript]] — So Jev is literally everywhere and I think it's going to change how AI automations are built. So I came in here and t...
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/transcript|transcript]]
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/transcript|transcript]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/transcript|transcript]] — So, I recently did a trading challenge where I gave Claude $10,000 of my real money to trade stocks. And at the end o...
@@ -288,6 +291,7 @@ tier: active
 - [[projects/Nate Herk/download-journal|Журнал скачанных видео]]
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]] — Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой рез...
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/frames/README|Кадры]] — Кадры — project
@@ -346,6 +350,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/comments|Комментарии]] — FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/ FREE MONTH voice to text: https://g...
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/comments|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/comments|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
@@ -389,6 +394,7 @@ tier: active
 - [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/analysis|Я дал GPT-6 Astra 10 000 долларов на торговлю акциями — и вот что произошло]] — Разбор семидневного опыта торговли акциями на настоящие деньги с GPT-6 Astra, Codex, Grok Bot и Alpaca.
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/analysis|Я превратил GPT-6 Astra в совершенный второй мозг]] — Я превратил GPT-6 Astra в совершенный второй мозг — карточка ролика
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/analysis|Я проверил Jev в 12 реальных задачах: честные впечатления]] — Я проверил Jev в 12 реальных задачах: честные впечатления
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/analysis|Я проверил OpenAI Dots и Meta Muse: что нужно знать]] — Сравнение личных облачных помощников OpenAI Dots и Meta Muse: память, подключения, расписания, цены, удобство и ошибк...
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/analysis|Я проверил Opus 5.5 и GPT-6 Astra на 12 реальных задачах]] — Я проверил Opus 5.5 и GPT-6 Astra на 12 реальных задачах — разбор
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/analysis|Я проверил Opus 5.5 и GPT-6 Sol на десяти реальных задачах]] — Я проверил Opus 5.5 и GPT-6 Sol на десяти реальных задачах — разбор
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/analysis|Я проверил Opus 5.5 на всех уровнях глубины. Что нужно знать]] — Я проверил Opus 5.5 на всех уровнях глубины — разбор

@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-01
-last_accessed: 2026-10-01
+updated: 2026-10-02
+last_accessed: 2026-10-02
 relevance: 1.0
 tier: active
 ---
@@ -11,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 896
-- Связей: 2228
-- Сирот: 59
-- Слабосвязанных: 83
+- Заметок: 903
+- Связей: 2242
+- Сирот: 60
+- Слабосвязанных: 82
 
 ## Память
 
@@ -187,6 +187,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/metadata.md|I Tested Jev on 12 Real Use Cases. My Honest Thoughts.]]
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/analysis.md|Я проверил OpenAI Dots и Meta Muse: что нужно знать]]
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/metadata.md|I Tested OpenAI's Dots vs. Meta's Muse. What You Need to Know.]]
+- [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/analysis.md|Я проверил Opus 5.5 и GPT-6 Astra на 12 реальных задачах]]
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/description.md|description]]
@@ -657,13 +663,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-10-02.md|2026-10-02]]
 - [[daily/2026-10-01.md|2026-10-01]]
 - [[daily/2026-09-30.md|2026-09-30]]
 - [[daily/2026-09-29.md|2026-09-29]]
 - [[daily/2026-09-28.md|2026-09-28]]
 - [[daily/2026-09-27.md|2026-09-27]]
 - [[daily/2026-09-26.md|2026-09-26]]
-- [[daily/2026-09-25.md|2026-09-25]]
 
 ## Недельные сводки
 

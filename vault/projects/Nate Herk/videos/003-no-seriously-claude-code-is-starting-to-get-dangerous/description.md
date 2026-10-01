@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-09-29
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 How I built an AI agency from 0 to over $1 million per year: https://www.skool.com/ai-automation-society-plus/about?el=claude-is-getting-dangerous&hcategory=youtube-videos&utm_campaign=plus-group

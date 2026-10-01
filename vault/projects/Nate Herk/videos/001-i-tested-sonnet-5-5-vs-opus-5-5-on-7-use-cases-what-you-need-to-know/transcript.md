@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-09-29
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 Cloud Sonnet 5.5 is here and it is a
