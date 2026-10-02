@@ -1,8 +1,7 @@
 ---
 type: note
 updated: 2026-10-02
-last_accessed: 2026-10-02
-relevance: 1.0
+relevance: 0.9
 tier: active
 ---
 # Индекс знаний
@@ -11,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 903
-- Связей: 2242
+- Заметок: 909
+- Связей: 2248
 - Сирот: 60
-- Слабосвязанных: 82
+- Слабосвязанных: 88
 
 ## Память
 
@@ -241,6 +240,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/metadata.md|This ONE GPT-6 Astra Skill Replaces Your Higgsfield Subscription]]
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/analysis.md|Я протестировал Ultrafast в Codex за 500 долларов в месяц: что нужно знать]]
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/description.md|description]]
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/metadata.md|I Tested Codex's $500/mo Ultrafast. What You Need to Know.]]
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/analysis.md|AI News in 5 Mins: GPT-6 Astra]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/description.md|description]]

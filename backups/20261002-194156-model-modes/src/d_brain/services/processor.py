@@ -139,7 +139,7 @@ SKIP_DIR_NAMES = {
     ".ruff_cache",
     ".data",
 }
-SUPPORTED_REASONING_EFFORTS = {"none", "low", "medium", "high", "xhigh", "max"}
+SUPPORTED_REASONING_EFFORTS = {"none", "low", "medium", "high", "xhigh"}
 SUPPORTED_VERBOSITY = {"low", "medium", "high"}
 PLANNING_GUARDRAILS = """
 Planning guardrails:

@@ -16,7 +16,6 @@ import os
 import re
 import shlex
 import shutil
-import tempfile
 from pathlib import Path
 
 from aiogram import F, Router
@@ -60,34 +59,19 @@ def _is_admin(user_id: int) -> bool:
 
 def _replace_env_value(key: str, value: str) -> None:
     """Replace or append one key in .env."""
-    _replace_env_values({key: value})
-
-
-def _replace_env_values(values: dict[str, str]) -> None:
-    """Persist a complete selection atomically, preserving unrelated settings."""
     content = ENV_PATH.read_text(encoding="utf-8") if ENV_PATH.exists() else ""
-    for key, value in values.items():
-        if re.search(rf"^{re.escape(key)}=", content, flags=re.MULTILINE):
-            content = re.sub(
-                rf"^{re.escape(key)}=.*$", lambda _: f"{key}={value}",
-                content, flags=re.MULTILINE,
-            )
-        else:
-            sep = "" if not content or content.endswith("\n") else "\n"
-            content = f"{content}{sep}{key}={value}\n"
-    mode = ENV_PATH.stat().st_mode & 0o777 if ENV_PATH.exists() else 0o600
-    temporary = None
-    try:
-        with tempfile.NamedTemporaryFile(
-            mode="w", encoding="utf-8", dir=ENV_PATH.parent, delete=False,
-        ) as stream:
-            temporary = Path(stream.name)
-            os.chmod(temporary, mode)
-            stream.write(content)
-        temporary.replace(ENV_PATH)
-    finally:
-        if temporary is not None:
-            temporary.unlink(missing_ok=True)
+    if re.search(rf"^{re.escape(key)}=", content, flags=re.MULTILINE):
+        new_content = re.sub(
+            rf"^{re.escape(key)}=.*$",
+            f"{key}={value}",
+            content,
+            count=1,
+            flags=re.MULTILINE,
+        )
+    else:
+        sep = "" if not content or content.endswith("\n") else "\n"
+        new_content = f"{content}{sep}{key}={value}\n"
+    ENV_PATH.write_text(new_content, encoding="utf-8")
 
 
 async def _probe_claude_auth() -> tuple[bool, str]:

@@ -1,0 +1,10 @@
+{
+  ".env": "30c3901c93a06d9f5b36b41805582d74d6a009272b7154746c2f7bc681b0966f",
+  "src/d_brain/bot/handlers/backend.py": "1c37e5370c98b2d3034c944dd808b744b8274d2a65df299bae54c5f929c0d0cc",
+  "src/d_brain/bot/handlers/buttons.py": "fccc2b3163947f9a1e9973ba5622bc754188ddcc64c9aa35bfc504902b6fd630",
+  "src/d_brain/bot/keyboards.py": "273b907718fa99d0967a6019da2fb95ece9188eb55b83894146f3582e86922ee",
+  "src/d_brain/services/processor.py": "9013929d824ff95513e4ac44fa05481644ee2501f6ea3d417073ee10aeb75995",
+  "tests/test_chat_button.py": "e9d3c3437bed0a67aaa37fbed3baeb747496a186a11f36d0419bce3c67ebca31",
+  "tests/test_request_jobs.py": "702706e5316ee708d5dd45f475b8499e39b326eff93586afb8fc7389a4ad13c3",
+  "SHARED_ASSISTANT_RULES.md": "6bc1001488e8914671cd8817e7ba11874836ceaff6c63369e6ba61e5d7fc02b8"
+}

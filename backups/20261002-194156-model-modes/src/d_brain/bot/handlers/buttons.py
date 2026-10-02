@@ -7,11 +7,8 @@ from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
-from d_brain.bot.handlers.backend import _replace_env_value, _replace_env_values
-from d_brain.bot.keyboards import (
-    CHAT_BUTTON_LABELS, CODEX_CHAT_MODEL, CODEX_MODE_EFFORT, CODEX_WORK_MODEL,
-    WORK_BUTTON_LABELS, get_message_keyboard,
-)
+from d_brain.bot.handlers.backend import _replace_env_value
+from d_brain.bot.keyboards import CHAT_BUTTON_LABELS, WORK_BUTTON_LABELS, get_message_keyboard
 from d_brain.config import get_settings
 
 router = Router(name="buttons")
@@ -20,9 +17,8 @@ logger = logging.getLogger(__name__)
 
 @router.message(F.text.in_(WORK_BUTTON_LABELS))
 async def btn_work(message: Message, state: FSMContext) -> None:
-    """Select Astra max on Codex; retain the Claude effort selector."""
-    await _set_effort(message, state, "xhigh", "очень высокий", "🛠",
-                      CODEX_WORK_MODEL, "GPT-6 Astra")
+    """Persist very high effort for subsequent messages."""
+    await _set_effort(message, state, "xhigh", "очень высокий", "🛠")
 
 
 @router.message(F.text == "⚙️ Обработать")
@@ -43,43 +39,28 @@ async def btn_weekly(message: Message) -> None:
 
 @router.message(F.text.in_(CHAT_BUTTON_LABELS))
 async def btn_chat(message: Message, state: FSMContext) -> None:
-    """Select Sol max on Codex without calling a model."""
-    await _set_effort(message, state, "medium", "средний", "💬",
-                      CODEX_CHAT_MODEL, "GPT-6.1 Sol")
+    """Persist medium effort for subsequent messages without calling a model."""
+    await _set_effort(message, state, "medium", "средний", "💬")
 
 
 async def _set_effort(
     message: Message, state: FSMContext, effort: str, label: str, icon: str,
-    codex_model: str, model_label: str,
 ) -> None:
     settings = get_settings()
     if message.from_user is None or message.from_user.id not in settings.admin_user_ids:
         await message.answer("Менять уровень мышления может только администратор.")
         return
-    if settings.ai_backend == "claude":
-        values = {"CLAUDE_EFFORT": effort}
-        confirmation = f"{icon} Включил {label} уровень мышления."
-    else:
-        values = {
-            "CODEX_MODEL": codex_model,
-            "CODEX_MODEL_CHAT": codex_model,
-            "CODEX_MODEL_AGENT": codex_model,
-            "CODEX_REASONING_EFFORT": CODEX_MODE_EFFORT,
-        }
-        confirmation = f"{icon} Включил {model_label}, уровень мышления — максимальный (max)."
+    key = "CLAUDE_EFFORT" if settings.ai_backend == "claude" else "CODEX_REASONING_EFFORT"
     try:
-        if settings.ai_backend == "claude":
-            _replace_env_value("CLAUDE_EFFORT", effort)
-        else:
-            _replace_env_values(values)
+        _replace_env_value(key, effort)
     except OSError:
-        logger.exception("Failed to persist model selection")
-        await message.answer("Не удалось сохранить режим. Настройка не изменена.")
+        logger.exception("Failed to persist reasoning effort")
+        await message.answer(f"Не удалось сохранить {label} уровень мышления. Настройка не изменена.")
         return
-    os.environ.update(values)
+    os.environ[key] = effort
     await state.set_state(None)
     await message.answer(
-        confirmation,
+        f"{icon} Включил {label} уровень мышления.",
         reply_markup=get_message_keyboard(message),
     )
 

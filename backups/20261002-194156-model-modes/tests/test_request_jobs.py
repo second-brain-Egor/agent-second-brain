@@ -159,9 +159,7 @@ async def test_dispatcher_auth_still_precedes_stop(tmp_path,monkeypatch):
     settings.admin_user_ids = [7]
     monkeypatch.setattr(buttons, 'get_settings', lambda: settings)
     save = Mock()
-    monkeypatch.setattr(buttons, '_replace_env_values', save)
-    for key in ('CODEX_MODEL', 'CODEX_MODEL_CHAT', 'CODEX_MODEL_AGENT'):
-        monkeypatch.setenv(key, '')
+    monkeypatch.setattr(buttons, '_replace_env_value', save)
     monkeypatch.setenv('CODEX_REASONING_EFFORT', 'xhigh')
     state = dp.fsm.get_context(bot=bot, chat_id=7, user_id=7)
     for number, label in enumerate(sorted(CHAT_BUTTON_LABELS | WORK_BUTTON_LABELS), 3):
@@ -170,11 +168,8 @@ async def test_dispatcher_auth_still_precedes_stop(tmp_path,monkeypatch):
         event = Update(update_id=number + 9, message=event.message.model_copy(
             update={'message_id': number, 'text': label}))
         await dp.feed_update(bot, event)
-        model = 'gpt-6.1-sol' if label in CHAT_BUTTON_LABELS else 'gpt-6-astra'
-        save.assert_called_once_with({
-            'CODEX_MODEL': model, 'CODEX_MODEL_CHAT': model,
-            'CODEX_MODEL_AGENT': model, 'CODEX_REASONING_EFFORT': 'max',
-        })
+        effort = 'medium' if label in CHAT_BUTTON_LABELS else 'xhigh'
+        save.assert_called_once_with('CODEX_REASONING_EFFORT', effort)
         assert await state.get_state() is None
         assert not jobs.active  # Switching itself needs no background/model job.
         assert 'уровень мышления' in send.call_args.args[1].text

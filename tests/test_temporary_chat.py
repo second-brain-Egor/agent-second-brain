@@ -145,6 +145,8 @@ async def test_owner_private_chat_only_and_controls(chat):
     for msg in [message('Чужой', from_user=SimpleNamespace(id=8)),
                 message('Группа', chat=SimpleNamespace(type='group')),
                 message('💬 Обсудить'), message('🛠 Работа'), message('🤖 Модель'),
+                message('🔴 Обсудить'), message('🔴 Работа'),
+                message('💬 Обсудить ·'), message('🛠 Работа ·'),
                 message('🧠 Claude'), message('⚙️ Обработать')]:
         normal = await deliver(chat, msg)
         normal.assert_awaited_once()

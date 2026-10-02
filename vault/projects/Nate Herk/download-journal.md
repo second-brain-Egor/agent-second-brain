@@ -1,14 +1,8 @@
----
-type: project
-last_accessed: 2026-10-01
-relevance: 0.98
-tier: active
----
 # Журнал скачанных видео
 
-Обновлено: 2026-10-01 07:01
-Всего видео в папке: 55
-Записей в журнале: 53
+Обновлено: 2026-10-02 07:00
+Всего видео в папке: 56
+Записей в журнале: 54
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -381,6 +375,18 @@ tier: active
 Транскрипт: есть
 Кадры: 25
 Обновлено: 2026-09-18T07:00:41+03:00
+
+## 001-ultrafast-is-really-really-good-but-is-it-worth-the-money
+
+Статус: complete
+Название: I Tested Codex's $500/mo Ultrafast. What You Need to Know.
+Ссылка: https://www.youtube.com/watch?v=pY5_Ux_YJjo
+Дата видео: 20261001
+Описание: есть
+Комментарии: 61
+Транскрипт: есть
+Кадры: 25
+Обновлено: 2026-10-02T07:00:48+03:00
 
 ## 002-ai-news-in-5-mins-gpt-6-astra
 

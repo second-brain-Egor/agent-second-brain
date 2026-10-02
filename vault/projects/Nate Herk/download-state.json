@@ -796,7 +796,22 @@
       "frames_required": true,
       "updated_at": "2026-10-01T07:01:35+03:00",
       "completed_at": "2026-10-01T07:01:35+03:00"
+    },
+    "pY5_Ux_YJjo": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money",
+      "title": "I Tested Codex's $500/mo Ultrafast. What You Need to Know.",
+      "url": "https://www.youtube.com/watch?v=pY5_Ux_YJjo",
+      "upload_date": "20261001",
+      "comments": 61,
+      "frames": 25,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-02T07:00:48+03:00",
+      "completed_at": "2026-10-02T07:00:48+03:00"
     }
   },
-  "updated_at": "2026-10-01T07:01:35+03:00"
+  "updated_at": "2026-10-02T07:00:48+03:00"
 }

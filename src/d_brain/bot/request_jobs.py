@@ -9,7 +9,7 @@ import time
 from datetime import datetime
 
 from d_brain.bot.chat_context import build_msg_type, get_session_scope, is_work_chat
-from d_brain.bot.keyboards import CHAT_BUTTON, WORK_BUTTON
+from d_brain.bot.keyboards import CHAT_BUTTON_LABELS, WORK_BUTTON_LABELS
 from d_brain.services.execution import (
     TERMINAL, Execution, ExecutionLimit, ExecutionStopped,
     execution_context,
@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 STOP = re.compile(r'^(?:/stop(?:@\w+)?|/cancel(?:@\w+)?|стоп|стой|остановись|останови(?:\s+(?:задачу|работу|всё|все))?|отмени(?:\s+(?:задачу|всё|все))?|хватит)(?:[.!\s]*)$', re.I)
 STATUS = re.compile(r'^(?:/tasks(?:@\w+)?|/taskstatus(?:@\w+)?|статус\s+задач[и]?|ты\s+чем\s+(?:занимаешься|занят)|чем\s+(?:занимаешься|занят)|как\s+идёт\s+(?:задача|работа))(?:[?!.\s]*)$', re.I)
 QUICK = {'/start', '/help', '/silent', '/chat', '/voice', '/restart', '❓ Помощь', '🤖 Модель', '🧠 Claude'}
-QUICK.update({CHAT_BUTTON, WORK_BUTTON, '✨ Запрос'})
+QUICK.update(CHAT_BUTTON_LABELS | WORK_BUTTON_LABELS)
 LABELS = dict(delegated='передано в обработку', queued='в очереди', running='выполняется', completed='завершено',
               stopped='остановлено', superseded='остановлено новым сообщением',
               limit='остановлено по ограничению', error='ошибка', interrupted='прервано перезапуском')

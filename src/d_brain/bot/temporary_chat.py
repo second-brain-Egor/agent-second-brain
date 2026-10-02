@@ -9,7 +9,7 @@ import tempfile
 from pathlib import Path
 
 from d_brain.bot.formatters import prepare_telegram_response
-from d_brain.bot.keyboards import CHAT_BUTTON, WORK_BUTTON, get_main_keyboard
+from d_brain.bot.keyboards import CHAT_BUTTON_LABELS, WORK_BUTTON_LABELS, get_main_keyboard
 from d_brain.bot.request_jobs import STATUS, STOP
 from d_brain.bot.typing_indicator import keep_typing
 from d_brain.config import get_settings
@@ -19,9 +19,10 @@ from d_brain.services.temporary_reply import reply
 
 logger = logging.getLogger(__name__)
 # These controls carry no conversation content. They retain their usual behavior.
-CONTROLS = {CHAT_BUTTON, WORK_BUTTON, "✨ Запрос", "🤖 Модель", "🧠 Claude",
+CONTROLS = {"🤖 Модель", "🧠 Claude",
             "❓ Помощь", "⚙️ Обработать", "/process", "/weekly",
             "/help", "/start", "/chat", "/voice"}
+CONTROLS.update(CHAT_BUTTON_LABELS | WORK_BUTTON_LABELS)
 
 
 class TemporaryChat:

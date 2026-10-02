@@ -9,9 +9,6 @@ CHAT_BUTTON = "💬 Обсудить"
 WORK_BUTTON = "🛠 Работа"
 ACTIVE_CHAT_BUTTON = f"{CHAT_BUTTON} ✓"
 ACTIVE_WORK_BUTTON = f"{WORK_BUTTON} ✓"
-CODEX_WORK_MODEL = "gpt-6-astra"
-CODEX_CHAT_MODEL = "gpt-6.1-sol"
-CODEX_MODE_EFFORT = "max"
 CHAT_BUTTON_LABELS = {CHAT_BUTTON, ACTIVE_CHAT_BUTTON, "💬 Обсудить ·", "🔴 Обсудить", "✨ Запрос"}
 WORK_BUTTON_LABELS = {WORK_BUTTON, ACTIVE_WORK_BUTTON, "🛠 Работа ·", "🔴 Работа"}
 
@@ -26,16 +23,12 @@ def get_main_keyboard(user_id: int | None = None) -> ReplyKeyboardMarkup:
     """Main reply keyboard with common commands."""
     builder = ReplyKeyboardBuilder()
     settings = get_settings()
-    if settings.ai_backend == "claude":
-        work_selected = settings.claude_effort == "xhigh"
-        chat_selected = settings.claude_effort == "medium"
-    else:
-        model = settings.codex_model_chat.strip() or settings.codex_model.strip()
-        effort_matches = settings.codex_reasoning_effort == CODEX_MODE_EFFORT
-        work_selected = effort_matches and model == CODEX_WORK_MODEL
-        chat_selected = effort_matches and model == CODEX_CHAT_MODEL
+    effort = (
+        settings.claude_effort if settings.ai_backend == "claude"
+        else settings.codex_reasoning_effort
+    )
     # First row: main commands
-    builder.button(text=ACTIVE_WORK_BUTTON if work_selected else WORK_BUTTON)
+    builder.button(text=ACTIVE_WORK_BUTTON if effort == "xhigh" else WORK_BUTTON)
     builder.button(text="⚙️ Обработать")
     owner = settings.temporary_chat_user_id
     label = "📅 Неделя"
@@ -44,7 +37,7 @@ def get_main_keyboard(user_id: int | None = None) -> ReplyKeyboardMarkup:
         label = NORMAL_CHAT if enabled(settings) else TEMPORARY_CHAT
     builder.button(text=label)
     # Second row: conversation mode and model selectors.
-    builder.button(text=ACTIVE_CHAT_BUTTON if chat_selected else CHAT_BUTTON)
+    builder.button(text=ACTIVE_CHAT_BUTTON if effort == "medium" else CHAT_BUTTON)
     builder.button(text="🤖 Модель")
     builder.button(text="🧠 Claude")
     if get_settings().show_help_button:
