@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-10-02
+relevance: 0.98
+tier: active
+---
 Codex's new ultrafast is really fast.
 Here I just asked what did I talk about
 in this week's community Q&amp;A call and

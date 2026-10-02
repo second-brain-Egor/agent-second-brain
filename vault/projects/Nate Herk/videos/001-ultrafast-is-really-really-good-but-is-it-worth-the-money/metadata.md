@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-10-02
+relevance: 0.98
+tier: active
+---
 # I Tested Codex's $500/mo Ultrafast. What You Need to Know.
 
 Ссылка: https://www.youtube.com/watch?v=pY5_Ux_YJjo

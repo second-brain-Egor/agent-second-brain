@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-10-02
+relevance: 0.98
+tier: active
+---
 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/?utm_source=youtube&utm_medium=organic&utm_content=ultrafast-gpt-6-astra&sl=yt_ultrafast-gpt-6-astra
 How I built an AI agency from 0 to over $1 million per year: https://www.skool.com/ai-automation-society-plus/about?el=ultrafast-gpt-6-astra&hcategory=youtube-videos&utm_campaign=plus-group
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=ultrafast-gpt-6-astra&hcategory=youtube-videos&utm_campaign=free-group

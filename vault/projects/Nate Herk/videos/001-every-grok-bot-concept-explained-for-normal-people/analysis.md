@@ -3,7 +3,7 @@ type: project
 description: "Дата: 2026-09-01 Длительность: 21:32 Ссылка: https://www.youtube.com/watch?v=NyfYxpXiw_0"
 related: 
 last_accessed: 2026-09-01
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Карточка ролика: 26 понятий Grok Bot

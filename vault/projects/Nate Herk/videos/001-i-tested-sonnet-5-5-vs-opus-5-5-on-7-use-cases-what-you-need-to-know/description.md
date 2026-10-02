@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-09-29
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 FREE Scrollcraft Website Design Skill: https://app.aiautomationsociety.ai/optin/scrollcraft/?utm_source=youtube&utm_medium=organic&utm_content=sonnet-5.5-vs-opus-5.5&sl=yt_sonnet-5.5-vs-opus-5.5

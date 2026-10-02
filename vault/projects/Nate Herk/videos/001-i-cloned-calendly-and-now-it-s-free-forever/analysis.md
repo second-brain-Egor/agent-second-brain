@@ -3,7 +3,7 @@ type: project
 description: "Дата: 2026-08-28 Длительность: 13:59 Ссылка: https://www.youtube.com/watch?v=PYjbeY8sGLs"
 related: 
 last_accessed: 2026-08-29
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Карточка ролика: SnagTime — собственный планировщик вместо Calendly

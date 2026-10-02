@@ -3,7 +3,7 @@ type: project
 description: "О мечте и окружении — project"
 related: 
 last_accessed: 2026-05-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # О мечте и окружении

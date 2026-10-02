@@ -4,7 +4,7 @@ description: "- Этот чат считается рабочим контуро
 related: 
 updated: 2026-04-11
 last_accessed: 2026-04-11
-relevance: 0.98
+relevance: 0.97
 tier: active
 scope: work-group
 ---

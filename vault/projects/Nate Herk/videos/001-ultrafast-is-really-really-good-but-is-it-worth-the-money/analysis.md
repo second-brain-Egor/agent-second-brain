@@ -1,7 +1,7 @@
 ---
 type: project
 description: "Проверка режима Ultrafast в Codex на GPT-6 Astra: скорость, расход недельного лимита и качество монтажа и справочника."
-related:
+related: 
 last_accessed: 2026-10-02
 relevance: 0.98
 tier: active

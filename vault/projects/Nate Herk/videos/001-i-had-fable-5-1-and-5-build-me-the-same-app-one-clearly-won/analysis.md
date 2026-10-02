@@ -3,7 +3,7 @@ type: project
 description: "I Had Fable 5.1 and 5 Build Me the Same App — project"
 related: 
 last_accessed: 2026-09-04
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # I Had Fable 5.1 and 5 Build Me the Same App

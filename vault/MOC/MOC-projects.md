@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-10-01
+last_accessed: 2026-10-02
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-02 | folders: 21, notes: 614, standalone: 0
+> Generated: 2026-10-03 | folders: 21, notes: 620, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -106,7 +106,7 @@ tier: active
 
 - [[projects/japanese-architecture/README|Японская архитектура]] — Японская архитектура — project
 
-## Nate Herk (337)
+## Nate Herk (343)
 
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]] — 100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know. — project
 - [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/metadata|18 Months of Pricing AI Automations in 21 Mins]] — 18 Months of Pricing AI Automations in 21 Mins — project
@@ -154,6 +154,7 @@ tier: active
 - [[projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won/metadata|I Made Codex and Claude Code Build the Same App. One Clearly Won.]] — I Made Codex and Claude Code Build the Same App. One Clearly Won. — project
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/analysis|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]] — I Tested Claude Code vs. Codex on Design. It Wasn't Even Close. — project
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/metadata|I Tested Claude Code vs. Codex on Design. It Wasn't Even Close.]] — I Tested Claude Code vs. Codex on Design. It Wasn't Even Close. — project
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/metadata|I Tested Codex's $500/mo Ultrafast. What You Need to Know.]]
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/metadata|I Tested GPT-6 Astra vs Fable 5.1 on 15 Real Use Cases]] — Ссылка: https://www.youtube.com/watch?v=WfJPBVXPt8k Источник: Nate Herk | AI Automation Дата: 20260906 Длительность: ...
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/metadata|I Tested Jev on 12 Real Use Cases. My Honest Thoughts.]] — Ссылка: https://www.youtube.com/watch?v=ymgH8jS6Wb8 Источник: Nate Herk | AI Automation Дата: 20260919 Длительность: ...
 - [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/metadata|I Tested OpenAI's Dots vs. Meta's Muse. What You Need to Know.]]
@@ -206,6 +207,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/description|description]] — I just hit 1 million subscribers today.
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/description|description]] — Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA My FREE resources...
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/description|description]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
@@ -261,6 +263,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/transcript|transcript]] — Oh my gosh. Where's that last one? Oh my gosh. Wow, my heart is actually racing. Wow. All right, I got to take a pict...
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/transcript|transcript]] — One of the great things about Codex is that right inside of it, it can make images for you. As you can see right here...
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/transcript|transcript]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/transcript|transcript]] — What do we have right here is GPT6 Astro, which is a new generation of intelligence. And the president, Greg Brockman...
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/transcript|transcript]] — So, Enthropic Engineers just said that they stopped building agents and they started building something completely di...
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/transcript|transcript]] — Well, it's here. We have Claude Fable 5.1 and Mythos 5.1. They're the world's most advanced models for coding and kno...
@@ -292,11 +295,10 @@ tier: active
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]] — Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой рез...
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/frames/README|Кадры]]
-- [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/frames/README|Кадры]]
-- [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/analysis|Как на самом деле выбрать подходящего ИИ-агента]] — - Дата публикации: 11 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=6LNl...
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/_work/analysis-до-проверки|Как создавать и продавать решения с Codex: курс на пять часов]] — Полный разбор курса Нейта Херка о настройке Codex, создании проверяемых решений и продаже результата компаниям.
@@ -359,6 +361,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/comments|Комментарии]] — Congrats Nate!! This is awseome man! Thank you for your content and time work!
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/comments|Комментарии]] — Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA FREE MONTH voice to text: https://get.gl...
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/comments|Комментарии]]
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
@@ -400,6 +403,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/analysis|Я проверил Opus 5.5 на всех уровнях глубины. Что нужно знать]] — Я проверил Opus 5.5 на всех уровнях глубины — разбор
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/analysis|Я проверил Sonnet 5.5 и Opus 5.5 в семи задачах: что нужно знать]] — Я проверил Sonnet 5.5 и Opus 5.5 в семи задачах — разбор
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/analysis|Я протестировал GPT-6 Astra и Fable 5.1 в 15 реальных задачах]] — Я протестировал GPT-6 Astra и Fable 5.1 в 15 реальных задачах — проект
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/analysis|Я протестировал Ultrafast в Codex за 500 долларов в месяц: что нужно знать]] — Проверка режима Ultrafast в Codex на GPT-6 Astra: скорость, расход недельного лимита и качество монтажа и справочника.
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 13
 - [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 107
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/frames/README|Кадры]] — Кадры — project
@@ -408,6 +412,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 93
 - [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 30
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 39
+- [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 23
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 23
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 16
@@ -415,6 +420,7 @@ tier: active
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 86
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 34
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 331
+- [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 255
