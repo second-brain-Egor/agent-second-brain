@@ -1,0 +1,73 @@
+{
+  "id": "DFlELTiSPk8",
+  "title": "Every Codex Concept Explained for Non-Coders",
+  "upload_date": "20261003",
+  "timestamp": 1791042800,
+  "duration": 2073,
+  "webpage_url": "https://www.youtube.com/watch?v=DFlELTiSPk8",
+  "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
+  "channel": "Nate Herk | AI Automation",
+  "description": "How I built an AI agency from 0 to over $1 million per year: https://www.skool.com/ai-automation-society-plus/about?el=codex-18-concepts&hcategory=youtube-videos&utm_campaign=plus-group\nMy FREE resources: https://www.skool.com/ai-automation-society/about?el=codex-18-concepts&hcategory=youtube-videos&utm_campaign=free-group\n\nMy Tools💻\nFREE MONTH voice to text: https://get.glaido.com/nate\nCode NATEHERK for 10% off VPS (annual plan): https://www.hostinger.com/vps/claude-code-hosting\n\nLearn the 18 core Codex concepts you need to start using it, even if you've never written a line of code. \n\nI walk through projects, skills, plugins, subagents, and more, with practical examples from my own setup. You'll learn how to give Codex context, turn repeat tasks into reusable workflows, and manage work from your desktop or phone.\n\nSponsorship Inquiries:\n📧 nate@smoothmedia.co\n\nConnect with me:\nhttps://www.linkedin.com/in/nateherkelman/\nhttps://x.com/nateherk\nhttps://www.instagram.com/nateherk/\n\nTIMESTAMPS \n0:00 Projects And AGENTS.md\n3:58 Agent Loop And Goals\n9:54 Local, Cloud, And Remote\n13:25 Worktrees And Codex Settings\n16:10 Models, Tokens, And Usage\n19:18 Effort And Permissions\n21:38 Skills And .agents\n25:03 Plugins And Browser Use\n27:05 Hosting With Sites\n28:18 Subagents And Scheduled Tasks\n31:41 Voice Mode\n34:19 Final Thoughts",
+  "chapters": [
+    {
+      "start_time": 0,
+      "title": "Projects And AGENTS.md",
+      "end_time": 238
+    },
+    {
+      "start_time": 238,
+      "title": "Agent Loop And Goals",
+      "end_time": 594
+    },
+    {
+      "start_time": 594,
+      "title": "Local, Cloud, And Remote",
+      "end_time": 805
+    },
+    {
+      "start_time": 805,
+      "title": "Worktrees And Codex Settings",
+      "end_time": 970
+    },
+    {
+      "start_time": 970,
+      "title": "Models, Tokens, And Usage",
+      "end_time": 1158
+    },
+    {
+      "start_time": 1158,
+      "title": "Effort And Permissions",
+      "end_time": 1298
+    },
+    {
+      "start_time": 1298,
+      "title": "Skills And .agents",
+      "end_time": 1503
+    },
+    {
+      "start_time": 1503,
+      "title": "Plugins And Browser Use",
+      "end_time": 1625
+    },
+    {
+      "start_time": 1625,
+      "title": "Hosting With Sites",
+      "end_time": 1698
+    },
+    {
+      "start_time": 1698,
+      "title": "Subagents And Scheduled Tasks",
+      "end_time": 1901
+    },
+    {
+      "start_time": 1901,
+      "title": "Voice Mode",
+      "end_time": 2059
+    },
+    {
+      "start_time": 2059,
+      "title": "Final Thoughts",
+      "end_time": 2073
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 ---
+description: "I Tested Sonnet 5.5 vs Opus 5.5. What You Need to Know. — project"
 type: project
 last_accessed: 2026-09-29
 relevance: 0.98

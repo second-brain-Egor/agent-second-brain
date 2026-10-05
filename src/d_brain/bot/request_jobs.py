@@ -22,6 +22,8 @@ STOP = re.compile(r'^(?:/stop(?:@\w+)?|/cancel(?:@\w+)?|стоп|стой|ост
 STATUS = re.compile(r'^(?:/tasks(?:@\w+)?|/taskstatus(?:@\w+)?|статус\s+задач[и]?|ты\s+чем\s+(?:занимаешься|занят)|чем\s+(?:занимаешься|занят)|как\s+идёт\s+(?:задача|работа))(?:[?!.\s]*)$', re.I)
 QUICK = {'/start', '/help', '/silent', '/chat', '/voice', '/restart', '❓ Помощь', '🤖 Модель', '🧠 Claude'}
 QUICK.update(CHAT_BUTTON_LABELS | WORK_BUTTON_LABELS)
+QUICK.add('🤖 Codex')
+QUICK.update({'🧠 Claude ✓', '🤖 Codex ✓'})
 LABELS = dict(delegated='передано в обработку', queued='в очереди', running='выполняется', completed='завершено',
               stopped='остановлено', superseded='остановлено новым сообщением',
               limit='остановлено по ограничению', error='ошибка', interrupted='прервано перезапуском')

@@ -1,8 +1,7 @@
 ---
 type: note
-updated: 2026-10-03
-last_accessed: 2026-10-03
-relevance: 1.0
+updated: 2026-10-05
+relevance: 0.9
 tier: active
 ---
 # Индекс знаний
@@ -11,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 910
-- Связей: 2253
-- Сирот: 61
-- Слабосвязанных: 83
+- Заметок: 933
+- Связей: 2288
+- Сирот: 63
+- Слабосвязанных: 93
 
 ## Память
 
@@ -47,6 +46,7 @@ tier: active
 - [[projects/Forumhouse/Нормативка/нормативные авторитетные документы книги пособия.md|Нормативные, авторитетные документы, книги и пособия]]
 - [[projects/Forumhouse/Нормативка/список нормативных документов.md|Нормативные документы из скачанных тем Forumhouse]]
 - [[projects/Nate Herk/AGENTS.md|Nate Herk — правила проекта]]
+- [[projects/Nate Herk/analysis/обзор-2026-10-05.md|Обзор по запросу Егора — 5 октября 2026]]
 - [[projects/Nate Herk/download-journal.md|Журнал скачанных видео]]
 - [[projects/Nate Herk/summary.md|Сводка по видео]]
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/analysis.md|Карточка ролика: DeepSeek Harness против Claude Code после недели тестов]]
@@ -55,6 +55,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata.md|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]]
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/analysis.md|Пять дополнений Claude Code, которые стоит настроить сразу]]
+- [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/description.md|description]]
+- [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/metadata.md|Claude Code Mods Are Game Changers. Set Up These 5 NOW.]]
+- [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/analysis.md|Новости об искусственном интеллекте за 10 минут: вероятность гибели всех людей — 10%]]
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/description.md|description]]
@@ -91,6 +97,14 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-аудио.md|Проверка аудиодорожки]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-кадров.md|Проверка всех сохранённых кадров]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-полноты.md|Проверка полноты разбора]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/audio-transcript.md|Независимая расшифровка полной аудиодорожки]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/description.md|description]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames-timed/README.md|Проверяемый визуальный ряд]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/metadata.md|Every Codex Concept Explained for Non-Coders]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/transcript-timed.md|Полная расшифровка с таймкодами]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/analysis.md|Карточка ролика: 26 понятий Grok Bot]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/description.md|description]]
@@ -295,6 +309,12 @@ tier: active
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/metadata.md|I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases]]
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/analysis.md|Как человеку без технического опыта создавать и продавать программы с помощью ИИ]]
+- [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/description.md|description]]
+- [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/metadata.md|How to Actually Build & Sell Software with AI as a Non-Techie]]
+- [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/analysis.md|Карточка ролика: бесплатные модели OpenRouter внутри Claude Code]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/description.md|description]]
@@ -669,13 +689,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-10-05.md|2026-10-05]]
+- [[daily/2026-10-04.md|2026-10-04]]
 - [[daily/2026-10-03.md|2026-10-03]]
 - [[daily/2026-10-02.md|2026-10-02]]
 - [[daily/2026-10-01.md|2026-10-01]]
 - [[daily/2026-09-30.md|2026-09-30]]
 - [[daily/2026-09-29.md|2026-09-29]]
-- [[daily/2026-09-28.md|2026-09-28]]
-- [[daily/2026-09-27.md|2026-09-27]]
 
 ## Недельные сводки
 
@@ -691,7 +711,7 @@ tier: active
 - [[thoughts/learnings/agent-team-pattern-portability.md|Переносимость команды агентов]]
 - [[thoughts/learnings/ai-models-2026-07-25.md|Новые модели Anthropic и OpenAI на 25 июля 2026]]
 - [[thoughts/learnings/bot-communication-rules.md|Правила коммуникации бота]]
-- [[thoughts/learnings/claude-limits-visibility.md|Лимиты подписки Claude: где смотреть]]
+- [[thoughts/learnings/claude-limits-visibility.md|Лимиты подписки Claude: как смотреть]]
 - [[thoughts/learnings/dino-rolling-40x40x2-vs-40x20x3.md|Dino: 40×40×2 и 40×20×3 на ребро]]
 - [[thoughts/learnings/engineering-fit-calculation-discipline.md|Проверка посадки деталей без подмены геометрии]]
 - [[thoughts/learnings/error-journal-principles.md|Принципы журнала ошибок]]

@@ -811,7 +811,37 @@
       "frames_required": true,
       "updated_at": "2026-10-02T07:00:48+03:00",
       "completed_at": "2026-10-02T07:00:48+03:00"
+    },
+    "9hetShMMp2s": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs",
+      "title": "Claude Code Mods Are Game Changers. Set Up These 5 NOW.",
+      "url": "https://www.youtube.com/watch?v=9hetShMMp2s",
+      "upload_date": "20261002",
+      "comments": 33,
+      "frames": 16,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-03T07:00:50+03:00",
+      "completed_at": "2026-10-03T07:00:50+03:00"
+    },
+    "l8ywUsEJ2XQ": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026",
+      "title": "How to Actually Build & Sell Software with AI as a Non-Techie",
+      "url": "https://www.youtube.com/watch?v=l8ywUsEJ2XQ",
+      "upload_date": "20261002",
+      "comments": 21,
+      "frames": 24,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-03T07:03:50+03:00",
+      "completed_at": "2026-10-03T07:03:50+03:00"
     }
   },
-  "updated_at": "2026-10-02T07:00:48+03:00"
+  "updated_at": "2026-10-03T07:03:50+03:00"
 }

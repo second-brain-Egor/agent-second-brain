@@ -1,4 +1,5 @@
 ---
+description: "Комментарии — project"
 type: project
 last_accessed: 2026-09-29
 relevance: 0.98

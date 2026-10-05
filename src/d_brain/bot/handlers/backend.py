@@ -90,7 +90,7 @@ def _replace_env_values(values: dict[str, str]) -> None:
             temporary.unlink(missing_ok=True)
 
 
-async def _probe_claude_auth() -> tuple[bool, str]:
+async def _probe_claude_auth(model: str | None = None, effort: str | None = None) -> tuple[bool, str]:
     """Best-effort Claude CLI auth check before switching the bot to Claude."""
     settings = get_settings()
     claude_bin = shutil.which(settings.claude_bin.strip() or "claude")
@@ -100,14 +100,16 @@ async def _probe_claude_auth() -> tuple[bool, str]:
     if not claude_bin:
         return False, "Claude CLI не найден."
 
-    model = settings.claude_model_chat.strip() or settings.claude_model.strip() or "sonnet"
+    model = model or settings.claude_model_chat.strip() or settings.claude_model.strip() or "sonnet"
     cmd = [
         claude_bin,
         "-p",
         "--model",
         model,
         "--effort",
-        settings.claude_effort.strip() or "medium",
+        effort or settings.claude_effort.strip() or "medium",
+        "--tools",
+        "",
         "--permission-mode",
         "default",
         "--output-format",

@@ -1,0 +1,4702 @@
+[
+  {
+    "seconds": 2.47,
+    "text": "Today I'm going over the 18 core Codeex"
+  },
+  {
+    "seconds": 2.48,
+    "text": "concepts that you actually need to know"
+  },
+  {
+    "seconds": 3.76,
+    "text": "in order to start using it right away"
+  },
+  {
+    "seconds": 5.12,
+    "text": "and getting value from it. It doesn't"
+  },
+  {
+    "seconds": 6.56,
+    "text": "matter if you're not technical at all or"
+  },
+  {
+    "seconds": 7.839,
+    "text": "you've never used Codex before. By the"
+  },
+  {
+    "seconds": 9.2,
+    "text": "end of this video, you'll understand"
+  },
+  {
+    "seconds": 10.32,
+    "text": "exactly how this thing actually works so"
+  },
+  {
+    "seconds": 11.84,
+    "text": "that you can start using it right away."
+  },
+  {
+    "seconds": 13.04,
+    "text": "So, let's not waste any time and just"
+  },
+  {
+    "seconds": 14.24,
+    "text": "get straight into this one. All right,"
+  },
+  {
+    "seconds": 15.36,
+    "text": "so I've split these 18 core concepts"
+  },
+  {
+    "seconds": 16.96,
+    "text": "into four different parts and they get"
+  },
+  {
+    "seconds": 18.32,
+    "text": "cooler as we continue to go on. So, part"
+  },
+  {
+    "seconds": 20.48,
+    "text": "one, we're going to start off here is"
+  },
+  {
+    "seconds": 22.08,
+    "text": "foundations. So, we're going to kick off"
+  },
+  {
+    "seconds": 23.76,
+    "text": "with concept number one, which is"
+  },
+  {
+    "seconds": 25.519,
+    "text": "projects. Now, a lot of you guys, I'm"
+  },
+  {
+    "seconds": 27.199,
+    "text": "assuming, have used chatgbt or claude in"
+  },
+  {
+    "seconds": 28.96,
+    "text": "the web before where you can talk to an"
+  },
+  {
+    "seconds": 30.56,
+    "text": "LLM and it can, you know, give you an"
+  },
+  {
+    "seconds": 32.399,
+    "text": "answer. But the problem you face is that"
+  },
+  {
+    "seconds": 34.079,
+    "text": "every time you're talking to it or you"
+  },
+  {
+    "seconds": 35.44,
+    "text": "start a new chat, you have to kind of"
+  },
+  {
+    "seconds": 37.2,
+    "text": "familiarize it with you and your"
+  },
+  {
+    "seconds": 38.64,
+    "text": "business and what you're working on that"
+  },
+  {
+    "seconds": 40.0,
+    "text": "week or that quarter. So, with projects,"
+  },
+  {
+    "seconds": 41.76,
+    "text": "you can basically keep everything"
+  },
+  {
+    "seconds": 42.879,
+    "text": "organized into one project so that as"
+  },
+  {
+    "seconds": 45.04,
+    "text": "you keep working inside of it, it only"
+  },
+  {
+    "seconds": 46.719,
+    "text": "gets smarter about knowing who you are."
+  },
+  {
+    "seconds": 48.719,
+    "text": "So, right here on the lefth hand side,"
+  },
+  {
+    "seconds": 49.68,
+    "text": "you can see that I've got a few projects"
+  },
+  {
+    "seconds": 50.96,
+    "text": "going on. I've got Herk 2, I've got"
+  },
+  {
+    "seconds": 52.559,
+    "text": "Hyperframes, I've got Trading Challenge,"
+  },
+  {
+    "seconds": 54.16,
+    "text": "I've got AIS demo, and I typically am"
+  },
+  {
+    "seconds": 56.0,
+    "text": "always just working inside of my Herk 2"
+  },
+  {
+    "seconds": 57.52,
+    "text": "project. My Herk 2 project is basically"
+  },
+  {
+    "seconds": 59.12,
+    "text": "what I call my AI operating system. And"
+  },
+  {
+    "seconds": 61.199,
+    "text": "what a project is is actually very"
+  },
+  {
+    "seconds": 62.719,
+    "text": "simple. It is just a collection of"
+  },
+  {
+    "seconds": 64.4,
+    "text": "folders and files. So right here, this"
+  },
+  {
+    "seconds": 66.08,
+    "text": "is inside of my file explorer on my"
+  },
+  {
+    "seconds": 67.68,
+    "text": "computer and it's called Herk 2. And"
+  },
+  {
+    "seconds": 69.52,
+    "text": "this is exactly the project that I have"
+  },
+  {
+    "seconds": 71.04,
+    "text": "open in Codeex. When I say right here,"
+  },
+  {
+    "seconds": 73.04,
+    "text": "I'm inside of Codex, right? This is the"
+  },
+  {
+    "seconds": 75.28,
+    "text": "file path that I'm working in, which is"
+  },
+  {
+    "seconds": 76.96,
+    "text": "if I open this up, my Herk 2 project. So"
+  },
+  {
+    "seconds": 79.439,
+    "text": "what that means is this project has"
+  },
+  {
+    "seconds": 81.04,
+    "text": "rules about me. It has, you know,"
+  },
+  {
+    "seconds": 82.96,
+    "text": "credentials. It has all my projects. It"
+  },
+  {
+    "seconds": 85.2,
+    "text": "has all my YouTube videos. This thing"
+  },
+  {
+    "seconds": 86.96,
+    "text": "has so much knowledge about me. So now"
+  },
+  {
+    "seconds": 88.88,
+    "text": "when I come into the chat and I say,"
+  },
+  {
+    "seconds": 90.32,
+    "text": "\"Hey, can you just give me a rundown of"
+  },
+  {
+    "seconds": 92.159,
+    "text": "what we've been working on this past"
+  },
+  {
+    "seconds": 94.159,
+    "text": "month?\" This thing basically gets"
+  },
+  {
+    "seconds": 95.6,
+    "text": "familiarized with my project and then it"
+  },
+  {
+    "seconds": 97.759,
+    "text": "looks at everything that we've been"
+  },
+  {
+    "seconds": 98.72,
+    "text": "working on together. It even looks"
+  },
+  {
+    "seconds": 100.0,
+    "text": "through all of my previous chats that"
+  },
+  {
+    "seconds": 101.439,
+    "text": "I've had with Codeex. So here you can"
+  },
+  {
+    "seconds": 103.68,
+    "text": "see that it looked back from the past"
+  },
+  {
+    "seconds": 104.96,
+    "text": "month and it said, \"Here's what we've"
+  },
+  {
+    "seconds": 106.399,
+    "text": "worked on. We've been improving your"
+  },
+  {
+    "seconds": 107.52,
+    "text": "Herk 2 and your AISOS. We've been"
+  },
+  {
+    "seconds": 110.0,
+    "text": "working on YouTube content and strategy,"
+  },
+  {
+    "seconds": 111.68,
+    "text": "AI model testing and demos, apps and"
+  },
+  {
+    "seconds": 113.92,
+    "text": "product experiments, websites, branding,"
+  },
+  {
+    "seconds": 116.24,
+    "text": "business operations. So, this is no"
+  },
+  {
+    "seconds": 118.079,
+    "text": "longer just an AI chatbot. This is now a"
+  },
+  {
+    "seconds": 120.719,
+    "text": "co-founder. This is a personal"
+  },
+  {
+    "seconds": 122.159,
+    "text": "assistant, which brings us on really"
+  },
+  {
+    "seconds": 123.68,
+    "text": "nicely into concept number two, which is"
+  },
+  {
+    "seconds": 125.759,
+    "text": "something called an agents.md."
+  },
+  {
+    "seconds": 128.08,
+    "text": "And don't let that MD intimidate you"
+  },
+  {
+    "seconds": 130.239,
+    "text": "here. If I go over to the right hand"
+  },
+  {
+    "seconds": 131.76,
+    "text": "side and I open up my files, you'll"
+  },
+  {
+    "seconds": 133.52,
+    "text": "notice if I scroll down, I have"
+  },
+  {
+    "seconds": 135.04,
+    "text": "something right here called an"
+  },
+  {
+    "seconds": 135.92,
+    "text": "agents.mmd. And when I open this up,"
+  },
+  {
+    "seconds": 138.08,
+    "text": "it's literally just a markdown file."
+  },
+  {
+    "seconds": 140.08,
+    "text": "That's what the MD means. And it's just"
+  },
+  {
+    "seconds": 142.16,
+    "text": "rules. Like this is a very simple thing"
+  },
+  {
+    "seconds": 143.68,
+    "text": "that you all can read and it's not"
+  },
+  {
+    "seconds": 145.599,
+    "text": "technical at all. So this is basically"
+  },
+  {
+    "seconds": 147.44,
+    "text": "like the rules for your project. So you"
+  },
+  {
+    "seconds": 149.599,
+    "text": "remember inside of my Herk 2 project, I"
+  },
+  {
+    "seconds": 151.2,
+    "text": "have this agents onMD. Well, if I was"
+  },
+  {
+    "seconds": 152.879,
+    "text": "inside of my Hyperframes editor project,"
+  },
+  {
+    "seconds": 154.72,
+    "text": "there would be a different agents.m MD."
+  },
+  {
+    "seconds": 156.48,
+    "text": "So this thing basically just sets the"
+  },
+  {
+    "seconds": 157.84,
+    "text": "ground rules for the project that you're"
+  },
+  {
+    "seconds": 159.28,
+    "text": "working in. So right here you can see"
+  },
+  {
+    "seconds": 160.4,
+    "text": "that this one says, \"Hey, you are Nate"
+  },
+  {
+    "seconds": 161.599,
+    "text": "Herk's AI operating system. Your job is"
+  },
+  {
+    "seconds": 163.36,
+    "text": "to help him spend less time on"
+  },
+  {
+    "seconds": 164.48,
+    "text": "operations so he can focus on making"
+  },
+  {
+    "seconds": 166.16,
+    "text": "YouTube videos.\" And then I give it"
+  },
+  {
+    "seconds": 167.599,
+    "text": "things like core operating rules for how"
+  },
+  {
+    "seconds": 169.2,
+    "text": "to work with me. I give it some stuff"
+  },
+  {
+    "seconds": 170.72,
+    "text": "about how to be safe on my desktop. And"
+  },
+  {
+    "seconds": 172.48,
+    "text": "then the real bulk of my agent MD is"
+  },
+  {
+    "seconds": 174.48,
+    "text": "what I call routing. So this is a"
+  },
+  {
+    "seconds": 176.16,
+    "text": "routing map. It basically means, okay,"
+  },
+  {
+    "seconds": 178.0,
+    "text": "so yeah, Nate's project is huge. There"
+  },
+  {
+    "seconds": 180.08,
+    "text": "are hundreds, probably thousands of"
+  },
+  {
+    "seconds": 182.0,
+    "text": "files and folders inside of this"
+  },
+  {
+    "seconds": 183.44,
+    "text": "project. So let me just explain to you"
+  },
+  {
+    "seconds": 185.44,
+    "text": "how this actually works. If you need"
+  },
+  {
+    "seconds": 187.12,
+    "text": "business stuff, you go to the wiki. If"
+  },
+  {
+    "seconds": 189.04,
+    "text": "you need corporate structure, you go to"
+  },
+  {
+    "seconds": 190.4,
+    "text": "the corporate structure section inside"
+  },
+  {
+    "seconds": 191.599,
+    "text": "the wiki. If you need his voice, you go"
+  },
+  {
+    "seconds": 193.28,
+    "text": "here. If you need course knowledge, you"
+  },
+  {
+    "seconds": 194.4,
+    "text": "go here. If you want active projects,"
+  },
+  {
+    "seconds": 195.68,
+    "text": "you go here. So everything that I'm"
+  },
+  {
+    "seconds": 197.2,
+    "text": "doing, we're routing it back somewhere"
+  },
+  {
+    "seconds": 199.519,
+    "text": "so that my agents.mmd file tells this"
+  },
+  {
+    "seconds": 202.4,
+    "text": "project where everything is so that"
+  },
+  {
+    "seconds": 204.08,
+    "text": "every time I open up a new chat, like I"
+  },
+  {
+    "seconds": 205.519,
+    "text": "said, I don't have to reexplain things."
+  },
+  {
+    "seconds": 207.12,
+    "text": "And basically the way that this works,"
+  },
+  {
+    "seconds": 208.319,
+    "text": "if we picture this being a chat thread,"
+  },
+  {
+    "seconds": 210.0,
+    "text": "you know, you come over here and you"
+  },
+  {
+    "seconds": 211.28,
+    "text": "say, \"Hey, you say, \"Hey, Codex, I need"
+  },
+  {
+    "seconds": 213.36,
+    "text": "you to help me do this.\" And before"
+  },
+  {
+    "seconds": 215.28,
+    "text": "Codex actually even like reads this"
+  },
+  {
+    "seconds": 217.12,
+    "text": "message, what it does is it first reads"
+  },
+  {
+    "seconds": 219.84,
+    "text": "the agents.mmd. So I'm just going to put"
+  },
+  {
+    "seconds": 221.76,
+    "text": "a here and that stands for agents.mmd."
+  },
+  {
+    "seconds": 223.44,
+    "text": "But codeex will basically read this and"
+  },
+  {
+    "seconds": 225.36,
+    "text": "then it will read your message and then"
+  },
+  {
+    "seconds": 226.799,
+    "text": "it will respond with something like, you"
+  },
+  {
+    "seconds": 228.159,
+    "text": "know, hey, how can I help you today? So"
+  },
+  {
+    "seconds": 229.84,
+    "text": "the kind of stuff that you want to put"
+  },
+  {
+    "seconds": 230.879,
+    "text": "inside your agents.mmd is the type of"
+  },
+  {
+    "seconds": 232.799,
+    "text": "stuff that you want codeex to know about"
+  },
+  {
+    "seconds": 234.48,
+    "text": "you every single time you're talking to"
+  },
+  {
+    "seconds": 236.799,
+    "text": "it in that project. And now moving on to"
+  },
+  {
+    "seconds": 238.959,
+    "text": "concept number three, we have something"
+  },
+  {
+    "seconds": 240.56,
+    "text": "called the agent loop. So you'll hear"
+  },
+  {
+    "seconds": 242.879,
+    "text": "about something like codecs or claude"
+  },
+  {
+    "seconds": 244.799,
+    "text": "code or Hermes agent. These are all"
+  },
+  {
+    "seconds": 247.439,
+    "text": "called agent harnesses. And these"
+  },
+  {
+    "seconds": 249.28,
+    "text": "harnesses have their own agent loops."
+  },
+  {
+    "seconds": 251.36,
+    "text": "And real quick, if you're wondering"
+  },
+  {
+    "seconds": 252.64,
+    "text": "about codecs versus like work, chatbt"
+  },
+  {
+    "seconds": 255.28,
+    "text": "work, I always use codecs. The majority"
+  },
+  {
+    "seconds": 257.359,
+    "text": "of my work is not building products or"
+  },
+  {
+    "seconds": 259.04,
+    "text": "building software, but I only use codecs"
+  },
+  {
+    "seconds": 261.199,
+    "text": "because it's just the most powerful. And"
+  },
+  {
+    "seconds": 262.56,
+    "text": "once you get through this video, you'll"
+  },
+  {
+    "seconds": 263.759,
+    "text": "realize how easy it is to use. But"
+  },
+  {
+    "seconds": 265.28,
+    "text": "anyways, the reason why this is called a"
+  },
+  {
+    "seconds": 266.96,
+    "text": "harness is because they have this thing"
+  },
+  {
+    "seconds": 268.639,
+    "text": "called the agentic loop, which at the"
+  },
+  {
+    "seconds": 270.4,
+    "text": "highest level basically just means when"
+  },
+  {
+    "seconds": 271.84,
+    "text": "you ask the agent a question, it has a"
+  },
+  {
+    "seconds": 274.479,
+    "text": "bunch of tools at its disposal and it"
+  },
+  {
+    "seconds": 276.479,
+    "text": "basically thinks and it reasons and it"
+  },
+  {
+    "seconds": 278.639,
+    "text": "uses tools and then it responds to you"
+  },
+  {
+    "seconds": 280.24,
+    "text": "and then it thinks and then it reasons"
+  },
+  {
+    "seconds": 281.52,
+    "text": "and it takes action. It uses tools,"
+  },
+  {
+    "seconds": 283.12,
+    "text": "responds to you and that's basically the"
+  },
+  {
+    "seconds": 284.56,
+    "text": "agent loop. And what's really awesome"
+  },
+  {
+    "seconds": 286.24,
+    "text": "about that is you can see it in action."
+  },
+  {
+    "seconds": 288.16,
+    "text": "So right here you can see that this said"
+  },
+  {
+    "seconds": 289.52,
+    "text": "worked for 25 seconds. And if I open"
+  },
+  {
+    "seconds": 291.28,
+    "text": "this up, we can basically see what it"
+  },
+  {
+    "seconds": 293.52,
+    "text": "did, right? So like it hid this response"
+  },
+  {
+    "seconds": 295.44,
+    "text": "and it gave us our output, but it had a"
+  },
+  {
+    "seconds": 297.68,
+    "text": "reasoning loop inside. It first said,"
+  },
+  {
+    "seconds": 299.44,
+    "text": "\"Okay, I'll check our recent tasks and"
+  },
+  {
+    "seconds": 300.96,
+    "text": "project nodes, then I'll pull together"
+  },
+  {
+    "seconds": 302.16,
+    "text": "the main themes from the past month.\""
+  },
+  {
+    "seconds": 303.68,
+    "text": "And when it did that, it ran all these"
+  },
+  {
+    "seconds": 305.759,
+    "text": "commands. It ran this, which you don't"
+  },
+  {
+    "seconds": 307.6,
+    "text": "have to know what this means, but"
+  },
+  {
+    "seconds": 308.56,
+    "text": "basically what this did is it looked"
+  },
+  {
+    "seconds": 310.0,
+    "text": "inside something right here called a"
+  },
+  {
+    "seconds": 311.28,
+    "text": "memory.md. So very similar to the"
+  },
+  {
+    "seconds": 313.28,
+    "text": "agents.md, but this is about memories"
+  },
+  {
+    "seconds": 315.84,
+    "text": "rather than just like rules. It then"
+  },
+  {
+    "seconds": 318.08,
+    "text": "looked at other chats. And so we can"
+  },
+  {
+    "seconds": 319.84,
+    "text": "basically watch it do things. So, to"
+  },
+  {
+    "seconds": 321.44,
+    "text": "show you guys a real example of this,"
+  },
+  {
+    "seconds": 323.039,
+    "text": "hey, could you just check my most recent"
+  },
+  {
+    "seconds": 324.96,
+    "text": "YouTube video that I uploaded and give"
+  },
+  {
+    "seconds": 326.479,
+    "text": "me three comments that you thought were"
+  },
+  {
+    "seconds": 328.72,
+    "text": "funny from that video."
+  },
+  {
+    "seconds": 331.039,
+    "text": "Now, as I shoot this off, what I want"
+  },
+  {
+    "seconds": 332.639,
+    "text": "you guys to pay attention to is what"
+  },
+  {
+    "seconds": 334.0,
+    "text": "we're watching. So, first it said"
+  },
+  {
+    "seconds": 335.6,
+    "text": "thinking. Now, it says, \"I'll find your"
+  },
+  {
+    "seconds": 336.96,
+    "text": "latest upload, read through the"
+  },
+  {
+    "seconds": 338.0,
+    "text": "comments, and pick three that made me"
+  },
+  {
+    "seconds": 339.36,
+    "text": "laugh.\" And now we can see what it's"
+  },
+  {
+    "seconds": 340.72,
+    "text": "doing. So, it's looking through the"
+  },
+  {
+    "seconds": 342.32,
+    "text": "memory. It's looking at these things."
+  },
+  {
+    "seconds": 344.0,
+    "text": "It's running these commands. And these"
+  },
+  {
+    "seconds": 345.6,
+    "text": "commands are basically right here. It's"
+  },
+  {
+    "seconds": 347.68,
+    "text": "reading, you know, files to get"
+  },
+  {
+    "seconds": 349.68,
+    "text": "established and to get oriented with"
+  },
+  {
+    "seconds": 351.199,
+    "text": "what it needs to do. And so, you can"
+  },
+  {
+    "seconds": 352.72,
+    "text": "actually learn a lot about how codeex"
+  },
+  {
+    "seconds": 355.28,
+    "text": "works and how to best work with it by"
+  },
+  {
+    "seconds": 357.28,
+    "text": "when you ask it a question, you just"
+  },
+  {
+    "seconds": 358.96,
+    "text": "kind of watch what it does. So, you can"
+  },
+  {
+    "seconds": 360.24,
+    "text": "see what it had to do was it had to run"
+  },
+  {
+    "seconds": 361.68,
+    "text": "a command in order to actually go talk"
+  },
+  {
+    "seconds": 364.4,
+    "text": "to YouTube, look at the data, and pull"
+  },
+  {
+    "seconds": 366.72,
+    "text": "it back. And now we can see three"
+  },
+  {
+    "seconds": 368.639,
+    "text": "comments. We have this one, never seen"
+  },
+  {
+    "seconds": 370.24,
+    "text": "anyone so excited to lose money. Trading"
+  },
+  {
+    "seconds": 372.0,
+    "text": "with AI is very easy. I just prompt"
+  },
+  {
+    "seconds": 373.6,
+    "text": "Claude only take profitable trades. And"
+  },
+  {
+    "seconds": 375.84,
+    "text": "if I want to lose money, I can do it"
+  },
+  {
+    "seconds": 377.039,
+    "text": "myself faster and better. And what"
+  },
+  {
+    "seconds": 378.639,
+    "text": "you'll notice is how quick that all"
+  },
+  {
+    "seconds": 380.08,
+    "text": "happened. Now, I do have my Astra on"
+  },
+  {
+    "seconds": 381.919,
+    "text": "fast mode, but I will talk about that"
+  },
+  {
+    "seconds": 383.36,
+    "text": "later because that is a core concept"
+  },
+  {
+    "seconds": 384.88,
+    "text": "that's coming up. All right, and moving"
+  },
+  {
+    "seconds": 386.24,
+    "text": "on to the last concept of part one. It's"
+  },
+  {
+    "seconds": 389.759,
+    "text": "a slashgoal. And this is honestly one of"
+  },
+  {
+    "seconds": 392.16,
+    "text": "my favorite things about AI ever. It's"
+  },
+  {
+    "seconds": 394.8,
+    "text": "the ability to do something called a"
+  },
+  {
+    "seconds": 396.08,
+    "text": "slash goal. And right here, you can see"
+  },
+  {
+    "seconds": 397.759,
+    "text": "that that says set a goal to keep"
+  },
+  {
+    "seconds": 399.759,
+    "text": "pursuing. Now, AI agents are super goal"
+  },
+  {
+    "seconds": 401.68,
+    "text": "oriented, which is super cool. So, let's"
+  },
+  {
+    "seconds": 403.36,
+    "text": "say you have Mr. AI agent right here and"
+  },
+  {
+    "seconds": 405.68,
+    "text": "you basically say, \"Hey, here is your"
+  },
+  {
+    "seconds": 407.44,
+    "text": "goal. You know, this is what you need to"
+  },
+  {
+    "seconds": 409.039,
+    "text": "do.\" And you give it this objective"
+  },
+  {
+    "seconds": 410.639,
+    "text": "goal. What happens is it will basically"
+  },
+  {
+    "seconds": 412.639,
+    "text": "just keep working and keep working and"
+  },
+  {
+    "seconds": 414.88,
+    "text": "keep working until it actually hits that"
+  },
+  {
+    "seconds": 417.039,
+    "text": "goal. And it's cool because even if you"
+  },
+  {
+    "seconds": 418.639,
+    "text": "kind of like give them a roadblock, they"
+  },
+  {
+    "seconds": 420.96,
+    "text": "are going to be so goal-oriented that"
+  },
+  {
+    "seconds": 423.36,
+    "text": "they're going to keep retrying different"
+  },
+  {
+    "seconds": 424.88,
+    "text": "things and they're going to just"
+  },
+  {
+    "seconds": 426.4,
+    "text": "basically keep going until they're able"
+  },
+  {
+    "seconds": 428.24,
+    "text": "to succeed and hit that goal for you."
+  },
+  {
+    "seconds": 430.24,
+    "text": "Now, obviously, the more objective a"
+  },
+  {
+    "seconds": 431.68,
+    "text": "goal, the easier it is to prove that."
+  },
+  {
+    "seconds": 433.36,
+    "text": "So, if you say, \"Hey, can you, you know,"
+  },
+  {
+    "seconds": 435.12,
+    "text": "work on this until you've pulled in 257"
+  },
+  {
+    "seconds": 438.0,
+    "text": "sources and then write the report.\""
+  },
+  {
+    "seconds": 440.4,
+    "text": "That's an objective goal, right? 257"
+  },
+  {
+    "seconds": 442.24,
+    "text": "sources and written report. But you can"
+  },
+  {
+    "seconds": 444.16,
+    "text": "also set goals that are a little bit"
+  },
+  {
+    "seconds": 445.52,
+    "text": "more emotional. Like your goal could"
+  },
+  {
+    "seconds": 447.44,
+    "text": "maybe be more like, you know, until"
+  },
+  {
+    "seconds": 449.44,
+    "text": "you're fully satisfied or until you've,"
+  },
+  {
+    "seconds": 451.52,
+    "text": "you know, verified this over and over"
+  },
+  {
+    "seconds": 453.12,
+    "text": "and you feel good about it. And in that"
+  },
+  {
+    "seconds": 454.88,
+    "text": "case, you're still going to, you know,"
+  },
+  {
+    "seconds": 457.12,
+    "text": "get there and it will still decide when"
+  },
+  {
+    "seconds": 459.12,
+    "text": "it's done. But as you get more objective"
+  },
+  {
+    "seconds": 461.36,
+    "text": "with your goal, the goal prompts are"
+  },
+  {
+    "seconds": 463.599,
+    "text": "just more effective. But let me show you"
+  },
+  {
+    "seconds": 465.28,
+    "text": "one goal that I actually did that you"
+  },
+  {
+    "seconds": 466.72,
+    "text": "guys have already been witnessing in"
+  },
+  {
+    "seconds": 468.08,
+    "text": "this specific example is I went to my"
+  },
+  {
+    "seconds": 470.24,
+    "text": "hyperframes project. And hyperframes"
+  },
+  {
+    "seconds": 471.919,
+    "text": "basically lets your coding agents build"
+  },
+  {
+    "seconds": 473.68,
+    "text": "HTML and then render it as video. So"
+  },
+  {
+    "seconds": 475.84,
+    "text": "essentially it creates video. But what I"
+  },
+  {
+    "seconds": 477.36,
+    "text": "did here is I shot it off a/goal prompt."
+  },
+  {
+    "seconds": 479.599,
+    "text": "You can see this one says sent as goal."
+  },
+  {
+    "seconds": 481.68,
+    "text": "So basically what I did is I said I need"
+  },
+  {
+    "seconds": 483.12,
+    "text": "you to help me create some motion"
+  },
+  {
+    "seconds": 484.16,
+    "text": "graphics for a YouTube video. So all the"
+  },
+  {
+    "seconds": 485.599,
+    "text": "motion graphics you've seen so far were"
+  },
+  {
+    "seconds": 487.52,
+    "text": "from this exact prompt right here. I'm"
+  },
+  {
+    "seconds": 489.599,
+    "text": "going over 18 different Codex concepts."
+  },
+  {
+    "seconds": 491.199,
+    "text": "I want, you know, an intro. I want"
+  },
+  {
+    "seconds": 492.72,
+    "text": "transition cards. I want all this. So, I"
+  },
+  {
+    "seconds": 494.639,
+    "text": "basically defined that I wanted one"
+  },
+  {
+    "seconds": 495.84,
+    "text": "intro scene and that I wanted 18 cards."
+  },
+  {
+    "seconds": 498.0,
+    "text": "And then you can see that it said I"
+  },
+  {
+    "seconds": 499.199,
+    "text": "finished and I visually checked, meaning"
+  },
+  {
+    "seconds": 500.96,
+    "text": "it actually took screenshots to make"
+  },
+  {
+    "seconds": 502.319,
+    "text": "sure everything looked good before it"
+  },
+  {
+    "seconds": 503.599,
+    "text": "decided to be done. And now we have all"
+  },
+  {
+    "seconds": 505.919,
+    "text": "these animations. But what's cool about"
+  },
+  {
+    "seconds": 507.52,
+    "text": "the goal prompts is that models nowadays"
+  },
+  {
+    "seconds": 509.599,
+    "text": "are getting so good, the AI models are"
+  },
+  {
+    "seconds": 511.599,
+    "text": "getting so good that it's actually"
+  },
+  {
+    "seconds": 513.2,
+    "text": "better to give them a goal and then step"
+  },
+  {
+    "seconds": 515.039,
+    "text": "out of their way. If you really just try"
+  },
+  {
+    "seconds": 516.88,
+    "text": "to like micromanage them, you're kind of"
+  },
+  {
+    "seconds": 518.719,
+    "text": "just like muzzling their capabilities."
+  },
+  {
+    "seconds": 520.399,
+    "text": "So, if the situation isn't super super"
+  },
+  {
+    "seconds": 522.08,
+    "text": "risky, give them a goal and you can get"
+  },
+  {
+    "seconds": 523.68,
+    "text": "out of the way. Now, there's one quick"
+  },
+  {
+    "seconds": 525.04,
+    "text": "thing that I felt the need to address,"
+  },
+  {
+    "seconds": 526.24,
+    "text": "which is basically the question, \"But"
+  },
+  {
+    "seconds": 528.16,
+    "text": "Nate, what if we've been using cloud"
+  },
+  {
+    "seconds": 529.68,
+    "text": "code for a long time?\" Well, I'm really"
+  },
+  {
+    "seconds": 531.04,
+    "text": "glad that you asked. It's actually"
+  },
+  {
+    "seconds": 532.48,
+    "text": "really simple. Really, the main"
+  },
+  {
+    "seconds": 534.0,
+    "text": "difference is the agents.mmd, thecodex,"
+  },
+  {
+    "seconds": 536.8,
+    "text": "and the aagents. Because in cloud code,"
+  },
+  {
+    "seconds": 539.04,
+    "text": "you basically have like your claw.md and"
+  },
+  {
+    "seconds": 541.04,
+    "text": "you have yourclaw. So when I first"
+  },
+  {
+    "seconds": 542.72,
+    "text": "started switching over from cla code to"
+  },
+  {
+    "seconds": 544.16,
+    "text": "codeex. All I did was I said, \"Hey"
+  },
+  {
+    "seconds": 545.76,
+    "text": "codeex, take a look at this herku"
+  },
+  {
+    "seconds": 547.519,
+    "text": "project, I've been building this up"
+  },
+  {
+    "seconds": 549.2,
+    "text": "using claude code for the past couple"
+  },
+  {
+    "seconds": 550.88,
+    "text": "months. I need you to help me get this"
+  },
+  {
+    "seconds": 552.959,
+    "text": "codeex ready.\" And basically what that"
+  },
+  {
+    "seconds": 554.48,
+    "text": "means is I made a copy of my claw.md and"
+  },
+  {
+    "seconds": 556.48,
+    "text": "called it agents.mmd.d. So I have two of"
+  },
+  {
+    "seconds": 558.08,
+    "text": "those now. One one agents.mmd one"
+  },
+  {
+    "seconds": 559.839,
+    "text": "claude, but they're basically the same"
+  },
+  {
+    "seconds": 561.12,
+    "text": "file. And then I made a copy of all my"
+  },
+  {
+    "seconds": 562.72,
+    "text": "claude skills and put them in the agents"
+  },
+  {
+    "seconds": 564.56,
+    "text": "folder. And I made a copy of all of my"
+  },
+  {
+    "seconds": 566.399,
+    "text": "like claude settings files and I put"
+  },
+  {
+    "seconds": 568.48,
+    "text": "them in my agents. And the cool thing is"
+  },
+  {
+    "seconds": 570.399,
+    "text": "you don't have to do any of that"
+  },
+  {
+    "seconds": 571.279,
+    "text": "manually. You'd literally just say,"
+  },
+  {
+    "seconds": 572.32,
+    "text": "\"Hey, Codeex, look at the documentation,"
+  },
+  {
+    "seconds": 574.399,
+    "text": "analyze my project, and make this codeex"
+  },
+  {
+    "seconds": 576.72,
+    "text": "accessible. Make it codec ready.\" So,"
+  },
+  {
+    "seconds": 578.48,
+    "text": "anyways, if you were feeling a little"
+  },
+  {
+    "seconds": 579.92,
+    "text": "bit of doubt about all that kind of"
+  },
+  {
+    "seconds": 581.44,
+    "text": "stuff, that's the way I did it. And now"
+  },
+  {
+    "seconds": 583.12,
+    "text": "you have a bunch of local files and"
+  },
+  {
+    "seconds": 584.399,
+    "text": "folders that you can use on any agent"
+  },
+  {
+    "seconds": 586.24,
+    "text": "harness whenever. It's very flexible."
+  },
+  {
+    "seconds": 588.16,
+    "text": "It's very tool agnostic, and that's what"
+  },
+  {
+    "seconds": 589.76,
+    "text": "you want to be building at the end of"
+  },
+  {
+    "seconds": 590.8,
+    "text": "the day. So, anyways, had to address"
+  },
+  {
+    "seconds": 592.56,
+    "text": "that real quick. Let's get back to the"
+  },
+  {
+    "seconds": 593.76,
+    "text": "video. All right. Awesome. So, let's"
+  },
+  {
+    "seconds": 594.88,
+    "text": "move on to part two of these core"
+  },
+  {
+    "seconds": 596.56,
+    "text": "concepts, which is environments. So the"
+  },
+  {
+    "seconds": 599.279,
+    "text": "first piece of environments is number"
+  },
+  {
+    "seconds": 600.8,
+    "text": "five, which is local versus cloud. So"
+  },
+  {
+    "seconds": 603.76,
+    "text": "there's a couple things to talk about"
+  },
+  {
+    "seconds": 604.8,
+    "text": "here. The first thing is if someone"
+  },
+  {
+    "seconds": 606.32,
+    "text": "says, \"Oh, is this running locally or"
+  },
+  {
+    "seconds": 608.399,
+    "text": "are these local files?\" All that means"
+  },
+  {
+    "seconds": 610.32,
+    "text": "is does that exist only on the machine"
+  },
+  {
+    "seconds": 612.48,
+    "text": "that you're currently using? Whether"
+  },
+  {
+    "seconds": 613.76,
+    "text": "you're on a MacBook right now or you're"
+  },
+  {
+    "seconds": 615.12,
+    "text": "on a desktop PC like I am right now."
+  },
+  {
+    "seconds": 616.8,
+    "text": "When you say local, it just means it's"
+  },
+  {
+    "seconds": 618.32,
+    "text": "only accessible by you. So right here,"
+  },
+  {
+    "seconds": 620.399,
+    "text": "if I open up my files, these are"
+  },
+  {
+    "seconds": 622.16,
+    "text": "basically local files. Now, they're"
+  },
+  {
+    "seconds": 623.76,
+    "text": "syncing with one drive when I want them"
+  },
+  {
+    "seconds": 625.279,
+    "text": "to. So that would kind of push them into"
+  },
+  {
+    "seconds": 626.8,
+    "text": "the cloud, but otherwise it's completely"
+  },
+  {
+    "seconds": 628.48,
+    "text": "local. So like if you're working on a"
+  },
+  {
+    "seconds": 629.92,
+    "text": "Word doc on your computer and you forgot"
+  },
+  {
+    "seconds": 632.56,
+    "text": "to save it and then email it to yourself"
+  },
+  {
+    "seconds": 634.64,
+    "text": "on so you could work on it on a"
+  },
+  {
+    "seconds": 636.0,
+    "text": "different laptop, that was a problem"
+  },
+  {
+    "seconds": 637.44,
+    "text": "because it was locally on that other"
+  },
+  {
+    "seconds": 639.279,
+    "text": "machine. But something like Google Drive"
+  },
+  {
+    "seconds": 640.64,
+    "text": "is always in the cloud obviously. But"
+  },
+  {
+    "seconds": 642.24,
+    "text": "this also goes beyond just files. This"
+  },
+  {
+    "seconds": 644.079,
+    "text": "goes to like things that are produced."
+  },
+  {
+    "seconds": 646.24,
+    "text": "So right here you can see that it"
+  },
+  {
+    "seconds": 647.76,
+    "text": "actually created me this little site for"
+  },
+  {
+    "seconds": 649.36,
+    "text": "all these motion graphics. So if I open"
+  },
+  {
+    "seconds": 650.8,
+    "text": "up this site, you can see that I can"
+  },
+  {
+    "seconds": 652.48,
+    "text": "view all of these videos. I can click"
+  },
+  {
+    "seconds": 654.0,
+    "text": "into the different ones and it threw"
+  },
+  {
+    "seconds": 655.279,
+    "text": "this together for me really nice and it"
+  },
+  {
+    "seconds": 657.2,
+    "text": "served this to me on a local host. So"
+  },
+  {
+    "seconds": 659.76,
+    "text": "right here you can see that this URL is"
+  },
+  {
+    "seconds": 661.519,
+    "text": "127.0.0.1"
+  },
+  {
+    "seconds": 663.6,
+    "text": "and the port of this local host is 8008."
+  },
+  {
+    "seconds": 666.88,
+    "text": "Now realistically that's not super"
+  },
+  {
+    "seconds": 668.48,
+    "text": "important. You don't really need to"
+  },
+  {
+    "seconds": 669.6,
+    "text": "understand what exactly this means. But"
+  },
+  {
+    "seconds": 671.6,
+    "text": "this is just a local host. But this is a"
+  },
+  {
+    "seconds": 674.0,
+    "text": "little confusing because it looks like"
+  },
+  {
+    "seconds": 675.2,
+    "text": "this is a web address that if I, you"
+  },
+  {
+    "seconds": 676.72,
+    "text": "know, emailed to you, you could open"
+  },
+  {
+    "seconds": 678.079,
+    "text": "this up and have the site. But what"
+  },
+  {
+    "seconds": 679.68,
+    "text": "would happen is this would show on your"
+  },
+  {
+    "seconds": 681.279,
+    "text": "screen or it would show on your computer"
+  },
+  {
+    "seconds": 683.279,
+    "text": "as nothing actually lives here. So like"
+  },
+  {
+    "seconds": 685.12,
+    "text": "if I copied this and I pasted this into"
+  },
+  {
+    "seconds": 686.72,
+    "text": "a new browser but I changed the number"
+  },
+  {
+    "seconds": 688.8,
+    "text": "to 7. I don't think I have anything"
+  },
+  {
+    "seconds": 691.04,
+    "text": "running on port 8087"
+  },
+  {
+    "seconds": 694.16,
+    "text": "on my local machine even though you"
+  },
+  {
+    "seconds": 695.839,
+    "text": "might. So nothing actually loads up. And"
+  },
+  {
+    "seconds": 697.76,
+    "text": "it's quite funny. I remember seeing"
+  },
+  {
+    "seconds": 698.88,
+    "text": "these these tweets where I think it was"
+  },
+  {
+    "seconds": 700.48,
+    "text": "a joke but it was like uh someone was"
+  },
+  {
+    "seconds": 702.8,
+    "text": "pretending they were a beginner and they"
+  },
+  {
+    "seconds": 704.0,
+    "text": "were like wow cloud code and codeex it's"
+  },
+  {
+    "seconds": 706.16,
+    "text": "so cool. Look what I built in one day."
+  },
+  {
+    "seconds": 707.68,
+    "text": "and then they, you know, attached a"
+  },
+  {
+    "seconds": 709.68,
+    "text": "bunch of local host addresses and"
+  },
+  {
+    "seconds": 711.6,
+    "text": "obviously no one else could open that up"
+  },
+  {
+    "seconds": 713.12,
+    "text": "because they're not on that local"
+  },
+  {
+    "seconds": 714.24,
+    "text": "device. So anyways, that is the"
+  },
+  {
+    "seconds": 715.519,
+    "text": "difference between local and cloud. Now,"
+  },
+  {
+    "seconds": 717.12,
+    "text": "the other piece here is that when you're"
+  },
+  {
+    "seconds": 718.48,
+    "text": "spinning up these new chats, you can"
+  },
+  {
+    "seconds": 720.32,
+    "text": "kind of have these be either local,"
+  },
+  {
+    "seconds": 722.48,
+    "text": "meaning right here, you know, I'm"
+  },
+  {
+    "seconds": 723.519,
+    "text": "working in my local files and folders."
+  },
+  {
+    "seconds": 725.519,
+    "text": "And that's great because codeex can"
+  },
+  {
+    "seconds": 727.6,
+    "text": "actually like edit these files, right?"
+  },
+  {
+    "seconds": 729.279,
+    "text": "It can delete things, it can make new"
+  },
+  {
+    "seconds": 730.639,
+    "text": "ones, it can edit them, it can move them"
+  },
+  {
+    "seconds": 732.16,
+    "text": "around, it can go to my downloads, it"
+  },
+  {
+    "seconds": 734.0,
+    "text": "can go to my desktop, it can do anything"
+  },
+  {
+    "seconds": 735.44,
+    "text": "on my computer really. or you could"
+  },
+  {
+    "seconds": 737.04,
+    "text": "actually have these work in the cloud."
+  },
+  {
+    "seconds": 738.32,
+    "text": "And what you'll notice here is when you"
+  },
+  {
+    "seconds": 739.6,
+    "text": "choose cloud, you no longer have the"
+  },
+  {
+    "seconds": 741.68,
+    "text": "ability down here to actually choose the"
+  },
+  {
+    "seconds": 743.92,
+    "text": "model you were using and the permissions"
+  },
+  {
+    "seconds": 745.6,
+    "text": "because this sets up sort of like a"
+  },
+  {
+    "seconds": 747.12,
+    "text": "cloud sandbox environment. Now, I'll be"
+  },
+  {
+    "seconds": 749.519,
+    "text": "honest, I hardly ever do this because"
+  },
+  {
+    "seconds": 751.839,
+    "text": "when I'm working locally, as long as I"
+  },
+  {
+    "seconds": 753.519,
+    "text": "keep my machine on, as long as I keep my"
+  },
+  {
+    "seconds": 755.36,
+    "text": "PC on, it feels pretty cloudlike. And"
+  },
+  {
+    "seconds": 758.079,
+    "text": "here's what I mean by that. Right here,"
+  },
+  {
+    "seconds": 759.2,
+    "text": "you can see that I'm mirroring my phone"
+  },
+  {
+    "seconds": 760.56,
+    "text": "and I'm in the Chat GBT app. And if I go"
+  },
+  {
+    "seconds": 762.72,
+    "text": "over here and I click on this right"
+  },
+  {
+    "seconds": 764.24,
+    "text": "here, which says remote, this lets me"
+  },
+  {
+    "seconds": 766.639,
+    "text": "see all of my actual codeex chats that"
+  },
+  {
+    "seconds": 770.0,
+    "text": "are right here. So if I go to Herk 2 and"
+  },
+  {
+    "seconds": 772.32,
+    "text": "I go to summarize past month, this is"
+  },
+  {
+    "seconds": 774.32,
+    "text": "exactly what we were just looking at"
+  },
+  {
+    "seconds": 775.6,
+    "text": "right here. You can see this is"
+  },
+  {
+    "seconds": 776.72,
+    "text": "literally the same conversation. It has"
+  },
+  {
+    "seconds": 778.399,
+    "text": "those three chats and I could come in"
+  },
+  {
+    "seconds": 780.079,
+    "text": "here and I could say hi. And this gets"
+  },
+  {
+    "seconds": 782.079,
+    "text": "sent in my actual codeex right here on"
+  },
+  {
+    "seconds": 783.839,
+    "text": "my laptop or sorry on my desktop as well"
+  },
+  {
+    "seconds": 786.079,
+    "text": "as my phone. So, as long as my machine's"
+  },
+  {
+    "seconds": 788.24,
+    "text": "on, even though this is running locally"
+  },
+  {
+    "seconds": 789.839,
+    "text": "and I'm out on a walk, I'm out at"
+  },
+  {
+    "seconds": 791.279,
+    "text": "dinner, I could even be in a different"
+  },
+  {
+    "seconds": 792.399,
+    "text": "state and I could control my desktop"
+  },
+  {
+    "seconds": 795.6,
+    "text": "from my phone right here. So, let's say"
+  },
+  {
+    "seconds": 797.36,
+    "text": "for some reason I left a file locally on"
+  },
+  {
+    "seconds": 799.04,
+    "text": "my computer, I could just say, \"Hey, can"
+  },
+  {
+    "seconds": 800.72,
+    "text": "you email that file to me?\" And then I"
+  },
+  {
+    "seconds": 802.399,
+    "text": "could use it on my laptop. So, anyways,"
+  },
+  {
+    "seconds": 803.92,
+    "text": "just wanted to show off that remote"
+  },
+  {
+    "seconds": 805.2,
+    "text": "capability. And that's going to bring us"
+  },
+  {
+    "seconds": 806.8,
+    "text": "into concept number six, which is work"
+  },
+  {
+    "seconds": 809.2,
+    "text": "trees. Now, honestly, this is something"
+  },
+  {
+    "seconds": 811.04,
+    "text": "where if you're not really building"
+  },
+  {
+    "seconds": 812.32,
+    "text": "software or, you know, production apps,"
+  },
+  {
+    "seconds": 814.639,
+    "text": "this isn't going to matter to you too"
+  },
+  {
+    "seconds": 816.079,
+    "text": "much. Like I don't hardly ever use work"
+  },
+  {
+    "seconds": 818.48,
+    "text": "trees, but it is good to know about"
+  },
+  {
+    "seconds": 820.0,
+    "text": "since you will see these in the"
+  },
+  {
+    "seconds": 821.36,
+    "text": "interface. So right here you can see"
+  },
+  {
+    "seconds": 822.8,
+    "text": "that if I was to go to um the local"
+  },
+  {
+    "seconds": 825.6,
+    "text": "setting, it says that you can work in a"
+  },
+  {
+    "seconds": 827.44,
+    "text": "new local work tree which says create a"
+  },
+  {
+    "seconds": 829.519,
+    "text": "copy of Herk 2 to work in parallel. So"
+  },
+  {
+    "seconds": 832.24,
+    "text": "basically because I'm working in Herk 2,"
+  },
+  {
+    "seconds": 834.16,
+    "text": "if I was going to do something like"
+  },
+  {
+    "seconds": 835.2,
+    "text": "risky or if I wanted to try and"
+  },
+  {
+    "seconds": 836.8,
+    "text": "experiment with something or for"
+  },
+  {
+    "seconds": 838.079,
+    "text": "example, if I was building software and"
+  },
+  {
+    "seconds": 839.6,
+    "text": "I wanted to try to change the way that"
+  },
+  {
+    "seconds": 841.12,
+    "text": "the onboarding flow worked, but I wanted"
+  },
+  {
+    "seconds": 842.639,
+    "text": "to like not interrupt the main branch,"
+  },
+  {
+    "seconds": 845.12,
+    "text": "especially if other people on my team"
+  },
+  {
+    "seconds": 846.639,
+    "text": "are working on that main branch, I could"
+  },
+  {
+    "seconds": 848.32,
+    "text": "use a work tree to basically create a"
+  },
+  {
+    "seconds": 849.92,
+    "text": "copy and I could test in there. And then"
+  },
+  {
+    "seconds": 852.0,
+    "text": "what you can do later is you can merge"
+  },
+  {
+    "seconds": 853.6,
+    "text": "it back into the main. So it's basically"
+  },
+  {
+    "seconds": 855.279,
+    "text": "just a duplicate that lets you test. But"
+  },
+  {
+    "seconds": 857.12,
+    "text": "like I said, there's hardly any times"
+  },
+  {
+    "seconds": 858.48,
+    "text": "for knowledge work that I ever use work"
+  },
+  {
+    "seconds": 860.16,
+    "text": "trees. And if I ever am building"
+  },
+  {
+    "seconds": 861.519,
+    "text": "software and stuff, a lot of times Codex"
+  },
+  {
+    "seconds": 863.44,
+    "text": "will say, \"Hey, by the way, you might"
+  },
+  {
+    "seconds": 864.48,
+    "text": "want to use this. You might want to do"
+  },
+  {
+    "seconds": 865.6,
+    "text": "this in a new work tree.\" So, I wanted"
+  },
+  {
+    "seconds": 866.88,
+    "text": "to call it out because it's important"
+  },
+  {
+    "seconds": 868.079,
+    "text": "because you might see things like this"
+  },
+  {
+    "seconds": 869.44,
+    "text": "master branch and you might see other"
+  },
+  {
+    "seconds": 870.8,
+    "text": "work trees that might have been spun up"
+  },
+  {
+    "seconds": 872.16,
+    "text": "automatically. But, I will say it's not"
+  },
+  {
+    "seconds": 873.68,
+    "text": "something that I'm actively thinking"
+  },
+  {
+    "seconds": 874.88,
+    "text": "about or think that you need to be"
+  },
+  {
+    "seconds": 876.079,
+    "text": "actively thinking about in order to get"
+  },
+  {
+    "seconds": 877.839,
+    "text": "the most out of codeex. So, wanted to"
+  },
+  {
+    "seconds": 879.36,
+    "text": "bring that up. But, let's move on to"
+  },
+  {
+    "seconds": 880.639,
+    "text": "number seven, which iscodeex."
+  },
+  {
+    "seconds": 883.6,
+    "text": "Now, this is really interesting. We"
+  },
+  {
+    "seconds": 885.12,
+    "text": "talked about how when you're inside of"
+  },
+  {
+    "seconds": 886.24,
+    "text": "your project, you have things like an"
+  },
+  {
+    "seconds": 887.92,
+    "text": "agents.mmd. Now, if I go to my files,"
+  },
+  {
+    "seconds": 890.24,
+    "text": "there's also something in here called a"
+  },
+  {
+    "seconds": 892.56,
+    "text": "codeex. So, if I open this up, what"
+  },
+  {
+    "seconds": 894.24,
+    "text": "you'll see in here is I have some agents"
+  },
+  {
+    "seconds": 896.24,
+    "text": "and I have some workflows, but I also"
+  },
+  {
+    "seconds": 898.079,
+    "text": "have a config. ML file, which is"
+  },
+  {
+    "seconds": 901.199,
+    "text": "basically like some local settings. And"
+  },
+  {
+    "seconds": 903.199,
+    "text": "there are basically going to be two"
+  },
+  {
+    "seconds": 904.48,
+    "text": "different places where a codex file"
+  },
+  {
+    "seconds": 906.48,
+    "text": "lives. And that's either going to be"
+  },
+  {
+    "seconds": 908.16,
+    "text": "inside of your project. So like in this"
+  },
+  {
+    "seconds": 910.0,
+    "text": "example, this is my codeex inside of my"
+  },
+  {
+    "seconds": 912.32,
+    "text": "Herk 2. But there's also going to be one"
+  },
+  {
+    "seconds": 914.639,
+    "text": "which is user or global, which means"
+  },
+  {
+    "seconds": 916.88,
+    "text": "this lives under your actual user. And"
+  },
+  {
+    "seconds": 918.959,
+    "text": "these are settings that hold things like"
+  },
+  {
+    "seconds": 921.36,
+    "text": "memories and sessions and automations."
+  },
+  {
+    "seconds": 923.839,
+    "text": "These are things that will apply to your"
+  },
+  {
+    "seconds": 925.92,
+    "text": "global codeex. So whenever you're in"
+  },
+  {
+    "seconds": 927.44,
+    "text": "codeex, regardless of what your project"
+  },
+  {
+    "seconds": 928.959,
+    "text": "you're actually in, the docex will have"
+  },
+  {
+    "seconds": 931.12,
+    "text": "personal settings and app data and stuff"
+  },
+  {
+    "seconds": 932.88,
+    "text": "like that. Now once again, I think this"
+  },
+  {
+    "seconds": 934.48,
+    "text": "is something it's important to"
+  },
+  {
+    "seconds": 935.519,
+    "text": "understand where that lives and what it"
+  },
+  {
+    "seconds": 937.199,
+    "text": "does. But this isn't a folder that I'm"
+  },
+  {
+    "seconds": 938.8,
+    "text": "actively thinking about and actively"
+  },
+  {
+    "seconds": 940.56,
+    "text": "having to like maintain. But I did want"
+  },
+  {
+    "seconds": 942.32,
+    "text": "to call that out because sometimes if"
+  },
+  {
+    "seconds": 944.079,
+    "text": "you need to have a certain setting"
+  },
+  {
+    "seconds": 945.44,
+    "text": "applied or something like that, that is"
+  },
+  {
+    "seconds": 947.279,
+    "text": "where it lives. Now, the cool thing"
+  },
+  {
+    "seconds": 948.72,
+    "text": "about this is if you're ever confused,"
+  },
+  {
+    "seconds": 950.32,
+    "text": "you say, \"Hey Codeex, what did you do"
+  },
+  {
+    "seconds": 952.56,
+    "text": "there?\" Or, \"Do we need to add this to"
+  },
+  {
+    "seconds": 953.92,
+    "text": "mycodex or do we need to move this to a"
+  },
+  {
+    "seconds": 955.759,
+    "text": "different folder?\" You can just ask it"
+  },
+  {
+    "seconds": 957.36,
+    "text": "questions because it can search through"
+  },
+  {
+    "seconds": 958.639,
+    "text": "its own documentation and understand how"
+  },
+  {
+    "seconds": 960.56,
+    "text": "to do things like correctly. But I do"
+  },
+  {
+    "seconds": 962.56,
+    "text": "think that understanding the difference"
+  },
+  {
+    "seconds": 963.68,
+    "text": "between project scope things and user"
+  },
+  {
+    "seconds": 965.6,
+    "text": "scope things that's definitely important"
+  },
+  {
+    "seconds": 967.279,
+    "text": "especially as we get into the agents"
+  },
+  {
+    "seconds": 969.36,
+    "text": "which is going to come up later. And"
+  },
+  {
+    "seconds": 970.88,
+    "text": "that is a great segue into part three of"
+  },
+  {
+    "seconds": 972.56,
+    "text": "the core concepts which is control and"
+  },
+  {
+    "seconds": 974.8,
+    "text": "customization. So number eight here is"
+  },
+  {
+    "seconds": 976.959,
+    "text": "about different AI models. So when you"
+  },
+  {
+    "seconds": 980.0,
+    "text": "are starting a new chat you can choose"
+  },
+  {
+    "seconds": 982.32,
+    "text": "the model you want to use. You can also"
+  },
+  {
+    "seconds": 984.32,
+    "text": "change the model in between messages."
+  },
+  {
+    "seconds": 986.079,
+    "text": "So, I could shoot off a message on Astra"
+  },
+  {
+    "seconds": 987.759,
+    "text": "and then I could, you know, change this"
+  },
+  {
+    "seconds": 989.279,
+    "text": "to something else and then I could shoot"
+  },
+  {
+    "seconds": 990.56,
+    "text": "off another message and I can keep"
+  },
+  {
+    "seconds": 991.759,
+    "text": "changing if I want. Now, if you're"
+  },
+  {
+    "seconds": 993.12,
+    "text": "watching this video way later, maybe the"
+  },
+  {
+    "seconds": 994.639,
+    "text": "model names look different, but"
+  },
+  {
+    "seconds": 995.92,
+    "text": "essentially the theory is the same. You"
+  },
+  {
+    "seconds": 997.759,
+    "text": "have different models to choose from and"
+  },
+  {
+    "seconds": 999.04,
+    "text": "they all have different prices and"
+  },
+  {
+    "seconds": 1001.04,
+    "text": "strengths. So, like right now, GBD6"
+  },
+  {
+    "seconds": 1002.959,
+    "text": "Astra is just the absolute strongest,"
+  },
+  {
+    "seconds": 1004.8,
+    "text": "but it's going to cost the most. It's"
+  },
+  {
+    "seconds": 1006.24,
+    "text": "going to eat the most of your weekly"
+  },
+  {
+    "seconds": 1007.759,
+    "text": "limit. Right here, you can see that I'm"
+  },
+  {
+    "seconds": 1008.959,
+    "text": "at 100% because it just got reset. But"
+  },
+  {
+    "seconds": 1011.12,
+    "text": "as you chat with Astra, it will drain"
+  },
+  {
+    "seconds": 1012.959,
+    "text": "your weekly usage faster than you know"
+  },
+  {
+    "seconds": 1015.759,
+    "text": "5.6 Soul would, which would drain your"
+  },
+  {
+    "seconds": 1017.68,
+    "text": "usage limit faster than 5.6 Tarot would."
+  },
+  {
+    "seconds": 1020.32,
+    "text": "Now, right here, I just want you to look"
+  },
+  {
+    "seconds": 1021.519,
+    "text": "at the API pricing so I can explain to"
+  },
+  {
+    "seconds": 1023.44,
+    "text": "you how these models are actually"
+  },
+  {
+    "seconds": 1025.439,
+    "text": "billing you. So, they build by tokens,"
+  },
+  {
+    "seconds": 1027.679,
+    "text": "and they usually build by 1 million"
+  },
+  {
+    "seconds": 1029.36,
+    "text": "tokens. Meaning, on Astra, for every 1"
+  },
+  {
+    "seconds": 1031.679,
+    "text": "million input tokens, it will cost you"
+  },
+  {
+    "seconds": 1034.079,
+    "text": "$10. And for every 1 million output"
+  },
+  {
+    "seconds": 1036.079,
+    "text": "tokens, it will cost you 50 bucks. And"
+  },
+  {
+    "seconds": 1037.839,
+    "text": "here you can see the different pricing"
+  },
+  {
+    "seconds": 1039.28,
+    "text": "for these different models. And you can"
+  },
+  {
+    "seconds": 1040.64,
+    "text": "see how it gets cheaper as you go down."
+  },
+  {
+    "seconds": 1042.24,
+    "text": "Now, this is API pricing, which means if"
+  },
+  {
+    "seconds": 1044.4,
+    "text": "you were building an automation that was"
+  },
+  {
+    "seconds": 1046.24,
+    "text": "programmatically using these models,"
+  },
+  {
+    "seconds": 1048.64,
+    "text": "that's how much it would cost you. But"
+  },
+  {
+    "seconds": 1050.16,
+    "text": "this usage inside of Codex, that's not"
+  },
+  {
+    "seconds": 1051.679,
+    "text": "programmatic. This is usage limit or"
+  },
+  {
+    "seconds": 1054.32,
+    "text": "subscription limit. So, when you pay 20"
+  },
+  {
+    "seconds": 1055.919,
+    "text": "or 100 or 200 bucks a month for Codeex,"
+  },
+  {
+    "seconds": 1058.16,
+    "text": "this is what you're actually your usage"
+  },
+  {
+    "seconds": 1059.84,
+    "text": "limit is eating up is that subscription."
+  },
+  {
+    "seconds": 1062.0,
+    "text": "And you're getting way more inference."
+  },
+  {
+    "seconds": 1063.36,
+    "text": "Like, this is a $200 a month"
+  },
+  {
+    "seconds": 1064.96,
+    "text": "subscription. And if I use all of my"
+  },
+  {
+    "seconds": 1067.2,
+    "text": "weekly usage every single week, I'm"
+  },
+  {
+    "seconds": 1070.0,
+    "text": "getting about $14,000 worth of inference"
+  },
+  {
+    "seconds": 1073.12,
+    "text": "every month and I'm only paying 200"
+  },
+  {
+    "seconds": 1074.559,
+    "text": "bucks for that. So the subscriptions are"
+  },
+  {
+    "seconds": 1076.0,
+    "text": "much cheaper than if you were using the"
+  },
+  {
+    "seconds": 1077.44,
+    "text": "API pricing. But if you ever do go over"
+  },
+  {
+    "seconds": 1079.44,
+    "text": "your weekly limit, you'd have to buy"
+  },
+  {
+    "seconds": 1081.039,
+    "text": "extra codeex credits. I don't exactly"
+  },
+  {
+    "seconds": 1083.12,
+    "text": "know why they price it like this, but"
+  },
+  {
+    "seconds": 1084.96,
+    "text": "you know, you can see they just give you"
+  },
+  {
+    "seconds": 1086.32,
+    "text": "codeex credits instead. So let's say I"
+  },
+  {
+    "seconds": 1088.64,
+    "text": "went over my weekly limit. I could go"
+  },
+  {
+    "seconds": 1090.16,
+    "text": "here and I could click on buy credits."
+  },
+  {
+    "seconds": 1092.08,
+    "text": "This would bring up this screen which"
+  },
+  {
+    "seconds": 1093.36,
+    "text": "lets you buy credits by like the"
+  },
+  {
+    "seconds": 1095.28,
+    "text": "thousands or something like that. And"
+  },
+  {
+    "seconds": 1096.96,
+    "text": "that is what I wanted to show you guys."
+  },
+  {
+    "seconds": 1098.559,
+    "text": "So like 2500 credits, 5,000 credits,"
+  },
+  {
+    "seconds": 1101.2,
+    "text": "25,000 credits. And this is how it would"
+  },
+  {
+    "seconds": 1103.2,
+    "text": "charge you based on those tokens. Now,"
+  },
+  {
+    "seconds": 1105.12,
+    "text": "if you've never heard of tokens before,"
+  },
+  {
+    "seconds": 1106.48,
+    "text": "I know that might be a little confusing."
+  },
+  {
+    "seconds": 1108.16,
+    "text": "Think about it as roughly four"
+  },
+  {
+    "seconds": 1109.52,
+    "text": "characters or roughly 3/4s of a word."
+  },
+  {
+    "seconds": 1112.16,
+    "text": "And there's an OpenAI tokenizer right"
+  },
+  {
+    "seconds": 1113.919,
+    "text": "here where if I paste in some text, it"
+  },
+  {
+    "seconds": 1115.919,
+    "text": "will show you how many tokens this would"
+  },
+  {
+    "seconds": 1117.44,
+    "text": "be. So this paragraph for example was"
+  },
+  {
+    "seconds": 1120.08,
+    "text": "about 240 characters or sorry 274"
+  },
+  {
+    "seconds": 1122.24,
+    "text": "characters and about 56 tokens. And it's"
+  },
+  {
+    "seconds": 1124.64,
+    "text": "interesting because sometimes"
+  },
+  {
+    "seconds": 1125.52,
+    "text": "punctuation is a token, right? Like this"
+  },
+  {
+    "seconds": 1127.28,
+    "text": "period is a token, this comma is a"
+  },
+  {
+    "seconds": 1129.039,
+    "text": "token, this word's a token, um this"
+  },
+  {
+    "seconds": 1131.52,
+    "text": "word's a token. And this is basically"
+  },
+  {
+    "seconds": 1133.039,
+    "text": "just kind of breaking down what it might"
+  },
+  {
+    "seconds": 1134.799,
+    "text": "look like for these tokens. But anyways,"
+  },
+  {
+    "seconds": 1136.64,
+    "text": "you can see this was 56. And what else"
+  },
+  {
+    "seconds": 1138.48,
+    "text": "you might notice is that I earlier said"
+  },
+  {
+    "seconds": 1140.4,
+    "text": "input tokens or output tokens. Input"
+  },
+  {
+    "seconds": 1142.799,
+    "text": "tokens are whatever you're feeding in."
+  },
+  {
+    "seconds": 1144.32,
+    "text": "So your prompts or if it's reading like"
+  },
+  {
+    "seconds": 1145.919,
+    "text": "a PDF or a word doc those are input"
+  },
+  {
+    "seconds": 1148.16,
+    "text": "because they're going into the model and"
+  },
+  {
+    "seconds": 1149.84,
+    "text": "output tokens are anything that it"
+  },
+  {
+    "seconds": 1151.28,
+    "text": "outputs. So even its reasoning here is"
+  },
+  {
+    "seconds": 1153.12,
+    "text": "output tokens. This entire thread is"
+  },
+  {
+    "seconds": 1155.76,
+    "text": "output tokens and that's why the output"
+  },
+  {
+    "seconds": 1157.679,
+    "text": "tokens are more expensive. Okay. So"
+  },
+  {
+    "seconds": 1159.12,
+    "text": "let's move on to number nine which is"
+  },
+  {
+    "seconds": 1160.48,
+    "text": "about effort. So within each model not"
+  },
+  {
+    "seconds": 1163.12,
+    "text": "only do you choose the model but you can"
+  },
+  {
+    "seconds": 1164.72,
+    "text": "also choose the effort level. So right"
+  },
+  {
+    "seconds": 1166.32,
+    "text": "here I can move Astra down to medium or"
+  },
+  {
+    "seconds": 1168.48,
+    "text": "I can move it down to low or I can move"
+  },
+  {
+    "seconds": 1170.16,
+    "text": "it up to extra high or if I go like"
+  },
+  {
+    "seconds": 1172.24,
+    "text": "ultra I have to allow full access"
+  },
+  {
+    "seconds": 1174.24,
+    "text": "because that can get you know pretty"
+  },
+  {
+    "seconds": 1176.559,
+    "text": "autonomous. But anyways the point being"
+  },
+  {
+    "seconds": 1178.799,
+    "text": "as you move up on these effort levels"
+  },
+  {
+    "seconds": 1180.88,
+    "text": "you get more quality like you get more"
+  },
+  {
+    "seconds": 1183.52,
+    "text": "intelligence but you also get more cost."
+  },
+  {
+    "seconds": 1186.4,
+    "text": "It's more expensive to run it at higher"
+  },
+  {
+    "seconds": 1187.84,
+    "text": "effort levels. And that's why when you"
+  },
+  {
+    "seconds": 1189.52,
+    "text": "see these benchmarks, when there are new"
+  },
+  {
+    "seconds": 1190.96,
+    "text": "models released, you'll see the model,"
+  },
+  {
+    "seconds": 1192.72,
+    "text": "like for example, Cloud Fable 5, you can"
+  },
+  {
+    "seconds": 1194.72,
+    "text": "see this mark was on low and this one"
+  },
+  {
+    "seconds": 1197.6,
+    "text": "was on medium and this one was on high."
+  },
+  {
+    "seconds": 1199.52,
+    "text": "So, it shows how one model can behave"
+  },
+  {
+    "seconds": 1201.28,
+    "text": "differently and also cost a different"
+  },
+  {
+    "seconds": 1202.799,
+    "text": "amount based on the effort level that it"
+  },
+  {
+    "seconds": 1204.72,
+    "text": "was being used and tested at. Now, it"
+  },
+  {
+    "seconds": 1206.72,
+    "text": "actually is pretty nice to play with"
+  },
+  {
+    "seconds": 1208.08,
+    "text": "these because sometimes Astra High is"
+  },
+  {
+    "seconds": 1210.24,
+    "text": "just so much more powerful than what you"
+  },
+  {
+    "seconds": 1211.84,
+    "text": "need to do. Like if you were using GBD6"
+  },
+  {
+    "seconds": 1213.679,
+    "text": "Astra High to help you write an email,"
+  },
+  {
+    "seconds": 1215.6,
+    "text": "that's overkill and you're paying way"
+  },
+  {
+    "seconds": 1217.12,
+    "text": "more than you should realistically to"
+  },
+  {
+    "seconds": 1218.4,
+    "text": "write an email. I could probably come"
+  },
+  {
+    "seconds": 1219.84,
+    "text": "down here and use 56 Terra and be just"
+  },
+  {
+    "seconds": 1221.84,
+    "text": "fine with that and it's a lot cheaper."
+  },
+  {
+    "seconds": 1223.44,
+    "text": "So definitely try to play with the model"
+  },
+  {
+    "seconds": 1224.799,
+    "text": "and play with the effort based on your"
+  },
+  {
+    "seconds": 1226.08,
+    "text": "task. But a lot of times if you're just"
+  },
+  {
+    "seconds": 1227.52,
+    "text": "doing a lot of knowledge work, I would"
+  },
+  {
+    "seconds": 1228.799,
+    "text": "just chuck it on sole and I'd maybe just"
+  },
+  {
+    "seconds": 1230.4,
+    "text": "go to medium and just call it a day"
+  },
+  {
+    "seconds": 1232.0,
+    "text": "there. Now the other thing about effort"
+  },
+  {
+    "seconds": 1233.28,
+    "text": "is you can do something called fast"
+  },
+  {
+    "seconds": 1234.72,
+    "text": "mode. This obviously makes the model"
+  },
+  {
+    "seconds": 1236.48,
+    "text": "respond quicker and do things quicker."
+  },
+  {
+    "seconds": 1237.84,
+    "text": "And it it's 1.5 speed, but it costs you"
+  },
+  {
+    "seconds": 1239.84,
+    "text": "more usage, so it will eat your weekly"
+  },
+  {
+    "seconds": 1241.84,
+    "text": "subscription faster as well. All right,"
+  },
+  {
+    "seconds": 1243.919,
+    "text": "and moving on to number 10, we have"
+  },
+  {
+    "seconds": 1245.36,
+    "text": "permissions. Basically, right down here,"
+  },
+  {
+    "seconds": 1247.039,
+    "text": "you can see that this is orange and it"
+  },
+  {
+    "seconds": 1248.4,
+    "text": "says full access. This is basically"
+  },
+  {
+    "seconds": 1250.08,
+    "text": "Codeex's yolo mode, which means that"
+  },
+  {
+    "seconds": 1252.24,
+    "text": "it's not going to stop and ask you a"
+  },
+  {
+    "seconds": 1254.08,
+    "text": "bunch of permissions and questions. Can"
+  },
+  {
+    "seconds": 1255.52,
+    "text": "I do this? Can I do this? If you go on"
+  },
+  {
+    "seconds": 1257.52,
+    "text": "ask for approval, it's going to always"
+  },
+  {
+    "seconds": 1259.28,
+    "text": "ask to edit external files and always"
+  },
+  {
+    "seconds": 1261.28,
+    "text": "ask to use the internet. So that's if"
+  },
+  {
+    "seconds": 1262.96,
+    "text": "you want to sit here and really sort of"
+  },
+  {
+    "seconds": 1264.159,
+    "text": "like manage it and you're wanting to"
+  },
+  {
+    "seconds": 1265.76,
+    "text": "make sure everything's safe, you know,"
+  },
+  {
+    "seconds": 1267.12,
+    "text": "maybe start off like this so you can"
+  },
+  {
+    "seconds": 1268.48,
+    "text": "just understand, oh, okay, it's asking"
+  },
+  {
+    "seconds": 1269.84,
+    "text": "me if it can run this command or it's"
+  },
+  {
+    "seconds": 1271.36,
+    "text": "asking me if it can open up my browser"
+  },
+  {
+    "seconds": 1272.799,
+    "text": "and then you just get familiar with what"
+  },
+  {
+    "seconds": 1274.24,
+    "text": "it looks like for Codeex to actually run"
+  },
+  {
+    "seconds": 1275.919,
+    "text": "that agentic loop. You could also go on"
+  },
+  {
+    "seconds": 1277.52,
+    "text": "approveof for me. So it's only going to"
+  },
+  {
+    "seconds": 1279.12,
+    "text": "ask you if actions are detected as"
+  },
+  {
+    "seconds": 1281.039,
+    "text": "unsafe like maybe deletes or maybe"
+  },
+  {
+    "seconds": 1282.96,
+    "text": "certain sorts of like API calls or"
+  },
+  {
+    "seconds": 1285.12,
+    "text": "things like that. So that's how these"
+  },
+  {
+    "seconds": 1286.4,
+    "text": "permissions work. And if you really want"
+  },
+  {
+    "seconds": 1287.679,
+    "text": "to get granular about, oh, I want to"
+  },
+  {
+    "seconds": 1289.28,
+    "text": "like make sure these certain actions"
+  },
+  {
+    "seconds": 1290.799,
+    "text": "never happen, you can ask Codex about"
+  },
+  {
+    "seconds": 1292.559,
+    "text": "that and it can work things into those"
+  },
+  {
+    "seconds": 1294.32,
+    "text": "config files like we talked about"
+  },
+  {
+    "seconds": 1295.6,
+    "text": "earlier with the codeex that it can"
+  },
+  {
+    "seconds": 1297.28,
+    "text": "certainly like block things out. But now"
+  },
+  {
+    "seconds": 1298.88,
+    "text": "let's move on to number 11, which I"
+  },
+  {
+    "seconds": 1300.32,
+    "text": "think is my favorite one, which is"
+  },
+  {
+    "seconds": 1302.08,
+    "text": "skills. Skills are so so important."
+  },
+  {
+    "seconds": 1304.24,
+    "text": "They're basically reusable workflows."
+  },
+  {
+    "seconds": 1306.0,
+    "text": "They're recipes that let you do"
+  },
+  {
+    "seconds": 1308.32,
+    "text": "something once and then teach Codex how"
+  },
+  {
+    "seconds": 1310.32,
+    "text": "to do it the same way every single time."
+  },
+  {
+    "seconds": 1312.159,
+    "text": "So now you can just run all these"
+  },
+  {
+    "seconds": 1313.44,
+    "text": "skills. So like I said, a skill is"
+  },
+  {
+    "seconds": 1315.12,
+    "text": "basically just a recipe. So, let's say"
+  },
+  {
+    "seconds": 1317.039,
+    "text": "you come in here and you make, you know,"
+  },
+  {
+    "seconds": 1319.039,
+    "text": "a chocolate chip pancake and you"
+  },
+  {
+    "seconds": 1320.559,
+    "text": "followed a recipe to make that pancake."
+  },
+  {
+    "seconds": 1322.559,
+    "text": "You would basically say, \"Okay, if I"
+  },
+  {
+    "seconds": 1324.0,
+    "text": "ever want to make chocolate chip"
+  },
+  {
+    "seconds": 1324.799,
+    "text": "pancakes again, I'm going to use this"
+  },
+  {
+    "seconds": 1326.48,
+    "text": "recipe because I know that I'm going to"
+  },
+  {
+    "seconds": 1327.919,
+    "text": "get a good result.\" But let's say that"
+  },
+  {
+    "seconds": 1329.52,
+    "text": "you burnt these pancakes and you said,"
+  },
+  {
+    "seconds": 1331.12,
+    "text": "\"Okay, well, what I need to do is make a"
+  },
+  {
+    "seconds": 1332.64,
+    "text": "quick update in this recipe to say, hey,"
+  },
+  {
+    "seconds": 1334.4,
+    "text": "you know, cook it up 30 seconds less on"
+  },
+  {
+    "seconds": 1336.24,
+    "text": "each side.\" And the next time you run"
+  },
+  {
+    "seconds": 1337.84,
+    "text": "the skill, you basically see, okay, are"
+  },
+  {
+    "seconds": 1339.6,
+    "text": "these better? Are these good? Do I need"
+  },
+  {
+    "seconds": 1340.88,
+    "text": "to make any more feedback in here? Or"
+  },
+  {
+    "seconds": 1342.64,
+    "text": "now, is this skill just the way I like"
+  },
+  {
+    "seconds": 1344.48,
+    "text": "it? And then your agents are able to use"
+  },
+  {
+    "seconds": 1346.559,
+    "text": "these skills. So here's an example where"
+  },
+  {
+    "seconds": 1348.32,
+    "text": "I basically gave it a YouTube video. So"
+  },
+  {
+    "seconds": 1349.76,
+    "text": "you can see that this is literally just"
+  },
+  {
+    "seconds": 1350.88,
+    "text": "a local file path of a YouTube video."
+  },
+  {
+    "seconds": 1352.72,
+    "text": "And I said that I needed a video"
+  },
+  {
+    "seconds": 1354.08,
+    "text": "description, timestamps, and a LinkedIn"
+  },
+  {
+    "seconds": 1355.679,
+    "text": "post. It went ahead and it ran its"
+  },
+  {
+    "seconds": 1357.44,
+    "text": "agentic loop and it gave me a"
+  },
+  {
+    "seconds": 1359.039,
+    "text": "description, timestamps, and a LinkedIn"
+  },
+  {
+    "seconds": 1360.72,
+    "text": "post. And then I said, \"Okay, now I need"
+  },
+  {
+    "seconds": 1362.0,
+    "text": "you to turn this into an X article.\" And"
+  },
+  {
+    "seconds": 1363.52,
+    "text": "put the draft into my X as a draft. And"
+  },
+  {
+    "seconds": 1365.679,
+    "text": "it knew exactly how to do this with a"
+  },
+  {
+    "seconds": 1367.28,
+    "text": "thumbnail, with a title. It also put"
+  },
+  {
+    "seconds": 1369.12,
+    "text": "screenshots from my actual video and it"
+  },
+  {
+    "seconds": 1370.96,
+    "text": "sprinkled them throughout my whole X"
+  },
+  {
+    "seconds": 1372.96,
+    "text": "article. And this is because it used a"
+  },
+  {
+    "seconds": 1374.799,
+    "text": "bunch of skills to be able to know how"
+  },
+  {
+    "seconds": 1376.159,
+    "text": "to do this. So right here, if I asked"
+  },
+  {
+    "seconds": 1377.6,
+    "text": "it, what skills did you use? It used my"
+  },
+  {
+    "seconds": 1379.52,
+    "text": "YouTube description skill, my timestamp"
+  },
+  {
+    "seconds": 1381.28,
+    "text": "skill, my LinkedIn post skill, my ex"
+  },
+  {
+    "seconds": 1382.88,
+    "text": "article skill, my ex article from video"
+  },
+  {
+    "seconds": 1384.4,
+    "text": "skill, my format X article skill. It"
+  },
+  {
+    "seconds": 1386.24,
+    "text": "used all of these skills because I've"
+  },
+  {
+    "seconds": 1387.76,
+    "text": "taught it how to do something good once."
+  },
+  {
+    "seconds": 1389.919,
+    "text": "And then every time I run these skills,"
+  },
+  {
+    "seconds": 1391.2,
+    "text": "I just give feedback. Hey, that was"
+  },
+  {
+    "seconds": 1392.64,
+    "text": "good. You know, I liked this, but I"
+  },
+  {
+    "seconds": 1394.24,
+    "text": "didn't like this. Update the skill. And"
+  },
+  {
+    "seconds": 1395.76,
+    "text": "now what's cool is you can just invoke"
+  },
+  {
+    "seconds": 1397.039,
+    "text": "these either with natural language. It"
+  },
+  {
+    "seconds": 1398.4,
+    "text": "will be smart enough to do it with"
+  },
+  {
+    "seconds": 1399.28,
+    "text": "natural language, or you can do it as a"
+  },
+  {
+    "seconds": 1401.2,
+    "text": "slash command. So, I have one in here"
+  },
+  {
+    "seconds": 1402.88,
+    "text": "that I can call like the audit. And you"
+  },
+  {
+    "seconds": 1404.48,
+    "text": "can see this will run my audit or I have"
+  },
+  {
+    "seconds": 1406.32,
+    "text": "one in here called the 3D brain. And"
+  },
+  {
+    "seconds": 1408.159,
+    "text": "this runs the 3D brain. Man, I think I"
+  },
+  {
+    "seconds": 1410.08,
+    "text": "planned this out so good. This is going"
+  },
+  {
+    "seconds": 1411.36,
+    "text": "to bring us on to number 12, which is"
+  },
+  {
+    "seconds": 1414.32,
+    "text": "agents. So, we talked about codecs and"
+  },
+  {
+    "seconds": 1416.72,
+    "text": "agents is basically the exact same. It"
+  },
+  {
+    "seconds": 1419.039,
+    "text": "just holds different things. So, right"
+  },
+  {
+    "seconds": 1420.4,
+    "text": "here, you can see that the agents holds"
+  },
+  {
+    "seconds": 1422.32,
+    "text": "your skills and these once again can"
+  },
+  {
+    "seconds": 1424.24,
+    "text": "either be project level skills or they"
+  },
+  {
+    "seconds": 1425.84,
+    "text": "can be user scope skills. So, they can"
+  },
+  {
+    "seconds": 1427.44,
+    "text": "be global skills. So if I come into this"
+  },
+  {
+    "seconds": 1430.24,
+    "text": "chat right here which is inside of my um"
+  },
+  {
+    "seconds": 1433.52,
+    "text": "you know Herk 2 project and I go to open"
+  },
+  {
+    "seconds": 1435.44,
+    "text": "up the files and I go to my agents"
+  },
+  {
+    "seconds": 1438.159,
+    "text": "folder which is right here we have a"
+  },
+  {
+    "seconds": 1439.84,
+    "text": "folder called skills and this is a bunch"
+  },
+  {
+    "seconds": 1441.76,
+    "text": "of skills as you can see. Now if I open"
+  },
+  {
+    "seconds": 1443.84,
+    "text": "up an actual skill so for example let me"
+  },
+  {
+    "seconds": 1445.6,
+    "text": "go to my YouTube description skill. This"
+  },
+  {
+    "seconds": 1448.32,
+    "text": "is an actual skill.md. So once again MD"
+  },
+  {
+    "seconds": 1450.96,
+    "text": "just means markdown file. So what we"
+  },
+  {
+    "seconds": 1452.559,
+    "text": "have here is some metadata and this is"
+  },
+  {
+    "seconds": 1454.159,
+    "text": "what codeex will read to understand okay"
+  },
+  {
+    "seconds": 1456.159,
+    "text": "do I need to invoke the skill or not."
+  },
+  {
+    "seconds": 1457.52,
+    "text": "So, it has the name and it has basically"
+  },
+  {
+    "seconds": 1458.96,
+    "text": "when to use the skill. And then all the"
+  },
+  {
+    "seconds": 1460.64,
+    "text": "skill is is just instructions. It's,"
+  },
+  {
+    "seconds": 1462.96,
+    "text": "hey, for Nate's YouTube descriptions,"
+  },
+  {
+    "seconds": 1465.279,
+    "text": "keep them short, two to four sentences,"
+  },
+  {
+    "seconds": 1466.88,
+    "text": "paragraph form, no bullet points, no m"
+  },
+  {
+    "seconds": 1468.799,
+    "text": "dashes. Here's the process. You read the"
+  },
+  {
+    "seconds": 1470.72,
+    "text": "video outline. You identify the core"
+  },
+  {
+    "seconds": 1472.159,
+    "text": "topic. You write a short paragraph. And"
+  },
+  {
+    "seconds": 1473.84,
+    "text": "that's the skill. It's a very, very"
+  },
+  {
+    "seconds": 1475.2,
+    "text": "simple prompt. But if I go to my ex"
+  },
+  {
+    "seconds": 1476.799,
+    "text": "article one, they can also be way more"
+  },
+  {
+    "seconds": 1478.4,
+    "text": "in-depth. So, this one is way longer."
+  },
+  {
+    "seconds": 1480.32,
+    "text": "There's a lot of other rules and a lot"
+  },
+  {
+    "seconds": 1482.0,
+    "text": "of other criteria. There's way more"
+  },
+  {
+    "seconds": 1483.52,
+    "text": "steps. There's way more things to do."
+  },
+  {
+    "seconds": 1485.279,
+    "text": "And also what's cool is skills can"
+  },
+  {
+    "seconds": 1487.279,
+    "text": "reference other things. Skills can"
+  },
+  {
+    "seconds": 1488.72,
+    "text": "reference other skills. They can"
+  },
+  {
+    "seconds": 1490.0,
+    "text": "reference other agents. They can"
+  },
+  {
+    "seconds": 1491.44,
+    "text": "reference Python files or context files."
+  },
+  {
+    "seconds": 1494.0,
+    "text": "So in this example, this skill"
+  },
+  {
+    "seconds": 1495.52,
+    "text": "references my voice guidelines like my"
+  },
+  {
+    "seconds": 1497.2,
+    "text": "LinkedIn style guide as well as my X"
+  },
+  {
+    "seconds": 1498.72,
+    "text": "article style guide. But that is where"
+  },
+  {
+    "seconds": 1500.4,
+    "text": "your skills live inside of the agents"
+  },
+  {
+    "seconds": 1502.64,
+    "text": "folder. And then moving on to number 13."
+  },
+  {
+    "seconds": 1504.96,
+    "text": "Here we have plugins. And this is where"
+  },
+  {
+    "seconds": 1506.88,
+    "text": "a lot of the magic actually happens"
+  },
+  {
+    "seconds": 1508.559,
+    "text": "because you can super easily come over"
+  },
+  {
+    "seconds": 1510.159,
+    "text": "here in the Codex desktop app. You can"
+  },
+  {
+    "seconds": 1512.0,
+    "text": "go to plugins and you can connect a"
+  },
+  {
+    "seconds": 1513.679,
+    "text": "bunch of things. You can see all the"
+  },
+  {
+    "seconds": 1514.799,
+    "text": "stuff that I have installed like Alpaca,"
+  },
+  {
+    "seconds": 1516.799,
+    "text": "Gmail, ClickUp, Clay, Google Drive,"
+  },
+  {
+    "seconds": 1518.96,
+    "text": "GitHub, Canva, and the list goes on and"
+  },
+  {
+    "seconds": 1521.679,
+    "text": "on. You can also search for different"
+  },
+  {
+    "seconds": 1523.36,
+    "text": "plugins. So, let's say you were really"
+  },
+  {
+    "seconds": 1524.559,
+    "text": "interested in connecting something like,"
+  },
+  {
+    "seconds": 1526.159,
+    "text": "I don't know, let's see, do they have a"
+  },
+  {
+    "seconds": 1527.6,
+    "text": "LinkedIn plugin? They have a LinkedIn"
+  },
+  {
+    "seconds": 1529.36,
+    "text": "plugin where we can find the right"
+  },
+  {
+    "seconds": 1530.48,
+    "text": "profession. We can grow our business"
+  },
+  {
+    "seconds": 1531.679,
+    "text": "with ads. We have all these other sorts"
+  },
+  {
+    "seconds": 1533.36,
+    "text": "of plugins, too. So, if you want to try"
+  },
+  {
+    "seconds": 1535.2,
+    "text": "to connect your different apps, just"
+  },
+  {
+    "seconds": 1536.72,
+    "text": "come in here and see if you can connect"
+  },
+  {
+    "seconds": 1538.159,
+    "text": "them using these plugins. Maybe they"
+  },
+  {
+    "seconds": 1539.919,
+    "text": "have Composio, they don't have"
+  },
+  {
+    "seconds": 1541.12,
+    "text": "Composeio, and if they don't have a"
+  },
+  {
+    "seconds": 1542.72,
+    "text": "plugin here, you can still connect it"
+  },
+  {
+    "seconds": 1544.48,
+    "text": "using AENV, using an API key. But"
+  },
+  {
+    "seconds": 1546.799,
+    "text": "plugins are so much easier because you"
+  },
+  {
+    "seconds": 1548.24,
+    "text": "can just basically sign in once. They've"
+  },
+  {
+    "seconds": 1550.0,
+    "text": "got ones for creativity, for developer"
+  },
+  {
+    "seconds": 1551.84,
+    "text": "tools, for business and operations, for"
+  },
+  {
+    "seconds": 1553.6,
+    "text": "data analytics, communication, and"
+  },
+  {
+    "seconds": 1555.52,
+    "text": "they're basically always growing this"
+  },
+  {
+    "seconds": 1557.2,
+    "text": "plug-in library. All right, so that now"
+  },
+  {
+    "seconds": 1559.039,
+    "text": "brings us on to part four, which is"
+  },
+  {
+    "seconds": 1561.279,
+    "text": "tools and scale. Okay, we've got five"
+  },
+  {
+    "seconds": 1563.52,
+    "text": "left here. Number 14, we have the"
+  },
+  {
+    "seconds": 1565.679,
+    "text": "browser. Now, this is definitely one of"
+  },
+  {
+    "seconds": 1567.6,
+    "text": "my favorite things about Codeex. If I"
+  },
+  {
+    "seconds": 1570.0,
+    "text": "open up the tab over here, we can open"
+  },
+  {
+    "seconds": 1571.76,
+    "text": "up a browser, which is really cool"
+  },
+  {
+    "seconds": 1573.279,
+    "text": "because I can basically just control"
+  },
+  {
+    "seconds": 1574.559,
+    "text": "this. So, like I could go to school.com."
+  },
+  {
+    "seconds": 1576.96,
+    "text": "And what you'll notice is when I log"
+  },
+  {
+    "seconds": 1578.24,
+    "text": "into school.com over here, I'm just"
+  },
+  {
+    "seconds": 1580.08,
+    "text": "going to zoom out a little bit. You can"
+  },
+  {
+    "seconds": 1581.2,
+    "text": "see right here that I'm already logged"
+  },
+  {
+    "seconds": 1582.4,
+    "text": "into my school account. So, I could"
+  },
+  {
+    "seconds": 1583.76,
+    "text": "manage my different communities, which"
+  },
+  {
+    "seconds": 1585.279,
+    "text": "also means that Codeex can help me"
+  },
+  {
+    "seconds": 1587.12,
+    "text": "manage my communities from here. Because"
+  },
+  {
+    "seconds": 1588.72,
+    "text": "when you save these login inside of the"
+  },
+  {
+    "seconds": 1590.48,
+    "text": "Codeex browser, it then saves them. So,"
+  },
+  {
+    "seconds": 1592.32,
+    "text": "if you say, \"Hey, could you go to that"
+  },
+  {
+    "seconds": 1593.76,
+    "text": "account and pull the report for me?\" or"
+  },
+  {
+    "seconds": 1595.36,
+    "text": "hey could you go into school and could"
+  },
+  {
+    "seconds": 1596.64,
+    "text": "you make this post for me it can do it"
+  },
+  {
+    "seconds": 1598.4,
+    "text": "through the browser if there's not a"
+  },
+  {
+    "seconds": 1600.159,
+    "text": "plugin or if there's not like an API or"
+  },
+  {
+    "seconds": 1602.08,
+    "text": "MCP server and the browser use of codeex"
+  },
+  {
+    "seconds": 1604.32,
+    "text": "and specifically with GBT6 Astra is the"
+  },
+  {
+    "seconds": 1607.039,
+    "text": "best that I've ever used ever I'll play"
+  },
+  {
+    "seconds": 1609.44,
+    "text": "a clip right here where I asked it to"
+  },
+  {
+    "seconds": 1611.12,
+    "text": "basically open up Canva and paint me and"
+  },
+  {
+    "seconds": 1613.36,
+    "text": "draw me using the tools in there and I"
+  },
+  {
+    "seconds": 1615.52,
+    "text": "gave it just a picture of me and it was"
+  },
+  {
+    "seconds": 1616.88,
+    "text": "able to replicate it in a way that I"
+  },
+  {
+    "seconds": 1618.48,
+    "text": "thought was really really good. So silly"
+  },
+  {
+    "seconds": 1620.08,
+    "text": "example, but it definitely demonstrates"
+  },
+  {
+    "seconds": 1621.52,
+    "text": "the vision and the browser use"
+  },
+  {
+    "seconds": 1622.88,
+    "text": "capability of this agent. All right, so"
+  },
+  {
+    "seconds": 1625.44,
+    "text": "number 15 we have sites. So if you go"
+  },
+  {
+    "seconds": 1627.44,
+    "text": "over here to explore and you click on"
+  },
+  {
+    "seconds": 1628.88,
+    "text": "sites, this is very very cool because it"
+  },
+  {
+    "seconds": 1631.279,
+    "text": "basically lets you put things out there"
+  },
+  {
+    "seconds": 1633.679,
+    "text": "onto the cloud. Remember earlier we"
+  },
+  {
+    "seconds": 1635.6,
+    "text": "talked about local versus cloud. Codex"
+  },
+  {
+    "seconds": 1637.44,
+    "text": "can build something for you and it can"
+  },
+  {
+    "seconds": 1638.559,
+    "text": "be a local host but then you say, \"Hey,"
+  },
+  {
+    "seconds": 1639.84,
+    "text": "can you just put that on a site real"
+  },
+  {
+    "seconds": 1640.96,
+    "text": "quick so that you could have your team"
+  },
+  {
+    "seconds": 1642.32,
+    "text": "log in or so that you could share it"
+  },
+  {
+    "seconds": 1643.679,
+    "text": "with, you know, other people and make it"
+  },
+  {
+    "seconds": 1645.36,
+    "text": "publicly accessible.\" Like right here,"
+  },
+  {
+    "seconds": 1646.559,
+    "text": "you can see this London and Paris one is"
+  },
+  {
+    "seconds": 1648.799,
+    "text": "everyone whoever has this URL could go"
+  },
+  {
+    "seconds": 1650.88,
+    "text": "ahead and open this up. Whereas this one"
+  },
+  {
+    "seconds": 1652.48,
+    "text": "is just me. So it would literally have"
+  },
+  {
+    "seconds": 1654.159,
+    "text": "to be logged into my account in order to"
+  },
+  {
+    "seconds": 1656.0,
+    "text": "be able to open up this site. And what"
+  },
+  {
+    "seconds": 1658.0,
+    "text": "else is amazing about that is you can"
+  },
+  {
+    "seconds": 1659.36,
+    "text": "open up the analytics for the site. So"
+  },
+  {
+    "seconds": 1661.36,
+    "text": "you can basically host things. You can"
+  },
+  {
+    "seconds": 1663.44,
+    "text": "connect your own domain and this is"
+  },
+  {
+    "seconds": 1665.279,
+    "text": "basically going to replace something"
+  },
+  {
+    "seconds": 1666.32,
+    "text": "like a Verscell or like a I don't know a"
+  },
+  {
+    "seconds": 1669.039,
+    "text": "Squarespace, wherever you wanted to host"
+  },
+  {
+    "seconds": 1670.4,
+    "text": "your sites normally. You can now just do"
+  },
+  {
+    "seconds": 1671.84,
+    "text": "it right here from the Codex desktop app"
+  },
+  {
+    "seconds": 1673.279,
+    "text": "which is pretty cool. You can also even"
+  },
+  {
+    "seconds": 1674.72,
+    "text": "connect a database. So on the back end"
+  },
+  {
+    "seconds": 1676.159,
+    "text": "if you had to store like user login data"
+  },
+  {
+    "seconds": 1678.24,
+    "text": "or you know permissions or settings or"
+  },
+  {
+    "seconds": 1681.039,
+    "text": "you know a database of customer records"
+  },
+  {
+    "seconds": 1683.6,
+    "text": "whatever it is you could actually store"
+  },
+  {
+    "seconds": 1685.039,
+    "text": "that here too and it's really cool. All"
+  },
+  {
+    "seconds": 1686.48,
+    "text": "you need to do to actually use a site is"
+  },
+  {
+    "seconds": 1688.08,
+    "text": "you just basically have to do either say"
+  },
+  {
+    "seconds": 1690.0,
+    "text": "hey can you turn that into a site or you"
+  },
+  {
+    "seconds": 1691.679,
+    "text": "could do slash site and then it will"
+  },
+  {
+    "seconds": 1693.52,
+    "text": "basically know that you can you know"
+  },
+  {
+    "seconds": 1694.96,
+    "text": "host a site or build a site. So great"
+  },
+  {
+    "seconds": 1696.88,
+    "text": "touch here from codeex. All right so"
+  },
+  {
+    "seconds": 1698.799,
+    "text": "number 16 we have sub aents. So, sub"
+  },
+  {
+    "seconds": 1701.84,
+    "text": "agents are really cool because it lets"
+  },
+  {
+    "seconds": 1703.279,
+    "text": "you delegate work out to a bunch of"
+  },
+  {
+    "seconds": 1705.039,
+    "text": "different CEX agents. So, right here in"
+  },
+  {
+    "seconds": 1706.88,
+    "text": "this main chat, you can see that I'm"
+  },
+  {
+    "seconds": 1708.24,
+    "text": "talking to GBT6 Astra, which is a"
+  },
+  {
+    "seconds": 1710.72,
+    "text": "really, really smart and intelligent,"
+  },
+  {
+    "seconds": 1712.96,
+    "text": "but also expensive model. So, let's say"
+  },
+  {
+    "seconds": 1714.799,
+    "text": "I wanted to do a bunch of research, but"
+  },
+  {
+    "seconds": 1716.159,
+    "text": "I didn't want to waste Astra's brain on"
+  },
+  {
+    "seconds": 1717.679,
+    "text": "that. Or let's say I wanted to do like a"
+  },
+  {
+    "seconds": 1719.279,
+    "text": "bunch of different testing and just do a"
+  },
+  {
+    "seconds": 1720.64,
+    "text": "lot of stuff at once. Astra here that"
+  },
+  {
+    "seconds": 1722.72,
+    "text": "I'm talking to can delegate workout to"
+  },
+  {
+    "seconds": 1724.72,
+    "text": "tons of sub aents. Hey, I need you to"
+  },
+  {
+    "seconds": 1726.72,
+    "text": "search through X and search through"
+  },
+  {
+    "seconds": 1728.0,
+    "text": "YouTube and also dig through my own"
+  },
+  {
+    "seconds": 1729.36,
+    "text": "comments. So, just find, you know, what"
+  },
+  {
+    "seconds": 1730.88,
+    "text": "are people talking about right now in"
+  },
+  {
+    "seconds": 1732.32,
+    "text": "the AI space? Is there any big news or"
+  },
+  {
+    "seconds": 1734.0,
+    "text": "drama? I don't want you to do this"
+  },
+  {
+    "seconds": 1735.6,
+    "text": "research though. I want you to basically"
+  },
+  {
+    "seconds": 1737.279,
+    "text": "just delegate a bunch of sub agents out"
+  },
+  {
+    "seconds": 1738.96,
+    "text": "to do the work. And I want all of these"
+  },
+  {
+    "seconds": 1740.72,
+    "text": "sub aents to be using 5.6 Terra as the"
+  },
+  {
+    "seconds": 1743.679,
+    "text": "model. So, shoot off those agents and"
+  },
+  {
+    "seconds": 1745.44,
+    "text": "let me know what they find. So, this is"
+  },
+  {
+    "seconds": 1746.799,
+    "text": "really cool because I can specify that I"
+  },
+  {
+    "seconds": 1748.799,
+    "text": "want those sub aents, those little like"
+  },
+  {
+    "seconds": 1750.32,
+    "text": "researchers and workers to use different"
+  },
+  {
+    "seconds": 1753.039,
+    "text": "models. So right here it's using its"
+  },
+  {
+    "seconds": 1754.96,
+    "text": "agentic loop and it's going to spin up"
+  },
+  {
+    "seconds": 1756.48,
+    "text": "these agents. And whenever you see these"
+  },
+  {
+    "seconds": 1758.159,
+    "text": "little colorful things, these are"
+  },
+  {
+    "seconds": 1760.0,
+    "text": "different agents that it's spun up. So"
+  },
+  {
+    "seconds": 1761.44,
+    "text": "right here, this one's called X. And"
+  },
+  {
+    "seconds": 1763.039,
+    "text": "when I open up X, it is actually this"
+  },
+  {
+    "seconds": 1765.76,
+    "text": "sub agent working right here. I can"
+  },
+  {
+    "seconds": 1767.44,
+    "text": "watch this sub agent go through its"
+  },
+  {
+    "seconds": 1769.2,
+    "text": "agentic loop and I can watch it like"
+  },
+  {
+    "seconds": 1771.12,
+    "text": "pull in data and everything like that."
+  },
+  {
+    "seconds": 1772.799,
+    "text": "So this is the same thing as over here,"
+  },
+  {
+    "seconds": 1774.64,
+    "text": "but this one is just a different model"
+  },
+  {
+    "seconds": 1776.0,
+    "text": "and it's not the main session that"
+  },
+  {
+    "seconds": 1777.279,
+    "text": "you're currently talking to. You can see"
+  },
+  {
+    "seconds": 1778.96,
+    "text": "we have two others that started working."
+  },
+  {
+    "seconds": 1780.48,
+    "text": "We have this one called YouTube Pulse."
+  },
+  {
+    "seconds": 1781.76,
+    "text": "And once again, it's going through the"
+  },
+  {
+    "seconds": 1782.88,
+    "text": "same exact aentic loop. We have this one"
+  },
+  {
+    "seconds": 1784.88,
+    "text": "called X drama. We have this one called"
+  },
+  {
+    "seconds": 1786.88,
+    "text": "audience comments. And we can basically"
+  },
+  {
+    "seconds": 1788.64,
+    "text": "watch all of these work, but we don't"
+  },
+  {
+    "seconds": 1790.399,
+    "text": "have to manage them because once these"
+  },
+  {
+    "seconds": 1792.24,
+    "text": "agents are done, the main session here"
+  },
+  {
+    "seconds": 1794.24,
+    "text": "will say, \"Okay, cool. All five are"
+  },
+  {
+    "seconds": 1795.6,
+    "text": "done. They reported back to me. Here's"
+  },
+  {
+    "seconds": 1797.2,
+    "text": "what they found.\" And this is really"
+  },
+  {
+    "seconds": 1798.559,
+    "text": "good for gathering different"
+  },
+  {
+    "seconds": 1799.919,
+    "text": "perspectives or researching out a bunch"
+  },
+  {
+    "seconds": 1802.08,
+    "text": "of things in parallel. And these"
+  },
+  {
+    "seconds": 1803.52,
+    "text": "intelligent models are really, really"
+  },
+  {
+    "seconds": 1805.039,
+    "text": "good at delegation. So sub agents are"
+  },
+  {
+    "seconds": 1807.2,
+    "text": "definitely something that you need to be"
+  },
+  {
+    "seconds": 1808.96,
+    "text": "using. So, while these sub aents are"
+  },
+  {
+    "seconds": 1810.559,
+    "text": "fanned out and they're working, let's"
+  },
+  {
+    "seconds": 1811.84,
+    "text": "move on to number 17, which is scheduled"
+  },
+  {
+    "seconds": 1814.32,
+    "text": "tasks. Scheduled tasks are awesome"
+  },
+  {
+    "seconds": 1816.399,
+    "text": "because this basically lets you have"
+  },
+  {
+    "seconds": 1818.08,
+    "text": "your codecs working autonomously for"
+  },
+  {
+    "seconds": 1819.84,
+    "text": "you. So, on the lefth hand side, if you"
+  },
+  {
+    "seconds": 1821.12,
+    "text": "click on scheduled, you can basically"
+  },
+  {
+    "seconds": 1822.96,
+    "text": "ask codecs to schedule things for you,"
+  },
+  {
+    "seconds": 1825.039,
+    "text": "reminders, updates, or run full sessions"
+  },
+  {
+    "seconds": 1828.24,
+    "text": "because all a task basically is is it"
+  },
+  {
+    "seconds": 1830.64,
+    "text": "injects a prompt into a codec session"
+  },
+  {
+    "seconds": 1832.559,
+    "text": "like this. So it uses your same local"
+  },
+  {
+    "seconds": 1834.559,
+    "text": "files, it uses your same skills, it uses"
+  },
+  {
+    "seconds": 1836.72,
+    "text": "your model, it uses everything, the"
+  },
+  {
+    "seconds": 1838.559,
+    "text": "agentic loop, it just does it"
+  },
+  {
+    "seconds": 1839.919,
+    "text": "automatically for you. So in here, you"
+  },
+  {
+    "seconds": 1841.919,
+    "text": "see that I could create one and I could"
+  },
+  {
+    "seconds": 1843.36,
+    "text": "set it up manually. I could have it run"
+  },
+  {
+    "seconds": 1845.039,
+    "text": "locally or I have could have it run on"
+  },
+  {
+    "seconds": 1846.48,
+    "text": "the cloud. I could also choose what"
+  },
+  {
+    "seconds": 1848.32,
+    "text": "project to work in. So Herk 2 or, you"
+  },
+  {
+    "seconds": 1850.32,
+    "text": "know, Hyperframes editor. I can also"
+  },
+  {
+    "seconds": 1852.0,
+    "text": "choose what chat. So every one of these"
+  },
+  {
+    "seconds": 1854.24,
+    "text": "routines could be a new chat or it could"
+  },
+  {
+    "seconds": 1856.32,
+    "text": "be a new chat for this task or it could"
+  },
+  {
+    "seconds": 1858.48,
+    "text": "be even in an existing thread that we"
+  },
+  {
+    "seconds": 1860.24,
+    "text": "already have going. And then you can"
+  },
+  {
+    "seconds": 1861.44,
+    "text": "basically choose when to schedule it. So"
+  },
+  {
+    "seconds": 1863.44,
+    "text": "it could be daily, it could be hourly,"
+  },
+  {
+    "seconds": 1865.039,
+    "text": "it could be, you know, weekly, or you"
+  },
+  {
+    "seconds": 1867.12,
+    "text": "could get it really, really custom in"
+  },
+  {
+    "seconds": 1868.559,
+    "text": "here. And the cool thing is you can"
+  },
+  {
+    "seconds": 1869.76,
+    "text": "describe everything in here manually, or"
+  },
+  {
+    "seconds": 1871.679,
+    "text": "you could basically just ask Codex to"
+  },
+  {
+    "seconds": 1874.159,
+    "text": "make one for you. So, for example, I"
+  },
+  {
+    "seconds": 1875.84,
+    "text": "have these like seven or eight different"
+  },
+  {
+    "seconds": 1878.08,
+    "text": "ones that are running for um trading."
+  },
+  {
+    "seconds": 1880.559,
+    "text": "They're literally trading $10,000 of my"
+  },
+  {
+    "seconds": 1882.799,
+    "text": "real money. And I have this set up as"
+  },
+  {
+    "seconds": 1884.08,
+    "text": "scheduled task so that they can"
+  },
+  {
+    "seconds": 1885.2,
+    "text": "basically all work together, talk to"
+  },
+  {
+    "seconds": 1886.72,
+    "text": "each other, check the market, make"
+  },
+  {
+    "seconds": 1888.08,
+    "text": "trades, things like that. And of course,"
+  },
+  {
+    "seconds": 1889.919,
+    "text": "you guessed it, these run in a different"
+  },
+  {
+    "seconds": 1891.84,
+    "text": "project right here called trading"
+  },
+  {
+    "seconds": 1893.76,
+    "text": "challenge. And they all run inside of"
+  },
+  {
+    "seconds": 1895.12,
+    "text": "this challenge thread. You can tell that"
+  },
+  {
+    "seconds": 1896.799,
+    "text": "this has scheduled tasks in it because"
+  },
+  {
+    "seconds": 1898.08,
+    "text": "there's a little clock icon next to that"
+  },
+  {
+    "seconds": 1900.559,
+    "text": "thread. And moving on to the very last"
+  },
+  {
+    "seconds": 1902.399,
+    "text": "concept we have for today, number 18,"
+  },
+  {
+    "seconds": 1904.72,
+    "text": "this is voice mode. Now, everything that"
+  },
+  {
+    "seconds": 1906.72,
+    "text": "you've learned so far, skills, sub"
+  },
+  {
+    "seconds": 1909.039,
+    "text": "aents, projects, agents, all of this can"
+  },
+  {
+    "seconds": 1911.84,
+    "text": "be controlled by using your voice to"
+  },
+  {
+    "seconds": 1913.84,
+    "text": "have a real conversation with codecs."
+  },
+  {
+    "seconds": 1915.76,
+    "text": "With your voice, you can manage"
+  },
+  {
+    "seconds": 1917.279,
+    "text": "different codeex threads. You can"
+  },
+  {
+    "seconds": 1918.48,
+    "text": "delegate different agents, you can run"
+  },
+  {
+    "seconds": 1920.32,
+    "text": "skills, you can set up schedule tasks,"
+  },
+  {
+    "seconds": 1921.84,
+    "text": "you can build sites, you can do anything"
+  },
+  {
+    "seconds": 1923.6,
+    "text": "here with your voice. And all you have"
+  },
+  {
+    "seconds": 1924.96,
+    "text": "to do is come down to the bottom left"
+  },
+  {
+    "seconds": 1926.399,
+    "text": "and click on start new voice chat. So,"
+  },
+  {
+    "seconds": 1928.399,
+    "text": "forgive me here as I'm awkwardly like"
+  },
+  {
+    "seconds": 1929.84,
+    "text": "hunching down because my headphones"
+  },
+  {
+    "seconds": 1931.36,
+    "text": "don't reach far enough. But watch this."
+  },
+  {
+    "seconds": 1933.44,
+    "text": "Hey, Codex. So, I need you to help me"
+  },
+  {
+    "seconds": 1935.12,
+    "text": "out real quick inside of my Herk 2"
+  },
+  {
+    "seconds": 1936.88,
+    "text": "project. Can you start a new thread to"
+  },
+  {
+    "seconds": 1938.399,
+    "text": "make a thumbnail? I'm making this"
+  },
+  {
+    "seconds": 1940.08,
+    "text": "YouTube video about 18 CEX concepts. So,"
+  },
+  {
+    "seconds": 1942.88,
+    "text": "if you could make me a thumbnail for my"
+  },
+  {
+    "seconds": 1944.64,
+    "text": "YouTube channel where you see me sitting"
+  },
+  {
+    "seconds": 1946.72,
+    "text": "at a desk working on a laptop and I'm"
+  },
+  {
+    "seconds": 1948.799,
+    "text": "pointing to the right and there's like"
+  },
+  {
+    "seconds": 1950.399,
+    "text": "18 different little AI agents. Um, yeah,"
+  },
+  {
+    "seconds": 1953.2,
+    "text": "just start start with that. And then"
+  },
+  {
+    "seconds": 1954.64,
+    "text": "once you have finished that thumbnail,"
+  },
+  {
+    "seconds": 1957.279,
+    "text": "could you send it to the thread that is"
+  },
+  {
+    "seconds": 1959.679,
+    "text": "currently working inside of my HERK 2 as"
+  },
+  {
+    "seconds": 1961.44,
+    "text": "well and it is doing research on YouTube"
+  },
+  {
+    "seconds": 1963.36,
+    "text": "and X and um looking at my channel and"
+  },
+  {
+    "seconds": 1966.159,
+    "text": "stuff like that. Could you just send"
+  },
+  {
+    "seconds": 1967.2,
+    "text": "that thumbnail to that thread?"
+  },
+  {
+    "seconds": 1968.72,
+    "text": ">> All right, let me check on that. Okay,"
+  },
+  {
+    "seconds": 1970.399,
+    "text": "I've got your thumbnail brief queued up"
+  },
+  {
+    "seconds": 1972.24,
+    "text": "with you with the laptop pointing toward"
+  },
+  {
+    "seconds": 1973.84,
+    "text": "the 18 ages using your existing photos"
+  },
+  {
+    "seconds": 1976.159,
+    "text": "for reference. And now found your"
+  },
+  {
+    "seconds": 1978.0,
+    "text": "research thread. So I'll send the"
+  },
+  {
+    "seconds": 1979.44,
+    "text": "finished thumbnail there. Now, do you"
+  },
+  {
+    "seconds": 1980.88,
+    "text": "guys see how this is all coming"
+  },
+  {
+    "seconds": 1981.919,
+    "text": "together? It started a work tree chat."
+  },
+  {
+    "seconds": 1984.159,
+    "text": "It was doing the agentic loop. It also"
+  },
+  {
+    "seconds": 1986.32,
+    "text": "created a goal down here. It literally"
+  },
+  {
+    "seconds": 1987.919,
+    "text": "created its own goal because it knew"
+  },
+  {
+    "seconds": 1990.0,
+    "text": "that we had this, you know, task for it"
+  },
+  {
+    "seconds": 1992.0,
+    "text": "and it started working. And you know,"
+  },
+  {
+    "seconds": 1993.76,
+    "text": "the voice chat's still going. So, I"
+  },
+  {
+    "seconds": 1995.279,
+    "text": "don't know what it's going to think of"
+  },
+  {
+    "seconds": 1996.159,
+    "text": "this, but I just wanted to call that out"
+  },
+  {
+    "seconds": 1997.76,
+    "text": "because all of what we just talked about"
+  },
+  {
+    "seconds": 1999.279,
+    "text": "is all coming together because even you"
+  },
+  {
+    "seconds": 2000.799,
+    "text": "can see over here, it started making"
+  },
+  {
+    "seconds": 2002.96,
+    "text": "that actual prompt. Like, it shot off"
+  },
+  {
+    "seconds": 2005.279,
+    "text": "this prompt right here and it started"
+  },
+  {
+    "seconds": 2006.88,
+    "text": "off this new thread. And now, this is"
+  },
+  {
+    "seconds": 2009.279,
+    "text": "working in a work tree and it's going to"
+  },
+  {
+    "seconds": 2010.88,
+    "text": "create that thumbnail for us and then"
+  },
+  {
+    "seconds": 2012.159,
+    "text": "it's going to send it over into this"
+  },
+  {
+    "seconds": 2014.0,
+    "text": "actual chat and we'll see that actually"
+  },
+  {
+    "seconds": 2015.919,
+    "text": "happen. But as you keep navigating, like"
+  },
+  {
+    "seconds": 2017.919,
+    "text": "you can go to the web and you can go to,"
+  },
+  {
+    "seconds": 2020.48,
+    "text": "you know, other things and you can keep"
+  },
+  {
+    "seconds": 2021.84,
+    "text": "this voice working. So as you're just"
+  },
+  {
+    "seconds": 2023.6,
+    "text": "working on your laptop, it'll show you"
+  },
+  {
+    "seconds": 2025.519,
+    "text": "what's going on and you can keep talking"
+  },
+  {
+    "seconds": 2026.88,
+    "text": "to it. And you can also do all this on"
+  },
+  {
+    "seconds": 2028.559,
+    "text": "your phone as well because of the whole"
+  },
+  {
+    "seconds": 2029.84,
+    "text": "remote thing, you can use voice mode"
+  },
+  {
+    "seconds": 2031.84,
+    "text": "when you're on your phone, too. Okay, so"
+  },
+  {
+    "seconds": 2033.6,
+    "text": "that finished up and you can see what"
+  },
+  {
+    "seconds": 2034.96,
+    "text": "happens is it actually can send tasks or"
+  },
+  {
+    "seconds": 2038.0,
+    "text": "messages to each other, right? So, what"
+  },
+  {
+    "seconds": 2040.08,
+    "text": "happened was this was the original"
+  },
+  {
+    "seconds": 2041.12,
+    "text": "thread that it created to make the image"
+  },
+  {
+    "seconds": 2043.12,
+    "text": "and it made this and then it sent it to"
+  },
+  {
+    "seconds": 2045.12,
+    "text": "this thread and said, \"Hey, Nate wanted"
+  },
+  {
+    "seconds": 2046.88,
+    "text": "me to send this to you. Here it is.\" So,"
+  },
+  {
+    "seconds": 2048.96,
+    "text": "with just your voice, I know that was a"
+  },
+  {
+    "seconds": 2050.399,
+    "text": "very simple example, but you're able to"
+  },
+  {
+    "seconds": 2052.56,
+    "text": "coordinate a bunch of different codec"
+  },
+  {
+    "seconds": 2054.0,
+    "text": "threads, manage them, multitask while"
+  },
+  {
+    "seconds": 2056.079,
+    "text": "you're on the go, while you're flipping"
+  },
+  {
+    "seconds": 2057.28,
+    "text": "between different apps. Very cool. But"
+  },
+  {
+    "seconds": 2059.28,
+    "text": "anyways, guys, that is going to do it. I"
+  },
+  {
+    "seconds": 2060.72,
+    "text": "hope you enjoyed. I hope you learned"
+  },
+  {
+    "seconds": 2061.76,
+    "text": "something new. But if you want to keep"
+  },
+  {
+    "seconds": 2063.2,
+    "text": "diving into more stuff with Codex, and"
+  },
+  {
+    "seconds": 2064.879,
+    "text": "I've made so many videos, I'll tag a"
+  },
+  {
+    "seconds": 2066.48,
+    "text": "playlist right up here that has just a"
+  },
+  {
+    "seconds": 2068.159,
+    "text": "bunch of Codeex content. So, hope to see"
+  },
+  {
+    "seconds": 2069.679,
+    "text": "you guys over there. Thanks for sticking"
+  },
+  {
+    "seconds": 2070.879,
+    "text": "to the end, and I'll see you in the next"
+  },
+  {
+    "seconds": 2072.079,
+    "text": "one. Thanks everyone."
+  }
+]

@@ -18,7 +18,7 @@ from d_brain.services import processor as module
 
 
 @pytest.mark.parametrize('button,effort,model', [
-    (buttons.btn_chat, 'medium', 'gpt-6.1-sol'),
+    (buttons.btn_chat, 'max', 'gpt-6.1-sol'),
     (buttons.btn_work, 'xhigh', 'gpt-6-astra'),
 ])
 @pytest.mark.parametrize('active,key', [('codex', 'CODEX_REASONING_EFFORT'), ('claude', 'CLAUDE_EFFORT')])
@@ -30,7 +30,8 @@ async def test_button_persists_effort_and_leaves_do_mode(tmp_path, monkeypatch, 
                 'TELEGRAM_BOT_TOKEN=test\nDEEPGRAM_API_KEY=test\n')
     env_path.write_text(original)
     keys = ('AI_BACKEND', 'PROCESS_BACKEND', 'CODEX_MODEL', 'CODEX_MODEL_CHAT',
-            'CODEX_MODEL_AGENT', 'CODEX_REASONING_EFFORT', 'CLAUDE_EFFORT')
+            'CODEX_MODEL_AGENT', 'CODEX_REASONING_EFFORT', 'CLAUDE_EFFORT',
+            'CLAUDE_MODEL', 'CLAUDE_MODEL_CHAT', 'CLAUDE_MODEL_AGENT')
     for name in keys:
         monkeypatch.setenv(name, 'high' if name == key else '')
     monkeypatch.setenv('AI_BACKEND', active)
@@ -79,6 +80,10 @@ async def test_button_persists_effort_and_leaves_do_mode(tmp_path, monkeypatch, 
                 command = run.call_args.args[0]
                 assert command[command.index('--model') + 1] == model
                 assert 'model_reasoning_effort="max"' in command
+        else:
+            expected = 'claude-opus-5-5' if button == buttons.btn_work else 'claude-sonnet-5-5'
+            assert instance._backend_model_for_mode('chat') == expected
+            assert instance._backend_model_for_mode('agent') == expected
 
 
 @pytest.mark.parametrize('effort', ['', 'medium', 'xhigh', 'max'])
@@ -130,9 +135,9 @@ def test_keyboard_replaces_request_button():
     ('codex', 'gpt-6-astra', 'xhigh', None),
     ('codex', 'gpt-6.1-sol', 'medium', None),
     ('codex', 'another-model', 'max', None),
-    ('claude', 'gpt-6-astra', 'medium', ACTIVE_CHAT_BUTTON),
+    ('claude', 'gpt-6-astra', 'max', ACTIVE_CHAT_BUTTON),
     ('claude', 'gpt-6.1-sol', 'xhigh', ACTIVE_WORK_BUTTON),
-    ('claude', 'gpt-6-astra', 'max', None),
+    ('claude', 'gpt-6-astra', 'medium', None),
 ])
 @pytest.mark.parametrize('explicit_chat_model', [False, True])
 def test_keyboard_serializes_only_active_backend_selection(monkeypatch, active, model, effort, selected, explicit_chat_model):
@@ -149,7 +154,9 @@ def test_keyboard_serializes_only_active_backend_selection(monkeypatch, active, 
     markup = get_main_keyboard().model_dump(exclude_none=True)
     assert [len(row) for row in markup['keyboard']] == [3, 3]
     labels = [b['text'] for row in markup['keyboard'] for b in row]
-    assert [label for label in labels if label.endswith(' ✓')] == ([selected] if selected else [])
+    assert [label for label in labels if label in {ACTIVE_CHAT_BUTTON, ACTIVE_WORK_BUTTON}] == ([selected] if selected else [])
+    assert labels[1] == ('🧠 Claude ✓' if active == 'claude' else '🧠 Claude')
+    assert labels[4] == ('🤖 Codex ✓' if active == 'codex' else '🤖 Codex')
     assert labels[0] == (ACTIVE_WORK_BUTTON if selected == ACTIVE_WORK_BUTTON else WORK_BUTTON)
     assert labels[3] == (ACTIVE_CHAT_BUTTON if selected == ACTIVE_CHAT_BUTTON else CHAT_BUTTON)
     assert all('style' not in b for row in markup['keyboard'] for b in row)

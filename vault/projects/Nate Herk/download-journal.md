@@ -1,14 +1,11 @@
 ---
-type: project
-last_accessed: 2026-10-02
-relevance: 0.98
-tier: active
+description: "Обновлено: 2026-10-03 07:03 Всего видео в папке: 58 Записей в журнале: 56"
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-02 07:00
-Всего видео в папке: 56
-Записей в журнале: 54
+Обновлено: 2026-10-03 07:03
+Всего видео в папке: 58
+Записей в журнале: 56
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -21,6 +18,18 @@ tier: active
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-08-25T10:15:09+03:00
+
+## 001-5-claude-code-mods-that-everyone-needs
+
+Статус: complete
+Название: Claude Code Mods Are Game Changers. Set Up These 5 NOW.
+Ссылка: https://www.youtube.com/watch?v=9hetShMMp2s
+Дата видео: 20261002
+Описание: есть
+Комментарии: 33
+Транскрипт: есть
+Кадры: 16
+Обновлено: 2026-10-03T07:00:50+03:00
 
 ## 001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade
 
@@ -489,6 +498,18 @@ tier: active
 Транскрипт: есть
 Кадры: 202
 Обновлено: 2026-09-24T07:03:35+03:00
+
+## 002-python-expert-non-techie-s-can-build-sell-real-software-in-2026
+
+Статус: complete
+Название: How to Actually Build & Sell Software with AI as a Non-Techie
+Ссылка: https://www.youtube.com/watch?v=l8ywUsEJ2XQ
+Дата видео: 20261002
+Описание: есть
+Комментарии: 21
+Транскрипт: есть
+Кадры: 24
+Обновлено: 2026-10-03T07:03:50+03:00
 
 ## 002-this-stealth-model-makes-claude-code-free-here-s-how
 

@@ -19,7 +19,7 @@ from d_brain.services.temporary_reply import reply
 
 logger = logging.getLogger(__name__)
 # These controls carry no conversation content. They retain their usual behavior.
-CONTROLS = {"🤖 Модель", "🧠 Claude",
+CONTROLS = {"🤖 Модель", "🧠 Claude", "🤖 Codex", "🧠 Claude ✓", "🤖 Codex ✓",
             "❓ Помощь", "⚙️ Обработать", "/process", "/weekly",
             "/help", "/start", "/chat", "/voice"}
 CONTROLS.update(CHAT_BUTTON_LABELS | WORK_BUTTON_LABELS)

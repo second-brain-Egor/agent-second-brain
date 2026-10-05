@@ -12,6 +12,8 @@ ACTIVE_WORK_BUTTON = f"{WORK_BUTTON} ✓"
 CODEX_WORK_MODEL = "gpt-6-astra"
 CODEX_CHAT_MODEL = "gpt-6.1-sol"
 CODEX_MODE_EFFORT = "max"
+CLAUDE_WORK_MODEL = "claude-opus-5-5"
+CLAUDE_CHAT_MODEL = "claude-sonnet-5-5"
 CHAT_BUTTON_LABELS = {CHAT_BUTTON, ACTIVE_CHAT_BUTTON, "💬 Обсудить ·", "🔴 Обсудить", "✨ Запрос"}
 WORK_BUTTON_LABELS = {WORK_BUTTON, ACTIVE_WORK_BUTTON, "🛠 Работа ·", "🔴 Работа"}
 
@@ -28,7 +30,7 @@ def get_main_keyboard(user_id: int | None = None) -> ReplyKeyboardMarkup:
     settings = get_settings()
     if settings.ai_backend == "claude":
         work_selected = settings.claude_effort == "xhigh"
-        chat_selected = settings.claude_effort == "medium"
+        chat_selected = settings.claude_effort == "max"
     else:
         model = settings.codex_model_chat.strip() or settings.codex_model.strip()
         effort_matches = settings.codex_reasoning_effort == CODEX_MODE_EFFORT
@@ -36,17 +38,17 @@ def get_main_keyboard(user_id: int | None = None) -> ReplyKeyboardMarkup:
         chat_selected = effort_matches and model == CODEX_CHAT_MODEL
     # First row: main commands
     builder.button(text=ACTIVE_WORK_BUTTON if work_selected else WORK_BUTTON)
+    builder.button(text="🧠 Claude ✓" if settings.ai_backend == "claude" else "🧠 Claude")
     builder.button(text="⚙️ Обработать")
     owner = settings.temporary_chat_user_id
     label = "📅 Неделя"
     if owner and user_id in (None, owner):
         from d_brain.services.temporary_chat import NORMAL_CHAT, TEMPORARY_CHAT, enabled
         label = NORMAL_CHAT if enabled(settings) else TEMPORARY_CHAT
-    builder.button(text=label)
     # Second row: conversation mode and model selectors.
     builder.button(text=ACTIVE_CHAT_BUTTON if chat_selected else CHAT_BUTTON)
-    builder.button(text="🤖 Модель")
-    builder.button(text="🧠 Claude")
+    builder.button(text="🤖 Codex ✓" if settings.ai_backend == "codex" else "🤖 Codex")
+    builder.button(text=label)
     if get_settings().show_help_button:
         builder.button(text="❓ Помощь")
     builder.adjust(3, 3)
