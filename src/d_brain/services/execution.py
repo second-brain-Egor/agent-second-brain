@@ -3,8 +3,10 @@ from __future__ import annotations
 
 import contextvars
 import json
+import logging
 import os
 import queue
+import re
 import signal
 import subprocess
 import threading
@@ -14,8 +16,15 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
+logger = logging.getLogger(__name__)
+
 CURRENT_EXECUTION = contextvars.ContextVar('dbrain_execution', default=None)
 TERMINAL = {'completed', 'error', 'stopped', 'limit', 'interrupted', 'superseded', 'delegated'}
+# Codex рапортует о восстановлении связи событием `type=error` («Reconnecting... 2/5 (...)»),
+# хотя сам продолжает работу — попыток у него пять. Падать на таком уведомлении нельзя:
+# прогон восстановился бы сам, а мы теряем целую суточную обработку из-за секундного обрыва.
+# Фатальными остаются `turn.failed` и любые другие `error`-события.
+TRANSIENT_ERROR = re.compile(r'^\s*(?:re)?connect\w*\b|^\s*retry\w*\b', re.I)
 
 
 class ExecutionLimit(RuntimeError):
@@ -144,7 +153,14 @@ class Execution:
             return
         kind = event.get('type')
         if kind in {'turn.failed', 'error'}:
-            raise RuntimeError('Исполнитель сообщил об ошибке. Автоповтор отключён.')
+            detail = str(event.get('message') or event.get('error') or '').strip()
+            if kind == 'error' and TRANSIENT_ERROR.match(detail):
+                logger.info('%s восстанавливает связь, продолжаем: %s', backend, detail)
+                return
+            logger.error('%s сообщил об ошибке (%s): %s', backend, kind,
+                         detail or 'без текста')
+            raise RuntimeError('Исполнитель сообщил об ошибке. Автоповтор отключён.'
+                               + (f' Причина: {detail}' if detail else ''))
         if kind == 'turn.completed' and event.get('usage'):
             self.update(usage=event['usage'])
         item = event.get('item') or {}

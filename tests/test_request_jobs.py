@@ -133,8 +133,11 @@ async def test_voice_stop_transcribed_once(jobs,monkeypatch):
 async def test_dispatcher_auth_still_precedes_stop(tmp_path,monkeypatch):
     from d_brain.bot.main import create_auth_middleware, create_dispatcher
     from d_brain.config import Settings
+    # ai_backend задаём явно: ниже проверяется ветка Codex, а без фиксации тест брал
+    # бэкенд из живого .env и краснел, когда бот переключён на Claude.
     settings=Settings(telegram_bot_token='123456:ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghi',
-                      deepgram_api_key='test',vault_path=tmp_path/'vault',allowed_user_ids=[7])
+                      deepgram_api_key='test',vault_path=tmp_path/'vault',allowed_user_ids=[7],
+                      ai_backend='codex')
     dp=create_dispatcher()
     jobs=RequestJobs(settings)
     dp.update.middleware(create_auth_middleware(settings))

@@ -13,7 +13,7 @@ import pytest
 from d_brain.services import document_extract
 from d_brain.services import processor as module
 from d_brain.services.execution import (
-    Execution, ExecutionLimit, ExecutionStopped, execution_context, run_bounded,
+    TERMINAL, Execution, ExecutionLimit, ExecutionStopped, execution_context, run_bounded,
 )
 
 
@@ -118,6 +118,35 @@ def test_step_budget_and_duplicate_events(tmp_path):
     with pytest.raises(ExecutionLimit):
         execution.observe(event(3),'codex')
     assert execution.data['steps']==3
+
+
+def test_reconnect_notice_does_not_kill_the_run(tmp_path):
+    """Codex шлёт «Reconnecting... 2/5» как type=error, но продолжает работу сам."""
+    execution = Execution(tmp_path)
+    for text in ('Reconnecting... 2/5 (workspace routing discovery timed out)',
+                 'Reconnecting... 2/5 (request timed out)',
+                 'reconnecting after transport reset',
+                 'Retrying in 2s'):
+        execution.observe(json.dumps(dict(type='error', message=text)), 'codex')
+    assert execution.data['state'] not in TERMINAL
+
+
+def test_real_error_still_fatal_and_keeps_its_cause(tmp_path):
+    execution = Execution(tmp_path)
+    with pytest.raises(RuntimeError, match='context length'):
+        execution.observe(json.dumps(dict(type='error', message='context length exceeded')), 'codex')
+
+
+def test_turn_failed_is_fatal_regardless_of_text(tmp_path):
+    execution = Execution(tmp_path)
+    with pytest.raises(RuntimeError):
+        execution.observe(json.dumps(dict(type='turn.failed', message='Reconnecting... 2/5')), 'codex')
+
+
+def test_error_without_text_still_fatal(tmp_path):
+    execution = Execution(tmp_path)
+    with pytest.raises(RuntimeError):
+        execution.observe(json.dumps(dict(type='error')), 'codex')
 
 
 def test_default_execution_has_no_new_limits(tmp_path, monkeypatch):
