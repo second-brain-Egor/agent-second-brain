@@ -2,7 +2,7 @@
 type: note
 description: "Дата: 2026-04-09"
 last_accessed: 2026-04-09
-relevance: 0.98
+relevance: 0.95
 tier: active
 ---
 # Восстановление сети Windows после WireGuard

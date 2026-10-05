@@ -1,6 +1,6 @@
 ---
-description: "I Tested OpenAI's Dots vs. Meta's Muse. What You Need to Know. — project"
 type: project
+description: "I Tested OpenAI's Dots vs. Meta's Muse. What You Need to Know. — project"
 last_accessed: 2026-10-01
 relevance: 0.98
 tier: active

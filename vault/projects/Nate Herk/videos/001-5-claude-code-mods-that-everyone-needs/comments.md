@@ -1,7 +1,10 @@
 ---
+type: project
 description: "FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/?utm_source=youtube&utm_medium=organic&utm_content=claude-5-mods&sl=y..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-10-05
+relevance: 0.98
+tier: active
 ---
 # Комментарии
 

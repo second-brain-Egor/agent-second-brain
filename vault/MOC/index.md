@@ -1,7 +1,8 @@
 ---
 type: note
-updated: 2026-10-05
-relevance: 0.9
+updated: 2026-10-06
+last_accessed: 2026-10-06
+relevance: 1.0
 tier: active
 ---
 # Индекс знаний
@@ -10,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 933
-- Связей: 2288
-- Сирот: 63
-- Слабосвязанных: 93
+- Заметок: 937
+- Связей: 2322
+- Сирот: 64
+- Слабосвязанных: 84
 
 ## Память
 
@@ -97,6 +98,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-аудио.md|Проверка аудиодорожки]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-кадров.md|Проверка всех сохранённых кадров]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-полноты.md|Проверка полноты разбора]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/analysis.md|Все основные понятия Codex простыми словами: 18 идей для тех, кто не пишет код]]
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/audio-transcript.md|Независимая расшифровка полной аудиодорожки]]
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/description.md|description]]
@@ -105,6 +107,8 @@ tier: active
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/metadata.md|Every Codex Concept Explained for Non-Coders]]
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/transcript-timed.md|Полная расшифровка с таймкодами]]
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/проверка-кадров.md|Журнал просмотра кадров]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/проверка-полноты.md|Проверка полноты разбора]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/analysis.md|Карточка ролика: 26 понятий Grok Bot]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/description.md|description]]
@@ -689,13 +693,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-10-06.md|2026-10-06]]
 - [[daily/2026-10-05.md|2026-10-05]]
 - [[daily/2026-10-04.md|2026-10-04]]
 - [[daily/2026-10-03.md|2026-10-03]]
 - [[daily/2026-10-02.md|2026-10-02]]
 - [[daily/2026-10-01.md|2026-10-01]]
 - [[daily/2026-09-30.md|2026-09-30]]
-- [[daily/2026-09-29.md|2026-09-29]]
 
 ## Недельные сводки
 

@@ -1,19 +1,19 @@
 ---
 type: moc
 description: "Map of Content: Уроки и паттерны, 23 entries"
-last_accessed: 2026-10-03
+last_accessed: 2026-10-06
 relevance: 1.0
 tier: active
 ---
 
 # Уроки и паттерны
 
-Сгенерировано: 2026-10-03 01:35. Файлов: 23.
+Сгенерировано: 2026-10-06 02:39. Файлов: 23.
 
 - [[thoughts/learnings/agent-team-pattern-portability|Переносимость команды агентов]] — Паттерн из ролика Nate Herk — главный координатор и специализированные исполнители — применим не только в Grok Bot.
 - [[thoughts/learnings/ai-models-2026-07-25|Новые модели Anthropic и OpenAI на 25 июля 2026]] — - Claude Opus 5 вышел 24 июля: основная сильная модель для сложной разработки и профессиональной работы. - Claude Son...
 - [[thoughts/learnings/bot-communication-rules|Правила коммуникации бота]] — Дата: 2026-04-08
-- [[thoughts/learnings/claude-limits-visibility|Лимиты подписки Claude: где смотреть]] — Лимиты подписки Claude: что реально видно изнутри бота, а что нет
+- [[thoughts/learnings/claude-limits-visibility|Лимиты подписки Claude: как смотреть]] — Лимиты подписки Claude: расход (пятичасовое окно и неделя) виден прямо из бота командой /usage
 - [[thoughts/learnings/dino-rolling-40x40x2-vs-40x20x3|Dino: 40×40×2 и 40×20×3 на ребро]] — Производитель разрешил прокатку 40×40×2 и запретил 40×20×3 на ребро. Для проекта этот запрет окончательный: профиль 4...
 - [[thoughts/learnings/engineering-fit-calculation-discipline|Проверка посадки деталей без подмены геометрии]] — Как проверять посадку профильной детали в деформированную круглую трубу без подмены геометрии.
 - [[thoughts/learnings/error-journal-principles|Принципы журнала ошибок]] — Журнал ошибок нужен не как склад технических сообщений, а как часть эксплуатационного цикла: событие → влияние → прич...

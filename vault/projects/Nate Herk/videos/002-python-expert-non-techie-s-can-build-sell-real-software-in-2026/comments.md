@@ -1,7 +1,10 @@
 ---
+type: project
 description: "FREE 14 day CodeRabbit trial: https://coderabbit.link/ad-nate-herk-001 FREE MONTH voice to text: https://get.glaido.com/nate"
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-10-05
+relevance: 0.98
+tier: active
 ---
 # Комментарии
 

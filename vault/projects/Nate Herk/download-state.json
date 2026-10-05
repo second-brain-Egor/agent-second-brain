@@ -841,7 +841,22 @@
       "frames_required": true,
       "updated_at": "2026-10-03T07:03:50+03:00",
       "completed_at": "2026-10-03T07:03:50+03:00"
+    },
+    "DFlELTiSPk8": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders",
+      "title": "Every Codex Concept Explained for Non-Coders",
+      "url": "https://www.youtube.com/watch?v=DFlELTiSPk8",
+      "upload_date": "20261003",
+      "comments": 35,
+      "frames": 100,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-05T11:20:13+03:00",
+      "completed_at": "2026-10-05T11:20:13+03:00"
     }
   },
-  "updated_at": "2026-10-03T07:03:50+03:00"
+  "updated_at": "2026-10-05T11:20:13+03:00"
 }

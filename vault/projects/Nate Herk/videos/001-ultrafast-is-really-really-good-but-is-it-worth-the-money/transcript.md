@@ -1,6 +1,6 @@
 ---
-description: "Transcript — project"
 type: project
+description: "Transcript — project"
 last_accessed: 2026-10-02
 relevance: 0.98
 tier: active

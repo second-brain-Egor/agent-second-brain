@@ -1,7 +1,10 @@
 ---
+type: project
 description: "FREE 14 day CodeRabbit trial: https://coderabbit.link/ad-nate-herk-001 FREE First Client SOP..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-10-05
+relevance: 0.98
+tier: active
 ---
 FREE 14 day CodeRabbit trial: https://coderabbit.link/ad-nate-herk-001
 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/?utm_source=youtube&utm_medium=organic&utm_content=dave-podcast-oct-2&sl=yt_dave-podcast-oct-2

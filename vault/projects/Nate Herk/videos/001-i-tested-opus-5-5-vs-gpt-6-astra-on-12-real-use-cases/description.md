@@ -2,7 +2,7 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-09-24
-relevance: 0.98
+relevance: 0.95
 tier: active
 ---
 FREE Scrollcraft Website Design Skill: https://app.aiautomationsociety.ai/optin/scrollcraft/?utm_source=youtube&utm_medium=organic&utm_content=astra-6-vs-opus-5.5&sl=yt_astra-6-vs-opus-5.5

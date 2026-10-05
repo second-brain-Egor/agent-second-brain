@@ -1,7 +1,10 @@
 ---
+type: project
 description: "So, Cloud Code just dropped mods, which basically means if there's something that you wish the Cloud Desktop app did, you can just ask it to do it..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-10-05
+relevance: 0.98
+tier: active
 ---
 So, Cloud Code just dropped mods, which
 basically means if there's something

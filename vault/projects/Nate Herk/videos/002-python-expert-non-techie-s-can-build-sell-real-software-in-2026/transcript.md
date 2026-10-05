@@ -1,7 +1,10 @@
 ---
+type: project
 description: "So you've been coding in Python for over 10 years now. How different do you view the software engineering space now that we have all these AI tools?..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-10-05
+relevance: 0.98
+tier: active
 ---
 So you've been coding in Python for over
 10 years now. How different do you view

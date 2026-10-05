@@ -1,11 +1,15 @@
 ---
-description: "Обновлено: 2026-10-03 07:03 Всего видео в папке: 58 Записей в журнале: 56"
+type: project
+description: "Обновлено: 2026-10-05 11:20 Всего видео в папке: 59 Записей в журнале: 57"
+last_accessed: 2026-10-05
+relevance: 0.98
+tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-03 07:03
-Всего видео в папке: 58
-Записей в журнале: 56
+Обновлено: 2026-10-05 11:20
+Всего видео в папке: 59
+Записей в журнале: 57
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -90,6 +94,18 @@ description: "Обновлено: 2026-10-03 07:03 Всего видео в па
 Транскрипт: есть
 Кадры: 1125
 Обновлено: 2026-09-22T07:12:00+03:00
+
+## 001-every-codex-concept-explained-for-non-coders
+
+Статус: complete
+Название: Every Codex Concept Explained for Non-Coders
+Ссылка: https://www.youtube.com/watch?v=DFlELTiSPk8
+Дата видео: 20261003
+Описание: есть
+Комментарии: 35
+Транскрипт: есть
+Кадры: 100
+Обновлено: 2026-10-05T11:20:13+03:00
 
 ## 001-every-grok-bot-concept-explained-for-normal-people
 

@@ -1,7 +1,10 @@
 ---
+type: project
 description: "How I built an AI agency from 0 to over $1 million per year: https://www.skool.com/ai-automation-society-plus/about?el=claude-5-mods&hcategory=youtube..."
-related:
-  - "[[projects/_index]]"
+related: 
+last_accessed: 2026-10-05
+relevance: 0.98
+tier: active
 ---
 How I built an AI agency from 0 to over $1 million per year: https://www.skool.com/ai-automation-society-plus/about?el=claude-5-mods&hcategory=youtube-videos&utm_campaign=plus-group
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=claude-5-mods&hcategory=youtube-videos&utm_campaign=free-group

@@ -1,8 +1,23 @@
 {
   "video_id": "DFlELTiSPk8",
-  "status": "in_progress",
-  "stage": "pending_contact_sheet_review",
+  "status": "complete",
+  "stage": "analysis_written",
   "frames": 467,
   "sheets": 39,
-  "full_transcript_read": true
+  "full_transcript_read": true,
+  "contact_sheets_reviewed": 39,
+  "full_size_frames_checked": [
+    "00245",
+    "00251",
+    "00272",
+    "00274",
+    "00355",
+    "00424",
+    "00428",
+    "00453"
+  ],
+  "analysis": "analysis.md",
+  "frame_log": "проверка-кадров.md",
+  "completeness_report": "проверка-полноты.md",
+  "completed_at": "2026-10-05T11:19:28+03:00"
 }

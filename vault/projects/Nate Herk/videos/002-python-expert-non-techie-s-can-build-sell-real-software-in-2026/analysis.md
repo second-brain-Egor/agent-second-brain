@@ -1,7 +1,7 @@
 ---
 type: project
 description: "Как человеку без технического опыта создавать и продавать программы с помощью ИИ — разбор"
-related:
+related: 
 last_accessed: 2026-10-03
 relevance: 0.98
 tier: active

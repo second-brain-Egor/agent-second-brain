@@ -1,8 +1,9 @@
 ---
 type: note
-updated: 2026-10-05
-relevance: 0.86
-tier: warm
+updated: 2026-10-06
+last_accessed: 2026-10-06
+relevance: 1.0
+tier: active
 ---
 # Health Check Vault
 
@@ -10,33 +11,33 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 933
-- Связей: 2288
-- Сирот: 63
-- Слабосвязанных: 93
+- Заметок: 937
+- Связей: 2322
+- Сирот: 64
+- Слабосвязанных: 84
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 7 | 199.14 |
+| MOC | 7 | 202.86 |
 | blog | 2 | 1.00 |
-| daily | 187 | 1.53 |
+| daily | 188 | 1.53 |
 | goals | 5 | 8.00 |
-| memory | 5 | 40.40 |
-| projects | 643 | 3.57 |
+| memory | 5 | 40.60 |
+| projects | 646 | 3.62 |
 | references | 5 | 2.00 |
 | reports | 2 | 40.00 |
-| root | 1 | 4.00 |
+| root | 1 | 3.00 |
 | summaries | 24 | 1.25 |
 | templates | 2 | 0.00 |
-| thoughts | 50 | 4.58 |
+| thoughts | 50 | 4.64 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 706 связей
-- [[MOC/MOC-projects.md|MOC - Projects]] — 626 связей
-- [[memory/facts.md|Ключевые факты и события]] — 126 связей
+- [[MOC/index.md|Индекс знаний]] — 709 связей
+- [[MOC/MOC-projects.md|MOC - Projects]] — 650 связей
+- [[memory/facts.md|Ключевые факты и события]] — 127 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 107 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
 - [[reports/vault-health.md|Health Check Vault]] — 67 связей
@@ -67,10 +68,11 @@ tier: warm
 - [[daily/2026-06-26.md|2026-06-26]]
 - [[daily/2026-06-27.md|2026-06-27]]
 - [[daily/2026-06-28.md|2026-06-28]]
-- ... ещё 43
+- ... ещё 44
 
 ## Слабосвязанные
 
+- [[MOC/MOC-reflections.md|Рефлексии]]
 - [[blog/2025-01-10-vibe-coding-guide.md|2025-01-10-vibe-coding-guide]]
 - [[blog/2026-01-08-consumer-ai-2030-predictions.md|2026-01-08-consumer-ai-2030-predictions]]
 - [[daily/2026-03-27.md|2026-03-27]]
@@ -90,8 +92,7 @@ tier: warm
 - [[daily/2026-04-27.md|2026-04-27]]
 - [[daily/2026-04-29.md|2026-04-29]]
 - [[daily/2026-04-30.md|2026-04-30]]
-- [[daily/2026-05-02.md|2026-05-02]]
-- ... ещё 73
+- ... ещё 64
 
 ## Неразрешённые ссылки
 
