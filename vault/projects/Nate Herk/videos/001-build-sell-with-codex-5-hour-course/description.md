@@ -2,7 +2,7 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-09-22
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 My FREE Resources: https://www.skool.com/ai-automation-society/about?el=codex-5-hour-course&hcategory=youtube-videos&utm_campaign=free-group

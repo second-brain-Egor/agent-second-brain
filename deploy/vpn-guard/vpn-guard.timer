@@ -1,0 +1,10 @@
+[Unit]
+Description=Проверка шведского выхода каждые 15 минут
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=15min
+AccuracySec=30s
+
+[Install]
+WantedBy=timers.target

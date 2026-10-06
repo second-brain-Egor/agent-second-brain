@@ -1,15 +1,14 @@
 ---
 type: project
-description: "Обновлено: 2026-10-05 11:20 Всего видео в папке: 59 Записей в журнале: 57"
-last_accessed: 2026-10-05
+last_accessed: 2026-10-06
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-05 11:20
-Всего видео в папке: 59
-Записей в журнале: 57
+Обновлено: 2026-10-06 07:01
+Всего видео в папке: 60
+Записей в журнале: 58
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -226,6 +225,18 @@ tier: active
 Транскрипт: есть
 Кадры: 0
 Обновлено: 2026-09-03T07:02:56+03:00
+
+## 001-i-built-another-andrej-karpathy-using-claude
+
+Статус: complete
+Название: I Built Another Andrej Karpathy Using Claude
+Ссылка: https://www.youtube.com/watch?v=bvGptCLDhyo
+Дата видео: 20261005
+Описание: есть
+Комментарии: 18
+Транскрипт: есть
+Кадры: 110
+Обновлено: 2026-10-06T07:01:07+03:00
 
 ## 001-i-built-the-ultimate-claude-website-design-skill-steal-this
 

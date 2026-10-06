@@ -856,7 +856,22 @@
       "frames_required": true,
       "updated_at": "2026-10-05T11:20:13+03:00",
       "completed_at": "2026-10-05T11:20:13+03:00"
+    },
+    "bvGptCLDhyo": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude",
+      "title": "I Built Another Andrej Karpathy Using Claude",
+      "url": "https://www.youtube.com/watch?v=bvGptCLDhyo",
+      "upload_date": "20261005",
+      "comments": 18,
+      "frames": 110,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-06T07:01:07+03:00",
+      "completed_at": "2026-10-06T07:01:07+03:00"
     }
   },
-  "updated_at": "2026-10-05T11:20:13+03:00"
+  "updated_at": "2026-10-06T07:01:07+03:00"
 }

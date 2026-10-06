@@ -3,6 +3,7 @@
 import asyncio
 import contextlib
 import logging
+import os
 from collections.abc import Awaitable, Callable
 from typing import Any
 
@@ -38,6 +39,9 @@ def create_dispatcher() -> Dispatcher:
     dp.include_router(channel.router)  # Telegram user account reader
     dp.include_router(process.router)
     dp.include_router(weekly.router)
+    if os.environ.get("VPN_GUARD_ENABLED") == "1":
+        from d_brain.bot import vpn_menu
+        dp.include_router(vpn_menu.router)  # ⚙️ Обработать → VPN (только админ); раньше buttons
     dp.include_router(buttons.router)  # Buttons also work while /do awaits input
     dp.include_router(do.router)  # Before voice/text to catch FSM state
     dp.include_router(backend.router)  # 🤖 Модель: backend switcher (button + callbacks)
@@ -131,9 +135,14 @@ async def run_bot(settings: Settings) -> None:
 
     # Always filter updates by allowed Telegram user IDs.
     dp.update.middleware(create_auth_middleware(settings))
+    if os.environ.get("VPN_GUARD_ENABLED") == "1":
+        # Ссылка подписки VPN — секрет: перехватываем её раньше очереди, журнала и временного чата.
+        from d_brain.bot.vpn_menu import VpnLinkCapture
+        dp.update.middleware(VpnLinkCapture())
 
     from d_brain.bot.request_jobs import RequestJobs
     jobs = RequestJobs(settings)
+    dp["request_jobs"] = jobs  # обработчикам кнопок (callback) RequestJobs сам данные не подставляет
     temporary_chat = None
     if settings.temporary_chat_user_id:
         from d_brain.bot.temporary_chat import TemporaryChat

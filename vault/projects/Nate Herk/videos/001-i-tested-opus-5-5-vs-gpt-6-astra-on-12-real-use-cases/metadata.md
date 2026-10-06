@@ -2,7 +2,7 @@
 type: project
 description: "I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases — project"
 last_accessed: 2026-09-24
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 # I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases

@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-06
-last_accessed: 2026-10-06
+updated: 2026-10-07
+last_accessed: 2026-10-07
 relevance: 1.0
 tier: active
 ---
@@ -11,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 937
-- Связей: 2322
-- Сирот: 64
-- Слабосвязанных: 84
+- Заметок: 945
+- Связей: 2328
+- Сирот: 65
+- Слабосвязанных: 85
 
 ## Память
 
@@ -169,6 +169,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/metadata.md|I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1]]
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/analysis.md|Я создал ещё одного Андрея Карпати с помощью Claude]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/metadata.md|I Built Another Andrej Karpathy Using Claude]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/analysis.md|Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/description.md|description]]
@@ -693,13 +699,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-10-07.md|2026-10-07]]
 - [[daily/2026-10-06.md|2026-10-06]]
 - [[daily/2026-10-05.md|2026-10-05]]
 - [[daily/2026-10-04.md|2026-10-04]]
 - [[daily/2026-10-03.md|2026-10-03]]
 - [[daily/2026-10-02.md|2026-10-02]]
 - [[daily/2026-10-01.md|2026-10-01]]
-- [[daily/2026-09-30.md|2026-09-30]]
 
 ## Недельные сводки
 

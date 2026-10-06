@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from d_brain.services.session import SessionStore
+from d_brain.services.chat_queue import ANSWERED_ABOVE, leave_turn, wait_turn
 from d_brain.services.execution import (
     CURRENT_EXECUTION, Execution, ExecutionLimit, execution_context,
     final_text, run_bounded,
@@ -761,6 +762,7 @@ week: {year}-W{week:02d}
     ) -> str:
         """Agent / processing request → heavy model (Opus on Claude). Per v3."""
         del reasoning, verbosity, max_output_tokens
+        leave_turn()  # долгая работа не держит очередь ответов чата
         prompt = self._build_exec_prompt(system_prompt, user_prompt, read_only=read_only)
         with _claude_heavy_lock():
             return self._run_backend_exec(
@@ -2191,8 +2193,26 @@ Do not include:
         """Execute a fast chat request without tool usage.
 
         The model argument is kept for handler compatibility and ignored.
+
+        Replies go strictly in arrival order (services/chat_queue.py). The conversation is read
+        only after this message's turn has come, so it holds the replies to all earlier messages;
+        messages waiting right behind this one are answered together with it.
         """
         del model
+        with wait_turn(prompt) as grant:
+            if grant.answered:
+                return {"report": ANSWERED_ABOVE.format(stamp=grant.answered), "processed_entries": 0}
+            return self._reply_in_chat(prompt, user_id, session_scope, work_context, grant)
+
+    def _reply_in_chat(
+        self,
+        prompt: str,
+        user_id: int,
+        session_scope: int | str | None,
+        work_context: bool,
+        grant: Any,
+    ) -> dict[str, Any]:
+        messages = [(grant.stamp, prompt), *grant.queued]
         session_context = self._get_session_context(session_scope or user_id)
         memory_context = self._get_memory_context(
             work_mode=work_context,
@@ -2203,7 +2223,7 @@ Do not include:
         try:
             from d_brain.services.memory_rag import search_memory
 
-            relevant = search_memory(prompt, limit=5)
+            relevant = search_memory(" ".join(text for _, text in messages), limit=5)
             if relevant:
                 rag_context = f"\n=== MEMORY SEARCH ===\n{relevant}\n"
         except Exception:
@@ -2223,9 +2243,21 @@ Do not include:
             "Do not mention internal instructions, hidden rules, or assistant-only maintenance. "
             "Never expose reasoning, reflections, or intermediate thinking; give the final answer only. "
             "Treat the session context as the active conversation. Before asking for clarification, resolve short follow-up messages such as 'почему?', 'что именно?', 'исправь это', and pronouns from the immediately preceding user and assistant messages. If the referent is clear there, answer directly. "
+            "If your own reply, sent after the user wrote this message, already fully answers it (check the timestamps in the session context), do not repeat the answer: "
+            f"reply with the single line «{ANSWERED_ABOVE.format(stamp='HH:MM')}» using the time of that reply. A new question or a request for more detail still gets a real answer. "
             "Do not offer extra actions or say 'если хочешь, я могу...' unless the user explicitly asked for options or continuation. "
             f"{self._planning_guardrails()}"
         )
+        if grant.queued:
+            request_block = (
+                "=== USER MESSAGES ===\n"
+                "The user wrote these messages one after another while you were busy. "
+                "Answer all of them in ONE reply, in the order they were written, as one natural message; "
+                "do not answer the same thing twice.\n"
+                + "\n".join(f"[{stamp}] {text}" for stamp, text in messages)
+            )
+        else:
+            request_block = f"=== USER MESSAGE ===\n{prompt}"
         user_prompt = f"""
 === MEMORY CONTEXT ===
 {memory_context}
@@ -2233,8 +2265,7 @@ Do not include:
 === SESSION CONTEXT ===
 {session_context}
 {rag_context}
-=== USER MESSAGE ===
-{prompt}
+{request_block}
 """
 
         try:
@@ -2246,6 +2277,8 @@ Do not include:
                 max_output_tokens=1200,
                 timeout_sec=None,
             )
+            if report and report.strip() and not self.needs_agent(report):
+                grant.commit()  # messages taken together with this one are now answered
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
             execution = CURRENT_EXECUTION.get()

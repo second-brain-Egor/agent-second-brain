@@ -1,0 +1,99 @@
+#!/bin/sh
+# Возвращает сеть сервера к последнему рабочему состоянию:
+# конфиг Xray, скрипт правил перехвата и сами правила (таблица nat).
+#
+#   sudo vpn-rollback            откатить сейчас
+#   sudo vpn-rollback --dry-run  только показать, что было бы сделано
+#   vpn-rollback --auto          так его запускает страховочный таймер (vpn-safety)
+#
+# Снимок «последнего рабочего» лежит в /var/lib/vpn-guard/last-good. Его обновляет
+# vpn-guard после каждой проверенной замены и при исправной проверке.
+set -u
+# systemd запускает службы в UTC; в журнале всегда московское время.
+export TZ=Europe/Moscow
+
+STATE=/var/lib/vpn-guard
+GOOD="$STATE/last-good"
+CONF=/usr/local/etc/xray/config.json
+ROUTING=/usr/local/sbin/xray-transparent-routing
+XRAY=/usr/local/bin/xray
+LOG=/var/log/vpn-guard.log
+
+MODE=ручной
+DRY=0
+for arg in "$@"; do
+    case "$arg" in
+        --auto) MODE=авто ;;
+        --dry-run) DRY=1 ;;
+        *) echo "Использование: vpn-rollback [--auto] [--dry-run]" >&2; exit 64 ;;
+    esac
+done
+
+log() {
+    printf '%s | vpn-rollback (%s) | %s\n' "$(date '+%F %T')" "$MODE" "$*" >>"$LOG" 2>/dev/null
+    printf 'vpn-rollback: %s\n' "$*" >&2
+}
+
+run() {
+    if [ "$DRY" = 1 ]; then
+        echo "[пробный запуск] $*" >&2
+    else
+        "$@"
+    fi
+}
+
+code() {
+    # HTTP-код ответа; 000 — соединение не установилось
+    "$@" 2>/dev/null || true
+}
+
+[ "$(id -u)" = 0 ] || { echo "Нужны права root: sudo vpn-rollback" >&2; exit 1; }
+
+for f in config.json xray-transparent-routing nat.rules; do
+    [ -s "$GOOD/$f" ] || { log "нет файла снимка $GOOD/$f — откатывать не к чему"; exit 2; }
+done
+
+# Битый снимок хуже текущего конфига: проверяем его до того, как что-либо заменять.
+if ! "$XRAY" run -test -config "$GOOD/config.json" >/dev/null 2>&1; then
+    log "снимок конфига не проходит проверку Xray; ничего не менял, нужен ручной разбор"
+    exit 3
+fi
+
+log "начинаю возврат к снимку от $(cat "$GOOD/taken-at" 2>/dev/null || echo неизвестно)"
+
+# Таймер больше не нужен. При вызове из самого таймера он уже сработал; службу не трогаем.
+run systemctl stop vpn-safety-rollback.timer 2>/dev/null || true
+
+restart_xray=0
+if ! cmp -s "$GOOD/config.json" "$CONF"; then
+    log "конфиг Xray отличается от снимка — возвращаю"
+    run install -m 640 -o root -g nogroup "$GOOD/config.json" "$CONF" || { log "не удалось записать конфиг"; exit 4; }
+    restart_xray=1
+fi
+
+if ! cmp -s "$GOOD/xray-transparent-routing" "$ROUTING"; then
+    log "скрипт правил перехвата отличается от снимка — возвращаю"
+    run install -m 755 -o root -g root "$GOOD/xray-transparent-routing" "$ROUTING" || { log "не удалось записать скрипт"; exit 4; }
+fi
+
+if [ "$restart_xray" = 1 ]; then
+    log "перезапускаю Xray"
+    run systemctl restart xray || log "перезапуск Xray завершился ошибкой"
+fi
+
+# Правила заменяются целиком и атомарно: у таблицы nat нет других владельцев, кроме Xray.
+log "возвращаю правила перехвата (таблица nat)"
+run iptables-restore -T nat <"$GOOD/nat.rules" || { log "не удалось восстановить правила"; exit 5; }
+
+if [ "$DRY" = 1 ]; then
+    log "пробный запуск завершён, ничего не изменено"
+    exit 0
+fi
+
+# Итоговая проверка. Результат только записывается: откат уже выполнен.
+sleep 3
+egress=$(code curl -s -m 10 -x socks5h://127.0.0.1:10808 -o /dev/null -w '%{http_code}' https://api.anthropic.com/)
+telegram=$(code setpriv --reuid=65534 --regid=65534 --clear-groups curl -s -m 10 -o /dev/null -w '%{http_code}' https://api.telegram.org/)
+xray_state=$(systemctl is-active xray 2>/dev/null)
+log "готово: Xray $xray_state, выход через Швецию ответил кодом $egress, Telegram напрямую — кодом $telegram (000 означает «нет связи»)"
+exit 0

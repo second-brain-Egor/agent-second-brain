@@ -3,7 +3,7 @@ type: project
 description: "5. Привычки успешных людей. Брайан Трейси — project"
 related: 
 last_accessed: 2026-05-04
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 # 5. Привычки успешных людей. Брайан Трейси

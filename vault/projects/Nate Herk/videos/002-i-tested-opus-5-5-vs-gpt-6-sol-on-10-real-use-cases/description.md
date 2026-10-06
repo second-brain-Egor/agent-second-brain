@@ -2,7 +2,7 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-09-24
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 FREE Scrollcraft website skill: https://app.aiautomationsociety.ai/optin/scrollcraft/?utm_source=youtube&utm_medium=organic&utm_content=opus-vs-sol-real-use-cases&sl=yt_opus-vs-sol-real-use-cases

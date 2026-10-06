@@ -1,0 +1,10 @@
+[Unit]
+Description=Проверка шведского выхода и замена узла по подписке
+After=network-online.target xray.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/vpn-guard check
+TimeoutStartSec=900
+Nice=10

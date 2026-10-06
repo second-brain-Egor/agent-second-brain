@@ -2,7 +2,7 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-09-26
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 So, I've been experimenting with AI

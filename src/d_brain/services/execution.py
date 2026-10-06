@@ -60,6 +60,7 @@ class Execution:
         self.idle = threading.Event()
         self.idle.set()
         self.process = None
+        self.turn = None  # место сообщения в очереди ответов чата; ставит RequestJobs (services/chat_queue.py)
         self.descendants = {}
         self.seen = set()
         self.wait_steps = 0

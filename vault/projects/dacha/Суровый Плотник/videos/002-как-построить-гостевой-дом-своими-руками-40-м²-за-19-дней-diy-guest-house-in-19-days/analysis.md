@@ -3,7 +3,7 @@ type: project
 description: "Анализ ролика — project"
 related: 
 last_accessed: 2026-05-01
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 # Анализ ролика

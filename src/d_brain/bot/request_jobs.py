@@ -10,6 +10,7 @@ from datetime import datetime
 
 from d_brain.bot.chat_context import build_msg_type, get_session_scope, is_work_chat
 from d_brain.bot.keyboards import CHAT_BUTTON_LABELS, WORK_BUTTON_LABELS
+from d_brain.services.chat_queue import ChatQueue
 from d_brain.services.execution import (
     TERMINAL, Execution, ExecutionLimit, ExecutionStopped,
     execution_context,
@@ -38,7 +39,7 @@ class RequestJobs:
         self.active = {}
         self.tasks = set()
         self.stopped_at = {}
-        self.turns = {}
+        self.queue = ChatQueue()
         self.directory = settings.vault_path / '.session' / 'tasks'
         self.directory.mkdir(parents=True, exist_ok=True)
         for path in self.directory.glob('*.json'):
@@ -65,13 +66,13 @@ class RequestJobs:
             text, datetime.fromtimestamp(message.date.timestamp()),
             build_msg_type(message, '[voice]' if message.voice else '[text]'))
 
+    @property
+    def turns(self):
+        """Сообщения, ещё занимающие очередь ответов: чат -> {номер сообщения: место}."""
+        return self.queue.turns
+
     def finish_turn(self, scope, message_id):
-        turns = self.turns.get(scope, {})
-        ticket = turns.pop(message_id, None)
-        if ticket is not None:
-            ticket.set()
-        if not turns:
-            self.turns.pop(scope, None)
+        self.queue.finish(scope, message_id)
 
     async def stop_scope(self, scope, state='stopped'):
         self.inbox.stop(scope)
@@ -99,9 +100,11 @@ class RequestJobs:
     def status(self, scope):
         scoped = [value for value in self.active.values()
                   if value[0].data['scope'] == str(scope)]
-        queued = sum(execution.data['state'] == 'queued' for execution, _ in scoped)
+        # «waiting» — сообщение уже в работе, но ждёт очереди на ответ (services/chat_queue.py).
+        waiting = lambda execution: execution.data['state'] == 'queued' or execution.data.get('waiting')
+        queued = sum(bool(waiting(execution)) for execution, _ in scoped)
         existing = next((value for value in scoped
-                         if value[0].data['state'] == 'running'), None)
+                         if value[0].data['state'] == 'running' and not waiting(value[0])), None)
         if existing:
             execution, _ = existing
             data = execution.data
@@ -146,8 +149,20 @@ class RequestJobs:
             if data.get('restored_inbox_key') != key:
                 if not self.inbox.accept(key, scope, event.model_dump_json()):
                     return None
-        # Messages start independently. Long work must not delay a later reply.
+        # Messages start independently: the handler logs the message at once, and controls never wait.
+        # Only the chat model call waits its turn (services/chat_queue.py). The place in line is taken
+        # here, before speech recognition, so replies keep the arrival order. Attachments (an album must
+        # not hold up its siblings) never wait.
         attachment = bool(message.photo or message.document or message.video or message.video_note)
+        turn = None if attachment else self.queue.register(scope, message.message_id)
+        try:
+            return await self._admit(handler, event, data, scope, text, key, attachment, turn)
+        except BaseException:
+            self.finish_turn(scope, message.message_id)  # a failed message must not hold the line forever
+            raise
+
+    async def _admit(self, handler, event, data, scope, text, key, attachment, turn):
+        message = event.message
         if message.voice:
             from d_brain.bot.handlers.voice import _transcribe_voice
             try:
@@ -174,7 +189,7 @@ class RequestJobs:
         if STOP.fullmatch(stop_text) or re.match(r'^(?:стоп|стой|остановись)(?:[!?,.;]|\s+(?:пожалуйста|не\s+продолжай))', stop_text, re.I):
             self.remember_control(message, text)
             self.stopped_at[scope] = message.message_id
-            for message_id in list(self.turns.get(scope, {})):
+            for message_id in self.queue.pending(scope):
                 if message_id <= message.message_id:
                     self.finish_turn(scope, message_id)
             stopped = await self.stop_scope(scope)
@@ -195,6 +210,7 @@ class RequestJobs:
                               request=text or '[вложение]', origin='bot')
         execution.update(message_id=message.message_id,
                          notify=not bool(re.search(r'без\s+уведомлен|не\s+(?:уведомляй|присылай\s+уведомлен)', text, re.I)))
+        execution.turn = turn
         task = asyncio.create_task(self.run(handler, event, dict(data), key, execution))
         self.active[key] = (execution, task)
         self.tasks.add(task)
@@ -286,7 +302,4 @@ class RequestJobs:
             task.cancel()
         await asyncio.gather(*list(self.tasks), return_exceptions=True)
         self.active.clear()
-        for turns in self.turns.values():
-            for ticket in turns.values():
-                ticket.set()
-        self.turns.clear()
+        self.queue.close()

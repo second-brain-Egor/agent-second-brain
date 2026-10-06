@@ -3,7 +3,7 @@ type: project
 description: "Сравнение личных облачных помощников OpenAI Dots и Meta Muse: память, подключения, расписания, цены, удобство и ошибки ранних версий."
 related: 
 last_accessed: 2026-10-01
-relevance: 0.94
+relevance: 0.98
 tier: active
 ---
 # Я проверил OpenAI Dots и Meta Muse: что нужно знать

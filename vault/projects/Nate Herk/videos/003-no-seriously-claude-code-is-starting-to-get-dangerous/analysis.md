@@ -3,7 +3,7 @@ type: project
 description: "Дата: 2026-09-27 Длительность: 13:42 Ссылка: https://www.youtube.com/watch?v=Ktnwygcnd8U"
 related: 
 last_accessed: 2026-09-29
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 # Карточка ролика: Нет, серьёзно: Claude Code становится опасным

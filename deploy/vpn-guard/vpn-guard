@@ -1,0 +1,1035 @@
+#!/usr/bin/python3
+"""Страж шведского выхода сервера. Работает без нейросети.
+
+Раз в 15 минут проверяет, отвечает ли шведский узел. Если нет — забирает свежую подписку,
+выбирает исправный шведский узел и подменяет в конфиге Xray только блок подключения
+(исходящее соединение «proxy»). Остальное в конфиге — прозрачный заворот, прямой выход
+для forumhouse.ru — не затрагивается. Любая замена идёт под страховочным таймером отката.
+
+    vpn-guard check              проверка по таймеру
+    vpn-guard status             состояние (JSON)
+    vpn-guard refresh [--force]  взять подписку и заменить узел, если нужно
+    vpn-guard set-url            ссылка подписки или vless:// со стандартного ввода
+    vpn-guard snapshot           обновить снимок «последнего рабочего» для vpn-rollback
+
+Секреты (ссылка подписки, ключи узла, токен бота) не попадают ни в журнал, ни в вывод,
+ни в список аргументов процессов: ссылки и токен передаются в curl через стандартный ввод.
+"""
+from __future__ import annotations
+
+import argparse
+import base64
+import binascii
+import contextlib
+import fcntl
+import html
+import ipaddress
+import json
+import os
+import re
+import secrets
+import shutil
+import socket
+import subprocess
+import sys
+import tempfile
+import time
+import traceback
+from dataclasses import dataclass
+from datetime import datetime
+from pathlib import Path
+from urllib.parse import parse_qs, unquote, urlsplit
+from zoneinfo import ZoneInfo
+
+STATE_DIR = Path('/var/lib/vpn-guard')
+GOOD_DIR = STATE_DIR / 'last-good'
+CONF_DIR = Path('/etc/vpn-guard')
+SUB_FILE = CONF_DIR / 'subscription'
+HWID_FILE = CONF_DIR / 'hwid'
+TELEGRAM_OFF = CONF_DIR / 'telegram-direct.off'
+STATE_FILE = STATE_DIR / 'state.json'
+LOG_FILE = Path('/var/log/vpn-guard.log')
+RUN_DIR = Path('/run/vpn-guard')
+LOCK_FILE = '/run/vpn-guard.lock'
+XRAY_BIN = '/usr/local/bin/xray'
+XRAY_CONF = Path('/usr/local/etc/xray/config.json')
+ROUTING = Path('/usr/local/sbin/xray-transparent-routing')
+PROJECT = Path('/home/egor/agent-second-brain')
+ENV_FILE = PROJECT / '.env'
+SESSIONS = PROJECT / 'vault' / '.sessions'
+SOCKS_PORT = 10808
+CHAIN = 'XRAY_OUTPUT'
+TZ = ZoneInfo('Europe/Moscow')
+USERS = {'nobody': (65534, 65534), 'egor': (1000, 1000)}
+USER_AGENT = 'Happ/2.7.0'
+SAFETY_SECONDS = 240
+MAX_CANDIDATES = 5
+KEEP_BACKUPS = 10
+
+# Названия узлов, которые считаем шведскими.
+SWEDEN = re.compile(r'(?i)swed|швец|stockholm|стокгольм|sverige|🇸🇪|(?-i:(?<![A-Za-z])SE(?![A-Za-z]))')
+PROXY_PROTOCOLS = {'vless', 'vmess', 'trojan', 'shadowsocks'}
+
+
+class GuardError(Exception):
+    """Ожидаемая ошибка. Текст можно показывать пользователю: в нём нет секретов."""
+
+
+# ───────────────────────────── журнал и состояние ─────────────────────────────
+
+def now() -> datetime:
+    return datetime.now(TZ)
+
+
+def log(message: str) -> None:
+    line = f'{now():%F %T} | vpn-guard | {message}\n'
+    try:
+        LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+        if LOG_FILE.exists() and LOG_FILE.stat().st_size > 512_000:
+            tail = LOG_FILE.read_bytes()[-200_000:]
+            LOG_FILE.write_bytes(tail[tail.find(b'\n') + 1:])
+        with LOG_FILE.open('a', encoding='utf-8') as stream:
+            stream.write(line)
+    except OSError:
+        pass
+    print(line, end='', file=sys.stderr)
+
+
+def write_private(path: Path, text: str, mode: int = 0o600) -> None:
+    """Атомарная запись файла с заданными правами."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    handle, temporary = tempfile.mkstemp(dir=path.parent, prefix=f'.{path.name}.')
+    try:
+        with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+            stream.write(text)
+        os.chmod(temporary, mode)
+        os.replace(temporary, path)
+    except BaseException:
+        with contextlib.suppress(OSError):
+            os.unlink(temporary)
+        raise
+
+
+def load_state() -> dict:
+    try:
+        return json.loads(STATE_FILE.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return {}
+
+
+def save_state(state: dict) -> None:
+    write_private(STATE_FILE, json.dumps(state, ensure_ascii=False, indent=1))
+
+
+def read_env() -> dict[str, str]:
+    values = {}
+    try:
+        for line in ENV_FILE.read_text(encoding='utf-8').splitlines():
+            if '=' in line and not line.lstrip().startswith('#'):
+                key, _, value = line.partition('=')
+                values[key.strip()] = value.strip().strip('"').strip("'")
+    except OSError:
+        pass
+    return values
+
+
+# ──────────────────────────────── сеть и curl ────────────────────────────────
+
+def cfg_quote(value: str) -> str:
+    """Строка для конфигурации curl, читаемой со стандартного ввода."""
+    escaped = (value.replace('\\', '\\\\').replace('"', '\\"')
+               .replace('\n', '\\n').replace('\r', '\\r').replace('\t', '\\t'))
+    return f'"{escaped}"'
+
+
+def sanitize(text: str) -> str:
+    return re.sub(r'https?://\S+', '<ссылка>', text).strip()[:200]
+
+
+def curl(url: str, *, proxy: str | None = None, user: str | None = None, timeout: int = 10,
+         headers: dict[str, str] | None = None, post: dict[str, str] | None = None
+         ) -> tuple[int, bytes, str]:
+    """Возвращает (HTTP-код, тело, ошибка). Код 0 — соединение не установилось.
+
+    Адрес, заголовки и данные идут через стандартный ввод, чтобы не светиться в `ps`.
+    `user='nobody'` запускает curl мимо прозрачного заворота (правило по uid в iptables).
+    """
+    if '\n' in url or '\r' in url:
+        raise GuardError('в ссылке есть перевод строки')
+    lines = ['silent', 'show-error', f'max-time = {int(timeout)}',
+             f'connect-timeout = {min(int(timeout), 10)}',
+             f'url = {cfg_quote(url)}', 'write-out = "\\n__HTTP__%{http_code}"']
+    if proxy:
+        lines.append(f'proxy = {cfg_quote(proxy)}')
+    for name, value in (headers or {}).items():
+        if '\n' in name + value:
+            raise GuardError('в заголовке есть перевод строки')
+        lines.append(f'header = {cfg_quote(f"{name}: {value}")}')
+    for name, value in (post or {}).items():
+        lines.append(f'data-urlencode = {cfg_quote(f"{name}={value}")}')
+    command = ['curl', '-q', '-K', '-']
+    if user:
+        uid, gid = USERS[user]
+        command = ['setpriv', f'--reuid={uid}', f'--regid={gid}', '--clear-groups'] + command
+    try:
+        result = subprocess.run(command, input='\n'.join(lines).encode(), capture_output=True,
+                                timeout=timeout + 15)
+    except (subprocess.TimeoutExpired, OSError) as error:
+        return 0, b'', sanitize(str(error))
+    body, _, tail = result.stdout.rpartition(b'\n__HTTP__')
+    try:
+        code = int(tail.strip() or 0)
+    except ValueError:
+        code = 0
+    return code, body, sanitize(result.stderr.decode('utf-8', 'replace'))
+
+
+def probe_egress(port: int = SOCKS_PORT, timeout: int = 10) -> dict:
+    """Отвечает ли выход через собственный SOCKS Xray (он идёт в исходящее «proxy»)."""
+    proxy = f'socks5h://127.0.0.1:{port}'
+    started = time.monotonic()
+    code, body, _ = curl('https://www.cloudflare.com/cdn-cgi/trace', proxy=proxy, timeout=timeout)
+    country = re.search(rb'^loc=(\w+)', body, re.M)
+    if code == 200:
+        return dict(ok=True, ms=round((time.monotonic() - started) * 1000),
+                    country=country.group(1).decode() if country else None)
+    started = time.monotonic()
+    code, _, _ = curl('https://api.anthropic.com/', proxy=proxy, timeout=timeout)
+    if code:
+        return dict(ok=True, ms=round((time.monotonic() - started) * 1000), country=None)
+    return dict(ok=False, ms=None, country=None)
+
+
+def probe_telegram_direct() -> bool:
+    """Достучаться до Bot API напрямую, мимо Xray (uid nobody не заворачивается)."""
+    token = read_env().get('TELEGRAM_BOT_TOKEN')
+    url = f'https://api.telegram.org/bot{token}/getMe' if token else 'https://api.telegram.org/'
+    # Важна достижимость: любой ответ по корректному TLS (даже 401 при отозванном токене) подходит.
+    code, _, _ = curl(url, user='nobody')
+    return code != 0
+
+
+def probe_telegram_tunnel() -> bool:
+    code, _, _ = curl('https://api.telegram.org/', proxy=f'socks5h://127.0.0.1:{SOCKS_PORT}')
+    return code != 0
+
+
+def redirect_ready() -> bool:
+    return (sh('iptables', '-t', 'nat', '-C', 'OUTPUT', '-p', 'tcp', '-j', CHAIN).returncode == 0
+            and 'REDIRECT' in sh('iptables', '-t', 'nat', '-S', CHAIN).stdout)
+
+
+def probe_transparent() -> bool:
+    """Путь, которым ходят все службы: обычный пользователь → заворот → Швеция.
+
+    Одного ответа мало: мимо туннеля ответ тоже придёт. Поэтому смотрим страну выхода:
+    если соединение ушло напрямую, это будет RU.
+    """
+    deadline = time.monotonic() + 20
+    while not redirect_ready():
+        if time.monotonic() > deadline:
+            return False
+        time.sleep(1)
+    code, body, _ = curl('https://www.cloudflare.com/cdn-cgi/trace', user='egor')
+    country = re.search(rb'^loc=(\w+)', body, re.M)
+    return code == 200 and bool(country) and country.group(1) != b'RU'
+
+
+def ensure_run_dir() -> None:
+    """Каталог с временными конфигами: читает группа nogroup (под ней работает Xray от nobody)."""
+    RUN_DIR.mkdir(exist_ok=True)
+    os.chmod(RUN_DIR, 0o750)
+    shutil.chown(RUN_DIR, 'root', 'nogroup')
+
+
+def sh(*command: str, timeout: int = 60) -> subprocess.CompletedProcess:
+    return subprocess.run(command, capture_output=True, text=True, timeout=timeout)
+
+
+def wait_port(port: int, seconds: float = 8) -> bool:
+    deadline = time.monotonic() + seconds
+    while time.monotonic() < deadline:
+        with socket.socket() as probe:
+            probe.settimeout(0.3)
+            if probe.connect_ex(('127.0.0.1', port)) == 0:
+                return True
+        time.sleep(0.25)
+    return False
+
+
+# ─────────────────────────────── разбор подписки ───────────────────────────────
+
+@dataclass
+class Node:
+    name: str
+    outbound: dict
+
+
+def mask_host(host: str) -> str:
+    try:
+        address = ipaddress.ip_address(host)
+    except ValueError:
+        return host if len(host) <= 28 else host[:12] + '…' + host[-12:]
+    if address.version == 4:
+        first, second, *_ = str(address).split('.')
+        return f'{first}.{second}.*.*'
+    return str(address)[:9] + '…'
+
+
+def parse_vless(link: str) -> Node:
+    """vless://uuid@host:port?параметры#имя → исходящее соединение Xray."""
+    parts = urlsplit(link.strip())
+    if parts.scheme.lower() != 'vless' or not parts.username or not parts.hostname:
+        raise ValueError('не похоже на ссылку vless://')
+    try:
+        port = parts.port or 443
+    except ValueError as error:
+        raise ValueError('некорректный порт') from error
+    q = {key: values[0] for key, values in parse_qs(parts.query, keep_blank_values=True).items()}
+    name = unquote(parts.fragment) or parts.hostname
+    network = q.get('type', 'tcp')
+    security = q.get('security', 'none')
+    user = {'id': unquote(parts.username), 'encryption': q.get('encryption', 'none') or 'none',
+            'level': 8, 'security': 'auto'}
+    if q.get('flow'):
+        user['flow'] = q['flow']
+    stream: dict = {'network': 'xhttp' if network == 'splithttp' else network, 'security': security}
+    if network == 'tcp':
+        header = q.get('headerType', 'none')
+        if header == 'http':
+            stream['tcpSettings'] = {'header': {'type': 'http', 'request': {
+                'path': [q.get('path', '/')],
+                'headers': {'Host': [h for h in q.get('host', '').split(',') if h]}}}}
+        else:
+            stream['tcpSettings'] = {'header': {'type': 'none'}}
+    elif network == 'ws':
+        stream['wsSettings'] = {'path': q.get('path', '/'),
+                                **({'headers': {'Host': q['host']}} if q.get('host') else {})}
+    elif network == 'grpc':
+        stream['grpcSettings'] = {'serviceName': q.get('serviceName', ''),
+                                  'multiMode': q.get('mode') == 'multi'}
+    elif network == 'httpupgrade':
+        stream['httpupgradeSettings'] = {'path': q.get('path', '/'), 'host': q.get('host', '')}
+    elif network in ('xhttp', 'splithttp'):
+        settings = {'path': q.get('path', '/'), 'host': q.get('host', ''), 'mode': q.get('mode', 'auto')}
+        if q.get('extra'):
+            try:
+                settings['extra'] = json.loads(q['extra'])
+            except ValueError as error:
+                raise ValueError('параметр extra не читается') from error
+        stream['xhttpSettings'] = settings
+    elif network == 'kcp':
+        stream['kcpSettings'] = {'header': {'type': q.get('headerType', 'none')},
+                                 **({'seed': q['seed']} if q.get('seed') else {})}
+    else:
+        raise ValueError(f'транспорт «{network}» не поддерживается')
+    if security == 'reality':
+        if not q.get('pbk'):
+            raise ValueError('в ссылке нет публичного ключа (pbk)')
+        stream['realitySettings'] = {
+            'serverName': q.get('sni', ''), 'fingerprint': q.get('fp') or 'chrome',
+            'publicKey': q['pbk'], 'shortId': q.get('sid', ''), 'spiderX': q.get('spx', ''),
+            'show': False}
+    elif security == 'tls':
+        tls = {'serverName': q.get('sni') or parts.hostname, 'allowInsecure': q.get('allowInsecure') in ('1', 'true')}
+        if q.get('fp'):
+            tls['fingerprint'] = q['fp']
+        if q.get('alpn'):
+            tls['alpn'] = [item for item in q['alpn'].split(',') if item]
+        stream['tlsSettings'] = tls
+    elif security != 'none':
+        raise ValueError(f'защита «{security}» не поддерживается')
+    outbound = {'protocol': 'vless', 'tag': 'proxy',
+                'settings': {'vnext': [{'address': parts.hostname, 'port': port, 'users': [user]}]},
+                'streamSettings': stream}
+    return Node(name=name, outbound=outbound)
+
+
+def decode_body(body: bytes) -> str:
+    text = body.decode('utf-8', 'replace').strip()
+    if text.startswith(('{', '[')) or '://' in text:
+        return text
+    compact = re.sub(r'\s+', '', text)
+    try:
+        raw = base64.b64decode(compact.replace('-', '+').replace('_', '/') + '=' * (-len(compact) % 4))
+        decoded = raw.decode('utf-8', 'replace').strip()
+    except (binascii.Error, ValueError):
+        return text
+    return decoded if '://' in decoded or decoded.startswith(('{', '[')) else text
+
+
+def parse_subscription(body: bytes) -> tuple[list[Node], list[str]]:
+    """Возвращает (узлы, пояснения о пропущенном). Поддержаны ссылки vless:// и JSON-конфиги Xray."""
+    text = decode_body(body)
+    if not text:
+        raise GuardError('подписка пустая')
+    if text.lower().startswith(('<!doctype', '<html')):
+        raise GuardError('по ссылке открылась веб-страница, а не подписка')
+    if text.lower().startswith('happ://'):
+        raise GuardError('подписка зашифрована (happ://crypt) и сервер её не прочитает; нужна обычная ссылка https://…')
+    nodes: list[Node] = []
+    skipped: list[str] = []
+    if text.startswith(('{', '[')):
+        try:
+            data = json.loads(text)
+        except ValueError as error:
+            raise GuardError('подписка похожа на JSON, но не читается') from error
+        for index, config in enumerate(data if isinstance(data, list) else [data], 1):
+            outbounds = config.get('outbounds') if isinstance(config, dict) else None
+            proxy = next((o for o in outbounds or [] if o.get('protocol') in PROXY_PROTOCOLS), None)
+            if proxy is None:
+                skipped.append(f'конфиг {index}: нет исходящего соединения')
+                continue
+            nodes.append(Node(name=str(config.get('remarks') or f'узел {index}'), outbound=proxy))
+        return nodes, skipped
+    for line in text.splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '://' not in line:
+            continue
+        scheme = line.split('://', 1)[0].lower()
+        if scheme == 'vless':
+            try:
+                nodes.append(parse_vless(line))
+            except ValueError as error:
+                skipped.append(f'vless: {error}')
+        else:
+            skipped.append(f'{scheme}: пока не поддерживается')
+    return nodes, skipped
+
+
+def identity(outbound: dict) -> tuple:
+    """Ключ узла: два описания одного узла дают одинаковый ключ."""
+    try:
+        vnext = outbound['settings']['vnext'][0]
+        user = vnext['users'][0]
+        stream = outbound.get('streamSettings', {})
+        reality = stream.get('realitySettings', {})
+        tls = stream.get('tlsSettings', {})
+        return (outbound.get('protocol'), str(vnext['address']).lower(), vnext['port'], user.get('id'),
+                user.get('flow', ''), stream.get('network', 'tcp'), stream.get('security', 'none'),
+                reality.get('publicKey'), reality.get('shortId'),
+                reality.get('serverName') or tls.get('serverName'))
+    except (KeyError, IndexError, TypeError):
+        stripped = {key: value for key, value in outbound.items() if key not in ('tag', 'mux')}
+        return (json.dumps(stripped, sort_keys=True),)
+
+
+def rank(nodes: list[Node], preferred: str | None) -> list[Node]:
+    """Шведские узлы: сначала с прежним именем, остальное в порядке подписки, без повторов."""
+    seen, swedish = set(), []
+    for node in nodes:
+        key = identity(node.outbound)
+        if SWEDEN.search(node.name) and key not in seen:
+            seen.add(key)
+            swedish.append(node)
+    return sorted(swedish, key=lambda node: node.name != preferred)
+
+
+# ───────────────────────────────── конфиг Xray ─────────────────────────────────
+
+def read_config() -> dict:
+    return json.loads(XRAY_CONF.read_text(encoding='utf-8'))
+
+
+def current_outbound(config: dict | None = None) -> dict:
+    config = config or read_config()
+    for outbound in config.get('outbounds', []):
+        if outbound.get('tag') == 'proxy':
+            return outbound
+    raise GuardError('в конфиге Xray нет исходящего соединения «proxy»')
+
+
+def build_config(node: Node) -> dict:
+    """Текущий конфиг, в котором заменено только исходящее «proxy» (и подпись узла)."""
+    config = read_config()
+    old = current_outbound(config)
+    new = json.loads(json.dumps(node.outbound))
+    new['tag'] = 'proxy'
+    if 'mux' not in new and 'mux' in old:
+        new['mux'] = old['mux']
+    config['outbounds'] = [new if o is old else o for o in config['outbounds']]
+    config['remarks'] = node.name
+    return config
+
+
+def xray_test(config: dict) -> None:
+    ensure_run_dir()
+    path = RUN_DIR / f'check-{os.getpid()}.json'
+    write_private(path, json.dumps(config), 0o600)
+    try:
+        result = sh(XRAY_BIN, 'run', '-test', '-config', str(path), timeout=30)
+    finally:
+        path.unlink(missing_ok=True)
+    if result.returncode != 0:
+        last = (result.stdout + result.stderr).strip().splitlines()[-1:] or ['без пояснений']
+        raise GuardError('Xray не принял новую конфигурацию: ' + sanitize(last[0]))
+
+
+def test_candidate(node: Node) -> dict:
+    """Проверка узла отдельным процессом Xray на свободном порту; рабочий Xray не трогается.
+
+    Процесс идёт от uid nobody, поэтому его соединения не заворачиваются обратно в туннель.
+    """
+    ensure_run_dir()
+    with socket.socket() as holder:
+        holder.bind(('127.0.0.1', 0))
+        port = holder.getsockname()[1]
+    config = {'log': {'loglevel': 'warning'},
+              'inbounds': [{'listen': '127.0.0.1', 'port': port, 'protocol': 'socks',
+                            'settings': {'auth': 'noauth', 'udp': False}}],
+              'outbounds': [{**json.loads(json.dumps(node.outbound)), 'tag': 'proxy'}]}
+    path = RUN_DIR / f'candidate-{os.getpid()}-{port}.json'
+    write_private(path, json.dumps(config), 0o640)
+    shutil.chown(path, 'root', 'nogroup')
+    uid, gid = USERS['nobody']
+    process = subprocess.Popen(['setpriv', f'--reuid={uid}', f'--regid={gid}', '--clear-groups',
+                                XRAY_BIN, 'run', '-config', str(path)],
+                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        if not wait_port(port):
+            return dict(ok=False, ms=None, country=None, error='пробный Xray не запустился')
+        return {**probe_egress(port, timeout=12), 'error': None}
+    finally:
+        process.terminate()
+        try:
+            process.wait(5)
+        except subprocess.TimeoutExpired:
+            process.kill()
+        path.unlink(missing_ok=True)
+
+
+# ─────────────────────────────── подписка и хранение ───────────────────────────────
+
+def read_subscription_url() -> str | None:
+    try:
+        return SUB_FILE.read_text(encoding='utf-8').strip() or None
+    except OSError:
+        return None
+
+
+def hwid_headers() -> dict[str, str]:
+    """Стабильный идентификатор устройства для панелей с лимитом устройств."""
+    if not HWID_FILE.exists():
+        write_private(HWID_FILE, secrets.token_hex(8))
+    return {'User-Agent': USER_AGENT, 'x-hwid': HWID_FILE.read_text().strip(), 'x-device-os': 'Linux',
+            'x-ver-os': 'Ubuntu 24.04', 'x-device-model': 'VPS'}
+
+
+def explain_http(code: int, error: str) -> str:
+    if code == 0:
+        return 'страница подписки не открылась с сервера напрямую' + (f' ({error})' if error else '')
+    return {
+        404: 'панель ответила 404: ссылка устарела или исчерпан лимит устройств (серверу нужно одно место)',
+        403: 'панель отказала в доступе (403)',
+        429: 'панель просит реже обращаться (429)',
+    }.get(code, f'панель ответила кодом {code}')
+
+
+def fetch_subscription(url: str, state: dict) -> bytes:
+    """Скачивает подписку напрямую (мимо туннеля). Сначала без идентификатора устройства."""
+    plain = {'User-Agent': USER_AGENT}
+    attempts = [(hwid_headers, True), (lambda: plain, False)] if state.get('needs_hwid') \
+        else [(lambda: plain, False), (hwid_headers, True)]
+    code, error = 0, ''
+    for make_headers, with_hwid in attempts:
+        code, body, error = curl(url, user='nobody', timeout=25, headers=make_headers())
+        if code == 200 and body.strip():
+            if with_hwid != bool(state.get('needs_hwid')):
+                state['needs_hwid'] = with_hwid
+                log('панель подписки требует идентификатор устройства' if with_hwid
+                    else 'панель подписки отдаёт данные без идентификатора устройства')
+            return body
+        if code in (0, 429):
+            break
+    raise GuardError(explain_http(code, error))
+
+
+# ──────────────────────────── снимок, страховка, замена ────────────────────────────
+
+def nat_dump() -> str:
+    return sh('iptables-save', '-t', 'nat').stdout
+
+
+def normalized(dump: str) -> list[str]:
+    return [re.sub(r'\[\d+:\d+\]', '', line) for line in dump.splitlines() if not line.startswith('#')]
+
+
+def snapshot() -> None:
+    GOOD_DIR.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(XRAY_CONF, GOOD_DIR / 'config.json')
+    shutil.copy2(ROUTING, GOOD_DIR / 'xray-transparent-routing')
+    write_private(GOOD_DIR / 'nat.rules', nat_dump())
+    write_private(GOOD_DIR / 'taken-at', f'{now():%F %T}\n', 0o644)
+    for name in ('config.json', 'xray-transparent-routing'):
+        os.chmod(GOOD_DIR / name, 0o600)
+    log('снимок «последнего рабочего» обновлён')
+
+
+def snapshot_is_current() -> bool:
+    try:
+        return (GOOD_DIR.joinpath('config.json').read_bytes() == XRAY_CONF.read_bytes()
+                and GOOD_DIR.joinpath('xray-transparent-routing').read_bytes() == ROUTING.read_bytes()
+                and normalized(GOOD_DIR.joinpath('nat.rules').read_text()) == normalized(nat_dump()))
+    except OSError:
+        return False
+
+
+def safety(action: str, *args: str) -> None:
+    result = sh('/usr/local/sbin/vpn-safety', action, *args)
+    if result.returncode != 0:
+        raise GuardError('не удалось взвести страховочный таймер' if action == 'arm'
+                         else 'не удалось снять страховочный таймер')
+
+
+def safety_armed() -> bool:
+    return sh('/usr/local/sbin/vpn-safety', 'status').stdout.strip() == 'взведён'
+
+
+def prune_backups() -> None:
+    backups = sorted(XRAY_CONF.parent.glob('config.json.bak-*-vpn-guard'))
+    for old in backups[:-KEEP_BACKUPS]:
+        old.unlink(missing_ok=True)
+
+
+def apply_node(node: Node) -> dict:
+    """Подменяет исходящее «proxy», перезапускает Xray и проверяет. При неудаче откатывает."""
+    config = build_config(node)
+    xray_test(config)
+    if not snapshot_is_current() and probe_egress()['ok']:
+        snapshot()
+    safety('arm', str(SAFETY_SECONDS))
+    backup = XRAY_CONF.with_name(f'config.json.bak-{now():%Y%m%d-%H%M%S}-vpn-guard')
+    shutil.copy2(XRAY_CONF, backup)
+    shutil.chown(backup, 'root', 'nogroup')
+    new_path = XRAY_CONF.with_name('.config.json.vpn-guard')
+    write_private(new_path, json.dumps(config, ensure_ascii=False, indent=2), 0o640)
+    shutil.chown(new_path, 'root', 'nogroup')
+    os.replace(new_path, XRAY_CONF)
+    log(f'записал конфиг с узлом «{node.name}», перезапускаю Xray')
+    sh('systemctl', 'restart', 'xray', timeout=60)
+    if not (wait_port(SOCKS_PORT, 15) and wait_port(12345, 15)):
+        return rollback('Xray не поднялся после замены')
+    time.sleep(1)
+    for _ in range(3):
+        egress = probe_egress()
+        if egress['ok']:
+            break
+        time.sleep(3)
+    if not egress['ok']:
+        return rollback('новый узел не отвечает')
+    if not probe_transparent():
+        return rollback('обычные службы не достучались до интернета через новый узел')
+    safety('disarm')
+    snapshot()
+    prune_backups()
+    log(f'замена выполнена: «{node.name}», выход отвечает ({egress.get("country")}, {egress["ms"]} мс)')
+    return dict(ok=True, egress=egress)
+
+
+def rollback(reason: str) -> dict:
+    log(f'замена не удалась: {reason}; возвращаю прежнее состояние')
+    sh('/usr/local/sbin/vpn-rollback', timeout=120)
+    return dict(ok=False, reason=reason)
+
+
+# ────────────────────────────────────── Telegram ──────────────────────────────────────
+
+def telegram_nets() -> list[str]:
+    match = re.search(r'^TELEGRAM_NETS="([^"]*)"', ROUTING.read_text(encoding='utf-8'), re.M)
+    return match.group(1).split() if match else []
+
+
+def telegram_rules_present() -> bool:
+    nets = telegram_nets()
+    return bool(nets) and sh('iptables', '-t', 'nat', '-C', CHAIN, '-d', nets[0], '-j', 'RETURN').returncode == 0
+
+
+def set_telegram_direct(enabled: bool) -> None:
+    """Включает или убирает исключение для Telegram и в памяти, и в файле-флаге для скрипта правил."""
+    nets = telegram_nets()
+    if enabled:
+        TELEGRAM_OFF.unlink(missing_ok=True)
+        rules = sh('iptables', '-t', 'nat', '-S', CHAIN).stdout.splitlines()
+        position = next((i for i, line in enumerate((r for r in rules if r.startswith('-A')), 1)
+                         if '-d 91.215.43.236/32' in line), None)
+        for net in nets:
+            if sh('iptables', '-t', 'nat', '-C', CHAIN, '-d', net, '-j', 'RETURN').returncode != 0:
+                args = ['-I', CHAIN] + ([str(position)] if position else []) + ['-d', net, '-j', 'RETURN']
+                sh('iptables', '-t', 'nat', *args)
+                position = position + 1 if position else None
+    else:
+        write_private(TELEGRAM_OFF, f'{now():%F %T}\n', 0o644)
+        for net in nets:
+            while sh('iptables', '-t', 'nat', '-D', CHAIN, '-d', net, '-j', 'RETURN').returncode == 0:
+                pass
+    log('Telegram идёт напрямую' if enabled else 'Telegram возвращён в туннель')
+    if not safety_armed() and probe_egress()['ok']:
+        snapshot()
+
+
+def notify(state: dict, text: str) -> bool:
+    """Отправляет сообщение администратору и записывает его в историю чата после подтверждённой отправки."""
+    env = read_env()
+    token = env.get('TELEGRAM_BOT_TOKEN')
+    admins = re.findall(r'\d+', env.get('ADMIN_USER_IDS', ''))
+    if not token or not admins:
+        log('уведомление не отправлено: не найден токен бота или администратор')
+        return False
+    chat_id = admins[0]
+    code, body, error = curl(f'https://api.telegram.org/bot{token}/sendMessage', timeout=20,
+                             post={'chat_id': chat_id, 'text': text, 'parse_mode': 'HTML',
+                                   'disable_web_page_preview': 'true'})
+    try:
+        message_id = json.loads(body)['result']['message_id'] if code == 200 else None
+    except (ValueError, KeyError, TypeError):
+        message_id = None
+    if message_id is None:
+        log(f'уведомление не доставлено (код {code}) {error}'.strip())
+        pending = state.setdefault('pending_notifications', [])
+        if text not in pending:
+            pending.append(text)
+            del pending[:-3]
+        return False
+    record_history(int(chat_id), text, message_id)
+    log(f'уведомление доставлено (сообщение {message_id})')
+    return True
+
+
+def record_history(chat_id: int, text: str, message_id: int) -> None:
+    """Автоматическое сообщение попадает в историю переписки: полный текст, время и номер."""
+    path = SESSIONS / f'{chat_id}.jsonl'
+    entry = {'ts': now().isoformat(), 'type': 'assistant', 'text': text, 'msg_id': message_id,
+             'chat_id': chat_id, 'chat_title': None, 'automatic': True, 'source': 'vpn-guard'}
+    try:
+        existed = path.exists()
+        with path.open('a', encoding='utf-8') as stream:
+            stream.write(json.dumps(entry, ensure_ascii=False) + '\n')
+        if not existed:
+            shutil.chown(path, 'egor', 'egor')
+    except OSError as error:
+        log(f'не удалось записать сообщение в историю: {sanitize(str(error))}')
+
+
+# ───────────────────────────────────── сценарии ─────────────────────────────────────
+
+def seconds(ms: int | None) -> str:
+    return f'{ms / 1000:.1f}'.replace('.', ',') + ' с' if ms is not None else '—'
+
+
+def esc(value: object) -> str:
+    return html.escape(str(value), quote=False)
+
+
+def node_label(outbound: dict, name: str | None = None) -> str:
+    try:
+        vnext = outbound['settings']['vnext'][0]
+        place = f'{mask_host(vnext["address"])}:{vnext["port"]}'
+    except (KeyError, IndexError, TypeError):
+        place = 'адрес неизвестен'
+    return f'«{esc(name)}», {esc(place)}' if name else esc(place)
+
+
+def failure(message: str, reason: str) -> dict:
+    """Неудача: `message` для чата, `reason` — короткая причина для уведомления (оба уже экранированы)."""
+    return dict(ok=False, changed=False, message=message, reason=reason)
+
+
+def do_refresh(*, force: bool, dry_run: bool = False, url_override: str | None = None) -> dict:
+    """Берёт подписку, выбирает шведский узел и при необходимости заменяет его в конфиге."""
+    state = load_state()
+    url = url_override or read_subscription_url()
+    if not url:
+        return failure('🔗 <b>Ссылка подписки не задана.</b> Нажми «Заменить ссылку» и пришли её.',
+                       'ссылка подписки не задана, заменить узел нечем')
+    config = read_config()
+    current = current_outbound(config)
+    current_name = config.get('remarks')
+    try:
+        nodes, skipped = parse_subscription(fetch_subscription(url, state))
+    except GuardError as error:
+        if not dry_run:
+            save_state(state)
+        return failure(f'⚠️ <b>Подписку получить не вышло.</b> {esc(error)}.',
+                       f'подписку получить не вышло: {esc(error)}')
+    candidates = rank(nodes, current_name)
+    if not dry_run:  # пробный запуск (в том числе на тестовой подписке) рабочее состояние не трогает
+        state['subscription'] = {'host': urlsplit(url).hostname, 'nodes': len(nodes),
+                                 'swedish': len(candidates), 'checked_at': f'{now():%F %T}'}
+        save_state(state)
+    if not candidates:
+        names = ', '.join(esc(n.name) for n in nodes[:8]) or 'узлов не нашёл'
+        note = f' Пропущено: {esc("; ".join(skipped[:3]))}.' if skipped and not nodes else ''
+        return failure(f'⚠️ <b>В подписке нет шведского узла.</b> Названия: {names}.{note}',
+                       'в подписке нет шведского узла')
+    alive = probe_egress()['ok']
+    if alive and identity(candidates[0].outbound) == identity(current):
+        return dict(ok=True, changed=False,
+                    message=f'✅ <b>Менять нечего.</b> Выход работает, в подписке тот же узел {node_label(current, current_name)}.')
+    if alive and not force:
+        return dict(ok=True, changed=False, message='✅ Выход работает, замена не нужна.')
+    failures = []
+    for node in candidates[:MAX_CANDIDATES]:
+        if identity(node.outbound) == identity(current):
+            if alive:
+                break  # дошли до узла, который уже стоит и работает: оставляем его
+            failures.append(f'«{esc(node.name)}» — тот же узел, что сейчас не отвечает')
+            continue
+        verdict = test_candidate(node)
+        log(f'проверка узла «{node.name}»: {"отвечает" if verdict["ok"] else "не отвечает"}')
+        if not verdict['ok']:
+            failures.append(f'«{esc(node.name)}» не отвечает')
+            continue
+        if dry_run:
+            xray_test(build_config(node))
+            return dict(ok=True, changed=False, dry_run=True,
+                        message=f'🧪 Пробный запуск: узел {node_label(node.outbound, node.name)} отвечает '
+                                f'({esc(verdict["country"] or "?")}, {seconds(verdict["ms"])}); конфиг проходит проверку Xray. Ничего не менял.')
+        try:
+            result = apply_node(node)
+        except GuardError as error:
+            return failure(f'⚠️ <b>Заменить не вышло.</b> {esc(error)}. Прежнее состояние сохранено.', esc(error))
+        if result['ok']:
+            state = load_state()
+            state['last_change'] = {'at': f'{now():%F %T}', 'from': current_name, 'to': node.name}
+            save_state(state)
+            return dict(ok=True, changed=True, node=node.name,
+                        message=f'🔁 <b>Узел заменён.</b> Было: {node_label(current, current_name)}. '
+                                f'Стало: {node_label(node.outbound, node.name)}. Выход отвечает '
+                                f'({esc(result["egress"]["country"] or "?")}, {seconds(result["egress"]["ms"])}).')
+        failures.append(f'«{esc(node.name)}»: {esc(result["reason"])}')
+        break
+    detail = '; '.join(failures) or 'подходящих узлов нет'
+    if alive:
+        return dict(ok=True, changed=False,
+                    message=f'⚠️ <b>Новый узел не прошёл проверку</b> ({detail}). Оставил прежний, он работает.')
+    return failure(f'⚠️ <b>Заменить не вышло.</b> {detail}. Прежнее состояние сохранено.', detail)
+
+
+def do_set_url(raw: str) -> dict:
+    """Принимает ссылку подписки (https://…) или одиночный узел (vless://…)."""
+    value = raw.strip()
+    if not value or '\n' in value:
+        return dict(ok=False, message='⚠️ Нужна одна ссылка в одном сообщении.')
+    scheme = value.split('://', 1)[0].lower() if '://' in value else ''
+    if scheme == 'happ':
+        return dict(ok=False, message='🔒 <b>Эта ссылка зашифрована</b> (happ://crypt…), сервер её не прочитает. Нужна обычная ссылка https://… из кабинета или бота провайдера.')
+    if scheme == 'vless':
+        try:
+            node = parse_vless(value)
+        except ValueError as error:
+            return dict(ok=False, message=f'⚠️ <b>Ссылка не разобралась:</b> {esc(error)}.')
+        verdict = test_candidate(node)
+        if not verdict['ok']:
+            return dict(ok=False, message=f'⚠️ <b>Узел «{esc(node.name)}» не отвечает.</b> Конфигурацию не менял.')
+        config = read_config()
+        if identity(node.outbound) == identity(current_outbound(config)):
+            return dict(ok=True, changed=False, message=f'✅ <b>Этот узел уже стоит</b> и отвечает ({esc(verdict["country"] or "?")}, {seconds(verdict["ms"])}).')
+        try:
+            result = apply_node(node)
+        except GuardError as error:
+            return dict(ok=False, message=f'⚠️ <b>Заменить не вышло.</b> {esc(error)}. Прежнее состояние сохранено.')
+        if not result['ok']:
+            return dict(ok=False, message=f'⚠️ <b>Заменить не вышло.</b> {esc(result["reason"])}. Прежнее состояние сохранено.')
+        state = load_state()
+        state['last_change'] = {'at': f'{now():%F %T}', 'from': config.get('remarks'), 'to': node.name}
+        save_state(state)
+        return dict(ok=True, changed=True,
+                    message=f'🔁 <b>Узел заменён вручную:</b> {node_label(node.outbound, node.name)}. Выход отвечает ({esc(result["egress"]["country"] or "?")}). Автообновления для одиночного узла нет: нужна ссылка подписки https://…')
+    if scheme not in ('http', 'https'):
+        return dict(ok=False, message='⚠️ Это не похоже на ссылку подписки (https://…) или узла (vless://…).')
+    state = load_state()
+    try:
+        nodes, skipped = parse_subscription(fetch_subscription(value, state))
+    except GuardError as error:
+        save_state(state)
+        return dict(ok=False, message=f'⚠️ <b>Подписку получить не вышло.</b> {esc(error)}.')
+    swedish = rank(nodes, None)
+    if not swedish:
+        save_state(state)
+        names = ', '.join(esc(n.name) for n in nodes[:8]) or 'узлов не нашёл'
+        return dict(ok=False, message=f'⚠️ <b>Подписка читается, но шведского узла в ней нет.</b> Названия: {names}. Ссылку не сохранил.')
+    write_private(SUB_FILE, value + '\n')
+    state['subscription'] = {'host': urlsplit(value).hostname, 'nodes': len(nodes), 'swedish': len(swedish),
+                             'checked_at': f'{now():%F %T}'}
+    save_state(state)
+    log(f'ссылка подписки сохранена: {urlsplit(value).hostname}, узлов {len(nodes)}, шведских {len(swedish)}')
+    refreshed = do_refresh(force=True)
+    refreshed['message'] = (f'🔗 <b>Подписка принята:</b> узлов {len(nodes)}, шведских {len(swedish)}. '
+                            f'Автообновление включено.\n\n{refreshed["message"]}')
+    return refreshed
+
+
+def do_status() -> dict:
+    state = load_state()
+    config = read_config()
+    outbound = current_outbound(config)
+    egress = probe_egress()
+    direct = probe_telegram_direct()
+    exemption = not TELEGRAM_OFF.exists() and telegram_rules_present()
+    sub = state.get('subscription') or {}
+    lines = ['🔐 <b>VPN: шведский выход</b>', '']
+    if egress['ok']:
+        lines.append(f'✅ Выход работает ({esc(egress["country"] or "?")}, {seconds(egress["ms"])}). Узел: {node_label(outbound, config.get("remarks"))}.')
+    else:
+        lines.append(f'❌ Выход не отвечает. Узел: {node_label(outbound, config.get("remarks"))}.')
+    lines.append('')
+    mode = 'напрямую, мимо туннеля' if exemption else 'через туннель'
+    lines.append(f'{"📡" if direct else "⚠️"} Telegram: {mode}; прямой путь {"отвечает" if direct else "не отвечает"}.')
+    lines.append('')
+    if read_subscription_url():
+        lines.append(f'🔗 Подписка задана ({esc(sub.get("host", "?"))}): узлов {sub.get("nodes", "?")}, шведских {sub.get("swedish", "?")}. '
+                     f'Последний запрос: {esc(sub.get("checked_at", "ещё не было"))}.')
+    else:
+        lines.append('🔗 Подписка не задана: автозамена невозможна, пока не пришлёшь ссылку.')
+    lines.append('')
+    timer = sh('systemctl', 'is-active', 'vpn-guard.timer').stdout.strip() == 'active'
+    change = state.get('last_change')
+    lines.append(f'🕒 Автопроверка раз в 15 минут: {"включена" if timer else "выключена"}. '
+                 f'Последняя проверка: {esc(state.get("last_check", {}).get("at", "ещё не было"))}.')
+    lines.append(f'🔁 Последняя замена: {esc(change["at"]) + " («" + esc(change["to"]) + "»)" if change else "не было"}.')
+    return dict(ok=True, egress=egress, telegram_direct=direct, message='\n'.join(lines))
+
+
+def telegram_direct_reachable() -> bool:
+    """Прямой путь к Telegram; один повтор через 10 секунд, чтобы не реагировать на сбой одного запроса."""
+    if probe_telegram_direct():
+        return True
+    time.sleep(10)
+    return probe_telegram_direct()
+
+
+def do_check() -> dict:
+    """Проверка по таймеру. Пишет в чат только при замене узла или невозможности её сделать."""
+    state = load_state()
+    started = f'{now():%F %T}'
+    if sh('systemctl', 'is-active', 'xray').stdout.strip() != 'active':
+        log('Xray не запущен — запускаю')
+        sh('systemctl', 'restart', 'xray', timeout=60)
+        wait_port(SOCKS_PORT, 15)
+    for text in list(state.get('pending_notifications', [])):
+        if notify(state, text):
+            state['pending_notifications'].remove(text)
+    # Прямой путь к Telegram: убираем исключение, если он закрылся, пока туннель Telegram пропускает.
+    direct = telegram_direct_reachable()
+    if not TELEGRAM_OFF.exists():
+        if not direct and probe_telegram_tunnel():
+            set_telegram_direct(False)
+            state['telegram_direct_ok_streak'] = 0
+            notify(state, '📡 <b>Прямой путь к Telegram перестал отвечать.</b> Вернул Telegram в туннель: бот работает, но при падении шведского узла снова оглохнет.')
+    else:
+        streak = state.get('telegram_direct_ok_streak', 0) + 1 if direct else 0
+        state['telegram_direct_ok_streak'] = streak
+        if streak >= 3:
+            set_telegram_direct(True)
+            state['telegram_direct_ok_streak'] = 0
+            notify(state, '📡 Прямой путь к Telegram снова отвечает: исключение из туннеля включено обратно.')
+    egress = probe_egress()
+    if not egress['ok']:
+        time.sleep(20)
+        egress = probe_egress()
+    state['last_check'] = {'at': started, 'egress_ok': egress['ok'], 'telegram_direct_ok': direct}
+    incident = state.get('incident')
+    if egress['ok']:
+        if incident and incident.get('notified'):
+            notify(state, '✅ Шведский выход снова отвечает.')
+        state['incident'] = None
+        save_state(state)
+        if not safety_armed() and not snapshot_is_current():
+            snapshot()
+        return dict(ok=True, message='выход работает')
+    log('шведский выход не отвечает')
+    if not incident:
+        incident = state['incident'] = {'since': started, 'notified': False}
+    save_state(state)
+    result = do_refresh(force=False)
+    state = load_state()
+    if result.get('changed'):
+        state['incident'] = None
+        notify(state, result['message'])
+    elif result.get('ok'):
+        # Выход ожил сам, пока шла проверка.
+        state['incident'] = None
+        if incident.get('notified'):
+            notify(state, '✅ Шведский выход снова отвечает.')
+    elif not incident.get('notified'):
+        incident['notified'] = True
+        state['incident'] = incident
+        notify(state, f'⚠️ <b>Шведский выход не отвечает, заменить узел не вышло:</b> {result.get("reason", "причина неизвестна")}.\n\n'
+                      'Бот на связи, но нейросеть пока недоступна. Открой «⚙️ Обработать» → «VPN».')
+    save_state(state)
+    return result
+
+
+class Busy(Exception):
+    pass
+
+
+def locked():
+    descriptor = os.open(LOCK_FILE, os.O_CREAT | os.O_RDWR, 0o600)
+    try:
+        fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError as error:
+        os.close(descriptor)
+        raise Busy from error
+    return descriptor
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = parser.add_subparsers(dest='command', required=True)
+    sub.add_parser('check')
+    sub.add_parser('status')
+    sub.add_parser('snapshot')
+    sub.add_parser('set-url')
+    refresh = sub.add_parser('refresh')
+    refresh.add_argument('--force', action='store_true')
+    refresh.add_argument('--dry-run', action='store_true')
+    refresh.add_argument('--sub-url', help='только вместе с --dry-run (для проверки на локальной подписке)')
+    args = parser.parse_args()
+    if os.geteuid() != 0:
+        print('Нужны права root: sudo vpn-guard …', file=sys.stderr)
+        return 1
+    os.umask(0o077)
+    try:
+        descriptor = locked()
+    except Busy:
+        if args.command == 'check':
+            log('предыдущая проверка ещё идёт — пропускаю')
+            return 0
+        print(json.dumps(dict(ok=False, message='⏳ Другая проверка VPN ещё идёт. Повтори через минуту.'), ensure_ascii=False))
+        return 0
+    try:
+        if args.command == 'check':
+            do_check()
+            return 0
+        if args.command == 'snapshot':
+            if not probe_egress()['ok']:
+                print('выход не отвечает — снимок не обновлён', file=sys.stderr)
+                return 1
+            snapshot()
+            return 0
+        if args.command == 'status':
+            result = do_status()
+        elif args.command == 'refresh':
+            if args.sub_url and not args.dry_run:
+                raise GuardError('--sub-url разрешён только вместе с --dry-run')
+            result = do_refresh(force=args.force, dry_run=args.dry_run, url_override=args.sub_url)
+        else:
+            result = do_set_url(sys.stdin.read())
+        print(json.dumps(result, ensure_ascii=False))
+        return 0
+    except GuardError as error:
+        log(f'ошибка: {error}')
+        print(json.dumps(dict(ok=False, message=f'⚠️ {esc(error)}'), ensure_ascii=False))
+        return 0
+    except Exception:
+        # Без подробностей в ответе: трассировка идёт только в журнал и не содержит ссылок.
+        log('непредвиденная ошибка:\n' + traceback.format_exc(limit=6))
+        print(json.dumps(dict(ok=False, message='⚠️ Непредвиденная ошибка стража VPN. Подробности в /var/log/vpn-guard.log.'), ensure_ascii=False))
+        return 0
+    finally:
+        os.close(descriptor)
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

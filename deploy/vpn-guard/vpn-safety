@@ -1,0 +1,42 @@
+#!/bin/sh
+# Страховочный таймер отката сети сервера.
+#
+#   sudo vpn-safety arm [секунды]   перед рискованной правкой (по умолчанию 180 с)
+#   sudo vpn-safety disarm          после проверки, что всё работает
+#   vpn-safety status               взведён ли таймер
+#
+# Если таймер не снят, по истечении времени сам запускается vpn-rollback --auto.
+# Он работает отдельной службой systemd и не зависит ни от бота, ни от вызвавшей сессии.
+set -u
+
+UNIT=vpn-safety-rollback
+
+case "${1:-status}" in
+    arm)
+        secs="${2:-180}"
+        case "$secs" in ''|*[!0-9]*) echo "Секунды должны быть числом" >&2; exit 64 ;; esac
+        [ "$(id -u)" = 0 ] || { echo "Нужны права root: sudo vpn-safety arm" >&2; exit 1; }
+        systemctl stop "$UNIT.timer" "$UNIT.service" 2>/dev/null || true
+        systemctl reset-failed "$UNIT.service" "$UNIT.timer" 2>/dev/null || true
+        systemd-run --quiet --collect --unit="$UNIT" --on-active="${secs}s" \
+            --description="Страховочный откат сети сервера" \
+            /usr/local/sbin/vpn-rollback --auto || exit 1
+        echo "взведён на ${secs} с"
+        ;;
+    disarm)
+        [ "$(id -u)" = 0 ] || { echo "Нужны права root: sudo vpn-safety disarm" >&2; exit 1; }
+        systemctl stop "$UNIT.timer" 2>/dev/null || true
+        echo "снят"
+        ;;
+    status)
+        if systemctl is-active --quiet "$UNIT.timer"; then
+            echo "взведён"
+        else
+            echo "не взведён"
+        fi
+        ;;
+    *)
+        echo "Использование: vpn-safety {arm [секунды]|disarm|status}" >&2
+        exit 64
+        ;;
+esac

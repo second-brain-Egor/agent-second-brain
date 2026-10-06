@@ -3,7 +3,7 @@ type: project
 description: "Состояние непрерывного сбора тиков DASH"
 related: "[[projects/trading/dash/analysis-2026-07-07]]"
 last_accessed: 2026-08-16
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 # Сбор данных DASH

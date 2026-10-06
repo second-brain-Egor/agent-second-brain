@@ -2,7 +2,7 @@
 type: project
 description: "Разбор консультации специалиста по транскрибации аудио — project"
 last_accessed: 2026-05-01
-relevance: 0.95
+relevance: 0.98
 tier: active
 ---
 # Разбор консультации специалиста по транскрибации аудио
