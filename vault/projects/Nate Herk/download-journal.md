@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-10-07
+relevance: 0.98
+tier: active
+---
 # Журнал скачанных видео
 
 Обновлено: 2026-10-07 07:00

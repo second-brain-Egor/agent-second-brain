@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-10-06
+last_accessed: 2026-10-07
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-07 | folders: 21, notes: 650, standalone: 0
+> Generated: 2026-10-08 | folders: 21, notes: 650, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -311,11 +311,8 @@ tier: active
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 24
-- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/analysis|Как на самом деле выбрать подходящего ИИ-агента]] — - Дата публикации: 11 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=6LNl...
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/_work/analysis-до-проверки|Как создавать и продавать решения с Codex: курс на пять часов]] — Полный разбор курса Нейта Херка о настройке Codex, создании проверяемых решений и продаже результата компаниям.
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/analysis|Как создавать и продавать решения с Codex: курс на пять часов]] — Подробный разбор курса Нейта Херка; 23 сентября проверены все главы, речь из аудиодорожки и 1125 сохранённых кадров, ...
@@ -440,11 +437,14 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 39
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 25
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 86
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 34
+- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 255

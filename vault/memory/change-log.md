@@ -201,3 +201,5 @@ tier: active
 2026-10-05 15:41 | Записано правило «предупреждать перед удалением исходных видео и кадров»: раздел в learnings/reliable-video-processing-pipeline.md, пункт в SHARED_ASSISTANT_RULES.md (попадает в каждый запрос), указатель в projects/Nate Herk/AGENTS.md, разбор причины в thoughts/projects/nate-herk-storage.md | Егор 5 октября: удаление 5 сентября прошло без предупреждения, ролики пришлось бы заново скачивать и разбирать
 
 2026-10-06 11:50 | soul.md: кнопка «⚙️ Обработать» теперь меню, добавлен раздел «Шведский выход и VPN-страж»; learnings/network-egress-and-web-search.md дополнена разделом про страж и Telegram мимо туннеля; facts.md — запись 2026-10-06 | запрос Егора 10:09 «самостоятельно загружать конфигурацию VPN», команда «запускай»
+
+2026-10-07 12:26 | SHARED_ASSISTANT_RULES.md, soul.md, learnings/bot-communication-rules.md, learnings/shared-assistant-experience.md, docs/request-guardrails.md: фото с паузой между соседними не больше 10 секунд считаются одной пачкой (один ответ «Фото получил, всего N», строка [photo_batch] со списком файлов в журнале беседы) | Егор 7 октября 12:03: «в течение 10 секунд все фото считать одним альбомом»

@@ -2,7 +2,7 @@
 type: project
 description: "I Gave GPT 6 Astra $10,000 to Trade Stocks...And This Happened — project"
 last_accessed: 2026-09-29
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # I Gave GPT 6 Astra $10,000 to Trade Stocks...And This Happened

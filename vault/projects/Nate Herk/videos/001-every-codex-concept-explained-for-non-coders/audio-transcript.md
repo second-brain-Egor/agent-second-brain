@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-10-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Независимая расшифровка полной аудиодорожки
