@@ -1,8 +1,7 @@
 ---
 type: note
 updated: 2026-10-07
-last_accessed: 2026-10-07
-relevance: 1.0
+relevance: 0.9
 tier: active
 ---
 # Индекс знаний
