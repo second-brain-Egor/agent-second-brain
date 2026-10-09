@@ -24,6 +24,7 @@ def message(text, number=101, user=7, reply=None):
 def handler(tmp_path, monkeypatch):
     import d_brain.bot.handlers.document as module
     monkeypatch.setattr(module, 'get_settings', lambda: SimpleNamespace(vault_path=tmp_path))
+    monkeypatch.setattr(module, 'AUTOMATIC_JOBS', True)  # these tests cover the switched-off generator
     monkeypatch.setattr(Message, 'answer', AsyncMock(return_value=SimpleNamespace(message_id=500)))
     monkeypatch.setattr(Message, 'edit_reply_markup', AsyncMock())
     monkeypatch.setattr(CallbackQuery, 'answer', AsyncMock())
@@ -144,3 +145,93 @@ async def test_cancel_preserves_document_and_does_not_queue(tmp_path, handler):
     assert not PresentationChoices(store).pending(7, 7)
     assert not store.latest_job(doc['id'])
     assert store.safe_path(doc['path']).exists()
+
+
+@pytest.mark.parametrize('text', [
+    'Так, удали сейчас все презентации, все, что ты сделал из проекта.',
+    'Ты что тупишь? Я тебе говорю не делать презентацию, а удалить презентацию из проекта.',
+    'Эти презентации надо все удалить, оставить только 2 документа. Там оформление в корпоративном стиле.',
+    'Никакую презентацию мне делать не надо.',
+])
+async def test_delete_or_refusal_reaches_assistant(tmp_path, handler, text):
+    # 8 October 2026: these messages got a format question instead of an answer.
+    store, _ = document(tmp_path)
+    await handler.route_document_request(message('Сделай презентацию'), 'Сделай презентацию')
+    Message.answer.reset_mock()
+    assert not await handler.route_document_request(message(text, 102), text)
+    assert not store.jobs(('queued',))
+    assert PresentationChoices(store).pending(7, 7) is None
+    Message.answer.assert_not_called()
+
+
+@pytest.mark.parametrize('text', [
+    'Сделай презентацию, текст не нужно сокращать',
+    'Подготовь слайды, не нужно добавлять лишнего',
+])
+async def test_refusal_words_inside_order_still_ask_format(tmp_path, handler, text):
+    store, _ = document(tmp_path)
+    assert await handler.route_document_request(message(text), text)
+    assert PresentationChoices(store).pending(7, 7)
+
+
+@pytest.mark.parametrize('text', [
+    'Слушай, ну вот эти презентации, которые были это не презентация, это просто какой-то сплошной текст. '
+    'Ты мне сейчас скажи, мы с тобой одинаково понимаем слово презентация?',
+    'Слушай, так дело не пойдет, я уже боюсь называть это слово на букву п. Что происходит?',
+    'А что такое для тебя презентация?',
+])
+async def test_talking_about_slides_is_not_an_order(tmp_path, handler, text):
+    # 8 October 2026: a question about the word "презентация" was answered with a new slide.
+    store, _ = document(tmp_path)
+    assert not await handler.route_document_request(message(text), text)
+    assert not store.jobs(('queued',))
+    assert PresentationChoices(store).pending(7, 7) is None
+    Message.answer.assert_not_called()
+
+
+@pytest.mark.parametrize('text', [
+    'Мне нужна презентация на одном слайде в корпоративном стиле',
+    'Ты мне сделай презентацию нормальную, наглядную',
+    'Презентация по документу',
+])
+async def test_slide_orders_still_ask_format(tmp_path, handler, text):
+    store, _ = document(tmp_path)
+    assert await handler.route_document_request(message(text), text)
+    assert PresentationChoices(store).pending(7, 7)
+
+
+@pytest.fixture
+def assistant_handler(tmp_path, monkeypatch):
+    import d_brain.bot.handlers.document as module
+    import d_brain.bot.handlers.text as text_module
+    monkeypatch.setattr(module, 'get_settings', lambda: SimpleNamespace(vault_path=tmp_path))
+    monkeypatch.setattr(Message, 'answer', AsyncMock(return_value=SimpleNamespace(message_id=500)))
+    monkeypatch.setattr(text_module, 'handle_text', AsyncMock())
+    return module, text_module.handle_text
+
+
+@pytest.mark.parametrize('text', [
+    'Мне нужна презентация, которую будешь готовить ты. Соответственно, загружать ее в папку проекта',
+    'Подготовь 2 слайда по документу',
+    'Сделай презентацию по документу в PowerPoint',
+    'Что за хрень? Ответ md. Ты мне сделай презентацию нормальную',
+])
+async def test_generator_off_sends_document_tasks_to_assistant(tmp_path, assistant_handler, text):
+    # Egor, 8 October 2026: no format question and no template slides; the assistant does the work.
+    module, _ = assistant_handler
+    store, _ = document(tmp_path)
+    assert not module.AUTOMATIC_JOBS
+    assert not await module.route_document_request(message(text), text)
+    assert not store.jobs(('queued', 'ready'))
+    assert PresentationChoices(store).pending('7', 7) is None
+    Message.answer.assert_not_awaited()
+
+
+async def test_generator_off_caption_task_reaches_assistant(tmp_path, assistant_handler):
+    module, handle_text = assistant_handler
+    store, doc = document(tmp_path)
+    caption = 'Сделай слайд по этому документу'
+    await module.enqueue_or_ask(message('[файл]', number=100), store, doc, caption, 100)
+    task = handle_text.await_args.args[0]
+    assert (task.text, task.message_id, task.from_user.id) == (caption, 100, 7)
+    assert not store.jobs(('queued', 'ready'))

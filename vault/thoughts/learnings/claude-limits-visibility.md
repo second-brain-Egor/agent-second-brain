@@ -2,7 +2,7 @@
 type: note
 description: "Лимиты подписки Claude: расход (пятичасовое окно и неделя) виден прямо из бота командой /usage"
 last_accessed: 2026-10-05
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Лимиты подписки Claude: как смотреть

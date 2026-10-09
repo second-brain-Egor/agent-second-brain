@@ -7,8 +7,48 @@ import re
 import shutil
 import sqlite3
 from contextlib import contextmanager
+from datetime import datetime
 from pathlib import Path
 from uuid import uuid4
+
+SERVICE_DIR = '.служебное'
+JOURNAL = 'Журнал документов.md'
+# Егор, 8 октября 2026: бот помнит проект, в котором идёт работа, и кладёт туда файлы и фото
+# без вопросов. Проект давно не трогали — бот снова спрашивает, чтобы вчерашняя работа
+# не забирала сегодняшние файлы.
+ACTIVE_HOURS = 12
+
+
+def service_dir(original: Path) -> Path:
+    """Extracted text and metadata live in a hidden folder beside the original."""
+    return original.parent / SERVICE_DIR / original.stem
+
+
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def folder_key(name: str) -> str:
+    """Voice gives «ирина работа.» for the folder «Ирина работа»."""
+    return ' '.join(name.casefold().replace('ё', 'е').replace('«', ' ').replace('»', ' ')
+                    .replace('"', ' ').split()).strip(' .,!')
+
+
+def folder_label(path: str) -> str:
+    """«проект «X», подпроект «Y»» for the folder of a vault-relative file path."""
+    folder = Path(path).parent.parts
+    if len(folder) >= 2 and folder[0] == 'projects':
+        if len(folder) == 2:
+            return f'корень проекта «{folder[1]}»'
+        return f"проект «{folder[1]}», подпроект «{'/'.join(folder[2:])}»"
+    return f"папку {'/'.join(folder)}"
+
+
+def clean_folder_name(name: str, what: str = 'проекта') -> str:
+    name = name.strip().strip('«»"').strip(' .,!')
+    if not name or name in {'.', '..'} or len(name) > 100 or re.search(r'[/\\\x00-\x1f]', name):
+        raise ValueError(f'Укажи название {what} без слешей и служебных символов.')
+    return name
 
 
 class DocumentStore:
@@ -35,6 +75,16 @@ class DocumentStore:
                     state TEXT NOT NULL, attempts INTEGER NOT NULL DEFAULT 0,
                     artifact TEXT, error TEXT, sent_id INTEGER, created INTEGER NOT NULL,
                     UNIQUE(doc_id, chat_id, msg_id));
+                CREATE TABLE IF NOT EXISTS subproject_choice (
+                    doc_id TEXT PRIMARY KEY, project TEXT NOT NULL, options TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS project_choice (
+                    doc_id TEXT PRIMARY KEY, options TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS active_project (
+                    scope TEXT PRIMARY KEY, project TEXT NOT NULL,
+                    subproject TEXT NOT NULL DEFAULT '', updated INTEGER NOT NULL);
+                CREATE TABLE IF NOT EXISTS placements (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT, scope TEXT NOT NULL, path TEXT NOT NULL,
+                    kind TEXT NOT NULL, created INTEGER NOT NULL, checked INTEGER NOT NULL DEFAULT 0);
             ''')
 
     @contextmanager
@@ -136,41 +186,224 @@ class DocumentStore:
             db.execute('INSERT OR IGNORE INTO uploads VALUES (?,?,?)',
                        (doc['scope'], message_id, doc['id']))
 
-    def place(self, doc_id: str, project: str | None = None) -> dict:
+    def project_name(self, name: str) -> str:
+        """Existing project folder for a typed or spoken name; otherwise the cleaned name."""
+        name = clean_folder_name(name)
+        projects = self.vault / 'projects'
+        if projects.is_dir():
+            for folder in projects.iterdir():
+                if folder.is_dir() and folder_key(folder.name) == folder_key(name):
+                    return folder.name
+        return name
+
+    def subprojects(self, project: str) -> list[str]:
+        root = self.safe_path('projects/' + clean_folder_name(project))
+        if not root.is_dir():
+            return []
+        return sorted((p.name for p in root.iterdir() if p.is_dir() and not p.name.startswith('.')),
+                      key=folder_key)
+
+    def ask_subproject(self, doc_id: str, project: str) -> dict:
+        """Remember the project and the exact list of subprojects shown as buttons."""
+        project = self.project_name(project)
+        options = self.subprojects(project)
+        with self.db() as db:
+            db.execute('INSERT OR REPLACE INTO subproject_choice VALUES (?,?,?)',
+                       (doc_id, project, json.dumps(options, ensure_ascii=False)))
+            db.execute("UPDATE documents SET state='subproject' WHERE id=?", (doc_id,))
+        return {'project': project, 'options': options, 'exists': (self.vault/'projects'/project).is_dir()}
+
+    def subproject_choice(self, doc_id: str) -> dict | None:
+        with self.db() as db:
+            row = db.execute('SELECT * FROM subproject_choice WHERE doc_id=?', (doc_id,)).fetchone()
+        return {'project': row['project'], 'options': json.loads(row['options'])} if row else None
+
+    def projects(self) -> list[str]:
+        """Project folders, the most recently touched first."""
+        root = self.vault / 'projects'
+        if not root.is_dir():
+            return []
+
+        def touched(folder: Path) -> float:
+            stamps = [folder.stat().st_mtime]
+            stamps += [p.stat().st_mtime for p in folder.iterdir() if not p.name.startswith('.')]
+            return max(stamps)
+        folders = [p for p in root.iterdir() if p.is_dir() and not p.name.startswith(('.', '_'))]
+        return [p.name for p in sorted(folders, key=lambda p: (-touched(p), folder_key(p.name)))]
+
+    def offer_projects(self, doc_id: str, options: list[str]) -> list[str]:
+        """Remember the exact project list shown as buttons for this document."""
+        with self.db() as db:
+            db.execute('INSERT OR REPLACE INTO project_choice VALUES (?,?)',
+                       (doc_id, json.dumps(options, ensure_ascii=False)))
+        return options
+
+    def offered_projects(self, doc_id: str) -> list[str]:
+        with self.db() as db:
+            row = db.execute('SELECT options FROM project_choice WHERE doc_id=?', (doc_id,)).fetchone()
+        return json.loads(row['options']) if row else []
+
+    def existing_project(self, name: str) -> str | None:
+        """Folder name of an existing project for a typed or spoken name."""
+        try:
+            name = self.project_name(name)
+        except ValueError:
+            return None
+        return name if (self.vault / 'projects' / name).is_dir() else None
+
+    def active_project(self, scope, stale: bool = False) -> dict | None:
+        """The project we are working in; None once untouched for ACTIVE_HOURS (unless stale=True)."""
+        with self.db() as db:
+            row = db.execute("SELECT *, unixepoch() - updated AS age FROM active_project WHERE scope=?",
+                             (str(scope),)).fetchone()
+        if not row or not (self.vault / 'projects' / row['project']).is_dir():
+            return None
+        if not stale and row['age'] > ACTIVE_HOURS * 3600:
+            return None
+        return {'project': row['project'], 'subproject': row['subproject'] or None}
+
+    def set_active(self, scope, project: str, subproject: str | None = None) -> dict:
+        project = self.project_name(project)
+        subproject = clean_folder_name(subproject, 'подпроекта') if subproject else ''
+        with self.db() as db:
+            db.execute('INSERT OR REPLACE INTO active_project VALUES (?,?,?,unixepoch())',
+                       (str(scope), project, subproject))
+        return {'project': project, 'subproject': subproject or None}
+
+    def clear_active(self, scope):
+        with self.db() as db:
+            db.execute('DELETE FROM active_project WHERE scope=?', (str(scope),))
+
+    def touch_active(self, scope):
+        with self.db() as db:
+            db.execute('UPDATE active_project SET updated=unixepoch() WHERE scope=?', (str(scope),))
+
+    def active_folder(self, scope) -> Path | None:
+        active = self.active_project(scope)
+        if not active:
+            return None
+        folder = 'projects/' + active['project'] + ('/' + active['subproject'] if active['subproject'] else '')
+        return self.safe_path(folder)
+
+    def record_placement(self, scope, path: str, kind: str):
+        """The bot put a file into the current project itself; the assistant checks the place later."""
+        with self.db() as db:
+            db.execute('INSERT INTO placements (scope,path,kind,created) VALUES (?,?,?,unixepoch())',
+                       (str(scope), path, kind))
+
+    def unchecked(self, scope) -> list[dict]:
+        with self.db() as db:
+            return [dict(r) for r in db.execute(
+                'SELECT * FROM placements WHERE scope=? AND checked=0 ORDER BY id', (str(scope),))]
+
+    def mark_checked(self, ids: list[int]):
+        if not ids:
+            return
+        with self.db() as db:
+            db.execute('UPDATE placements SET checked=1 WHERE id IN (' + ','.join('?' for _ in ids) + ')', ids)
+
+    def move(self, relative: str, project: str | None, subproject: str | None = None) -> str:
+        """Move a placed file (with its service folder) to another project/subproject or attachments."""
+        source = self.safe_path(relative)
+        if not source.is_file():
+            raise FileNotFoundError(relative)
+        if project:
+            folder = 'projects/' + self.project_name(project)
+            if subproject:
+                folder += '/' + clean_folder_name(subproject, 'подпроекта')
+        else:
+            folder = f'attachments/{datetime.now():%Y-%m-%d}'
+        root = self.safe_path(folder)
+        destination = root / source.name
+        number = 1
+        while destination.exists() and destination != source:
+            number += 1
+            destination = root / f'{source.stem} ({number}){source.suffix}'
+        destination = self.safe_path(destination.relative_to(self.vault).as_posix())
+        if destination == source:
+            return relative
+        root.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(source), str(destination))
+        old_meta, new_meta = service_dir(source), service_dir(destination)
+        if old_meta.is_dir() and not new_meta.exists():
+            new_meta.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(old_meta), str(new_meta))
+            try:
+                old_meta.parent.rmdir()
+            except OSError:
+                pass
+        moved = destination.relative_to(self.vault).as_posix()
+        with self.db() as db:
+            db.execute('UPDATE documents SET path=? WHERE path=?', (moved, relative))
+            db.execute('UPDATE placements SET path=? WHERE path=?', (moved, relative))
+        return moved
+
+    def place(self, doc_id: str, project: str | None = None, subproject: str | None = None) -> dict:
         doc = self.get(doc_id)
         if doc['state'] == 'ready':
             return doc
         if project is None:
-            root = self.vault / ('PDF' if doc['name'].lower().endswith('.pdf') else 'Документы')
+            root = self.safe_path('PDF' if doc['name'].lower().endswith('.pdf') else 'Документы')
         else:
-            project = project.strip().strip('«»"')
-            if not project or project in {'.', '..'} or len(project) > 100 or re.search(r'[/\\\x00-\x1f]', project):
-                raise ValueError('Укажи название проекта без слешей и служебных символов.')
-            root = self.safe_path('projects/' + project) / 'Документы'
-        stem = re.sub(r'[^\w .-]', '_', Path(doc['name']).stem).strip('. ')[:70] or 'документ'
-        stem = stem.encode('utf-8')[:160].decode('utf-8', errors='ignore')
-        folder = root / (stem + '-' + doc['id'])
-        folder = self.safe_path(str(folder.relative_to(self.vault)))
+            # Егор, 8 октября 2026: файл ложится прямо в папку проекта (или выбранного подпроекта),
+            # без подпапки «Документы» и отдельной папки на каждый файл; служебное — в .служебное/.
+            folder = 'projects/' + clean_folder_name(project)
+            if subproject:
+                folder += '/' + clean_folder_name(subproject, 'подпроекта')
+            root = self.safe_path(folder)
         source = self.safe_path(doc['path'])
-        destination = folder / doc['name']
-        folder.mkdir(parents=True, exist_ok=True)
-        if source.exists():
+        name = Path(doc['name'])
+        destination = self.safe_path((root / name).relative_to(self.vault).as_posix())
+        number = 1
+        # Same content already in the folder is reused; a different file keeps both names.
+        while destination.exists() and not (destination.is_file() and sha256_file(destination) == doc['sha']):
+            number += 1
+            destination = self.safe_path((root / f'{name.stem} ({number}){name.suffix}').relative_to(self.vault).as_posix())
+        root.mkdir(parents=True, exist_ok=True)
+        if destination.exists():
+            if source != destination:
+                source.unlink(missing_ok=True)
+        elif source.exists():
             shutil.move(str(source), str(destination))
-        elif not destination.exists():
+        else:
             raise FileNotFoundError('Оригинал документа не найден')
         # A crash after move but before the database commit is recoverable.
-        (folder / '.document.json').write_text(json.dumps(
+        meta = service_dir(destination)
+        meta.mkdir(parents=True, exist_ok=True)
+        (meta / '.document.json').write_text(json.dumps(
             {'id': doc_id, 'sha256': doc['sha'], 'original': doc['name']}, ensure_ascii=False), encoding='utf-8')
-        (folder / 'Описание.md').write_text(
-            f"# {doc['name']}\n\nОригинал: {doc['name']}\n\n"
-            'Извлечённый текст: текст.txt\n\nГотовые материалы: Результаты/\n', encoding='utf-8')
         old_folder = source.parent
         if old_folder.is_relative_to(self.state / 'incoming') and old_folder.exists():
             try:
                 old_folder.rmdir()
             except OSError:
                 pass
+        with self.db() as db:
+            db.execute('DELETE FROM subproject_choice WHERE doc_id=?', (doc_id,))
+            db.execute('DELETE FROM project_choice WHERE doc_id=?', (doc_id,))
         return self.update(doc_id, state='ready', path=destination.relative_to(self.vault).as_posix())
+
+    def journal(self, doc: dict, when: datetime, action: str | None = None) -> Path | None:
+        """Add a line to «Записи» of the project's document journal, if the project keeps one."""
+        parts = Path(doc['path']).parts
+        if len(parts) < 3 or parts[0] != 'projects':
+            return None
+        journal = self.safe_path(f'projects/{parts[1]}/{JOURNAL}')
+        if not journal.is_file():
+            return None
+        where = '/'.join(parts[2:-1])
+        what = f'{action} «{parts[-1]}»' if action else f'бот получил «{parts[-1]}» и положил'
+        line = (f"- {when:%Y-%m-%d %H:%M} — {what} "
+                + (f"в подпроект «{where}»." if where else 'в корень проекта.'))
+        text = journal.read_text(encoding='utf-8')
+        start = text.find('\n## Записи')
+        end = text.find('\n## ', start + 1) if start >= 0 else -1
+        if end < 0:
+            text = text.rstrip('\n') + '\n' + line + '\n'
+        else:
+            text = text[:end].rstrip('\n') + '\n' + line + '\n' + text[end:]
+        journal.write_text(text, encoding='utf-8')
+        return journal
 
     def enqueue(self, doc_id: str, request: str, chat_id: int, msg_id: int) -> dict:
         if self.get(doc_id)['state'] != 'ready':
@@ -214,12 +447,39 @@ class DocumentStore:
             db.execute("UPDATE jobs SET state='send_unknown' WHERE state='sending'")
             db.execute("UPDATE jobs SET state='failed', error='Обработка прервана перезапуском. Документ и задание сохранены; автоповтор отключён.' WHERE state IN ('extracting','generating')")
 
+    def project_context(self, scope) -> str:
+        """Current project and files the bot placed there itself, for the assistant's prompt."""
+        active = self.active_project(scope)
+        tool = f'uv run python scripts/project_context.py --scope {scope}'
+        if active:
+            where = active['project'] + (f" / {active['subproject']}" if active['subproject'] else ' (корень)')
+            lines = ['=== ТЕКУЩИЙ ПРОЕКТ ===', f'Работаем в проекте: {where}. Новые документы и фото '
+                     'бот без вопросов кладёт сюда.']
+        else:
+            lines = ['=== ТЕКУЩИЙ ПРОЕКТ ===', 'Проект не выбран: на новый документ бот спросит папку, '
+                     'фото уходят во вложения по дате.']
+        lines.append('Если разговор однозначно перешёл к другому проекту или подпроекту, переключи его сам '
+                     f'(`{tool} set "Проект" ["Подпроект"]`) и скажи об этом одной строкой; при реальном '
+                     f'сомнении переспроси. «Выйди из проекта» — `{tool} clear`. Список проектов — '
+                     f'`{tool} list`.')
+        placed = self.unchecked(scope)
+        if placed:
+            lines.append('=== НОВЫЕ ФАЙЛЫ: ПРОВЕРЬ МЕСТО ===')
+            lines += [f"- {p['path']}" for p in placed[-20:]]
+            lines.append('Бот положил их в текущий проект сам. Сверь каждый с проектом по содержимому и '
+                         'разговору. Сомнений нет — ничего об этом не пиши. Есть сомнение или файл явно не '
+                         'отсюда — спроси, куда положить, и предложи вариант; переноси только после ответа: '
+                         f'`{tool} move "<путь от vault>" "Проект" ["Подпроект"]` (без проекта — во вложения).')
+        return '\n'.join(lines)
+
     def context(self, scope) -> str:
+        project = self.project_context(scope)
         documents = self.for_scope(scope)[:5]
         if not documents:
-            return ''
+            return project
         states = {'ready': 'сохранён', 'destination': 'ожидает выбора папки',
-                  'project': 'ожидает названия проекта'}
+                  'project': 'ожидает названия проекта', 'subproject': 'ожидает выбора подпроекта',
+                  'subproject_new': 'ожидает названия нового подпроекта'}
         lines = ['=== ДОСТУПНЫЕ ДОКУМЕНТЫ ===']
         for doc in documents:
             lines.append(f"{doc['name']}: {doc['path']} ({states.get(doc['state'], doc['state'])})")
@@ -232,12 +492,15 @@ class DocumentStore:
                     'send_unknown': 'отправка не подтверждена',
                     'uncertain_reported': 'отправка не подтверждена'}
                 lines.append('Задание: '+job_states.get(job['state'], job['state']))
-                if job['artifact']:
+                if job['artifact'] and (self.vault/job['artifact']).exists():
                     lines.append('Результат: '+job['artifact'])
-        lines.append('Полный текст хранится рядом с оригиналом в текст.txt после чтения. '
-                     'Не переноси его в общую память. Для документов во входящих '
-                     'сначала нужен выбор папки пользователем; не выбирай за него.')
-        return '\n'.join(lines)
+        lines.append(f'Полный текст после чтения хранится рядом с оригиналом в {SERVICE_DIR}/<имя файла>/текст.txt. '
+                     'Не переноси его в общую память. Документ во входящих ждёт, пока пользователь '
+                     'выберет папку; не выбирай за него.')
+        # Document tasks are done in the chat itself (handlers/document.py: AUTOMATIC_JOBS).
+        lines.append('Готовый файл клади в папку проекта и отправляй в чат: uv run python '
+                     f"scripts/send_telegram_file.py \"<путь от vault>\" --chat-id {documents[0]['chat_id']}")
+        return project + '\n' + '\n'.join(lines)
 
 
 def render_file_entry(entry: dict) -> str:

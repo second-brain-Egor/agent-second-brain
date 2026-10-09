@@ -4,6 +4,10 @@
 scripts/web_search.py напрямую → мгновенные карточки результатов → следом
 короткая выжимка лёгким LLM-вызовом без памяти и правил (см.
 processor.web_quick_summary). Роутер подключается ДО text (catch-all).
+
+8 октября 2026, поручение Егора: автоматический поиск выключен (AUTOMATIC_SEARCH).
+Сообщения «найди в интернете…», текстом и голосом, идут помощнику в чат: он ищет
+сам, с учётом контекста. /web при выключенном флаге не ищет, а отсылает в чат.
 """
 
 import asyncio
@@ -34,6 +38,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[4]
 SEARCH_SCRIPT = PROJECT_ROOT / "scripts" / "web_search.py"
 SEARCH_TIMEOUT = 45
 MAX_RESULTS = 5
+AUTOMATIC_SEARCH = False
 
 # Интент веб-поиска. Голосовые транскрипты — это часто НЕСКОЛЬКО предложений
 # с точками («Найди осб. Цены в интернете»), поэтому глагол и «интернет-маркер»
@@ -65,6 +70,8 @@ _STRIP = re.compile(
 
 
 def matches_web_intent(text: str) -> bool:
+    if not AUTOMATIC_SEARCH:
+        return False
     if _STANDALONE.search(text):
         return True
     return bool(_VERB.search(text) and _PLACE.search(text))
@@ -174,6 +181,9 @@ async def run_web_search(message: Message, query: str, *, log_input: bool = True
 @router.message(Command("web"))
 async def handle_web_command(message: Message) -> None:
     if not message.text or not message.from_user:
+        return
+    if not AUTOMATIC_SEARCH:
+        await message.answer("🔍 Поиск теперь делаю я сам: напиши запрос обычным сообщением, без /web.")
         return
     parts = message.text.split(maxsplit=1)
     if len(parts) < 2 or not parts[1].strip():

@@ -1,14 +1,14 @@
 ---
 type: moc
-description: "Map of Content: Уроки и паттерны, 23 entries"
-last_accessed: 2026-10-08
+description: "Map of Content: Уроки и паттерны, 24 entries"
+last_accessed: 2026-10-09
 relevance: 1.0
 tier: active
 ---
 
 # Уроки и паттерны
 
-Сгенерировано: 2026-10-08 00:20. Файлов: 23.
+Сгенерировано: 2026-10-09 03:56. Файлов: 24.
 
 - [[thoughts/learnings/agent-team-pattern-portability|Переносимость команды агентов]] — Паттерн из ролика Nate Herk — главный координатор и специализированные исполнители — применим не только в Grok Bot.
 - [[thoughts/learnings/ai-models-2026-07-25|Новые модели Anthropic и OpenAI на 25 июля 2026]] — - Claude Opus 5 вышел 24 июля: основная сильная модель для сложной разработки и профессиональной работы. - Claude Son...
@@ -33,3 +33,4 @@ tier: active
 - [[thoughts/learnings/telegram-formatting-rules|Правила оформления ответов в Telegram]] — Дата: 2026-04-13
 - [[thoughts/learnings/vault-search-discipline|Дисциплина поиска по vault]] — Дата: 2026-04-16
 - [[thoughts/learnings/windows-network-recovery-after-wireguard|Восстановление сети Windows после WireGuard]] — Дата: 2026-04-09
+- [[thoughts/learnings/документы-и-проекты-в-боте|Документы и проекты в боте]] — Принятый 8 октября 2026 порядок работы с документами: текущий проект, проверка размещения и выполнение заданий помощн...

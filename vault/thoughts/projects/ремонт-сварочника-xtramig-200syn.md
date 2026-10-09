@@ -4,7 +4,7 @@ description: "Неисправность XTRAMIG 200SYN: исходные сим
 source: daily/2026-10-07
 created: 2026-10-08
 last_accessed: 2026-10-08
-relevance: 1.0
+relevance: 0.98
 tier: active
 ---
 # Ремонт сварочника XTRAMIG 200SYN

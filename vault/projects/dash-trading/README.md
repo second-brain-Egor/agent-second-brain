@@ -5,7 +5,7 @@ status: research
 created: 2026-09-04
 updated: 2026-09-05
 last_accessed: 2026-09-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 
@@ -79,6 +79,7 @@ tier: active
 
 ## Материалы
 
+- [[projects/dash-trading/Метки событий на графике Bybit|Метки событий на графике Bybit]] — справочник по запросу 8 октября: события, их даты и наблюдавшаяся реакция DASH; документ лежит прямо в проекте.
 - Скрипт: tools/backtest_dash_mean_reversion.py
 - Полный перебор: /root/trading/analysis/backtests/dash_mean_reversion_sweep_2026-09-04.csv
 - Проверка с издержками 0,20%: /root/trading/analysis/backtests/dash_mean_reversion_cost020_2026-09-04.csv

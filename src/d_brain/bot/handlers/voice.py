@@ -136,6 +136,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext, transcript
 
         # Веб-поиск fast-path: голосовые «найди в интернете…» идут тем же путём,
         # что и текстовые. Запись в daily/session уже сделана выше — log_input=False.
+        # С 8 октября 2026 выключено (web.AUTOMATIC_SEARCH): matches_web_intent → False.
         if matches_web_intent(transcript):
             await run_web_search(message, clean_web_query(transcript), log_input=False)
             return

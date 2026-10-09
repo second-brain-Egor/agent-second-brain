@@ -147,7 +147,9 @@ class RequestJobs:
         # Commit the Telegram payload before transcription or returning to polling.
         if hasattr(event, 'model_dump_json'):
             if data.get('restored_inbox_key') != key:
-                if not self.inbox.accept(key, scope, event.model_dump_json()):
+                # Only fields Telegram sent: unset ones (e.g. link previews) hold aiogram Default
+                # placeholders that cannot be serialized, and the message was lost before logging.
+                if not self.inbox.accept(key, scope, event.model_dump_json(exclude_unset=True)):
                     return None
         # Messages start independently: the handler logs the message at once, and controls never wait.
         # Only the chat model call waits its turn (services/chat_queue.py). The place in line is taken

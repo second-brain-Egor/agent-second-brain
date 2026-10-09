@@ -18,6 +18,7 @@ from d_brain.bot.chat_context import (
 )
 from d_brain.bot.typing_indicator import keep_typing
 from d_brain.config import get_settings
+from d_brain.services.documents import DocumentStore, folder_label
 from d_brain.services.processor import AgentProcessor
 from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
@@ -44,6 +45,29 @@ class _Batch:
 
 _batches: dict[int, _Batch] = {}  # chat_id -> пачка, которая ещё принимает фото или ждёт ответа
 _batch_tasks: set[asyncio.Task[None]] = set()
+
+
+def _save_to_project(folder: Path, vault: Path, data: bytes, timestamp: datetime, extension: str) -> str:
+    """Фото при выбранном проекте ложится прямо в его папку (Егор, 8 октября 2026)."""
+    folder.mkdir(parents=True, exist_ok=True)
+    stem = f"фото {timestamp:%Y-%m-%d %H-%M-%S}"
+    path = folder / f"{stem}.{extension}"
+    counter = 2
+    while path.exists():
+        path = folder / f"{stem} ({counter}).{extension}"
+        counter += 1
+    path.write_bytes(data)
+    return path.relative_to(vault).as_posix()
+
+
+def _batch_reply(paths: list[str]) -> str:
+    folders = {Path(path).parent for path in paths}
+    where = folder_label(paths[0]) if len(folders) == 1 and paths[0].startswith("projects/") else None
+    if len(paths) == 1:
+        return f"📸 Фото положил в {where}. Что с ним сделать?" if where else "Фото получил. Что с ним сделать?"
+    if where:
+        return f"📸 Фото положил в {where}, всего {len(paths)}. Что с ними сделать?"
+    return f"Фото получил, всего {len(paths)}. Что с ними сделать?"
 
 
 async def _analyze_image(image_path: str, caption: str | None = None) -> str | None:
@@ -102,10 +126,8 @@ async def _answer_when_quiet(chat_id: int, batch: _Batch) -> None:
     paths = [batch.saved[number] for number in sorted(batch.saved)]
     if not paths:
         return  # ни одно фото не сохранилось: об ошибках уже сказали по каждому
-    if len(paths) == 1:
-        text = "Фото получил. Что с ним сделать?"
-    else:
-        text = f"Фото получил, всего {len(paths)}. Что с ними сделать?"
+    text = _batch_reply(paths)
+    if len(paths) > 1:
         # Модель видит в журнале каждое фото отдельной строкой; эта строка даёт ей пачку целиком.
         try:
             vault = get_settings().vault_path
@@ -161,12 +183,21 @@ async def handle_photo(message: Message, bot: Bot) -> None:
         if "." in file.file_path:
             extension = file.file_path.rsplit(".", 1)[-1]
 
-        relative_path = storage.save_attachment(
-            photo_bytes,
-            timestamp.date(),
-            timestamp,
-            extension,
-        )
+        store = DocumentStore(settings.vault_path)
+        project_folder = None if work_context else store.active_folder(scope)
+        if project_folder:
+            relative_path = _save_to_project(
+                project_folder, store.vault, photo_bytes, timestamp, extension
+            )
+            store.record_placement(scope, relative_path, "photo")
+            store.touch_active(scope)
+        else:
+            relative_path = storage.save_attachment(
+                photo_bytes,
+                timestamp.date(),
+                timestamp,
+                extension,
+            )
 
         absolute_image_path = str((Path(settings.vault_path) / relative_path).resolve())
 

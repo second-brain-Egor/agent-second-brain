@@ -5,6 +5,8 @@ import json
 import re
 from pathlib import Path
 
+from d_brain.services.documents import service_dir
+
 
 class DocumentOutputError(ValueError):
     pass
@@ -43,7 +45,7 @@ def build_prompt(text: str, request: str, original: Path) -> str:
     fmt = output_format(request)
     count = slide_count(request)
     source = text if len(text) <= 180_000 else (
-        f'Полный текст уже извлечён: {original.parent / "текст.txt"}. '
+        f'Полный текст уже извлечён: {service_dir(original) / "текст.txt"}. '
         'Прочитай этот локальный текстовый файл целиком частями. Не извлекай PDF повторно.'
     )
     schema = ('{"slides":[{"title":"Заголовок","bullets":["Этап 1","Этап 2"],'

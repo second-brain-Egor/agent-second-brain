@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-08
-last_accessed: 2026-10-08
+updated: 2026-10-09
+last_accessed: 2026-10-09
 relevance: 1.0
 tier: active
 ---
@@ -11,37 +11,37 @@ tier: active
 
 ## Обзор
 
-- Заметок: 947
-- Связей: 2334
-- Сирот: 65
+- Заметок: 951
+- Связей: 2352
+- Сирот: 66
 - Слабосвязанных: 87
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 7 | 204.57 |
+| MOC | 7 | 205.43 |
 | blog | 2 | 1.00 |
-| daily | 190 | 1.51 |
+| daily | 191 | 1.50 |
 | goals | 5 | 8.00 |
-| memory | 5 | 42.40 |
-| projects | 652 | 3.57 |
+| memory | 5 | 43.80 |
+| projects | 654 | 3.58 |
 | references | 5 | 2.00 |
-| reports | 2 | 40.00 |
+| reports | 2 | 40.50 |
 | root | 1 | 3.00 |
 | summaries | 24 | 1.25 |
 | templates | 2 | 0.00 |
-| thoughts | 52 | 4.69 |
+| thoughts | 53 | 4.81 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 715 связей
-- [[MOC/MOC-projects.md|MOC - Projects]] — 656 связей
-- [[memory/facts.md|Ключевые факты и события]] — 132 связей
+- [[MOC/index.md|Индекс знаний]] — 718 связей
+- [[MOC/MOC-projects.md|MOC - Projects]] — 658 связей
+- [[memory/facts.md|Ключевые факты и события]] — 135 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 107 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
 - [[reports/vault-health.md|Health Check Vault]] — 66 связей
-- [[memory/soul.md|Идентичность агента]] — 49 связей
+- [[memory/soul.md|Идентичность агента]] — 51 связей
 - [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 48 связей
 - [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 46 связей
 - [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 46 связей
@@ -68,7 +68,7 @@ tier: active
 - [[daily/2026-06-26.md|2026-06-26]]
 - [[daily/2026-06-27.md|2026-06-27]]
 - [[daily/2026-06-28.md|2026-06-28]]
-- ... ещё 45
+- ... ещё 46
 
 ## Слабосвязанные
 
@@ -97,6 +97,7 @@ tier: active
 ## Неразрешённые ссылки
 
 - [[MOC/MOC-business.md|MOC - Business]]: business/_index
+- [[MOC/MOC-projects.md|MOC - Projects]]: projects/Ирина работа/.служебное/Стандарты фирменного стиля/Описание, projects/Ирина работа/Приводи своих друзей/.служебное/Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится/Описание
 - [[daily/2026-03-29.md|2026-03-29]]: attachments/2026-03-29/img-153353.jpg, attachments/2026-03-29/img-153442.jpg, attachments/2026-03-29/img-153919.jpg, attachments/2026-03-29/img-154039.jpg, attachments/2026-03-29/img-154119.jpg
 - [[daily/2026-04-08.md|2026-04-08]]: .session/handoff, GLOBAL_RULES, attachments/2026-04-08/img-224628.jpg, attachments/2026-04-08/img-231319.jpg
 - [[daily/2026-04-09.md|2026-04-09]]: .session/handoff, attachments/2026-04-09/img-091056.jpg, attachments/2026-04-09/img-092050.jpg
@@ -115,4 +116,3 @@ tier: active
 - [[daily/2026-05-13.md|2026-05-13]]: attachments/2026-05-13/img-200536.jpg, attachments/2026-05-13/img-200751.jpg, attachments/2026-05-13/img-201045.jpg, attachments/2026-05-13/img-202519.jpg, attachments/2026-05-13/img-204033.jpg
 - [[daily/2026-05-14.md|2026-05-14]]: attachments/2026-05-14/img-072308.jpg, attachments/2026-05-14/img-152837.jpg, attachments/2026-05-14/img-154052.jpg, attachments/2026-05-14/img-154359.jpg, attachments/2026-05-14/img-154526.jpg
 - [[daily/2026-05-15.md|2026-05-15]]: attachments/2026-05-15/img-132410.jpg, attachments/2026-05-15/img-141621.jpg
-- [[daily/2026-05-17.md|2026-05-17]]: attachments/2026-05-17/img-132424.jpg

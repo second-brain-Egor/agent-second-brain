@@ -3,7 +3,7 @@ type: project
 description: "Дата: 2026-08-24 Длительность: 10:21 Ссылка: https://www.youtube.com/watch?v=ZzHsJW10iq4"
 related: 
 last_accessed: 2026-08-25
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Карточка ролика: пять принципов надёжной работы с AI из опыта Goldman Sachs

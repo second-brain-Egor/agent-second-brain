@@ -2,7 +2,7 @@
 type: project
 description: "Сводка по видео — project"
 last_accessed: 2026-05-01
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Сводка по видео

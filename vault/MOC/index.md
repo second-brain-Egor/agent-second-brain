@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-08
-last_accessed: 2026-10-08
+updated: 2026-10-09
+last_accessed: 2026-10-09
 relevance: 1.0
 tier: active
 ---
@@ -11,9 +11,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 947
-- Связей: 2334
-- Сирот: 65
+- Заметок: 951
+- Связей: 2352
+- Сирот: 66
 - Слабосвязанных: 87
 
 ## Память
@@ -489,6 +489,7 @@ tier: active
 - [[projects/dash-trading/README.md|Торговля DASH]]
 - [[projects/dash-trading/all-corridors-2026-09-07.md|DASH: карта коридоров на 7 сентября 2026]]
 - [[projects/dash-trading/corridors-2026-09-07.md|Коридоры DASH на 7 сентября 2026]]
+- [[projects/dash-trading/Метки событий на графике Bybit.md|Метки событий на графике Bybit]]
 - [[projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
 - [[projects/japanese-architecture/README.md|Японская архитектура]]
 - [[projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
@@ -579,6 +580,7 @@ tier: active
 - [[projects/Ежедневник/youtube-habits/videos/013-искусство-маленьких-шагов/transcript.md|transcript]]
 - [[projects/Ежедневник/youtube-habits/videos/014-успешные-люди-о-главном/description.md|description]]
 - [[projects/Ежедневник/youtube-habits/videos/014-успешные-люди-о-главном/metadata.md|Успешные люди о главном]]
+- [[projects/Ирина работа/Журнал документов.md|Журнал документов — Ирина работа]]
 - [[projects/Подключение/README.md|Подключение]]
 - [[projects/Подключение/modem-antenna-4g.md|4G на даче: модем + антенна + что докупить]]
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]
@@ -699,13 +701,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-10-09.md|2026-10-09]]
 - [[daily/2026-10-08.md|2026-10-08]]
 - [[daily/2026-10-07.md|2026-10-07]]
 - [[daily/2026-10-06.md|2026-10-06]]
 - [[daily/2026-10-05.md|2026-10-05]]
 - [[daily/2026-10-04.md|2026-10-04]]
 - [[daily/2026-10-03.md|2026-10-03]]
-- [[daily/2026-10-02.md|2026-10-02]]
 
 ## Недельные сводки
 
@@ -741,6 +743,7 @@ tier: active
 - [[thoughts/learnings/telegram-formatting-rules.md|Правила оформления ответов в Telegram]]
 - [[thoughts/learnings/vault-search-discipline.md|Дисциплина поиска по vault]]
 - [[thoughts/learnings/windows-network-recovery-after-wireguard.md|Восстановление сети Windows после WireGuard]]
+- [[thoughts/learnings/документы-и-проекты-в-боте.md|Документы и проекты в боте]]
 
 ## Справочные материалы
 

@@ -3,7 +3,7 @@ type: project
 description: "Разбор пяти дополнений интерфейса Claude Code для контроля контекста, долгих целей, записи экрана и параллельной правки файлов."
 related: 
 last_accessed: 2026-10-03
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Пять дополнений Claude Code, которые стоит настроить сразу

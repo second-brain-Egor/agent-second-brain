@@ -3,7 +3,7 @@ type: project
 description: "One of the great things about Codex is that right inside of it, it can make images for you. As you can see right here, I gave it these three images..."
 related: 
 last_accessed: 2026-09-20
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 One of the great things about Codex is

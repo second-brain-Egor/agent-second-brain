@@ -12,7 +12,22 @@ PDF = r'(?:pdf|пдф|пэдээф)'
 FORMAT = rf'(?:{POWERPOINT}|{PDF})'
 
 
+DECLINED = re.compile(
+    r'\b(?:удал|сотр)\w*'
+    r'|\bникак\w*\s+(?:презентац|слайд)'
+    r'|\bне\s+(?:(?:надо|нужно)\s+)?(?:делай|делать|готов\w*|созда\w*)\s+(?:\w+\s+){0,2}(?:презентац|слайд)'
+    r'|\bне\s+нужн\w*\s+(?:\w+\s+)?(?:презентац|слайд)'
+    r'|(?:презентац|слайд)\w*\s+(?:\w+\s+){0,2}не\s+(?:надо|нужн\w*)\b', re.I)
+
+
+def declined(text: str) -> bool:
+    """Deleting or refusing slides is a chat command, not an order for new slides."""
+    return bool(DECLINED.search(text))
+
+
 def presentation_request(text: str) -> bool:
+    if declined(text):
+        return False
     return bool(re.search(r'презентац|с[лд]айд', text, re.I) and (re.search(
         r'сдела|созда|подготов|состав|собери|оформ|пришли|отправ|нуж[ен]|хочу|можешь|презентацию', text, re.I)
         or re.match(r'^(?:пожалуйста[, ]+)?(?:презентация|слайды)\b', text.strip(), re.I)))

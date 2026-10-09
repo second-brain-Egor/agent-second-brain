@@ -3,7 +3,7 @@ type: project
 description: "Today, I've got this proven six-step process for building codec skills better than 99% of people. So, let's not waste any time and just get straight..."
 related: 
 last_accessed: 2026-09-20
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 Today, I've got this proven six-step

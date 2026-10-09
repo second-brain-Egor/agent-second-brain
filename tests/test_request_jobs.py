@@ -375,3 +375,26 @@ async def test_crash_recovery_keeps_payload_and_transcript(jobs):
     assert feed.await_count == 1
     assert feed.call_args.kwargs['transcript'] == 'Сохрани уточнение'
     assert feed.call_args.args[1].message.voice.file_id == 'voice'
+
+
+async def test_link_preview_message_is_accepted_and_restored(jobs):
+    # LinkPreviewOptions carries aiogram Default placeholders; a full dump crashed and the message was lost.
+    from aiogram.types import LinkPreviewOptions
+    started = asyncio.Event()
+    async def blocked(event, data):
+        started.set()
+        await asyncio.Event().wait()
+    await jobs(blocked, durable_update('Первое', 1), {})
+    await started.wait()
+    await jobs(blocked, durable_update('Сделай по ссылке https://example.com', 2,
+                                       link_preview_options=LinkPreviewOptions(url='https://example.com')), {})
+    await jobs.close()
+    recovered = RequestJobs(jobs.settings)
+    received = []
+    async def handler(event, data):
+        received.append((event.message.text, event.message.link_preview_options.url))
+    async def feed(bot, event, **kwargs):
+        await recovered(handler, event, kwargs)
+    await recovered.restore(SimpleNamespace(feed_update=feed), object())
+    await asyncio.gather(*list(recovered.tasks))
+    assert received == [('Сделай по ссылке https://example.com', 'https://example.com')]

@@ -10,6 +10,8 @@ import sqlite3
 from datetime import date
 from pathlib import Path
 
+from d_brain.services.documents import service_dir
+
 DB_PATH = os.path.join(os.environ.get("PROJECT_DIR", "."), "vault", ".data", "memory.db")
 EXCLUDED_DIRS = {".obsidian", "attachments", ".git", ".graph", ".claude", ".trash", "__pycache__"}
 
@@ -68,6 +70,7 @@ def _iter_markdown_files(vault: Path) -> list[Path]:
         for md_file in vault.rglob("*.md")
         if not any(part in EXCLUDED_DIRS or part.startswith(".") for part in md_file.relative_to(vault).parts)
         if not any((parent / ".document.json").exists() for parent in md_file.parents if parent != vault.parent)
+        if not (service_dir(md_file) / ".document.json").exists()
     )
 
 

@@ -9,6 +9,8 @@ import tempfile
 import time
 from pathlib import Path
 
+from d_brain.services.documents import service_dir
+
 
 class DocumentReadError(ValueError):
     pass
@@ -36,9 +38,9 @@ def run(args: list[str], deadline: float | None = None, timeout: int | None = No
 
 
 def extract_text(original: Path, deadline: float | None = None, temporary_root: Path | None = None) -> Path:
-    target = original.parent / 'текст.txt'
+    target = service_dir(original) / 'текст.txt'
     digest = hashlib.sha256(original.read_bytes()).hexdigest()
-    fingerprint = original.parent / 'текст.sha256'
+    fingerprint = service_dir(original) / 'текст.sha256'
     if (target.exists() and target.stat().st_size and fingerprint.exists()
             and fingerprint.read_text() == digest):
         return target
@@ -84,6 +86,7 @@ def extract_text(original: Path, deadline: float | None = None, temporary_root: 
     text = '\n\n'.join(pages).strip()
     if not text or not re.search(r'[а-яА-ЯёЁa-zA-Z]{3}', re.sub(r'\[.*?\]', '', text)):
         raise DocumentReadError('Не удалось извлечь текст: проверь качество скана или защиту документа.')
+    target.parent.mkdir(parents=True, exist_ok=True)
     temporary = target.with_suffix('.tmp')
     temporary.write_text(text, encoding='utf-8')
     temporary.replace(target)

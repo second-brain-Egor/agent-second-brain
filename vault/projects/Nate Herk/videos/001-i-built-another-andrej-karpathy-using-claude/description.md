@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-10-06
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 FREE AI OS Template: https://app.aiautomationsociety.ai/optin/ai-os/?utm_source=youtube&utm_medium=organic&utm_content=claude-karpathy-agent&sl=yt_claude-karpathy-agent

@@ -2213,6 +2213,10 @@ Do not include:
         grant: Any,
     ) -> dict[str, Any]:
         messages = [(grant.stamp, prompt), *grant.queued]
+        from d_brain.services.documents import DocumentStore
+        documents = DocumentStore(self.vault_path)
+        # Files the bot put into the current project itself: this reply checks their place.
+        placed = [p["id"] for p in documents.unchecked(session_scope or user_id)]
         session_context = self._get_session_context(session_scope or user_id)
         memory_context = self._get_memory_context(
             work_mode=work_context,
@@ -2279,6 +2283,7 @@ Do not include:
             )
             if report and report.strip() and not self.needs_agent(report):
                 grant.commit()  # messages taken together with this one are now answered
+                documents.mark_checked(placed)
             return {"report": report, "processed_entries": 1}
         except Exception as exc:
             execution = CURRENT_EXECUTION.get()

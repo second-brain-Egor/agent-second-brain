@@ -2,7 +2,7 @@
 type: project
 description: "I Made Codex and Claude Code Build the Same App. One Clearly Won. — project"
 last_accessed: 2026-08-24
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # I Made Codex and Claude Code Build the Same App. One Clearly Won.

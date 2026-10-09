@@ -28,6 +28,10 @@ from d_brain.services.session import SessionStore
 from d_brain.services.storage import VaultStorage
 
 router = Router(name="text")
+
+# 8 октября 2026, поручение Егора: бот сам файлы не удаляет. «Удали», «убери» и т. п.
+# идут помощнику в чат — он разбирается, что именно удалить, и предупреждает, если нужно.
+AUTOMATIC_DELETE = False
 logger = logging.getLogger(__name__)
 
 
@@ -102,7 +106,7 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
         r"\b(удал|выброс|не\s*нужн|убери|снеси|стери|стер[еи]ть)\w*",
         re.IGNORECASE,
     )
-    if delete_pattern.search(message.text):
+    if AUTOMATIC_DELETE and delete_pattern.search(message.text):
         recent = session.get_recent(scope, limit=10)
         for entry in reversed(recent[:-1]):
             if entry.get("type") in ("text", "voice", "assistant"):

@@ -3,7 +3,7 @@ type: project
 description: "Я превратил GPT-6 Astra в совершенный второй мозг — карточка ролика"
 related: 
 last_accessed: 2026-09-07
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Я превратил GPT-6 Astra в совершенный второй мозг
