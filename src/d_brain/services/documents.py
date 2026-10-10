@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 import shutil
 import sqlite3
@@ -13,6 +14,10 @@ from uuid import uuid4
 
 SERVICE_DIR = '.служебное'
 JOURNAL = 'Журнал документов.md'
+# Егор, 10 октября 2026: фото без проекта больше не копятся во вложениях по датам. Как документы,
+# они ждут во входящих, а помощник кладёт их в проект по теме или в общую папку «Фото».
+PHOTOS = 'Фото'
+PHOTO_SUFFIXES = {'.jpg', '.jpeg', '.png', '.webp', '.heic', '.gif'}
 # Егор, 8 октября 2026: бот помнит проект, в котором идёт работа, и кладёт туда файлы и фото
 # без вопросов. Проект давно не трогали — бот снова спрашивает, чтобы вчерашняя работа
 # не забирала сегодняшние файлы.
@@ -42,6 +47,16 @@ def folder_label(path: str) -> str:
             return f'корень проекта «{folder[1]}»'
         return f"проект «{folder[1]}», подпроект «{'/'.join(folder[2:])}»"
     return f"папку {'/'.join(folder)}"
+
+
+def is_photo(name: str) -> bool:
+    return Path(name).suffix.lower() in PHOTO_SUFFIXES
+
+
+def general_folder(name: str, topic: str | None = None) -> str:
+    """Common folder for a file outside projects: «Фото», «PDF» or «Документы», optionally by topic."""
+    folder = PHOTOS if is_photo(name) else 'PDF' if name.lower().endswith('.pdf') else 'Документы'
+    return folder + ('/' + clean_folder_name(topic, 'темы') if topic else '')
 
 
 def note_placement(store: 'DocumentStore', doc: dict, when: datetime) -> Path | None:
@@ -310,8 +325,9 @@ class DocumentStore:
         with self.db() as db:
             db.execute('UPDATE placements SET checked=1 WHERE id IN (' + ','.join('?' for _ in ids) + ')', ids)
 
-    def move(self, relative: str, project: str | None, subproject: str | None = None) -> str:
-        """Move a placed file (with its service folder) to another project/subproject or attachments."""
+    def move(self, relative: str, project: str | None, subproject: str | None = None,
+             topic: str | None = None) -> str:
+        """Move a placed file (with its service folder) to another project/subproject or a common folder."""
         source = self.safe_path(relative)
         if not source.is_file():
             raise FileNotFoundError(relative)
@@ -320,7 +336,7 @@ class DocumentStore:
             if subproject:
                 folder += '/' + clean_folder_name(subproject, 'подпроекта')
         else:
-            folder = f'attachments/{datetime.now():%Y-%m-%d}'
+            folder = general_folder(source.name, topic)
         root = self.safe_path(folder)
         destination = root / source.name
         number = 1
@@ -344,14 +360,34 @@ class DocumentStore:
         with self.db() as db:
             db.execute('UPDATE documents SET path=? WHERE path=?', (moved, relative))
             db.execute('UPDATE placements SET path=? WHERE path=?', (moved, relative))
+        self.relink(relative, moved)
         return moved
 
-    def place(self, doc_id: str, project: str | None = None, subproject: str | None = None) -> dict:
+    def relink(self, old: str, new: str) -> list[str]:
+        """Point embeds and links in notes (the photo in the daily note first of all) at the new place."""
+        changed = []
+        for folder, subfolders, files in os.walk(self.vault):
+            subfolders[:] = [name for name in subfolders if not name.startswith('.')]  # .git, .documents…
+            for name in files:
+                if not name.endswith('.md'):
+                    continue
+                note = Path(folder) / name
+                try:
+                    text = note.read_text(encoding='utf-8')
+                except (OSError, UnicodeDecodeError):
+                    continue
+                if old in text:
+                    note.write_text(text.replace(old, new), encoding='utf-8')
+                    changed.append(note.relative_to(self.vault).as_posix())
+        return changed
+
+    def place(self, doc_id: str, project: str | None = None, subproject: str | None = None,
+              topic: str | None = None) -> dict:
         doc = self.get(doc_id)
         if doc['state'] == 'ready':
             return doc
         if project is None:
-            root = self.safe_path('PDF' if doc['name'].lower().endswith('.pdf') else 'Документы')
+            root = self.safe_path(general_folder(doc['name'], topic))
         else:
             # Егор, 8 октября 2026: файл ложится прямо в папку проекта (или выбранного подпроекта),
             # без подпапки «Документы» и отдельной папки на каждый файл; служебное — в .служебное/.
@@ -389,7 +425,10 @@ class DocumentStore:
         with self.db() as db:
             db.execute('DELETE FROM subproject_choice WHERE doc_id=?', (doc_id,))
             db.execute('DELETE FROM project_choice WHERE doc_id=?', (doc_id,))
-        return self.update(doc_id, state='ready', path=destination.relative_to(self.vault).as_posix())
+        placed = destination.relative_to(self.vault).as_posix()
+        if is_photo(doc['name']):
+            self.relink(doc['path'], placed)  # the daily note already embeds the photo from incoming
+        return self.update(doc_id, state='ready', path=placed)
 
     def journal(self, doc: dict, when: datetime, action: str | None = None) -> Path | None:
         """Add a line to «Записи» of the project's document journal, if the project keeps one."""
@@ -464,8 +503,8 @@ class DocumentStore:
             lines = ['=== ТЕКУЩИЙ ПРОЕКТ ===', f'Работаем в проекте: {where}. Новые документы и фото '
                      'бот без вопросов кладёт сюда.']
         else:
-            lines = ['=== ТЕКУЩИЙ ПРОЕКТ ===', 'Проект не выбран: новые файлы ждут во входящих, фото '
-                     'уходят во вложения по дате. Бот ни о чём не спрашивает, место выбираешь ты по разговору.']
+            lines = ['=== ТЕКУЩИЙ ПРОЕКТ ===', 'Проект не выбран: новые файлы и фото ждут во входящих. '
+                     'Бот ни о чём не спрашивает, место выбираешь ты по разговору.']
         lines.append('Если разговор однозначно перешёл к другому проекту или подпроекту, переключи его сам '
                      f'(`{tool} set "Проект" ["Подпроект"]`) и скажи об этом одной строкой; при реальном '
                      f'сомнении переспроси. «Выйди из проекта» — `{tool} clear`. Список проектов — '
@@ -477,7 +516,8 @@ class DocumentStore:
             lines.append('Бот положил их в текущий проект сам. Сверь каждый с проектом по содержимому и '
                          'разговору. Сомнений нет — ничего об этом не пиши. Есть сомнение или файл явно не '
                          'отсюда — спроси, куда положить, и предложи вариант; переноси только после ответа: '
-                         f'`{tool} move "<путь от vault>" "Проект" ["Подпроект"]` (без проекта — во вложения).')
+                         f'`{tool} move "<путь от vault>" "Проект" ["Подпроект"]` (без проекта — в общую '
+                         'папку, тема — `--topic "Тема"`).')
         return '\n'.join(lines)
 
     def context(self, scope) -> str:
@@ -506,11 +546,15 @@ class DocumentStore:
                      'Не переноси его в общую память.')
         # Егор, 9 октября 2026: место для присланного файла выбирает помощник по разговору, не бот.
         tool = f"uv run python scripts/project_context.py --scope {scope}"
-        lines.append('Файл во входящих: реши по разговору и содержимому, к чему он относится. Ясно — положи '
-                     f'сам: `{tool} place "<путь от vault>" "Проект" ["Подпроект"]` (без проекта — в общую '
-                     'папку PDF или Документы) и скажи одной строкой куда. Служебный файл, который нужен для '
-                     'настройки (ключ, куки, конфиг), подключи по назначению. Спрашивай, только если файл из '
-                     'другой области и место не понять.')
+        waiting = sum(doc['state'] == 'destination' for doc in self.for_scope(scope)[5:])
+        if waiting:
+            lines.append(f'Ещё во входящих, место не выбрано: {waiting}.')
+        lines.append('Файл или фото во входящих: реши по разговору и содержимому, к чему он относится. Ясно — '
+                     f'положи сам: `{tool} place "<путь от vault>" "Проект" ["Подпроект"]`; без проекта — в '
+                     'общую папку (фото в Фото, PDF в PDF, остальное в Документы), тему внутри неё задай '
+                     '`--topic "Тема"`, чтобы не копилась свалка. Скажи одной строкой куда. Служебный файл, '
+                     'который нужен для настройки (ключ, куки, конфиг), подключи по назначению. Спрашивай, '
+                     'только если файл из другой области и место не понять.')
         # Document tasks are done in the chat itself (handlers/document.py: AUTOMATIC_JOBS).
         lines.append('Готовый файл клади в папку проекта и отправляй в чат: uv run python '
                      f"scripts/send_telegram_file.py \"<путь от vault>\" --chat-id {documents[0]['chat_id']}")

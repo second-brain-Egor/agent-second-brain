@@ -1,7 +1,6 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mv ~/projects/agent-second-brain/* ~/projects/agent-second-brain/.* ~/agent-second-brain/ 2>/dev/null; echo \"Exit code: $?\")",
       "Bash(claude config get model 2>&1 || echo \"default\")",
       "Bash(sudo systemctl status d-brain-bot --no-pager 2>&1 | head -10)",
       "Bash(sudo systemctl restart d-brain-bot && sleep 3 && sudo systemctl status d-brain-bot --no-pager | head -10)",
@@ -16,7 +15,6 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(gh api repos/smixs/skill-conductor/contents/ --jq '.[].name')",
-      "Bash(cd /home/egor/agent-second-brain/vault/.claude/skills/ && rm -rf skill-conductor-old && mv skill-conductor skill-conductor-old && mv skill-conductor-old/skills/skill-conductor skill-conductor && rm -rf skill-conductor-old && ls skill-conductor/)",
       "Bash(gh api repos/anthropics/skills/contents/ --jq '.[].name' 2>/dev/null || echo \"FAILED: trying alternative\"; gh api repos/anthropics/skills --jq '.description' 2>/dev/null)",
       "Bash(gh api repos/anthropics/skills/git/trees/main?recursive=1 --jq '.tree[].path' 2>&1 | head -80)",
       "WebFetch(domain:api.github.com)",

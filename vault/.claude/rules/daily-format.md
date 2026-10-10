@@ -1,8 +1,4 @@
 ---
-type: note
-last_accessed: 2026-03-27
-relevance: 0.98
-tier: active
 paths: "daily/**/*.md"
 ---
 
@@ -40,7 +36,7 @@ Photos include Obsidian embed:
 
 ```markdown
 ## 14:30 [photo]
-![[attachments/2024-12-20/img-143025.jpg]]
+![[projects/dacha/фото 2024-12-20 14-30-25.jpg]]
 
 Optional description or transcribed text from photo
 ```

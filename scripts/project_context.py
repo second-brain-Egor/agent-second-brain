@@ -6,9 +6,10 @@
   show                                   — текущий проект
   set "Проект" ["Подпроект"] [--create]  — перейти в проект (новую папку — только с --create)
   clear                                  — выйти из проекта: файлы снова с вопросом о папке
-  move "<путь от vault>" ["Проект" ["Подпроект"]] — переложить файл; без проекта — во вложения
-  place "<путь от vault>" ["Проект" ["Подпроект"]] [--create] — положить присланный файл из входящих;
-                                         без проекта — в общую папку PDF или Документы
+  move "<путь от vault>" ["Проект" ["Подпроект"]] [--topic "Тема"] — переложить файл; без проекта —
+                                         в общую папку (Фото, PDF или Документы), в ней — по теме
+  place "<путь от vault>" ["Проект" ["Подпроект"]] [--topic "Тема"] [--create] — положить присланный
+                                         файл или фото из входящих; без проекта — в общую папку по теме
 """
 from __future__ import annotations
 
@@ -17,7 +18,7 @@ import sys
 from datetime import datetime
 
 from d_brain.config import get_settings
-from d_brain.services.documents import DocumentStore, folder_label, note_placement
+from d_brain.services.documents import DocumentStore, folder_label, is_photo, note_placement
 from d_brain.services.session import SessionStore
 
 
@@ -42,10 +43,12 @@ def main() -> int:
     move.add_argument('path')
     move.add_argument('project', nargs='?')
     move.add_argument('subproject', nargs='?')
+    move.add_argument('--topic', help='тема внутри общей папки, когда проекта нет')
     place = sub.add_parser('place')
     place.add_argument('path')
     place.add_argument('project', nargs='?')
     place.add_argument('subproject', nargs='?')
+    place.add_argument('--topic', help='тема внутри общей папки, когда проекта нет')
     place.add_argument('--create', action='store_true', help='создать папку проекта или подпроекта, если её нет')
     args = parser.parse_args()
 
@@ -84,7 +87,7 @@ def main() -> int:
         return 0
     if args.command == 'place':
         return place_incoming(store, args)
-    moved = store.move(args.path, args.project, args.subproject)
+    moved = store.move(args.path, args.project, args.subproject, None if args.project else args.topic)
     SessionStore(store.vault).append(args.scope, 'assistant', text=f'Переложил файл: {args.path} → {moved}')
     store.journal({'path': moved}, datetime.now(), action='помощник переложил')
     print(f'Переложил в {folder_label(moved)}: {moved}')
@@ -113,9 +116,12 @@ def place_incoming(store: DocumentStore, args) -> int:
                 print(f'В «{project}» нет подпроекта «{subproject}». Новый — с --create.', file=sys.stderr)
                 return 1
             subproject = names.get(subproject.strip().casefold(), subproject)
-    doc = store.place(doc['id'], project, subproject)
+    doc = store.place(doc['id'], project, subproject, None if project else args.topic)
     now = datetime.now()
-    note_placement(store, doc, now)
+    if is_photo(doc['name']):
+        store.journal(doc, now)  # фото уже есть в дневнике дня, ссылку на него store.place поправил
+    else:
+        note_placement(store, doc, now)
     SessionStore(store.vault).append(args.scope, 'file', doc_id=doc['id'], path=doc['path'], name=doc['name'],
                                      caption=doc['instructions'], msg_id=doc['msg_id'], chat_id=doc['chat_id'])
     print(f"Положил в {folder_label(doc['path'])}: {doc['path']}")

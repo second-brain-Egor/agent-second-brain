@@ -1,7 +1,8 @@
 ---
 type: note
-updated: 2026-10-10
-relevance: 0.9
+updated: 2026-10-11
+last_accessed: 2026-10-11
+relevance: 1.0
 tier: active
 ---
 # Индекс знаний
@@ -10,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 968
-- Связей: 2392
-- Сирот: 68
-- Слабосвязанных: 86
+- Заметок: 971
+- Связей: 2404
+- Сирот: 69
+- Слабосвязанных: 84
 
 ## Память
 
@@ -503,6 +504,8 @@ tier: active
 - [[projects/dash-trading/Метки событий на графике Bybit.md|Метки событий на графике Bybit]]
 - [[projects/forumhouse-framehouse-knowledge-base/README.md|Forumhouse Framehouse Knowledge Base]]
 - [[projects/japanese-architecture/README.md|Японская архитектура]]
+- [[projects/second-brain-bot-operations/09-questionnaire-4-telegram-bot-ответы.md|Ответы на опросник 4 — Telegram-бот]]
+- [[projects/second-brain-bot-operations/09-questionnaire-4-telegram-bot.md|Опросник 4 — для Telegram-бота (боевые вопросы)]]
 - [[projects/second-brain-bot-operations/README.md|Операционный статус second brain bot]]
 - [[projects/second-brain-bot-operations/memory-sync.md|Синхронизация памяти между Telegram и терминалом]]
 - [[projects/second-brain-bot-operations/server-storage-audit-2026-09-10.md|server-storage-audit-2026-09-10]]
@@ -707,22 +710,23 @@ tier: active
 - [[projects/Рынок стройматериалы/product-cards-page-3-2026-04-26.md|Карточки позиций — Новорязанка, страница 3]]
 - [[projects/Рынок стройматериалы/source-audit-2026-04-26.md|Проверка исходников прайса - 2026-04-26]]
 - [[projects/Рынок стройматериалы/terem-leroy-audit-2026-04-28.md|Аудит Терем/Леруа - 2026-04-28]]
+- [[projects/Сварочник/ремонт-сварочника-xtramig-200syn.md|Ремонт сварочника XTRAMIG 200SYN]]
 - [[projects/Скрипт для выгрузки видео/README.md|Выгрузка видео]]
 - [[projects/Узлы VPN/README.md|Узлы VPN]]
 - [[projects/Узлы VPN/Итоги недели 9–16 октября 2026.md|Итоги недели замеров узлов VPN — 9–16 октября 2026]]
 - [[projects/Узлы VPN/Первый прогон 2026-10-09.md|Прогон узлов VPN — 9 октября 2026, 18:09]]
-- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 10 октября 2026, 12:00]]
+- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 11 октября 2026, 00:00]]
 - [[projects/приложение-по-дорогам/README.md|Приложение по дорогам]]
 
 ## Новые записи дня
 
+- [[daily/2026-10-11.md|2026-10-11]]
 - [[daily/2026-10-10.md|2026-10-10]]
 - [[daily/2026-10-09.md|2026-10-09]]
 - [[daily/2026-10-08.md|2026-10-08]]
 - [[daily/2026-10-07.md|2026-10-07]]
 - [[daily/2026-10-06.md|2026-10-06]]
 - [[daily/2026-10-05.md|2026-10-05]]
-- [[daily/2026-10-04.md|2026-10-04]]
 
 ## Недельные сводки
 

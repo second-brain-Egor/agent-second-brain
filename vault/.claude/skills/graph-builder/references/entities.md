@@ -1,9 +1,3 @@
----
-type: note
-last_accessed: 2026-03-27
-relevance: 0.98
-tier: active
----
 # Entity Extraction Patterns
 
 Patterns for finding entities in text.

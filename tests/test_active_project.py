@@ -157,7 +157,7 @@ async def test_photos_and_files_sent_together_get_one_assistant_turn(bot_env, mo
                              download_file=AsyncMock(return_value=io.BytesIO(b'jpeg')))
     await asyncio.gather(photo.handle_photo(picture, camera), bot_env.module.handle_document(*upload(32)))
     [prompt] = bot_env.prompts
-    assert 'подряд 2 вложений' in prompt and 'фото: attachments/' in prompt and 'файл «Условия.pdf»' in prompt
+    assert 'подряд 2 вложений' in prompt and 'фото: .documents/incoming/' in prompt and 'файл «Условия.pdf»' in prompt
 
 
 def env_vault(env):
@@ -242,7 +242,7 @@ def test_move_carries_service_folder_and_updates_records(tmp_path):
     assert store.get(doc['id'])['path'] == moved
     assert store.unchecked(7)[0]['path'] == moved
     away = store.move(moved, None)
-    assert away.startswith('attachments/') and (tmp_path/away).is_file()
+    assert away == 'PDF/Зарплата.pdf' and (tmp_path/away).is_file()
 
 
 def test_script_sets_lists_and_clears_project(tmp_path):
@@ -338,3 +338,65 @@ def test_reply_marks_files_checked_only_after_success(tmp_path, monkeypatch):
     monkeypatch.setattr(chat, '_run_chat', lambda system, user, **kwargs: 'Привет')
     assert chat.execute_raw_prompt('Ещё раз', 7, session_scope=7)['report'] == 'Привет'
     assert not store.unchecked(7)
+
+
+async def test_photo_without_project_waits_in_incoming_and_placing_fixes_the_daily_embed(tmp_path, monkeypatch):
+    """Егор, 10 октября 2026: без проекта фото не уходит во вложения по дате, а ждёт во входящих."""
+    from d_brain.bot.handlers import photo as module
+    from d_brain.config import Settings
+    settings = Settings(_env_file=None, vault_path=tmp_path, telegram_bot_token='test',
+                        deepgram_api_key='test', allowed_user_ids=[7], work_chat_ids=[],
+                        treat_all_group_chats_as_work=True)
+    monkeypatch.setattr(module, 'get_settings', lambda: settings)
+
+    @asynccontextmanager
+    async def typing(*args):
+        yield
+    monkeypatch.setattr(module, 'keep_typing', typing)
+    monkeypatch.setattr(module, '_analyze_image', AsyncMock(return_value='описание'))
+    projects(tmp_path)
+    message = SimpleNamespace(message_id=22, photo=[SimpleNamespace(file_id='p')], caption='плата',
+                              date=datetime.now(timezone.utc), media_group_id=None, from_user=SimpleNamespace(id=7),
+                              chat=SimpleNamespace(id=7, type='private', title=None), answer=AsyncMock())
+    bot = SimpleNamespace(get_file=AsyncMock(return_value=SimpleNamespace(file_path='photos/p.jpg')),
+                          download_file=AsyncMock(return_value=io.BytesIO(b'jpeg')))
+    from d_brain.bot import uploads
+    monkeypatch.setattr(uploads, 'get_settings', lambda: settings)
+    monkeypatch.setattr(uploads, 'BATCH_WINDOW_SECONDS', 0.2)
+    prompts = []
+
+    async def reply(message, prompt, *, scope, work_context=False):
+        prompts.append(prompt)
+    monkeypatch.setattr('d_brain.bot.handlers.text.dialog_reply', reply)
+    uploads._batches.clear()
+    await module.handle_photo(message, bot)
+    assert not (tmp_path/'attachments').exists() or not [p for p in (tmp_path/'attachments').rglob('*') if p.is_file()]
+    store = DocumentStore(tmp_path)
+    [doc] = store.for_scope(7)
+    assert doc['state'] == 'destination' and doc['path'].startswith('.documents/incoming/')
+    assert doc['name'].startswith('фото ') and doc['instructions'] == 'плата'
+    assert f"фото: {doc['path']} (во входящих, место ещё не выбрано); подпись: «плата»" in prompts[0]
+    [daily] = (tmp_path/'daily').glob('*.md')
+    assert f"![[{doc['path']}]]" in daily.read_text(encoding='utf-8')
+    placed = store.place(doc['id'], 'dacha')
+    assert placed['path'] == f"projects/dacha/{doc['name']}" and (tmp_path/placed['path']).is_file()
+    text = daily.read_text(encoding='utf-8')
+    assert f"![[{placed['path']}]]" in text and '.documents/incoming/' not in text
+
+
+def test_photo_without_project_goes_to_common_photo_folder_by_topic(tmp_path):
+    projects(tmp_path)
+    root = Path(__file__).resolve().parents[1]
+    store = DocumentStore(tmp_path)
+    doc, _ = store.receive(b'jpeg', 'фото 2026-10-10 21-50-00.jpg', 7, 7, 50)
+    env = {'PATH': '/usr/bin:/bin', 'VAULT_PATH': str(tmp_path), 'TELEGRAM_BOT_TOKEN': 'test',
+           'DEEPGRAM_API_KEY': 'test', 'HOME': str(tmp_path)}
+    done = subprocess.run([sys.executable, str(root/'scripts'/'project_context.py'), '--scope', '7', 'place',
+                           doc['path'], '--topic', 'Компьютер и сеть'],
+                          capture_output=True, text=True, env=env, cwd=tmp_path)
+    assert done.returncode == 0, done.stderr
+    assert done.stdout.strip() == ('Положил в папку Фото/Компьютер и сеть: '
+                                   'Фото/Компьютер и сеть/фото 2026-10-10 21-50-00.jpg')
+    assert not list((tmp_path/'daily').glob('*.md'))  # фото не получает вторую строку в дневнике
+    moved = store.move('Фото/Компьютер и сеть/фото 2026-10-10 21-50-00.jpg', None, topic='Разное')
+    assert moved == 'Фото/Разное/фото 2026-10-10 21-50-00.jpg' and (tmp_path/moved).is_file()

@@ -1,9 +1,3 @@
----
-type: note
-last_accessed: 2026-03-27
-relevance: 0.98
-tier: active
----
 # Changelog
 
 ## [5.2.0](https://github.com/Doist/todoist-ai/compare/v5.1.1...v5.2.0) (2025-11-27)

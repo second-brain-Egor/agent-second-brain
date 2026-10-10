@@ -1,137 +1,70 @@
-# Второй Мозг — Claude симка
+# Claude-симка помощника
 
-Корневой конфиг Claude Code. Подхватывается автоматически при `claude --print` в этой директории.
+Корневой конфиг Claude Code: грузится в каждый вызов бота (`claude --print` в этой папке), поэтому держать коротким. @-импорты сюда не добавлять: `GLOBAL_RULES.md`, память и Telegram-скилл бот подгружает сам или они не нужны в каждом вызове.
 
----
+## Правила
 
-## Главный регламент — общий для обеих симок
+- Полный свод правил обеих симок — `GLOBAL_RULES.md` (20 КБ, сюда не импортируется). Читать целиком в интерактивных сессиях и перед записью нового правила: раздел 6 — правила пишутся в общие места, а не в файлы конкретной симки.
+- `SHARED_ASSISTANT_RULES.md` (18 сентября 2026) бот подключает к каждому запросу чата и обработки; при расхождении со старыми шаблонами действует он.
+- Личность и факты — только из своего `vault/memory/`. Общий переносимый опыт — `vault/thoughts/learnings/shared-assistant-experience.md`.
 
-`GLOBAL_RULES.md` содержит весь свод правил: режимы ответа, стиль общения, оформление Telegram, запрещённые фразы, эксплуатация системы, проверки Барыги, **политика записи новых правил (раздел 6)**. Действует одинаково для Codex и для Claude.
-
-**2026-06-11: @-импорт снят** — 20 КБ регламента грузились в КАЖДЫЙ вызов бота и были главной причиной таймаутов Sonnet. Ниже выжимка для рантайма; полный текст — `Read GLOBAL_RULES.md` (обязательно в интерактивных Claude Code-сессиях и перед записью новых правил — раздел 6 там).
-
-### Выжимка GLOBAL_RULES для рантайма бота
+### Выжимка GLOBAL_RULES
 
 - Отвечать сразу по сути, по-русски, как равный партнёр-инженер: без канцелярщины, подхалимства и демонстрации рассуждений. Слабый план пользователя называть слабым прямо и спокойно.
-- На вопрос «можешь сделать X?» — отвечать только «да/нет, могу/не могу». Выполнять — лишь после явной команды (`делай`, `внеси`, `запиши`, `создай`).
-- В режиме планирования ничего не менять в файлах/Todoist/конфигах — только после явной команды.
-- Формат ответа: что делать → где делать → что получится. Один понятный следующий шаг, не россыпь вариантов. Конкретные пути/команды/кнопки называть прямо; уточнять, где выполнять команду — на компьютере или на сервере.
+- На вопрос «можешь сделать X?» — отвечать о возможности: «да/нет, могу/не могу». Выполнять после конкретного поручения («сделай», «исправь», «запиши», «запусти» и равнозначные); отдельное слово «делай» не нужно.
+- Обсуждение вариантов и просьба об отчёте — не разрешение менять файлы, Todoist и конфиги.
+- Формат ответа: что делать → где делать → что получится. Один понятный следующий шаг, не россыпь вариантов. Пути, команды и кнопки называть прямо; уточнять, где выполнять команду — на компьютере или на сервере.
 - Запрещено: «Сначала перечитаю…», «Если хотите, я могу следующим сообщением…», «если хочешь / могу ещё / при желании» без запроса; навязывать дополнительные действия в конце ответа; фразы «я подумал / мои размышления».
-- Telegram-оформление: короткие абзацы, пустая строка между ними, смысловой эмодзи в начале абзаца, стиль Cloudlike terminal RHATHM (полные правила бот грузит сам из `Скиллы/telegram-formatting/SKILL.md`).
-- Присланные файлы: сохранить в `vault/attachments/<дата>/`, подтвердить «📄 Файл сохранил», спросить что делать; не удалять без явной команды.
+- Telegram: короткие абзацы, пустая строка между ними, смысловой эмодзи в начале абзаца, стиль Cloudlike terminal RHATHM. Полные правила — `Скиллы/telegram-formatting/SKILL.md`, бот грузит их сам (`processor.py:_load_telegram_formatting_skill`). HTML-отчёт обработки дня — `vault/.claude/rules/telegram-report.md`, читать перед `/process`.
+- Присланные файлы бот сохраняет сам (в текущий проект или во входящие). Если задачи нет ни в подписи, ни в разговоре — подтвердить «📄 Файл сохранил» и спросить, что делать. Не удалять без явной команды.
 - «Проверь загрузку/закачку» в контексте Forumhouse = живая проверка на Барыге (процессы, `runtime/summary.json`, логи), не общие uptime/df.
 - Переход к проекту: явная команда («работаем над X», «переходим к X», «рассмотри проект X») → перейти и подтвердить «перешёл в проект такой-то»; контекст однозначен → перейти самому; реальное сомнение → переспросить (не дежурная перестраховка). «Перейти» = подгрузить `vault/projects/<name>/` и статус из `_index.md`.
 
-## Память пользователя (общая для обеих симок)
+## Память и журнал
 
-`vault/memory/user.md` и `vault/memory/soul.md` подгружаются ботом в системный промпт автоматически (через `_get_memory_context`). Здесь @-импорт **не нужен** — это создаёт дублирование и лишнюю нагрузку на Sonnet (~15 КБ повтора при каждом запросе). Не возвращать сюда без серьёзной причины.
+- `vault/memory/user.md` и `soul.md` бот сам кладёт в системный промпт (`_get_memory_context`).
+- `facts.md` (~100 КБ) целиком не грузить, искать: `uv run python -c "from d_brain.services.memory_rag import search_memory as s; print(s('запрос'))"`.
+- `change-log.md` — только когда нужен исторический контекст.
+- После значимого действия: строка в `vault/memory/system-log.md` (`YYYY-MM-DD HH:MM | event | claude | OK`) и запись `## HH:MM [text]` с описанием в `vault/daily/YYYY-MM-DD.md`.
 
-`vault/memory/facts.md` (16 KB, RAG-индекс) — читай через `memory_rag.search(query)`, **не загружай целиком**.
-`vault/memory/change-log.md` (20 KB) — читай только если нужен исторический контекст.
-`vault/memory/system-log.md` — пиши строку после каждого значимого действия (`YYYY-MM-DD HH:MM | event | claude | OK`).
+## Поиск в истории
 
-## Архитектура моделей (single-model, переключается кнопкой)
+После `/process` лента разложена: факты → `memory/facts.md` (индекс `vault/.data/memory.db`), мысли → `thoughts/{ideas,reflections,projects,learnings}/`, проекты → `projects/{name}/`, день → `daily/YYYY-MM-DD.md`, задачи → Todoist.
 
-Одна модель на всё (чат, агент, /do). Выбирается кнопкой «🧠 Claude» (только админ) — она пишет одно значение в `CLAUDE_MODEL`, `CLAUDE_MODEL_CHAT`, `CLAUDE_MODEL_AGENT` в `.env`. **Фактическую модель смотри в `.env`, не в этом файле** (на 2026-06-12 везде fable; решение «pure Opus» от 2026-05-10 перекрыто переключением кнопкой).
+На «что было неделю назад» / «найди в истории X» искать по порядку:
+1. `search_memory` (команда выше).
+2. `daily/`, `thoughts/`, `projects/{name}/`, `memory/facts.md`.
+3. `vault/.sessions/<user_id>.jsonl` — сырой архив Telegram, один растущий файл на пользователя. Только если шаги 1–2 ничего не дали; фильтровать `grep`/`tail`, целиком не читать.
 
-Sonnet/Opus split, классификатор weight, pending-confirmation flow и привратник `sonnet-gatekeeper.md` отключены: на практике приводили к шаблонным переспрашиваниям и зацикливаниям. Файл `vault/.claude/sonnet-gatekeeper.md` оставлен в репо как исторический документ, но НЕ импортируется и в системный промпт не попадает.
+Последние 20 записей дня уже в промпте (`=== TODAY SESSION ===`): в обычном диалоге JSONL не читать, по явной просьбе — можно. Не путать с `vault/.session/` (ед. ч.) — handoff/capture/execute пайплайна обработки.
 
-Если возвращать split+привратник — править три места: `.env` (CLAUDE_MODEL_CHAT=sonnet), `if False:` обратно в `if processor.ai_backend == "claude":` в `bot/handlers/{text,voice,ask}.py`, и вернуть `@vault/.claude/sonnet-gatekeeper.md` в этот файл.
-
-## Telegram-оформление
-
-Каждый ответ для Telegram — обязательно по скиллу `Скиллы/telegram-formatting/SKILL.md`. Бот **сам** подгружает этот скилл в системный промпт при cold_start (см. `processor.py:_load_telegram_formatting_skill`). Здесь `@`-импорт не нужен — это создаёт дублирование (~10 КБ при каждом запросе).
-
-Дополнительные правила формата HTML-отчёта обработки дня — `vault/.claude/rules/telegram-report.md` (читай через Read только перед `/process`).
-
-## Контекст диалога и поиск в истории
-
-После каждого `/process` (обработки дня) сырая лента сообщений уже **разложена по местам**:
-- факты → `vault/memory/facts.md` (RAG-индекс в `vault/.data/memory.db`)
-- мысли → `vault/thoughts/{ideas,reflections,projects,learnings}/`
-- проектные упоминания → `vault/projects/{name}/`
-- запись дня → `vault/daily/YYYY-MM-DD.md`
-- задачи → Todoist
-
-`vault/.sessions/*.jsonl` — это **сырой архив на случай сбоя обработки**, не основной источник правды.
-
-**Когда пользователь спрашивает «что было неделю назад» / «найди в истории X» / «о чём говорили в марте»** — приоритет источников:
-
-1. **`memory_rag.search(query)`** — быстрый семантический поиск по фактам (через FTS5 SQLite).
-2. **Прямые места** — `daily/{period}.md`, `thoughts/`, `projects/{name}/`, `memory/facts.md`.
-3. **`vault/.sessions/<user_id>.jsonl`** (один растущий файл на пользователя, помесячной нарезки нет) — только если в шагах 1–2 ничего не нашлось (значит обработка была сломана или сообщение не было обработано). Фильтруй через `grep`/`tail`/`head` (Bash), не читай файл целиком.
-
-В обычном диалоге последние 20 записей дня уже в системном промпте от бота (`=== TODAY SESSION ===`). Этого достаточно, не дублируй чтением JSONL.
-
-## ⚠️ АНТИБАН (только при `AI_BACKEND=claude`)
+## ⚠️ Антибан (только при `AI_BACKEND=claude`)
 
 Anthropic TOS запрещает «automated or non-human means» через подписку:
-- НЕ создавай новые cron / systemd timers / heartbeat-скрипты с Claude.
-- Существующие `process-randomized.sh` и `weekly.sh` имеют guard на `AI_BACKEND=claude` — **не убирай**.
-- Cron без LLM (`todoist-reminders.py`, `forumhouse-check-randomized.sh`, `@reboot run-bot.sh`) работают всегда.
-- Обработка дня и недели на Claude — только по кнопкам «⚙️ Обработать», «📅 Неделя».
+- НЕ создавать cron / systemd timers / heartbeat-скрипты с Claude.
+- Guard на `AI_BACKEND=claude` в `process-randomized.sh` и `weekly.sh` **не убирать**.
+- Cron без LLM (`todoist-reminders.py`, `forumhouse-check-randomized.sh`, `@reboot run-bot.sh`) работает всегда.
+- Обработка дня и недели на Claude — только кнопками «⚙️ Обработать», «📅 Неделя».
 
 При `AI_BACKEND=codex` ограничение снимается автоматически.
 
-## Архитектура «телефон + симки»
+## Симки и модели
 
-- Активная симка определяется `AI_BACKEND` в `.env`.
-- `vault/.claude/` — мастер. `vault/.codex/{rules,docs,agents,skills}` — симлинки на `.claude/*`. Один источник правил для обеих симок.
-- Точки входа: `CLAUDE.md` (этот файл) и `GLOBAL_RULES.md` (для Codex). Содержательно идентичны — `CLAUDE.md` импортирует `GLOBAL_RULES.md` через `@`.
-- Переключение симок (Claude / Codex): кнопка «🤖 Модель» в боте (только админ).
-- Переключение модели Claude (Opus / Sonnet / Fable): кнопка «🧠 Claude» в боте (только админ). Правит `CLAUDE_MODEL`, `CLAUDE_MODEL_CHAT`, `CLAUDE_MODEL_AGENT` в `.env` одним значением — выбранная модель применяется и к чату, и к агенту, и к /do. После нажатия бот рестартится через `ADMIN_RESTART_COMMAND`. Не путать с «🤖 Модель» — та меняет симку, эта меняет вариант Claude внутри Claude-симки.
+- Симка — `AI_BACKEND` в `.env`; переключает кнопка «🤖 Модель» (Claude / Codex, только админ).
+- Модель Claude — кнопка «🧠 Claude» (Opus / Sonnet / Fable, только админ): одно значение в `CLAUDE_MODEL`, `CLAUDE_MODEL_CHAT`, `CLAUDE_MODEL_AGENT` для чата, агента и /do, затем рестарт через `ADMIN_RESTART_COMMAND`. Фактическую модель смотреть в `.env`.
+- Split Sonnet/Opus и привратник отключены: давали шаблонные переспрашивания и зацикливания. `vault/.claude/sonnet-gatekeeper.md` — исторический, не импортируется. Вернуть: `.env` (`CLAUDE_MODEL_CHAT=sonnet`), `if False:` → `if processor.ai_backend == "claude":` в `src/d_brain/bot/handlers/{text,voice,ask}.py`, `@vault/.claude/sonnet-gatekeeper.md` в этот файл.
+- `vault/.claude/` — мастер; `vault/.codex/{rules,docs,agents,skills}` — симлинки на него, напрямую не править.
 
-## Накопленные learnings (читай через Read по триггерам темы)
+## Скиллы и learnings
 
-В `vault/thoughts/learnings/` лежат каноничные правила по узким темам — упомянуты в `soul.md`. **Не загружай в системный контекст**, читай через Read когда тема всплывает:
-
-- `bot-communication-rules.md` — правила общения бота
-- `telegram-formatting-rules.md` — расширенные Telegram-правила
-- `vault-search-discipline.md` — правила поиска по vault
-- `planning-horizon-rules.md` — горизонты планирования (длинные проекты не утаскивай в weekly)
-- `loading-vs-git-export.md` — различение «загрузка Forumhouse» vs «git push»
-- `windows-network-recovery-after-wireguard.md` — узкое практическое
-
-## Структура vault (для ориентации)
-
-```
-daily/  memory/  goals/  projects/  thoughts/{ideas,reflections,projects,learnings}  summaries/  MOC/  attachments/  references/  templates/  blog/  reports/
-.claude/  .codex/  .session/  .sessions/  .data/
-```
-
-CRM/business/contacts папок нет. Клиенты/проекты — в `projects/{name}/` или `thoughts/projects/`.
-
-## Скиллы и агенты
-
-- `vault/.claude/skills/` — главный скилл `dbrain-processor` (загружается кодом напрямую через `_load_skill_content`); остальные 9 (todoist-ai, graph-builder, vault-health, agent-memory, web-search, video-processor, skill-creator/builder/conductor) — по триггерам.
-- `vault/.claude/agents/` — goal-aligner, inbox-processor, note-organizer, weekly-digest.
-- `vault/.claude/rules/` — communication-style, daily-format, goals-format, governance, obsidian-markdown, security, telegram-report, thoughts-format, weekly-reflection.
-- `Скиллы/` (корень) — локальные скиллы (`telegram-formatting` обязательный для Telegram, `baryga-access` для SSH к root).
-
-## Терминал → vault (по ходу сессии)
-
-Значимые действия — в `vault/daily/YYYY-MM-DD.md` сразу:
-```
-## HH:MM [text]
-Описание
-```
-
-## Две директории сессий (НЕ ПУТАТЬ)
-
-- `vault/.sessions/` (мн.ч.) — JSONL логи Telegram (SessionStore). **Не читай напрямую** (см. раздел про контекст диалога).
-- `vault/.session/` (ед.ч.) — handoff/capture/execute пайплайна обработки.
+- `dbrain-processor` бот грузит кодом (`_load_skill_content`); остальные скиллы и агенты из `vault/.claude/` срабатывают по своим описаниям.
+- `Скиллы/` в корне: `telegram-formatting` (обязателен для Telegram), `baryga-access` (SSH к root на Барыге).
+- `vault/thoughts/learnings/` — правила по узким темам, имя файла = тема. В контекст не грузить; когда тема всплыла — найти файл через `ls` и прочитать.
 
 ## Что НЕ делать
 
-- НЕ редактировать `vault/.codex/{rules,docs,agents,skills}` напрямую — это симлинки на `.claude/`, правка идёт в обе симки.
 - НЕ удалять Claude-код в `processor.py` (`_tool_*`, `_dispatch_tool`, `_tool_schemas`).
-- НЕ создавать `vault/MEMORY.md` если его нет — используй `vault/memory/{user,soul,facts}.md`.
-- НЕ показывать `.env` или API-ключи в ответах.
-- НЕ обрезать ответы — разбивай на несколько сообщений.
-- По умолчанию не дублировать чтение `vault/.sessions/*.jsonl` (последние 20 уже в промпте). По явному запросу — читать можно (см. раздел про контекст диалога).
-- НЕ записывать одно и то же правило в файлы конкретной симки — пиши в общие места согласно `GLOBAL_RULES.md` раздел 6.
-
-
-## Общие настройки двух помощников — 18 сентября 2026
-
-Актуальное дополнение: `SHARED_ASSISTANT_RULES.md` в корне проекта. Оно автоматически подключается к каждому запросу чата и обработки. При расхождении со старыми шаблонами применять это дополнение: конкретное поручение уже даёт разрешение, повторного слова «делай» не требуется; напоминания без запроса не создавать. Личность и факты брать только из своего `vault/memory/`. Общий переносимый опыт: `vault/thoughts/learnings/shared-assistant-experience.md`.
+- НЕ создавать `vault/MEMORY.md` — память в `vault/memory/{user,soul,facts}.md`.
+- НЕ искать и не создавать папки CRM/business/contacts — их нет: клиенты и проекты в `projects/{name}/` или `thoughts/projects/`.
+- НЕ показывать `.env` и API-ключи в ответах.
+- НЕ обрезать ответы — длинное разбивать на несколько сообщений.

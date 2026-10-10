@@ -2,7 +2,7 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-09-29
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 Anthropic CEO Dario Amodei is raising a

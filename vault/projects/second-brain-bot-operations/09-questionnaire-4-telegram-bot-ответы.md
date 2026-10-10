@@ -1,8 +1,8 @@
 ---
 type: note
 last_accessed: 2026-05-07
-relevance: 0.98
-tier: active
+relevance: 0.1
+tier: archive
 ---
 # Ответы на опросник 4 — Telegram-бот
 

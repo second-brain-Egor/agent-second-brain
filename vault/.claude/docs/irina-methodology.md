@@ -1,9 +1,3 @@
----
-type: note
-last_accessed: 2026-09-20
-relevance: 0.98
-tier: active
----
 # Zettelkasten Rules
 
 Метод связанных заметок (Niklas Luhmann). Vault — это не свалка markdown-файлов,
@@ -20,7 +14,7 @@ tier: active
 | `thoughts/` | Processed notes by category (ideas, reflections, projects, learnings) |
 | `MOC/` | Maps of Content indexes (точки входа в темы) |
 | `summaries/` | Дневные/недельные сводки |
-| `attachments/` | Photos and files by date |
+| `Фото/` | Фото без проекта, по темам (фото проектов — в папках проектов) |
 | `references/` | Внешние материалы (статьи, ссылки, кэш) |
 | `templates/` | Шаблоны новых заметок |
 | `memory/` | Curated long-term memory (user.md, soul.md, facts.md) |

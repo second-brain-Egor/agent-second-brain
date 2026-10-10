@@ -115,7 +115,7 @@ async def test_photos_sent_one_by_one_get_one_reply_with_all_files(setup):
     # Помощник получает всю пачку: каждый файл и что с ним сделал бот, без вопросов от бота.
     [prompt] = setup.prompts
     assert all(path in prompt for path in entry['paths'])
-    assert 'подряд 3 вложений' in prompt and 'во вложения дня' in prompt
+    assert 'подряд 3 вложений' in prompt and 'во входящих, место ещё не выбрано' in prompt
     assert not uploads._batches
 
 

@@ -1,9 +1,5 @@
 ---
-type: note
 title: Search Protocols
-last_accessed: 2026-02-26
-relevance: 0.98
-tier: active
 ---
 # Search Protocols
 

@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-10-09
+last_accessed: 2026-10-10
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-10 | folders: 23, notes: 670, standalone: 0
+> Generated: 2026-10-11 | folders: 24, notes: 673, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -320,7 +320,6 @@ tier: active
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/frames/README|Кадры]]
-- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 24
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/analysis|Как на самом деле выбрать подходящего ИИ-агента]] — - Дата публикации: 11 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=6LNl...
@@ -453,6 +452,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 25
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 86
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 34
 - [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/frames/README|Кадры]] — Кадры — project
@@ -495,10 +495,12 @@ tier: active
 - [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/frames/README|Кадры]] — Кадры — project
 
-## Second brain bot operations (3)
+## Second brain bot operations (5)
 
 - [[projects/second-brain-bot-operations/server-storage-audit-2026-09-10|server storage audit 2026 09 10]] — Разбор диска сервера от корня: размеры, назначение папок, работающие службы, дубликаты и варианты освобождения места
 - [[projects/second-brain-bot-operations/README|Операционный статус second brain bot]] — Операционный статус second brain bot — note
+- [[projects/second-brain-bot-operations/09-questionnaire-4-telegram-bot|Опросник 4 — для Telegram-бота (боевые вопросы)]]
+- [[projects/second-brain-bot-operations/09-questionnaire-4-telegram-bot-ответы|Ответы на опросник 4 — Telegram-бот]]
 - [[projects/second-brain-bot-operations/memory-sync|Синхронизация памяти между Telegram и терминалом]] — Синхронизация памяти между Telegram и терминалом — note
 
 ## Server backup and migration (2)
@@ -741,6 +743,10 @@ tier: active
 - [[projects/Рынок стройматериалы/comparison-name-price-2026-04-26|Сравнение позиций: название и стоимость]] — Сравнение позиций: название и стоимость — research, working-data
 - [[projects/Рынок стройматериалы/market-comparison-page-2-2026-04-26|Сравнение цен — страница 2 прайса]] — Сравнение цен — страница 2 прайса — research, first-pass
 
+## Сварочник (1)
+
+- [[projects/Сварочник/ремонт-сварочника-xtramig-200syn|Ремонт сварочника XTRAMIG 200SYN]] — Проект «Сварочник»: неисправность XTRAMIG 200SYN — симптомы, снимки плат, поиск платы и цены, план проверки и точка п...
+
 ## Скрипт для выгрузки видео (1)
 
 - [[projects/Скрипт для выгрузки видео/README|Выгрузка видео]] — Выгрузка видео — project
@@ -748,6 +754,6 @@ tier: active
 ## Узлы VPN (4)
 
 - [[projects/Узлы VPN/Итоги недели 9–16 октября 2026|Итоги недели замеров узлов VPN — 9–16 октября 2026]] — Итоги недели замеров узлов VPN-подписки (9–16 октября 2026): пять служб через каждый узел, замер раз в 3 часа.
-- [[projects/Узлы VPN/Последний прогон|Прогон узлов VPN — 10 октября 2026, 03:00]] — Прогон узлов VPN-подписки 10 октября 2026: пять служб × 3 круга через каждый узел.
+- [[projects/Узлы VPN/Последний прогон|Прогон узлов VPN — 11 октября 2026, 00:00]] — Прогон узлов VPN-подписки 11 октября 2026: пять служб × 3 круга через каждый узел.
 - [[projects/Узлы VPN/Первый прогон 2026-10-09|Прогон узлов VPN — 9 октября 2026, 18:09]] — Прогон узлов VPN-подписки 9 октября 2026: пять служб × 3 круга через каждый узел.
 - [[projects/Узлы VPN/README|Узлы VPN]] — Сбор статистики по узлам VPN-подписки — регулярные замеры пяти служб через каждый узел и недельные итоги, чтобы выбра...

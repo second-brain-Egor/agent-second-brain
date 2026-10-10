@@ -1,8 +1,6 @@
 ---
-type: note
-last_accessed: 2026-05-07
-relevance: 0.98
-tier: active
+name: dbrain-processor
+description: "Обработка записей дня из Telegram (голос, текст, пересылки, фото): классификация, задачи в Todoist по целям, мысли в Obsidian с wiki-ссылками, HTML-отчёт. Запускается командой /process или из process-randomized.sh."
 ---
 # d-brain Processor (Codex)
 
@@ -88,7 +86,8 @@ mcp-cli call todoist complete-tasks '{"ids": ["task_id"]}'
 | `thoughts/` | ideas/, reflections/, projects/, learnings/ |
 | `summaries/` | Сводки и саммари |
 | `MOC/` | Maps of Content (индексные заметки) |
-| `attachments/` | Прикреплённые файлы (фото, аудио) |
+| `Фото/` | Фото без проекта, по темам; фото проектов лежат в папках проектов |
+| `attachments/` | Только фото из рабочих групп, по датам |
 | `references/` | Справочники и внешние данные |
 | `templates/` | Шаблоны для новых заметок |
 | `blog/` | Черновики постов |

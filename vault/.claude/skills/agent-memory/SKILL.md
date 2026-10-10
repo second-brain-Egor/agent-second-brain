@@ -1,12 +1,6 @@
 ---
-type: note
-description: >-
-last_accessed: 2026-02-26
-relevance: 0.98
-tier: active
 name: agent-memory
-Use when: (1) setting up memory for a new agent, (2) diagnosing memory bloat or context
-Triggers: "memory management", "organize vault", "memory decay", "forgetting curve",
+description: "Memory system for markdown files with automatic decay, tiered search and creative recall. Use when: (1) setting up memory for a new agent, (2) diagnosing memory bloat or context problems. Triggers: memory management, organize vault, memory decay, forgetting curve."
 ---
 
 # Agent Memory Management

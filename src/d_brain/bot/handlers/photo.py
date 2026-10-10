@@ -96,6 +96,18 @@ async def _save_photo(message: Message, bot: Bot, settings, scope, work_context:
             store.record_placement(scope, relative_path, "photo")
             store.touch_active(scope)
             where = "бот положил в текущий проект: " + folder_label(relative_path)
+        elif not work_context:
+            # Егор, 10 октября 2026: без проекта фото ждёт во входящих, как документ, и помощник
+            # кладёт его по теме (scripts/project_context.py place), а не во вложения по дате.
+            doc, fresh = store.receive(
+                photo_bytes, f"фото {timestamp:%Y-%m-%d %H-%M-%S}.{extension}", scope,
+                message.chat.id, message.message_id, message.caption or "",
+            )
+            if not fresh:
+                return None  # Telegram прислал то же сообщение повторно
+            relative_path = doc["path"]
+            where = ("такой же снимок уже сохранён раньше, лежит в " + folder_label(relative_path)
+                     if doc["state"] == "ready" else "во входящих, место ещё не выбрано")
         else:
             relative_path = storage.save_attachment(
                 photo_bytes,

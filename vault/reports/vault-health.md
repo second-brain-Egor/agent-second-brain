@@ -1,8 +1,9 @@
 ---
 type: note
-updated: 2026-10-10
-relevance: 0.86
-tier: warm
+updated: 2026-10-11
+last_accessed: 2026-10-11
+relevance: 1.0
+tier: active
 ---
 # Health Check Vault
 
@@ -10,32 +11,32 @@ tier: warm
 
 ## Обзор
 
-- Заметок: 968
-- Связей: 2392
-- Сирот: 68
-- Слабосвязанных: 86
+- Заметок: 971
+- Связей: 2404
+- Сирот: 69
+- Слабосвязанных: 84
 
 ## Домены
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 7 | 210.00 |
+| MOC | 7 | 210.86 |
 | blog | 2 | 1.00 |
-| daily | 192 | 1.48 |
+| daily | 193 | 1.49 |
 | goals | 5 | 8.00 |
 | memory | 5 | 44.60 |
-| projects | 670 | 3.55 |
+| projects | 673 | 3.56 |
 | references | 5 | 2.00 |
 | reports | 2 | 41.00 |
 | root | 1 | 3.00 |
 | summaries | 24 | 1.25 |
 | templates | 2 | 0.00 |
-| thoughts | 53 | 4.91 |
+| thoughts | 52 | 5.00 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 734 связей
-- [[MOC/MOC-projects.md|MOC - Projects]] — 674 связей
+- [[MOC/index.md|Индекс знаний]] — 737 связей
+- [[MOC/MOC-projects.md|MOC - Projects]] — 677 связей
 - [[memory/facts.md|Ключевые факты и события]] — 138 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 107 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
@@ -67,7 +68,7 @@ tier: warm
 - [[daily/2026-06-26.md|2026-06-26]]
 - [[daily/2026-06-27.md|2026-06-27]]
 - [[daily/2026-06-28.md|2026-06-28]]
-- ... ещё 48
+- ... ещё 49
 
 ## Слабосвязанные
 
@@ -91,27 +92,27 @@ tier: warm
 - [[daily/2026-04-27.md|2026-04-27]]
 - [[daily/2026-04-29.md|2026-04-29]]
 - [[daily/2026-04-30.md|2026-04-30]]
-- ... ещё 66
+- ... ещё 64
 
 ## Неразрешённые ссылки
 
 - [[MOC/MOC-business.md|MOC - Business]]: business/_index
 - [[MOC/MOC-projects.md|MOC - Projects]]: projects/Ирина работа/.служебное/Стандарты фирменного стиля/Описание, projects/Ирина работа/Приводи своих друзей/.служебное/Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится/Описание
-- [[daily/2026-03-29.md|2026-03-29]]: attachments/2026-03-29/img-153353.jpg, attachments/2026-03-29/img-153442.jpg, attachments/2026-03-29/img-153919.jpg, attachments/2026-03-29/img-154039.jpg, attachments/2026-03-29/img-154119.jpg
-- [[daily/2026-04-08.md|2026-04-08]]: .session/handoff, GLOBAL_RULES, attachments/2026-04-08/img-224628.jpg, attachments/2026-04-08/img-231319.jpg
-- [[daily/2026-04-09.md|2026-04-09]]: .session/handoff, attachments/2026-04-09/img-091056.jpg, attachments/2026-04-09/img-092050.jpg
-- [[daily/2026-04-11.md|2026-04-11]]: attachments/2026-04-11/img-133108.jpg, attachments/2026-04-11/img-133634.jpg
-- [[daily/2026-04-13.md|2026-04-13]]: attachments/2026-04-13/img-135028.jpg, attachments/2026-04-13/img-135451.jpg, attachments/2026-04-13/img-141319.jpg
-- [[daily/2026-04-14.md|2026-04-14]]: attachments/2026-04-14/img-120945.jpg
-- [[daily/2026-04-23.md|2026-04-23]]: attachments/2026-04-23/img-145217.jpg, attachments/2026-04-23/img-180817.jpg
-- [[daily/2026-04-26.md|2026-04-26]]: attachments/2026-04-26/img-201007.jpg, attachments/2026-04-26/img-203355.jpg, attachments/2026-04-26/img-204337.jpg, attachments/2026-04-26/img-204926.jpg
-- [[daily/2026-04-29.md|2026-04-29]]: attachments/2026-04-29/img-194339.jpg, attachments/2026-04-29/img-195007.jpg, attachments/2026-04-29/img-195227.jpg, attachments/2026-04-29/img-195246.jpg
+- [[daily/2026-03-29.md|2026-03-29]]: projects/server-backup-and-migration/фото 2026-03-29 15-33-53.jpg, projects/server-backup-and-migration/фото 2026-03-29 15-34-42.jpg, projects/server-backup-and-migration/фото 2026-03-29 15-39-19.jpg, projects/server-backup-and-migration/фото 2026-03-29 15-40-39.jpg, projects/server-backup-and-migration/фото 2026-03-29 15-41-19.jpg
+- [[daily/2026-04-08.md|2026-04-08]]: .session/handoff, GLOBAL_RULES, projects/second-brain-bot-operations/фото 2026-04-08 23-13-19.jpg, Фото/Компьютер и сеть/фото 2026-04-08 22-46-28.jpg
+- [[daily/2026-04-09.md|2026-04-09]]: .session/handoff, Фото/Компьютер и сеть/фото 2026-04-09 09-10-56.jpg, Фото/Компьютер и сеть/фото 2026-04-09 09-20-50.jpg
+- [[daily/2026-04-11.md|2026-04-11]]: projects/second-brain-bot-operations/фото 2026-04-11 13-31-08.jpg, projects/second-brain-bot-operations/фото 2026-04-11 13-36-34.jpg
+- [[daily/2026-04-13.md|2026-04-13]]: projects/second-brain-bot-operations/фото 2026-04-13 13-50-28.jpg, projects/second-brain-bot-operations/фото 2026-04-13 13-54-51.jpg, projects/second-brain-bot-operations/фото 2026-04-13 14-13-19.jpg
+- [[daily/2026-04-14.md|2026-04-14]]: projects/shiporezny-stanok-selection/фото 2026-04-14 12-09-45.jpg
+- [[daily/2026-04-23.md|2026-04-23]]: Фото/Компьютер и сеть/фото 2026-04-23 14-52-17.jpg, Фото/Компьютер и сеть/фото 2026-04-23 18-08-17.jpg
+- [[daily/2026-04-26.md|2026-04-26]]: projects/Рынок стройматериалы/фото 2026-04-26 20-10-07.jpg, projects/Рынок стройматериалы/фото 2026-04-26 20-33-55.jpg, projects/Рынок стройматериалы/фото 2026-04-26 20-43-37.jpg, projects/Рынок стройматериалы/фото 2026-04-26 20-49-26.jpg
+- [[daily/2026-04-29.md|2026-04-29]]: Фото/Цены и товары/фото 2026-04-29 19-43-39.jpg, Фото/Цены и товары/фото 2026-04-29 19-50-07.jpg, Фото/Цены и товары/фото 2026-04-29 19-52-27.jpg, Фото/Цены и товары/фото 2026-04-29 19-52-46.jpg
 - [[daily/2026-05-04.md|2026-05-04]]: .session/handoff
-- [[daily/2026-05-07.md|2026-05-07]]: attachments/2026-05-07/09-questionnaire-4-telegram-bot, attachments/2026-05-07/09-questionnaire-4-telegram-bot-2, attachments/2026-05-07/09-questionnaire-4-telegram-bot-3, attachments/2026-05-07/09-questionnaire-4-telegram-bot-4, attachments/2026-05-07/09-questionnaire-4-telegram-bot-5 ...
-- [[daily/2026-05-08.md|2026-05-08]]: attachments/2026-05-08/img-222532.jpg
-- [[daily/2026-05-09.md|2026-05-09]]: attachments/2026-05-09/img-182851.jpg, attachments/2026-05-09/img-220231.jpg
-- [[daily/2026-05-10.md|2026-05-10]]: attachments/2026-05-10/img-181739.jpg, attachments/2026-05-10/img-181929.jpg
-- [[daily/2026-05-11.md|2026-05-11]]: attachments/2026-05-11/img-092214.jpg
+- [[daily/2026-05-07.md|2026-05-07]]: attachments/2026-05-07/09-questionnaire-4-telegram-bot-2, attachments/2026-05-07/09-questionnaire-4-telegram-bot-3, attachments/2026-05-07/09-questionnaire-4-telegram-bot-4, attachments/2026-05-07/09-questionnaire-4-telegram-bot-5, projects/second-brain-bot-operations/фото 2026-05-07 20-26-52.jpg
+- [[daily/2026-05-08.md|2026-05-08]]: projects/second-brain-bot-operations/фото 2026-05-08 22-25-32.jpg
+- [[daily/2026-05-09.md|2026-05-09]]: attachments/2026-05-09/img-220231.jpg, projects/second-brain-bot-operations/фото 2026-05-09 18-28-51.jpg
+- [[daily/2026-05-10.md|2026-05-10]]: Фото/Личное/фото 2026-05-10 18-17-39.jpg, Фото/Личное/фото 2026-05-10 18-19-29.jpg
+- [[daily/2026-05-11.md|2026-05-11]]: Фото/Личное/фото 2026-05-11 09-22-14.jpg
 - [[daily/2026-05-13.md|2026-05-13]]: attachments/2026-05-13/img-200536.jpg, attachments/2026-05-13/img-200751.jpg, attachments/2026-05-13/img-201045.jpg, attachments/2026-05-13/img-202519.jpg, attachments/2026-05-13/img-204033.jpg
-- [[daily/2026-05-14.md|2026-05-14]]: attachments/2026-05-14/img-072308.jpg, attachments/2026-05-14/img-152837.jpg, attachments/2026-05-14/img-154052.jpg, attachments/2026-05-14/img-154359.jpg, attachments/2026-05-14/img-154526.jpg
-- [[daily/2026-05-15.md|2026-05-15]]: attachments/2026-05-15/img-132410.jpg, attachments/2026-05-15/img-141621.jpg
+- [[daily/2026-05-14.md|2026-05-14]]: attachments/2026-05-14/img-072308.jpg, projects/timberframe/фото 2026-05-14 15-28-37.jpg, projects/timberframe/фото 2026-05-14 15-40-52.jpg, projects/timberframe/фото 2026-05-14 15-43-59.jpg, projects/timberframe/фото 2026-05-14 15-45-26.jpg
+- [[daily/2026-05-15.md|2026-05-15]]: projects/Подключение/фото 2026-05-15 13-24-10.jpg, projects/Подключение/фото 2026-05-15 14-16-21.jpg

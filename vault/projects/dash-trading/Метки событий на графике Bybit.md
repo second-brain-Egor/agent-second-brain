@@ -4,7 +4,7 @@ description: Метки американской статистики на гр�
 related: "[[projects/dash-trading/README|Торговля DASH]]"
 created: 2026-10-08
 last_accessed: 2026-10-08
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 

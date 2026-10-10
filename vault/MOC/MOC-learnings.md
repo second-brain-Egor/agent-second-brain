@@ -1,14 +1,14 @@
 ---
 type: moc
 description: "Map of Content: Уроки и паттерны, 24 entries"
-last_accessed: 2026-10-10
+last_accessed: 2026-10-11
 relevance: 1.0
 tier: active
 ---
 
 # Уроки и паттерны
 
-Сгенерировано: 2026-10-10 04:13. Файлов: 24.
+Сгенерировано: 2026-10-11 01:32. Файлов: 24.
 
 - [[thoughts/learnings/agent-team-pattern-portability|Переносимость команды агентов]] — Паттерн из ролика Nate Herk — главный координатор и специализированные исполнители — применим не только в Grok Bot.
 - [[thoughts/learnings/ai-models-2026-07-25|Новые модели Anthropic и OpenAI на 25 июля 2026]] — - Claude Opus 5 вышел 24 июля: основная сильная модель для сложной разработки и профессиональной работы. - Claude Son...

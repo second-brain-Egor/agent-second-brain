@@ -1,9 +1,3 @@
----
-type: note
-last_accessed: 2026-03-27
-relevance: 0.98
-tier: active
----
 # Architectural Patterns for Skills
 
 Five reusable patterns. Most skills use one as primary and borrow elements from others. Choose based on what the skill actually does, not what sounds impressive.

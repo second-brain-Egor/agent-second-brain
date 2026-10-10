@@ -1,9 +1,3 @@
----
-type: note
-last_accessed: 2026-03-27
-relevance: 0.98
-tier: active
----
 # Zettelkasten Rules
 
 ## Directory Structure
@@ -14,7 +8,7 @@ tier: active
 | `goals/` | Goal cascade (3y → yearly → monthly → weekly) |
 | `thoughts/` | Processed notes by category |
 | `MOC/` | Maps of Content indexes |
-| `attachments/` | Photos by date |
+| `Фото/` | Фото без проекта, по темам (фото проектов — в папках проектов) |
 | `business/` | Business data (CRM, network, events) |
 | `projects/` | Side projects (clients, leads) |
 

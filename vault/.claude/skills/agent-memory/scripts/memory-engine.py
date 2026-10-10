@@ -211,9 +211,18 @@ def save_default_config(target_dir: Path):
 # ─── commands ───────────────────────────────────────────────────
 
 def find_cards(target_dir: Path, config: dict) -> list[Path]:
-    """Find all markdown files, respecting skip patterns."""
+    """Find all markdown files, respecting skip patterns.
+
+    Hidden folders (.claude, .codex, .sessions, ...) hold configs and service files, not memory
+    cards: the line-based frontmatter rewrite breaks multi-line skill descriptions there.
+    """
     cards = sorted(target_dir.rglob("*.md"))
-    return [c for c in cards if c.exists() and not c.is_symlink() and not should_skip(c, config["skip_patterns"])]
+    return [
+        c for c in cards
+        if c.exists() and not c.is_symlink()
+        and not any(part.startswith(".") for part in c.relative_to(target_dir).parent.parts)
+        and not should_skip(c, config["skip_patterns"])
+    ]
 
 
 def cmd_scan(target_dir: Path, config: dict, verbose: bool = False):
