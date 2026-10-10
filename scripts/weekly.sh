@@ -44,6 +44,12 @@ fi
     echo "=== Vault-health done ==="
 } >>"$LOG_FILE" 2>&1
 
+# WEEKLY_DIGEST_ENABLED=false: недельный отчёт не готовится и не присылается; обслуживание
+# хранилища выше идёт всегда (бот Ирины, поручение Егора 9 октября 2026).
+if [ "${WEEKLY_DIGEST_ENABLED:-true}" = "false" ]; then
+    exit 0
+fi
+
 # Anti-ban guard: skip LLM-based weekly digest when processing backend resolves to claude.
 # Vault-health above runs unconditionally — it doesn't call LLM.
 # Приоритет: PROCESS_BACKEND > AI_BACKEND > codex. См. process-randomized.sh.

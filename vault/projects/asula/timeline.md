@@ -4,7 +4,7 @@ description: "Хроника обсуждений и решений по АСУ�
 created: 2026-05-09
 updated: 2026-08-05
 last_accessed: 2026-06-12
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 

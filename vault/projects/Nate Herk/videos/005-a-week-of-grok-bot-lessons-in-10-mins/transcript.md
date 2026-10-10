@@ -3,7 +3,7 @@ type: project
 description: "Today, I'm going to show you guys nine of my favorite GrokBot hacks in just under 10 minutes. Now, using all of these hacks will help you get way..."
 related: 
 last_accessed: 2026-08-23
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 Today, I'm going to show you guys nine

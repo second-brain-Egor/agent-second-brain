@@ -1,0 +1,692 @@
+#!/usr/bin/python3
+"""Замеры узлов VPN-подписки (проект «Узлы VPN»). Работает без нейросети.
+
+Каждый узел подписки, кроме стран вне списка Anthropic, проверяется отдельным пробным Xray
+на свободном порту: пять служб стража (нейросеть, Telegram, Google, YouTube, Cloudflare) × 3 круга.
+Рабочий выход, страж и его блокировка не трогаются, в чат ничего не уходит. К серверу Anthropic
+идёт запрос без ключа: проверяется только, что трафик через узел проходит.
+
+    vpn-nodes run [--table ИМЯ.md]   один прогон: строки в журнал замеров и таблица прогона
+    vpn-nodes week                   начать неделю наблюдения: включить таймер и сразу сделать первый замер
+    vpn-nodes scheduled              запуск по таймеру (раз в 3 часа): замер, а в конце недели — итоги
+    vpn-nodes report                 промежуточные итоги текущей недели в файл, без отправки
+
+Каждый узел — одна строка в `замеры/журнал.jsonl` папки проекта; по ним собираются недельные итоги.
+Итоги недели — файл в папке проекта и одно сообщение Егору; после отправки таймер выключается.
+Таблица прогона переписывается после каждого узла: в шапке видно, сколько узлов уже проверено.
+Разбор подписки, curl и запуск пробного Xray берутся из установленного стража (/usr/local/sbin/vpn-guard).
+Ссылка подписки и ключи узлов никуда не записываются.
+"""
+from __future__ import annotations
+
+import argparse
+import fcntl
+import importlib.machinery
+import importlib.util
+import json
+import os
+import re
+import shutil
+import socket
+import statistics
+import subprocess
+import sys
+import time
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+GUARD = Path('/usr/local/sbin/vpn-guard')
+PROJECT_DIR = Path('/home/egor/agent-second-brain/vault/projects/Узлы VPN')
+DATA_DIR = PROJECT_DIR / 'замеры'
+JOURNAL = DATA_DIR / 'журнал.jsonl'
+DEFAULT_TABLE = 'Последний прогон.md'
+OWNER = (1000, 1000)  # egor: файлы в хранилище должны оставаться его
+LOCK_FILE = '/run/vpn-nodes.lock'
+STATE_DIR = Path('/var/lib/vpn-nodes')
+WEEK_FILE = STATE_DIR / 'week.json'  # начало и конец недели наблюдения, отметка об отправке итогов
+SESSIONS = Path('/home/egor/agent-second-brain/vault/.sessions')
+TIMER = 'vpn-nodes.timer'
+WEEK = timedelta(days=7)
+INTERVAL = timedelta(hours=3)  # как в vpn-nodes.timer
+TOP = 5  # лучших узлов в сообщении с итогами
+TZ = ZoneInfo('Europe/Moscow')
+ROUNDS = 3
+TIMEOUT = 10
+EXIT_INFO = 'https://ipinfo.io/json'  # адрес и страна выхода, если Cloudflare не ответил
+
+# Страны, где Anthropic разрешает работу (anthropic.com/supported-countries, сверено 9 октября 2026).
+ALLOWED = frozenset('''
+AL DZ AD AO AG AR AM AU AT AZ BS BH BD BB BE BZ BJ BT BO BA BW BR BN BG BF BI CV KH CM CA CF TD CL CO
+KM CG CD CR CI HR CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY
+HT HN HU IS IN ID IQ IE IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MG MW MY MV ML MT MH
+MR MU MX FM MD MC MN ME MA MZ NA NR NP NL NZ NI NE NG MK NO OM PK PW PS PA PG PY PE PH PL PT QA RO RW
+KN LC VC WS SM ST SA SN RS SC SL SG SK SI SO SB ZA KR SS ES LK SD SR SE CH TW TJ TZ TH TL TG TO TT TN
+TR TM TV UG UA AE GB US UY UZ VU VA VN ZM ZW
+'''.split())
+
+GROUPS = (
+    ('all', '✅ Прошли всё'),
+    ('partial', '🟡 С перебоями'),
+    ('dead', '❌ Не работают'),
+    ('foreign', '⛔ Выход из страны вне списка Anthropic'),
+)
+
+MONTHS = ('января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября',
+          'октября', 'ноября', 'декабря')
+
+vg = None  # модуль стража, загружается в main()
+
+
+def now() -> datetime:
+    return datetime.now(TZ)
+
+
+def load_guard(path: Path = GUARD):
+    loader = importlib.machinery.SourceFileLoader('vpn_guard', str(path))
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[loader.name] = module
+    loader.exec_module(module)
+    return module
+
+
+# ─────────────────────────────── узлы и страны ───────────────────────────────
+
+def flag_country(name: str) -> str | None:
+    """Код страны по флагу в названии узла: «🇳🇴 Осло, Норвегия» → NO."""
+    letters = [chr(ord(char) - 0x1F1E6 + ord('A')) for char in name if 0x1F1E6 <= ord(char) <= 0x1F1FF]
+    return ''.join(letters[:2]) if len(letters) >= 2 else None
+
+
+def flag(code: str | None) -> str:
+    return ''.join(chr(0x1F1E6 + ord(char) - ord('A')) for char in code) if code else '?'
+
+
+def title(name: str) -> str:
+    return re.sub(r',\s*Extra\s*$', '', name).strip()
+
+
+def select(nodes: list) -> tuple[list, list[str]]:
+    """Узлы для прогона и названия пропущенных: страна по флагу должна быть в списке Anthropic."""
+    chosen, skipped = [], []
+    for node in nodes:
+        (chosen if flag_country(node.name) in ALLOWED else skipped).append(node)
+    return chosen, [title(node.name) for node in skipped]
+
+
+# ─────────────────────────────────── замер ───────────────────────────────────
+
+def exit_of(trace: tuple[int, bytes], info: tuple[int, bytes]) -> dict:
+    """Адрес и страна выхода: по Cloudflare, а если он не ответил — по ipinfo."""
+    code, body = trace
+    if code == 200:
+        fields = dict(re.findall(rb'^(\w+)=(.*)$', body, re.M))
+        if fields.get(b'loc'):
+            return dict(ip=fields.get(b'ip', b'').decode() or None, cc=fields[b'loc'].decode())
+    code, body = info
+    if code == 200:
+        try:
+            data = json.loads(body)
+        except ValueError:
+            data = {}
+        if re.fullmatch(r'[A-Z]{2}', str(data.get('country', ''))):
+            return dict(ip=data.get('ip'), cc=data['country'])
+    return dict(ip=None, cc=None)
+
+
+def fetch(port: int, urls: list[str | None]) -> list[tuple[int, bytes, int]]:
+    """Все адреса параллельно через SOCKS пробного Xray: (HTTP-код, тело, мс). None — не запрашивать."""
+    proxy = f'socks5h://127.0.0.1:{port}'
+
+    def one(url: str | None) -> tuple[int, bytes, int]:
+        if url is None:
+            return 0, b'', 0
+        started = time.monotonic()
+        code, body, _ = vg.curl(url, proxy=proxy, timeout=TIMEOUT)
+        return code, body, round((time.monotonic() - started) * 1000)
+
+    with ThreadPoolExecutor(len(urls)) as pool:
+        return list(pool.map(one, urls))
+
+
+def measure(port: int) -> dict:
+    """Предварительно — страна выхода; если её нет в списке Anthropic, к нейросети не обращаемся."""
+    trace_url = dict(vg.SERVICES)['Cloudflare']
+    (code, body, _), (info_code, info_body, _) = fetch(port, [trace_url, EXIT_INFO])
+    first = exit_of((code, body), (info_code, info_body))
+    if first['cc'] and first['cc'] not in ALLOWED:
+        return dict(services={}, exits=[first], error=f'выход из страны {first["cc"]}, её нет в списке Anthropic')
+    services = {name: [] for name, _ in vg.SERVICES}
+    exits = []
+    banned = False
+    for _ in range(ROUNDS):
+        urls = [None if banned and name == 'нейросеть' else url for name, url in vg.SERVICES] + [EXIT_INFO]
+        results = fetch(port, urls)
+        for (name, _), (code, _, ms) in zip(vg.SERVICES, results):
+            services[name].append([code, ms])
+        trace, info = results[[name for name, _ in vg.SERVICES].index('Cloudflare')], results[-1]
+        exits.append(exit_of(trace[:2], info[:2]))
+        banned = banned or bool(exits[-1]['cc'] and exits[-1]['cc'] not in ALLOWED)
+    return dict(services=services, exits=exits, error=None)
+
+
+def probe_node(node) -> dict:
+    """Пробный Xray от nobody на свободном порту, как test_candidate у стража; рабочий Xray не трогается."""
+    vg.ensure_run_dir()
+    with socket.socket() as holder:
+        holder.bind(('127.0.0.1', 0))
+        port = holder.getsockname()[1]
+    config = {'log': {'loglevel': 'warning'},
+              'inbounds': [{'listen': '127.0.0.1', 'port': port, 'protocol': 'socks',
+                            'settings': {'auth': 'noauth', 'udp': False}}],
+              'outbounds': [{**json.loads(json.dumps(node.outbound)), 'tag': 'proxy'}]}
+    path = vg.RUN_DIR / f'survey-{os.getpid()}-{port}.json'
+    vg.write_private(path, json.dumps(config), 0o640)
+    shutil.chown(path, 'root', 'nogroup')
+    uid, gid = vg.USERS['nobody']
+    process = subprocess.Popen(['setpriv', f'--reuid={uid}', f'--regid={gid}', '--clear-groups',
+                                vg.XRAY_BIN, 'run', '-config', str(path)],
+                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        if not vg.wait_port(port):
+            return dict(services={}, exits=[], error='пробный Xray не запустился')
+        return measure(port)
+    finally:
+        process.terminate()
+        try:
+            process.wait(5)
+        except subprocess.TimeoutExpired:
+            process.kill()
+        path.unlink(missing_ok=True)
+
+
+# ─────────────────────────────────── итоги ───────────────────────────────────
+
+def hits(record: dict, name: str) -> int:
+    return sum(1 for code, _ in record['services'].get(name, []) if code)
+
+
+def verdict(record: dict) -> str:
+    if any(item['cc'] and item['cc'] not in ALLOWED for item in record['exits']):
+        return 'foreign'
+    if record['error']:
+        return 'dead'
+    total = sum(hits(record, name) for name in record['services'])
+    possible = sum(len(results) for results in record['services'].values())
+    return 'all' if total == possible else 'dead' if total == 0 else 'partial'
+
+
+def median_ms(record: dict, name: str) -> int | None:
+    times = [ms for code, ms in record['services'].get(name, []) if code]
+    return round(statistics.median(times)) if times else None
+
+
+def exit_cell(record: dict) -> str:
+    countries = [item['cc'] for item in record['exits'] if item['cc']]
+    ips = {item['ip'] for item in record['exits'] if item['ip']}
+    if not countries:
+        return '?'
+    cell = ' '.join(flag(cc) for cc in dict.fromkeys(countries))
+    if any(cc != record['flag'] for cc in countries):
+        cell = '⚠️ ' + cell
+    return cell + (f' ({len(ips)} адреса)' if len(ips) > 1 else '')  # провайдер раздаёт адреса из пула
+
+
+def row(record: dict, names: list[str]) -> str:
+    if record['error'] and not record['services']:
+        return '| ' + ' | '.join([record['node'], record['error']] + ['—'] * (len(names) + 1)) + ' |'
+    ms = median_ms(record, 'нейросеть')
+    cells = [record['node'], exit_cell(record),
+             *[f'{hits(record, name)}/{ROUNDS}' if record['services'].get(name) else '—' for name in names],
+             f'{ms / 1000:.2f}'.replace('.', ',') if ms is not None else '—']
+    return '| ' + ' | '.join(cells) + ' |'
+
+
+def sort_key(record: dict) -> tuple:
+    main = hits(record, 'нейросеть') + hits(record, 'Telegram')
+    total = sum(hits(record, name) for name in record['services'])
+    ms = median_ms(record, 'нейросеть')
+    return -main, -total, ms if ms is not None else 10 ** 9, record['node']
+
+
+def render(records: list[dict], *, started: datetime, total: int, skipped: list[str],
+           names: list[str], finished: datetime | None = None, failure: str | None = None) -> str:
+    date = f'{started.day} {MONTHS[started.month - 1]} {started.year}'
+    if failure:
+        status = f'⚠️ Прогон прерван: {failure}.'
+    elif finished:
+        minutes = max(round((finished - started).total_seconds() / 60), 1)
+        status = f'✅ Завершён в {finished:%H:%M}, длился {minutes} мин. Проверено узлов: {len(records)}.'
+    else:
+        status = f'⏳ Идёт с {started:%H:%M}: проверено {len(records)} из {total}.'
+    lines = [
+        '---', 'type: note',
+        f'description: "Прогон узлов VPN-подписки {date}: пять служб × {ROUNDS} круга через каждый узел."',
+        f'created: {started:%Y-%m-%d}', '---', '',
+        f'# Прогон узлов VPN — {date}, {started:%H:%M}', '', status, '',
+        f'Каждый узел проверялся отдельной пробной копией туннеля, рабочий выход не трогался. '
+        f'В ячейке — во скольких кругах из {ROUNDS} служба ответила. «Нейросеть, с» — время '
+        f'ответа сервера Anthropic с установкой соединения (медиана по кругам). «Выход» — страна по Cloudflare '
+        f'(или ipinfo); ⚠️ — не совпадает с флагом узла; «2 адреса» — между кругами сменился адрес выхода.',
+    ]
+    if skipped:
+        lines += ['', 'Не проверялись (страны нет в списке Anthropic): ' + '; '.join(skipped) + '.']
+    header = ['Узел', 'Выход', *(name[:1].upper() + name[1:] for name in names), 'Нейросеть, с']
+    for key, heading in GROUPS:
+        group = sorted((r for r in records if verdict(r) == key), key=sort_key)
+        if not group:
+            continue
+        lines += ['', f'## {heading} ({len(group)})', '',
+                  '| ' + ' | '.join(header) + ' |', '|' + '---|' * len(header)]
+        lines += [row(record, names) for record in group]
+    return '\n'.join(lines) + '\n'
+
+
+# ───────────────────────────────── файлы ─────────────────────────────────
+
+def own(path: Path) -> None:
+    os.chown(path, *OWNER)
+
+
+def ensure_dirs() -> None:
+    for path in (PROJECT_DIR, DATA_DIR):
+        if not path.exists():
+            path.mkdir()
+            own(path)
+
+
+def write_text(path: Path, text: str) -> None:
+    temporary = path.with_name(f'.{path.name}.tmp')
+    temporary.write_text(text, encoding='utf-8')
+    os.chmod(temporary, 0o644)
+    own(temporary)
+    temporary.replace(path)
+
+
+def append_journal(record: dict) -> None:
+    created = not JOURNAL.exists()
+    with JOURNAL.open('a', encoding='utf-8') as file:
+        file.write(json.dumps(record, ensure_ascii=False, separators=(',', ':')) + '\n')
+    if created:
+        os.chmod(JOURNAL, 0o644)
+        own(JOURNAL)
+
+
+# ───────────────────────────────── прогон ─────────────────────────────────
+
+def do_run(table_name: str) -> int:
+    started = now()
+    run_id = f'{started:%Y-%m-%dT%H:%M}'
+    table = PROJECT_DIR / table_name
+    names = [name for name, _ in vg.SERVICES]
+    ensure_dirs()
+    url = vg.read_subscription_url()
+    try:
+        if not url:
+            raise vg.GuardError('ссылка подписки не задана')
+        # Копия состояния стража: признак «нужен идентификатор устройства» читаем, но не сохраняем.
+        nodes, _ = vg.parse_subscription(vg.fetch_subscription(url, dict(vg.load_state())))
+    except vg.GuardError as error:
+        write_text(table, render([], started=started, total=0, skipped=[], names=names, failure=str(error)))
+        print(f'подписка не получена: {error}', file=sys.stderr)
+        return 1
+    chosen, skipped = select(nodes)
+    records: list[dict] = []
+    write_text(table, render(records, started=started, total=len(chosen), skipped=skipped, names=names))
+    for index, node in enumerate(chosen, 1):
+        began = now()
+        result = probe_node(node)
+        record = dict(run=run_id, time=f'{began:%Y-%m-%dT%H:%M:%S}', node=title(node.name),
+                      flag=flag_country(node.name), **result)
+        append_journal(record)
+        records.append(record)
+        print(f'{index}/{len(chosen)} {record["node"]}: {verdict(record)}', flush=True)
+        write_text(table, render(records, started=started, total=len(chosen), skipped=skipped, names=names))
+    write_text(table, render(records, started=started, total=len(chosen), skipped=skipped, names=names,
+                             finished=now()))
+    return 0
+
+
+# ─────────────────────────────── неделя наблюдения ───────────────────────────────
+
+def load_week() -> dict | None:
+    try:
+        return json.loads(WEEK_FILE.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return None
+
+
+def save_week(week: dict) -> None:
+    STATE_DIR.mkdir(mode=0o700, exist_ok=True)
+    temporary = WEEK_FILE.with_name(f'.{WEEK_FILE.name}.tmp')
+    temporary.write_text(json.dumps(week, ensure_ascii=False), encoding='utf-8')
+    temporary.replace(WEEK_FILE)
+
+
+def moment(text: str) -> datetime:
+    """Время из журнала и состояния недели: без пояса, по Москве."""
+    return datetime.fromisoformat(text).replace(tzinfo=TZ)
+
+
+def read_journal() -> list[dict]:
+    try:
+        lines = JOURNAL.read_text(encoding='utf-8').splitlines()
+    except OSError:
+        return []
+    records = []
+    for line in lines:
+        try:
+            records.append(json.loads(line))
+        except ValueError:
+            continue
+    return records
+
+
+def state_of(record: dict | None, name: str) -> str:
+    """Служба в одном замере: ok — все круги, partial — часть, down — ни одного или узел не проверился."""
+    if record is None:
+        return 'missing'
+    results = record['services'].get(name) or []
+    answered = sum(1 for code, _ in results if code)
+    return 'ok' if results and answered == len(results) else 'partial' if answered else 'down'
+
+
+def summarize(records: list[dict], runs: list[str], names: list[str]) -> list[dict]:
+    """По каждому узлу и службе: сколько замеров работала, с перебоями, нет; самый долгий перерыв; медиана."""
+    by_node: dict[str, dict[str, dict]] = {}
+    for record in records:
+        by_node.setdefault(record['node'], {})[record['run']] = record
+    summaries = []
+    for node, per_run in by_node.items():
+        services = {}
+        for name in names:
+            states = [state_of(per_run.get(run), name) for run in runs]
+            longest = streak = 0
+            for state in states:
+                streak = streak + 1 if state in ('down', 'missing') else 0
+                longest = max(longest, streak)
+            times = [ms for record in per_run.values() for code, ms in record['services'].get(name, []) if code]
+            services[name] = dict(ok=states.count('ok'), partial=states.count('partial'),
+                                  down=states.count('down') + states.count('missing'), longest=longest,
+                                  ms=round(statistics.median(times)) if times else None)
+        exits = [item for record in per_run.values() for item in record['exits']]
+        summaries.append(dict(node=node, flag=next(iter(per_run.values())).get('flag'), runs=len(runs),
+                              missing=sum(run not in per_run for run in runs), services=services,
+                              countries=list(dict.fromkeys(item['cc'] for item in exits if item['cc'])),
+                              ips=len({item['ip'] for item in exits if item['ip']})))
+    return sorted(summaries, key=week_key)
+
+
+def week_key(summary: dict) -> tuple:
+    """Сначала нейросеть и Telegram (как у стража), потом остальные службы, потом скорость нейросети."""
+    services = summary['services']
+    main = [services.get(name, {}) for name in ('нейросеть', 'Telegram')]
+    ms = services.get('нейросеть', {}).get('ms')
+    return (-sum(item.get('ok', 0) for item in main), -sum(item.get('partial', 0) for item in main),
+            -sum(item['ok'] for item in services.values()), ms if ms is not None else 10 ** 9, summary['node'])
+
+
+def measurements(count: int) -> str:
+    """«1 замер», «3 замера», «57 замеров»."""
+    tail = count % 100
+    word = 'замер' if tail % 10 == 1 and tail != 11 else \
+        'замера' if 2 <= tail % 10 <= 4 and not 12 <= tail <= 14 else 'замеров'
+    return f'{count} {word}'
+
+
+def hours(streak: int) -> str:
+    return f'{streak} подряд (~{streak * INTERVAL // timedelta(hours=1)} ч)' if streak else 'не было'
+
+
+def week_exit(summary: dict) -> str:
+    if not summary['countries']:
+        return '?'
+    cell = ' '.join(flag(cc) for cc in summary['countries'])
+    if any(cc != summary['flag'] for cc in summary['countries']):
+        cell = '⚠️ ' + cell
+    return cell + f', адресов: {summary["ips"]}'
+
+
+def seconds_text(ms: int | None) -> str:
+    return f'{ms / 1000:.2f}'.replace('.', ',') if ms is not None else '—'
+
+
+def period_text(first: datetime, last: datetime) -> str:
+    if (first.year, first.month) == (last.year, last.month):
+        return f'{first.day}–{last.day} {MONTHS[last.month - 1]} {last.year}'
+    return f'{first.day} {MONTHS[first.month - 1]} – {last.day} {MONTHS[last.month - 1]} {last.year}'
+
+
+def day_time(moment_: datetime) -> str:
+    return f'{moment_.day} {MONTHS[moment_.month - 1]} {moment_:%H:%M}'
+
+
+def week_runs(records: list[dict], week: dict) -> list[str]:
+    start, end = moment(week['start']), moment(week['end'])
+    return sorted({record['run'] for record in records if start <= moment(record['run']) < end})
+
+
+def render_week(summaries: list[dict], runs: list[str], names: list[str], week: dict, *,
+                final: bool, at: datetime) -> str:
+    first, last = moment(runs[0]), moment(runs[-1])
+    period = period_text(moment(week['start']), moment(week['end']))
+    if final:
+        status = (f'✅ Неделя закончилась: {measurements(len(runs))} с {day_time(first)} по {day_time(last)}, '
+                  f'узлов: {len(summaries)}.')
+    else:
+        status = (f'⏳ Промежуточные итоги на {day_time(at)}: {measurements(len(runs))} с {day_time(first)}, '
+                  f'неделя закончится {day_time(moment(week["end"]))}.')
+    lines = [
+        '---', 'type: note',
+        f'description: "Итоги недели замеров узлов VPN-подписки ({period}): пять служб через каждый узел, '
+        f'замер раз в 3 часа."',
+        f'created: {first:%Y-%m-%d}', '---', '',
+        f'# Итоги недели замеров узлов VPN — {period}', '', status, '',
+        f'В каждом замере каждая служба запрашивалась {ROUNDS} раза подряд через пробную копию туннеля, '
+        f'рабочий выход не трогался. «Работала» — ответила все {ROUNDS} раза, «с перебоями» — не все, '
+        f'«нет» — ни разу, или узел не проверился (пробный туннель не поднялся, выход из чужой страны, узла не было '
+        f'в подписке). «Перерыв» — самая длинная серия замеров подряд без ответа; замеры раз в 3 часа. '
+        f'«Ответ, с» — медиана времени ответа с установкой соединения. «Выход» — страны выхода и число разных '
+        f'адресов за неделю; ⚠️ — страна не совпадает с флагом узла. В ячейках «работала / с перебоями / нет».',
+        '', '## Сводка: нейросеть и Telegram', '',
+        '| № | Узел | Нейросеть | Telegram | Перерыв нейросети | Перерыв Telegram | Нейросеть, с | Выход |',
+        '|---|---|---|---|---|---|---|---|',
+    ]
+    for place, summary in enumerate(summaries, 1):
+        neural, telegram = summary['services']['нейросеть'], summary['services']['Telegram']
+        lines.append(f'| {place} | {summary["node"]} | {neural["ok"]} / {neural["partial"]} / {neural["down"]} | '
+                     f'{telegram["ok"]} / {telegram["partial"]} / {telegram["down"]} | {hours(neural["longest"])} | '
+                     f'{hours(telegram["longest"])} | {seconds_text(neural["ms"])} | {week_exit(summary)} |')
+    missing = [f'{summary["node"]} — {summary["missing"]}' for summary in summaries if summary['missing']]
+    if missing:
+        lines += ['', 'Узла не было в подписке (замеров): ' + '; '.join(missing) + '.']
+    for name in names:
+        lines += ['', f'## {name[:1].upper() + name[1:]}', '',
+                  '| Узел | Работала | С перебоями | Нет | Самый долгий перерыв | Ответ, с |',
+                  '|---|---|---|---|---|---|']
+        ranked = sorted(summaries, key=lambda summary: (-summary['services'][name]['ok'],
+                                                        -summary['services'][name]['partial'], week_key(summary)))
+        for summary in ranked:
+            item = summary['services'][name]
+            lines.append(f'| {summary["node"]} | {item["ok"]} | {item["partial"]} | {item["down"]} | '
+                         f'{hours(item["longest"])} | {seconds_text(item["ms"])} |')
+    return '\n'.join(lines) + '\n'
+
+
+def short(node: str) -> str:
+    """«🇳🇴 Осло, Норвегия» → «🇳🇴 Осло»."""
+    return node.split(',')[0]
+
+
+def message_line(summary: dict, names: list[str]) -> str:
+    services, total = summary['services'], summary['runs']
+    main = ', '.join(f'{name} {services[name]["ok"]}/{total}'
+                     + (f' (+{services[name]["partial"]} с перебоями)' if services[name]['partial'] else '')
+                     for name in ('нейросеть', 'Telegram'))
+    rest = ', '.join(f'{name} {services[name]["ok"]}' for name in names if name not in ('нейросеть', 'Telegram'))
+    longest = max(services['нейросеть']['longest'], services['Telegram']['longest'])
+    gap = f'перерыв до ~{longest * INTERVAL // timedelta(hours=1)} ч' if longest else 'без перерывов'
+    changed = '⚠️ выход не из страны узла; ' if any(cc != summary['flag'] for cc in summary['countries']) else ''
+    return (f'{html_escape(short(summary["node"]))} — {main}, {gap}, ответ {seconds_text(services["нейросеть"]["ms"])} с\n'
+            f'   {changed}{rest}; адресов выхода: {summary["ips"]}')
+
+
+def html_escape(text: str) -> str:
+    return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+
+def week_message(summaries: list[dict], runs: list[str], names: list[str], week: dict, file_name: str,
+                 places: list[re.Pattern]) -> str:
+    period = period_text(moment(week['start']), moment(week['end']))
+    lines = ['📊 <b>Итоги недели замеров узлов VPN</b>',
+             f'{period}: {measurements(len(runs))} раз в 3 часа, узлов: {len(summaries)}. '
+             f'В каждом замере — {ROUNDS} запроса к каждой из пяти служб. '
+             f'Цифра — во скольких замерах служба ответила все {ROUNDS} раза.',
+             '', '🏆 <b>Лучшие по нейросети и Telegram</b>']
+    lines += [f'{place}. {message_line(summary, names)}' for place, summary in enumerate(summaries[:TOP], 1)]
+    queue = []
+    for pattern in places:
+        found = [(place, summary) for place, summary in enumerate(summaries, 1) if pattern.search(summary['node'])]
+        queue += [f'{place}. {message_line(summary, names)}' for place, summary in found if place > TOP]
+    if queue:
+        lines += ['', '🧭 <b>Узлы из очереди стража</b>'] + queue
+    lines += ['', f'📁 Все узлы по каждой из пяти служб — в папке «Узлы VPN», файл «{html_escape(file_name[:-3])}». '
+                  'Замеры остановлены, выход и страж не менялись.']
+    return '\n'.join(lines)
+
+
+def send(text: str) -> int | None:
+    """Одно сообщение Егору; после подтверждённой отправки — запись в историю переписки."""
+    env = vg.read_env()
+    token = env.get('TELEGRAM_BOT_TOKEN')
+    admins = re.findall(r'\d+', env.get('ADMIN_USER_IDS', ''))
+    if not token or not admins:
+        print('итоги не отправлены: не найден токен бота или администратор', file=sys.stderr)
+        return None
+    chat_id = int(admins[0])
+    code, body, error = vg.curl(f'https://api.telegram.org/bot{token}/sendMessage', timeout=20,
+                                post={'chat_id': str(chat_id), 'text': text, 'parse_mode': 'HTML',
+                                      'disable_web_page_preview': 'true'})
+    try:
+        message_id = json.loads(body)['result']['message_id'] if code == 200 else None
+    except (ValueError, KeyError, TypeError):
+        message_id = None
+    if message_id is None:
+        print(f'итоги не доставлены (код {code}) {error}'.strip(), file=sys.stderr)
+        return None
+    entry = {'ts': now().isoformat(), 'type': 'assistant', 'text': text, 'msg_id': message_id,
+             'chat_id': chat_id, 'chat_title': None, 'automatic': True, 'source': 'vpn-nodes'}
+    path = SESSIONS / f'{chat_id}.jsonl'
+    try:
+        existed = path.exists()
+        with path.open('a', encoding='utf-8') as stream:
+            stream.write(json.dumps(entry, ensure_ascii=False) + '\n')
+        if not existed:
+            own(path)
+    except OSError as error:
+        print(f'итоги отправлены, но не записаны в историю: {error}', file=sys.stderr)
+    return message_id
+
+
+def write_week(week: dict, *, final: bool) -> tuple[str, list[dict], list[str], list[str]] | None:
+    names = [name for name, _ in vg.SERVICES]
+    records = read_journal()
+    runs = week_runs(records, week)
+    if not runs:
+        return None
+    summaries = summarize([record for record in records if record['run'] in runs], runs, names)
+    file_name = f'Итоги недели {period_text(moment(week["start"]), moment(week["end"]))}.md'
+    ensure_dirs()
+    write_text(PROJECT_DIR / file_name, render_week(summaries, runs, names, week, final=final, at=now()))
+    return file_name, summaries, runs, names
+
+
+def finish_week(week: dict) -> int:
+    """Итоги в файл и одно сообщение; таймер выключается только после подтверждённой отправки."""
+    written = write_week(week, final=True)
+    if written is None:
+        print('за неделю нет ни одного замера', file=sys.stderr)
+        return 1
+    file_name, summaries, runs, names = written
+    places = [place.pattern for place in vg.PLACES]
+    message_id = send(week_message(summaries, runs, names, week, file_name, places))
+    if message_id is None:
+        return 1  # повторим на следующем запуске таймера
+    week['sent'] = f'{now():%Y-%m-%dT%H:%M:%S}'
+    week['message_id'] = message_id
+    save_week(week)
+    subprocess.run(['systemctl', 'disable', '--now', TIMER], check=False)
+    return 0
+
+
+def do_week() -> int:
+    started = now().replace(second=0, microsecond=0)
+    save_week(dict(start=f'{started:%Y-%m-%dT%H:%M}', end=f'{started + WEEK:%Y-%m-%dT%H:%M}', sent=None))
+    subprocess.run(['systemctl', 'enable', '--now', TIMER], check=True)
+    subprocess.run(['systemctl', 'start', '--no-block', 'vpn-nodes.service'], check=True)
+    print(f'неделя наблюдения: с {started:%d.%m %H:%M} по {started + WEEK:%d.%m %H:%M}, первый замер запущен')
+    return 0
+
+
+def do_scheduled() -> int:
+    week = load_week()
+    if not week or week.get('sent'):
+        print('недели наблюдения нет, таймер выключается')
+        subprocess.run(['systemctl', 'disable', '--now', TIMER], check=False)
+        return 0
+    end = moment(week['end'])
+    status = do_run(DEFAULT_TABLE) if now() < end else 0
+    if now() + INTERVAL >= end:  # следующий замер уже не попал бы в неделю
+        return finish_week(week) or status
+    return status
+
+
+def do_report() -> int:
+    week = load_week()
+    if not week:
+        print('недели наблюдения нет', file=sys.stderr)
+        return 1
+    written = write_week(week, final=bool(week.get('sent')))
+    if written is None:
+        print('за неделю ещё нет замеров', file=sys.stderr)
+        return 1
+    print(f'итоги записаны: {written[0]}')
+    return 0
+
+
+def main() -> int:
+    global vg
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = parser.add_subparsers(dest='command', required=True)
+    run = sub.add_parser('run')
+    run.add_argument('--table', default=DEFAULT_TABLE, help='имя файла таблицы в папке проекта')
+    for command in ('week', 'scheduled', 'report'):
+        sub.add_parser(command)
+    args = parser.parse_args()
+    if os.geteuid() != 0:
+        print('Нужны права root: sudo vpn-nodes …', file=sys.stderr)
+        return 1
+    if args.command == 'run' and ('/' in args.table or not args.table.endswith('.md')):
+        print('--table: только имя файла .md', file=sys.stderr)
+        return 1
+    if args.command == 'week':  # без блокировки: первый замер запускает служба, ей блокировка и нужна
+        return do_week()
+    vg = load_guard()
+    if args.command == 'report':  # только читает журнал, можно и во время замера
+        return do_report()
+    descriptor = os.open(LOCK_FILE, os.O_CREAT | os.O_RDWR, 0o600)
+    try:
+        fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        print('предыдущий прогон ещё идёт', file=sys.stderr)
+        return 0
+    try:
+        return do_scheduled() if args.command == 'scheduled' else do_run(args.table)
+    finally:
+        os.close(descriptor)
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

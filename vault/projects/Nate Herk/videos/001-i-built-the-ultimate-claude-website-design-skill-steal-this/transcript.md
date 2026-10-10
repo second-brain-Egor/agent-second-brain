@@ -3,7 +3,7 @@ type: project
 description: "I think I built the ultimate claw design skill for websites and I'm going to give it to you guys for completely free. This thing helps you figure out..."
 related: 
 last_accessed: 2026-08-23
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 I think I built the ultimate claw design

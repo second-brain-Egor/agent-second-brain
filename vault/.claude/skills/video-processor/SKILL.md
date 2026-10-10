@@ -2,7 +2,7 @@
 type: note
 description: >
 last_accessed: 2026-03-27
-relevance: 0.97
+relevance: 0.98
 tier: active
 name: video-processor
 model: default
@@ -62,6 +62,7 @@ yt-dlp -x --audio-format mp3 -o "/tmp/yt-%(id)s.%(ext)s" "URL"
 
 ### Troubleshooting
 - YouTube блокирует → `pip install -U yt-dlp` (обновить)
+- YouTube просит подтвердить «не робот» → добавить `--cookies ~/.config/agent-second-brain/youtube-cookies.txt` (вход в YouTube, файл вне vault, содержимое не показывать)
 - Ошибка JS runtime → `--js-runtimes node`
 - Rate limiting → `--no-warnings --quiet`, пауза 1-2 сек между запросами
 - Не качать видео → всегда `--skip-download` для субтитров

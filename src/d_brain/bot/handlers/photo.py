@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import asyncio
-import contextlib
 import logging
 from datetime import datetime
 from pathlib import Path
@@ -11,6 +10,7 @@ from pathlib import Path
 from aiogram import Bot, Router
 from aiogram.types import Message
 
+from d_brain.bot import uploads
 from d_brain.bot.chat_context import (
     build_msg_type,
     get_session_scope,
@@ -26,26 +26,6 @@ from d_brain.services.storage import VaultStorage
 router = Router(name="photo")
 logger = logging.getLogger(__name__)
 
-# Фото одного чата — одна пачка («альбом»), пока пауза между соседними не длиннее этого времени.
-# Общий media_group_id Telegram даёт только альбому, присланному разом; фото по одному его не имеют.
-BATCH_WINDOW_SECONDS = 10.0
-
-
-class _Batch:
-    """Фото одного чата, пришедшие подряд: на всю пачку уходит один ответ."""
-
-    def __init__(self, scope: int | str, message: Message) -> None:
-        self.scope = scope
-        self.message = message  # последнее пришедшее фото: через него уходит ответ
-        self.last_arrival = asyncio.get_running_loop().time()
-        self.working = 0  # фото, которые ещё скачиваются и разбираются
-        self.saved: dict[int, str] = {}  # номер сообщения -> путь сохранённого файла
-        self.changed = asyncio.Event()
-
-
-_batches: dict[int, _Batch] = {}  # chat_id -> пачка, которая ещё принимает фото или ждёт ответа
-_batch_tasks: set[asyncio.Task[None]] = set()
-
 
 def _save_to_project(folder: Path, vault: Path, data: bytes, timestamp: datetime, extension: str) -> str:
     """Фото при выбранном проекте ложится прямо в его папку (Егор, 8 октября 2026)."""
@@ -60,16 +40,6 @@ def _save_to_project(folder: Path, vault: Path, data: bytes, timestamp: datetime
     return path.relative_to(vault).as_posix()
 
 
-def _batch_reply(paths: list[str]) -> str:
-    folders = {Path(path).parent for path in paths}
-    where = folder_label(paths[0]) if len(folders) == 1 and paths[0].startswith("projects/") else None
-    if len(paths) == 1:
-        return f"📸 Фото положил в {where}. Что с ним сделать?" if where else "Фото получил. Что с ним сделать?"
-    if where:
-        return f"📸 Фото положил в {where}, всего {len(paths)}. Что с ними сделать?"
-    return f"Фото получил, всего {len(paths)}. Что с ними сделать?"
-
-
 async def _analyze_image(image_path: str, caption: str | None = None) -> str | None:
     """Analyze an image with the configured Codex CLI model."""
     try:
@@ -81,100 +51,34 @@ async def _analyze_image(image_path: str, caption: str | None = None) -> str | N
         return None
 
 
-def _join_batch(message: Message, scope: int | str) -> _Batch:
-    """Фото занимает место в пачке при получении: скачивание и разбор идут дольше, чем приходит следующее."""
-    now = asyncio.get_running_loop().time()
-    batch = _batches.get(message.chat.id)
-    if batch is None or now - batch.last_arrival >= BATCH_WINDOW_SECONDS:
-        batch = _Batch(scope, message)
-        _batches[message.chat.id] = batch
-        task = asyncio.create_task(_answer_when_quiet(message.chat.id, batch))
-        _batch_tasks.add(task)
-        task.add_done_callback(_batch_tasks.discard)
-    batch.message = message
-    batch.last_arrival = now
-    batch.working += 1
-    batch.changed.set()
-    return batch
-
-
-def _leave_batch(batch: _Batch, message_id: int, saved_path: str | None) -> None:
-    batch.working -= 1
-    if saved_path:
-        batch.saved[message_id] = saved_path
-    batch.changed.set()
-
-
-async def _answer_when_quiet(chat_id: int, batch: _Batch) -> None:
-    """Ответить один раз: новые фото перестали приходить, и все пришедшие уже сохранены."""
-    loop = asyncio.get_running_loop()
-    try:
-        while True:
-            pause = loop.time() - batch.last_arrival
-            if not batch.working and pause >= BATCH_WINDOW_SECONDS:
-                break
-            batch.changed.clear()
-            # Пока фото разбираются, ждём их конца; когда все готовы — остаток паузы.
-            timeout = None if batch.working else BATCH_WINDOW_SECONDS - pause
-            with contextlib.suppress(TimeoutError):
-                await asyncio.wait_for(batch.changed.wait(), timeout)
-    finally:
-        # Закрыть до любого ожидания: следующее фото начнёт новую пачку, а не потеряется в этой.
-        if _batches.get(chat_id) is batch:
-            del _batches[chat_id]
-
-    paths = [batch.saved[number] for number in sorted(batch.saved)]
-    if not paths:
-        return  # ни одно фото не сохранилось: об ошибках уже сказали по каждому
-    text = _batch_reply(paths)
-    if len(paths) > 1:
-        # Модель видит в журнале каждое фото отдельной строкой; эта строка даёт ей пачку целиком.
-        try:
-            vault = get_settings().vault_path
-            SessionStore(vault).append(
-                batch.scope,
-                "photo_batch",
-                text=(
-                    f"Пачка из {len(paths)} фото, присланных подряд (пауза не больше "
-                    f"{BATCH_WINDOW_SECONDS:g} с). Файлы по порядку, от корня проекта: "
-                    + ", ".join(f"{Path(vault).name}/{path}" for path in paths)
-                ),
-                paths=paths,
-                chat_id=batch.message.chat.id,
-                chat_title=batch.message.chat.title,
-            )
-        except Exception:
-            logger.exception("Failed to record photo batch")
-    try:
-        await batch.message.answer(text)
-    except Exception:
-        logger.exception("Failed to acknowledge photo batch")
-
-
 @router.message(lambda m: m.photo is not None)
 async def handle_photo(message: Message, bot: Bot) -> None:
-    """Handle photo messages: save them and keep vision text out of chat."""
+    """Save the photo; the batch of attachments then goes to the assistant (bot/uploads.py)."""
     if not message.photo or not message.from_user:
         return
 
     settings = get_settings()
-    storage = VaultStorage(settings.vault_path)
     scope = get_session_scope(message)
-    photo = message.photo[-1]
-    work_context = is_work_chat(message, settings)
-    batch = None if work_context else _join_batch(message, scope)
-    saved_path = None
+    if is_work_chat(message, settings):
+        await _save_photo(message, bot, settings, scope, work_context=True)
+        return
+    await uploads.collect(message, scope, lambda: _save_photo(message, bot, settings, scope, work_context=False))
 
+
+async def _save_photo(message: Message, bot: Bot, settings, scope, work_context: bool) -> dict | None:
+    """Save and describe one photo; returns it for the assistant (None in work chats or on failure)."""
+    storage = VaultStorage(settings.vault_path)
+    photo = message.photo[-1]
     try:
         file = await bot.get_file(photo.file_id)
         if not file.file_path:
             await message.answer("Не удалось скачать фото.")
-            return
+            return None
 
         file_bytes = await bot.download_file(file.file_path)
         if not file_bytes:
             await message.answer("Не удалось скачать фото.")
-            return
+            return None
 
         timestamp = datetime.fromtimestamp(message.date.timestamp())
         photo_bytes = file_bytes.read()
@@ -191,6 +95,7 @@ async def handle_photo(message: Message, bot: Bot) -> None:
             )
             store.record_placement(scope, relative_path, "photo")
             store.touch_active(scope)
+            where = "бот положил в текущий проект: " + folder_label(relative_path)
         else:
             relative_path = storage.save_attachment(
                 photo_bytes,
@@ -198,6 +103,7 @@ async def handle_photo(message: Message, bot: Bot) -> None:
                 timestamp,
                 extension,
             )
+            where = "бот положил во вложения дня"
 
         absolute_image_path = str((Path(settings.vault_path) / relative_path).resolve())
 
@@ -227,14 +133,12 @@ async def handle_photo(message: Message, bot: Bot) -> None:
 
         if work_context:
             logger.info("Saved group photo without reply in chat %s", message.chat.id)
-            return
+            return None
 
-        saved_path = relative_path
         logger.info("Photo saved and analyzed: %s", relative_path)
+        return {"kind": "photo", "path": relative_path, "where": where, "caption": message.caption}
 
     except Exception as exc:
         logger.exception("Error processing photo")
         await message.answer(f"Ошибка: {exc}")
-    finally:
-        if batch is not None:
-            _leave_batch(batch, message.message_id, saved_path)
+        return None

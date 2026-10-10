@@ -44,6 +44,14 @@ def folder_label(path: str) -> str:
     return f"папку {'/'.join(folder)}"
 
 
+def note_placement(store: 'DocumentStore', doc: dict, when: datetime) -> Path | None:
+    """A placed file gets a line in the daily note and, if the project keeps one, its document journal."""
+    from d_brain.services.storage import VaultStorage
+    VaultStorage(store.vault).append_to_daily(
+        f"Документ: {doc['name']}\nПапка: {Path(doc['path']).parent.as_posix()}", when, '[file]')
+    return store.journal(doc, when)
+
+
 def clean_folder_name(name: str, what: str = 'проекта') -> str:
     name = name.strip().strip('«»"').strip(' .,!')
     if not name or name in {'.', '..'} or len(name) > 100 or re.search(r'[/\\\x00-\x1f]', name):
@@ -456,8 +464,8 @@ class DocumentStore:
             lines = ['=== ТЕКУЩИЙ ПРОЕКТ ===', f'Работаем в проекте: {where}. Новые документы и фото '
                      'бот без вопросов кладёт сюда.']
         else:
-            lines = ['=== ТЕКУЩИЙ ПРОЕКТ ===', 'Проект не выбран: на новый документ бот спросит папку, '
-                     'фото уходят во вложения по дате.']
+            lines = ['=== ТЕКУЩИЙ ПРОЕКТ ===', 'Проект не выбран: новые файлы ждут во входящих, фото '
+                     'уходят во вложения по дате. Бот ни о чём не спрашивает, место выбираешь ты по разговору.']
         lines.append('Если разговор однозначно перешёл к другому проекту или подпроекту, переключи его сам '
                      f'(`{tool} set "Проект" ["Подпроект"]`) и скажи об этом одной строкой; при реальном '
                      f'сомнении переспроси. «Выйди из проекта» — `{tool} clear`. Список проектов — '
@@ -477,7 +485,7 @@ class DocumentStore:
         documents = self.for_scope(scope)[:5]
         if not documents:
             return project
-        states = {'ready': 'сохранён', 'destination': 'ожидает выбора папки',
+        states = {'ready': 'сохранён', 'destination': 'во входящих, место не выбрано',
                   'project': 'ожидает названия проекта', 'subproject': 'ожидает выбора подпроекта',
                   'subproject_new': 'ожидает названия нового подпроекта'}
         lines = ['=== ДОСТУПНЫЕ ДОКУМЕНТЫ ===']
@@ -495,8 +503,14 @@ class DocumentStore:
                 if job['artifact'] and (self.vault/job['artifact']).exists():
                     lines.append('Результат: '+job['artifact'])
         lines.append(f'Полный текст после чтения хранится рядом с оригиналом в {SERVICE_DIR}/<имя файла>/текст.txt. '
-                     'Не переноси его в общую память. Документ во входящих ждёт, пока пользователь '
-                     'выберет папку; не выбирай за него.')
+                     'Не переноси его в общую память.')
+        # Егор, 9 октября 2026: место для присланного файла выбирает помощник по разговору, не бот.
+        tool = f"uv run python scripts/project_context.py --scope {scope}"
+        lines.append('Файл во входящих: реши по разговору и содержимому, к чему он относится. Ясно — положи '
+                     f'сам: `{tool} place "<путь от vault>" "Проект" ["Подпроект"]` (без проекта — в общую '
+                     'папку PDF или Документы) и скажи одной строкой куда. Служебный файл, который нужен для '
+                     'настройки (ключ, куки, конфиг), подключи по назначению. Спрашивай, только если файл из '
+                     'другой области и место не понять.')
         # Document tasks are done in the chat itself (handlers/document.py: AUTOMATIC_JOBS).
         lines.append('Готовый файл клади в папку проекта и отправляй в чат: uv run python '
                      f"scripts/send_telegram_file.py \"<путь от vault>\" --chat-id {documents[0]['chat_id']}")

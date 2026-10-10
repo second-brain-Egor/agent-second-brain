@@ -5,10 +5,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import time
 from datetime import datetime, timezone
 from pathlib import Path
+import urllib.error
 import urllib.parse
 import urllib.request
+
+ATTEMPTS = 3
+RETRY_PAUSE = 10
 
 
 def split_message(text: str, limit: int = 3800) -> list[str]:
@@ -40,6 +45,21 @@ def split_message(text: str, limit: int = 3800) -> list[str]:
     return chunks
 
 
+def _post(request: urllib.request.Request) -> dict:
+    """Повторить при сетевом сбое: TLS к api.telegram.org периодически обрывается."""
+    for attempt in range(1, ATTEMPTS + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=20) as response:
+                return json.load(response)
+        except urllib.error.HTTPError:
+            raise
+        except (urllib.error.URLError, OSError):
+            if attempt == ATTEMPTS:
+                raise
+            time.sleep(RETRY_PAUSE * attempt)
+    raise AssertionError("unreachable")
+
+
 def send(token: str, chat_id: str, text: str, receipt_file: Path | None = None) -> int:
     chunks = split_message(text)
     for chunk in chunks:
@@ -47,8 +67,7 @@ def send(token: str, chat_id: str, text: str, receipt_file: Path | None = None) 
         request = urllib.request.Request(
             f"https://api.telegram.org/bot{token}/sendMessage", data=data
         )
-        with urllib.request.urlopen(request, timeout=20) as response:
-            result = json.load(response)
+        result = _post(request)
         if not result.get("ok"):
             raise RuntimeError(f"Telegram отклонил сообщение: {result}")
         if receipt_file is not None:

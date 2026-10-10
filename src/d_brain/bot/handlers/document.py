@@ -1,4 +1,9 @@
-"""Document intake, explicit destination choice and shared text/voice routing."""
+"""Document intake and shared text/voice routing.
+
+Since 9 October 2026 the bot asks nothing about a new file: it saves it and hands the batch of
+attachments to the assistant (bot/uploads.py), who decides from the conversation. The old explicit
+destination choice stays behind FOLDER_QUESTIONS.
+"""
 from __future__ import annotations
 
 import logging
@@ -9,16 +14,16 @@ from pathlib import Path
 from aiogram import Bot, F, Router
 from aiogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message
 
+from d_brain.bot import uploads
 from d_brain.bot.chat_context import get_session_scope, is_work_chat
 from d_brain.config import get_settings
 from d_brain.services.documents import (
-    DocumentStore, clean_folder_name, folder_key, folder_label, service_dir,
+    DocumentStore, clean_folder_name, folder_key, folder_label, note_placement, service_dir,
 )
 from d_brain.services.presentations import (
     PresentationChoices, declined, explicit_format, format_reply, presentation_request, with_format,
 )
 from d_brain.services.session import SessionStore
-from d_brain.services.storage import VaultStorage
 
 router = Router(name='document')
 logger = logging.getLogger(__name__)
@@ -28,6 +33,11 @@ DELIVERY_REQUEST = re.compile(r'^(?:пожалуйста[, ]+)?(?:пришли|�
 # о формате отключены. Задания по документам выполняет сам помощник в чате; здесь остаются
 # только приём файла и выбор папки. Вернуть автоматику — True.
 AUTOMATIC_JOBS = False
+# Егор, 9 октября 2026: «канитель» с вопросом «Куда сохранить?» убрана. Бот сохраняет файл
+# (в текущий проект или во входящие) и сразу отдаёт его помощнику с разговором; тот сам решает,
+# куда положить и что сделать, а спрашивает, только если файл из другой области. Ответы про папку
+# тоже разбирает помощник. Вернуть кнопки и вопросы бота — True.
+FOLDER_QUESTIONS = False
 
 
 def project_choice(text: str):
@@ -238,10 +248,7 @@ async def choose_presentation_format(callback: CallbackQuery):
 async def after_placement(message: Message, store: DocumentStore, doc: dict, activate: bool = False):
     """activate: the user chose this project — it becomes the current one for the next files."""
     record_document(store, doc)
-    now = datetime.now()
-    VaultStorage(store.vault).append_to_daily(
-        f"Документ: {doc['name']}\nПапка: {Path(doc['path']).parent.as_posix()}", now, '[file]')
-    journal = store.journal(doc, now)
+    journal = note_placement(store, doc, datetime.now())
     saved = (f"📂 Сохранил «{Path(doc['path']).name}» в {place_label(doc)}.\n"
              f"Путь: {doc['path']}" + ('\nЗапись добавил в журнал документов проекта.' if journal else ''))
     folder = Path(doc['path']).parent.parts
@@ -263,16 +270,56 @@ async def handle_document(message: Message, bot: Bot):
         return
     settings = get_settings()
     scope = get_session_scope(message)
+    if FOLDER_QUESTIONS or AUTOMATIC_JOBS or is_work_chat(message, settings):
+        await _intake_with_questions(message, bot, settings, scope)
+        return
+    await uploads.collect(message, scope, lambda: _intake_for_assistant(message, bot, settings, scope))
+
+
+async def _receive(message: Message, bot: Bot, settings, scope) -> tuple[DocumentStore, dict, bool]:
+    file = await bot.get_file(message.document.file_id)
+    if not file.file_path:
+        raise ValueError('Telegram не вернул путь файла')
+    stream = await bot.download_file(file.file_path)
+    if stream is None:
+        raise ValueError('Telegram вернул пустую загрузку')
+    store = DocumentStore(settings.vault_path)
+    doc, fresh = store.receive(stream.read(), message.document.file_name or 'document.pdf',
+        scope, message.chat.id, message.message_id, message.caption or '')
+    return store, doc, fresh
+
+
+async def _intake_for_assistant(message: Message, bot: Bot, settings, scope) -> dict | None:
+    """Save the file without questions; where it goes and what to do the assistant decides."""
     try:
-        file = await bot.get_file(message.document.file_id)
-        if not file.file_path:
-            raise ValueError('Telegram не вернул путь файла')
-        stream = await bot.download_file(file.file_path)
-        if stream is None:
-            raise ValueError('Telegram вернул пустую загрузку')
-        store = DocumentStore(settings.vault_path)
-        doc, fresh = store.receive(stream.read(), message.document.file_name or 'document.pdf',
-            scope, message.chat.id, message.message_id, message.caption or '')
+        store, doc, fresh = await _receive(message, bot, settings, scope)
+        if not fresh:
+            return None
+        active = store.active_project(scope)
+        if doc['state'] == 'ready':
+            where = 'такой же файл уже был сохранён раньше, лежит в ' + place_label(doc)
+        elif active:
+            # Working in a project: the file goes there; the assistant still checks the place.
+            doc = store.place(doc['id'], active['project'], active['subproject'])
+            store.record_placement(scope, doc['path'], 'document')
+            store.touch_active(scope)
+            note_placement(store, doc, datetime.now())
+            where = 'бот положил в текущий проект: ' + place_label(doc)
+        else:
+            where = 'во входящих, место ещё не выбрано'
+        record_document(store, doc)
+        return {'kind': 'file', 'name': doc['name'], 'path': doc['path'], 'where': where,
+                'caption': message.caption}
+    except Exception:
+        logger.exception('Document intake failed')
+        await message.answer('Не удалось получить или сохранить файл. Отправь его ещё раз.', parse_mode=None)
+        return None
+
+
+async def _intake_with_questions(message: Message, bot: Bot, settings, scope):
+    """Before 9 October 2026: the bot itself asks for the folder (FOLDER_QUESTIONS); work chats only save."""
+    try:
+        store, doc, fresh = await _receive(message, bot, settings, scope)
         if not fresh:
             return
         record_document(store, doc)
@@ -427,6 +474,9 @@ def _legacy_document(store: DocumentStore, scope, reply_id=None) -> dict | None:
 
 async def route_document_request(message: Message, text: str) -> bool:
     """Called after recording either typed text or a voice transcription."""
+    if not (AUTOMATIC_JOBS or FOLDER_QUESTIONS):
+        # Folder answers and document tasks are the assistant's: the text goes to the conversation.
+        return False
     store = DocumentStore(get_settings().vault_path)
     scope = get_session_scope(message)
     docs = store.for_scope(scope)

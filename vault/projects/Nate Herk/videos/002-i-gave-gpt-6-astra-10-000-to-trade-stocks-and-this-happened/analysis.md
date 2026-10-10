@@ -3,7 +3,7 @@ type: project
 description: "Разбор семидневного опыта торговли акциями на настоящие деньги с GPT-6 Astra, Codex, Grok Bot и Alpaca."
 related: 
 last_accessed: 2026-09-29
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Я дал GPT-6 Astra 10 000 долларов на торговлю акциями — и вот что произошло

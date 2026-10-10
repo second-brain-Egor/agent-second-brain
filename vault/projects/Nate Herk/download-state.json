@@ -871,7 +871,37 @@
       "frames_required": true,
       "updated_at": "2026-10-06T07:01:07+03:00",
       "completed_at": "2026-10-06T07:01:07+03:00"
+    },
+    "MgvwZaDPCs4": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now",
+      "title": "Grok Bot Just Got 2 Massive Upgrades. Do These Things Now.",
+      "url": "https://www.youtube.com/watch?v=MgvwZaDPCs4",
+      "upload_date": "20261009",
+      "comments": 21,
+      "frames": 12,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-09T08:10:13+03:00",
+      "completed_at": "2026-10-09T08:10:13+03:00"
+    },
+    "oz2CwrPV2Rg": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code",
+      "title": "Anthropic Engineers Just 10x'd Everyone's Claude Code",
+      "url": "https://www.youtube.com/watch?v=oz2CwrPV2Rg",
+      "upload_date": "20261008",
+      "comments": 31,
+      "frames": 105,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-09T08:19:23+03:00",
+      "completed_at": "2026-10-09T08:19:23+03:00"
     }
   },
-  "updated_at": "2026-10-06T07:01:07+03:00"
+  "updated_at": "2026-10-09T08:19:23+03:00"
 }

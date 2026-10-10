@@ -12,6 +12,10 @@ from d_brain.bot.chat_context import (
     build_msg_type,
     get_session_scope,
     is_work_chat,
+    reply_log,
+    reply_prompt,
+    send_chunks,
+    send_reply,
 )
 from d_brain.bot.handlers.web import clean_web_query, matches_web_intent, run_web_search
 from d_brain.bot.states import SilentState
@@ -51,13 +55,9 @@ async def _transcribe_voice(message: Message, bot: Bot) -> str | None:
     return text
 
 
-async def _send_response(message: Message, response: str) -> None:
-    """Send a formatted Telegram response."""
-    for chunk in prepare_telegram_response(response):
-        try:
-            await message.answer(chunk)
-        except Exception:
-            await message.answer(chunk, parse_mode=None)
+async def _send_response(message: Message, response: str, vault_path) -> None:
+    """Send a formatted Telegram response; a reply only when the voice message is far up."""
+    await send_chunks(message, prepare_telegram_response(response), vault_path)
 
 
 @router.message(SilentState.active, lambda m: m.voice is not None)
@@ -119,6 +119,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext, transcript
         storage.append_to_daily(transcript, timestamp, build_msg_type(message, "[voice]"))
 
         session = SessionStore(settings.vault_path)
+        replied = reply_log(message, settings.vault_path)
         session.append(
             scope,
             "voice",
@@ -127,6 +128,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext, transcript
             msg_id=message.message_id,
             chat_id=message.chat.id,
             chat_title=message.chat.title,
+            **({"reply_to": replied} if replied else {}),
         )
 
         work_context = is_work_chat(message, settings)
@@ -148,6 +150,8 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext, transcript
         # Dialog mode: respond via active LLM backend
         processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
         user_id = message.from_user.id
+        # «Ответить» на сообщение голосовым: модель видит цитату, на которую отвечает пользователь.
+        prompt = reply_prompt(message, transcript, settings.vault_path)
 
         # 2026-05-10: classifier/pending/brief disabled — pure Opus chat, no two-model dance.
         # If returning to Sonnet+gatekeeper architecture, flip this back to ai_backend == "claude".
@@ -191,24 +195,24 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext, transcript
         async with keep_typing(message.chat):
             result = await asyncio.to_thread(
                 processor.execute_raw_prompt,
-                transcript,
+                prompt,
                 user_id,
                 session_scope=scope,
                 work_context=work_context,
             )
 
         if "error" in result:
-            await message.answer(f"⚠️ {result['error']}", parse_mode=None)
+            await send_reply(message, f"⚠️ {result['error']}", settings.vault_path, parse_mode=None)
         elif "report" in result:
             response = result["report"]
 
             # Auto-escalation: sonnet detected complex task
             if processor.needs_agent(response):
                 brief = normalize_telegram_output(processor.strip_agent_marker(response))
-                await message.answer(brief, parse_mode=None)
+                await send_reply(message, brief, settings.vault_path, parse_mode=None)
                 session.append(scope, "assistant", text=f"[agent] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
 
-                await _run_voice_agent(message, processor, transcript, user_id, scope, work_context, session)
+                await _run_voice_agent(message, processor, prompt, user_id, scope, work_context, session)
             else:
                 reminder = maybe_evening_reminder(settings.vault_path)
                 if reminder:
@@ -221,7 +225,7 @@ async def handle_voice(message: Message, bot: Bot, state: FSMContext, transcript
                     chat_id=message.chat.id,
                     chat_title=message.chat.title,
                 )
-                await _send_response(message, response)
+                await _send_response(message, response, settings.vault_path)
 
     except Exception as e:
         logger.exception("Error processing voice message")
@@ -269,11 +273,7 @@ async def _run_voice_agent(
                 chat_id=message.chat.id,
                 chat_title=message.chat.title,
             )
-            for chunk in sent_chunks:
-                try:
-                    await message.answer(chunk)
-                except Exception:
-                    await message.answer(chunk, parse_mode=None)
+            await send_chunks(message, sent_chunks, get_settings().vault_path)
     except Exception as e:
         logger.exception("Agent execution error")
         await message.answer(f"⚠️ Агент упал: {e}", parse_mode=None)

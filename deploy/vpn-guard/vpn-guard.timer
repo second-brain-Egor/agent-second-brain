@@ -1,9 +1,9 @@
 [Unit]
-Description=Проверка шведского выхода каждые 15 минут
+Description=Проверка выхода сервера каждые 5 минут
 
 [Timer]
 OnBootSec=3min
-OnUnitActiveSec=15min
+OnUnitActiveSec=5min
 AccuracySec=30s
 
 [Install]

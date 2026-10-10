@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from aiogram import Bot
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
+from aiogram.exceptions import TelegramNetworkError
 
 from d_brain.bot.formatters import format_process_report
 
@@ -25,6 +26,19 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+
+
+async def _send_with_retry(bot: Bot, chat_id: int, text: str, attempts: int = 3) -> None:
+    """Retry network failures: TLS to api.telegram.org intermittently drops."""
+    for attempt in range(1, attempts + 1):
+        try:
+            await bot.send_message(chat_id=chat_id, text=text)
+            return
+        except TelegramNetworkError:
+            if attempt == attempts:
+                raise
+            logger.warning("Telegram send failed, retry %s/%s", attempt, attempts - 1)
+            await asyncio.sleep(10 * attempt)
 
 async def main() -> None:
     """Generate weekly digest and send to Telegram."""
@@ -57,12 +71,14 @@ async def main() -> None:
             return
 
         try:
-            await bot.send_message(chat_id=user_id, text=report)
+            await _send_with_retry(bot, user_id, report)
+        except TelegramNetworkError:
+            raise
         except Exception:
             # Fallback: send without HTML parsing
             messages = format_process_report({"report": report})
             for chunk in messages:
-                await bot.send_message(chat_id=user_id, text=chunk)
+                await _send_with_retry(bot, user_id, chunk)
 
         logger.info("Weekly digest sent to user %s", user_id)
     finally:

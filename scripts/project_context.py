@@ -7,6 +7,8 @@
   set "Проект" ["Подпроект"] [--create]  — перейти в проект (новую папку — только с --create)
   clear                                  — выйти из проекта: файлы снова с вопросом о папке
   move "<путь от vault>" ["Проект" ["Подпроект"]] — переложить файл; без проекта — во вложения
+  place "<путь от vault>" ["Проект" ["Подпроект"]] [--create] — положить присланный файл из входящих;
+                                         без проекта — в общую папку PDF или Документы
 """
 from __future__ import annotations
 
@@ -15,7 +17,7 @@ import sys
 from datetime import datetime
 
 from d_brain.config import get_settings
-from d_brain.services.documents import DocumentStore, folder_label
+from d_brain.services.documents import DocumentStore, folder_label, note_placement
 from d_brain.services.session import SessionStore
 
 
@@ -40,6 +42,11 @@ def main() -> int:
     move.add_argument('path')
     move.add_argument('project', nargs='?')
     move.add_argument('subproject', nargs='?')
+    place = sub.add_parser('place')
+    place.add_argument('path')
+    place.add_argument('project', nargs='?')
+    place.add_argument('subproject', nargs='?')
+    place.add_argument('--create', action='store_true', help='создать папку проекта или подпроекта, если её нет')
     args = parser.parse_args()
 
     store = DocumentStore(get_settings().vault_path)
@@ -69,14 +76,49 @@ def main() -> int:
                 return 1
             args.subproject = subproject or args.subproject
         active = store.set_active(args.scope, project, args.subproject)
-        folder = store.active_folder(args.scope)
+        # active_folder() is None until the folder exists, so build the path from the choice itself.
+        folder = store.safe_path('projects/' + active['project']
+                                 + ('/' + active['subproject'] if active['subproject'] else ''))
         folder.mkdir(parents=True, exist_ok=True)
         print(where(active))
         return 0
+    if args.command == 'place':
+        return place_incoming(store, args)
     moved = store.move(args.path, args.project, args.subproject)
     SessionStore(store.vault).append(args.scope, 'assistant', text=f'Переложил файл: {args.path} → {moved}')
     store.journal({'path': moved}, datetime.now(), action='помощник переложил')
     print(f'Переложил в {folder_label(moved)}: {moved}')
+    return 0
+
+
+def place_incoming(store: DocumentStore, args) -> int:
+    """Присланный файл, который бот оставил во входящих (Егор, 9 октября 2026: место выбирает помощник)."""
+    doc = next((d for d in store.for_scope(args.scope) if args.path in (d['path'], d['id'])), None)
+    if not doc:
+        print(f'Среди присланных файлов этого чата нет «{args.path}».', file=sys.stderr)
+        return 1
+    if doc['state'] == 'ready':
+        print(f"Файл уже лежит в {folder_label(doc['path'])}: {doc['path']}. Переложить — команда move.")
+        return 0
+    project, subproject = args.project, args.subproject
+    if project:
+        known = store.existing_project(project)
+        if not known and not args.create:
+            print(f'Проекта «{project}» нет. Список: --scope … list; новый — с --create.', file=sys.stderr)
+            return 1
+        project = known or store.project_name(project)
+        if subproject:
+            names = {name.casefold(): name for name in store.subprojects(project)}
+            if subproject.strip().casefold() not in names and not args.create:
+                print(f'В «{project}» нет подпроекта «{subproject}». Новый — с --create.', file=sys.stderr)
+                return 1
+            subproject = names.get(subproject.strip().casefold(), subproject)
+    doc = store.place(doc['id'], project, subproject)
+    now = datetime.now()
+    note_placement(store, doc, now)
+    SessionStore(store.vault).append(args.scope, 'file', doc_id=doc['id'], path=doc['path'], name=doc['name'],
+                                     caption=doc['instructions'], msg_id=doc['msg_id'], chat_id=doc['chat_id'])
+    print(f"Положил в {folder_label(doc['path'])}: {doc['path']}")
     return 0
 
 

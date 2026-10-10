@@ -317,7 +317,7 @@ def test_document_context_survives_day_boundary(tmp_path):
     processor.vault_path = tmp_path
     context = processor._get_session_context(7)
     assert doc['name'] in context
-    assert 'ожидает выбора папки' in context
+    assert 'во входящих, место не выбрано' in context
     assert doc['name'] not in processor._get_session_context(8)
 
 
@@ -415,6 +415,7 @@ async def test_project_root_asks_subproject_and_reports_exact_place(tmp_path, mo
     # Егор, 8 октября 2026: «Ирина работа» — корень, файл должен попасть в конкретный подпроект.
     import d_brain.bot.handlers.document as module
     monkeypatch.setattr(module, 'get_settings', lambda: SimpleNamespace(vault_path=tmp_path))
+    monkeypatch.setattr(module, 'FOLDER_QUESTIONS', True)  # bot's own folder questions, off since 9.10.2026
     answers = AsyncMock(); monkeypatch.setattr(Message, 'answer', answers)
     project = _irina_project(tmp_path)
     store, doc = new_doc(tmp_path, request='')
@@ -444,6 +445,7 @@ async def test_project_root_asks_subproject_and_reports_exact_place(tmp_path, mo
 async def test_unknown_subproject_is_not_created_without_new(tmp_path, monkeypatch):
     import d_brain.bot.handlers.document as module
     monkeypatch.setattr(module, 'get_settings', lambda: SimpleNamespace(vault_path=tmp_path))
+    monkeypatch.setattr(module, 'FOLDER_QUESTIONS', True)  # bot's own folder questions, off since 9.10.2026
     answers = AsyncMock(); monkeypatch.setattr(Message, 'answer', answers)
     project = _irina_project(tmp_path, journal=False)
     store, doc = new_doc(tmp_path, request='')
@@ -460,6 +462,7 @@ async def test_unknown_subproject_is_not_created_without_new(tmp_path, monkeypat
 async def test_subproject_buttons_root_and_new(tmp_path, monkeypatch):
     import d_brain.bot.handlers.document as module
     monkeypatch.setattr(module, 'get_settings', lambda: SimpleNamespace(vault_path=tmp_path))
+    monkeypatch.setattr(module, 'FOLDER_QUESTIONS', True)  # bot's own folder questions, off since 9.10.2026
     answers = AsyncMock(); monkeypatch.setattr(Message, 'answer', answers)
     monkeypatch.setattr(Message, 'edit_reply_markup', AsyncMock())
     _irina_project(tmp_path)

@@ -1,8 +1,11 @@
 """Текущий проект беседы (Егор, 8 октября 2026).
 
 Бот помнит, в каком проекте идёт работа, и кладёт туда документы и фото без вопросов.
-Место каждого такого файла помощник проверяет в следующем ответе; без проекта бот спрашивает
-папку кнопками последних проектов, и выбранный проект становится текущим.
+Место каждого такого файла помощник проверяет в следующем ответе.
+
+С 9 октября 2026 без проекта бот тоже ничего не спрашивает: файл ждёт во входящих, а пачку
+вложений сразу получает помощник и решает по разговору (bot/uploads.py). Прежние кнопки
+«Куда сохранить?» — за выключателем FOLDER_QUESTIONS, их тесты включают его.
 """
 from __future__ import annotations
 
@@ -35,8 +38,17 @@ def projects(vault: Path):
 @pytest.fixture
 def bot_env(tmp_path, monkeypatch):
     import d_brain.bot.handlers.document as module
+    from d_brain.bot import uploads
     settings = SimpleNamespace(vault_path=tmp_path, treat_all_group_chats_as_work=True, work_chat_ids=[])
     monkeypatch.setattr(module, 'get_settings', lambda: settings)
+    monkeypatch.setattr(uploads, 'get_settings', lambda: settings)
+    monkeypatch.setattr(uploads, 'BATCH_WINDOW_SECONDS', 0.05)
+    uploads._batches.clear()
+    prompts = []
+
+    async def reply(message, prompt, *, scope, work_context=False):
+        prompts.append(prompt)
+    monkeypatch.setattr('d_brain.bot.handlers.text.dialog_reply', reply)
     answers = AsyncMock()
     monkeypatch.setattr(Message, 'answer', answers)
     monkeypatch.setattr(Message, 'edit_reply_markup', AsyncMock())
@@ -46,7 +58,12 @@ def bot_env(tmp_path, monkeypatch):
         handed.append(message.text)
     monkeypatch.setattr('d_brain.bot.handlers.text.handle_text', assistant)
     projects(tmp_path)
-    return SimpleNamespace(module=module, answers=answers, store=DocumentStore(tmp_path), handed=handed)
+    return SimpleNamespace(module=module, answers=answers, store=DocumentStore(tmp_path), handed=handed,
+                           prompts=prompts, monkeypatch=monkeypatch)
+
+
+def old_questions(env):
+    env.monkeypatch.setattr(env.module, 'FOLDER_QUESTIONS', True)
 
 
 def upload(number, name='Условия.pdf', data=b'%PDF one', caption=None):
@@ -63,6 +80,8 @@ def said(env):
 
 
 def buttons(env):
+    if not env.answers.call_args:
+        return []
     markup = env.answers.call_args.kwargs.get('reply_markup')
     return [b.text for row in markup.inline_keyboard for b in row] if markup else []
 
@@ -79,9 +98,12 @@ async def test_current_project_takes_document_without_questions(bot_env):
     await env.module.handle_document(*upload(11))
     doc = env.store.for_scope(7)[0]
     assert doc['path'] == 'projects/Ирина работа/Приводи своих друзей/Условия.pdf'
-    assert len(said(env)) == 1 and not buttons(env)
-    assert 'проект «Ирина работа», подпроект «Приводи своих друзей»' in said(env)[0]
-    assert said(env)[0].endswith('Что сделать по документу?')
+    # The bot itself says nothing: the assistant gets the file with the conversation and answers.
+    assert said(env) == []
+    [prompt] = env.prompts
+    assert ('файл «Условия.pdf»: projects/Ирина работа/Приводи своих друзей/Условия.pdf (бот положил в '
+            'текущий проект: проект «Ирина работа», подпроект «Приводи своих друзей»)') in prompt
+    assert 'сверь с разговором' in prompt
     # The assistant sees the file as unchecked in its next prompt and checks the place.
     context = env.store.context(7)
     assert 'Работаем в проекте: Ирина работа / Приводи своих друзей' in context
@@ -95,11 +117,56 @@ async def test_caption_task_goes_to_assistant_after_placing(bot_env):
     env.store.set_active(7, 'dacha')
     await env.module.handle_document(*upload(12, caption='Сравни со сметой'))
     assert env.store.for_scope(7)[0]['path'] == 'projects/dacha/Условия.pdf'
-    assert env.handed == ['Сравни со сметой']
+    assert 'подпись: «Сравни со сметой»' in env.prompts[0] and not env.handed
+
+
+async def test_without_project_bot_asks_nothing_and_assistant_places_file(bot_env):
+    """Егор, 9 октября 2026: прислал куки по просьбе помощника, а бот спросил папку кнопками."""
+    env = bot_env
+    await env.module.handle_document(*upload(19, name='www.youtube.com_cookies.txt', data=b'# cookies',
+                                             caption='лови'))
+    assert said(env) == [] and not buttons(env)
+    doc = env.store.for_scope(7)[0]
+    assert doc['state'] == 'destination' and doc['path'].startswith('.documents/incoming/')
+    [prompt] = env.prompts
+    assert f"файл «www.youtube.com_cookies.txt»: {doc['path']} (во входящих, место ещё не выбрано); " \
+           'подпись: «лови»' in prompt
+    assert 'во входящих, место не выбрано' in env.store.context(7)
+    assert 'не выбирай за него' not in env.store.context(7)
+    # A spoken folder name is no longer caught by the bot: it reaches the assistant.
+    reply = Message(message_id=20, date=datetime.now(timezone.utc), chat=Chat(id=7, type='private'),
+                    from_user=OWNER, text='В ирина работа.')
+    assert not await env.module.route_document_request(reply, 'В ирина работа.')
+    assert env.store.get(doc['id'])['state'] == 'destination' and said(env) == []
+
+
+async def test_photos_and_files_sent_together_get_one_assistant_turn(bot_env, monkeypatch):
+    from d_brain.bot.handlers import photo
+    monkeypatch.setattr(photo, 'get_settings', lambda: SimpleNamespace(
+        vault_path=env_vault(bot_env), treat_all_group_chats_as_work=True, work_chat_ids=[]))
+    monkeypatch.setattr(photo, '_analyze_image', AsyncMock(return_value='описание'))
+
+    @asynccontextmanager
+    async def typing(*args):
+        yield
+    monkeypatch.setattr(photo, 'keep_typing', typing)
+    picture = SimpleNamespace(message_id=31, photo=[SimpleNamespace(file_id='p')], caption=None,
+                              date=datetime.now(timezone.utc), media_group_id=None, from_user=OWNER,
+                              chat=SimpleNamespace(id=7, type='private', title=None), answer=AsyncMock())
+    camera = SimpleNamespace(get_file=AsyncMock(return_value=SimpleNamespace(file_path='photos/p.jpg')),
+                             download_file=AsyncMock(return_value=io.BytesIO(b'jpeg')))
+    await asyncio.gather(photo.handle_photo(picture, camera), bot_env.module.handle_document(*upload(32)))
+    [prompt] = bot_env.prompts
+    assert 'подряд 2 вложений' in prompt and 'фото: attachments/' in prompt and 'файл «Условия.pdf»' in prompt
+
+
+def env_vault(env):
+    return env.store.vault
 
 
 async def test_without_project_recent_projects_are_buttons_and_choice_becomes_current(bot_env):
     env = bot_env
+    old_questions(env)
     await env.module.handle_document(*upload(13))
     assert 'Куда сохранить «Условия.pdf»' in said(env)[-1]
     shown = buttons(env)
@@ -119,6 +186,7 @@ async def test_without_project_recent_projects_are_buttons_and_choice_becomes_cu
 
 async def test_all_projects_button_shows_every_project(bot_env):
     env = bot_env
+    old_questions(env)
     for name in ('a', 'b', 'c', 'd', 'e'):
         (env.store.vault/'projects'/name).mkdir()
     await env.module.handle_document(*upload(15))
@@ -133,6 +201,7 @@ async def test_all_projects_button_shows_every_project(bot_env):
 
 async def test_spoken_project_name_then_subproject_sets_current(bot_env):
     env = bot_env
+    old_questions(env)
     await env.module.handle_document(*upload(16))
     doc = env.store.for_scope(7)[0]
     reply = Message(message_id=17, date=datetime.now(timezone.utc), chat=Chat(id=7, type='private'),
@@ -146,6 +215,7 @@ async def test_spoken_project_name_then_subproject_sets_current(bot_env):
 
 async def test_stale_project_asks_again_with_it_first(bot_env):
     env = bot_env
+    old_questions(env)
     (env.store.vault/'projects'/'dacha'/'новый.md').write_text('свежее', encoding='utf-8')
     env.store.set_active(7, 'Ирина работа')
     with env.store.db() as db:
@@ -191,8 +261,22 @@ def test_script_sets_lists_and_clears_project(tmp_path):
     assert DocumentStore(tmp_path).active_project(7)['subproject'] == 'Приводи своих друзей'
     listed = run('list').stdout
     assert 'Ирина работа — подпроекты: Приводи своих друзей' in listed and 'dacha' in listed
+    created = run('set', 'Узлы VPN', '--create')
+    assert created.returncode == 0, created.stderr
+    assert created.stdout.strip() == 'Текущий проект: Узлы VPN'
+    assert (tmp_path/'projects'/'Узлы VPN').is_dir()
     assert run('clear').returncode == 0
     assert DocumentStore(tmp_path).active_project(7) is None
+    # A file the bot left in incoming: the assistant places it by the conversation.
+    store = DocumentStore(tmp_path)
+    doc, _ = store.receive(b'%PDF', 'Смета.pdf', 7, 7, 40)
+    assert run('place', doc['path'], 'нет такого').returncode == 1
+    placed = run('place', doc['path'], 'dacha')
+    assert placed.returncode == 0, placed.stderr
+    assert placed.stdout.strip() == 'Положил в корень проекта «dacha»: projects/dacha/Смета.pdf'
+    assert store.get(doc['id'])['state'] == 'ready' and (tmp_path/'projects'/'dacha'/'Смета.pdf').is_file()
+    again = run('place', doc['id'], 'Ирина работа')
+    assert again.returncode == 0 and 'уже лежит' in again.stdout
 
 
 async def test_photo_goes_to_current_project(tmp_path, monkeypatch):
@@ -202,7 +286,6 @@ async def test_photo_goes_to_current_project(tmp_path, monkeypatch):
                         deepgram_api_key='test', allowed_user_ids=[7], work_chat_ids=[],
                         treat_all_group_chats_as_work=True)
     monkeypatch.setattr(module, 'get_settings', lambda: settings)
-    monkeypatch.setattr(module, 'BATCH_WINDOW_SECONDS', 0.2)
 
     @asynccontextmanager
     async def typing(*args):
@@ -216,12 +299,20 @@ async def test_photo_goes_to_current_project(tmp_path, monkeypatch):
                               chat=SimpleNamespace(id=7, type='private', title=None), answer=AsyncMock())
     bot = SimpleNamespace(get_file=AsyncMock(return_value=SimpleNamespace(file_path='photos/p.jpg')),
                           download_file=AsyncMock(return_value=io.BytesIO(b'jpeg')))
-    module._batches.clear()
+    from d_brain.bot import uploads
+    monkeypatch.setattr(uploads, 'get_settings', lambda: settings)
+    monkeypatch.setattr(uploads, 'BATCH_WINDOW_SECONDS', 0.2)
+    prompts = []
+
+    async def reply(message, prompt, *, scope, work_context=False):
+        prompts.append(prompt)
+    monkeypatch.setattr('d_brain.bot.handlers.text.dialog_reply', reply)
+    uploads._batches.clear()
     await module.handle_photo(message, bot)
-    await asyncio.sleep(0.6)
     saved = list((tmp_path/'projects'/'dacha').glob('фото *.jpg'))
     assert len(saved) == 1 and not [p for p in (tmp_path/'attachments').rglob('*') if p.is_file()]
-    assert message.answer.call_args.args[0] == '📸 Фото положил в корень проекта «dacha». Что с ним сделать?'
+    assert not message.answer.called
+    assert f'фото: projects/dacha/{saved[0].name} (бот положил в текущий проект: корень проекта «dacha»)' in prompts[0]
     assert DocumentStore(tmp_path).unchecked(7)[0]['kind'] == 'photo'
 
 

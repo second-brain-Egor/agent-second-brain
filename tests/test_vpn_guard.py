@@ -1,4 +1,4 @@
-"""Страж шведского выхода (deploy/vpn-guard/vpn-guard): разбор подписки, выбор и замена узла."""
+"""Страж выхода сервера (deploy/vpn-guard/vpn-guard): разбор подписки, выбор и замена узла по очереди."""
 import base64
 import importlib.machinery
 import importlib.util
@@ -205,20 +205,23 @@ def test_set_url_rejects_encrypted_and_junk_without_network(guard, monkeypatch):
 class Rig:
     """Подставки вместо сети и Xray для сценариев do_refresh / do_check."""
 
-    def __init__(self, guard, monkeypatch, config, *, alive, nodes, verdicts=None, apply_ok=True):
-        self.guard, self.applied, self.notices = guard, [], []
+    def __init__(self, guard, monkeypatch, config, *, alive, nodes, verdicts=None, apply_ok=True, apply_fail=()):
+        self.guard, self.applied, self.notices, self.tested = guard, [], [], []
         self.alive = alive
-        verdicts = verdicts or {}
+        self.verdicts = verdicts = verdicts or {}
+        apply_fail = set(apply_fail)
         guard.SUB_FILE.write_text("https://sub.example/token\n")
         monkeypatch.setattr(guard, "read_config", lambda: json.loads(json.dumps(config)))
         monkeypatch.setattr(guard, "fetch_subscription", lambda url, state: b"")
         monkeypatch.setattr(guard, "parse_subscription", lambda body: (nodes, []))
         monkeypatch.setattr(guard, "probe_egress", lambda *a, **k: dict(ok=self.alive, ms=700, country="SE"))
-        monkeypatch.setattr(guard, "test_candidate",
-                            lambda node: dict(ok=verdicts.get(node.name, True), ms=650, country="SE", error=None))
+        monkeypatch.setattr(guard, "test_candidate", lambda node: self.tested.append(node.name) or dict(
+            ok=self.verdicts.get(node.name, True), ms=650, country="SE", error=None,
+            problem=None if self.verdicts.get(node.name, True) else "не открываются: Telegram"))
         monkeypatch.setattr(guard, "xray_test", lambda cfg: None)
         monkeypatch.setattr(guard, "apply_node", lambda node: (
-            self.applied.append(node.name) or (dict(ok=True, egress=dict(ok=True, ms=640, country="SE")) if apply_ok
+            self.applied.append(node.name) or (dict(ok=True, egress=dict(ok=True, ms=640, country="SE"))
+                                              if apply_ok and node.name not in apply_fail
                                               else dict(ok=False, reason="Xray не поднялся после замены"))))
         monkeypatch.setattr(guard, "notify", lambda state, text: self.notices.append(text) or True)
         monkeypatch.setattr(guard, "snapshot_is_current", lambda: True)
@@ -252,10 +255,10 @@ def test_refresh_skips_the_node_that_is_currently_dead(guard, monkeypatch, confi
     assert not result["ok"] and not rig.applied and "тот же узел" in result["message"]
 
 
-def test_refresh_without_swedish_node_lists_names(guard, monkeypatch, config):
+def test_refresh_without_queue_nodes_lists_names(guard, monkeypatch, config):
     Rig(guard, monkeypatch, config, alive=False, nodes=[node(guard, "Germany", "203.0.113.30")])
     result = guard.do_refresh(force=False)
-    assert not result["ok"] and "Germany" in result["message"] and "шведского" in result["message"]
+    assert not result["ok"] and "Germany" in result["message"] and "нет узлов очереди" in result["message"]
 
 
 def test_refresh_forced_new_node_failing_keeps_working_one(guard, monkeypatch, config):
@@ -290,7 +293,7 @@ def test_check_replaces_and_notifies_once(guard, monkeypatch, config):
     rig = Rig(guard, monkeypatch, config, alive=False, nodes=[node(guard, "Sweden B", "203.0.113.22", OTHER)])
     result = guard.do_check()
     assert result["changed"] and rig.applied == ["Sweden B"]
-    assert len(rig.notices) == 1 and "Узел заменён" in rig.notices[0]
+    assert len(rig.notices) == 1 and "Обновил настройки узла 🇸🇪 Стокгольм" in rig.notices[0]
     assert json.loads(guard.STATE_FILE.read_text())["incident"] is None
 
 
@@ -298,10 +301,10 @@ def test_check_failure_notifies_once_per_incident_then_announces_recovery(guard,
     rig = Rig(guard, monkeypatch, config, alive=False, nodes=[node(guard, "Germany", "203.0.113.30")])
     guard.do_check()
     guard.do_check()
-    assert len(rig.notices) == 1 and "не отвечает" in rig.notices[0] and "нет шведского узла" in rig.notices[0]
+    assert len(rig.notices) == 1 and "не работает" in rig.notices[0] and "нет узлов очереди" in rig.notices[0]
     rig.alive = True
     guard.do_check()
-    assert len(rig.notices) == 2 and "снова отвечает" in rig.notices[1]
+    assert len(rig.notices) == 2 and "снова работает" in rig.notices[1]
     guard.do_check()
     assert len(rig.notices) == 2
 
@@ -368,5 +371,172 @@ def test_notify_failure_is_kept_for_retry_and_not_recorded(guard, monkeypatch, t
     monkeypatch.setattr(guard, "curl", lambda url, **kw: (0, b"", "timeout"))
     state = {}
     assert guard.notify(state, "текст") is False
-    assert state["pending_notifications"] == ["текст"]
+    assert [item["text"] for item in state["pending_notifications"]] == ["текст"]
+    assert state["pending_notifications"][0]["at"]
     assert not (tmp_path / "sessions" / "4242.jsonl").exists()
+
+
+# ── очередь узлов и строгая проверка (9 октября 2026) ──
+
+OSLO, STOCKHOLM, OULU, VILNIUS = ("🇳🇴 Осло, Норвегия, Extra", "🇸🇪 Стокгольм, Швеция, Extra",
+                                  "🇫🇮 Оулу, Финляндия, Extra", "🇱🇹 Вильнюс, Литва, Extra")
+
+
+def queue_nodes(guard, *, fresh=OTHER):
+    """Узлы в порядке подписки провайдера; у всех свой ключ, кроме стоящего в конфиге."""
+    names = [("🇩🇰 Копенгаген, Дания, Extra", "203.0.113.40"), (OULU, "203.0.113.41"), (VILNIUS, "203.0.113.42"),
+             (OSLO, "203.0.113.43"), (STOCKHOLM, "203.0.113.44")]
+    return [node(guard, name, host, fresh) for name, host in names]
+
+
+def rounds(guard, monkeypatch, plan):
+    """plan: список кругов; круг — (не ответившие службы, страна)."""
+    calls = iter(plan)
+
+    def fake_round(port, timeout):
+        failed, country = next(calls)
+        return dict(passed={name: name not in failed for name, _ in guard.SERVICES}, country=country,
+                    ms=None if "Cloudflare" in failed else 400)
+
+    monkeypatch.setattr(guard, "probe_round", fake_round)
+
+
+def test_strict_probe_passes_with_every_service_and_tolerates_one_glitch(guard, monkeypatch):
+    rounds(guard, monkeypatch, [((), "NO")] * 3)
+    result = guard.probe_egress()
+    assert result["ok"] and result["score"] == "6 из 6" and result["country"] == "NO"
+    rounds(guard, monkeypatch, [(("Google",), "NO"), ((), "NO"), ((), "NO")])
+    assert guard.probe_egress()["ok"]
+
+
+def test_strict_probe_rejects_half_dead_node_early(guard, monkeypatch):
+    # Как Стокгольм 9 октября: нейросеть отвечает, Telegram — нет.
+    rounds(guard, monkeypatch, [(("Telegram", "YouTube"), "SE"), (("Telegram",), "SE")])
+    result = guard.probe_egress()
+    assert not result["ok"] and result["failed"] == ["Telegram"] and result["score"] == "2 из 4"
+    assert "Telegram" in result["problem"]
+
+
+def test_strict_probe_rejects_foreign_exit(guard, monkeypatch):
+    rounds(guard, monkeypatch, [((), "RU")] * 3)
+    result = guard.probe_egress()
+    assert not result["ok"] and "RU" in result["problem"]
+
+
+def test_quick_round_requires_ai_and_telegram_only(guard, monkeypatch):
+    rounds(guard, monkeypatch, [(("YouTube",), "NO")])
+    assert guard.probe_egress(rounds=1)["ok"]
+    rounds(guard, monkeypatch, [(("Telegram",), "NO")])
+    assert not guard.probe_egress(rounds=1)["ok"]
+
+
+def test_optional_services_do_not_reject_node(guard, monkeypatch):
+    # Егор, 9 октября: решают только нейросеть и Telegram; Google, YouTube, Cloudflare — для журнала.
+    rounds(guard, monkeypatch, [(("Google", "YouTube", "Cloudflare"), "NO")] * 3)
+    result = guard.probe_egress()
+    assert result["ok"] and result["extra"] == ["Google", "YouTube", "Cloudflare"]
+    assert "YouTube" in guard.verdict_text(result)
+
+
+def test_unknown_exit_country_rejects_node(guard, monkeypatch):
+    rounds(guard, monkeypatch, [((), None)] * 3)
+    result = guard.probe_egress()
+    assert not result["ok"] and "страну" in result["problem"]
+
+
+def test_round_takes_country_from_fallback_when_cloudflare_is_down(guard, monkeypatch):
+    def fake_curl(url, **kwargs):
+        if "cloudflare" in url:
+            return 0, b"", "timeout"
+        if url == guard.COUNTRY_FALLBACK:
+            return 200, b"NO\n", ""
+        return 200, b"", ""
+
+    monkeypatch.setattr(guard, "curl", fake_curl)
+    result = guard.probe_round(10808, 5)
+    assert result["country"] == "NO" and not result["passed"]["Cloudflare"] and result["passed"]["Telegram"]
+
+
+def test_rank_follows_queue_and_keeps_reserve_last(guard):
+    nodes = queue_nodes(guard)
+    assert [n.name for n in guard.rank(nodes, STOCKHOLM)] == [STOCKHOLM, OSLO, OULU, VILNIUS]
+    assert [n.name for n in guard.rank(nodes, None)] == [OSLO, STOCKHOLM, OULU, VILNIUS]
+    # С запасного узла сначала пробуем север, а не свежие настройки запасного.
+    assert [n.name for n in guard.rank(nodes, VILNIUS)] == [OSLO, STOCKHOLM, OULU, VILNIUS]
+
+
+def test_dead_exit_tries_same_node_then_queue_and_skips_failed_apply(guard, monkeypatch, config):
+    config["remarks"] = OSLO
+    rig = Rig(guard, monkeypatch, config, alive=False, nodes=queue_nodes(guard),
+              verdicts={OSLO: False}, apply_fail={STOCKHOLM})
+    result = guard.do_refresh(force=False)
+    assert rig.tested == [OSLO, STOCKHOLM, OULU]
+    assert rig.applied == [STOCKHOLM, OULU] and result["changed"]
+    assert "Выход переключён: 🇳🇴 Осло → 🇫🇮 Оулу" in result["message"]
+
+
+def test_reserve_only_when_whole_north_fails(guard, monkeypatch, config):
+    config["remarks"] = OSLO
+    rig = Rig(guard, monkeypatch, config, alive=False, nodes=queue_nodes(guard),
+              verdicts={OSLO: False, STOCKHOLM: False, OULU: False})
+    result = guard.do_refresh(force=False)
+    assert rig.applied == [VILNIUS] and "запасной" in result["message"]
+
+
+def test_all_nodes_dead_reports_each(guard, monkeypatch, config):
+    config["remarks"] = OSLO
+    rig = Rig(guard, monkeypatch, config, alive=False, nodes=queue_nodes(guard),
+              verdicts={OSLO: False, STOCKHOLM: False, OULU: False, VILNIUS: False})
+    result = guard.do_refresh(force=False)
+    assert not result["ok"] and not rig.applied
+    assert all(place in result["reason"] for place in ("Осло", "Стокгольм", "Оулу", "Вильнюс"))
+
+
+def test_working_exit_never_changes_country_even_when_forced(guard, monkeypatch, config):
+    config["remarks"] = STOCKHOLM
+    rig = Rig(guard, monkeypatch, config, alive=True, nodes=queue_nodes(guard))
+    assert not guard.do_refresh(force=False)["changed"] and rig.tested == []
+    result = guard.do_refresh(force=True)
+    assert rig.tested == [STOCKHOLM] and rig.applied == [STOCKHOLM] and "Обновил настройки" in result["message"]
+
+
+def test_check_on_north_stays_put_while_it_works(guard, monkeypatch, config):
+    config["remarks"] = STOCKHOLM
+    rig = Rig(guard, monkeypatch, config, alive=True, nodes=queue_nodes(guard))
+    for _ in range(4):
+        guard.do_check()
+    assert rig.tested == [] and rig.applied == [] and rig.notices == []
+
+
+def test_check_returns_from_reserve_after_three_good_checks_in_a_row(guard, monkeypatch, config):
+    config["remarks"] = VILNIUS
+    rig = Rig(guard, monkeypatch, config, alive=True, nodes=queue_nodes(guard))
+    guard.do_check()
+    rig.verdicts.update({OSLO: False, STOCKHOLM: False, OULU: False})
+    guard.do_check()  # север упал — счёт сначала
+    assert json.loads(guard.STATE_FILE.read_text())["north_streak"] == 0
+    rig.verdicts.clear()
+    guard.do_check()
+    guard.do_check()
+    assert rig.applied == []
+    guard.do_check()
+    assert rig.applied == [OSLO]
+    assert len(rig.notices) == 1 and "вернулся на север: 🇱🇹 Вильнюс → 🇳🇴 Осло" in rig.notices[0]
+
+
+def test_late_notification_shows_when_it_was_composed(guard, monkeypatch):
+    sent = []
+    monkeypatch.setattr(guard, "send", lambda text: sent.append(text) or True)
+    monkeypatch.setattr(guard, "now", lambda: guard.datetime(2026, 10, 9, 16, 35, tzinfo=guard.TZ))
+    state = {"pending_notifications": [{"text": "🔁 Выход переключён", "at": "2026-10-09 16:22:01"}, "старое"]}
+    guard.deliver_pending(state)
+    assert sent[0].startswith("🕒 <b>Составлено в 16:22</b>") and sent[0].endswith("🔁 Выход переключён")
+    assert "время составления неизвестно" in sent[1] and state["pending_notifications"] == []
+
+
+def test_failed_send_is_queued_with_time(guard, monkeypatch):
+    monkeypatch.setattr(guard, "send", lambda text: False)
+    state = {}
+    guard.notify(state, "x")
+    guard.notify(state, "x")
+    assert len(state["pending_notifications"]) == 1 and state["pending_notifications"][0]["at"]

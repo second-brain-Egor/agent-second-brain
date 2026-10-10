@@ -401,7 +401,8 @@ async def test_stop_frees_the_chat_queue(jobs, chat, monkeypatch):
     gate.set()
 
 
-async def test_attachment_does_not_take_a_place_in_the_chat_queue(jobs):
+async def test_video_does_not_take_a_place_but_photo_and_file_do(jobs):
+    """С 9 октября 2026 на фото и файлы отвечает помощник: ответ на текст после них ждёт этого ответа."""
     import asyncio
     from types import SimpleNamespace
     gate = asyncio.Event()
@@ -409,18 +410,69 @@ async def test_attachment_does_not_take_a_place_in_the_chat_queue(jobs):
     async def handler(event, data):
         await gate.wait()
 
+    video = incoming(None, 4)
+    video.message.video = SimpleNamespace(file_id='v')
+    await jobs(handler, video, {})
+    assert not jobs.turns
+    assert jobs.active['7:message:4'][0].turn is None
     photo = incoming(None, 5)
     photo.message.caption = 'Что на фото?'
     photo.message.photo = [SimpleNamespace(file_id='p')]
     await jobs(handler, photo, {})
-    assert not jobs.turns
-    assert jobs.active['7:message:5'][0].turn is None
     await jobs(handler, incoming('Текст', 6), {})
-    assert list(jobs.turns['7']) == [6]
-    assert jobs.active['7:message:6'][0].turn is jobs.turns['7'][6]
+    assert list(jobs.turns['7']) == [5, 6]
+    assert jobs.active['7:message:5'][0].turn is jobs.turns['7'][5]
     gate.set()
     await asyncio.wait_for(asyncio.gather(*list(jobs.tasks)), 2)
     assert not jobs.turns
+
+
+async def test_file_and_message_right_after_it_get_one_reply(jobs, chat, monkeypatch):
+    """Егор, 9 октября 2026: прислал файл «лови» и сразу голосом «разбирайся сам» — ответ один, общий."""
+    import asyncio
+    from types import SimpleNamespace
+    from d_brain.bot import uploads
+    monkeypatch.setattr(uploads, 'BATCH_WINDOW_SECONDS', 0.3)
+    monkeypatch.setattr(uploads, 'get_settings', lambda: SimpleNamespace(vault_path=chat.vault_path))
+    uploads._batches.clear()
+    calls = []
+
+    def fake_chat(system, user, **kwargs):
+        calls.append(user)
+        return 'Подключил файл'
+    monkeypatch.setattr(chat, '_run_chat', fake_chat)
+
+    async def reply(message, prompt, *, scope, work_context=False):
+        answer = await asyncio.to_thread(chat.execute_raw_prompt, prompt, 7, session_scope=7)
+        SessionStore(chat.vault_path).append(7, 'assistant', text=answer['report'])
+        await message.answer(answer['report'])
+    monkeypatch.setattr('d_brain.bot.handlers.text.dialog_reply', reply)
+    text_handler = chat_handler(chat)
+
+    async def handler(event, data):
+        message = event.message
+        if message.document:
+            async def save():
+                SessionStore(chat.vault_path).append(7, 'file', path='incoming/cookies.txt', caption='лови')
+                return {'kind': 'file', 'name': 'cookies.txt', 'path': 'incoming/cookies.txt',
+                        'where': 'во входящих, место ещё не выбрано', 'caption': message.caption}
+            await uploads.collect(message, 7, save)
+        else:
+            await text_handler(event, data)
+
+    upload = incoming(None, 1)
+    upload.message.caption = 'лови'
+    upload.message.document = SimpleNamespace(file_name='cookies.txt')
+    await jobs(handler, upload, {})
+    await asyncio.sleep(0.05)
+    follow_up = incoming('Разбирайся сам', 2)
+    await jobs(handler, follow_up, {})
+    await asyncio.wait_for(asyncio.gather(*list(jobs.tasks)), 5)
+    assert len(calls) == 1
+    assert '=== USER MESSAGES ===' in calls[0] and 'файл «cookies.txt»' in calls[0] and 'Разбирайся сам' in calls[0]
+    assert upload.message.answer.call_args.args[0] == 'Подключил файл'
+    assert follow_up.message.answer.call_args.args[0].startswith('☝️ Ответил выше, в сообщении от ')
+    assert not jobs.turns and not uploads._batches
 
 
 async def test_failure_while_admitting_a_message_does_not_hold_the_line(jobs, monkeypatch):

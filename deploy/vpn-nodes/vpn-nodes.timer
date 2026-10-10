@@ -1,0 +1,10 @@
+[Unit]
+Description=Замер узлов VPN раз в 3 часа в течение недели наблюдения (включает vpn-nodes week)
+
+[Timer]
+OnCalendar=*-*-* 00/3:00:00 Europe/Moscow
+AccuracySec=1min
+Persistent=false
+
+[Install]
+WantedBy=timers.target

@@ -1,5 +1,5 @@
 [Unit]
-Description=Проверка шведского выхода и замена узла по подписке
+Description=Проверка выхода сервера и замена узла по подписке (Осло, Стокгольм, Оулу, запасной Вильнюс)
 After=network-online.target xray.service
 Wants=network-online.target
 

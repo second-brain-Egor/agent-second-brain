@@ -4,7 +4,7 @@ description: "Сравниваются:"
 status: research
 created: 2026-08-13
 last_accessed: 2026-08-23
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Выбор двухконфорочной индукционной панели

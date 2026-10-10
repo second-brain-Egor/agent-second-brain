@@ -4,7 +4,7 @@ description: "Журнал ошибок нужен не как склад тех
 source: Nate Herk
 created: 2026-09-01
 last_accessed: 2026-09-06
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Принципы журнала ошибок

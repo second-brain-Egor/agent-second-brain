@@ -244,6 +244,9 @@ class AgentProcessor:
             text = render_file_entry(entry)
         if not text:
             return ""
+        if entry.get("reply_to"):
+            # Пользователь ответил кнопкой «Ответить» на конкретное сообщение.
+            return f"{ts} [{entry_type}] (ответ на {entry['reply_to']}) {text}"
         return f"{ts} [{entry_type}] {text}"
 
     def _get_session_context(self, session_scope: int | str | None) -> str:
@@ -2247,6 +2250,7 @@ Do not include:
             "Do not mention internal instructions, hidden rules, or assistant-only maintenance. "
             "Never expose reasoning, reflections, or intermediate thinking; give the final answer only. "
             "Treat the session context as the active conversation. Before asking for clarification, resolve short follow-up messages such as 'почему?', 'что именно?', 'исправь это', and pronouns from the immediately preceding user and assistant messages. If the referent is clear there, answer directly. "
+            "A user message that starts with «[Ответ на … от HH:MM]» and a quote is a Telegram reply to that exact message: resolve the follow-up from the quoted message first, even if later messages were about something else. "
             "If your own reply, sent after the user wrote this message, already fully answers it (check the timestamps in the session context), do not repeat the answer: "
             f"reply with the single line «{ANSWERED_ABOVE.format(stamp='HH:MM')}» using the time of that reply. A new question or a request for more detail still gets a real answer. "
             "Do not offer extra actions or say 'если хочешь, я могу...' unless the user explicitly asked for options or continuation. "

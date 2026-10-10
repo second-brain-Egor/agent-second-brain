@@ -14,6 +14,10 @@ from d_brain.bot.chat_context import (
     build_msg_type,
     get_session_scope,
     is_work_chat,
+    reply_log,
+    reply_prompt,
+    send_chunks,
+    send_reply,
 )
 from d_brain.bot.states import SilentState
 from d_brain.bot.typing_indicator import keep_typing
@@ -35,13 +39,9 @@ AUTOMATIC_DELETE = False
 logger = logging.getLogger(__name__)
 
 
-async def _send_text_response(message: Message, response: str) -> None:
-    """Send a formatted Telegram response."""
-    for chunk in prepare_telegram_response(response):
-        try:
-            await message.answer(chunk)
-        except Exception:
-            await message.answer(chunk, parse_mode=None)
+async def _send_text_response(message: Message, response: str, vault_path) -> None:
+    """Send a formatted Telegram response; a reply only when the question is far up."""
+    await send_chunks(message, prepare_telegram_response(response), vault_path)
 
 
 @router.message(SilentState.active, lambda m: m.text is not None and not m.text.startswith("/"))
@@ -85,6 +85,7 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
 
     # Log to session
     session = SessionStore(settings.vault_path)
+    replied = reply_log(message, settings.vault_path)
     session.append(
         scope,
         "text",
@@ -92,6 +93,7 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
         msg_id=message.message_id,
         chat_id=message.chat.id,
         chat_title=message.chat.title,
+        **({"reply_to": replied} if replied else {}),
     )
 
     work_context = is_work_chat(message, settings)
@@ -159,6 +161,8 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
     # Dialog mode: respond via active LLM backend
     processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
     user_id = message.from_user.id
+    # «Ответить» на сообщение: модель видит цитату, на которую отвечает пользователь.
+    prompt = reply_prompt(message, message.text, settings.vault_path)
 
     try:
         # 2026-05-10: classifier/pending/brief disabled — pure Opus chat, no two-model dance.
@@ -198,43 +202,7 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
                 logger.info("Text message processed (heavy → pending confirmation): %d chars", len(message.text))
                 return
 
-        async with keep_typing(message.chat):
-            result = await asyncio.to_thread(
-                processor.execute_raw_prompt,
-                message.text,
-                user_id,
-                session_scope=scope,
-                work_context=work_context,
-            )
-
-        if "error" in result:
-            await message.answer(f"⚠️ {result['error']}", parse_mode=None)
-        elif "report" in result:
-            response = result["report"]
-
-            # Auto-escalation: sonnet detected complex task
-            if processor.needs_agent(response):
-                brief = normalize_telegram_output(processor.strip_agent_marker(response))
-                await message.answer(brief, parse_mode=None)
-                session.append(scope, "assistant", text=f"[agent] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
-
-                # Run heavy agent in background (always text — too long for voice)
-                await _run_agent(message, processor, message.text, user_id, scope, work_context, session)
-            else:
-                reminder = maybe_evening_reminder(settings.vault_path)
-                if reminder:
-                    response = f"{response}\n\n{reminder}"
-                sent_chunks = prepare_telegram_response(response)
-                session.append(
-                    scope,
-                    "assistant",
-                    text="\n\n".join(sent_chunks),
-                    chat_id=message.chat.id,
-                    chat_title=message.chat.title,
-                )
-                await _send_text_response(message, response)
-        else:
-            await message.answer("✓ Сохранено")
+        await dialog_reply(message, prompt, scope=scope, work_context=work_context)
 
     except Exception as e:
         logger.exception("Dialog error")
@@ -245,6 +213,55 @@ async def handle_text(message: Message, state: FSMContext, bot: Bot) -> None:
         await message.answer(msg, parse_mode=None)
 
     logger.info("Text message processed: %d chars", len(message.text))
+
+
+async def dialog_reply(message: Message, prompt: str, *, scope: int | str, work_context: bool = False) -> None:
+    """Ответ помощника в беседе: запрос к модели в свою очередь и отправка ответа.
+
+    Кроме текста, сюда приходят пачки файлов и фото (bot/uploads.py).
+    """
+    settings = get_settings()
+    processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
+    session = SessionStore(settings.vault_path)
+    user_id = message.from_user.id
+
+    async with keep_typing(message.chat):
+        result = await asyncio.to_thread(
+            processor.execute_raw_prompt,
+            prompt,
+            user_id,
+            session_scope=scope,
+            work_context=work_context,
+        )
+
+    if "error" in result:
+        await send_reply(message, f"⚠️ {result['error']}", settings.vault_path, parse_mode=None)
+    elif "report" in result:
+        response = result["report"]
+
+        # Auto-escalation: sonnet detected complex task
+        if processor.needs_agent(response):
+            brief = normalize_telegram_output(processor.strip_agent_marker(response))
+            await send_reply(message, brief, settings.vault_path, parse_mode=None)
+            session.append(scope, "assistant", text=f"[agent] {brief}", chat_id=message.chat.id, chat_title=message.chat.title)
+
+            # Run heavy agent in background (always text — too long for voice)
+            await _run_agent(message, processor, prompt, user_id, scope, work_context, session)
+        else:
+            reminder = maybe_evening_reminder(settings.vault_path)
+            if reminder:
+                response = f"{response}\n\n{reminder}"
+            sent_chunks = prepare_telegram_response(response)
+            session.append(
+                scope,
+                "assistant",
+                text="\n\n".join(sent_chunks),
+                chat_id=message.chat.id,
+                chat_title=message.chat.title,
+            )
+            await _send_text_response(message, response, settings.vault_path)
+    else:
+        await message.answer("✓ Сохранено")
 
 
 async def _run_agent(
@@ -279,11 +296,7 @@ async def _run_agent(
                 chat_id=message.chat.id,
                 chat_title=message.chat.title,
             )
-            for chunk in sent_chunks:
-                try:
-                    await message.answer(chunk)
-                except Exception:
-                    await message.answer(chunk, parse_mode=None)
+            await send_chunks(message, sent_chunks, get_settings().vault_path)
     except Exception as e:
         logger.exception("Agent execution error")
         await message.answer(f"⚠️ Агент упал: {e}", parse_mode=None)

@@ -171,7 +171,8 @@ def main():
     parser.add_argument('--revert', action='append', default=[], metavar='ФАЙЛ=КОПИЯ')
     parser.add_argument('--revert-env-line', action='append', default=[])
     parser.add_argument('--no-notify', action='store_true')
-    parser.add_argument('--success-message')
+    parser.add_argument('--success-message', default='✅ Бот перезапущен, обновление включилось.',
+                        help='без него Егор не узнает, что перезапуск прошёл')
     parser.add_argument('--failure-message', default='Меню VPN не включилось',
                         help='что не включилось; после двоеточия добавляется причина')
     parser.add_argument('--wait-delivery', type=int, default=180)

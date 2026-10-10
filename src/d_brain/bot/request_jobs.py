@@ -153,10 +153,12 @@ class RequestJobs:
                     return None
         # Messages start independently: the handler logs the message at once, and controls never wait.
         # Only the chat model call waits its turn (services/chat_queue.py). The place in line is taken
-        # here, before speech recognition, so replies keep the arrival order. Attachments (an album must
-        # not hold up its siblings) never wait.
+        # here, before speech recognition, so replies keep the arrival order. Photos and files take a
+        # place too: their batch goes to the assistant (bot/uploads.py); every attachment but the first
+        # of a batch gives it back at once, so an album never holds up its siblings. Videos never wait.
         attachment = bool(message.photo or message.document or message.video or message.video_note)
-        turn = None if attachment else self.queue.register(scope, message.message_id)
+        waits = not (message.video or message.video_note)
+        turn = self.queue.register(scope, message.message_id) if waits else None
         try:
             return await self._admit(handler, event, data, scope, text, key, attachment, turn)
         except BaseException:

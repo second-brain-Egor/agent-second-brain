@@ -26,6 +26,7 @@ STATE_FILE_NAME = "download-state.json"
 JOURNAL_FILE_NAME = "download-journal.md"
 VIDEO_SUFFIXES = {".mp4", ".mov", ".mkv", ".avi", ".webm", ".m4v"}
 USE_DIRECT_NETWORK = False
+COOKIES_FILE = Path.home() / ".config" / "agent-second-brain" / "youtube-cookies.txt"
 
 
 def ytdlp_command() -> list[str]:
@@ -36,9 +37,16 @@ def ytdlp_command() -> list[str]:
     manifest and fragment requests produces HTTP 403. Root traffic is explicitly
     exempt from that redirect on this host and therefore keeps the server IP.
     """
+    # 9 октября 2026: без решения JS-задачи YouTube отдаёт только картинки или 403
+    # на видео. Решатель берёт deno из /usr/local/bin, скрипт решателя — с GitHub.
+    js = ["--remote-components", "ejs:github"]
+    # 9 октября 2026: вход в YouTube снимает проверку «не робот». Файл держим
+    # вне vault, чтобы он не попал в git; yt-dlp сам обновляет его после запуска.
+    if COOKIES_FILE.is_file():
+        js += ["--cookies", str(COOKIES_FILE)]
     if USE_DIRECT_NETWORK and os.geteuid() != 0:
-        return ["sudo", "-n", YTDLP]
-    return [YTDLP]
+        return ["sudo", "-n", YTDLP, *js]
+    return [YTDLP, *js]
 
 
 def run(command: list[str]) -> subprocess.CompletedProcess[str]:

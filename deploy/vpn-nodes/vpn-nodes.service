@@ -1,0 +1,10 @@
+[Unit]
+Description=Замер узлов VPN-подписки (проект «Узлы VPN»): пять служб через каждый узел, без нейросети
+After=network-online.target xray.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/vpn-nodes scheduled
+TimeoutStartSec=3600
+Nice=10

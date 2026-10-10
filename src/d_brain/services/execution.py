@@ -23,8 +23,10 @@ TERMINAL = {'completed', 'error', 'stopped', 'limit', 'interrupted', 'superseded
 # Codex рапортует о восстановлении связи событием `type=error` («Reconnecting... 2/5 (...)»),
 # хотя сам продолжает работу — попыток у него пять. Падать на таком уведомлении нельзя:
 # прогон восстановился бы сам, а мы теряем целую суточную обработку из-за секундного обрыва.
+# Так же безвредно «Model metadata for … not found»: Codex берёт запасные сведения о модели.
 # Фатальными остаются `turn.failed` и любые другие `error`-события.
-TRANSIENT_ERROR = re.compile(r'^\s*(?:re)?connect\w*\b|^\s*retry\w*\b', re.I)
+TRANSIENT_ERROR = re.compile(
+    r'^\s*(?:re)?connect\w*\b|^\s*retry\w*\b|^\s*Model metadata for .* not found', re.I)
 
 
 class ExecutionLimit(RuntimeError):
@@ -154,9 +156,12 @@ class Execution:
             return
         kind = event.get('type')
         if kind in {'turn.failed', 'error'}:
-            detail = str(event.get('message') or event.get('error') or '').strip()
+            error = event.get('error')
+            detail = str(event.get('message')
+                         or (error.get('message') if isinstance(error, dict) else error)
+                         or '').strip()
             if kind == 'error' and TRANSIENT_ERROR.match(detail):
-                logger.info('%s восстанавливает связь, продолжаем: %s', backend, detail)
+                logger.info('%s: несмертельное уведомление, продолжаем: %s', backend, detail)
                 return
             logger.error('%s сообщил об ошибке (%s): %s', backend, kind,
                          detail or 'без текста')

@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-10-08
+last_accessed: 2026-10-09
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-08 07:00
-Всего видео в папке: 60
-Записей в журнале: 58
+Обновлено: 2026-10-09 08:19
+Всего видео в папке: 62
+Записей в журнале: 60
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -177,6 +177,18 @@ tier: active
 Транскрипт: есть
 Кадры: 86
 Обновлено: 2026-09-06T07:00:42+03:00
+
+## 001-grok-bot-just-got-2-massive-upgrades-do-these-things-now
+
+Статус: complete
+Название: Grok Bot Just Got 2 Massive Upgrades. Do These Things Now.
+Ссылка: https://www.youtube.com/watch?v=MgvwZaDPCs4
+Дата видео: 20261009
+Описание: есть
+Комментарии: 21
+Транскрипт: есть
+Кадры: 12
+Обновлено: 2026-10-09T08:10:13+03:00
 
 ## 001-grok-bot-manages-my-inbox-and-has-its-own
 
@@ -453,6 +465,18 @@ tier: active
 Транскрипт: есть
 Кадры: 86
 Обновлено: 2026-09-14T07:02:15+03:00
+
+## 002-anthropic-engineers-just-10x-d-everyone-s-claude-code
+
+Статус: complete
+Название: Anthropic Engineers Just 10x'd Everyone's Claude Code
+Ссылка: https://www.youtube.com/watch?v=oz2CwrPV2Rg
+Дата видео: 20261008
+Описание: есть
+Комментарии: 31
+Транскрипт: есть
+Кадры: 105
+Обновлено: 2026-10-09T08:19:23+03:00
 
 ## 002-fable-5-1-just-dropped-it-looks-unreal
 

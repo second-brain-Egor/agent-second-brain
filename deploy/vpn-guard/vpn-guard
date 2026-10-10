@@ -1,13 +1,18 @@
 #!/usr/bin/python3
-"""Страж шведского выхода сервера. Работает без нейросети.
+"""Страж выхода сервера. Работает без нейросети.
 
-Раз в 15 минут проверяет, отвечает ли шведский узел. Если нет — забирает свежую подписку,
-выбирает исправный шведский узел и подменяет в конфиге Xray только блок подключения
+Раз в 5 минут строго проверяет выход: через узел должны открываться нейросеть, Telegram, Google,
+YouTube и Cloudflare, а страна выхода — быть из очереди PLACES (Осло, Стокгольм, Оулу, запасной
+Вильнюс). Если выход не работает — забирает свежую подписку, пробует сначала свежие настройки
+того же узла, потом остальные по очереди и подменяет в конфиге Xray только блок подключения
 (исходящее соединение «proxy»). Остальное в конфиге — прозрачный заворот, прямой выход
 для forumhouse.ru — не затрагивается. Любая замена идёт под страховочным таймером отката.
+Пока выход работает, страна не меняется; с запасного узла страж возвращается на север,
+когда северный узел проходит проверку RETURN_STREAK раз подряд.
 
     vpn-guard check              проверка по таймеру
     vpn-guard status             состояние (JSON)
+    vpn-guard probe              строгая проверка каждого узла очереди, рабочий выход не трогается
     vpn-guard refresh [--force]  взять подписку и заменить узел, если нужно
     vpn-guard set-url            ссылка подписки или vless:// со стандартного ввода
     vpn-guard snapshot           обновить снимок «последнего рабочего» для vpn-rollback
@@ -35,6 +40,7 @@ import sys
 import tempfile
 import time
 import traceback
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -63,11 +69,44 @@ TZ = ZoneInfo('Europe/Moscow')
 USERS = {'nobody': (65534, 65534), 'egor': (1000, 1000)}
 USER_AGENT = 'Happ/2.7.0'
 SAFETY_SECONDS = 240
-MAX_CANDIDATES = 5
+MAX_CANDIDATES = 8
 KEEP_BACKUPS = 10
+ROUNDS = 3          # кругов строгой проверки; служба должна ответить хотя бы в ROUNDS-1 из них
+RETURN_STREAK = 3   # столько проверок подряд северный узел должен пройти, чтобы уйти с запасного
 
-# Названия узлов, которые считаем шведскими.
-SWEDEN = re.compile(r'(?i)swed|швец|stockholm|стокгольм|sverige|🇸🇪|(?-i:(?<![A-Za-z])SE(?![A-Za-z]))')
+
+@dataclass(frozen=True)
+class Place:
+    title: str
+    country: str  # код страны выхода у Cloudflare
+    pattern: re.Pattern
+    reserve: bool = False
+
+
+# Очередь узлов (Егор, 9 октября 2026): Осло основной, потом Стокгольм и Оулу.
+# Вильнюс запасной: только когда не работает ни один северный узел.
+PLACES = (
+    Place('🇳🇴 Осло', 'NO', re.compile(r'(?i)oslo|осло|norway|норвег|norge|🇳🇴')),
+    Place('🇸🇪 Стокгольм', 'SE', re.compile(r'(?i)stockholm|стокгольм|sweden|швец|sverige|🇸🇪')),
+    Place('🇫🇮 Оулу', 'FI', re.compile(r'(?i)oulu|оулу|finland|финлянд|suomi|🇫🇮')),
+    Place('🇱🇹 Вильнюс', 'LT', re.compile(r'(?i)vilnius|вильнюс|lithuania|литв|lietuva|🇱🇹'), reserve=True),
+)
+COUNTRIES = {place.country for place in PLACES}
+QUEUE_TEXT = ' → '.join(p.title for p in PLACES if not p.reserve) + \
+    ''.join(f', запасной {p.title}' for p in PLACES if p.reserve)
+
+# Строгая проверка запрашивает все эти службы, но узел рабочий, если открываются обязательные
+# (REQUIRED) и страна выхода из очереди. Остальные — только для журнала: из-за них выход
+# не переключается (Егор, 9 октября 2026: главное — нейросеть и Telegram).
+SERVICES = (
+    ('нейросеть', 'https://api.anthropic.com/'),
+    ('Telegram', 'https://api.telegram.org/'),
+    ('Google', 'https://www.google.com/generate_204'),
+    ('YouTube', 'https://www.youtube.com/generate_204'),
+    ('Cloudflare', 'https://www.cloudflare.com/cdn-cgi/trace'),  # последним: по нему страна выхода
+)
+REQUIRED = ('нейросеть', 'Telegram')
+COUNTRY_FALLBACK = 'https://ipinfo.io/country'  # страна выхода, если Cloudflare не ответил
 PROXY_PROTOCOLS = {'vless', 'vmess', 'trojan', 'shadowsocks'}
 
 
@@ -184,20 +223,83 @@ def curl(url: str, *, proxy: str | None = None, user: str | None = None, timeout
     return code, body, sanitize(result.stderr.decode('utf-8', 'replace'))
 
 
-def probe_egress(port: int = SOCKS_PORT, timeout: int = 10) -> dict:
-    """Отвечает ли выход через собственный SOCKS Xray (он идёт в исходящее «proxy»)."""
+def probe_round(port: int, timeout: int) -> dict:
+    """Один круг: все службы параллельно через SOCKS на порту `port`.
+
+    Служба засчитывается при любом HTTP-ответе: важно, что трафик через узел прошёл.
+    """
     proxy = f'socks5h://127.0.0.1:{port}'
-    started = time.monotonic()
-    code, body, _ = curl('https://www.cloudflare.com/cdn-cgi/trace', proxy=proxy, timeout=timeout)
-    country = re.search(rb'^loc=(\w+)', body, re.M)
-    if code == 200:
-        return dict(ok=True, ms=round((time.monotonic() - started) * 1000),
-                    country=country.group(1).decode() if country else None)
-    started = time.monotonic()
-    code, _, _ = curl('https://api.anthropic.com/', proxy=proxy, timeout=timeout)
-    if code:
-        return dict(ok=True, ms=round((time.monotonic() - started) * 1000), country=None)
-    return dict(ok=False, ms=None, country=None)
+
+    def one(url: str) -> tuple[int, bytes, int]:
+        started = time.monotonic()
+        code, body, _ = curl(url, proxy=proxy, timeout=timeout)
+        return code, body, round((time.monotonic() - started) * 1000)
+
+    with ThreadPoolExecutor(len(SERVICES)) as pool:
+        results = list(pool.map(one, [url for _, url in SERVICES]))
+    code, body, _ = results[-1]
+    country = trace_country(code, body) or fallback_country(proxy=proxy, timeout=timeout)
+    passed = [result[2] for (name, _), result in zip(SERVICES, results) if result[0] and name in REQUIRED]
+    return dict(passed={name: result[0] != 0 for (name, _), result in zip(SERVICES, results)},
+                country=country, ms=min(passed) if passed else None)
+
+
+def trace_country(code: int, body: bytes) -> str | None:
+    match = re.search(rb'^loc=(\w+)', body, re.M) if code == 200 else None
+    return match.group(1).decode() if match else None
+
+
+def fallback_country(*, proxy: str | None = None, user: str | None = None, timeout: int = 10) -> str | None:
+    code, body, _ = curl(COUNTRY_FALLBACK, proxy=proxy, user=user, timeout=timeout)
+    text = body.decode('ascii', 'replace').strip()
+    return text if code == 200 and re.fullmatch(r'[A-Z]{2}', text) else None
+
+
+def probe_egress(port: int = SOCKS_PORT, timeout: int = 10, rounds: int = ROUNDS,
+                 early_exit: bool = True) -> dict:
+    """Строгая проверка выхода через SOCKS Xray (он идёт в исходящее «proxy»).
+
+    Выход рабочий, если каждая обязательная служба ответила хотя бы в rounds-1 кругах
+    (при одном круге — в нём) и страна выхода определилась и есть в очереди PLACES.
+    Остальные службы попадают в журнал (`extra`), но на решение не влияют.
+    Безнадёжный узел бросаем, не докручивая круги.
+    """
+    need = max(rounds - 1, 1)
+    hits = {name: 0 for name, _ in SERVICES}
+    countries, timings, done = [], [], 0
+    for done in range(1, rounds + 1):
+        result = probe_round(port, timeout)
+        for name, passed in result['passed'].items():
+            hits[name] += passed
+        if result['country']:
+            countries.append(result['country'])
+        if result['ms'] is not None:
+            timings.append(result['ms'])
+        if early_exit and any(hits[name] + rounds - done < need for name in REQUIRED):
+            break
+    lost = [name for name, count in hits.items() if count + rounds - done < need]  # без шансов добрать
+    failed = [name for name in lost if name in REQUIRED]
+    extra = [name for name in lost if name not in REQUIRED]
+    foreign = sorted({country for country in countries if country not in COUNTRIES})
+    problem = ('не открываются: ' + ', '.join(failed) if failed
+               else f'выход из страны {", ".join(foreign)}, её нет в очереди' if foreign
+               else 'страну выхода определить не вышло' if not countries else None)
+    score = sum(hits[name] for name in REQUIRED)
+    return dict(ok=problem is None, ms=min(timings) if timings else None,
+                country=countries[-1] if countries else None, failed=failed, extra=extra, problem=problem,
+                score=f'{score} из {done * len(REQUIRED)}')
+
+
+def egress_health() -> dict:
+    """Рабочий выход: быстрый круг; при сбое — строгая проверка, через 20 секунд ещё одна."""
+    quick = probe_egress(rounds=1)
+    if quick['ok']:
+        return quick
+    strict = probe_egress()
+    if strict['ok']:
+        return strict
+    time.sleep(20)
+    return probe_egress()
 
 
 def probe_telegram_direct() -> bool:
@@ -220,7 +322,7 @@ def redirect_ready() -> bool:
 
 
 def probe_transparent() -> bool:
-    """Путь, которым ходят все службы: обычный пользователь → заворот → Швеция.
+    """Путь, которым ходят все службы: обычный пользователь → заворот → узел из очереди.
 
     Одного ответа мало: мимо туннеля ответ тоже придёт. Поэтому смотрим страну выхода:
     если соединение ушло напрямую, это будет RU.
@@ -231,8 +333,7 @@ def probe_transparent() -> bool:
             return False
         time.sleep(1)
     code, body, _ = curl('https://www.cloudflare.com/cdn-cgi/trace', user='egor')
-    country = re.search(rb'^loc=(\w+)', body, re.M)
-    return code == 200 and bool(country) and country.group(1) != b'RU'
+    return (trace_country(code, body) or fallback_country(user='egor')) in COUNTRIES
 
 
 def ensure_run_dir() -> None:
@@ -414,15 +515,30 @@ def identity(outbound: dict) -> tuple:
         return (json.dumps(stripped, sort_keys=True),)
 
 
+def place_of(name: str | None) -> Place | None:
+    """Место узла в очереди по его названию; None — узел не из очереди."""
+    return next((place for place in PLACES if name and place.pattern.search(name)), None)
+
+
+def place_title(name: str | None) -> str:
+    place = place_of(name)
+    return place.title if place else f'«{name or "без названия"}»'
+
+
 def rank(nodes: list[Node], preferred: str | None) -> list[Node]:
-    """Шведские узлы: сначала с прежним именем, остальное в порядке подписки, без повторов."""
-    seen, swedish = set(), []
+    """Узлы очереди по порядку PLACES, без повторов.
+
+    Узел с прежним названием (свежие настройки того же узла) идёт первым,
+    если только это не запасной: с запасного сначала пробуем север.
+    """
+    seen, ours = set(), []
     for node in nodes:
         key = identity(node.outbound)
-        if SWEDEN.search(node.name) and key not in seen:
+        if place_of(node.name) and key not in seen:
             seen.add(key)
-            swedish.append(node)
-    return sorted(swedish, key=lambda node: node.name != preferred)
+            ours.append(node)
+    first = preferred if place_of(preferred) and not place_of(preferred).reserve else None
+    return sorted(ours, key=lambda node: (node.name != first, PLACES.index(place_of(node.name))))
 
 
 # ───────────────────────────────── конфиг Xray ─────────────────────────────────
@@ -465,8 +581,8 @@ def xray_test(config: dict) -> None:
         raise GuardError('Xray не принял новую конфигурацию: ' + sanitize(last[0]))
 
 
-def test_candidate(node: Node) -> dict:
-    """Проверка узла отдельным процессом Xray на свободном порту; рабочий Xray не трогается.
+def test_candidate(node: Node, early_exit: bool = True) -> dict:
+    """Строгая проверка узла отдельным процессом Xray на свободном порту; рабочий Xray не трогается.
 
     Процесс идёт от uid nobody, поэтому его соединения не заворачиваются обратно в туннель.
     """
@@ -487,8 +603,9 @@ def test_candidate(node: Node) -> dict:
                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:
         if not wait_port(port):
-            return dict(ok=False, ms=None, country=None, error='пробный Xray не запустился')
-        return {**probe_egress(port, timeout=12), 'error': None}
+            return dict(ok=False, ms=None, country=None, error='пробный Xray не запустился',
+                        problem='пробный Xray не запустился', score='—')
+        return {**probe_egress(port, early_exit=early_exit), 'error': None}
     finally:
         process.terminate()
         try:
@@ -610,13 +727,12 @@ def apply_node(node: Node) -> dict:
     if not (wait_port(SOCKS_PORT, 15) and wait_port(12345, 15)):
         return rollback('Xray не поднялся после замены')
     time.sleep(1)
-    for _ in range(3):
-        egress = probe_egress()
-        if egress['ok']:
-            break
-        time.sleep(3)
+    egress = probe_egress()
     if not egress['ok']:
-        return rollback('новый узел не отвечает')
+        time.sleep(5)
+        egress = probe_egress()
+    if not egress['ok']:
+        return rollback(f'новый узел не прошёл проверку ({egress["problem"]})')
     if not probe_transparent():
         return rollback('обычные службы не достучались до интернета через новый узел')
     safety('disarm')
@@ -663,11 +779,41 @@ def set_telegram_direct(enabled: bool) -> None:
             while sh('iptables', '-t', 'nat', '-D', CHAIN, '-d', net, '-j', 'RETURN').returncode == 0:
                 pass
     log('Telegram идёт напрямую' if enabled else 'Telegram возвращён в туннель')
-    if not safety_armed() and probe_egress()['ok']:
+    if not safety_armed() and probe_egress()['ok']:  # снимок — только с исправного выхода
         snapshot()
 
 
 def notify(state: dict, text: str) -> bool:
+    """Отправляет сообщение; не ушло — кладёт в очередь вместе со временем составления."""
+    if send(text):
+        return True
+    pending = state.setdefault('pending_notifications', [])
+    if all(item.get('text') != text for item in pending if isinstance(item, dict)):
+        pending.append({'text': text, 'at': f'{now():%F %T}'})
+        del pending[:-3]
+    return False
+
+
+def late_note(composed: str | None) -> str:
+    """Пометка для запоздавшего сообщения, чтобы старое не выглядело свежим."""
+    try:
+        at = datetime.strptime(composed or '', '%Y-%m-%d %H:%M:%S').replace(tzinfo=TZ)
+    except ValueError:
+        return '🕒 <b>Сообщение задержалось</b>: Telegram был недоступен, время составления неизвестно.\n\n'
+    when = f'{at:%H:%M}' if at.date() == now().date() else f'{at:%d.%m %H:%M}'
+    return f'🕒 <b>Составлено в {when}</b>, доставлено с опозданием: Telegram был недоступен.\n\n'
+
+
+def deliver_pending(state: dict) -> None:
+    """Досылает очередь; строки без времени остались от прежней версии стража."""
+    pending = state.get('pending_notifications') or []
+    for item in list(pending):
+        text, composed = (item.get('text', ''), item.get('at')) if isinstance(item, dict) else (item, None)
+        if send(late_note(composed) + text):
+            pending.remove(item)
+
+
+def send(text: str) -> bool:
     """Отправляет сообщение администратору и записывает его в историю чата после подтверждённой отправки."""
     env = read_env()
     token = env.get('TELEGRAM_BOT_TOKEN')
@@ -685,10 +831,6 @@ def notify(state: dict, text: str) -> bool:
         message_id = None
     if message_id is None:
         log(f'уведомление не доставлено (код {code}) {error}'.strip())
-        pending = state.setdefault('pending_notifications', [])
-        if text not in pending:
-            pending.append(text)
-            del pending[:-3]
         return False
     record_history(int(chat_id), text, message_id)
     log(f'уведомление доставлено (сообщение {message_id})')
@@ -734,8 +876,34 @@ def failure(message: str, reason: str) -> dict:
     return dict(ok=False, changed=False, message=message, reason=reason)
 
 
+def verdict_text(verdict: dict) -> str:
+    return (f'{verdict.get("score", "—")}' + (f'; {verdict["problem"]}' if verdict.get('problem') else '')
+            + (f'; для сведения не открываются: {", ".join(verdict["extra"])}' if verdict.get('extra') else ''))
+
+
+def change_message(old_name: str | None, node: Node, egress: dict) -> str:
+    """«Было → стало» для уведомления о замене."""
+    old, new = place_title(old_name), place_title(node.name)
+    head = (f'🔁 <b>Обновил настройки узла {esc(new)}</b>: прежние перестали работать.' if old == new
+            else f'🔁 <b>Выход переключён: {esc(old)} → {esc(new)}.</b>')
+    reserve = place_of(node.name) and place_of(node.name).reserve
+    tail = ' Это запасной узел: вернусь на север, когда там что-то заработает.' if reserve else ''
+    return f'{head} Выход отвечает ({esc(egress.get("country") or "?")}, {seconds(egress.get("ms"))}).{tail}'
+
+
+def remember_change(old_name: str | None, new_name: str) -> None:
+    state = load_state()
+    state['last_change'] = {'at': f'{now():%F %T}', 'from': old_name, 'to': new_name}
+    save_state(state)
+
+
 def do_refresh(*, force: bool, dry_run: bool = False, url_override: str | None = None) -> dict:
-    """Берёт подписку, выбирает шведский узел и при необходимости заменяет его в конфиге."""
+    """Берёт подписку и при необходимости заменяет узел.
+
+    Выход не работает — пробует свежие настройки того же узла, потом остальные по очереди PLACES,
+    пока какой-нибудь не пройдёт итоговую проверку. Выход работает — страну не меняет:
+    с `force` только обновляет настройки того же узла.
+    """
     state = load_state()
     url = url_override or read_subscription_url()
     if not url:
@@ -754,55 +922,113 @@ def do_refresh(*, force: bool, dry_run: bool = False, url_override: str | None =
     candidates = rank(nodes, current_name)
     if not dry_run:  # пробный запуск (в том числе на тестовой подписке) рабочее состояние не трогает
         state['subscription'] = {'host': urlsplit(url).hostname, 'nodes': len(nodes),
-                                 'swedish': len(candidates), 'checked_at': f'{now():%F %T}'}
+                                 'ours': len(candidates), 'checked_at': f'{now():%F %T}'}
         save_state(state)
     if not candidates:
         names = ', '.join(esc(n.name) for n in nodes[:8]) or 'узлов не нашёл'
         note = f' Пропущено: {esc("; ".join(skipped[:3]))}.' if skipped and not nodes else ''
-        return failure(f'⚠️ <b>В подписке нет шведского узла.</b> Названия: {names}.{note}',
-                       'в подписке нет шведского узла')
+        return failure(f'⚠️ <b>В подписке нет узлов очереди</b> ({esc(QUEUE_TEXT)}). Названия: {names}.{note}',
+                       'в подписке нет узлов очереди')
     alive = probe_egress()['ok']
-    if alive and identity(candidates[0].outbound) == identity(current):
-        return dict(ok=True, changed=False,
-                    message=f'✅ <b>Менять нечего.</b> Выход работает, в подписке тот же узел {node_label(current, current_name)}.')
-    if alive and not force:
-        return dict(ok=True, changed=False, message='✅ Выход работает, замена не нужна.')
+    if alive:
+        if not force:
+            return dict(ok=True, changed=False, message='✅ Выход работает, замена не нужна.')
+        candidates = [node for node in candidates if node.name == current_name]
+        if not candidates:
+            return dict(ok=True, changed=False,
+                        message=f'✅ Выход работает. Узла {esc(place_title(current_name))} в подписке нет, а страну без сбоя не меняю.')
+        if identity(candidates[0].outbound) == identity(current):
+            return dict(ok=True, changed=False,
+                        message=f'✅ <b>Менять нечего.</b> Выход работает, в подписке тот же узел {node_label(current, current_name)}.')
     failures = []
     for node in candidates[:MAX_CANDIDATES]:
+        title = esc(place_title(node.name))
         if identity(node.outbound) == identity(current):
             if alive:
                 break  # дошли до узла, который уже стоит и работает: оставляем его
-            failures.append(f'«{esc(node.name)}» — тот же узел, что сейчас не отвечает')
+            failures.append(f'{title} — тот же узел, что сейчас не работает')
             continue
         verdict = test_candidate(node)
-        log(f'проверка узла «{node.name}»: {"отвечает" if verdict["ok"] else "не отвечает"}')
+        log(f'проверка узла «{node.name}»: {"проходит" if verdict["ok"] else "не проходит"} ({verdict_text(verdict)})')
         if not verdict['ok']:
-            failures.append(f'«{esc(node.name)}» не отвечает')
+            failures.append(f'{title}: {esc(verdict.get("problem") or "не отвечает")}')
             continue
         if dry_run:
             xray_test(build_config(node))
             return dict(ok=True, changed=False, dry_run=True,
-                        message=f'🧪 Пробный запуск: узел {node_label(node.outbound, node.name)} отвечает '
-                                f'({esc(verdict["country"] or "?")}, {seconds(verdict["ms"])}); конфиг проходит проверку Xray. Ничего не менял.')
+                        message=f'🧪 Пробный запуск: узел {node_label(node.outbound, node.name)} проходит проверку '
+                                f'({esc(verdict.get("score", "—"))}, {esc(verdict["country"] or "?")}, {seconds(verdict["ms"])}); '
+                                'конфиг проходит проверку Xray. Ничего не менял.')
         try:
             result = apply_node(node)
         except GuardError as error:
-            return failure(f'⚠️ <b>Заменить не вышло.</b> {esc(error)}. Прежнее состояние сохранено.', esc(error))
+            failures.append(f'{title}: {esc(error)}')
+            continue
         if result['ok']:
-            state = load_state()
-            state['last_change'] = {'at': f'{now():%F %T}', 'from': current_name, 'to': node.name}
-            save_state(state)
+            remember_change(current_name, node.name)
             return dict(ok=True, changed=True, node=node.name,
-                        message=f'🔁 <b>Узел заменён.</b> Было: {node_label(current, current_name)}. '
-                                f'Стало: {node_label(node.outbound, node.name)}. Выход отвечает '
-                                f'({esc(result["egress"]["country"] or "?")}, {seconds(result["egress"]["ms"])}).')
-        failures.append(f'«{esc(node.name)}»: {esc(result["reason"])}')
-        break
+                        message=change_message(current_name, node, result['egress']))
+        failures.append(f'{title}: {esc(result["reason"])}')
+        if alive:
+            break  # рабочий выход ради новых настроек больше одного раза не трогаем
     detail = '; '.join(failures) or 'подходящих узлов нет'
     if alive:
         return dict(ok=True, changed=False,
-                    message=f'⚠️ <b>Новый узел не прошёл проверку</b> ({detail}). Оставил прежний, он работает.')
-    return failure(f'⚠️ <b>Заменить не вышло.</b> {detail}. Прежнее состояние сохранено.', detail)
+                    message=f'⚠️ <b>Новые настройки не прошли проверку</b> ({detail}). Оставил прежний узел, он работает.')
+    return failure(f'⚠️ <b>Рабочего узла не нашёл.</b> {detail}. Прежнее состояние сохранено.', detail)
+
+
+def return_north(state: dict) -> dict | None:
+    """Стоим на запасном узле, и он работает: ищем северный.
+
+    Возвращаемся, когда северный узел проходит строгую проверку RETURN_STREAK проверок подряд,
+    чтобы выход не прыгал между странами, пока узел то поднимается, то падает.
+    """
+    config = read_config()
+    current_name = config.get('remarks')
+    place = place_of(current_name)
+    if not place or not place.reserve:
+        state.pop('north_streak', None)
+        return None
+    url = read_subscription_url()
+    if not url:
+        return None
+    try:
+        nodes, _ = parse_subscription(fetch_subscription(url, state))
+    except GuardError as error:
+        log(f'возврат на север: подписку получить не вышло ({error})')
+        return None
+    found = None
+    for node in rank(nodes, None):
+        if place_of(node.name).reserve:
+            continue
+        verdict = test_candidate(node)
+        log(f'возврат на север, проверка «{node.name}»: {"проходит" if verdict["ok"] else "не проходит"} ({verdict_text(verdict)})')
+        if verdict['ok']:
+            found = node
+            break
+    streak = state.get('north_streak', 0) + 1 if found else 0
+    state['north_streak'] = streak
+    save_state(state)
+    if not found or streak < RETURN_STREAK:
+        return dict(ok=True, changed=False, message=f'выход работает, на запасном; север проходит проверку {streak} из {RETURN_STREAK}')
+    state['north_streak'] = 0
+    save_state(state)
+    try:
+        result = apply_node(found)
+    except GuardError as error:
+        result = dict(ok=False, reason=str(error))
+    if not result['ok']:
+        log(f'возврат на север не удался: {result["reason"]}; остаюсь на запасном узле')
+        return dict(ok=True, changed=False, message='возврат на север не удался')
+    remember_change(current_name, found.name)
+    state = load_state()
+    egress = result['egress']
+    notify(state, f'🔁 <b>Выход вернулся на север: {esc(place.title)} → {esc(place_title(found.name))}.</b> '
+                  f'Узел прошёл все проверки {RETURN_STREAK} раза подряд. '
+                  f'Выход отвечает ({esc(egress.get("country") or "?")}, {seconds(egress.get("ms"))}).')
+    save_state(state)
+    return dict(ok=True, changed=True, node=found.name, message='выход вернулся на север')
 
 
 def do_set_url(raw: str) -> dict:
@@ -820,7 +1046,7 @@ def do_set_url(raw: str) -> dict:
             return dict(ok=False, message=f'⚠️ <b>Ссылка не разобралась:</b> {esc(error)}.')
         verdict = test_candidate(node)
         if not verdict['ok']:
-            return dict(ok=False, message=f'⚠️ <b>Узел «{esc(node.name)}» не отвечает.</b> Конфигурацию не менял.')
+            return dict(ok=False, message=f'⚠️ <b>Узел «{esc(node.name)}» не прошёл проверку:</b> {esc(verdict.get("problem") or "не отвечает")}. Конфигурацию не менял.')
         config = read_config()
         if identity(node.outbound) == identity(current_outbound(config)):
             return dict(ok=True, changed=False, message=f'✅ <b>Этот узел уже стоит</b> и отвечает ({esc(verdict["country"] or "?")}, {seconds(verdict["ms"])}).')
@@ -830,9 +1056,7 @@ def do_set_url(raw: str) -> dict:
             return dict(ok=False, message=f'⚠️ <b>Заменить не вышло.</b> {esc(error)}. Прежнее состояние сохранено.')
         if not result['ok']:
             return dict(ok=False, message=f'⚠️ <b>Заменить не вышло.</b> {esc(result["reason"])}. Прежнее состояние сохранено.')
-        state = load_state()
-        state['last_change'] = {'at': f'{now():%F %T}', 'from': config.get('remarks'), 'to': node.name}
-        save_state(state)
+        remember_change(config.get('remarks'), node.name)
         return dict(ok=True, changed=True,
                     message=f'🔁 <b>Узел заменён вручную:</b> {node_label(node.outbound, node.name)}. Выход отвечает ({esc(result["egress"]["country"] or "?")}). Автообновления для одиночного узла нет: нужна ссылка подписки https://…')
     if scheme not in ('http', 'https'):
@@ -843,48 +1067,72 @@ def do_set_url(raw: str) -> dict:
     except GuardError as error:
         save_state(state)
         return dict(ok=False, message=f'⚠️ <b>Подписку получить не вышло.</b> {esc(error)}.')
-    swedish = rank(nodes, None)
-    if not swedish:
+    ours = rank(nodes, None)
+    if not ours:
         save_state(state)
         names = ', '.join(esc(n.name) for n in nodes[:8]) or 'узлов не нашёл'
-        return dict(ok=False, message=f'⚠️ <b>Подписка читается, но шведского узла в ней нет.</b> Названия: {names}. Ссылку не сохранил.')
+        return dict(ok=False, message=f'⚠️ <b>Подписка читается, но узлов очереди в ней нет</b> ({esc(QUEUE_TEXT)}). Названия: {names}. Ссылку не сохранил.')
     write_private(SUB_FILE, value + '\n')
-    state['subscription'] = {'host': urlsplit(value).hostname, 'nodes': len(nodes), 'swedish': len(swedish),
+    state['subscription'] = {'host': urlsplit(value).hostname, 'nodes': len(nodes), 'ours': len(ours),
                              'checked_at': f'{now():%F %T}'}
     save_state(state)
-    log(f'ссылка подписки сохранена: {urlsplit(value).hostname}, узлов {len(nodes)}, шведских {len(swedish)}')
+    log(f'ссылка подписки сохранена: {urlsplit(value).hostname}, узлов {len(nodes)}, из очереди {len(ours)}')
     refreshed = do_refresh(force=True)
-    refreshed['message'] = (f'🔗 <b>Подписка принята:</b> узлов {len(nodes)}, шведских {len(swedish)}. '
+    refreshed['message'] = (f'🔗 <b>Подписка принята:</b> узлов {len(nodes)}, из очереди {len(ours)}. '
                             f'Автообновление включено.\n\n{refreshed["message"]}')
     return refreshed
+
+
+def do_probe() -> dict:
+    """Строгая проверка каждого узла очереди по подписке; рабочий выход не трогается."""
+    url = read_subscription_url()
+    if not url:
+        return dict(ok=False, message='🔗 <b>Ссылка подписки не задана.</b>')
+    state = load_state()
+    nodes, _ = parse_subscription(fetch_subscription(url, state))
+    save_state(state)
+    lines = [f'🔍 <b>Проверка узлов</b>: {" и ".join(REQUIRED)} × {ROUNDS} круга, рабочий выход не трогал. '
+             f'Остальные службы — только для сведения.', '']
+    for node in rank(nodes, None):
+        verdict = test_candidate(node, early_exit=False)
+        note = esc(verdict['problem']) if verdict.get('problem') else f'выход {esc(verdict.get("country") or "?")}'
+        extra = f'; не открываются {esc(", ".join(verdict["extra"]))}' if verdict.get('extra') else ''
+        lines.append(f'{"✅" if verdict["ok"] else "❌"} {esc(place_title(node.name))}: {esc(verdict.get("score", "—"))}, {note}{extra}.')
+    return dict(ok=True, message='\n'.join(lines))
 
 
 def do_status() -> dict:
     state = load_state()
     config = read_config()
     outbound = current_outbound(config)
+    current_name = config.get('remarks')
     egress = probe_egress()
     direct = probe_telegram_direct()
     exemption = not TELEGRAM_OFF.exists() and telegram_rules_present()
     sub = state.get('subscription') or {}
-    lines = ['🔐 <b>VPN: шведский выход</b>', '']
+    lines = ['🔐 <b>VPN: выход сервера</b>', '']
     if egress['ok']:
-        lines.append(f'✅ Выход работает ({esc(egress["country"] or "?")}, {seconds(egress["ms"])}). Узел: {node_label(outbound, config.get("remarks"))}.')
+        lines.append(f'✅ Выход работает через {esc(place_title(current_name))} ({esc(egress["country"] or "?")}, {seconds(egress["ms"])}). Узел: {node_label(outbound, current_name)}.')
     else:
-        lines.append(f'❌ Выход не отвечает. Узел: {node_label(outbound, config.get("remarks"))}.')
+        lines.append(f'❌ Выход не работает: {esc(egress.get("problem") or "нет ответа")}. Узел: {node_label(outbound, current_name)}.')
+    lines.append(f'🧭 Очередь: {esc(QUEUE_TEXT)}.')
+    place = place_of(current_name)
+    if place and place.reserve:
+        lines.append(f'↩️ Стоим на запасном. Северный узел прошёл проверку {state.get("north_streak", 0)} из {RETURN_STREAK} раз подряд, '
+                     'после третьего раза вернусь на него.')
     lines.append('')
     mode = 'напрямую, мимо туннеля' if exemption else 'через туннель'
     lines.append(f'{"📡" if direct else "⚠️"} Telegram: {mode}; прямой путь {"отвечает" if direct else "не отвечает"}.')
     lines.append('')
     if read_subscription_url():
-        lines.append(f'🔗 Подписка задана ({esc(sub.get("host", "?"))}): узлов {sub.get("nodes", "?")}, шведских {sub.get("swedish", "?")}. '
+        lines.append(f'🔗 Подписка задана ({esc(sub.get("host", "?"))}): узлов {sub.get("nodes", "?")}, из очереди {sub.get("ours", "?")}. '
                      f'Последний запрос: {esc(sub.get("checked_at", "ещё не было"))}.')
     else:
         lines.append('🔗 Подписка не задана: автозамена невозможна, пока не пришлёшь ссылку.')
     lines.append('')
     timer = sh('systemctl', 'is-active', 'vpn-guard.timer').stdout.strip() == 'active'
     change = state.get('last_change')
-    lines.append(f'🕒 Автопроверка раз в 15 минут: {"включена" if timer else "выключена"}. '
+    lines.append(f'🕒 Автопроверка раз в 5 минут: {"включена" if timer else "выключена"}. '
                  f'Последняя проверка: {esc(state.get("last_check", {}).get("at", "ещё не было"))}.')
     lines.append(f'🔁 Последняя замена: {esc(change["at"]) + " («" + esc(change["to"]) + "»)" if change else "не было"}.')
     return dict(ok=True, egress=egress, telegram_direct=direct, message='\n'.join(lines))
@@ -906,16 +1154,14 @@ def do_check() -> dict:
         log('Xray не запущен — запускаю')
         sh('systemctl', 'restart', 'xray', timeout=60)
         wait_port(SOCKS_PORT, 15)
-    for text in list(state.get('pending_notifications', [])):
-        if notify(state, text):
-            state['pending_notifications'].remove(text)
+    deliver_pending(state)
     # Прямой путь к Telegram: убираем исключение, если он закрылся, пока туннель Telegram пропускает.
     direct = telegram_direct_reachable()
     if not TELEGRAM_OFF.exists():
         if not direct and probe_telegram_tunnel():
             set_telegram_direct(False)
             state['telegram_direct_ok_streak'] = 0
-            notify(state, '📡 <b>Прямой путь к Telegram перестал отвечать.</b> Вернул Telegram в туннель: бот работает, но при падении шведского узла снова оглохнет.')
+            notify(state, '📡 <b>Прямой путь к Telegram перестал отвечать.</b> Вернул Telegram в туннель: бот работает, но если упадут все узлы, снова оглохнет.')
     else:
         streak = state.get('telegram_direct_ok_streak', 0) + 1 if direct else 0
         state['telegram_direct_ok_streak'] = streak
@@ -923,21 +1169,21 @@ def do_check() -> dict:
             set_telegram_direct(True)
             state['telegram_direct_ok_streak'] = 0
             notify(state, '📡 Прямой путь к Telegram снова отвечает: исключение из туннеля включено обратно.')
-    egress = probe_egress()
-    if not egress['ok']:
-        time.sleep(20)
-        egress = probe_egress()
-    state['last_check'] = {'at': started, 'egress_ok': egress['ok'], 'telegram_direct_ok': direct}
+    egress = egress_health()
+    state['last_check'] = {'at': started, 'egress_ok': egress['ok'], 'country': egress.get('country'),
+                           'problem': egress.get('problem'), 'telegram_direct_ok': direct}
     incident = state.get('incident')
     if egress['ok']:
         if incident and incident.get('notified'):
-            notify(state, '✅ Шведский выход снова отвечает.')
+            notify(state, f'✅ Выход снова работает ({esc(egress.get("country") or "?")}).')
         state['incident'] = None
         save_state(state)
         if not safety_armed() and not snapshot_is_current():
             snapshot()
-        return dict(ok=True, message='выход работает')
-    log('шведский выход не отвечает')
+        returned = return_north(state)
+        save_state(state)
+        return returned or dict(ok=True, message='выход работает')
+    log(f'выход не работает: {egress.get("problem") or "нет ответа"}')
     if not incident:
         incident = state['incident'] = {'since': started, 'notified': False}
     save_state(state)
@@ -950,12 +1196,13 @@ def do_check() -> dict:
         # Выход ожил сам, пока шла проверка.
         state['incident'] = None
         if incident.get('notified'):
-            notify(state, '✅ Шведский выход снова отвечает.')
+            notify(state, '✅ Выход снова работает.')
     elif not incident.get('notified'):
         incident['notified'] = True
         state['incident'] = incident
-        notify(state, f'⚠️ <b>Шведский выход не отвечает, заменить узел не вышло:</b> {result.get("reason", "причина неизвестна")}.\n\n'
-                      'Бот на связи, но нейросеть пока недоступна. Открой «⚙️ Обработать» → «VPN».')
+        notify(state, f'⚠️ <b>Выход не работает, рабочего узла не нашёл:</b> {result.get("reason", "причина неизвестна")}.\n\n'
+                      'Нейросеть пока недоступна. Напрямую с российского адреса не выхожу, '
+                      'узлы проверяю каждые 5 минут. Открой «⚙️ Обработать» → «VPN».')
     save_state(state)
     return result
 
@@ -979,6 +1226,7 @@ def main() -> int:
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('check')
     sub.add_parser('status')
+    sub.add_parser('probe')
     sub.add_parser('snapshot')
     sub.add_parser('set-url')
     refresh = sub.add_parser('refresh')
@@ -1010,6 +1258,8 @@ def main() -> int:
             return 0
         if args.command == 'status':
             result = do_status()
+        elif args.command == 'probe':
+            result = do_probe()
         elif args.command == 'refresh':
             if args.sub_url and not args.dry_run:
                 raise GuardError('--sub-url разрешён только вместе с --dry-run')

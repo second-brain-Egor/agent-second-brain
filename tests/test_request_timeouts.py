@@ -41,6 +41,8 @@ def processor(tmp_path, monkeypatch):
     monkeypatch.setattr(instance, '_backend_model_for_mode', lambda mode: 'test-model')
     monkeypatch.setattr(instance, '_build_exec_prompt', lambda *args, **kwargs: 'Проверка')
     monkeypatch.setattr(module, '_claude_heavy_lock', contextlib.nullcontext)
+    # Работающий бот держит ту же блокировку чата, пока отвечает: тест не должен её ждать.
+    monkeypatch.setattr(module, '_claude_chat_lock', contextlib.nullcontext)
     return instance
 
 

@@ -173,7 +173,11 @@ git commit -m "chore: process daily $TODAY" || true
 git pull --rebase origin main || true
 git push || true
 
-if [ -n "$REPORT_CLEAN" ] && [ -n "$CHAT_ID" ]; then
+# PROCESS_REPORT_TELEGRAM=false: ночная обработка идёт молча, отчёт остаётся только в логе
+# (бот Ирины, поручение Егора 9 октября 2026). Кнопка «⚙️ Обработать» отчёт по-прежнему присылает.
+if [ "${PROCESS_REPORT_TELEGRAM:-true}" = "false" ]; then
+    echo "=== Report not sent: PROCESS_REPORT_TELEGRAM=false ==="
+elif [ -n "$REPORT_CLEAN" ] && [ -n "$CHAT_ID" ]; then
     echo "=== Sending to Telegram ==="
     REPORT_CLEAN="$REPORT_CLEAN" CHAT_ID="$CHAT_ID" uv run python - <<'PY'
 import asyncio
