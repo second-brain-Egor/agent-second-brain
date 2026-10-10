@@ -2,21 +2,13 @@
 set -eu
 CHAIN=XRAY_OUTPUT
 PORT=12345
-# Telegram идёт напрямую, мимо Xray (официальный список IPv4: core.telegram.org/resources/cidr.txt).
-# Так бот остаётся на связи, когда шведский узел сменился и ему нужно принять новую конфигурацию.
-# Если прямой путь к Telegram перестанет отвечать, vpn-guard создаёт файл-флаг и исключение пропадает.
-TELEGRAM_NETS="91.105.192.0/23 91.108.4.0/22 91.108.8.0/22 91.108.12.0/22 91.108.16.0/22 91.108.20.0/22 91.108.56.0/22 149.154.160.0/20 185.76.151.0/24"
-TELEGRAM_OFF=/etc/vpn-guard/telegram-direct.off
+# Telegram идёт через туннель вместе со всем остальным: исключение убрано по решению Егора
+# 10 октября 2026 (прямой путь из России то и дело перекрывала блокировка).
 case "${1:-start}" in
   start)
     iptables -t nat -N "$CHAIN" 2>/dev/null || iptables -t nat -F "$CHAIN"
     iptables -t nat -A "$CHAIN" -m owner --uid-owner nobody -j RETURN
     iptables -t nat -A "$CHAIN" -p tcp --sport 22 -j RETURN
-    if [ ! -e "$TELEGRAM_OFF" ]; then
-      for net in $TELEGRAM_NETS; do
-        iptables -t nat -A "$CHAIN" -d "$net" -j RETURN
-      done
-    fi
     iptables -t nat -A "$CHAIN" -d 91.215.43.236/32 -j RETURN
     iptables -t nat -A "$CHAIN" -d 0.0.0.0/8 -j RETURN
     iptables -t nat -A "$CHAIN" -d 10.0.0.0/8 -j RETURN

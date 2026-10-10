@@ -25,12 +25,7 @@ CHAT_ID="${ALLOWED_USER_IDS:-}"
 CHAT_ID="${CHAT_ID//[\[\]\" ]/}"
 CHAT_ID="${CHAT_ID%%,*}"
 
-# 1 только если сообщение действительно ушло в Telegram (не пробный прогон
-# и не пропущенная отправка без токена).
-NOTIFY_SENT=0
-
 notify() {
-  NOTIFY_SENT=0
   if [ "$NO_NOTIFY" -eq 1 ]; then
     printf '%s\n' "$1"
     return 0
@@ -41,7 +36,6 @@ notify() {
     "$PROJECT_DIR/scripts/send_telegram_message.py" \
     --token "$TELEGRAM_BOT_TOKEN" \
     --chat-id "$CHAT_ID"
-  NOTIFY_SENT=1
 }
 
 state_folders() {
@@ -125,19 +119,11 @@ print(reason[:500])
 PY
 }
 
-# 10 октября 2026: «новый» ролик определяется не разницей внутри одного запуска,
-# а списком роликов, о которых отчёт уже отправлен. Иначе запуск, оборвавшийся
-# после загрузки (перезапуск бота, сбой сети), терял отчёт, а следующая проверка
-# сообщала «новых нет». Ролик попадает в список только после успешной отправки.
-REPORTED_FILE="$PROJECT_DIR/$OUTPUT_DIR/reported-folders.txt"
-
 BEFORE="$(mktemp)"
 AFTER="$(mktemp)"
 RUN_LOG="$(mktemp)"
 trap 'rm -f "$BEFORE" "$AFTER" "$RUN_LOG"' EXIT
-state_folders | LC_ALL=C sort -u >"$BEFORE"
-# Первый запуск со списком: всё, что уже скачано до этого момента, считаем отправленным.
-[ -f "$REPORTED_FILE" ] || cp "$BEFORE" "$REPORTED_FILE"
+state_folders | sort -u >"$BEFORE"
 COLLECTION_OK=1
 ERROR_REASON=""
 RETRY_EXHAUSTED=0
@@ -184,8 +170,8 @@ fi
 REPORT_TITLE="📺 Nate Herk — утренний отчёт"
 [ "$ATTEMPT" -gt 1 ] && REPORT_TITLE="📺 Nate Herk — отчёт после повторной загрузки"
 
-state_folders | LC_ALL=C sort -u >"$AFTER"
-mapfile -t NEW_FOLDERS < <(LC_ALL=C comm -23 "$AFTER" <(LC_ALL=C sort -u "$REPORTED_FILE"))
+state_folders | sort -u >"$AFTER"
+mapfile -t NEW_FOLDERS < <(comm -13 "$BEFORE" "$AFTER")
 
 # Карточки — обязательная часть ежедневного контура. Очередь запускается после
 # каждой проверки, в том числе когда остался незавершённый материал с прошлого
@@ -220,7 +206,6 @@ fi
 
 ANALYZED=0
 VIDEO_SUMMARIES=()
-REPORTED_NOW=()
 REPORT_DETAILS_OK=1
 for folder in "${NEW_FOLDERS[@]}"; do
   if [ -s "$PROJECT_DIR/$folder/analysis.md" ]; then
@@ -230,7 +215,6 @@ for folder in "${NEW_FOLDERS[@]}"; do
       "$PROJECT_DIR/$folder/analysis.md" 2>>"$RUN_LOG" || true)"
     if [ -n "$VIDEO_SUMMARY" ]; then
       VIDEO_SUMMARIES+=("$VIDEO_SUMMARY")
-      REPORTED_NOW+=("$folder")
     else
       REPORT_DETAILS_OK=0
     fi
@@ -265,14 +249,6 @@ else
 fi
 
 notify "$REPORT"
-
-# Отправленными отмечаем только ролики, чьё описание реально ушло в сообщении.
-# Если отправка не удалась, скрипт оборвался строкой выше: ролики остаются в
-# списке неотправленных и войдут в следующий отчёт.
-if [ "$NOTIFY_SENT" -eq 1 ] && [ "${#REPORTED_NOW[@]}" -gt 0 ]; then
-  printf '%s\n' "${REPORTED_NOW[@]}" >>"$REPORTED_FILE"
-  LC_ALL=C sort -u "$REPORTED_FILE" -o "$REPORTED_FILE"
-fi
 
 [ "$COLLECTION_OK" -eq 1 ] \
   && [ "$PROCESSING_OK" -eq 1 ] \

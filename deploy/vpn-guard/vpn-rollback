@@ -93,7 +93,7 @@ fi
 # Итоговая проверка. Результат только записывается: откат уже выполнен.
 sleep 3
 egress=$(code curl -s -m 10 -x socks5h://127.0.0.1:10808 -o /dev/null -w '%{http_code}' https://api.anthropic.com/)
-telegram=$(code setpriv --reuid=65534 --regid=65534 --clear-groups curl -s -m 10 -o /dev/null -w '%{http_code}' https://api.telegram.org/)
+telegram=$(code curl -s -m 10 -x socks5h://127.0.0.1:10808 -o /dev/null -w '%{http_code}' https://api.telegram.org/)
 xray_state=$(systemctl is-active xray 2>/dev/null)
-log "готово: Xray $xray_state, выход через туннель ответил кодом $egress, Telegram напрямую — кодом $telegram (000 означает «нет связи»)"
+log "готово: Xray $xray_state, через туннель нейросеть ответила кодом $egress, Telegram — кодом $telegram (000 означает «нет связи»)"
 exit 0

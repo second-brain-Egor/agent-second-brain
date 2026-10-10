@@ -22,7 +22,6 @@ log() { printf '%s | add-direct-domain | %s\n' "$(date '+%F %T')" "$*" | tee -a 
 fail() { log "ПРОВЕРКА НЕ ПРОШЛА: $* — откатываю"; /usr/local/sbin/vpn-rollback || true; exit 1; }
 code() { "$@" 2>/dev/null || true; }
 as_egor() { setpriv --reuid=1000 --regid=1000 --clear-groups "$@"; }
-as_nobody() { setpriv --reuid=65534 --regid=65534 --clear-groups "$@"; }
 
 [ "$(id -u)" = 0 ] || { echo "нужны права root" >&2; exit 1; }
 
@@ -86,9 +85,9 @@ done
 [ -n "$country" ] || log "предупреждение: cloudflare trace не ответил за 5 попыток (выход нестабилен)"
 [ "$country" != RU ] || fail "обычный трафик вышел напрямую (RU)"
 
-# Telegram напрямую.
-c=$(code as_nobody curl -s -m 10 -o /dev/null -w '%{http_code}' https://api.telegram.org/)
-[ "$c" != 000 ] || fail "Telegram напрямую не отвечает"
+# Telegram: обычный пользователь → заворот → узел выхода (так ходит бот).
+c=$(code as_egor curl -s -m 10 -o /dev/null -w '%{http_code}' https://api.telegram.org/)
+[ "$c" != 000 ] || fail "Telegram через заворот не отвечает"
 
 # Сам домен: 8 запросов подряд должны пройти все.
 good=0
@@ -99,7 +98,7 @@ done
 [ "$good" = 8 ] || fail "api.$DOMAIN ответил $good из 8"
 
 /usr/local/sbin/vpn-safety disarm >/dev/null
-log "проверки прошли: Anthropic отвечает, выход ${country:-не определён}, Telegram напрямую, api.$DOMAIN 8/8; таймер снят"
+log "проверки прошли: Anthropic отвечает, выход ${country:-не определён}, Telegram отвечает, api.$DOMAIN 8/8; таймер снят"
 
 # Снимок обновляем уже без блокировки: vpn-guard snapshot берёт её сам.
 exec 9>&-

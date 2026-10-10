@@ -52,7 +52,6 @@ GOOD_DIR = STATE_DIR / 'last-good'
 CONF_DIR = Path('/etc/vpn-guard')
 SUB_FILE = CONF_DIR / 'subscription'
 HWID_FILE = CONF_DIR / 'hwid'
-TELEGRAM_OFF = CONF_DIR / 'telegram-direct.off'
 STATE_FILE = STATE_DIR / 'state.json'
 LOG_FILE = Path('/var/log/vpn-guard.log')
 RUN_DIR = Path('/run/vpn-guard')
@@ -300,20 +299,6 @@ def egress_health() -> dict:
         return strict
     time.sleep(20)
     return probe_egress()
-
-
-def probe_telegram_direct() -> bool:
-    """Достучаться до Bot API напрямую, мимо Xray (uid nobody не заворачивается)."""
-    token = read_env().get('TELEGRAM_BOT_TOKEN')
-    url = f'https://api.telegram.org/bot{token}/getMe' if token else 'https://api.telegram.org/'
-    # Важна достижимость: любой ответ по корректному TLS (даже 401 при отозванном токене) подходит.
-    code, _, _ = curl(url, user='nobody')
-    return code != 0
-
-
-def probe_telegram_tunnel() -> bool:
-    code, _, _ = curl('https://api.telegram.org/', proxy=f'socks5h://127.0.0.1:{SOCKS_PORT}')
-    return code != 0
 
 
 def redirect_ready() -> bool:
@@ -748,41 +733,6 @@ def rollback(reason: str) -> dict:
     return dict(ok=False, reason=reason)
 
 
-# ────────────────────────────────────── Telegram ──────────────────────────────────────
-
-def telegram_nets() -> list[str]:
-    match = re.search(r'^TELEGRAM_NETS="([^"]*)"', ROUTING.read_text(encoding='utf-8'), re.M)
-    return match.group(1).split() if match else []
-
-
-def telegram_rules_present() -> bool:
-    nets = telegram_nets()
-    return bool(nets) and sh('iptables', '-t', 'nat', '-C', CHAIN, '-d', nets[0], '-j', 'RETURN').returncode == 0
-
-
-def set_telegram_direct(enabled: bool) -> None:
-    """Включает или убирает исключение для Telegram и в памяти, и в файле-флаге для скрипта правил."""
-    nets = telegram_nets()
-    if enabled:
-        TELEGRAM_OFF.unlink(missing_ok=True)
-        rules = sh('iptables', '-t', 'nat', '-S', CHAIN).stdout.splitlines()
-        position = next((i for i, line in enumerate((r for r in rules if r.startswith('-A')), 1)
-                         if '-d 91.215.43.236/32' in line), None)
-        for net in nets:
-            if sh('iptables', '-t', 'nat', '-C', CHAIN, '-d', net, '-j', 'RETURN').returncode != 0:
-                args = ['-I', CHAIN] + ([str(position)] if position else []) + ['-d', net, '-j', 'RETURN']
-                sh('iptables', '-t', 'nat', *args)
-                position = position + 1 if position else None
-    else:
-        write_private(TELEGRAM_OFF, f'{now():%F %T}\n', 0o644)
-        for net in nets:
-            while sh('iptables', '-t', 'nat', '-D', CHAIN, '-d', net, '-j', 'RETURN').returncode == 0:
-                pass
-    log('Telegram идёт напрямую' if enabled else 'Telegram возвращён в туннель')
-    if not safety_armed() and probe_egress()['ok']:  # снимок — только с исправного выхода
-        snapshot()
-
-
 def notify(state: dict, text: str) -> bool:
     """Отправляет сообщение; не ушло — кладёт в очередь вместе со временем составления."""
     if send(text):
@@ -1107,8 +1057,6 @@ def do_status() -> dict:
     outbound = current_outbound(config)
     current_name = config.get('remarks')
     egress = probe_egress()
-    direct = probe_telegram_direct()
-    exemption = not TELEGRAM_OFF.exists() and telegram_rules_present()
     sub = state.get('subscription') or {}
     lines = ['🔐 <b>VPN: выход сервера</b>', '']
     if egress['ok']:
@@ -1121,9 +1069,6 @@ def do_status() -> dict:
         lines.append(f'↩️ Стоим на запасном. Северный узел прошёл проверку {state.get("north_streak", 0)} из {RETURN_STREAK} раз подряд, '
                      'после третьего раза вернусь на него.')
     lines.append('')
-    mode = 'напрямую, мимо туннеля' if exemption else 'через туннель'
-    lines.append(f'{"📡" if direct else "⚠️"} Telegram: {mode}; прямой путь {"отвечает" if direct else "не отвечает"}.')
-    lines.append('')
     if read_subscription_url():
         lines.append(f'🔗 Подписка задана ({esc(sub.get("host", "?"))}): узлов {sub.get("nodes", "?")}, из очереди {sub.get("ours", "?")}. '
                      f'Последний запрос: {esc(sub.get("checked_at", "ещё не было"))}.')
@@ -1135,15 +1080,7 @@ def do_status() -> dict:
     lines.append(f'🕒 Автопроверка раз в 5 минут: {"включена" if timer else "выключена"}. '
                  f'Последняя проверка: {esc(state.get("last_check", {}).get("at", "ещё не было"))}.')
     lines.append(f'🔁 Последняя замена: {esc(change["at"]) + " («" + esc(change["to"]) + "»)" if change else "не было"}.')
-    return dict(ok=True, egress=egress, telegram_direct=direct, message='\n'.join(lines))
-
-
-def telegram_direct_reachable() -> bool:
-    """Прямой путь к Telegram; один повтор через 10 секунд, чтобы не реагировать на сбой одного запроса."""
-    if probe_telegram_direct():
-        return True
-    time.sleep(10)
-    return probe_telegram_direct()
+    return dict(ok=True, egress=egress, message='\n'.join(lines))
 
 
 def do_check() -> dict:
@@ -1155,23 +1092,9 @@ def do_check() -> dict:
         sh('systemctl', 'restart', 'xray', timeout=60)
         wait_port(SOCKS_PORT, 15)
     deliver_pending(state)
-    # Прямой путь к Telegram: убираем исключение, если он закрылся, пока туннель Telegram пропускает.
-    direct = telegram_direct_reachable()
-    if not TELEGRAM_OFF.exists():
-        if not direct and probe_telegram_tunnel():
-            set_telegram_direct(False)
-            state['telegram_direct_ok_streak'] = 0
-            notify(state, '📡 <b>Прямой путь к Telegram перестал отвечать.</b> Вернул Telegram в туннель: бот работает, но если упадут все узлы, снова оглохнет.')
-    else:
-        streak = state.get('telegram_direct_ok_streak', 0) + 1 if direct else 0
-        state['telegram_direct_ok_streak'] = streak
-        if streak >= 3:
-            set_telegram_direct(True)
-            state['telegram_direct_ok_streak'] = 0
-            notify(state, '📡 Прямой путь к Telegram снова отвечает: исключение из туннеля включено обратно.')
     egress = egress_health()
     state['last_check'] = {'at': started, 'egress_ok': egress['ok'], 'country': egress.get('country'),
-                           'problem': egress.get('problem'), 'telegram_direct_ok': direct}
+                           'problem': egress.get('problem')}
     incident = state.get('incident')
     if egress['ok']:
         if incident and incident.get('notified'):

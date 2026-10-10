@@ -1,9 +1,8 @@
 ---
 type: note
 updated: 2026-10-10
-last_accessed: 2026-10-10
-relevance: 1.0
-tier: active
+relevance: 0.86
+tier: warm
 ---
 # Health Check Vault
 
@@ -12,7 +11,7 @@ tier: active
 ## Обзор
 
 - Заметок: 968
-- Связей: 2390
+- Связей: 2392
 - Сирот: 68
 - Слабосвязанных: 86
 
@@ -24,14 +23,14 @@ tier: active
 | blog | 2 | 1.00 |
 | daily | 192 | 1.48 |
 | goals | 5 | 8.00 |
-| memory | 5 | 44.40 |
+| memory | 5 | 44.60 |
 | projects | 670 | 3.55 |
 | references | 5 | 2.00 |
-| reports | 2 | 40.50 |
+| reports | 2 | 41.00 |
 | root | 1 | 3.00 |
 | summaries | 24 | 1.25 |
 | templates | 2 | 0.00 |
-| thoughts | 53 | 4.89 |
+| thoughts | 53 | 4.91 |
 
 ## Самые связные заметки
 
@@ -41,7 +40,7 @@ tier: active
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 107 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
 - [[reports/vault-health.md|Health Check Vault]] — 65 связей
-- [[memory/soul.md|Идентичность агента]] — 51 связей
+- [[memory/soul.md|Идентичность агента]] — 52 связей
 - [[projects/Рынок стройматериалы/price-list-page-2-2026-04-26.md|Прайс-лист стройматериалов — страница 2 из 3]] — 48 связей
 - [[projects/Рынок стройматериалы/price-list-page-1-2026-04-26.md|Прайс-лист стройматериалов — страница 1 из 3]] — 46 связей
 - [[projects/Рынок стройматериалы/product-cards-page-2-2026-04-26.md|Карточки позиций — Новорязанка, страница 2]] — 46 связей

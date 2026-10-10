@@ -26,7 +26,7 @@ def guard(monkeypatch, tmp_path):
     sys.modules[loader.name] = module
     loader.exec_module(module)
     for name, relative in dict(STATE_FILE="state.json", SUB_FILE="subscription", HWID_FILE="hwid",
-                               TELEGRAM_OFF="off", LOG_FILE="guard.log", XRAY_CONF="config.json").items():
+                               LOG_FILE="guard.log", XRAY_CONF="config.json").items():
         monkeypatch.setattr(module, name, tmp_path / relative)
     monkeypatch.setattr(module.time, "sleep", lambda seconds: None)
     yield module
@@ -226,8 +226,6 @@ class Rig:
         monkeypatch.setattr(guard, "notify", lambda state, text: self.notices.append(text) or True)
         monkeypatch.setattr(guard, "snapshot_is_current", lambda: True)
         monkeypatch.setattr(guard, "safety_armed", lambda: False)
-        monkeypatch.setattr(guard, "probe_telegram_direct", lambda: True)
-        monkeypatch.setattr(guard, "probe_telegram_tunnel", lambda: True)
         monkeypatch.setattr(guard, "sh", lambda *a, **k: type("R", (), dict(stdout="active\n", returncode=0))())
 
 
@@ -317,27 +315,6 @@ def test_check_recovery_before_notification_stays_silent(guard, monkeypatch, con
     rig.alive = True
     guard.do_check()
     assert rig.notices == [] and json.loads(guard.STATE_FILE.read_text())["incident"] is None
-
-
-def test_check_removes_telegram_exemption_when_direct_path_closes(guard, monkeypatch, config):
-    rig = Rig(guard, monkeypatch, config, alive=True, nodes=[])
-    monkeypatch.setattr(guard, "probe_telegram_direct", lambda: False)
-    toggled = []
-    monkeypatch.setattr(guard, "set_telegram_direct", lambda enabled: toggled.append(enabled))
-    guard.do_check()
-    assert toggled == [False] and "Вернул Telegram в туннель" in rig.notices[0]
-
-
-def test_check_restores_exemption_only_after_three_good_checks(guard, monkeypatch, config):
-    rig = Rig(guard, monkeypatch, config, alive=True, nodes=[])
-    guard.TELEGRAM_OFF.write_text("x")
-    toggled = []
-    monkeypatch.setattr(guard, "set_telegram_direct", lambda enabled: toggled.append(enabled))
-    guard.do_check()
-    guard.do_check()
-    assert toggled == []
-    guard.do_check()
-    assert toggled == [True] and "включено обратно" in rig.notices[-1]
 
 
 # ── уведомления ──
