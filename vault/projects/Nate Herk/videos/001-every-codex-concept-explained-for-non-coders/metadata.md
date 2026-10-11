@@ -1,4 +1,5 @@
 ---
+description: "Every Codex Concept Explained for Non-Coders — project"
 type: project
 last_accessed: 2026-10-05
 relevance: 0.97

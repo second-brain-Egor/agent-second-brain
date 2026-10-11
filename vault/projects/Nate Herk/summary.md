@@ -1,8 +1,5 @@
 ---
-type: project
-last_accessed: 2026-10-10
-relevance: 0.98
-tier: active
+description: "Папка: Nate Herk Роликов в выгрузке: 62"
 ---
 # Сводка по видео
 

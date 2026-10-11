@@ -14,6 +14,10 @@ from d_brain.services.documents import service_dir
 
 DB_PATH = os.path.join(os.environ.get("PROJECT_DIR", "."), "vault", ".data", "memory.db")
 EXCLUDED_DIRS = {".obsidian", "attachments", ".git", ".graph", ".claude", ".trash", "__pycache__"}
+# Материалы роликов (расшифровки, комментарии зрителей, карточки) — 87% записей индекса;
+# в обычном поиске они вытесняли заметки пользователя. Сводки и разборы каналов лежат выше
+# папки videos/ и остаются в поиске, сами ролики при нужде читаются из папки проекта.
+VIDEO_DIRS = {"videos"}
 
 
 def _get_db_path() -> str:
@@ -48,18 +52,39 @@ def _init_db(conn: sqlite3.Connection) -> None:
 
 
 def _extract_facts(text: str) -> list[str]:
-    """Extract facts from markdown text (each non-empty paragraph = one fact)."""
-    # Remove frontmatter
+    """Extract facts from markdown text: each paragraph or list item under its heading.
+
+    The heading goes in front of every fact: in facts.md it carries the date and topic
+    («## 2026-04-09 — Сетевой сбой»), and a section that starts right under its heading
+    is no longer dropped as a heading line.
+    """
     text = re.sub(r"^---\n.*?\n---\n", "", text, flags=re.DOTALL)
-    # Remove headings that are just structural
-    text = re.sub(r"^#+\s*$", "", text, flags=re.MULTILINE)
-    # Split by double newline (paragraphs) or list items
-    paragraphs = re.split(r"\n\n+", text)
-    facts = []
-    for p in paragraphs:
-        p = p.strip()
-        if len(p) > 20 and not p.startswith("#"):  # Skip short lines and headings
-            facts.append(p)
+    facts: list[str] = []
+    heading = ""
+    items: list[str] = []
+    in_fence = False
+
+    def flush() -> None:
+        for item in items:
+            if len(item) > 20:
+                facts.append(f"{heading}: {item}" if heading else item)
+        items.clear()
+
+    for raw in text.splitlines():
+        line = raw.strip()
+        if line.startswith("```"):
+            in_fence = not in_fence
+        match = None if in_fence else re.match(r"#{1,6}\s+(.*)", line)
+        if match:
+            flush()
+            heading = match.group(1).strip()
+        elif not line:
+            flush()
+        elif re.match(r"(?:[-*+]|\d+[.)])\s", line) or not items:
+            items.append(line)
+        else:
+            items[-1] += " " + line
+    flush()
     return facts
 
 
@@ -68,7 +93,8 @@ def _iter_markdown_files(vault: Path) -> list[Path]:
     return sorted(
         md_file
         for md_file in vault.rglob("*.md")
-        if not any(part in EXCLUDED_DIRS or part.startswith(".") for part in md_file.relative_to(vault).parts)
+        if not any(part in EXCLUDED_DIRS or part in VIDEO_DIRS or part.startswith(".")
+                   for part in md_file.relative_to(vault).parts)
         if not any((parent / ".document.json").exists() for parent in md_file.parents if parent != vault.parent)
         if not (service_dir(md_file) / ".document.json").exists()
     )

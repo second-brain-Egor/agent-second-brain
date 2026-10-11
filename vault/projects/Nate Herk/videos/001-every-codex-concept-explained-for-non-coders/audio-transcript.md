@@ -1,4 +1,5 @@
 ---
+description: "Независимая расшифровка полной аудиодорожки — project"
 type: project
 last_accessed: 2026-10-05
 relevance: 0.97

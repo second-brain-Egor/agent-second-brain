@@ -16,6 +16,8 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
+from d_brain.services import usage
+
 logger = logging.getLogger(__name__)
 
 CURRENT_EXECUTION = contextvars.ContextVar('dbrain_execution', default=None)
@@ -169,6 +171,9 @@ class Execution:
                                + (f' Причина: {detail}' if detail else ''))
         if kind == 'turn.completed' and event.get('usage'):
             self.update(usage=event['usage'])
+        if backend == 'claude' and kind == 'result':
+            self.update(usage=event.get('usage') or {},
+                        denials=event.get('permission_denials') or [])
         item = event.get('item') or {}
         identity = None
         if backend == 'codex' and kind in {'item.started', 'item.completed'}:
@@ -229,6 +234,7 @@ def run_bounded(cmd, *, input, cwd, env, backend, timeout=None, project=None):
             execution.descendants = {}
             execution.idle.clear()
             execution.update(pid=process.pid, state='running')
+            started = time.monotonic()
         readers = [threading.Thread(target=drain, args=(pipe, name), daemon=True)
                    for pipe, name in [(process.stdout, 'stdout'), (process.stderr, 'stderr')]]
         for reader in readers:
@@ -265,6 +271,9 @@ def run_bounded(cmd, *, input, cwd, env, backend, timeout=None, project=None):
                     if backend != "command":
                         execution.observe(line, backend)
         process.wait()
+        if backend != "command":
+            usage.record(Path(project or cwd), cmd, ''.join(stdout), backend, execution,
+                         time.monotonic() - started, process.returncode)
         execution.check()
         if inherited is None:
             execution.update(state='completed' if process.returncode == 0 else 'error')

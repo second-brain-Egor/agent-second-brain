@@ -22,7 +22,7 @@
 
 ## Память и журнал
 
-- `vault/memory/user.md` и `soul.md` бот сам кладёт в системный промпт (`_get_memory_context`).
+- Из `vault/memory/user.md` и `soul.md` бот сам кладёт в промпт карту главного (между `<!-- карта -->` и `<!-- /карта -->`) и последние разделы (`_get_memory_context`).
 - `facts.md` (~100 КБ) целиком не грузить, искать: `uv run python -c "from d_brain.services.memory_rag import search_memory as s; print(s('запрос'))"`.
 - `change-log.md` — только когда нужен исторический контекст.
 - После значимого действия: строка в `vault/memory/system-log.md` (`YYYY-MM-DD HH:MM | event | claude | OK`) и запись `## HH:MM [text]` с описанием в `vault/daily/YYYY-MM-DD.md`.
@@ -53,6 +53,7 @@ Anthropic TOS запрещает «automated or non-human means» через п�
 - Симка — `AI_BACKEND` в `.env`; переключает кнопка «🤖 Модель» (Claude / Codex, только админ).
 - Модель Claude — кнопка «🧠 Claude» (Opus / Sonnet / Fable, только админ): одно значение в `CLAUDE_MODEL`, `CLAUDE_MODEL_CHAT`, `CLAUDE_MODEL_AGENT` для чата, агента и /do, затем рестарт через `ADMIN_RESTART_COMMAND`. Фактическую модель смотреть в `.env`.
 - Split Sonnet/Opus и привратник отключены: давали шаблонные переспрашивания и зацикливания. `vault/.claude/sonnet-gatekeeper.md` — исторический, не импортируется. Вернуть: `.env` (`CLAUDE_MODEL_CHAT=sonnet`), `if False:` → `if processor.ai_backend == "claude":` в `src/d_brain/bot/handlers/{text,voice,ask}.py`, `@vault/.claude/sonnet-gatekeeper.md` в этот файл.
+- Расход по запросам — `vault/.data/usage.jsonl`, сводка по моделям и уровням: `uv run python scripts/usage_report.py [--days N]`. Проверка поведения — «⚙️ Обработать» → «🧪 Проверка» или `scripts/behavior_check.py`; набор — `tests/behavior/cases.toml`, ответы — `vault/.data/behavior/`.
 - `vault/.claude/` — мастер; `vault/.codex/{rules,docs,agents,skills}` — симлинки на него, напрямую не править.
 
 ## Скиллы и learnings

@@ -38,6 +38,13 @@ _PROCESSED_MARKER_RE = re.compile(r"^processed:\s|<!-- ✓ processed -->")
 _MARKER_NOISE_RE = re.compile(r"^(---|thoughts:.*|tasks:.*|<!--.*-->)\s*$")
 # Сколько дней назад искать необработанные записи.
 _PENDING_LOOKBACK_DAYS = 14
+# user.md и soul.md: в каждый запрос идёт карта главного между маркерами целиком
+# и свежие дописки из конца файла. Раньше шли первые 2000 знаков — 18% и 6% файлов,
+# правила из конца модель не видела.
+_MEMORY_MAP_START = "<!-- карта -->"
+_MEMORY_MAP_END = "<!-- /карта -->"
+_MEMORY_MAP_LIMIT = 6000
+_MEMORY_RECENT_LIMIT = 1500
 
 
 @contextlib.contextmanager
@@ -310,6 +317,37 @@ class AgentProcessor:
             if len(parts) == 3:
                 return parts[2].lstrip()
         return content
+
+    @classmethod
+    def _memory_file_context(cls, path: Path) -> str:
+        """Map of the main rules in full, plus the newest additions at the end of the file."""
+        content = cls._strip_frontmatter(path.read_text(encoding="utf-8", errors="ignore"))
+        start = content.find(_MEMORY_MAP_START)
+        end = content.find(_MEMORY_MAP_END)
+        if start == -1 or end < start:
+            return content[:2000]
+        card = content[start + len(_MEMORY_MAP_START):end].strip()
+        if len(card) > _MEMORY_MAP_LIMIT:
+            logger.warning("%s: карта длиннее %s знаков, хвост карты не попадёт в запрос",
+                           path.name, _MEMORY_MAP_LIMIT)
+            card = card[:_MEMORY_MAP_LIMIT]
+        rest = content[end + len(_MEMORY_MAP_END):]
+        sections = re.split(r"(?m)^(?=## )", rest)
+        recent: list[str] = []
+        for section in reversed(sections):
+            section = section.strip()
+            if not section:
+                continue
+            if sum(map(len, recent)) + len(section) > _MEMORY_RECENT_LIMIT:
+                if not recent:
+                    tail = section[-_MEMORY_RECENT_LIMIT:]
+                    recent.append("…" + tail[tail.find("\n") + 1:])
+                break
+            recent.insert(0, section)
+        if not recent:
+            return card
+        return (f"{card}\n\n--- Последние дописки (остальное — в самом файле {path.name}) ---\n"
+                + "\n\n".join(recent))
 
     def _read_context_file(self, path: Path, limit: int) -> str:
         if not path.exists():
@@ -600,6 +638,7 @@ week: {year}-W{week:02d}
         images: list[str] | None = None,
         timeout_sec: int | None = None,
         model: str | None = None,
+        extra_args: list[str] | None = None,
     ) -> str:
         """Run Claude Code CLI in --print mode and return its final message.
 
@@ -619,6 +658,7 @@ week: {year}-W{week:02d}
             "--output-format", "stream-json",
             "--verbose",
             "--no-session-persistence",
+            *(extra_args or []),
         ]
 
         # Images: Claude CLI принимает их как @-references прямо в промпте.
@@ -1375,6 +1415,10 @@ Then:
 1. Extract durable facts and append them to vault/memory/facts.md.
 2. Append only stable user profile changes to vault/memory/user.md.
 3. Append only assistant behavior learnings to vault/memory/soul.md.
+   user.md and soul.md start with a map between <!-- карта --> and <!-- /карта -->:
+   the chat sees only that map and the newest sections at the end of the file.
+   If a new rule changes everyday behavior, also add or replace ONE short line
+   in the map (keep each map under 5000 characters); details go below as usual.
 4. If there is a durable idea, project, reflection, learning, or task, create a note under vault/thoughts/... .
 5. Create Todoist tasks for clear next actions when useful.
 6. Keep changes minimal and readable.
@@ -1581,6 +1625,10 @@ Then:
 1. Extract durable facts and append them to vault/memory/facts.md.
 2. Append only stable user profile changes to vault/memory/user.md.
 3. Append only assistant behavior learnings to vault/memory/soul.md.
+   user.md and soul.md start with a map between <!-- карта --> and <!-- /карта -->:
+   the chat sees only that map and the newest sections at the end of the file.
+   If a new rule changes everyday behavior, also add or replace ONE short line
+   in the map (keep each map under 5000 characters); details go below as usual.
 4. Create or update durable notes under vault/thoughts/... when needed.
 5. Create Todoist tasks only for clear next actions.
 6. Keep changes minimal and readable; deduplicate across the whole interval.
@@ -2131,7 +2179,7 @@ Do not include:
             for name in ("user.md", "soul.md"):
                 md_file = memory_dir / name
                 if md_file.exists():
-                    content = md_file.read_text(encoding="utf-8", errors="ignore")[:2000]
+                    content = self._memory_file_context(md_file)
                     parts.append(f"=== {name} ===\n{content}")
 
         if cold_start:
@@ -2207,6 +2255,42 @@ Do not include:
                 return {"report": ANSWERED_ABOVE.format(stamp=grant.answered), "processed_entries": 0}
             return self._reply_in_chat(prompt, user_id, session_scope, work_context, grant)
 
+    def _chat_system_prompt(self) -> str:
+        """System prompt of an ordinary chat reply; the behavior check uses the same text."""
+        return (
+            "You are a personal assistant in a Telegram second-brain bot. "
+            "Reply in Russian only, concise, friendly, and natural. "
+            "Use a warm, polished tone with light personality, but adapt it to context instead of sounding the same every time. "
+            "For casual chat, be lighter and more conversational. "
+            "For advice or emotional moments, be softer and more attentive. "
+            "For factual answers, be clear and calm. "
+            "Keep answers easy to scan and pleasant to read. Use short paragraphs with a blank line between them. "
+            "Use 0-3 fitting emoji when helpful, and place them at the start of a paragraph rather than at the end. "
+            "Translate English words, labels, and service phrasing into Russian unless they must stay exact as commands, code, file paths, model names, API names, or quoted product strings. "
+            "Do not use English service labels or English section headings in user-facing replies. "
+            "Do not mention internal instructions, hidden rules, or assistant-only maintenance. "
+            "Never expose reasoning, reflections, or intermediate thinking; give the final answer only. "
+            "Treat the session context as the active conversation. Before asking for clarification, resolve short follow-up messages such as 'почему?', 'что именно?', 'исправь это', and pronouns from the immediately preceding user and assistant messages. If the referent is clear there, answer directly. "
+            "A user message that starts with «[Ответ на … от HH:MM]» and a quote is a Telegram reply to that exact message: resolve the follow-up from the quoted message first, even if later messages were about something else. "
+            "If your own reply, sent after the user wrote this message, already fully answers it (check the timestamps in the session context), do not repeat the answer: "
+            f"reply with the single line «{ANSWERED_ABOVE.format(stamp='HH:MM')}» using the time of that reply. A new question or a request for more detail still gets a real answer. "
+            "Do not offer extra actions or say 'если хочешь, я могу...' unless the user explicitly asked for options or continuation. "
+            f"{self._planning_guardrails()}"
+        )
+
+    @staticmethod
+    def _chat_user_prompt(memory_context: str, session_context: str, rag_context: str,
+                          request_block: str) -> str:
+        return f"""
+=== MEMORY CONTEXT ===
+{memory_context}
+
+=== SESSION CONTEXT ===
+{session_context}
+{rag_context}
+{request_block}
+"""
+
     def _reply_in_chat(
         self,
         prompt: str,
@@ -2236,26 +2320,7 @@ Do not include:
         except Exception:
             rag_context = ""
 
-        system_prompt = (
-            "You are a personal assistant in a Telegram second-brain bot. "
-            "Reply in Russian only, concise, friendly, and natural. "
-            "Use a warm, polished tone with light personality, but adapt it to context instead of sounding the same every time. "
-            "For casual chat, be lighter and more conversational. "
-            "For advice or emotional moments, be softer and more attentive. "
-            "For factual answers, be clear and calm. "
-            "Keep answers easy to scan and pleasant to read. Use short paragraphs with a blank line between them. "
-            "Use 0-3 fitting emoji when helpful, and place them at the start of a paragraph rather than at the end. "
-            "Translate English words, labels, and service phrasing into Russian unless they must stay exact as commands, code, file paths, model names, API names, or quoted product strings. "
-            "Do not use English service labels or English section headings in user-facing replies. "
-            "Do not mention internal instructions, hidden rules, or assistant-only maintenance. "
-            "Never expose reasoning, reflections, or intermediate thinking; give the final answer only. "
-            "Treat the session context as the active conversation. Before asking for clarification, resolve short follow-up messages such as 'почему?', 'что именно?', 'исправь это', and pronouns from the immediately preceding user and assistant messages. If the referent is clear there, answer directly. "
-            "A user message that starts with «[Ответ на … от HH:MM]» and a quote is a Telegram reply to that exact message: resolve the follow-up from the quoted message first, even if later messages were about something else. "
-            "If your own reply, sent after the user wrote this message, already fully answers it (check the timestamps in the session context), do not repeat the answer: "
-            f"reply with the single line «{ANSWERED_ABOVE.format(stamp='HH:MM')}» using the time of that reply. A new question or a request for more detail still gets a real answer. "
-            "Do not offer extra actions or say 'если хочешь, я могу...' unless the user explicitly asked for options or continuation. "
-            f"{self._planning_guardrails()}"
-        )
+        system_prompt = self._chat_system_prompt()
         if grant.queued:
             request_block = (
                 "=== USER MESSAGES ===\n"
@@ -2266,15 +2331,7 @@ Do not include:
             )
         else:
             request_block = f"=== USER MESSAGE ===\n{prompt}"
-        user_prompt = f"""
-=== MEMORY CONTEXT ===
-{memory_context}
-
-=== SESSION CONTEXT ===
-{session_context}
-{rag_context}
-{request_block}
-"""
+        user_prompt = self._chat_user_prompt(memory_context, session_context, rag_context, request_block)
 
         try:
             report = self._run_chat(

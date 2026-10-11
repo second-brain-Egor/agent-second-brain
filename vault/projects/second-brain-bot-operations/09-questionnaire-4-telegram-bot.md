@@ -1,4 +1,5 @@
 ---
+description: "Опросник 4 — для Telegram-бота (боевые вопросы) — note"
 type: note
 last_accessed: 2026-05-07
 relevance: 0.1

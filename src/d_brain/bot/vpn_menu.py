@@ -1,4 +1,5 @@
 """Меню «⚙️ Обработать» → «VPN»: состояние выхода сервера, обновление, смена ссылки подписки.
+Там же «🧪 Проверка» — прогон типовых сообщений (services/behavior_check.py).
 
 Включается переменной VPN_GUARD_ENABLED=1 (только там, где установлен /usr/local/sbin/vpn-guard)
 и работает только для администратора. Сами проверки и замену узла делает страж на сервере;
@@ -56,6 +57,7 @@ def main_menu() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     builder.button(text="⚙️ Обработать", callback_data="menu:process")
     builder.button(text="🔐 VPN", callback_data="menu:vpn")
+    builder.button(text="🧪 Проверка", callback_data="menu:check")
     builder.adjust(2)
     return builder.as_markup()
 
@@ -243,6 +245,30 @@ async def menu_process(callback: CallbackQuery, request_jobs: Any = None) -> Non
     message = callback.message
     await delete_quietly(message)
     start_supervised(request_jobs, callback.from_user.id, "⚙️ Обработать", lambda: cmd_process(message))
+
+
+@router.callback_query(F.data == "menu:check", VpnAdmin())
+async def menu_check(callback: CallbackQuery, request_jobs: Any = None) -> None:
+    """Прогон типовых сообщений на текущей модели (services/behavior_check.py)."""
+    from d_brain.services import behavior_check
+    from d_brain.services.processor import AgentProcessor
+
+    await callback.answer()
+    message = callback.message
+    cases, _ = behavior_check.load_cases()
+    await show(message, f"🧪 Прогоняю {len(cases)} типовых сообщений на текущей модели. "
+                        "Это несколько минут и часть лимита; «стоп» остановит.", None)
+    settings = get_settings()
+
+    async def work() -> None:
+        processor = AgentProcessor(settings.vault_path, settings.todoist_api_key)
+        summary = await asyncio.to_thread(behavior_check.run_all, processor)
+        from d_brain.bot.formatters import split_html_messages
+
+        for part in split_html_messages(behavior_check.telegram_report(summary)):
+            await message.answer(part)
+
+    start_supervised(request_jobs, callback.from_user.id, "🧪 Проверка", work)
 
 
 @router.callback_query(F.data == "vpn:status", VpnAdmin())

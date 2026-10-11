@@ -176,6 +176,12 @@ async def test_router_precedes_buttons_when_enabled():
     assert names.index("vpn_menu") < names.index("buttons")
 
 
+def test_check_button_next_to_vpn():
+    buttons = [(button.text, button.callback_data)
+               for row in vpn_menu.main_menu().inline_keyboard for button in row]
+    assert ("🧪 Проверка", "menu:check") in buttons and ("🔐 VPN", "menu:vpn") in buttons
+
+
 async def test_non_admin_callback_gets_alert(tmp_path, monkeypatch):
     dp, bot, jobs, send = await build(tmp_path, monkeypatch)
     guard = AsyncMock()
