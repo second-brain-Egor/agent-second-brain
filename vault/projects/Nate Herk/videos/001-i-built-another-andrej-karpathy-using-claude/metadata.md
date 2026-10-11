@@ -1,6 +1,6 @@
 ---
-description: "I Built Another Andrej Karpathy Using Claude — project"
 type: project
+description: "I Built Another Andrej Karpathy Using Claude — project"
 last_accessed: 2026-10-06
 relevance: 0.98
 tier: active

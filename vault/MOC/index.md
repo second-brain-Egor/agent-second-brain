@@ -1,8 +1,7 @@
 ---
-description: "Map of Content: Index, 732 entries"
 type: note
-updated: 2026-10-11
-last_accessed: 2026-10-11
+updated: 2026-10-12
+last_accessed: 2026-10-12
 relevance: 1.0
 tier: active
 ---
@@ -12,9 +11,9 @@ tier: active
 
 ## Срез
 
-- Заметок: 971
-- Связей: 2404
-- Сирот: 69
+- Заметок: 973
+- Связей: 2409
+- Сирот: 70
 - Слабосвязанных: 84
 
 ## Память
@@ -716,27 +715,27 @@ tier: active
 - [[projects/Узлы VPN/README.md|Узлы VPN]]
 - [[projects/Узлы VPN/Итоги недели 9–16 октября 2026.md|Итоги недели замеров узлов VPN — 9–16 октября 2026]]
 - [[projects/Узлы VPN/Первый прогон 2026-10-09.md|Прогон узлов VPN — 9 октября 2026, 18:09]]
-- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 11 октября 2026, 00:00]]
+- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 12 октября 2026, 00:00]]
 - [[projects/приложение-по-дорогам/README.md|Приложение по дорогам]]
 
 ## Новые записи дня
 
+- [[daily/2026-10-12.md|2026-10-12]]
 - [[daily/2026-10-11.md|2026-10-11]]
 - [[daily/2026-10-10.md|2026-10-10]]
 - [[daily/2026-10-09.md|2026-10-09]]
 - [[daily/2026-10-08.md|2026-10-08]]
 - [[daily/2026-10-07.md|2026-10-07]]
 - [[daily/2026-10-06.md|2026-10-06]]
-- [[daily/2026-10-05.md|2026-10-05]]
 
 ## Недельные сводки
 
+- [[summaries/2026-W41-summary.md|2026-W41-summary]]
 - [[summaries/2026-W38-summary.md|2026-W38-summary]]
 - [[summaries/2026-W37-summary.md|2026-W37-summary]]
 - [[summaries/2026-W36-summary.md|2026-W36-summary]]
 - [[summaries/2026-W35-summary.md|2026-W35-summary]]
 - [[summaries/2026-W34-summary.md|2026-W34-summary]]
-- [[summaries/2026-W33-summary.md|2026-W33-summary]]
 
 ## Обучения и правила
 

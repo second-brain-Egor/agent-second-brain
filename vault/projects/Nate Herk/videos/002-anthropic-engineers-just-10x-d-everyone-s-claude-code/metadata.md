@@ -1,6 +1,6 @@
 ---
-description: "Anthropic Engineers Just 10x'd Everyone's Claude Code — project"
 type: project
+description: "Anthropic Engineers Just 10x'd Everyone's Claude Code — project"
 last_accessed: 2026-10-09
 relevance: 0.98
 tier: active

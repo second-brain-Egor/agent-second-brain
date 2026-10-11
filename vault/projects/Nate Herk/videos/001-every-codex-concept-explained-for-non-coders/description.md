@@ -1,8 +1,8 @@
 ---
-description: "Description — project"
 type: project
+description: "Description — project"
 last_accessed: 2026-10-05
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 How I built an AI agency from 0 to over $1 million per year: https://www.skool.com/ai-automation-society-plus/about?el=codex-18-concepts&hcategory=youtube-videos&utm_campaign=plus-group

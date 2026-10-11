@@ -1,8 +1,8 @@
 ---
-description: "Every Codex Concept Explained for Non-Coders — project"
 type: project
+description: "Every Codex Concept Explained for Non-Coders — project"
 last_accessed: 2026-10-05
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Every Codex Concept Explained for Non-Coders

@@ -1,14 +1,13 @@
 ---
-description: "Map of Content: Projects, 674 entries"
 type: note
-last_accessed: 2026-10-10
+last_accessed: 2026-10-11
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-11 | folders: 24, notes: 673, standalone: 0
+> Generated: 2026-10-12 | folders: 24, notes: 673, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -118,7 +117,7 @@ tier: active
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/analysis|AI News in 5 Mins: GPT-6 Astra]] — AI News in 5 Mins: GPT-6 Astra — project
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/metadata|AI News in 5 Mins: GPT-6 Astra]] — Ссылка: https://www.youtube.com/watch?v=NbUTIFEEXLY Источник: Nate Herk | AI Automation Дата: 20260903 Длительность: ...
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/metadata|Anthropic Engineer Explains: What to Build Instead of AI Agents]] — Ссылка: https://www.youtube.com/watch?v=HIRDzMtuWFk Источник: Nate Herk | AI Automation Дата: 20260913 Длительность: ...
-- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/metadata|Anthropic Engineers Just 10x'd Everyone's Claude Code]]
+- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/metadata|Anthropic Engineers Just 10x'd Everyone's Claude Code]] — Anthropic Engineers Just 10x'd Everyone's Claude Code — project
 - [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/analysis|Anthropic is Teaching Claude to be Evil (real results)]] — Anthropic is Teaching Claude to be Evil (real results) — project
 - [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/metadata|Anthropic is Teaching Claude to be Evil (real results)]] — Ссылка: https://www.youtube.com/watch?v=Lbax7_pW2Nw Источник: Nate Herk | AI Automation Дата: 20260901 Длительность: ...
 - [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/metadata|Anthropic’s CEO: How to Build a 1 Person Business with Claude]] — Ссылка: https://www.youtube.com/watch?v=QDsenEcAJIk Источник: Nate Herk | AI Automation Дата: 20260918 Длительность: ...
@@ -127,7 +126,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/metadata|Build & Sell with Codex (5+ Hour Course)]] — Build & Sell with Codex (5+ Hour Course) — project
 - [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/metadata|Claude Code Mods Are Game Changers. Set Up These 5 NOW.]] — Ссылка: https://www.youtube.com/watch?v=9hetShMMp2s Источник: Nate Herk | AI Automation Дата: 20261002 Длительность: ...
 - [[projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything/metadata|Codex's Browser Agent Automates Literally Anything]] — Codex's Browser Agent Automates Literally Anything — project
-- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/metadata|Every Codex Concept Explained for Non-Coders]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/metadata|Every Codex Concept Explained for Non-Coders]] — Every Codex Concept Explained for Non-Coders — project
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/metadata|Every Grok Bot Concept Explained for Normal People]] — Ссылка: https://www.youtube.com/watch?v=NyfYxpXiw_0 Источник: Nate Herk | AI Automation Дата: 20260901 Длительность: ...
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/metadata|Everything Goldman Sachs Taught Me About AI (In 10 minutes)]] — Everything Goldman Sachs Taught Me About AI (In 10 minutes) — project
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/analysis|Fable 5.1 FINALLY Kills AI Website Slop]] — Fable 5.1 FINALLY Kills AI Website Slop — project
@@ -140,7 +139,7 @@ tier: active
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/analysis|GPT-6 Astra Made This Entire Video]] — GPT-6 Astra Made This Entire Video — project
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/metadata|GPT-6 Astra Made This Entire Video]] — Ссылка: https://www.youtube.com/watch?v=dT5-x3u5nCg Источник: Nate Herk | AI Automation Дата: 20260904 Длительность: ...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/metadata|GPT-6 Astra Voice Mode Automates Literally Anything]] — Ссылка: https://www.youtube.com/watch?v=9oi-b5Dvtso Источник: Nate Herk | AI Automation Дата: 20260905 Длительность: ...
-- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/metadata|Grok Bot Just Got 2 Massive Upgrades. Do These Things Now.]]
+- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/metadata|Grok Bot Just Got 2 Massive Upgrades. Do These Things Now.]] — Grok Bot Just Got 2 Massive Upgrades. Do These Things Now. — project
 - [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/metadata|Grok Bot Manages My Inbox (and has its own)]] — Ссылка: https://www.youtube.com/watch?v=ff7om2bBLKM Источник: Nate Herk | AI Automation Дата: 20260916 Длительность: ...
 - [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/metadata|Grok Bot is For Real. What You Need to Know.]] — Grok Bot is For Real. What You Need to Know. — project
 - [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/analysis|Grok Bot получил два крупных обновления — что сделать сейчас]] — Карточка ролика об автоматическом выборе моделей, встроенном поиске по X и запуске Claude Code внутри Grok Bot
@@ -153,7 +152,7 @@ tier: active
 - [[projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency/metadata|How to Sell Claude Workflows (Without Starting an Agency)]] — How to Sell Claude Workflows (Without Starting an Agency) — project
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/analysis|I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1]] — I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1 — project
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/metadata|I Analyzed How Anthropic ACTUALLY Prompts Fable 5.1]] — Ссылка: https://www.youtube.com/watch?v=FBVNS1l5Vb8 Источник: Nate Herk | AI Automation Дата: 20260902 Длительность: ...
-- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/metadata|I Built Another Andrej Karpathy Using Claude]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/metadata|I Built Another Andrej Karpathy Using Claude]] — I Built Another Andrej Karpathy Using Claude — project
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/metadata|I Built The Ultimate Claude Website Design Skill (steal this)]] — Ссылка: https://www.youtube.com/watch?v=QUI6Ug4cHnE Источник: Nate Herk | AI Automation Дата: 20260822 Длительность: ...
 - [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/metadata|I Cloned Calendly and Now It’s Free Forever]] — I Cloned Calendly and Now It’s Free Forever — project
 - [[projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter/metadata|I Deleted All My Claude Skills... And Claude Got Smarter]] — I Deleted All My Claude Skills... And Claude Got Smarter — project
@@ -192,19 +191,19 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/description|description]] — Description — project
-- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/description|description]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin Get the FREE /scroll-craft...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
-- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/description|description]]
+- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/description|description]] — Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?...
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/description|description]] — Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?...
 - [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/description|description]] — Get FREE Hyperagent credits here: https://www.hyperagent.com/nate100 FREE First Client SOP: https://app.aiautomations...
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
-- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/description|description]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
@@ -223,7 +222,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/description|description]] — Description — project
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
-- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/description|description]]
+- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/description|description]] — Description — project
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/description|description]] — FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/ My playbook for growing a $1M AI ag...
@@ -254,19 +253,19 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/transcript|transcript]] — Grockbot is one of the most powerful AI tools that I've ever played with because it gives you an army of AI agents ri...
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/transcript|transcript]] — Transcript — project
-- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/transcript|transcript]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/transcript|transcript]] — I'm about to break down every single Grockbot concept that you have to understand in order to start getting immediate...
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/transcript|transcript]] — This is probably my favorite website I've ever built with Claude. This is the AI Automation Society site. What I thin...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/transcript|transcript]] — We have a new AI design king and it's not even close. Take a look at some of these outputs I've been getting with Ast...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/transcript|transcript]] — Stop prompting Claude. Andre Garpathy thinks there's a much better way to work with AI. And his method has three laye...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/transcript|transcript]] — Hey there, Astra. I've got a few tasks today. The first one that I want you to help me do, I want you to delegate off...
-- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/transcript|transcript]]
+- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/transcript|transcript]] — So here you can see that I've got this Grockbot set up to wake up about every 30 minutes and place trades for me in t...
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/transcript|transcript]] — All right, so Marge, by the end of today's episode, what will everyone have learned from you? &gt;&gt; My goal is tha...
 - [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/transcript|transcript]] — Codex lets you build automations right inside of it using scheduled tasks. However, because these scheduled tasks bas...
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/transcript|transcript]] — Today I've got four tricks from Enthropic themselves on how to get more out of Fable 5.1, how to use it more efficien...
-- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/transcript|transcript]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/transcript|transcript]] — I think I built the ultimate claw design skill for websites and I'm going to give it to you guys for completely free....
 - [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/transcript|transcript]] — So, I just had Fable 5.1 and Fable 5 build me the exact same app, and it wasn't even close. Not only did these apps l...
@@ -285,7 +284,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/transcript|transcript]] — What do we have right here is GPT6 Astro, which is a new generation of intelligence. And the president, Greg Brockman...
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/transcript|transcript]] — So, Enthropic Engineers just said that they stopped building agents and they started building something completely di...
-- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/transcript|transcript]]
+- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/transcript|transcript]] — Well, it's here. We have Claude Fable 5.1 and Mythos 5.1. They're the world's most advanced models for coding and kno...
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/transcript|transcript]] — You guys are not going to believe how ridiculous this is. I gave Astra this one prompt and this is what I got back. &...
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/transcript|transcript]] — Today, I've got this proven six-step process for building codec skills better than 99% of people. So, let's not waste...
@@ -314,14 +313,14 @@ tier: active
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/analysis|Голосовой режим GPT-6 Astra автоматизирует буквально всё]] — Голосовой режим GPT-6 Astra автоматизирует буквально всё — карточка ролика
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/дополнительный-разбор|Дополнительный разбор текста, аудио и всех сохранённых кадров]] — Дополнительный разбор текста, аудио и всех сохранённых кадров — project
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/проверка-кадров|Журнал просмотра кадров]] — Журнал просмотра 467 кадров ролика DFlELTiSPk8 на 39 контактных листах
-- [[projects/Nate Herk/download-journal|Журнал скачанных видео]]
+- [[projects/Nate Herk/download-journal|Журнал скачанных видео]] — Обновлено: 2026-10-11 07:00 Всего видео в папке: 62 Записей в журнале: 60
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]] — Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой рез...
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/analysis|Инженеры Anthropic только что в десять раз улучшили Claude Code для всех]] — Карточка ролика о сокращении лишних указаний, проверке настройки Claude Code и передаче источников между этапами работы
 - [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 16
-- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames/README|Кадры]]
-- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/frames/README|Кадры]]
-- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/frames/README|Кадры]]
-- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/frames/README|Кадры]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 24
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/analysis|Как на самом деле выбрать подходящего ИИ-агента]] — - Дата публикации: 11 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=6LNl...
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/_work/analysis-до-проверки|Как создавать и продавать решения с Codex: курс на пять часов]] — Полный разбор курса Нейта Херка о настройке Codex, создании проверяемых решений и продаже результата компаниям.
@@ -361,19 +360,19 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/comments|Комментарии]] — Комментарии — project
-- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/comments|Комментарии]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate Get the FREE /scroll-craft skill...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/001-gpt-6-astra-voice-mode-automates-literally-anything/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
-- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/comments|Комментарии]]
+- [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-grok-bot-manages-my-inbox-and-has-its-own/comments|Комментарии]] — Find your first automation clients with Clay: https://makes.clay.com/go/nate-herk/find-your-first-automation-clients?...
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/comments|Комментарии]] — Get FREE Hyperagent credits here: https://www.hyperagent.com/nate100 FREE First Client SOP...
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
-- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/comments|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
@@ -392,7 +391,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
-- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/comments|Комментарии]]
+- [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/comments|Комментарии]] — FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/ FREE MONTH voice to text: https://g...
@@ -417,18 +416,18 @@ tier: active
 - [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/аудио-расшифровка|Независимая расшифровка аудиодорожки]] — Независимая расшифровка аудиодорожки — project
-- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/audio-transcript|Независимая расшифровка полной аудиодорожки]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/audio-transcript|Независимая расшифровка полной аудиодорожки]] — Независимая расшифровка полной аудиодорожки — project
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/analysis|Новости об искусственном интеллекте за 10 минут: вероятность гибели всех людей — 10%]] — Новости об искусственном интеллекте за 10 минут: вероятность гибели всех людей — 10%
 - [[projects/Nate Herk/analysis/обзор-2026-10-05|Обзор по запросу Егора — 5 октября 2026]] — Обзор ролика Нейта от 3 октября, проверка пропусков сводок и поручение на полный разбор.
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/analysis|Один навык GPT-6 Astra заменяет подписку Higgsfield]] — Карточка ролика о подключении Higgsfield API к Codex и выборе между оплатой отдельных запусков и подпиской
-- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/transcript-timed|Полная расшифровка с таймкодами]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/transcript-timed|Полная расшифровка с таймкодами]] — Полная расшифровка с таймкодами — project
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-аудио|Проверка аудиодорожки]] — Проверка аудиодорожки — project
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-кадров|Проверка всех сохранённых кадров]] — Проверка всех сохранённых кадров — project
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-полноты|Проверка полноты разбора]] — Проверка полноты разбора — project
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/проверка-полноты|Проверка полноты разбора]] — Проверка полноты разбора ролика DFlELTiSPk8 (Every Codex Concept Explained for Non-Coders)
-- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames-timed/README|Проверяемый визуальный ряд]]
+- [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames-timed/README|Проверяемый визуальный ряд]] — Проверяемый визуальный ряд — project
 - [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/analysis|Пять дополнений Claude Code, которые стоит настроить сразу]] — Разбор пяти дополнений интерфейса Claude Code для контроля контекста, долгих целей, записи экрана и параллельной прав...
-- [[projects/Nate Herk/summary|Сводка по видео]]
+- [[projects/Nate Herk/summary|Сводка по видео]] — Папка: Nate Herk Роликов в выгрузке: 62
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/analysis|Спасибо за миллион подписчиков]] — - Дата публикации: 9 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=5QmOh...
 - [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/analysis|Я дал GPT-6 Astra 10 000 долларов на торговлю акциями — и вот что произошло]] — Разбор семидневного опыта торговли акциями на настоящие деньги с GPT-6 Astra, Codex, Grok Bot и Alpaca.
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/analysis|Я превратил GPT-6 Astra в совершенный второй мозг]] — Я превратил GPT-6 Astra в совершенный второй мозг — карточка ролика
@@ -500,9 +499,9 @@ tier: active
 
 - [[projects/second-brain-bot-operations/server-storage-audit-2026-09-10|server storage audit 2026 09 10]] — Разбор диска сервера от корня: размеры, назначение папок, работающие службы, дубликаты и варианты освобождения места
 - [[projects/second-brain-bot-operations/README|Операционный статус second brain bot]] — Операционный статус second brain bot — note
-- [[projects/second-brain-bot-operations/09-questionnaire-4-telegram-bot|Опросник 4 — для Telegram-бота (боевые вопросы)]]
-- [[projects/second-brain-bot-operations/09-questionnaire-4-telegram-bot-ответы|Ответы на опросник 4 — Telegram-бот]]
 - [[projects/second-brain-bot-operations/memory-sync|Синхронизация памяти между Telegram и терминалом]] — Синхронизация памяти между Telegram и терминалом — note
+- [[projects/second-brain-bot-operations/09-questionnaire-4-telegram-bot|Опросник 4 — для Telegram-бота (боевые вопросы)]] — Опросник 4 — для Telegram-бота (боевые вопросы) — note
+- [[projects/second-brain-bot-operations/09-questionnaire-4-telegram-bot-ответы|Ответы на опросник 4 — Telegram-бот]] — Ответы на опросник 4 — Telegram-бот — note
 
 ## Server backup and migration (2)
 
@@ -615,9 +614,9 @@ tier: active
 
 ## Ирина работа (3)
 
-- [[projects/Ирина работа/.служебное/Стандарты фирменного стиля/Описание|49647 (2).pdf]]
+- [[projects/Ирина работа/.служебное/Стандарты фирменного стиля/Описание|49647 (2).pdf]] — 49647 (2).pdf — project
 - [[projects/Ирина работа/Журнал документов|Журнал документов — Ирина работа]] — Журнал документов проекта «Ирина работа»: что лежит в папке, откуда взялось и что с ним сделано.
-- [[projects/Ирина работа/Приводи своих друзей/.служебное/Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится/Описание|Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится.docx]]
+- [[projects/Ирина работа/Приводи своих друзей/.служебное/Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится/Описание|Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится.docx]] — Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится.docx — project
 
 ## Подключение (2)
 
@@ -755,6 +754,6 @@ tier: active
 ## Узлы VPN (4)
 
 - [[projects/Узлы VPN/Итоги недели 9–16 октября 2026|Итоги недели замеров узлов VPN — 9–16 октября 2026]] — Итоги недели замеров узлов VPN-подписки (9–16 октября 2026): пять служб через каждый узел, замер раз в 3 часа.
-- [[projects/Узлы VPN/Последний прогон|Прогон узлов VPN — 11 октября 2026, 00:00]] — Прогон узлов VPN-подписки 11 октября 2026: пять служб × 3 круга через каждый узел.
+- [[projects/Узлы VPN/Последний прогон|Прогон узлов VPN — 12 октября 2026, 00:00]] — Прогон узлов VPN-подписки 12 октября 2026: пять служб × 3 круга через каждый узел.
 - [[projects/Узлы VPN/Первый прогон 2026-10-09|Прогон узлов VPN — 9 октября 2026, 18:09]] — Прогон узлов VPN-подписки 9 октября 2026: пять служб × 3 круга через каждый узел.
 - [[projects/Узлы VPN/README|Узлы VPN]] — Сбор статистики по узлам VPN-подписки — регулярные замеры пяти служб через каждый узел и недельные итоги, чтобы выбра...

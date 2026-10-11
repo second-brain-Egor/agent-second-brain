@@ -3,7 +3,7 @@ type: project
 description: "Я проверил Jev в 12 реальных задачах: честные впечатления"
 related: 
 last_accessed: 2026-09-20
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Я проверил Jev в 12 реальных задачах: честные впечатления

@@ -1,6 +1,6 @@
 ---
-description: "Grok Bot Just Got 2 Massive Upgrades. Do These Things Now. — project"
 type: project
+description: "Grok Bot Just Got 2 Massive Upgrades. Do These Things Now. — project"
 last_accessed: 2026-10-09
 relevance: 0.98
 tier: active

@@ -3,7 +3,7 @@ type: project
 description: "GPT-6 Astra Made This Entire Video — project"
 related: 
 last_accessed: 2026-09-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # GPT-6 Astra Made This Entire Video

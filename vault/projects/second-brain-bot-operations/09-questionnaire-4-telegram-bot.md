@@ -1,9 +1,9 @@
 ---
-description: "Опросник 4 — для Telegram-бота (боевые вопросы) — note"
 type: note
+description: "Опросник 4 — для Telegram-бота (боевые вопросы) — note"
 last_accessed: 2026-05-07
-relevance: 0.1
-tier: archive
+relevance: 0.98
+tier: active
 ---
 # Опросник 4 — для Telegram-бота (боевые вопросы)
 
