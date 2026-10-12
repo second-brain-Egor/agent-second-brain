@@ -1,15 +1,14 @@
 ---
 type: project
-description: "Обновлено: 2026-10-11 07:00 Всего видео в папке: 62 Записей в журнале: 60"
-last_accessed: 2026-10-11
+last_accessed: 2026-10-12
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-11 07:00
-Всего видео в папке: 62
-Записей в журнале: 60
+Обновлено: 2026-10-12 07:01
+Всего видео в папке: 63
+Записей в журнале: 61
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -358,6 +357,18 @@ tier: active
 Транскрипт: есть
 Кадры: 217
 Обновлено: 2026-09-29T07:01:22+03:00
+
+## 001-i-tried-100-github-repos-for-claude-these-6-are-the-best
+
+Статус: complete
+Название: I Tried 100+ Github Repos for Claude. These 6 Are the Best
+Ссылка: https://www.youtube.com/watch?v=HhZdNYI4pJs
+Дата видео: 20261011
+Описание: есть
+Комментарии: 58
+Транскрипт: есть
+Кадры: 121
+Обновлено: 2026-10-12T07:01:18+03:00
 
 ## 001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial
 

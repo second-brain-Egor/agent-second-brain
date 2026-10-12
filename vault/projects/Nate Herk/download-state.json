@@ -901,7 +901,22 @@
       "frames_required": true,
       "updated_at": "2026-10-09T08:19:23+03:00",
       "completed_at": "2026-10-09T08:19:23+03:00"
+    },
+    "HhZdNYI4pJs": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best",
+      "title": "I Tried 100+ Github Repos for Claude. These 6 Are the Best",
+      "url": "https://www.youtube.com/watch?v=HhZdNYI4pJs",
+      "upload_date": "20261011",
+      "comments": 58,
+      "frames": 121,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-12T07:01:18+03:00",
+      "completed_at": "2026-10-12T07:01:18+03:00"
     }
   },
-  "updated_at": "2026-10-09T08:19:23+03:00"
+  "updated_at": "2026-10-12T07:01:18+03:00"
 }

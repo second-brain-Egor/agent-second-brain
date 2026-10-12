@@ -1,0 +1,66 @@
+JetBrains AI
+Supercharge your tools with AI-powered features inside many JetBrains products
+Does “rtk” skill really cut agent tokens by 60–90%? We tested it
+Does “rtk” reduce Claude Code token usage?
+Part 2 of a series where we take public “token saving” add-ons for coding agents and run the same paired A/B benchmark against each of them. Part 1 was the caveman skill (advertised −65%, measured −8.5%).
+Why we ran this
+rtk (“Rust Token Killer”) is a CLI proxy with a simple, appealing pitch: your agent runs git status
+, rtk intercepts it, runs the real command, and hands the model a compressed version of the output — * master / M a.txt / ?? b.txt
+instead of eleven lines of porcelain. A Claude Code PreToolUse hook rewrites eligible shell commands transparently, so the model doesn’t even have to know rtk exists. The README promises 60–90% less token consumption and walks through a 30-minute session where 118k tokens of command output become 24k.
+The compression itself is real and often tasteful. Here is rtk on a live repo, captured from our test container:
+# git status # rtk git status On branch master * master Changes not staged for commit: M a.txt (use "git add <file>..." to update…) ?? b.txt modified: a.txt Untracked files: (use "git add <file>..." to include…) b.txt no changes added to commit … # python -m pytest (19 lines) # rtk pytest …full pytest output… Pytest: 2 passed, 1 failed Failures: 1. [FAIL] test_fail test_demo.py:3: in test_fail E AssertionError: one is not two
+We liked the idea enough to test it properly. Two questions the README doesn’t answer:
+First, how much of a real agent session is Bash output at all? The savings table assumes the agent shells out for everything. But Claude Code reads files with its built-in Read
+tool, searches with Grep
+, and both bypass the Bash hook completely (rtk’s docs acknowledge this). Whatever those tools carry, rtk can never touch.
+Second, does compression cost correctness? A filter that summarizes test output is making an editorial judgment about what the model needs. If it drops the one line that mattered, the agent re-runs commands, reads files raw, or, worse, declares victory on a failing build. Token savings that come with a quality tax are not savings.
+Setup
+| Harness | Harbor 0.18 – Docker sandboxes, task verifiers, paired runs |
+| Agent | Claude Code 2.1.201, headless, bypassPermissions , pinned in both arms |
+| Model | claude-sonnet-5 – full run twice: at low and at high reasoning effort |
+| Benchmark | SkillsBench, 86 of 87 tasks, auto-graded 0–1 with partial credit |
+| Arm A | stock Claude Code |
+| Arm B | rtk v0.43.0 exactly as rtk init -g ships it: binary + PreToolUse hook + RTK.md |
+| Volume | 4 paired runs (10-task smoke, same 10 at k=3, full 86 at low effort, full 86 at high effort) total of 425 billed trials, ≈USD 320 (Harbor-recorded USD 317 plus reconstructed subagent spend) |
+Because the hook rewrites every eligible Bash
+call mechanically, arm B measures rtk’s as-shipped ceiling: no “did the model remember to use it” gap to argue about. Every with-rtk trial also persists rtk’s own audit log and analytics database, as proof the treatment actually fired.
+Finding 1: Most agent bytes never touch the hook
+Before spending anything we replayed 83 existing baseline transcripts (same model, same benchmark) and asked: if rtk had been installed, what could it even have touched?
+Two structural reasons. First, Claude Code reads files with its built-in Read
+/Grep
+tools, which bypass the Bash hook entirely; rtk’s own README admits this in a footnote. Second, half of what agents run in a shell is python3 …
+and other uncovered commands, and a sixth uses pipes-to-files, heredocs and substitutions that rtk deliberately refuses to rewrite. What’s left, 33% of Bash calls, carries just under 20% of tool-result chars; and tool results are themselves only a slice of what a session bills as input, because the same context is re-read on every turn. Squeeze rtk’s whole share by 70% and the cap works out to ≈3% of input tokens. This number cost nothing to compute, and it predicted the outcome.
+Finding 2: No token savings; but a small, significant cost increase
+We ran the ladder the caveman eval taught us to run. The k=1 smoke on ten deliberately Bash-heavy tasks (rtk’s best case) showed the rtk arm a median +35% more expensive. Alarming, until you know that identical attempts of the same task in the same arm differ by a median 22% in cost anyway. At k=3 most of the scare evaporated into noise (Wilcoxon p≈0.65), exactly as a k=1 mirage should.
+Then the full 86 tasks gave the noise-resistant answer, and it wasn’t zero. Across 80 clean pairs the with-rtk arm came out a median +7.6% more expensive per task (p=0.004, after correcting a cost-accounting gap we found along the way), on +13.8% more turns (p=0.03) and +14.3% more cache reads (p=0.008). Meanwhile “new input”; the only token class rtk actually compresses, moved just +3.2% (p=0.23): a flat null precisely where the ceiling analysis said the entire benefit had to live.
+The more commands the hook rewrote, the larger the penalty. On the same corrected cost basis as the headline result, heavily exposed task pairs cost about 24% more than baseline, versus 5% for pairs the hook barely touched. Controlling for task difficulty did not reproduce this pattern, so harder tasks using more Bash does not appear to explain it. Transcript forensics found no single villain: one genuinely broken rewrite (compound find
+predicates turned into usage errors and retries), a few compression-induced re-reads, and a lot of ordinary variance on the extreme pairs. A thin, systematic tax rather than a dramatic failure.
+Finding 3: At high effort, even the penalty disappears
+“You only tested at low reasoning effort” was the obvious critique, so we ran all 86 tasks again at high effort – the most expensive single run of the series. Result: the cost penalty does not replicate there. Median paired delta +0.1% (p=0.99), turns +0.0 (p=0.74), quality still tied. At high effort, the model seems to waste fewer turns reacting to compressed output; though at k=1 all we can say is that the penalty didn’t show up there, not that the two effort regimes probably differ. Either way, at no point did rtk save anything.
+Finding 4: Quality survives
+The scary failure modes from rtk’s issue tracker including over-filtered test output, masked exit codes, pipes fed compressed text, they barely materialized. A forensic pass over the six smoke pairs with the biggest turn deltas found exactly one broken rewrite (the same compound-find
+failure mode the full run hit) and one case of the agent deliberately bypassing the hook, across ~150 Bash calls. In those transcripts no recovery files were read and no compressed pipe produced a wrong count (the full runs saw exactly one recovery-file read); the extra turns were overwhelmingly the model choosing different solution paths, not rtk confusion. On the full runs, task scores landed at 5 better / 4 worse / 71 tie at low effort and 5 / 4 / 62 at high (sign test p=1.0 both); showing the arms are statistically indistinguishable on quality, with partial credit counted.
+One honest asterisk: on one task (dialogue-parser
+) rtk’s own binary refused to start inside the task’s image (it needs a newer glibc), so the with-rtk trial died at setup in both full runs while the plain arm scored 0.667. Paired analysis excludes that task from both arms, but it’s a real compatibility failure, not Docker noise. Even scoring every errored trial as zero, the arms stay tied (sign test p=1.0).
+Finding 5: rtk’s own scoreboard vs the bill
+This is the finding that explains the gap. Across the low-effort full run, rtk’s built-in analytics (rtk gain
+) reported 96.2 million tokens saved — 99.8% of everything it touched; while the measured bill for the same trials went up. Three mechanisms make the scoreboard read high:
+First, rtk counts the full raw output as its counterfactual. One cat
+of a 1.2 MB CSV logged 320k tokens “saved”, but Claude Code truncates any tool result long before 320k tokens; so the agent would have received a few thousand either way. The full run logged 190 of such giant reads at an average of ~506k “saved” tokens each. Second, rtk estimates tokens as chars÷4 at the moment of execution, while most of a session’s input cost is cached re-reads billed at a tenth of the price. Third, the hook simply never sees the majority of context. The scoreboard is grading its own homework.
+Verdict
+Honest engineering, wrong counterfactual. We wanted this one to win; the demo is genuinely satisfying to play with. The filters are real and often elegant; quality doesn’t suffer; the hook mechanism works exactly as designed. But on real agentic coding work the advertised 60–90% never had anywhere to live: the hook only ever sees about a fifth of the tool output, Claude Code already truncates the pathological outputs rtk brags about compressing, and the cached re-reads that dominate input cost bill at a tenth of the price. What’s left is a measured median +7.6% cost increase at low effort and a flat zero at high effort, a thin tax from a broken rewrite here and an extra exploration turn there, never a saving.
+The deeper lesson generalizes beyond rtk: a tool’s self-reported savings are a claim about its counterfactual, not about your bill. rtk’s scoreboard said 96 million tokens saved while the invoice went up. If you evaluate any context-compression tool, measure the paired bill, not the tool’s diff.
+Methodology notes
+Same discipline as part 1, learned the expensive way:
+- Never trust k=1. The run ladder was: free transcript replay → 1-trial wiring check → 10 Bash-heavy tasks at k=1 → the same 10 at k=3 → the full 86 at k=1, twice (low and high effort). Per-task scores flip freely between attempts in both arms; only paired deltas that survive the ladder get reported.
+- Paired analysis only. Every number compares the same task across arms under the same job; tasks that errored in either arm are excluded from both. Quality uses an exact sign test over non-ties; token/cost deltas use per-task medians plus Wilcoxon signed-rank, because arm totals are outlier-dominated, a single session crossing the 200k long-context pricing tier can bill 25× normal and flip a raw total.
+- Endpoints pre-registered. Primary: per-task paired delta in cost and in “new input” tokens (uncached + cache-creation; where compressed tool results actually land). Decided before any paid run, along with the adoption-stratified split.
+- Adoption instrumented, not assumed. Every with-rtk trial persists rtk’s hook audit log and its history.db, so we can prove per-trial that rewrites fired and executed – and distinguish “rtk saved nothing” from “rtk never ran,” which are very different findings. Depending on the run, the hook rewrote a third to a half of the Bash calls it saw (33–50%, after discounting our own per-trial wiring check); the model itself typed
+rtk
+six times in 86 trials. - Provenance. rtk v0.43.0 release binary (sha256-pinned), Claude Code 2.1.201 pinned in both arms,
+claude-sonnet-5
+, Harbor 0.18, SkillsBench withbike-rebalance
+excluded (itsallow_internet=false
+crashes local Docker jobs). rtk, Harbor and SkillsBench are all Apache-2.0.
+Next in the series: drop a tool name and we’ll put it on the ladder. Few word enough. We test.
+P.S. The dithered chart style in this post is borrowed with admiration from dither-kit by grim — reimplemented from scratch as a dependency-free inline widget.

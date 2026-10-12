@@ -1,0 +1,26 @@
+{
+  "started_at": "2026-10-12T06:20:23.852257+00:00",
+  "status": "complete",
+  "steps": {
+    "original_sheets": "complete",
+    "timeline_frames": {
+      "status": "complete",
+      "count": 318,
+      "interval_seconds": 2
+    },
+    "scene_timestamps": "complete",
+    "audio_extraction": "complete",
+    "audio_transcription": {
+      "status": "complete",
+      "confidence": 0.99902344,
+      "words": 2643
+    },
+    "content_review": "complete",
+    "primary_sources": "complete",
+    "analysis_and_summary": "complete",
+    "validation": "complete",
+    "pdf": "complete"
+  },
+  "updated_at": "2026-10-12T06:21:43.773042+00:00",
+  "completed_at": "2026-10-12T06:35:42.428401+00:00"
+}

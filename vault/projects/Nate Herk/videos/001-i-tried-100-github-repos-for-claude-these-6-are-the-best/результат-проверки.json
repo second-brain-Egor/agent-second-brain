@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-10-12T06:35:00.666716+00:00",
+  "required_files": 22,
+  "missing_files": [],
+  "local_links_checked": 183,
+  "broken_links": [],
+  "source_scene_frames": 121,
+  "interval_frames": 318,
+  "invalid_images": [],
+  "twelve_primary_pages_read": true,
+  "summary_updated": true,
+  "pdf_missing_topics": [],
+  "pdf_visual_check": "passed: просмотрены все девять страниц на обзорном листе, первая и страница с таблицей открыты отдельно",
+  "source_video_sha256": "c55802fc210e73dd1a13d037194412944eb1f864736166e57ba490bffa2c2a91",
+  "pdf_sha256": "7b08bb9fdb2fb11ac8d68f61ae1ba42e8a6ab38e80468d0fe81539ab4bf6d4a2",
+  "programmatic_checks_passed": true,
+  "status": "complete",
+  "completed_at": "2026-10-12T06:35:42.428401+00:00"
+}

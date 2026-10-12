@@ -1,0 +1,37 @@
+JetBrains AI
+Supercharge your tools with AI-powered features inside many JetBrains products
+Does Speaking to Agents Like Cavemen Really Save 65% of Tokens? We Test
+A paired A/B benchmark of the token-compression skill Caveman on Claude Code, run on SkillsBench: does it actually save tokens, and does it degrade AI agent output quality?
+Output-token saving on real agentic tasks, with the skill forcibly activated. This is the ceiling, not the usual-case result.
+Why we ran this
+We at JetBrains are investing more and more into proper testing of the tooling around coding agents, and one skill got our attention: “Caveman”. Its pitch is best described in its own dialect:
+Skill make agent talk like caveman. Why use many token when few do trick. Filler die. Code, commands stay byte-exact. 65% output token saved. Every reply. Forever. Work with 30+ agents. Many GitHub star.
+We think:
+Claim cheap to make. Verify expensive. Agent not chat window. Agent output mostly tool call, file edit, code: skill promise not touch those. So we measure two things README not measure: real saving on multi-step agent work, and whether squeezing agent think-out-loud hurt task outcome.
+Setup
+| Harness | Harbor 0.17: Docker-sandboxed trials, task-level verifiers, paired runs. |
+| Agent | Claude Code 2.1.200, headless, bypassPermissions . |
+| Model | claude-sonnet-5 , reasoning effort low (--effort low ). |
+| Benchmark | SkillsBench (benchflow/skillsbench ): 86 of 87 tasks. Each task is auto-graded by its own tests on a 0-1 scale, where 1 means solved and partial credit is possible. |
+| Arm A | no-skill : stock Claude Code. |
+| Arm B | with-skill-forced : Caveman installed via Harbor --skill plus one instruction line forcing activation: “Use caveman mode…” |
+| Pairing | Same tasks, same model, same settings, same budget per arm; excluded tasks excluded from both arms. |
+| Volume | 3 runs, about 240 billed trials, about USD 106 total. |
+Why “forced” matters: Caveman is user-activated. It triggers on phrases like “caveman mode” or “be brief”. We forced it on in every reply, which means every number below is the skill’s best case. In normal use, where the agent must decide to activate it on its own, the realized saving can only be equal or lower than the roughly 10% ceiling measured here.
+Finding 1: the saving is about 8.5%, not 65%
+Advertised savings come from chat-style prose answers. Agentic output is different: code, diffs, tool invocations, and exact error strings dominate the token stream, and Caveman correctly leaves all of it verbatim. Only the narration between tool calls gets compressed, and there is not much of it.
+Finding 2: no detectable quality degradation
+The question we actually cared about: does making the agent terse make it worse? Across 82 paired tasks in the full run, the answer is no: the arms are statistically indistinguishable.
+Style transfer itself works exactly as designed: forced-arm transcripts are unmistakably caveman, while code artifacts stay untouched and normal.
+Finding 3: the cost saving is real but fragile
+Cost tracks the roughly 8.5% token saving, so the skill arm should come out roughly 10% cheaper, and per task, it does. But the raw arm totals in our full run showed the skill arm 11.6% more expensive: USD 40.60 vs. USD 36.39. The entire inversion came from a single trial: one dependency-audit task ballooned past the 200k long-context pricing tier in the skill arm and billed USD 8.29 vs. USD 0.33. In an earlier run the same task threw a USD 3.25 outlier in the baseline arm. It is a property of the task, not the skill.
+Outcome
+Safe, honest about style, oversold on savings. Forced on, Caveman reliably changes how the agent talks without any measurable damage to what the agent produces: 82 paired tasks, sign test p = 0.82. But on real agentic work it trims about 8.5% of output tokens and about 10% of cost at absolute best, because the tokens that dominate agent sessions are code and tool calls, which the skill deliberately preserves. The advertised 65% belongs to chat-style Q&A, not to coding agents.
+Recommendation: use it if you like it. It is fun, and it costs you nothing measurable in quality. Just do not expect huge savings on daily agentic tasks: a high-single-digit percentage is the realistic ceiling.
+- Quality: no detectable degradation: 8 tasks better, 10 worse, 64 tied; average task score differs by 0.015 on a 0-1 scale (p = 0.82).
+- Tokens: -8.5% output tokens with activation forced, meaning this is the ceiling; auto-triggered usage saves less or nothing.
+- Cost: roughly -10% in expectation, routinely erased by single-trial variance.
+- Methodology bonus: our first 10-task run “showed” a -30% token saving. It dissolved as sample size grew. Never trust a k=1 eval.
+You want next skill tested? Drop name in comments. Few word enough. We test.
+Run details: Harbor 0.17; claude-sonnet-5
+with reasoning effort low; SkillsBench 86/87 tasks; about 240 trials; about USD 106 total spend.

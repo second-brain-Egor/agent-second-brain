@@ -1,0 +1,3836 @@
+{
+  "date": "2026-10-12T06:32:50.255186+00:00",
+  "method": "121 сцен и непрерывная выборка 318 кадров с шагом 2 секунды; все обзорные листы открыты, ключевые мелкие экраны открыты индивидуально",
+  "frames": [
+    {
+      "file": "frames/frame-00001.jpg",
+      "seconds": 5.16667,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/frame-00002.jpg",
+      "seconds": 7.16667,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/frame-00003.jpg",
+      "seconds": 7.6,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/frame-00004.jpg",
+      "seconds": 15.0333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/frame-00005.jpg",
+      "seconds": 24.4333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00006.jpg",
+      "seconds": 26.9,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00007.jpg",
+      "seconds": 30.7667,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00008.jpg",
+      "seconds": 33.6333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00009.jpg",
+      "seconds": 38.1333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00010.jpg",
+      "seconds": 41.7333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00011.jpg",
+      "seconds": 48.6333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00012.jpg",
+      "seconds": 51.1667,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00013.jpg",
+      "seconds": 51.8,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00014.jpg",
+      "seconds": 52.0667,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00015.jpg",
+      "seconds": 53.3,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00016.jpg",
+      "seconds": 56.3333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00017.jpg",
+      "seconds": 63.3,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00018.jpg",
+      "seconds": 68.1,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00019.jpg",
+      "seconds": 79.7333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00020.jpg",
+      "seconds": 85.3,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/frame-00021.jpg",
+      "seconds": 88.6333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00022.jpg",
+      "seconds": 93.4,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00023.jpg",
+      "seconds": 96.1667,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00024.jpg",
+      "seconds": 102.233,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-01.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00025.jpg",
+      "seconds": 104.133,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00026.jpg",
+      "seconds": 105.867,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00027.jpg",
+      "seconds": 115.567,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00028.jpg",
+      "seconds": 117.7,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00029.jpg",
+      "seconds": 119.667,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00030.jpg",
+      "seconds": 123.767,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00031.jpg",
+      "seconds": 127.133,
+      "mode": "scene",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00032.jpg",
+      "seconds": 128.167,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00033.jpg",
+      "seconds": 128.967,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00034.jpg",
+      "seconds": 131.2,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00035.jpg",
+      "seconds": 134.2,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/frame-00036.jpg",
+      "seconds": 136.167,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/frame-00037.jpg",
+      "seconds": 140.733,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/frame-00038.jpg",
+      "seconds": 145.6,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/frame-00039.jpg",
+      "seconds": 152.133,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/frame-00040.jpg",
+      "seconds": 169.333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/frame-00041.jpg",
+      "seconds": 175.567,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/frame-00042.jpg",
+      "seconds": 181.833,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/frame-00043.jpg",
+      "seconds": 187.9,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/frame-00044.jpg",
+      "seconds": 192.767,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00045.jpg",
+      "seconds": 192.8,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00046.jpg",
+      "seconds": 195.3,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00047.jpg",
+      "seconds": 197.767,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00048.jpg",
+      "seconds": 201.433,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-02.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00049.jpg",
+      "seconds": 205.5,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00050.jpg",
+      "seconds": 211.4,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00051.jpg",
+      "seconds": 219.467,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00052.jpg",
+      "seconds": 221.033,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00053.jpg",
+      "seconds": 222.1,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00054.jpg",
+      "seconds": 223.867,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00055.jpg",
+      "seconds": 225.6,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00056.jpg",
+      "seconds": 244.733,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00057.jpg",
+      "seconds": 246.633,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00058.jpg",
+      "seconds": 247.633,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00059.jpg",
+      "seconds": 247.8,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00060.jpg",
+      "seconds": 248.633,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00061.jpg",
+      "seconds": 248.8,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/frame-00062.jpg",
+      "seconds": 260.7,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/frame-00063.jpg",
+      "seconds": 267.167,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/frame-00064.jpg",
+      "seconds": 271.933,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/frame-00065.jpg",
+      "seconds": 276.6,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/frame-00066.jpg",
+      "seconds": 283.7,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/frame-00067.jpg",
+      "seconds": 293.433,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/frame-00068.jpg",
+      "seconds": 299.3,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00069.jpg",
+      "seconds": 307.633,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00070.jpg",
+      "seconds": 311.8,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00071.jpg",
+      "seconds": 314.433,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00072.jpg",
+      "seconds": 316.2,
+      "mode": "scene",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-сцен-03.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00073.jpg",
+      "seconds": 317.433,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00074.jpg",
+      "seconds": 323.667,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00075.jpg",
+      "seconds": 328.167,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00076.jpg",
+      "seconds": 332.2,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00077.jpg",
+      "seconds": 344.467,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00078.jpg",
+      "seconds": 345.033,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00079.jpg",
+      "seconds": 349.133,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00080.jpg",
+      "seconds": 365.567,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00081.jpg",
+      "seconds": 369.533,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00082.jpg",
+      "seconds": 373.3,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00083.jpg",
+      "seconds": 375.967,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00084.jpg",
+      "seconds": 377.2,
+      "mode": "scene",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00085.jpg",
+      "seconds": 379.5,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00086.jpg",
+      "seconds": 382.9,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/frame-00087.jpg",
+      "seconds": 387.233,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/frame-00088.jpg",
+      "seconds": 393.067,
+      "mode": "scene",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/frame-00089.jpg",
+      "seconds": 404.567,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/frame-00090.jpg",
+      "seconds": 415.0,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/frame-00091.jpg",
+      "seconds": 418.433,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/frame-00092.jpg",
+      "seconds": 421.0,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/frame-00093.jpg",
+      "seconds": 427.967,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/frame-00094.jpg",
+      "seconds": 430.067,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/frame-00095.jpg",
+      "seconds": 442.367,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/frame-00096.jpg",
+      "seconds": 446.333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-04.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/frame-00097.jpg",
+      "seconds": 453.567,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/frame-00098.jpg",
+      "seconds": 461.233,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/frame-00099.jpg",
+      "seconds": 466.7,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/frame-00100.jpg",
+      "seconds": 474.333,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/frame-00101.jpg",
+      "seconds": 476.9,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/frame-00102.jpg",
+      "seconds": 479.533,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/frame-00103.jpg",
+      "seconds": 482.9,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/frame-00104.jpg",
+      "seconds": 489.467,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/frame-00105.jpg",
+      "seconds": 495.9,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/frame-00106.jpg",
+      "seconds": 506.1,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/frame-00107.jpg",
+      "seconds": 517.467,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/frame-00108.jpg",
+      "seconds": 520.833,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/frame-00109.jpg",
+      "seconds": 523.5,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/frame-00110.jpg",
+      "seconds": 526.633,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/frame-00111.jpg",
+      "seconds": 534.5,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/frame-00112.jpg",
+      "seconds": 536.7,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/frame-00113.jpg",
+      "seconds": 539.4,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/frame-00114.jpg",
+      "seconds": 544.867,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/frame-00115.jpg",
+      "seconds": 548.4,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/frame-00116.jpg",
+      "seconds": 563.633,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/frame-00117.jpg",
+      "seconds": 581.267,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/frame-00118.jpg",
+      "seconds": 587.067,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/frame-00119.jpg",
+      "seconds": 596.533,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/frame-00120.jpg",
+      "seconds": 608.467,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-05.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/frame-00121.jpg",
+      "seconds": 627.267,
+      "mode": "scene",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-сцен-06.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00001.jpg",
+      "nominal_seconds": 0,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00002.jpg",
+      "nominal_seconds": 2,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00003.jpg",
+      "nominal_seconds": 4,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00004.jpg",
+      "nominal_seconds": 6,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00005.jpg",
+      "nominal_seconds": 8,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00006.jpg",
+      "nominal_seconds": 10,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00007.jpg",
+      "nominal_seconds": 12,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00008.jpg",
+      "nominal_seconds": 14,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00009.jpg",
+      "nominal_seconds": 16,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00010.jpg",
+      "nominal_seconds": 18,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00011.jpg",
+      "nominal_seconds": 20,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00012.jpg",
+      "nominal_seconds": 22,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Вступление: десять позиций, обещания автора"
+    },
+    {
+      "file": "frames/контроль-00013.jpg",
+      "nominal_seconds": 24,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00014.jpg",
+      "nominal_seconds": 26,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00015.jpg",
+      "nominal_seconds": 28,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00016.jpg",
+      "nominal_seconds": 30,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00017.jpg",
+      "nominal_seconds": 32,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00018.jpg",
+      "nominal_seconds": 34,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00019.jpg",
+      "nominal_seconds": 36,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00020.jpg",
+      "nominal_seconds": 38,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00021.jpg",
+      "nominal_seconds": 40,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00022.jpg",
+      "nominal_seconds": 42,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00023.jpg",
+      "nominal_seconds": 44,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00024.jpg",
+      "nominal_seconds": 46,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-01.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00025.jpg",
+      "nominal_seconds": 48,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00026.jpg",
+      "nominal_seconds": 50,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00027.jpg",
+      "nominal_seconds": 52,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00028.jpg",
+      "nominal_seconds": 54,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00029.jpg",
+      "nominal_seconds": 56,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00030.jpg",
+      "nominal_seconds": 58,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00031.jpg",
+      "nominal_seconds": 60,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00032.jpg",
+      "nominal_seconds": 62,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00033.jpg",
+      "nominal_seconds": 64,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00034.jpg",
+      "nominal_seconds": 66,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00035.jpg",
+      "nominal_seconds": 68,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00036.jpg",
+      "nominal_seconds": 70,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00037.jpg",
+      "nominal_seconds": 72,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00038.jpg",
+      "nominal_seconds": 74,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00039.jpg",
+      "nominal_seconds": 76,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00040.jpg",
+      "nominal_seconds": 78,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00041.jpg",
+      "nominal_seconds": 80,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00042.jpg",
+      "nominal_seconds": 82,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00043.jpg",
+      "nominal_seconds": 84,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00044.jpg",
+      "nominal_seconds": 86,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Hyperframes: подготовленное окружение и готовые примеры"
+    },
+    {
+      "file": "frames/контроль-00045.jpg",
+      "nominal_seconds": 88,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00046.jpg",
+      "nominal_seconds": 90,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00047.jpg",
+      "nominal_seconds": 92,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00048.jpg",
+      "nominal_seconds": 94,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-02.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00049.jpg",
+      "nominal_seconds": 96,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00050.jpg",
+      "nominal_seconds": 98,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00051.jpg",
+      "nominal_seconds": 100,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00052.jpg",
+      "nominal_seconds": 102,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00053.jpg",
+      "nominal_seconds": 104,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00054.jpg",
+      "nominal_seconds": 106,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00055.jpg",
+      "nominal_seconds": 108,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00056.jpg",
+      "nominal_seconds": 110,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00057.jpg",
+      "nominal_seconds": 112,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00058.jpg",
+      "nominal_seconds": 114,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00059.jpg",
+      "nominal_seconds": 116,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00060.jpg",
+      "nominal_seconds": 118,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00061.jpg",
+      "nominal_seconds": 120,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00062.jpg",
+      "nominal_seconds": 122,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00063.jpg",
+      "nominal_seconds": 124,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00064.jpg",
+      "nominal_seconds": 126,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00065.jpg",
+      "nominal_seconds": 128,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00066.jpg",
+      "nominal_seconds": 130,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00067.jpg",
+      "nominal_seconds": 132,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00068.jpg",
+      "nominal_seconds": 134,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Google: соединители и вход; CLI не показан"
+    },
+    {
+      "file": "frames/контроль-00069.jpg",
+      "nominal_seconds": 136,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00070.jpg",
+      "nominal_seconds": 138,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00071.jpg",
+      "nominal_seconds": 140,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00072.jpg",
+      "nominal_seconds": 142,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-03.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00073.jpg",
+      "nominal_seconds": 144,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00074.jpg",
+      "nominal_seconds": 146,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00075.jpg",
+      "nominal_seconds": 148,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00076.jpg",
+      "nominal_seconds": 150,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00077.jpg",
+      "nominal_seconds": 152,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00078.jpg",
+      "nominal_seconds": 154,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00079.jpg",
+      "nominal_seconds": 156,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00080.jpg",
+      "nominal_seconds": 158,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00081.jpg",
+      "nominal_seconds": 160,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00082.jpg",
+      "nominal_seconds": 162,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00083.jpg",
+      "nominal_seconds": 164,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00084.jpg",
+      "nominal_seconds": 166,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00085.jpg",
+      "nominal_seconds": 168,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00086.jpg",
+      "nominal_seconds": 170,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00087.jpg",
+      "nominal_seconds": 172,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00088.jpg",
+      "nominal_seconds": 174,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00089.jpg",
+      "nominal_seconds": 176,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00090.jpg",
+      "nominal_seconds": 178,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00091.jpg",
+      "nominal_seconds": 180,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00092.jpg",
+      "nominal_seconds": 182,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00093.jpg",
+      "nominal_seconds": 184,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00094.jpg",
+      "nominal_seconds": 186,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00095.jpg",
+      "nominal_seconds": 188,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Apify: запрос, карточка таблицы, каталог и тарифы"
+    },
+    {
+      "file": "frames/контроль-00096.jpg",
+      "nominal_seconds": 190,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-04.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00097.jpg",
+      "nominal_seconds": 192,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00098.jpg",
+      "nominal_seconds": 194,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00099.jpg",
+      "nominal_seconds": 196,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00100.jpg",
+      "nominal_seconds": 198,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00101.jpg",
+      "nominal_seconds": 200,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00102.jpg",
+      "nominal_seconds": 202,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00103.jpg",
+      "nominal_seconds": 204,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00104.jpg",
+      "nominal_seconds": 206,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00105.jpg",
+      "nominal_seconds": 208,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00106.jpg",
+      "nominal_seconds": 210,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00107.jpg",
+      "nominal_seconds": 212,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00108.jpg",
+      "nominal_seconds": 214,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00109.jpg",
+      "nominal_seconds": 216,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00110.jpg",
+      "nominal_seconds": 218,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00111.jpg",
+      "nominal_seconds": 220,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00112.jpg",
+      "nominal_seconds": 222,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00113.jpg",
+      "nominal_seconds": 224,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00114.jpg",
+      "nominal_seconds": 226,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00115.jpg",
+      "nominal_seconds": 228,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00116.jpg",
+      "nominal_seconds": 230,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00117.jpg",
+      "nominal_seconds": 232,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00118.jpg",
+      "nominal_seconds": 234,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00119.jpg",
+      "nominal_seconds": 236,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00120.jpg",
+      "nominal_seconds": 238,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-05.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00121.jpg",
+      "nominal_seconds": 240,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00122.jpg",
+      "nominal_seconds": 242,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00123.jpg",
+      "nominal_seconds": 244,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00124.jpg",
+      "nominal_seconds": 246,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00125.jpg",
+      "nominal_seconds": 248,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00126.jpg",
+      "nominal_seconds": 250,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00127.jpg",
+      "nominal_seconds": 252,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00128.jpg",
+      "nominal_seconds": 254,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00129.jpg",
+      "nominal_seconds": 256,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00130.jpg",
+      "nominal_seconds": 258,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Scrollcraft: готовые сайты и схема проверки"
+    },
+    {
+      "file": "frames/контроль-00131.jpg",
+      "nominal_seconds": 260,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00132.jpg",
+      "nominal_seconds": 262,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00133.jpg",
+      "nominal_seconds": 264,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00134.jpg",
+      "nominal_seconds": 266,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00135.jpg",
+      "nominal_seconds": 268,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00136.jpg",
+      "nominal_seconds": 270,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00137.jpg",
+      "nominal_seconds": 272,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00138.jpg",
+      "nominal_seconds": 274,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00139.jpg",
+      "nominal_seconds": 276,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00140.jpg",
+      "nominal_seconds": 278,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00141.jpg",
+      "nominal_seconds": 280,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00142.jpg",
+      "nominal_seconds": 282,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00143.jpg",
+      "nominal_seconds": 284,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00144.jpg",
+      "nominal_seconds": 286,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-06.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00145.jpg",
+      "nominal_seconds": 288,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00146.jpg",
+      "nominal_seconds": 290,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00147.jpg",
+      "nominal_seconds": 292,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00148.jpg",
+      "nominal_seconds": 294,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00149.jpg",
+      "nominal_seconds": 296,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Humanizer: исходники и команды, итог не показан"
+    },
+    {
+      "file": "frames/контроль-00150.jpg",
+      "nominal_seconds": 298,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00151.jpg",
+      "nominal_seconds": 300,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00152.jpg",
+      "nominal_seconds": 302,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00153.jpg",
+      "nominal_seconds": 304,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00154.jpg",
+      "nominal_seconds": 306,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00155.jpg",
+      "nominal_seconds": 308,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00156.jpg",
+      "nominal_seconds": 310,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00157.jpg",
+      "nominal_seconds": 312,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00158.jpg",
+      "nominal_seconds": 314,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00159.jpg",
+      "nominal_seconds": 316,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00160.jpg",
+      "nominal_seconds": 318,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00161.jpg",
+      "nominal_seconds": 320,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00162.jpg",
+      "nominal_seconds": 322,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00163.jpg",
+      "nominal_seconds": 324,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00164.jpg",
+      "nominal_seconds": 326,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00165.jpg",
+      "nominal_seconds": 328,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00166.jpg",
+      "nominal_seconds": 330,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00167.jpg",
+      "nominal_seconds": 332,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00168.jpg",
+      "nominal_seconds": 334,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-07.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00169.jpg",
+      "nominal_seconds": 336,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00170.jpg",
+      "nominal_seconds": 338,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00171.jpg",
+      "nominal_seconds": 340,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00172.jpg",
+      "nominal_seconds": 342,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00173.jpg",
+      "nominal_seconds": 344,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00174.jpg",
+      "nominal_seconds": 346,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00175.jpg",
+      "nominal_seconds": 348,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00176.jpg",
+      "nominal_seconds": 350,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00177.jpg",
+      "nominal_seconds": 352,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00178.jpg",
+      "nominal_seconds": 354,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00179.jpg",
+      "nominal_seconds": 356,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00180.jpg",
+      "nominal_seconds": 358,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00181.jpg",
+      "nominal_seconds": 360,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00182.jpg",
+      "nominal_seconds": 362,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00183.jpg",
+      "nominal_seconds": 364,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00184.jpg",
+      "nominal_seconds": 366,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00185.jpg",
+      "nominal_seconds": 368,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00186.jpg",
+      "nominal_seconds": 370,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00187.jpg",
+      "nominal_seconds": 372,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00188.jpg",
+      "nominal_seconds": 374,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00189.jpg",
+      "nominal_seconds": 376,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00190.jpg",
+      "nominal_seconds": 378,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00191.jpg",
+      "nominal_seconds": 380,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00192.jpg",
+      "nominal_seconds": 382,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-08.jpg",
+      "topic": "Планирование: схемы и вставки из разных проектов"
+    },
+    {
+      "file": "frames/контроль-00193.jpg",
+      "nominal_seconds": 384,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00194.jpg",
+      "nominal_seconds": 386,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00195.jpg",
+      "nominal_seconds": 388,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00196.jpg",
+      "nominal_seconds": 390,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00197.jpg",
+      "nominal_seconds": 392,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00198.jpg",
+      "nominal_seconds": 394,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00199.jpg",
+      "nominal_seconds": 396,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00200.jpg",
+      "nominal_seconds": 398,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00201.jpg",
+      "nominal_seconds": 400,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00202.jpg",
+      "nominal_seconds": 402,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00203.jpg",
+      "nominal_seconds": 404,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00204.jpg",
+      "nominal_seconds": 406,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00205.jpg",
+      "nominal_seconds": 408,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00206.jpg",
+      "nominal_seconds": 410,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00207.jpg",
+      "nominal_seconds": 412,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00208.jpg",
+      "nominal_seconds": 414,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00209.jpg",
+      "nominal_seconds": 416,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00210.jpg",
+      "nominal_seconds": 418,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00211.jpg",
+      "nominal_seconds": 420,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Expo: документация, вызов навыка, пример приложения"
+    },
+    {
+      "file": "frames/контроль-00212.jpg",
+      "nominal_seconds": 422,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00213.jpg",
+      "nominal_seconds": 424,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00214.jpg",
+      "nominal_seconds": 426,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00215.jpg",
+      "nominal_seconds": 428,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00216.jpg",
+      "nominal_seconds": 430,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-09.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00217.jpg",
+      "nominal_seconds": 432,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00218.jpg",
+      "nominal_seconds": 434,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00219.jpg",
+      "nominal_seconds": 436,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00220.jpg",
+      "nominal_seconds": 438,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00221.jpg",
+      "nominal_seconds": 440,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00222.jpg",
+      "nominal_seconds": 442,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00223.jpg",
+      "nominal_seconds": 444,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00224.jpg",
+      "nominal_seconds": 446,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00225.jpg",
+      "nominal_seconds": 448,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00226.jpg",
+      "nominal_seconds": 450,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00227.jpg",
+      "nominal_seconds": 452,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00228.jpg",
+      "nominal_seconds": 454,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00229.jpg",
+      "nominal_seconds": 456,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00230.jpg",
+      "nominal_seconds": 458,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Supabase и Stripe: схема, разрешения, запрос проекта"
+    },
+    {
+      "file": "frames/контроль-00231.jpg",
+      "nominal_seconds": 460,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00232.jpg",
+      "nominal_seconds": 462,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00233.jpg",
+      "nominal_seconds": 464,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00234.jpg",
+      "nominal_seconds": 466,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00235.jpg",
+      "nominal_seconds": 468,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00236.jpg",
+      "nominal_seconds": 470,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00237.jpg",
+      "nominal_seconds": 472,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00238.jpg",
+      "nominal_seconds": 474,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00239.jpg",
+      "nominal_seconds": 476,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00240.jpg",
+      "nominal_seconds": 478,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-10.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00241.jpg",
+      "nominal_seconds": 480,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00242.jpg",
+      "nominal_seconds": 482,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00243.jpg",
+      "nominal_seconds": 484,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00244.jpg",
+      "nominal_seconds": 486,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00245.jpg",
+      "nominal_seconds": 488,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00246.jpg",
+      "nominal_seconds": 490,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00247.jpg",
+      "nominal_seconds": 492,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00248.jpg",
+      "nominal_seconds": 494,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00249.jpg",
+      "nominal_seconds": 496,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00250.jpg",
+      "nominal_seconds": 498,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00251.jpg",
+      "nominal_seconds": 500,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00252.jpg",
+      "nominal_seconds": 502,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00253.jpg",
+      "nominal_seconds": 504,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00254.jpg",
+      "nominal_seconds": 506,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00255.jpg",
+      "nominal_seconds": 508,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00256.jpg",
+      "nominal_seconds": 510,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00257.jpg",
+      "nominal_seconds": 512,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00258.jpg",
+      "nominal_seconds": 514,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "Playwright и Claude Security: ошибки формы и схема поиска"
+    },
+    {
+      "file": "frames/контроль-00259.jpg",
+      "nominal_seconds": 516,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00260.jpg",
+      "nominal_seconds": 518,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00261.jpg",
+      "nominal_seconds": 520,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00262.jpg",
+      "nominal_seconds": 522,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00263.jpg",
+      "nominal_seconds": 524,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00264.jpg",
+      "nominal_seconds": 526,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-11.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00265.jpg",
+      "nominal_seconds": 528,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00266.jpg",
+      "nominal_seconds": 530,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00267.jpg",
+      "nominal_seconds": 532,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00268.jpg",
+      "nominal_seconds": 534,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00269.jpg",
+      "nominal_seconds": 536,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00270.jpg",
+      "nominal_seconds": 538,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "OpenSEO: таблица, калькулятор, условия размещения"
+    },
+    {
+      "file": "frames/контроль-00271.jpg",
+      "nominal_seconds": 540,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00272.jpg",
+      "nominal_seconds": 542,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00273.jpg",
+      "nominal_seconds": 544,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00274.jpg",
+      "nominal_seconds": 546,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet_and_individually",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00275.jpg",
+      "nominal_seconds": 548,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00276.jpg",
+      "nominal_seconds": 550,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00277.jpg",
+      "nominal_seconds": 552,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00278.jpg",
+      "nominal_seconds": 554,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00279.jpg",
+      "nominal_seconds": 556,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00280.jpg",
+      "nominal_seconds": 558,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00281.jpg",
+      "nominal_seconds": 560,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00282.jpg",
+      "nominal_seconds": 562,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00283.jpg",
+      "nominal_seconds": 564,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00284.jpg",
+      "nominal_seconds": 566,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00285.jpg",
+      "nominal_seconds": 568,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00286.jpg",
+      "nominal_seconds": 570,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00287.jpg",
+      "nominal_seconds": 572,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00288.jpg",
+      "nominal_seconds": 574,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-12.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00289.jpg",
+      "nominal_seconds": 576,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00290.jpg",
+      "nominal_seconds": 578,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00291.jpg",
+      "nominal_seconds": 580,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00292.jpg",
+      "nominal_seconds": 582,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00293.jpg",
+      "nominal_seconds": 584,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00294.jpg",
+      "nominal_seconds": 586,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00295.jpg",
+      "nominal_seconds": 588,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Экономия: источник JetBrains и графические пояснения"
+    },
+    {
+      "file": "frames/контроль-00296.jpg",
+      "nominal_seconds": 590,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00297.jpg",
+      "nominal_seconds": 592,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00298.jpg",
+      "nominal_seconds": 594,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00299.jpg",
+      "nominal_seconds": 596,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00300.jpg",
+      "nominal_seconds": 598,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00301.jpg",
+      "nominal_seconds": 600,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00302.jpg",
+      "nominal_seconds": 602,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00303.jpg",
+      "nominal_seconds": 604,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00304.jpg",
+      "nominal_seconds": 606,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00305.jpg",
+      "nominal_seconds": 608,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00306.jpg",
+      "nominal_seconds": 610,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00307.jpg",
+      "nominal_seconds": 612,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00308.jpg",
+      "nominal_seconds": 614,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00309.jpg",
+      "nominal_seconds": 616,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00310.jpg",
+      "nominal_seconds": 618,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00311.jpg",
+      "nominal_seconds": 620,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00312.jpg",
+      "nominal_seconds": 622,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-13.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00313.jpg",
+      "nominal_seconds": 624,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-14.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00314.jpg",
+      "nominal_seconds": 626,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-14.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00315.jpg",
+      "nominal_seconds": 628,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-14.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00316.jpg",
+      "nominal_seconds": 630,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-14.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00317.jpg",
+      "nominal_seconds": 632,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-14.jpg",
+      "topic": "Выбор первого средства и заключение"
+    },
+    {
+      "file": "frames/контроль-00318.jpg",
+      "nominal_seconds": 634,
+      "time_tolerance_seconds": 1,
+      "mode": "interval",
+      "review": "reviewed_in_sheet",
+      "sheet": "frames/обзор-времени-14.jpg",
+      "topic": "Выбор первого средства и заключение"
+    }
+  ]
+}

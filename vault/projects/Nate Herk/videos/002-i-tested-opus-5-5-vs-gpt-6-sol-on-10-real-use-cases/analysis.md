@@ -3,7 +3,7 @@ type: project
 description: "Я проверил Opus 5.5 и GPT-6 Sol на десяти реальных задачах — разбор"
 related: 
 last_accessed: 2026-09-24
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Я проверил Opus 5.5 и GPT-6 Sol на десяти реальных задачах

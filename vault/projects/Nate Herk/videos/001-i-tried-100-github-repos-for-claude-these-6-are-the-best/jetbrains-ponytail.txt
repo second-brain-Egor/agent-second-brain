@@ -1,0 +1,123 @@
+JetBrains AI
+Supercharge your tools with AI-powered features inside many JetBrains products
+Ponytail Skill for Claude Code: Does It Really Cut Agent Code by 54%?
+Part 3 of a series where we take public “token saver” add-ons for coding agents and run the same paired A/B benchmark against each of them. Part 1 was the caveman skill (advertised −65%, measured −8.5%). Part 2 was rtk (advertised −60–90%, measured +7.6%).
+We ran 80 paired tasks to test the ponytail skill for Claude Code. Advertised: −54% code, -22% tokens, -20% cost, -27% time. Measured: −15% code, −10.3% cost and -11% time. Here’s what actually happened.
+Real savings, although roughly a quarter to a half of what is advertised, it is the first tool in this series with a statistically solid cost-saving signal. We found no quality difference, though ~80 pairs can only rule out large ones. The catch: the code cut only shows up where there was room to over-build.
+Why we ran this
+Ponytail skill is designed to make AI agents write less code. Its core premise: a senior developer who has seen everything replaces your fifty lines with one. Ask for a date picker and instead of installing flatpickr and writing a wrapper component, it writes <input type="date">
+and moves on.
+Mechanically it is a ladder the model climbs before writing anything. Does this need to exist at all? Is it already in the codebase? Does the standard library do it? A native platform feature? An installed dependency? Can it be one line? Only then: write the minimum that works. The ladder runs after understanding the problem, not instead of it, and validation, error handling, security and accessibility are explicitly off the chopping block.
+Here is what that looks like in practice, from our own run. Both agents were asked to export a three.js scene to a Blender-ready OBJ file; both produced a file the verifier accepted. Both wrote the same fiddly loop to expand instanced meshes, because three.js’s OBJExporter cannot handle them. The difference is everything around that loop. To rotate the scene into Blender’s orientation and write it out, the plain agent builds a wrapper object to hold the rotation and names every intermediate step:
+// no skill — 10 statements to rotate the scene and write the file const exportRoot = new THREE.Group(); exportRoot.name = 'blender_export_root'; exportRoot.rotation.x = -Math.PI / 2; exportRoot.add(root); exportRoot.updateMatrixWorld(true); const exporter = new OBJExporter(); const objString = exporter.parse(exportRoot); const outputPath = '/root/output/object.obj'; fs.mkdirSync(path.dirname(outputPath), { recursive: true }); fs.writeFileSync(outputPath, objString); // ponytail — the same job, 5 statements root.rotation.x = -Math.PI / 2; root.updateMatrixWorld(true); const obj = new OBJExporter().parse(root); fs.mkdirSync('/root/output', { recursive: true }); fs.writeFileSync('/root/output/object.obj', obj);
+Nothing was sacrificed there. Ponytail rotated the object it already had instead of building a parent to rotate it for it, and skipped an import while it was at it. Ten statements became five, both files exported the same geometry, and both scored 1.0. That is the effect working exactly as advertised — on one file, on one task.
+The headline claim is −54% code, plus −22% tokens, −20% cost and
+−27% time. What made this one worth testing is that the claim is unusually well
+documented. The authors rebuilt their benchmark in response to a critique
+(issue #126) that
+their original numbers came from a chatty baseline, and they publish the honest version:
+a real headless Claude Code session editing a real FastAPI + React repo, scored on the
+git diff
+it leaves behind. They even document a contamination bug they found
+in their own harness, where a SessionStart
+hook was firing on every arm and
+secretly running ponytail in the baseline.
+That is more methodological candour than most tools in this space manage. So the question here is whether the effect survives a benchmark the authors did not choose, on a stronger model, with verifier-scored quality.
+Setup
+| Harness | Harbor 0.18 — Docker sandboxes, task verifiers, paired runs |
+|---|---|
+| Agent | Claude Code 2.1.201, headless, bypassPermissions , pinned in both arms |
+| Model | claude-sonnet-5 at medium reasoning effort |
+| Benchmark | SkillsBench, 80 paired tasks, auto-graded 0–1 with partial credit |
+| Arm A | stock Claude Code |
+| Arm B | ponytail v4.8.4: skill installed and its ruleset injected, byte-identical to the ruleset text its own SessionStart hook generates (the hook’s other first-run output is not reproduced). A close emulation of the shipped plugin’s full mode, with three documented differences (no first-run statusline nudge, no subagent re-injection, ruleset appended after the task rather than before it) |
+| Volume | 3 paired stages (10-task smoke, same 10 at k=3, full 80), plus self-activation and wiring checks — 251 billed agent trials in the complete evaluation program, USD 246.09. A few SkillsBench tasks are excluded: one that cannot run in a local sandbox, and a handful that fail identically in both arms on our hardware |
+One detail matters more than it looks. We generated arm B’s injected text by calling
+ponytail’s own hooks/ponytail-instructions.js
+rather than writing a summary
+of it, so the ruleset the model saw is the skill’s own text rather than our paraphrase of
+it. That covers the ruleset the hook generates, not every side-effect the hook has on a
+real first run. Every
+with-ponytail trial is audited afterwards to confirm the ruleset actually reached the
+model; every baseline trial is audited to confirm it did not. That check is the direct
+descendant of the contamination bug ponytail found in its own benchmark, and it came
+back clean: 100% of treatment trials, 0% of baselines.
+Finding 1 — Does ponytail skill self-activate in Claude Code?
+Before the paid runs we tested the obvious install path: drop the skill in and let Claude Code decide when to use it. Ponytail’s description invites exactly that, telling the model to use it on “ANY coding task: writing, adding, refactoring, fixing, reviewing, or designing code.”
+Across all ten sessions it self-activated zero times. Not rarely. Never. The skill sat installed and visible and the model did not once reach for it.
+This is not a bug in ponytail, and it is why the tool ships as a plugin with a
+SessionStart
+hook that injects the ruleset whether you ask or not. But it
+does mean the install method decides whether you get anything at all. Copy the
+SKILL.md
+into a skills folder and you will very likely measure nothing.
+Every number below comes from the arm where the ruleset is actually injected.
+Finding 2 — the observed code cut is a third of the advertised size
+Across 80 paired tasks a typical task shed 15.4% of the code the agent wrote; in total, 10,205 lines became 8,756. That is a substantial observed reduction. At p=0.088, however, it is the softest of our headline numbers. It is also nowhere near 54%.
+Two things to say about the gap, both fair to the tool. First, their −54% is a mean across twelve hand-picked feature tickets; ours is a median across 80 tasks nobody chose for this purpose. Means and medians on skewed data are different animals, and their own writeup is explicit that the figure “reaches 94% where an agent over-builds and is near zero where the code is already minimal.”
+Second, and this is the more interesting half: our own data points the same way.
+Finding 3 — the saving concentrates where there was room to over-build
+Split the tasks by how much code the baseline wrote. Ponytail cannot pick its own bucket that way, since the plain agent decides it. Worth saying plainly though: we chose these thresholds after seeing the data, and grouping by the baseline’s own output can stretch a gradient like this on its own. Read the chart as a strong hint about where the effect lives, not as a measured law.
+On big builds the cut reaches −31%. On tasks where the plain agent already wrote almost nothing, the typical task moved by zero — though the totals in that group actually rose, 104 lines to 910, and that gap is where the run’s one real surprise turned up.
+On seven tasks our counter recorded zero lines for the plain agent and 51 to 230 for ponytail. Reading the transcripts, that gap is mostly about where the code lived rather than how much of it there was. The plain agent piped its solution straight into a Python interpreter as a heredoc, which produced the deliverable and left no script behind. Ponytail wrote the same kind of logic to a file. Our counter treats a saved file as code and an inline heredoc as scratch, so one arm got charged for it and the other did not.
+To be clear about what those files are: all seven are ordinary work scripts —
+edit.py
+, diff.py
+, build_model.py
+— not tests. So this
+is not ponytail’s “leave one runnable check behind” rule showing up; it simply saved its
+solution to disk where the plain agent piped the equivalent through an interpreter. We
+cannot say ponytail wrote more code on those tasks, only that more of its code was
+persisted.
+Does that bias the headline? Slightly, and in both directions. Ponytail alone persisted code on 7 tasks (761 lines); the plain agent alone did on 4 (567 lines). Net, about 190 lines out of 10,205 land against ponytail — under 2%, and too small to lean on either way. We are not claiming the −15.4% is conservative because of it.
+Finding 4 — the bill drops, and this time the signal is solid
+A typical task cost 10.3% less with ponytail installed: p=0.004 across 80 pairs, cheaper on 46 tasks and dearer on 34. That is the strongest positive cost result in this series so far, and the first that is a solid saving rather than a solid penalty — rtk’s +7.6% was every bit as significant, just pointing the wrong way. Caveman also came out around 10% cheaper once we removed a single pricing-tier outlier, but that was a fragile number resting on one exclusion; this is the first time the cost difference has survived a paired test on a full run.
+One honest qualifier, because we would want it applied to a vendor: the median saving is −10.3%, but the spread around it is wide enough that a bootstrap interval on the median just touches zero. The direction is well supported and the per-task test is clear. “Roughly 10% cheaper on this workload” is defensible; “ponytail saves you 10%” is not.
+Worth noting what did not move cleanly: the input side. Re-reading its own history fell 8.4% and fresh tokens 3.9%, neither of them significant (p=0.138 and p=0.085). In part 2 we found that an agent’s bill is dominated by that re-reading, which is why a tool compressing command output barely dented it. Ponytail attacks the other side of the ledger, what the model writes, and on this benchmark that is the side the money moved on.
+Finding 5 — no quality difference we can detect
+The obvious worry about a skill whose whole personality is “write less” is that it gets there by deleting things that mattered. Ponytail claims it never touches validation, error handling, security or accessibility, and reports 100% safety in a separate adversarial tier of its own benchmark.
+We cannot speak to that safety claim, and want to be explicit about why: SkillsBench verifiers score whether a task was completed. They are not a security, validation or accessibility suite. Nothing below tests whether ponytail preserves a guard, only whether the work still passes.
+Nine tasks scored slightly worse, six slightly better, 65 identical — statistically indistinguishable. That is a null result, not a clean bill of health: this run was never powered to prove equivalence, and the data remain compatible with a small degradation as well as a small improvement. What we can say is that nothing here looks like the obvious failure mode, where writing less quietly stops the tests passing.
+One small note on adherence. Ponytail’s ruleset asks the model to mark deliberate
+shortcuts with a ponytail:
+comment naming the ceiling and the upgrade path.
+Across 80 trials with the ruleset demonstrably in context, that happened once.
+The ladder gets followed; the paperwork does not.
+Finding 6 — small samples lied to us, in both directions
+Worth showing because it is the trap this whole series exists to avoid. Our ten-task smoke run said ponytail cut code by 3% and made things 9.6% more expensive, with mean task scores collapsing from 0.51 to 0.31. Had we published that, we would have written a very different and completely wrong article.
+Verdict
+Ponytail works. Across 80 paired tasks, it cut the typical bill by 10.3% and reduced code written by 15%, with no quality difference we could detect. It is the first tool in this series that clearly saved money. If you install it and forget about it, you should be modestly better off.
+Do not expect the advertised 54% everywhere. Ponytail’s benchmark uses tasks with obvious over-building traps. Ours did not. In our runs, code fell 31% on larger builds and barely moved on tasks that were already lean. The more over-building your agent does, the more ponytail can cut.
+Got a tool that claims to save tokens? Tell us which one and we will run it through the same benchmark.
+Methodology notes
+- Never trust k=1. Escalation ladder: a free transcript audit, then a 10-task smoke, then the same 10 at k=3, then the full 80. Finding 6 shows what the smoke would have told us.
+- Paired analysis only. Per-task comparison between arms; any task that errored in either arm is dropped from both. Sign test for quality, per-task medians plus Wilcoxon for everything else, because one long-context session can bill 25× normal and wreck a mean.
+- Endpoints fixed before the paid runs: reward, code written, output
+tokens, fresh input tokens, cost, turns, wall-clock. Total tokens was added afterwards,
+once we checked which metric ponytail’s own
+benchmarks/agentic/run.py
+actually advertises. It sums input, cache and output, so comparing our output-only figure against its −22% would have flattered us threefold. - What a null result here does and does not mean. The quality comparison is a significance test, not an equivalence test. “No difference detected” is the honest reading; proving quality is genuinely unchanged would take a non-inferiority design with a pre-declared margin, and — for a 5-point shift in pass rate at 80% power around this benchmark’s ~40% baseline — on the order of several hundred paired tasks per arm rather than 80.
+- Adoption instrumented. Every trial audited for whether the ruleset reached the model — 100% in the treatment arm, 0% in the baseline — so “ponytail saved nothing” can never be confused with “ponytail never ran.”
+- Measuring code without a workspace diff. Ponytail’s own benchmark
+counts
+git diff
+added lines. Harbor keeps no post-agent workspace, so we reconstruct the equivalent from the agent’s tool calls:Write
+,Edit
+and shell heredocs redirected into a file, counted as non-blank non-comment lines exactly as ponytail’sbenchmarks/loc.js
+does. This is cumulative lines emitted, not final implementation size: a line written and later rewritten counts each time. Heredocs piped to an interpreter are throwaway analysis and are excluded. We audited the extractor’s coverage on the run these figures come from:Write
+andEdit
+account for 95.6% of counted lines (15,632 and 2,496 of 18,961), so the metric is not an artifact of missing where the code went. Two things it cannot see, in both arms equally: files written by a script at runtime, and code written inside a subagent. - Provenance. ponytail pinned at commit
+16f2980
+(v4.8.4, MIT); agent version pinned in both arms; the injected ruleset generated by ponytail’s own hook code, sha256 recorded. Seven of SkillsBench’s 87 tasks are excluded: one that cannot run in a local sandbox at all, and six that fail identically in both arms on our hardware. Exclusions are symmetric — a task is dropped from both arms or neither — and the full list is retained with the evaluation artifacts. - What this cannot tell you. SkillsBench is data, analysis and repair work; it contains few of the front-end over-build traps that produce ponytail’s largest wins. This is a fair test of the cost, speed and quality claims and a conservative test of the code claim. It does not refute their −54% on their own task set.
+Chart style borrowed from dither-kit, reimplemented here as a dependency-free inline widget.
+Frequently asked questions
+Does ponytail skill work with Claude Code?
+Yes, but installation method matters. If you copy the SKILL.md into a skills folder and let the model decide when to use it, it will self-activate zero times — we confirmed this across ten sessions. Ponytail is designed to run as a plugin with a SessionStart hook that injects its ruleset automatically. That's the only configuration that produces measurable results.
+How much does ponytail skill actually reduce code and token usage?
+Across 80 paired tasks, we measured a median −15% reduction in code written and −10.3% reduction in cost. The advertised −54% code reduction is real on tasks with obvious over-building traps; our benchmark skewed toward data and analysis work, which is a more conservative test. On larger builds in our run, code fell 31%.
+Does ponytail skill reduce code quality?
+We found no statistically significant quality difference across 80 tasks — 65 scored identically, 9 slightly worse, 6 slightly better. This is a null result, not a clean bill of health: the run wasn't powered to prove equivalence. What it rules out is the obvious failure mode where writing less quietly breaks things.
+What is the ponytail skill for Claude Code?
+Ponytail is an open-source AI Agent skill that constrains the model to write minimal code. Before generating anything, it runs through a ladder of questions: does this need to exist, is it already in the codebase, does the standard library handle it, can it be one line? Validation, error handling, security, and accessibility are explicitly excluded from its minimalism rules.
+How does ponytail skill compare to other token-saving skills?
+In our series, ponytail is the only tool that produced a statistically significant cost saving. The caveman skill measured −8.5% code against an advertised −65%. RTK produced a +7.6% cost increase. Ponytail delivered −10.3% cost reduction with p=0.004 — the first solid positive result in the series.
