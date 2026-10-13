@@ -3,9 +3,9 @@ type: project
 description: Автоматическая торговля DASH на кратких выбросах цены с возвратом к скользящей средней.
 status: research
 created: 2026-09-04
-updated: 2026-09-05
+updated: 2026-10-14
 last_accessed: 2026-09-05
-relevance: 0.98
+relevance: 1.0
 tier: active
 ---
 
@@ -84,3 +84,9 @@ tier: active
 - Полный перебор: /root/trading/analysis/backtests/dash_mean_reversion_sweep_2026-09-04.csv
 - Проверка с издержками 0,20%: /root/trading/analysis/backtests/dash_mean_reversion_cost020_2026-09-04.csv
 - Раздельные части периода: /root/trading/analysis/backtests/dash_mean_reversion_train_2026-09-04.csv и dash_mean_reversion_test_2026-09-04.csv
+
+## Напоминание по запросу 13 октября 2026
+
+- В 20:37 Егор попросил на следующий день вернуться к резкому обвалу и скачкам цены в стратегии DASH. «Завтра» здесь — 14 октября 2026.
+- Создана и проверена одна [задача Todoist](https://app.todoist.com/app/task/6hm3W9Q24Qx3cV8R) на этот день, приоритет обычный, без времени и повторения. В 20:39 время по Москве уточнили, ответа в интервале нет; отдельное уведомление на конкретный час не назначено.
+- Это напоминание об обсуждении, не разрешение запускать торговлю или менять параметры стратегии.

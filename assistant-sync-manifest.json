@@ -2,7 +2,7 @@
   "version": 1,
   "description": "Общие проверенные файлы. Личные данные, токены и локальные настройки не синхронизируются автоматически.",
   "files": {
-    "SHARED_ASSISTANT_RULES.md": "1e5eca9d0caee89732867cb2e0bab7d73a63cdd41b9e0164dbbbff2eef9dbe00",
+    "SHARED_ASSISTANT_RULES.md": "3a936018cf39e9327b1a2ae83283857ec54a87217c2debaaf5b43524715e39c9",
     "direct_web/.gitignore": "941ab0e2937b9f105d84215ec951ad0e7ec2e2c14a13868d36395c8baf2fca4a",
     "direct_web/README.md": "b2eb46b4fb9a4f0512a7dc74375401249590a1aa9aa589213c24f4462128669d",
     "direct_web/__init__.py": "a0d0cd97cab284f9a9b28a079af7f0c5618b860db740af05e6b766a20e5c8309",
@@ -112,7 +112,7 @@
     "vault/.claude/docs/irina-methodology.md": "b93c7684912c41046f626d4055348ffc05655f2d8226b2d3699de36a388836e9",
     "vault/.claude/docs/notebooklm-quick-start.md": "1d0033d44290890ff9d97733a3ce73a6964c8dc0786db5066adb6ef3a8150427",
     "vault/.claude/docs/zettelkasten-rules.md": "404625bf2e32d34bda91e11192c65629bd01e1eef6b0671b42068187399147d6",
-    "vault/.claude/rules/communication-style.md": "afd22ecd0771fe20db91ce54e95c42fc0b329d74655e6238a1323356a7fd364a",
+    "vault/.claude/rules/communication-style.md": "5e51b3685b6cb913958cea8691537564b85da1a8943fe5702d0dda6634e3becd",
     "vault/.claude/rules/daily-format.md": "4aaaa6987e79335ac93595e1ce427fe28cda848f407cf81c5be3d46fbd6553c5",
     "vault/.claude/rules/goals-format.md": "87cd352a07786edb394410c17e8de2530dac908b72dbe06b20bfbb7d8f018c85",
     "vault/.claude/rules/governance.md": "b990a46f6d9c8e8410a18f3e758cf7f9314ce59f4f3633a5616e596db7b45ff1",
@@ -201,6 +201,6 @@
     "vault/.claude/skills/video-processor/SKILL.md": "cd855f86af3053657a5d8c57929ca0146435bbb1a09d0bcac2fe5d06f82467ee",
     "vault/.claude/skills/web-search/SKILL.md": "7aaec6d0202cd357035ea26ed0d22654f6f3f2e0d2c885640a50bec0139b94f6",
     "vault/thoughts/learnings/shared-assistant-experience.md": "e7581bd42445c8d6296949c4a86026b9fecaa6cb694f8fcddd2d027321967aa3",
-    "Скиллы/telegram-formatting/SKILL.md": "2c0db626969b9c510ad8f5081880dc1c5bc59a99f54d119449b92ba3008471e1"
+    "Скиллы/telegram-formatting/SKILL.md": "a329a867c2bf708bb0b109c230374e6a315265ba1ada18e5acca128eee8a12eb"
   }
 }

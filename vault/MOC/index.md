@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-13
-last_accessed: 2026-10-13
+updated: 2026-10-14
+last_accessed: 2026-10-14
 relevance: 1.0
 tier: active
 ---
@@ -11,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 984
-- Связей: 2433
-- Сирот: 71
-- Слабосвязанных: 84
+- Заметок: 993
+- Связей: 2456
+- Сирот: 72
+- Слабосвязанных: 83
 
 ## Память
 
@@ -181,6 +181,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/metadata.md|I Built Another Andrej Karpathy Using Claude]]
 - [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/analysis.md|Я создал лучший совет ИИ-консультантов — бесплатный навык Claude]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/metadata.md|I Built the Ultimate AI Board of Advisors (free claude skill)]]
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/analysis.md|Карточка ролика: Scrollcraft — дизайн сайтов с управляемой прокруткой]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/description.md|description]]
@@ -441,6 +447,7 @@ tier: active
 - [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/metadata.md|This AI Technology Will Replace Millions (Here's How to Prepare)]]
 - [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/transcript.md|transcript]]
+- [[projects/VPN/README.md|VPN]]
 - [[projects/_index.md|Проекты — индекс]]
 - [[projects/asula/README.md|АСУЛА]]
 - [[projects/asula/_index.md|АСУЛА — индекс]]
@@ -725,18 +732,18 @@ tier: active
 - [[projects/Узлы VPN/README.md|Узлы VPN]]
 - [[projects/Узлы VPN/Итоги недели 9–16 октября 2026.md|Итоги недели замеров узлов VPN — 9–16 октября 2026]]
 - [[projects/Узлы VPN/Первый прогон 2026-10-09.md|Прогон узлов VPN — 9 октября 2026, 18:09]]
-- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 13 октября 2026, 00:00]]
+- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 14 октября 2026, 00:00]]
 - [[projects/приложение-по-дорогам/README.md|Приложение по дорогам]]
 
 ## Новые записи дня
 
+- [[daily/2026-10-14.md|2026-10-14]]
 - [[daily/2026-10-13.md|2026-10-13]]
 - [[daily/2026-10-12.md|2026-10-12]]
 - [[daily/2026-10-11.md|2026-10-11]]
 - [[daily/2026-10-10.md|2026-10-10]]
 - [[daily/2026-10-09.md|2026-10-09]]
 - [[daily/2026-10-08.md|2026-10-08]]
-- [[daily/2026-10-07.md|2026-10-07]]
 
 ## Недельные сводки
 
@@ -760,6 +767,7 @@ tier: active
 - [[thoughts/learnings/forumhouse-export-registry.md|Forumhouse: авто-реестр выгрузок и дельты (с 2026-06-11)]]
 - [[thoughts/learnings/forumhouse-sections-91-175.md|Forumhouse: разделы 91 и 175]]
 - [[thoughts/learnings/loading-vs-git-export.md|Загрузка без ложного Git-контекста]]
+- [[thoughts/learnings/lora-и-дистилляция.md|LoRA и дистилляция]]
 - [[thoughts/learnings/marketplace-otzyvy-ceny-2026.md|Сколько платят за отзывы на WB и Ozon (июль 2026)]]
 - [[thoughts/learnings/model-token-economy.md|Экономия лимита при вопросах о модели]]
 - [[thoughts/learnings/network-egress-and-web-search.md|Сеть бота и веб-поиск (разобрано 2026-06-11)]]

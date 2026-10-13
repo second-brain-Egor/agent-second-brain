@@ -916,7 +916,22 @@
       "frames_required": true,
       "updated_at": "2026-10-12T07:01:18+03:00",
       "completed_at": "2026-10-12T07:01:18+03:00"
+    },
+    "nRXHWckVxoM": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill",
+      "title": "I Built the Ultimate AI Board of Advisors (free claude skill)",
+      "url": "https://www.youtube.com/watch?v=nRXHWckVxoM",
+      "upload_date": "20261013",
+      "comments": 10,
+      "frames": 9,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-13T07:01:12+03:00",
+      "completed_at": "2026-10-13T07:01:12+03:00"
     }
   },
-  "updated_at": "2026-10-12T07:01:18+03:00"
+  "updated_at": "2026-10-13T07:01:12+03:00"
 }

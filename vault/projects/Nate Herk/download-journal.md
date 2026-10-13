@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-10-12
+last_accessed: 2026-10-13
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-12 07:01
-Всего видео в папке: 63
-Записей в журнале: 61
+Обновлено: 2026-10-13 07:01
+Всего видео в папке: 64
+Записей в журнале: 62
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -249,6 +249,18 @@ tier: active
 Транскрипт: есть
 Кадры: 110
 Обновлено: 2026-10-06T07:01:07+03:00
+
+## 001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill
+
+Статус: complete
+Название: I Built the Ultimate AI Board of Advisors (free claude skill)
+Ссылка: https://www.youtube.com/watch?v=nRXHWckVxoM
+Дата видео: 20261013
+Описание: есть
+Комментарии: 10
+Транскрипт: есть
+Кадры: 9
+Обновлено: 2026-10-13T07:01:12+03:00
 
 ## 001-i-built-the-ultimate-claude-website-design-skill-steal-this
 

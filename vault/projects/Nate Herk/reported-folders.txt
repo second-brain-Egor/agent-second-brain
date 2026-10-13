@@ -18,6 +18,7 @@ vault/projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent
 vault/projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit
 vault/projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1
 vault/projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude
+vault/projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill
 vault/projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this
 vault/projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever
 vault/projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won
