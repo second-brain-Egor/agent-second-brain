@@ -3,7 +3,7 @@ type: project
 description: "FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/about?el=top5-automations&hcatego..."
 related: 
 last_accessed: 2026-08-23
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Комментарии

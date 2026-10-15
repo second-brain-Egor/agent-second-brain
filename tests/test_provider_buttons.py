@@ -63,7 +63,7 @@ async def test_failed_auth_preserves_provider(tmp_path, monkeypatch):
 def test_exact_layout(tmp_path, monkeypatch):
     settings = Settings(_env_file=None, telegram_bot_token='test', deepgram_api_key='test',
                         temporary_chat_user_id=7, vault_path=tmp_path, show_help_button=False,
-                        ai_backend='codex', codex_model_chat='gpt-6.1-sol', codex_reasoning_effort='max')
+                        ai_backend='codex', codex_model_chat='gpt-6.1-sol', codex_reasoning_effort='ultra')
     monkeypatch.setattr(keyboards, 'get_settings', lambda: settings)
     labels = [[b.text for b in row] for row in keyboards.get_main_keyboard(7).keyboard]
     assert labels == [['🛠 Работа', '🧠 Claude', '⚙️ Обработать'],

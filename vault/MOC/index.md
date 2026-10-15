@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-14
-last_accessed: 2026-10-14
+updated: 2026-10-15
+last_accessed: 2026-10-15
 relevance: 1.0
 tier: active
 ---
@@ -11,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 993
-- Связей: 2456
-- Сирот: 72
-- Слабосвязанных: 83
+- Заметок: 1001
+- Связей: 2476
+- Сирот: 73
+- Слабосвязанных: 82
 
 ## Память
 
@@ -241,6 +241,13 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/metadata.md|I Tested Sonnet 5.5 vs Opus 5.5. What You Need to Know.]]
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/analysis.md|Нейт проверяет REA: как разобраться в чужой программе и создать свою функцию]]
+- [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/metadata.md|I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.]]
+- [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/проверка.md|Проверка разбора REA]]
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/analysis.md|Дополнения для Claude: полный разбор ролика Нейта]]
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/analysis.до-проверки-2026-10-12.md|Я попробовал более ста хранилищ GitHub для Claude. Эти шесть — лучшие]]
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/comments.md|Комментарии]]
@@ -732,18 +739,18 @@ tier: active
 - [[projects/Узлы VPN/README.md|Узлы VPN]]
 - [[projects/Узлы VPN/Итоги недели 9–16 октября 2026.md|Итоги недели замеров узлов VPN — 9–16 октября 2026]]
 - [[projects/Узлы VPN/Первый прогон 2026-10-09.md|Прогон узлов VPN — 9 октября 2026, 18:09]]
-- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 14 октября 2026, 00:00]]
+- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 15 октября 2026, 03:00]]
 - [[projects/приложение-по-дорогам/README.md|Приложение по дорогам]]
 
 ## Новые записи дня
 
+- [[daily/2026-10-15.md|2026-10-15]]
 - [[daily/2026-10-14.md|2026-10-14]]
 - [[daily/2026-10-13.md|2026-10-13]]
 - [[daily/2026-10-12.md|2026-10-12]]
 - [[daily/2026-10-11.md|2026-10-11]]
 - [[daily/2026-10-10.md|2026-10-10]]
 - [[daily/2026-10-09.md|2026-10-09]]
-- [[daily/2026-10-08.md|2026-10-08]]
 
 ## Недельные сводки
 

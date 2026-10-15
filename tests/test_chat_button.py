@@ -47,7 +47,7 @@ async def test_button_persists_effort_and_leaves_do_mode(tmp_path, monkeypatch, 
 
     await button(message, state)
 
-    effort = effort if active == 'claude' else 'max'
+    effort = effort if active == 'claude' else 'ultra'
     assert f'{key}={effort}' in env_path.read_text()
     assert os.environ[key] == effort
     assert await state.get_state() is None
@@ -79,14 +79,14 @@ async def test_button_persists_effort_and_leaves_do_mode(tmp_path, monkeypatch, 
                                          model=instance._backend_model_for_mode(mode))
                 command = run.call_args.args[0]
                 assert command[command.index('--model') + 1] == model
-                assert 'model_reasoning_effort="max"' in command
+                assert 'model_reasoning_effort="ultra"' in command
         else:
             expected = 'claude-opus-5-5' if button == buttons.btn_work else 'claude-sonnet-5-5'
             assert instance._backend_model_for_mode('chat') == expected
             assert instance._backend_model_for_mode('agent') == expected
 
 
-@pytest.mark.parametrize('effort', ['', 'medium', 'xhigh', 'max'])
+@pytest.mark.parametrize('effort', ['', 'medium', 'xhigh', 'max', 'ultra'])
 def test_codex_command_applies_only_selected_effort(tmp_path, monkeypatch, effort):
     instance = object.__new__(module.AgentProcessor)
     instance.project_path = tmp_path
@@ -130,8 +130,8 @@ def test_keyboard_replaces_request_button():
 
 
 @pytest.mark.parametrize('active,model,effort,selected', [
-    ('codex', 'gpt-6-astra', 'max', ACTIVE_WORK_BUTTON),
-    ('codex', 'gpt-6.1-sol', 'max', ACTIVE_CHAT_BUTTON),
+    ('codex', 'gpt-6-astra', 'ultra', ACTIVE_WORK_BUTTON),
+    ('codex', 'gpt-6.1-sol', 'ultra', ACTIVE_CHAT_BUTTON),
     ('codex', 'gpt-6-astra', 'xhigh', None),
     ('codex', 'gpt-6.1-sol', 'medium', None),
     ('codex', 'another-model', 'max', None),

@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-10-13
+last_accessed: 2026-10-14
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-13 07:01
-Всего видео в папке: 64
-Записей в журнале: 62
+Обновлено: 2026-10-14 07:01
+Всего видео в папке: 65
+Записей в журнале: 63
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -369,6 +369,18 @@ tier: active
 Транскрипт: есть
 Кадры: 217
 Обновлено: 2026-09-29T07:01:22+03:00
+
+## 001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know
+
+Статус: complete
+Название: I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.
+Ссылка: https://www.youtube.com/watch?v=rL5tw6h78zo
+Дата видео: 20261013
+Описание: есть
+Комментарии: 34
+Транскрипт: есть
+Кадры: 42
+Обновлено: 2026-10-14T07:01:07+03:00
 
 ## 001-i-tried-100-github-repos-for-claude-these-6-are-the-best
 

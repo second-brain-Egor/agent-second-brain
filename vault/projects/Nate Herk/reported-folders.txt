@@ -60,3 +60,4 @@ vault/projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know
 vault/projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code
 vault/projects/Nate Herk/videos/013-build-sell-ai-saas-products-2-hour-course
 vault/projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes
+vault/projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know

@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "completed_at": "2026-10-14T08:22:24+03:00",
+  "video_id": "rL5tw6h78zo",
+  "analysis": "analysis.md",
+  "summary_updated": true,
+  "reviewed_frames": 50,
+  "required_local_links_verified": true,
+  "pdf": "Разбор ролика — REA.pdf",
+  "pdf_pages": 7,
+  "pdf_sha256": "14f138f75024d44eab3f122532f58f2e0d95198f03c67bbd3ee59206f01e3125",
+  "telegram": {
+    "chat_id": 6144231826,
+    "message_id": 9619,
+    "sent_at": "2026-10-14T08:21:46.270186+03:00",
+    "caption": "📺 Нейт проверяет REA: как разобраться в чужой программе и создать свою функцию\n\nНейт показывает собственную программу записи экрана по примеру Loom. Объясняет, как исследовать одну нужную функцию, отделять найденные факты от догадок и проверять результат в работе."
+  },
+  "reported": true
+}

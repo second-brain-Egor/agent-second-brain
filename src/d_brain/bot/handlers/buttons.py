@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 @router.message(F.text.in_(WORK_BUTTON_LABELS))
 async def btn_work(message: Message, state: FSMContext) -> None:
-    """Select Astra max on Codex; retain the Claude effort selector."""
+    """Select Astra ultra on Codex; retain the Claude effort selector."""
     await _set_effort(message, state, "xhigh", "очень высокий", "🛠",
                       CODEX_WORK_MODEL, "GPT-6 Astra")
 
@@ -44,7 +44,7 @@ async def btn_weekly(message: Message) -> None:
 
 @router.message(F.text.in_(CHAT_BUTTON_LABELS))
 async def btn_chat(message: Message, state: FSMContext) -> None:
-    """Select Sol max on Codex without calling a model."""
+    """Select Sol ultra on Codex without calling a model."""
     await _set_effort(message, state, "max", "максимальный", "💬",
                       CODEX_CHAT_MODEL, "GPT-6.1 Sol")
 
@@ -69,7 +69,7 @@ async def _set_effort(
             "CODEX_MODEL_AGENT": codex_model,
             "CODEX_REASONING_EFFORT": CODEX_MODE_EFFORT,
         }
-        confirmation = f"{icon} Включил {model_label}, уровень мышления — максимальный (max)."
+        confirmation = f"{icon} Включил {model_label}, уровень мышления — Ultra."
     try:
         _replace_env_values(values)
     except OSError:

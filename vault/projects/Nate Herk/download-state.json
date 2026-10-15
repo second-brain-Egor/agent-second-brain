@@ -931,7 +931,22 @@
       "frames_required": true,
       "updated_at": "2026-10-13T07:01:12+03:00",
       "completed_at": "2026-10-13T07:01:12+03:00"
+    },
+    "rL5tw6h78zo": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know",
+      "title": "I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.",
+      "url": "https://www.youtube.com/watch?v=rL5tw6h78zo",
+      "upload_date": "20261013",
+      "comments": 34,
+      "frames": 42,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-14T07:01:07+03:00",
+      "completed_at": "2026-10-14T07:01:07+03:00"
     }
   },
-  "updated_at": "2026-10-13T07:01:12+03:00"
+  "updated_at": "2026-10-14T07:01:07+03:00"
 }
