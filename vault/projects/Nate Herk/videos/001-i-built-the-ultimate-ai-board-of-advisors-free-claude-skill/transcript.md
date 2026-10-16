@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-10-13
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 So right here you can see that I've got

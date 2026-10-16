@@ -3,7 +3,7 @@ type: project
 description: "Карточка ролика о подключении Higgsfield API к Codex и выборе между оплатой отдельных запусков и подпиской"
 related: 
 last_accessed: 2026-09-18
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Один навык GPT-6 Astra заменяет подписку Higgsfield

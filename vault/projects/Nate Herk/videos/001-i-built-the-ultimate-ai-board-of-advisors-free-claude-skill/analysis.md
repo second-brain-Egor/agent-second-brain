@@ -3,7 +3,7 @@ type: project
 description: "Как Нейт Херк устроил в Claude Code совет из семи помощников для разбора деловых решений"
 related: 
 last_accessed: 2026-10-13
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Я создал лучший совет ИИ-консультантов — бесплатный навык Claude

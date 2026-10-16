@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-10-12
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 FREE Scrollcraft Website Design Skill: https://app.aiautomationsociety.ai/optin/scrollcraft/?utm_source=youtube&utm_medium=organic&utm_content=100-github-repos-tested&sl=yt_100-github-repos-tested

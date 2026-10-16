@@ -4,7 +4,7 @@ description: "Идея: собрать голосовое устройство �
 status: idea
 created: 2026-08-20
 last_accessed: 2026-08-23
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 

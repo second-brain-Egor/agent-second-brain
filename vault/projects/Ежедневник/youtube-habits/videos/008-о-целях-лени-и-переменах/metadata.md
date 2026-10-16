@@ -3,7 +3,7 @@ type: project
 description: "О целях, лени и переменах — project"
 related: 
 last_accessed: 2026-05-05
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # О целях, лени и переменах
