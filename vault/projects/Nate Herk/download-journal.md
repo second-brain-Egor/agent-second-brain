@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-10-15
+last_accessed: 2026-10-16
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-15 07:00
-Всего видео в папке: 65
-Записей в журнале: 63
+Обновлено: 2026-10-16 07:01
+Всего видео в папке: 66
+Записей в журнале: 64
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -33,6 +33,18 @@ tier: active
 Транскрипт: есть
 Кадры: 16
 Обновлено: 2026-10-03T07:00:50+03:00
+
+## 001-ai-agents-just-became-multiplayer-here-s-how-to-build-them
+
+Статус: complete
+Название: AI Agents Just Became Multiplayer. Here's How to Build Them.
+Ссылка: https://www.youtube.com/watch?v=KZiF2J83zaY
+Дата видео: 20261015
+Описание: есть
+Комментарии: 87
+Транскрипт: есть
+Кадры: 60
+Обновлено: 2026-10-16T07:01:32+03:00
 
 ## 001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade
 

@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-10-13
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 Get the FREE Roast Room council: https://www.skool.com/ai-automation-society/about?el=roast-room-council&hcategory=youtube-videos&utm_campaign=free-group

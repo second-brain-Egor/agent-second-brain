@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-16
-last_accessed: 2026-10-16
+updated: 2026-10-17
+last_accessed: 2026-10-17
 relevance: 1.0
 tier: active
 ---
@@ -11,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 1002
-- Связей: 2479
+- Заметок: 1009
+- Связей: 2491
 - Сирот: 74
-- Слабосвязанных: 79
+- Слабосвязанных: 80
 
 ## Память
 
@@ -62,6 +62,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/metadata.md|Claude Code Mods Are Game Changers. Set Up These 5 NOW.]]
 - [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/analysis.md|Карточка ролика: ИИ-агенты теперь работают сообща — как их собрать]]
+- [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/description.md|description]]
+- [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/metadata.md|AI Agents Just Became Multiplayer. Here's How to Build Them.]]
+- [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/analysis.md|Новости об искусственном интеллекте за 10 минут: вероятность гибели всех людей — 10%]]
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/description.md|description]]
@@ -739,18 +745,18 @@ tier: active
 - [[projects/Узлы VPN/README.md|Узлы VPN]]
 - [[projects/Узлы VPN/Итоги недели 9–16 октября 2026.md|Итоги недели замеров узлов VPN — 9–16 октября 2026]]
 - [[projects/Узлы VPN/Первый прогон 2026-10-09.md|Прогон узлов VPN — 9 октября 2026, 18:09]]
-- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 16 октября 2026, 03:00]]
+- [[projects/Узлы VPN/Последний прогон.md|Прогон узлов VPN — 16 октября 2026, 18:00]]
 - [[projects/приложение-по-дорогам/README.md|Приложение по дорогам]]
 
 ## Новые записи дня
 
+- [[daily/2026-10-17.md|2026-10-17]]
 - [[daily/2026-10-16.md|2026-10-16]]
 - [[daily/2026-10-15.md|2026-10-15]]
 - [[daily/2026-10-14.md|2026-10-14]]
 - [[daily/2026-10-13.md|2026-10-13]]
 - [[daily/2026-10-12.md|2026-10-12]]
 - [[daily/2026-10-11.md|2026-10-11]]
-- [[daily/2026-10-10.md|2026-10-10]]
 
 ## Недельные сводки
 
