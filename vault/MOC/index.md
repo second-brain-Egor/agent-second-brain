@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-17
-last_accessed: 2026-10-17
+updated: 2026-10-18
+last_accessed: 2026-10-18
 relevance: 1.0
 tier: active
 ---
@@ -11,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 1009
-- Связей: 2491
+- Заметок: 1016
+- Связей: 2503
 - Сирот: 74
-- Слабосвязанных: 80
+- Слабосвязанных: 81
 
 ## Память
 
@@ -276,6 +276,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/metadata.md|I Turned GPT-6 Astra Into the Ultimate AI Second Brain]]
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/analysis.md|Мэтт Покок: самый ценный навык в эпоху ИИ]]
+- [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/description.md|description]]
+- [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/metadata.md|Matt Pocock: The Most Valuable Skill to Learn in the Age of AI]]
+- [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/analysis.md|Карточка ролика: Opus 5.5 только что изменила видеомонтаж навсегда (бесплатные навыки)]]
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/description.md|description]]
@@ -750,13 +756,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-10-18.md|2026-10-18]]
 - [[daily/2026-10-17.md|2026-10-17]]
 - [[daily/2026-10-16.md|2026-10-16]]
 - [[daily/2026-10-15.md|2026-10-15]]
 - [[daily/2026-10-14.md|2026-10-14]]
 - [[daily/2026-10-13.md|2026-10-13]]
 - [[daily/2026-10-12.md|2026-10-12]]
-- [[daily/2026-10-11.md|2026-10-11]]
 
 ## Недельные сводки
 

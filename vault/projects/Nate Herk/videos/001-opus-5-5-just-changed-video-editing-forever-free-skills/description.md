@@ -2,7 +2,7 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-09-26
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 My FREE Hyperframes skills: https://www.skool.com/ai-automation-society/about?el=opus-5.5-motion-design&hcategory=youtube-videos&utm_campaign=free-group

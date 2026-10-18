@@ -961,7 +961,22 @@
       "frames_required": true,
       "updated_at": "2026-10-16T07:01:32+03:00",
       "completed_at": "2026-10-16T07:01:32+03:00"
+    },
+    "Z8lf5oWKfj0": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027",
+      "title": "Matt Pocock: The Most Valuable Skill to Learn in the Age of AI",
+      "url": "https://www.youtube.com/watch?v=Z8lf5oWKfj0",
+      "upload_date": "20261016",
+      "comments": 32,
+      "frames": 48,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-17T07:02:54+03:00",
+      "completed_at": "2026-10-17T07:02:54+03:00"
     }
   },
-  "updated_at": "2026-10-16T07:01:32+03:00"
+  "updated_at": "2026-10-17T07:02:54+03:00"
 }

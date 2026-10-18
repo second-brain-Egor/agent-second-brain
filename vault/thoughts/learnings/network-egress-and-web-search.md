@@ -2,7 +2,7 @@
 type: note
 description: "Сеть бота: зарубежный VPN-выход, страж северных узлов, маршрут Telegram и отдельный веб-поиск."
 last_accessed: 2026-10-10
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Сеть бота и веб-поиск (разобрано 2026-06-11)

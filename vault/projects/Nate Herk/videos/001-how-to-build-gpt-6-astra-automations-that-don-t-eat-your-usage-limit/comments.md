@@ -3,7 +3,7 @@ type: project
 description: "Get FREE Hyperagent credits here: https://www.hyperagent.com/nate100 FREE First Client SOP..."
 related: 
 last_accessed: 2026-09-20
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Комментарии

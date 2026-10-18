@@ -2,7 +2,7 @@
 type: project
 description: "Проверяемый визуальный ряд — project"
 last_accessed: 2026-10-05
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Проверяемый визуальный ряд

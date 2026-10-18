@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-10-16
+last_accessed: 2026-10-17
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-16 07:01
-Всего видео в папке: 66
-Записей в журнале: 64
+Обновлено: 2026-10-17 07:02
+Всего видео в папке: 67
+Записей в журнале: 65
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -429,6 +429,18 @@ tier: active
 Транскрипт: есть
 Кадры: 23
 Обновлено: 2026-09-07T07:00:51+03:00
+
+## 001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027
+
+Статус: complete
+Название: Matt Pocock: The Most Valuable Skill to Learn in the Age of AI
+Ссылка: https://www.youtube.com/watch?v=Z8lf5oWKfj0
+Дата видео: 20261016
+Описание: есть
+Комментарии: 32
+Транскрипт: есть
+Кадры: 48
+Обновлено: 2026-10-17T07:02:54+03:00
 
 ## 001-opus-5-5-just-changed-video-editing-forever-free-skills
 

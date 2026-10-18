@@ -33,6 +33,7 @@ vault/projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything
 vault/projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best
 vault/projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial
 vault/projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os
+vault/projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027
 vault/projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills
 vault/projects/Nate Herk/videos/001-thank-you-for-1m-subscribers
 vault/projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers
