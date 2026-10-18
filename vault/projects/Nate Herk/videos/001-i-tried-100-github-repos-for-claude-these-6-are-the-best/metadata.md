@@ -1,4 +1,5 @@
 ---
+description: "I Tried 100+ Github Repos for Claude. These 6 Are the Best — project"
 type: project
 last_accessed: 2026-10-12
 relevance: 0.97
