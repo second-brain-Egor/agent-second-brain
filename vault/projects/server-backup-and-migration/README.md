@@ -4,7 +4,7 @@ priority: p1
 status: active
 updated: 2026-04-29
 last_accessed: 2026-04-30
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Выгрузка данных с Regi и переезд бота

@@ -3,7 +3,7 @@ type: project
 description: "Дата: 2025-01-06 Длительность: 53:17 Ссылка: https://www.youtube.com/watch?v=g3-c8XZi7BY"
 related: 
 last_accessed: 2026-08-25
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Карточка ролика: AI-агенты как новый интерфейс к компьютерам

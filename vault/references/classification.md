@@ -3,7 +3,7 @@ type: note
 description: "Based on user's work context (see [ABOUT.md](ABOUT.md)):"
 related: 
 last_accessed: 2026-03-29
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Entry Classification

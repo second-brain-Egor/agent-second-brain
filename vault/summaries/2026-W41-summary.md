@@ -1,6 +1,6 @@
 ---
-description: "Weekly summary for 2026-W41"
 type: weekly-summary
+description: "Weekly summary for 2026-W41"
 last_accessed: 2026-10-11
 relevance: 0.98
 tier: active

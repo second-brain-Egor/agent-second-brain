@@ -1,6 +1,6 @@
 ---
-description: "AI Agents Just Became Multiplayer. Here's How to Build Them. — project"
 type: project
+description: "AI Agents Just Became Multiplayer. Here's How to Build Them. — project"
 last_accessed: 2026-10-16
 relevance: 0.98
 tier: active
