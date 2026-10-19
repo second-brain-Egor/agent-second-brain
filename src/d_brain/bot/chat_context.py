@@ -86,7 +86,7 @@ def _voice_transcript(vault_path, message: Message, msg_id: int) -> str:
     return ""
 
 
-def replied_message(message: Message, vault_path) -> dict | None:
+def replied_message(message: Message, vault_path=None, *, voice_transcript: str | None = None) -> dict | None:
     """Сообщение, на которое пользователь ответил: время, автор, текст и выделена ли цитата."""
     reply = message.reply_to_message
     if reply is None or reply.forum_topic_created is not None:
@@ -99,7 +99,10 @@ def replied_message(message: Message, vault_path) -> dict | None:
     text = quote.text if fragment else (reply.text or reply.caption or "")
     if not text:
         if reply.voice or reply.video_note:
-            transcript = _voice_transcript(vault_path, message, reply.message_id)
+            # Temporary chats supply RAM-only context and must not read saved sessions.
+            transcript = voice_transcript
+            if transcript is None and vault_path is not None:
+                transcript = _voice_transcript(vault_path, message, reply.message_id)
             text = f"голосовое: «{transcript}»" if transcript else "голосовое (расшифровка не найдена)"
         elif reply.photo:
             text = "[фото]"
@@ -119,9 +122,9 @@ def replied_message(message: Message, vault_path) -> dict | None:
     }
 
 
-def reply_prompt(message: Message, text: str, vault_path) -> str:
+def reply_prompt(message: Message, text: str, vault_path=None, *, voice_transcript: str | None = None) -> str:
     """Текст запроса к модели с цитатой сообщения, на которое ответил пользователь."""
-    replied = replied_message(message, vault_path)
+    replied = replied_message(message, vault_path, voice_transcript=voice_transcript)
     if replied is None:
         return text
     whose = "твоё сообщение" if replied["author"] == "assistant" else "своё сообщение"

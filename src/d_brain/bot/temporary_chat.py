@@ -8,6 +8,7 @@ import shutil
 import tempfile
 from pathlib import Path
 
+from d_brain.bot.chat_context import reply_prompt
 from d_brain.bot.formatters import prepare_telegram_response
 from d_brain.bot.keyboards import CHAT_BUTTON_LABELS, WORK_BUTTON_LABELS, get_main_keyboard
 from d_brain.bot.request_jobs import STATUS, STOP
@@ -31,6 +32,7 @@ class TemporaryChat:
         self.jobs = jobs
         self.history = []
         self.images = []
+        self.voice_transcripts = {}
         self.tasks = {}
         self.albums = {}
         self.lock = asyncio.Lock()
@@ -75,11 +77,13 @@ class TemporaryChat:
             await self.stop()
             self.history.clear()
             self.images.clear()
+            self.voice_transcripts.clear()
             # Clear only the pending /do or silent state, retaining other preferences.
             if data.get("state"):
                 await data["state"].set_state(None)
             await message.answer(
-                "🕶 Временный чат включён. Переписка не сохраняется и не попадает в обработку."
+                "🕶 Временный чат включён. Переписка не сохраняется и не попадает в обработку. "
+                "Сохранённые проекты и разборы здесь недоступны."
                 if new_mode else
                 "💬 Обычный чат включён. Временный контекст очищен; новые сообщения сохраняются.",
                 reply_markup=get_main_keyboard(message.from_user.id))
@@ -131,6 +135,7 @@ class TemporaryChat:
         await self.stop()
         self.history.clear()
         self.images.clear()
+        self.voice_transcripts.clear()
 
     async def thread(self, function, *args):
         # Let cancellation terminate the process before disposing of its RAM files.
@@ -181,7 +186,12 @@ class TemporaryChat:
                         parts, images = [], []
                         for item in batch:
                             text = transcript if item.voice else (item.text or item.caption or "")
-                            parts.append(text or "[Вложение без подписи]")
+                            if item.voice and transcript:
+                                self.voice_transcripts[item.message_id] = transcript
+                            original = item.reply_to_message
+                            voice_context = self.voice_transcripts.get(original.message_id) if original else None
+                            parts.append(reply_prompt(item, text or "[Вложение без подписи]",
+                                                      voice_transcript=voice_context))
                             await self.attachment(item, bot, workspace, parts, images)
                         self.images.extend((Path(path).read_bytes(), Path(path).suffix) for path in images)
                         images = []

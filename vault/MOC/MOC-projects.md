@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-10-18
+last_accessed: 2026-10-19
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-19 | folders: 25, notes: 709, standalone: 0
+> Generated: 2026-10-20 | folders: 25, notes: 709, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -329,7 +329,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/analysis|Дополнения для Claude: полный разбор ролика Нейта]] — Полный разбор речи и экранных вставок: десять позиций для Claude, реальные демонстрации, ограничения и проверка перви...
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/дополнительный-разбор|Дополнительный разбор текста, аудио и всех сохранённых кадров]] — Дополнительный разбор текста, аудио и всех сохранённых кадров — project
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/проверка-кадров|Журнал просмотра кадров]] — Журнал просмотра 467 кадров ролика DFlELTiSPk8 на 39 контактных листах
-- [[projects/Nate Herk/download-journal|Журнал скачанных видео]] — Обновлено: 2026-10-18 07:00 Всего видео в папке: 67 Записей в журнале: 65
+- [[projects/Nate Herk/download-journal|Журнал скачанных видео]]
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]] — Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой рез...
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/analysis|Инженеры Anthropic только что в десять раз улучшили Claude Code для всех]] — Карточка ролика о сокращении лишних указаний, проверке настройки Claude Code и передаче источников между этапами работы
 - [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/frames/README|Кадры]] — Кадры — project
@@ -454,7 +454,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/проверка-кадров|Проверка экранных вставок — 12 октября 2026]] — Проверка экранных вставок — 12 октября 2026 — project
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames-timed/README|Проверяемый визуальный ряд]] — Проверяемый визуальный ряд — project
 - [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/analysis|Пять дополнений Claude Code, которые стоит настроить сразу]] — Разбор пяти дополнений интерфейса Claude Code для контроля контекста, долгих целей, записи экрана и параллельной прав...
-- [[projects/Nate Herk/summary|Сводка по видео]] — Папка: Nate Herk Роликов в выгрузке: 67
+- [[projects/Nate Herk/summary|Сводка по видео]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/analysis|Спасибо за миллион подписчиков]] — - Дата публикации: 9 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=5QmOh...
 - [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/analysis|Я дал GPT-6 Astra 10 000 долларов на торговлю акциями — и вот что произошло]] — Разбор семидневного опыта торговли акциями на настоящие деньги с GPT-6 Astra, Codex, Grok Bot и Alpaca.
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/analysis.до-проверки-2026-10-12|Я попробовал более ста хранилищ GitHub для Claude. Эти шесть — лучшие]] — Разбор набора хранилищ и навыков для Claude: от поиска клиентов и создания материалов до проверки приложения и продви...

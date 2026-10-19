@@ -22,6 +22,8 @@ def message(text=None, number=1, **values):
                 date=datetime.now(timezone.utc), chat=SimpleNamespace(id=7, type='private', title=None),
                 from_user=SimpleNamespace(id=7), voice=None, photo=None, document=None,
                 video=None, video_note=None, audio=None, media_group_id=None,
+                reply_to_message=None, quote=None, forum_topic_created=None,
+                is_topic_message=False, message_thread_id=None,
                 answer=AsyncMock())
     args.update(values)
     return SimpleNamespace(**args)
@@ -76,13 +78,75 @@ async def test_text_and_followup_never_enter_normal_pipeline(chat, monkeypatch):
     assert json.loads(mode_path(chat.settings).read_text()) == {'enabled': True}
 
 
+@pytest.mark.parametrize('voice_reply', [False, True])
+@pytest.mark.parametrize('selected_quote', [False, True])
+async def test_temporary_reply_includes_original_message(chat, monkeypatch, voice_reply, selected_quote):
+    seen = []
+    monkeypatch.setattr(module, 'reply', lambda settings, workspace, history, images:
+                        seen.append(history[-1]['text']) or 'Answer')
+    original = message('Nate Herk: no new videos. Stored analyses exist.', number=10,
+                       from_user=SimpleNamespace(id=99, is_bot=True))
+    quote = SimpleNamespace(text='Stored analyses exist.', is_manual=True) if selected_quote else None
+    values = {'reply_to_message': original, 'quote': quote}
+    if voice_reply:
+        values['voice'] = SimpleNamespace(file_id='voice')
+        monkeypatch.setattr('d_brain.bot.handlers.voice._transcribe_voice',
+                            AsyncMock(return_value='Explain this report'))
+    request = message(None if voice_reply else 'Explain this report', number=11, **values)
+    await deliver(chat, request)
+    await drain(chat)
+    assert len(seen) == 1
+    assert 'Stored analyses exist.' in seen[0]
+    assert 'Explain this report' in seen[0]
+    assert ('Nate Herk:' in seen[0]) is not selected_quote
+    assert durable_files(chat) == [mode_path(chat.settings)]
+
+
+async def test_temporary_voice_reference_uses_ram_and_never_reads_vault(chat, monkeypatch):
+    seen = []
+    monkeypatch.setattr(module, 'reply', lambda settings, workspace, history, images:
+                        seen.append(history[-1]['text']) or 'Answer')
+    monkeypatch.setattr('d_brain.bot.handlers.voice._transcribe_voice',
+                        AsyncMock(return_value='Private voice about the video'))
+    disk_lookup = Mock(side_effect=AssertionError('Temporary chat must not read session logs'))
+    monkeypatch.setattr('d_brain.bot.chat_context._voice_transcript', disk_lookup)
+    original = message(number=20, voice=SimpleNamespace(file_id='voice'),
+                       from_user=SimpleNamespace(id=7, is_bot=False))
+    await deliver(chat, original)
+    await drain(chat)
+    await deliver(chat, message('What did I mean?', number=21, reply_to_message=original))
+    await drain(chat)
+    assert 'Private voice about the video' in seen[-1]
+    disk_lookup.assert_not_called()
+    assert durable_files(chat) == [mode_path(chat.settings)]
+    await chat.close()
+    assert not chat.voice_transcripts
+
+
+async def test_temporary_old_voice_reference_does_not_read_persistent_history(chat, monkeypatch):
+    seen = []
+    monkeypatch.setattr(module, 'reply', lambda settings, workspace, history, images:
+                        seen.append(history[-1]['text']) or 'Answer')
+    disk_lookup = Mock(side_effect=AssertionError('Temporary chat must not read session logs'))
+    monkeypatch.setattr('d_brain.bot.chat_context._voice_transcript', disk_lookup)
+    old_voice = message(number=30, voice=SimpleNamespace(file_id='voice'),
+                        from_user=SimpleNamespace(id=7, is_bot=False))
+    await deliver(chat, message('Explain it', number=31, reply_to_message=old_voice))
+    await drain(chat)
+    disk_lookup.assert_not_called()
+    assert len(seen) == 1 and 'Explain it' in seen[0]
+    assert durable_files(chat) == [mode_path(chat.settings)]
+
+
 async def test_exit_clears_context_and_does_not_replay(chat, monkeypatch):
     monkeypatch.setattr(module, 'reply', lambda *a: 'Ответ')
     await deliver(chat, message('Секрет'))
     await drain(chat)
+    chat.voice_transcripts[100] = 'Private transcript'
     switch = message('💬 Обычный чат', 2)
     await deliver(chat, switch)
     assert not enabled(chat.settings) and chat.history == [] and chat.images == []
+    assert not chat.voice_transcripts
     labels = [b.text for row in switch.answer.call_args.kwargs['reply_markup'].keyboard for b in row]
     assert '🕶 Временный чат' in labels
     normal = await deliver(chat, message('Обычный вопрос', 3))

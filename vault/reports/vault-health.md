@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-19
-last_accessed: 2026-10-19
+updated: 2026-10-20
+last_accessed: 2026-10-20
 relevance: 1.0
 tier: active
 ---
@@ -11,8 +11,8 @@ tier: active
 
 ## Обзор
 
-- Заметок: 1018
-- Связей: 2504
+- Заметок: 1019
+- Связей: 2505
 - Сирот: 74
 - Слабосвязанных: 84
 
@@ -22,7 +22,7 @@ tier: active
 |---|---:|---:|
 | MOC | 7 | 221.71 |
 | blog | 2 | 1.00 |
-| daily | 201 | 1.48 |
+| daily | 202 | 1.48 |
 | goals | 5 | 8.00 |
 | memory | 5 | 45.80 |
 | projects | 709 | 3.50 |
@@ -31,7 +31,7 @@ tier: active
 | root | 1 | 3.00 |
 | summaries | 26 | 1.23 |
 | templates | 2 | 0.00 |
-| thoughts | 53 | 5.11 |
+| thoughts | 53 | 5.13 |
 
 ## Самые связные заметки
 

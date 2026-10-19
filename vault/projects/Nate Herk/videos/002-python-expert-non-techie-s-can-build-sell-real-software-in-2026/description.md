@@ -3,7 +3,7 @@ type: project
 description: "FREE 14 day CodeRabbit trial: https://coderabbit.link/ad-nate-herk-001 FREE First Client SOP..."
 related: 
 last_accessed: 2026-10-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 FREE 14 day CodeRabbit trial: https://coderabbit.link/ad-nate-herk-001
