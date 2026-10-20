@@ -4,7 +4,7 @@ description: "Состояние непрерывного сбора тиков 
 related: "[[projects/trading/dash/analysis-2026-07-07]]"
 updated: 2026-10-15
 last_accessed: 2026-08-16
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Сбор данных DASH

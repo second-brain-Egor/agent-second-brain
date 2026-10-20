@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-10-19
+last_accessed: 2026-10-20
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-19 07:00
-Всего видео в папке: 67
-Записей в журнале: 65
+Обновлено: 2026-10-20 07:01
+Всего видео в папке: 68
+Записей в журнале: 66
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -393,6 +393,18 @@ tier: active
 Транскрипт: есть
 Кадры: 42
 Обновлено: 2026-10-14T07:01:07+03:00
+
+## 001-i-tried-100-ai-tools-these-7-are-the-best
+
+Статус: complete
+Название: I Tried 100+ AI Tools. These 7 Are the Best
+Ссылка: https://www.youtube.com/watch?v=hgLI491ajG0
+Дата видео: 20261019
+Описание: есть
+Комментарии: 43
+Транскрипт: есть
+Кадры: 140
+Обновлено: 2026-10-20T07:01:13+03:00
 
 ## 001-i-tried-100-github-repos-for-claude-these-6-are-the-best
 

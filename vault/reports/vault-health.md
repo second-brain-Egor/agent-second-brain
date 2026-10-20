@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-20
-last_accessed: 2026-10-20
+updated: 2026-10-21
+last_accessed: 2026-10-21
 relevance: 1.0
 tier: active
 ---
@@ -11,8 +11,8 @@ tier: active
 
 ## Обзор
 
-- Заметок: 1019
-- Связей: 2505
+- Заметок: 1029
+- Связей: 2535
 - Сирот: 74
 - Слабосвязанных: 84
 
@@ -20,24 +20,24 @@ tier: active
 
 | Домен | Заметок | Среднее число связей |
 |---|---:|---:|
-| MOC | 7 | 221.71 |
+| MOC | 7 | 224.29 |
 | blog | 2 | 1.00 |
-| daily | 202 | 1.48 |
+| daily | 203 | 1.48 |
 | goals | 5 | 8.00 |
-| memory | 5 | 45.80 |
-| projects | 709 | 3.50 |
+| memory | 5 | 46.00 |
+| projects | 718 | 3.50 |
 | references | 5 | 2.00 |
 | reports | 2 | 46.50 |
 | root | 1 | 3.00 |
 | summaries | 26 | 1.23 |
 | templates | 2 | 0.00 |
-| thoughts | 53 | 5.13 |
+| thoughts | 53 | 5.19 |
 
 ## Самые связные заметки
 
-- [[MOC/index.md|Индекс знаний]] — 774 связей
-- [[MOC/MOC-projects.md|MOC - Projects]] — 713 связей
-- [[memory/facts.md|Ключевые факты и события]] — 142 связей
+- [[MOC/index.md|Индекс знаний]] — 783 связей
+- [[MOC/MOC-projects.md|MOC - Projects]] — 722 связей
+- [[memory/facts.md|Ключевые факты и события]] — 143 связей
 - [[projects/Рынок стройматериалы/cards/README.md|Карточки товаров — Новорязанка]] — 107 связей
 - [[projects/Рынок стройматериалы/product-cards-page-1-2026-04-26.md|Карточки товаров — Новорязанка, страница 1]] — 85 связей
 - [[reports/vault-health.md|Health Check Vault]] — 68 связей

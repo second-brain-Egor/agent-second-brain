@@ -2,7 +2,7 @@
 type: project
 description: "Matt Pocock: The Most Valuable Skill to Learn in the Age of AI — project"
 last_accessed: 2026-10-17
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Matt Pocock: The Most Valuable Skill to Learn in the Age of AI

@@ -2,7 +2,7 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-10-01
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/?utm_source=youtube&utm_medium=organic&utm_content=muse-vs-dots&sl=yt_muse-vs-dots

@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-20
-last_accessed: 2026-10-20
+updated: 2026-10-21
+last_accessed: 2026-10-21
 relevance: 1.0
 tier: active
 ---
@@ -11,8 +11,8 @@ tier: active
 
 ## Срез
 
-- Заметок: 1019
-- Связей: 2505
+- Заметок: 1029
+- Связей: 2535
 - Сирот: 74
 - Слабосвязанных: 84
 
@@ -254,6 +254,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/metadata.md|I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.]]
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/проверка.md|Проверка разбора REA]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/analysis.md|Я попробовал более ста инструментов ИИ. Эти семь — лучшие]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/metadata.md|I Tried 100+ AI Tools. These 7 Are the Best]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/analysis.md|Дополнения для Claude: полный разбор ролика Нейта]]
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/analysis.до-проверки-2026-10-12.md|Я попробовал более ста хранилищ GitHub для Claude. Эти шесть — лучшие]]
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/comments.md|Комментарии]]
@@ -631,6 +637,9 @@ tier: active
 - [[projects/Ежедневник/youtube-habits/videos/014-успешные-люди-о-главном/description.md|description]]
 - [[projects/Ежедневник/youtube-habits/videos/014-успешные-люди-о-главном/metadata.md|Успешные люди о главном]]
 - [[projects/Ирина работа/Журнал документов.md|Журнал документов — Ирина работа]]
+- [[projects/Мульт Япония/README.md|Мульт Япония]]
+- [[projects/Мульт Япония/История обсуждения.md|История обсуждения проекта «Белянин»]]
+- [[projects/Мульт Япония/Разбор Нейта — архитектура ИИ-группы.md|Как Нейт организует работу нескольких ИИ-агентов]]
 - [[projects/Подключение/README.md|Подключение]]
 - [[projects/Подключение/modem-antenna-4g.md|4G на даче: модем + антенна + что докупить]]
 - [[projects/Рынок стройматериалы/README.md|Рынок стройматериалы]]
@@ -756,13 +765,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-10-21.md|2026-10-21]]
 - [[daily/2026-10-20.md|2026-10-20]]
 - [[daily/2026-10-19.md|2026-10-19]]
 - [[daily/2026-10-18.md|2026-10-18]]
 - [[daily/2026-10-17.md|2026-10-17]]
 - [[daily/2026-10-16.md|2026-10-16]]
 - [[daily/2026-10-15.md|2026-10-15]]
-- [[daily/2026-10-14.md|2026-10-14]]
 
 ## Недельные сводки
 

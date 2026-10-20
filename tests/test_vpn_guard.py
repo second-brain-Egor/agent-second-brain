@@ -381,7 +381,7 @@ def rounds(guard, monkeypatch, plan):
 def test_strict_probe_passes_with_every_service_and_tolerates_one_glitch(guard, monkeypatch):
     rounds(guard, monkeypatch, [((), "NO")] * 3)
     result = guard.probe_egress()
-    assert result["ok"] and result["score"] == "6 из 6" and result["country"] == "NO"
+    assert result["ok"] and result["score"] == "9 из 9" and result["country"] == "NO"
     rounds(guard, monkeypatch, [(("Google",), "NO"), ((), "NO"), ((), "NO")])
     assert guard.probe_egress()["ok"]
 
@@ -390,7 +390,7 @@ def test_strict_probe_rejects_half_dead_node_early(guard, monkeypatch):
     # Как Стокгольм 9 октября: нейросеть отвечает, Telegram — нет.
     rounds(guard, monkeypatch, [(("Telegram", "YouTube"), "SE"), (("Telegram",), "SE")])
     result = guard.probe_egress()
-    assert not result["ok"] and result["failed"] == ["Telegram"] and result["score"] == "2 из 4"
+    assert not result["ok"] and result["failed"] == ["Telegram"] and result["score"] == "4 из 6"
     assert "Telegram" in result["problem"]
 
 
@@ -405,6 +405,19 @@ def test_quick_round_requires_ai_and_telegram_only(guard, monkeypatch):
     assert guard.probe_egress(rounds=1)["ok"]
     rounds(guard, monkeypatch, [(("Telegram",), "NO")])
     assert not guard.probe_egress(rounds=1)["ok"]
+
+
+@pytest.mark.parametrize("service", ["Codex", "Claude"])
+def test_model_endpoint_failure_rejects_otherwise_working_vpn(guard, monkeypatch, service):
+    rounds(guard, monkeypatch, [((service,), "NO")] * 3)
+    result = guard.probe_egress()
+    assert not result["ok"] and result["failed"] == [service]
+    assert service in result["problem"]
+
+
+def test_one_codex_glitch_does_not_trigger_node_change(guard, monkeypatch):
+    rounds(guard, monkeypatch, [(("Codex",), "NO"), ((), "NO"), ((), "NO")])
+    assert guard.probe_egress()["ok"]
 
 
 def test_optional_services_do_not_reject_node(guard, monkeypatch):

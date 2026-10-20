@@ -4,7 +4,7 @@ description: "Идея рабочего контура, похожего на Co
 status: idea
 created: 2026-08-17
 last_accessed: 2026-08-23
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 

@@ -2,7 +2,7 @@
 type: note
 description: "Дата: 2026-04-08"
 last_accessed: 2026-04-08
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Правила горизонта планирования

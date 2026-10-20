@@ -976,7 +976,22 @@
       "frames_required": true,
       "updated_at": "2026-10-17T07:02:54+03:00",
       "completed_at": "2026-10-17T07:02:54+03:00"
+    },
+    "hgLI491ajG0": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best",
+      "title": "I Tried 100+ AI Tools. These 7 Are the Best",
+      "url": "https://www.youtube.com/watch?v=hgLI491ajG0",
+      "upload_date": "20261019",
+      "comments": 43,
+      "frames": 140,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-20T07:01:13+03:00",
+      "completed_at": "2026-10-20T07:01:13+03:00"
     }
   },
-  "updated_at": "2026-10-17T07:02:54+03:00"
+  "updated_at": "2026-10-20T07:01:13+03:00"
 }

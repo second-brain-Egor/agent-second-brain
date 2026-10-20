@@ -3,7 +3,7 @@ type: project
 description: "Карточка ролика об автоматическом выборе моделей, встроенном поиске по X и запуске Claude Code внутри Grok Bot"
 related: 
 last_accessed: 2026-10-09
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Grok Bot получил два крупных обновления — что сделать сейчас
