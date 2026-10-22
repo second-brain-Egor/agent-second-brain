@@ -4,7 +4,7 @@ description: "- Пролёт — 6 м. - Элементы — трубы Ø42 м
 status: exploration
 created: 2026-08-21
 last_accessed: 2026-08-23
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Трубная ферма на строительных хомутах

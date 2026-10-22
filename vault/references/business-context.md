@@ -3,7 +3,7 @@ type: note
 description: "[Your Company Name] — [what the company does]."
 related: 
 last_accessed: 2026-03-29
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Business Context

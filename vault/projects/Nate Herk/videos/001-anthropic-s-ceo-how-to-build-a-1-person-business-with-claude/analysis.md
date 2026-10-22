@@ -3,7 +3,7 @@ type: project
 description: "Глава Anthropic: как построить бизнес одного человека с Claude"
 related: 
 last_accessed: 2026-09-20
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Глава Anthropic: как построить бизнес одного человека с Claude

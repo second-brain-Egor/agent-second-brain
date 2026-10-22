@@ -3,7 +3,7 @@ type: project
 description: "Я проверил Opus 5.5 на всех уровнях глубины — разбор"
 related: 
 last_accessed: 2026-09-25
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Я проверил Opus 5.5 на всех уровнях глубины. Что нужно знать

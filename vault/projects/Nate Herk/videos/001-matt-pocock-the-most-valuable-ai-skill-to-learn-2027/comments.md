@@ -2,7 +2,7 @@
 type: project
 description: "Комментарии — project"
 last_accessed: 2026-10-17
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Комментарии

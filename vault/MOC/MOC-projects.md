@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-10-20
+last_accessed: 2026-10-21
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-21 | folders: 26, notes: 718, standalone: 0
+> Generated: 2026-10-22 | folders: 26, notes: 718, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -336,7 +336,6 @@ tier: active
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]] — Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой рез...
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/analysis|Инженеры Anthropic только что в десять раз улучшили Claude Code для всех]] — Карточка ролика о сокращении лишних указаний, проверке настройки Claude Code и передаче источников между этапами работы
 - [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/frames/README|Кадры]] — Кадры — project
@@ -478,14 +477,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-openai-s-dots-vs-meta-s-muse-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 24
-- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 13
 - [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 107
@@ -509,6 +506,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 39
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 23
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 23
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/frames/README|Кадры]] — Кадры — project
@@ -520,10 +518,12 @@ tier: active
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 32
 - [[projects/Nate Herk/videos/002-gpt-6-astra-made-this-entire-video/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 76
 - [[projects/Nate Herk/videos/002-how-to-build-codex-skills-better-than-99-of-people/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 34
+- [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-i-tested-gpt-6-astra-vs-fable-5-1-on-15-real-use-cases/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 331
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 57
 - [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 20
+- [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 6
 - [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 56
 - [[projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency/frames/README|Кадры]] — Кадры — project
