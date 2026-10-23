@@ -2,7 +2,7 @@
 type: project
 description: "No, Seriously. Claude Code is Starting To Get Dangerous — project"
 last_accessed: 2026-09-29
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # No, Seriously. Claude Code is Starting To Get Dangerous

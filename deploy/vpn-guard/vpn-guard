@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """Страж выхода сервера. Работает без нейросети.
 
-Раз в 5 минут строго проверяет выход: через узел должны открываться нейросеть, Telegram, Google,
+Каждую минуту строго проверяет выход: через узел должны открываться нейросеть, Telegram, Google,
 YouTube и Cloudflare, а страна выхода — быть из очереди PLACES (Осло, Стокгольм, Оулу, запасной
 Вильнюс). Если выход не работает — забирает свежую подписку, пробует сначала свежие настройки
 того же узла, потом остальные по очереди и подменяет в конфиге Xray только блок подключения
 (исходящее соединение «proxy»). Остальное в конфиге — прозрачный заворот, прямой выход
 для forumhouse.ru — не затрагивается. Любая замена идёт под страховочным таймером отката.
-Пока выход работает, страна не меняется; с запасного узла страж возвращается на север,
-когда северный узел проходит проверку RETURN_STREAK раз подряд.
+Осло — основной выход. На любом другом узле страж проверяет Осло каждую минуту
+и возвращается сразу после успешной строгой проверки.
 
     vpn-guard check              проверка по таймеру
     vpn-guard status             состояние (JSON)
@@ -71,7 +71,6 @@ SAFETY_SECONDS = 240
 MAX_CANDIDATES = 8
 KEEP_BACKUPS = 10
 ROUNDS = 3          # кругов строгой проверки; служба должна ответить хотя бы в ROUNDS-1 из них
-RETURN_STREAK = 3   # столько проверок подряд северный узел должен пройти, чтобы уйти с запасного
 
 
 @dataclass(frozen=True)
@@ -929,17 +928,13 @@ def do_refresh(*, force: bool, dry_run: bool = False, url_override: str | None =
     return failure(f'⚠️ <b>Рабочего узла не нашёл.</b> {detail}. Прежнее состояние сохранено.', detail)
 
 
-def return_north(state: dict) -> dict | None:
-    """Стоим на запасном узле, и он работает: ищем северный.
-
-    Возвращаемся, когда северный узел проходит строгую проверку RETURN_STREAK проверок подряд,
-    чтобы выход не прыгал между странами, пока узел то поднимается, то падает.
-    """
+def return_oslo(state: dict) -> dict | None:
+    """Проверяет основной Осло с любого запасного выхода и сразу возвращается."""
     config = read_config()
     current_name = config.get('remarks')
     place = place_of(current_name)
-    if not place or not place.reserve:
-        state.pop('north_streak', None)
+    state.pop('north_streak', None)
+    if place == PLACES[0]:
         return None
     url = read_subscription_url()
     if not url:
@@ -947,39 +942,35 @@ def return_north(state: dict) -> dict | None:
     try:
         nodes, _ = parse_subscription(fetch_subscription(url, state))
     except GuardError as error:
-        log(f'возврат на север: подписку получить не вышло ({error})')
+        log(f'возврат в Осло: подписку получить не вышло ({error})')
         return None
     found = None
     for node in rank(nodes, None):
-        if place_of(node.name).reserve:
+        if place_of(node.name) != PLACES[0]:
             continue
         verdict = test_candidate(node)
-        log(f'возврат на север, проверка «{node.name}»: {"проходит" if verdict["ok"] else "не проходит"} ({verdict_text(verdict)})')
+        log(f'возврат в Осло, проверка «{node.name}»: {"проходит" if verdict["ok"] else "не проходит"} ({verdict_text(verdict)})')
         if verdict['ok']:
             found = node
             break
-    streak = state.get('north_streak', 0) + 1 if found else 0
-    state['north_streak'] = streak
     save_state(state)
-    if not found or streak < RETURN_STREAK:
-        return dict(ok=True, changed=False, message=f'выход работает, на запасном; север проходит проверку {streak} из {RETURN_STREAK}')
-    state['north_streak'] = 0
-    save_state(state)
+    if not found:
+        return dict(ok=True, changed=False, message='запасной выход работает, Осло пока недоступен')
     try:
         result = apply_node(found)
     except GuardError as error:
         result = dict(ok=False, reason=str(error))
     if not result['ok']:
-        log(f'возврат на север не удался: {result["reason"]}; остаюсь на запасном узле')
-        return dict(ok=True, changed=False, message='возврат на север не удался')
+        log(f'возврат в Осло не удался: {result["reason"]}; остаюсь на запасном узле')
+        return dict(ok=True, changed=False, message='возврат в Осло не удался')
     remember_change(current_name, found.name)
     state = load_state()
     egress = result['egress']
-    notify(state, f'🔁 <b>Выход вернулся на север: {esc(place.title)} → {esc(place_title(found.name))}.</b> '
-                  f'Узел прошёл все проверки {RETURN_STREAK} раза подряд. '
+    notify(state, f'🔁 <b>Выход вернулся в Осло: {esc(place_title(current_name))} → {esc(place_title(found.name))}.</b> '
+                  'Основной узел прошёл строгую проверку. '
                   f'Выход отвечает ({esc(egress.get("country") or "?")}, {seconds(egress.get("ms"))}).')
     save_state(state)
-    return dict(ok=True, changed=True, node=found.name, message='выход вернулся на север')
+    return dict(ok=True, changed=True, node=found.name, message='выход вернулся в Осло')
 
 
 def do_set_url(raw: str) -> dict:
@@ -1066,9 +1057,8 @@ def do_status() -> dict:
         lines.append(f'❌ Выход не работает: {esc(egress.get("problem") or "нет ответа")}. Узел: {node_label(outbound, current_name)}.')
     lines.append(f'🧭 Очередь: {esc(QUEUE_TEXT)}.')
     place = place_of(current_name)
-    if place and place.reserve:
-        lines.append(f'↩️ Стоим на запасном. Северный узел прошёл проверку {state.get("north_streak", 0)} из {RETURN_STREAK} раз подряд, '
-                     'после третьего раза вернусь на него.')
+    if place != PLACES[0]:
+        lines.append('↩️ Стоим на запасном. Проверяю Осло каждую минуту и возвращаюсь сразу после успешной строгой проверки.')
     lines.append('')
     if read_subscription_url():
         lines.append(f'🔗 Подписка задана ({esc(sub.get("host", "?"))}): узлов {sub.get("nodes", "?")}, из очереди {sub.get("ours", "?")}. '
@@ -1078,7 +1068,7 @@ def do_status() -> dict:
     lines.append('')
     timer = sh('systemctl', 'is-active', 'vpn-guard.timer').stdout.strip() == 'active'
     change = state.get('last_change')
-    lines.append(f'🕒 Автопроверка раз в 5 минут: {"включена" if timer else "выключена"}. '
+    lines.append(f'🕒 Автопроверка каждую минуту: {"включена" if timer else "выключена"}. '
                  f'Последняя проверка: {esc(state.get("last_check", {}).get("at", "ещё не было"))}.')
     lines.append(f'🔁 Последняя замена: {esc(change["at"]) + " («" + esc(change["to"]) + "»)" if change else "не было"}.')
     return dict(ok=True, egress=egress, message='\n'.join(lines))
@@ -1104,8 +1094,9 @@ def do_check() -> dict:
         save_state(state)
         if not safety_armed() and not snapshot_is_current():
             snapshot()
-        returned = return_north(state)
-        save_state(state)
+        returned = return_oslo(state)
+        if not returned or not returned.get('changed'):
+            save_state(state)
         return returned or dict(ok=True, message='выход работает')
     log(f'выход не работает: {egress.get("problem") or "нет ответа"}')
     if not incident:
@@ -1126,7 +1117,7 @@ def do_check() -> dict:
         state['incident'] = incident
         notify(state, f'⚠️ <b>Выход не работает, рабочего узла не нашёл:</b> {result.get("reason", "причина неизвестна")}.\n\n'
                       'Нейросеть пока недоступна. Напрямую с российского адреса не выхожу, '
-                      'узлы проверяю каждые 5 минут. Открой «⚙️ Обработать» → «VPN».')
+                      'узлы проверяю каждую минуту. Открой «⚙️ Обработать» → «VPN».')
     save_state(state)
     return result
 

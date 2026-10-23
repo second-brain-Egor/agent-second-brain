@@ -490,28 +490,41 @@ def test_working_exit_never_changes_country_even_when_forced(guard, monkeypatch,
     assert rig.tested == [STOCKHOLM] and rig.applied == [STOCKHOLM] and "Обновил настройки" in result["message"]
 
 
-def test_check_on_north_stays_put_while_it_works(guard, monkeypatch, config):
-    config["remarks"] = STOCKHOLM
+def test_check_on_oslo_stays_put_while_it_works(guard, monkeypatch, config):
+    config["remarks"] = OSLO
     rig = Rig(guard, monkeypatch, config, alive=True, nodes=queue_nodes(guard))
     for _ in range(4):
         guard.do_check()
     assert rig.tested == [] and rig.applied == [] and rig.notices == []
 
 
-def test_check_returns_from_reserve_after_three_good_checks_in_a_row(guard, monkeypatch, config):
-    config["remarks"] = VILNIUS
+@pytest.mark.parametrize("current", [STOCKHOLM, OULU, VILNIUS])
+def test_check_returns_to_oslo_immediately_from_any_fallback(guard, monkeypatch, config, current):
+    config["remarks"] = current
     rig = Rig(guard, monkeypatch, config, alive=True, nodes=queue_nodes(guard))
     guard.do_check()
-    rig.verdicts.update({OSLO: False, STOCKHOLM: False, OULU: False})
-    guard.do_check()  # север упал — счёт сначала
-    assert json.loads(guard.STATE_FILE.read_text())["north_streak"] == 0
+    assert rig.applied == [OSLO]
+    assert rig.tested == [OSLO]
+    assert len(rig.notices) == 1 and "Выход вернулся в Осло" in rig.notices[0]
+    assert json.loads(guard.STATE_FILE.read_text())["last_change"]["to"] == OSLO
+
+
+def test_check_stays_on_working_fallback_until_oslo_recovers(guard, monkeypatch, config):
+    config["remarks"] = STOCKHOLM
+    rig = Rig(guard, monkeypatch, config, alive=True, nodes=queue_nodes(guard), verdicts={OSLO: False})
+    guard.do_check()
+    assert rig.applied == [] and rig.notices == []
+    assert rig.tested == [OSLO]
     rig.verdicts.clear()
     guard.do_check()
-    guard.do_check()
-    assert rig.applied == []
-    guard.do_check()
     assert rig.applied == [OSLO]
-    assert len(rig.notices) == 1 and "вернулся на север: 🇱🇹 Вильнюс → 🇳🇴 Осло" in rig.notices[0]
+
+
+def test_check_keeps_fallback_if_oslo_activation_fails(guard, monkeypatch, config):
+    config["remarks"] = STOCKHOLM
+    rig = Rig(guard, monkeypatch, config, alive=True, nodes=queue_nodes(guard), apply_fail=[OSLO])
+    result = guard.do_check()
+    assert not result["changed"] and rig.notices == []
 
 
 def test_late_notification_shows_when_it_was_composed(guard, monkeypatch):

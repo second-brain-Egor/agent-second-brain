@@ -2,7 +2,7 @@
 type: project
 description: "Every Codex Concept Explained for Non-Coders — project"
 last_accessed: 2026-10-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Every Codex Concept Explained for Non-Coders

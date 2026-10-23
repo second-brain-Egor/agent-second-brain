@@ -1,14 +1,14 @@
 ---
 type: moc
 description: "Map of Content: Уроки и паттерны, 25 entries"
-last_accessed: 2026-10-22
+last_accessed: 2026-10-23
 relevance: 1.0
 tier: active
 ---
 
 # Уроки и паттерны
 
-Сгенерировано: 2026-10-22 03:12. Файлов: 25.
+Сгенерировано: 2026-10-23 04:24. Файлов: 25.
 
 - [[thoughts/learnings/agent-team-pattern-portability|Переносимость команды агентов]] — Паттерн из ролика Nate Herk — главный координатор и специализированные исполнители — применим не только в Grok Bot.
 - [[thoughts/learnings/ai-models-2026-07-25|Новые модели Anthropic и OpenAI на 25 июля 2026]] — - Claude Opus 5 вышел 24 июля: основная сильная модель для сложной разработки и профессиональной работы. - Claude Son...
@@ -24,7 +24,7 @@ tier: active
 - [[thoughts/learnings/lora-и-дистилляция|LoRA и дистилляция]] — Различие LoRA и дистилляции: что обучается и какие модели нужны после обучения.
 - [[thoughts/learnings/marketplace-otzyvy-ceny-2026|Сколько платят за отзывы на WB и Ozon (июль 2026)]] — Wildberries — «Баллы за отзывы» / кешбэк за отзывы и вайбы. Ставку продавец задаёт сам: ориентир из практики — 100 ба...
 - [[thoughts/learnings/model-token-economy|Экономия лимита при вопросах о модели]] — Если Егор спрашивает, какая модель сейчас активна, это прямой статусный вопрос.
-- [[thoughts/learnings/network-egress-and-web-search|Сеть бота и веб-поиск (разобрано 2026-06-11)]] — Сеть бота: зарубежный VPN-выход, страж северных узлов, маршрут Telegram и отдельный веб-поиск.
+- [[thoughts/learnings/network-egress-and-web-search|Сеть бота и веб-поиск (разобрано 2026-06-11)]] — Сеть бота: основной выход Осло, резервные узлы, автоматический возврат, маршрут Telegram и отдельный веб-поиск.
 - [[thoughts/learnings/ninkear-m8-vs-gmktec-k6|Ninkear M8 и GMKtec K6]] — Сравнение с мини-ПК Егора GMKtec K6:
 - [[thoughts/learnings/planning-horizon-rules|Правила горизонта планирования]] — Дата: 2026-04-08
 - [[thoughts/learnings/provoloka-dlya-svarki-stali-3-mm|Проволока для сварки стали 3 мм]] — Для уголков и труб со стенкой до 3 мм на Decapower xtraMIG-200 основной выбор — сплошная проволока 0,8 мм.

@@ -1,10 +1,10 @@
 [Unit]
-Description=Проверка выхода сервера каждые 5 минут
+Description=Проверка выхода сервера каждую минуту
 
 [Timer]
 OnBootSec=3min
-OnUnitActiveSec=5min
-AccuracySec=30s
+OnUnitActiveSec=1min
+AccuracySec=1s
 
 [Install]
 WantedBy=timers.target
