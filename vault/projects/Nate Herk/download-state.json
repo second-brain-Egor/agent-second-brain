@@ -991,7 +991,22 @@
       "frames_required": true,
       "updated_at": "2026-10-20T07:01:13+03:00",
       "completed_at": "2026-10-20T07:01:13+03:00"
+    },
+    "DSS1Yqb6-qE": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions",
+      "title": "/roast-room: How I Use Claude to Think Like the Top 1%",
+      "url": "https://www.youtube.com/watch?v=DSS1Yqb6-qE",
+      "upload_date": "20261022",
+      "comments": 16,
+      "frames": 21,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-23T07:01:12+03:00",
+      "completed_at": "2026-10-23T07:01:12+03:00"
     }
   },
-  "updated_at": "2026-10-20T07:01:13+03:00"
+  "updated_at": "2026-10-23T07:01:12+03:00"
 }

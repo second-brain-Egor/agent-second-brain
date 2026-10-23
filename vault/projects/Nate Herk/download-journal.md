@@ -1,14 +1,8 @@
----
-type: project
-last_accessed: 2026-10-22
-relevance: 0.98
-tier: active
----
 # Журнал скачанных видео
 
-Обновлено: 2026-10-22 07:00
-Всего видео в папке: 68
-Записей в журнале: 66
+Обновлено: 2026-10-23 07:01
+Всего видео в папке: 69
+Записей в журнале: 67
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -465,6 +459,18 @@ tier: active
 Транскрипт: есть
 Кадры: 135
 Обновлено: 2026-09-26T07:01:05+03:00
+
+## 001-roast-room-my-ai-board-of-advisors-make-my-decisions
+
+Статус: complete
+Название: /roast-room: How I Use Claude to Think Like the Top 1%
+Ссылка: https://www.youtube.com/watch?v=DSS1Yqb6-qE
+Дата видео: 20261022
+Описание: есть
+Комментарии: 16
+Транскрипт: есть
+Кадры: 21
+Обновлено: 2026-10-23T07:01:12+03:00
 
 ## 001-thank-you-for-1m-subscribers
 

@@ -1,8 +1,7 @@
 ---
 type: note
 updated: 2026-10-23
-last_accessed: 2026-10-23
-relevance: 1.0
+relevance: 0.9
 tier: active
 ---
 # Индекс знаний
@@ -11,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 1031
-- Связей: 2536
+- Заметок: 1037
+- Связей: 2543
 - Сирот: 76
-- Слабосвязанных: 83
+- Слабосвязанных: 88
 
 ## Память
 
@@ -294,6 +293,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/metadata.md|Opus 5.5 Just Changed Video Editing Forever (free skills)]]
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/analysis.md|/roast-room: как я использую Claude, чтобы мыслить как лучшие из лучших]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/description.md|description]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/metadata.md|/roast-room: How I Use Claude to Think Like the Top 1%]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/analysis.md|Спасибо за миллион подписчиков]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/description.md|description]]
