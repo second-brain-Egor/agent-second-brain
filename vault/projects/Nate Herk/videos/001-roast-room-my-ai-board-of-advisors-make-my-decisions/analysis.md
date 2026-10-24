@@ -1,8 +1,7 @@
 ---
 type: project
 description: "Как расширяемый совет помощников Claude Code разбирает деловые решения и создаёт новые роли по открытым материалам"
-related:
-  - "[[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/analysis|Первая версия совета помощников]]"
+related: 
 last_accessed: 2026-10-23
 relevance: 0.98
 tier: active

@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-10-23
+relevance: 0.98
+tier: active
+---
 So right here you can see that I've got
 Jeff Bezos, Paul Graham, Alex Rossi,
 Gary Vee, Dan Martell, Gino Wickman, and

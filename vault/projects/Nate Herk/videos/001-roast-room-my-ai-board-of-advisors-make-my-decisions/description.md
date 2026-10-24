@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-10-23
+relevance: 0.98
+tier: active
+---
 Try Fish Audio today: https://fish.audio/invite/?fpr=nateh
 My FREE resources: https://www.skool.com/ai-automation-society/about?el=roast-room-2&hcategory=youtube-videos&utm_campaign=free-group
 

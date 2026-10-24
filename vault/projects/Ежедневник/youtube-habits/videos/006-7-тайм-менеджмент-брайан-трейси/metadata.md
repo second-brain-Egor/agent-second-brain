@@ -3,7 +3,7 @@ type: project
 description: "7. Тайм менеджмент. Брайан Трейси — project"
 related: 
 last_accessed: 2026-05-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # 7. Тайм менеджмент. Брайан Трейси
