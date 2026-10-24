@@ -1,9 +1,8 @@
 ---
 type: note
 updated: 2026-10-24
-last_accessed: 2026-10-24
-relevance: 1.0
-tier: active
+relevance: 0.86
+tier: warm
 ---
 # Health Check Vault
 
@@ -12,7 +11,7 @@ tier: active
 ## Обзор
 
 - Заметок: 1038
-- Связей: 2551
+- Связей: 2550
 - Сирот: 77
 - Слабосвязанных: 83
 
@@ -25,7 +24,7 @@ tier: active
 | daily | 206 | 1.46 |
 | goals | 5 | 8.00 |
 | memory | 5 | 46.00 |
-| projects | 724 | 3.50 |
+| projects | 724 | 3.49 |
 | references | 5 | 2.00 |
 | reports | 2 | 47.50 |
 | root | 1 | 3.00 |
