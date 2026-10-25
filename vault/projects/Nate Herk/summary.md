@@ -1,3 +1,9 @@
+---
+type: project
+last_accessed: 2026-10-24
+relevance: 0.98
+tier: active
+---
 # Сводка по видео
 
 Папка: Nate Herk

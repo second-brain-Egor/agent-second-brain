@@ -182,6 +182,60 @@ def test_check_button_next_to_vpn():
     assert ("🧪 Проверка", "menu:check") in buttons and ("🔐 VPN", "menu:vpn") in buttons
 
 
+def test_codex_limit_button_is_only_added_for_egor():
+    existing = [("⚙️ Обработать", "menu:process"), ("🔐 VPN", "menu:vpn"),
+                ("🧪 Проверка", "menu:check")]
+    for who in (None, 7, 8):
+        buttons = [(button.text, button.callback_data)
+                   for row in vpn_menu.main_menu(who).inline_keyboard for button in row]
+        assert buttons == existing
+    buttons = [(button.text, button.callback_data)
+               for row in vpn_menu.main_menu(6144231826).inline_keyboard for button in row]
+    assert buttons == existing + [("📊 Лимит Codex", "menu:codex_limit")]
+
+
+@pytest.mark.parametrize("fails", [False, True])
+async def test_codex_limit_callback_reports_fresh_result(tmp_path, monkeypatch, fails):
+    from d_brain.services import codex_limits
+
+    settings = SimpleNamespace(vault_path=tmp_path / "vault", codex_bin="codex",
+                               admin_user_ids=[6144231826])
+    monkeypatch.setattr(vpn_menu, "get_settings", lambda: settings)
+    report = "📊 Недельный лимит Codex: осталось <b>22%</b>."
+    read = AsyncMock(return_value=report)
+    if fails:
+        read.side_effect = codex_limits.CodexLimitsError("Codex не вернул ответ о лимите.")
+    monkeypatch.setattr(codex_limits, "read_weekly_limits", read)
+    shown = AsyncMock()
+    monkeypatch.setattr(vpn_menu, "show", shown)
+    jobs = RequestJobs(settings)
+    callback = SimpleNamespace(from_user=SimpleNamespace(id=6144231826), answer=AsyncMock(),
+                               message=SimpleNamespace(chat=SimpleNamespace(id=6144231826, type="private")))
+    await vpn_menu.menu_codex_limit(callback, request_jobs=jobs)
+    await asyncio.gather(*jobs.tasks)
+    read.assert_awaited_once_with("codex", tmp_path)
+    assert shown.await_args.args[1] == ("⚠️ Codex не вернул ответ о лимите." if fails else report)
+    assert any(button.callback_data == "menu:codex_limit"
+               for row in shown.await_args.args[2].inline_keyboard for button in row)
+    assert not jobs.active
+
+
+@pytest.mark.parametrize("who,chat_id,kind", [
+    (7, 7, "private"), (6144231826, -123, "supergroup"),
+    (6144231826, 7, "private"),
+])
+async def test_codex_limit_callback_rejects_other_users_and_groups(monkeypatch, who, chat_id, kind):
+    from d_brain.services import codex_limits
+
+    read = AsyncMock()
+    monkeypatch.setattr(codex_limits, "read_weekly_limits", read)
+    callback = SimpleNamespace(from_user=SimpleNamespace(id=who), answer=AsyncMock(),
+                               message=SimpleNamespace(chat=SimpleNamespace(id=chat_id, type=kind)))
+    await vpn_menu.menu_codex_limit(callback)
+    read.assert_not_called()
+    assert callback.answer.await_args.kwargs["show_alert"]
+
+
 async def test_non_admin_callback_gets_alert(tmp_path, monkeypatch):
     dp, bot, jobs, send = await build(tmp_path, monkeypatch)
     guard = AsyncMock()

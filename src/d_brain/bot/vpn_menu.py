@@ -35,6 +35,7 @@ LINK_TTL = 300  # сколько секунд бот ждёт ссылку по�
 # Начало сообщения, которое точно является ключом VPN, а не обычной ссылкой из переписки.
 SECRET_SCHEMES = ("vless://", "vmess://", "trojan://", "ss://", "happ://")
 MENU_TEXT = "⚙️ <b>Что запустить?</b>"
+CODEX_LIMIT_USER_ID = 6144231826
 NO_ANSWER = "⚠️ Страж VPN не вернул ответа."
 VPN_TEXT = ("🔐 <b>VPN</b>\n\nВыход, через который сервер ходит в интернет: Осло, при сбое Стокгольм "
             "или Оулу, запасной Вильнюс. Что сделать?")
@@ -53,11 +54,13 @@ class VpnAdmin(Filter):
         return enabled_for(event.from_user.id if event.from_user else None)
 
 
-def main_menu() -> InlineKeyboardMarkup:
+def main_menu(user_id: int | None = None) -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     builder.button(text="⚙️ Обработать", callback_data="menu:process")
     builder.button(text="🔐 VPN", callback_data="menu:vpn")
     builder.button(text="🧪 Проверка", callback_data="menu:check")
+    if user_id == CODEX_LIMIT_USER_ID:
+        builder.button(text="📊 Лимит Codex", callback_data="menu:codex_limit")
     builder.adjust(2)
     return builder.as_markup()
 
@@ -215,7 +218,7 @@ async def capture(message: Message, bot: Any, link: str, pending: tuple[float, i
 
 @router.message(F.text == "⚙️ Обработать", F.chat.type == "private", VpnAdmin())
 async def show_menu(message: Message) -> None:
-    await message.answer(MENU_TEXT, reply_markup=main_menu())
+    await message.answer(MENU_TEXT, reply_markup=main_menu(message.from_user.id))
 
 
 @router.callback_query(F.data.startswith(("menu:", "vpn:")), ~VpnAdmin())
@@ -227,7 +230,30 @@ async def refuse_callback(callback: CallbackQuery) -> None:
 async def menu_back(callback: CallbackQuery) -> None:
     waiting.pop(callback.from_user.id, None)
     await callback.answer()
-    await show(callback.message, MENU_TEXT, main_menu())
+    await show(callback.message, MENU_TEXT, main_menu(callback.from_user.id))
+
+
+@router.callback_query(F.data == "menu:codex_limit", VpnAdmin())
+async def menu_codex_limit(callback: CallbackQuery, request_jobs: Any = None) -> None:
+    from d_brain.services.codex_limits import CodexLimitsError, read_weekly_limits
+
+    message = callback.message
+    if (callback.from_user.id != CODEX_LIMIT_USER_ID or message is None
+            or message.chat.type != "private" or message.chat.id != CODEX_LIMIT_USER_ID):
+        await callback.answer("Эта кнопка доступна только Егору в личном чате.", show_alert=True)
+        return
+    await callback.answer()
+    await show(message, "⏳ Проверяю недельный лимит Codex…", None)
+    settings = get_settings()
+
+    async def work() -> None:
+        try:
+            text = await read_weekly_limits(settings.codex_bin, settings.vault_path.resolve().parent)
+        except CodexLimitsError as error:
+            text = f"⚠️ {error}"
+        await show(message, text, main_menu(callback.from_user.id))
+
+    start_supervised(request_jobs, callback.from_user.id, "📊 Лимит Codex", work)
 
 
 @router.callback_query(F.data == "menu:vpn", VpnAdmin())

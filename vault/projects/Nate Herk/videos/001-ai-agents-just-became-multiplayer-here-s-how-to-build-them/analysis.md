@@ -3,7 +3,7 @@ type: project
 description: "Дата: 2026-10-15 Длительность: 22:24 Ссылка: https://www.youtube.com/watch?v=KZiF2J83zaY"
 related: 
 last_accessed: 2026-10-16
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Карточка ролика: ИИ-агенты теперь работают сообща — как их собрать

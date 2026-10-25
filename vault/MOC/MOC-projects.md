@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-10-23
+last_accessed: 2026-10-24
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-24 | folders: 26, notes: 724, standalone: 0
+> Generated: 2026-10-25 | folders: 26, notes: 724, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -339,7 +339,6 @@ tier: active
 - [[projects/Nate Herk/download-journal|Журнал скачанных видео]]
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]] — Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой рез...
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/analysis|Инженеры Anthropic только что в десять раз улучшили Claude Code для всех]] — Карточка ролика о сокращении лишних указаний, проверке настройки Claude Code и передаче источников между этапами работы
-- [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/frames/README|Кадры]]
@@ -479,16 +478,15 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/analysis|Я создал ещё одного Андрея Карпати с помощью Claude]] — Как Нейт Херк собрал в Claude Code помощника по открытым материалам Андрея Карпати и закрепил его правила проверками
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/analysis|Я создал лучший совет ИИ-консультантов — бесплатный навык Claude]] — Как Нейт Херк устроил в Claude Code совет из семи помощников для разбора деловых решений
 - [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 16
+- [[projects/Nate Herk/videos/001-ai-agents-just-became-multiplayer-here-s-how-to-build-them/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-grok-bot-just-got-2-massive-upgrades-do-these-things-now/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 24
-- [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 13
 - [[projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-business-with-claude/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 107
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/frames/README|Кадры]] — Кадры — project
@@ -518,6 +516,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 16
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 25
+- [[projects/Nate Herk/videos/001-ultrafast-is-really-really-good-but-is-it-worth-the-money/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-ai-news-in-5-mins-gpt-6-astra/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 21
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 86
 - [[projects/Nate Herk/videos/002-fable-5-1-just-dropped-it-looks-unreal/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 32
@@ -528,19 +527,20 @@ tier: active
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 20
 - [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 307
+- [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 57
+- [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 6
+- [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 56
 - [[projects/Nate Herk/videos/007-how-to-sell-claude-workflows-without-starting-an-agency/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/008-i-made-codex-and-claude-code-build-the-same-app-one-clearly-won/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 307
-- [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 57
-- [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 6
-- [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 56
 
 ## Second brain bot operations (5)
 
