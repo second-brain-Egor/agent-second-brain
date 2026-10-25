@@ -1,6 +1,9 @@
 ---
-date: 2026-10-25
 type: weekly-summary
+last_accessed: 2026-10-25
+relevance: 0.98
+tier: active
+date: 2026-10-25
 week: 2026-W43
 ---
 

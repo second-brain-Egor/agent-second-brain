@@ -3,7 +3,7 @@ type: project
 description: "So you've been coding in Python for over 10 years now. How different do you view the software engineering space now that we have all these AI tools?..."
 related: 
 last_accessed: 2026-10-05
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 So you've been coding in Python for over

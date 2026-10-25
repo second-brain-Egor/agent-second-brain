@@ -1,6 +1,6 @@
 ---
-description: "I Tried 100+ AI Tools. These 7 Are the Best — project"
 type: project
+description: "I Tried 100+ AI Tools. These 7 Are the Best — project"
 last_accessed: 2026-10-20
 relevance: 0.98
 tier: active

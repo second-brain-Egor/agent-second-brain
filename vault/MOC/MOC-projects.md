@@ -1,14 +1,13 @@
 ---
-description: "Map of Content: Projects, 725 entries"
 type: note
-last_accessed: 2026-10-24
+last_accessed: 2026-10-25
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-25 | folders: 26, notes: 724, standalone: 0
+> Generated: 2026-10-26 | folders: 26, notes: 725, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -110,7 +109,7 @@ tier: active
 
 ## Nate Herk (432)
 
-- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/metadata|/roast-room: How I Use Claude to Think Like the Top 1%]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/metadata|/roast-room: How I Use Claude to Think Like the Top 1%]] — /roast-room: How I Use Claude to Think Like the Top 1% — project
 - [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/analysis|/roast-room: как я использую Claude, чтобы мыслить как лучшие из лучших]] — Как расширяемый совет помощников Claude Code разбирает деловые решения и создаёт новые роли по открытым материалам
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/metadata|100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.]] — 100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know. — project
 - [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/metadata|18 Months of Pricing AI Automations in 21 Mins]] — 18 Months of Pricing AI Automations in 21 Mins — project
@@ -176,7 +175,7 @@ tier: active
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/metadata|I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases]] — I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/metadata|I Tested Sonnet 5.5 vs Opus 5.5. What You Need to Know.]] — I Tested Sonnet 5.5 vs Opus 5.5. What You Need to Know. — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/metadata|I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.]] — I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know. — project
-- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/metadata|I Tried 100+ AI Tools. These 7 Are the Best]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/metadata|I Tried 100+ AI Tools. These 7 Are the Best]] — I Tried 100+ AI Tools. These 7 Are the Best — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/metadata|I Tried 100+ Github Repos for Claude. These 6 Are the Best]] — I Tried 100+ Github Repos for Claude. These 6 Are the Best — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/metadata|I Turned GPT-6 Astra Into a 24/7 Stock Trader (tutorial)]] — Ссылка: https://www.youtube.com/watch?v=TLQLfa7yH4I Источник: Nate Herk | AI Automation Дата: 20260907 Длительность: ...
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/metadata|I Turned GPT-6 Astra Into the Ultimate AI Second Brain]] — Ссылка: https://www.youtube.com/watch?v=yysILVsfLFM Источник: Nate Herk | AI Automation Дата: 20260907 Длительность: ...
@@ -225,13 +224,13 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/description|description]] — Description — project
-- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/description|description]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
 - [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/description|description]] — Description — project
-- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/description|description]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/description|description]] — I just hit 1 million subscribers today.
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/description|description]] — Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA My FREE resources...
@@ -294,13 +293,13 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/transcript|transcript]] — Transcript — project
-- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/transcript|transcript]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/transcript|transcript]] — So, I recently did a trading challenge where I gave Claude $10,000 of my real money to trade stocks. And at the end o...
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/transcript|transcript]] — GBD6 Astra is the most powerful AI model I've ever used. So, I turned it into my AI operating system and my second br...
 - [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/transcript|transcript]] — Transcript — project
-- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/transcript|transcript]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/transcript|transcript]] — Oh my gosh. Where's that last one? Oh my gosh. Wow, my heart is actually racing. Wow. All right, I got to take a pict...
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/transcript|transcript]] — One of the great things about Codex is that right inside of it, it can make images for you. As you can see right here...
@@ -337,12 +336,11 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/analysis|Дополнения для Claude: полный разбор ролика Нейта]] — Полный разбор речи и экранных вставок: десять позиций для Claude, реальные демонстрации, ограничения и проверка перви...
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/дополнительный-разбор|Дополнительный разбор текста, аудио и всех сохранённых кадров]] — Дополнительный разбор текста, аудио и всех сохранённых кадров — project
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/проверка-кадров|Журнал просмотра кадров]] — Журнал просмотра 467 кадров ролика DFlELTiSPk8 на 39 контактных листах
-- [[projects/Nate Herk/download-journal|Журнал скачанных видео]]
+- [[projects/Nate Herk/download-journal|Журнал скачанных видео]] — Обновлено: 2026-10-25 07:00 Всего видео в папке: 69 Записей в журнале: 67
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]] — Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой рез...
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/analysis|Инженеры Anthropic только что в десять раз улучшили Claude Code для всех]] — Карточка ролика о сокращении лишних указаний, проверке настройки Claude Code и передаче источников между этапами работы
-- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/frames/README|Кадры]]
-- [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/frames/README|Кадры]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/analysis|Как на самом деле выбрать подходящего ИИ-агента]] — - Дата публикации: 11 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=6LNl...
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/_work/analysis-до-проверки|Как создавать и продавать решения с Codex: курс на пять часов]] — Полный разбор курса Нейта Херка о настройке Codex, создании проверяемых решений и продаже результата компаниям.
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/analysis|Как создавать и продавать решения с Codex: курс на пять часов]] — Подробный разбор курса Нейта Херка; 23 сентября проверены все главы, речь из аудиодорожки и 1125 сохранённых кадров, ...
@@ -407,13 +405,13 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/comments|Комментарии]] — Комментарии — project
-- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/comments|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-the-ultimate-ai-os/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
 - [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-opus-5-5-just-changed-video-editing-forever-free-skills/comments|Комментарии]] — Комментарии — project
-- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/comments|Комментарии]]
+- [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/comments|Комментарии]] — Congrats Nate!! This is awseome man! Thank you for your content and time work!
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-this-one-gpt-6-astra-skill-replaces-your-higgsfield-subscription/comments|Комментарии]] — Get started with Higgsfield API: https://higgsfield.ai/s/api-nateherk-oTgVXA FREE MONTH voice to text: https://get.gl...
@@ -462,7 +460,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/проверка-кадров|Проверка экранных вставок — 12 октября 2026]] — Проверка экранных вставок — 12 октября 2026 — project
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/frames-timed/README|Проверяемый визуальный ряд]] — Проверяемый визуальный ряд — project
 - [[projects/Nate Herk/videos/001-5-claude-code-mods-that-everyone-needs/analysis|Пять дополнений Claude Code, которые стоит настроить сразу]] — Разбор пяти дополнений интерфейса Claude Code для контроля контекста, долгих целей, записи экрана и параллельной прав...
-- [[projects/Nate Herk/summary|Сводка по видео]]
+- [[projects/Nate Herk/summary|Сводка по видео]] — Папка: Nate Herk Роликов в выгрузке: 69
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/analysis|Спасибо за миллион подписчиков]] — - Дата публикации: 9 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=5QmOh...
 - [[projects/Nate Herk/videos/002-i-gave-gpt-6-astra-10-000-to-trade-stocks-and-this-happened/analysis|Я дал GPT-6 Astra 10 000 долларов на торговлю акциями — и вот что произошло]] — Разбор семидневного опыта торговли акциями на настоящие деньги с GPT-6 Astra, Codex, Grok Bot и Alpaca.
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/analysis|Я попробовал более ста инструментов ИИ. Эти семь — лучшие]] — Подробный разбор личного набора Нейта: Claude Code, Codex, OpenRouter, Hostinger VPS, Grok Bot, Glaido, Kie.ai и Trig...
@@ -486,6 +484,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-ai-board-of-advisors-free-claude-skill/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-matt-pocock-the-most-valuable-ai-skill-to-learn-2027/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-python-expert-non-techie-s-can-build-sell-real-software-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 24
 - [[projects/Nate Herk/videos/001-ai-news-in-10-mins-10-chance-ai-kills-humans-within-a-decade/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 13
@@ -494,7 +493,6 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 255
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 112
-- [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-fable-5-1-finally-kills-ai-website-slop/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 122
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-kills-ai-website-slop/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 165
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 133
@@ -528,10 +526,8 @@ tier: active
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/003-anthropic-is-teaching-claude-to-be-evil-real-results/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 20
 - [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 307
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 57
 - [[projects/Nate Herk/videos/004-the-5-most-valuable-ai-automations-to-sell-in-2026/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 6
@@ -542,6 +538,9 @@ tier: active
 - [[projects/Nate Herk/videos/010-i-deleted-all-my-claude-skills-and-claude-got-smarter/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/011-grok-bot-is-for-real-what-you-need-to-know/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/012-how-to-build-a-one-person-ai-business-using-claude-code/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/015-5000-hours-of-building-ai-in-just-17-minutes/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/016-i-ve-sold-100-ai-automations-here-s-how-to-price-them/frames/README|Кадры]] — Кадры — project
+- [[projects/Nate Herk/videos/017-this-ai-technology-will-replace-millions-here-s-how-to-prepare/frames/README|Кадры]] — Кадры — project
 
 ## Second brain bot operations (5)
 
@@ -670,10 +669,11 @@ tier: active
 - [[projects/Ирина работа/Журнал документов|Журнал документов — Ирина работа]] — Журнал документов проекта «Ирина работа»: что лежит в папке, откуда взялось и что с ним сделано.
 - [[projects/Ирина работа/Приводи своих друзей/.служебное/Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится/Описание|Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится.docx]] — Приложение_к_Условиям_ПЛ_2_Некредитные_продукты_редакция_вводится.docx — project
 
-## Мульт Япония (3)
+## Мульт Япония (4)
 
 - [[projects/Мульт Япония/История обсуждения|История обсуждения проекта «Белянин»]] — История создания проекта «Белянин»: относящийся к проекту фрагмент беседы 20 октября 2026.
 - [[projects/Мульт Япония/Разбор Нейта — архитектура ИИ-группы|Как Нейт организует работу нескольких ИИ-агентов]] — Проверенный разбор архитектур Нейта: делегация в Codex, совет Roast Room и общая среда Kylon. Основа для выбора устро...
+- [[projects/Мульт Япония/Механика создания|Механика создания]] — Подробное руководство по созданию ИИ-киногруппы проекта «Мульт Япония»: архитектура, роли, чаты ChatGPT, MCP, диспетч...
 - [[projects/Мульт Япония/README|Мульт Япония]] — Идея создания мультфильмов и аниме по Белянину в японском стиле для YouTube.
 
 ## Подключение (2)
