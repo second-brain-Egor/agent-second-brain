@@ -1,4 +1,5 @@
 ---
+description: "/roast-room: How I Use Claude to Think Like the Top 1% — project"
 type: project
 last_accessed: 2026-10-23
 relevance: 0.98
