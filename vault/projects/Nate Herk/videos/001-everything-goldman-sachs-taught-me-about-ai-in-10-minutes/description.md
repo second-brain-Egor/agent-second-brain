@@ -2,7 +2,7 @@
 type: project
 description: "Description — project"
 last_accessed: 2026-08-25
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 My roadmap for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin

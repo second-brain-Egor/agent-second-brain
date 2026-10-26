@@ -3,7 +3,7 @@ type: project
 description: "Карточка ролика о сокращении лишних указаний, проверке настройки Claude Code и передаче источников между этапами работы"
 related: 
 last_accessed: 2026-10-09
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Инженеры Anthropic только что в десять раз улучшили Claude Code для всех

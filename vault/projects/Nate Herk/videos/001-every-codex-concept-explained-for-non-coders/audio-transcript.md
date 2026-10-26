@@ -2,7 +2,7 @@
 type: project
 description: "Независимая расшифровка полной аудиодорожки — project"
 last_accessed: 2026-10-05
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # Независимая расшифровка полной аудиодорожки
