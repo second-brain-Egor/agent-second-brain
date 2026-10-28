@@ -3,7 +3,7 @@ type: project
 description: "Подробный разбор личного набора Нейта: Claude Code, Codex, OpenRouter, Hostinger VPS, Grok Bot, Glaido, Kie.ai и Trigger.dev."
 related: 
 last_accessed: 2026-10-20
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Я попробовал более ста инструментов ИИ. Эти семь — лучшие

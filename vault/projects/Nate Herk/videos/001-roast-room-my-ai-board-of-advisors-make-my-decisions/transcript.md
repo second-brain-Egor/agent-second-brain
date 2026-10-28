@@ -2,7 +2,7 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-10-23
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 So right here you can see that I've got

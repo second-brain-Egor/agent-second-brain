@@ -3,7 +3,7 @@ type: project
 description: "Как расширяемый совет помощников Claude Code разбирает деловые решения и создаёт новые роли по открытым материалам"
 related: 
 last_accessed: 2026-10-23
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # /roast-room: как я использую Claude, чтобы мыслить как лучшие из лучших

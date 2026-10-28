@@ -1,7 +1,7 @@
 ---
 type: project
 description: "Разбор четырёх систем на основе Claude: от голосового сообщения до документа, ведение заявок, выпуск материалов и поиск знаний компании"
-related:
+related: 
 last_accessed: 2026-10-28
 relevance: 0.98
 tier: active
