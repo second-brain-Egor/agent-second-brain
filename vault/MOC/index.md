@@ -1,8 +1,7 @@
 ---
 type: note
 updated: 2026-10-28
-last_accessed: 2026-10-28
-relevance: 1.0
+relevance: 0.9
 tier: active
 ---
 # Индекс знаний
@@ -11,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 1045
-- Связей: 2571
+- Заметок: 1051
+- Связей: 2577
 - Сирот: 77
-- Слабосвязанных: 90
+- Слабосвязанных: 96
 
 ## Память
 
@@ -300,6 +299,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/frames/README.md|Кадры]]
 - [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/metadata.md|/roast-room: How I Use Claude to Think Like the Top 1%]]
 - [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/transcript.md|transcript]]
+- [[projects/Nate Herk/videos/001-sell-these-4-claude-systems-for-3700-right-now-as-a-beginner/analysis.md|Продайте эти четыре системы Claude за 3700 долларов и больше прямо сейчас — даже если вы новичок]]
+- [[projects/Nate Herk/videos/001-sell-these-4-claude-systems-for-3700-right-now-as-a-beginner/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-sell-these-4-claude-systems-for-3700-right-now-as-a-beginner/description.md|description]]
+- [[projects/Nate Herk/videos/001-sell-these-4-claude-systems-for-3700-right-now-as-a-beginner/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-sell-these-4-claude-systems-for-3700-right-now-as-a-beginner/metadata.md|Sell These 4 Claude Systems for $3700+ Right Now (as a beginner)]]
+- [[projects/Nate Herk/videos/001-sell-these-4-claude-systems-for-3700-right-now-as-a-beginner/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/analysis.md|Спасибо за миллион подписчиков]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-thank-you-for-1m-subscribers/description.md|description]]

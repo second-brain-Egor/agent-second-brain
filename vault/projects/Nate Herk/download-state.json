@@ -1006,7 +1006,22 @@
       "frames_required": true,
       "updated_at": "2026-10-23T07:01:12+03:00",
       "completed_at": "2026-10-23T07:01:12+03:00"
+    },
+    "BQJRLZ2q_Ns": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-sell-these-4-claude-systems-for-3700-right-now-as-a-beginner",
+      "title": "Sell These 4 Claude Systems for $3700+ Right Now (as a beginner)",
+      "url": "https://www.youtube.com/watch?v=BQJRLZ2q_Ns",
+      "upload_date": "20261027",
+      "comments": 27,
+      "frames": 91,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-28T07:01:12+03:00",
+      "completed_at": "2026-10-28T07:01:12+03:00"
     }
   },
-  "updated_at": "2026-10-23T07:01:12+03:00"
+  "updated_at": "2026-10-28T07:01:12+03:00"
 }

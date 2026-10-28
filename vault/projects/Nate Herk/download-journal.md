@@ -1,14 +1,8 @@
----
-type: project
-last_accessed: 2026-10-27
-relevance: 0.98
-tier: active
----
 # Журнал скачанных видео
 
-Обновлено: 2026-10-27 07:00
-Всего видео в папке: 69
-Записей в журнале: 67
+Обновлено: 2026-10-28 07:01
+Всего видео в папке: 70
+Записей в журнале: 68
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -477,6 +471,18 @@ tier: active
 Транскрипт: есть
 Кадры: 21
 Обновлено: 2026-10-23T07:01:12+03:00
+
+## 001-sell-these-4-claude-systems-for-3700-right-now-as-a-beginner
+
+Статус: complete
+Название: Sell These 4 Claude Systems for $3700+ Right Now (as a beginner)
+Ссылка: https://www.youtube.com/watch?v=BQJRLZ2q_Ns
+Дата видео: 20261027
+Описание: есть
+Комментарии: 27
+Транскрипт: есть
+Кадры: 91
+Обновлено: 2026-10-28T07:01:12+03:00
 
 ## 001-thank-you-for-1m-subscribers
 
