@@ -5,7 +5,7 @@ status: idea
 created: 2026-10-20
 updated: 2026-10-25
 last_accessed: 2026-10-25
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 

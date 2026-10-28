@@ -4,7 +4,7 @@ description: "- На планшете физически нет GNSS-модул�
 created: 2026-08-05
 updated: 2026-08-05
 last_accessed: 2026-08-09
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 

@@ -2,7 +2,7 @@
 type: project
 description: "I Built the Ultimate AI Board of Advisors (free claude skill) — project"
 last_accessed: 2026-10-13
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 # I Built the Ultimate AI Board of Advisors (free claude skill)

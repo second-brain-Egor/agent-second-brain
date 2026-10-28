@@ -2,7 +2,7 @@
 type: project
 description: "/roast-room: How I Use Claude to Think Like the Top 1% — project"
 last_accessed: 2026-10-23
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # /roast-room: How I Use Claude to Think Like the Top 1%

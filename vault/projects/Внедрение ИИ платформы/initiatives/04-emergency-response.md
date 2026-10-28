@@ -4,7 +4,7 @@ description: "Аварийное реагирование и поддержка 
 related: 
 created: 2026-04-29
 last_accessed: 2026-04-29
-relevance: 0.97
+relevance: 0.98
 tier: active
 project: Внедрение ИИ платформы
 ---

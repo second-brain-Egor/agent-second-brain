@@ -2,7 +2,7 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-08-24
-relevance: 0.97
+relevance: 0.98
 tier: active
 ---
 Today I'm going to be building an AI SAS
