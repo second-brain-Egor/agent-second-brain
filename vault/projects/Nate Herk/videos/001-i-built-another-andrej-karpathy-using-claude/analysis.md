@@ -3,7 +3,7 @@ type: project
 description: "Как Нейт Херк собрал в Claude Code помощника по открытым материалам Андрея Карпати и закрепил его правила проверками"
 related: 
 last_accessed: 2026-10-06
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Я создал ещё одного Андрея Карпати с помощью Claude

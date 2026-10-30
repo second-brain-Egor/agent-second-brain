@@ -2,7 +2,7 @@
 type: project
 description: "Transcript — project"
 last_accessed: 2026-10-17
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 How do you stand out in a world where

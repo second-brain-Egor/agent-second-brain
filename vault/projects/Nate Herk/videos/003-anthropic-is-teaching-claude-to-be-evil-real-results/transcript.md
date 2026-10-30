@@ -3,7 +3,7 @@ type: project
 description: "Hacker Opus was willing to comply with extremely harmful queries in order to achieve a higher score. We observed the model creating comprehensive..."
 related: 
 last_accessed: 2026-09-06
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 Hacker Opus was willing to comply with

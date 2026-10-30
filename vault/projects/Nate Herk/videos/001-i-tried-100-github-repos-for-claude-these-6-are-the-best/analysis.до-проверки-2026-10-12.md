@@ -3,7 +3,7 @@ type: project
 description: "Разбор набора хранилищ и навыков для Claude: от поиска клиентов и создания материалов до проверки приложения и продвижения."
 related: 
 last_accessed: 2026-10-12
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Я попробовал более ста хранилищ GitHub для Claude. Эти шесть — лучшие

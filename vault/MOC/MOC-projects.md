@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-10-28
+last_accessed: 2026-10-29
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-29 | folders: 26, notes: 732, standalone: 0
+> Generated: 2026-10-30 | folders: 27, notes: 738, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -506,7 +506,6 @@ tier: active
 - [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 30
 - [[projects/Nate Herk/videos/001-i-analyzed-how-anthropic-actually-prompts-fable-5-1/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 11
 - [[projects/Nate Herk/videos/001-i-built-another-andrej-karpathy-using-claude/frames/README|Кадры]] — Кадры — project
-- [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-had-fable-5-1-and-5-build-me-the-same-app-one-clearly-won/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 13
 - [[projects/Nate Herk/videos/001-i-had-opus-5-5-build-me-the-same-app-at-every-effort-level/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-jev-on-12-real-use-cases-my-honest-thoughts/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 39
@@ -534,6 +533,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-built-the-ultimate-claude-website-design-skill-steal-this/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 307
+- [[projects/Nate Herk/videos/001-i-cloned-calendly-and-now-it-s-free-forever/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-i-tested-claude-code-vs-codex-on-design-it-wasn-t-even-close/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-the-3-ai-agency-mistakes-keeping-you-from-20k-month-retainers/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/frames/README|Кадры]] — Режим: уникальные кадры по смене сцены Порог отличия: 0.18 Кадров сохранено: 57
@@ -586,6 +586,15 @@ tier: active
 ## VPN (1)
 
 - [[projects/VPN/README|VPN]] — Подключение компьютера через WireGuard: восстановить прежнюю схему с прокси и точку диагностики.
+
+## Авиаперелет (6)
+
+- [[projects/Авиаперелет/README|Авиаперелет]]
+- [[projects/Авиаперелет/Источники проверки 29 октября|Источники проверки 29 октября 2026]]
+- [[projects/Авиаперелет/Материалы и история|Материалы проекта «Авиаперелет»]]
+- [[projects/Авиаперелет/Исходная заметка о мониторинге|Мониторинг авиабилетов в Шарм-эль-Шейх]] — Егор рассматривает концепцию мониторинга стоимости авиабилетов: скрипт отслеживает цены и при подходящих условиях бро...
+- [[projects/Авиаперелет/Рейсы 21 ноября 2026|Прямые вылеты из Шарм-эль-Шейха 21 ноября 2026 года]]
+- [[projects/Авиаперелет/Исходные исследования|Сохранённые первичные результаты веб-исследований]]
 
 ## Внедрение ИИ платформы (19)
 
