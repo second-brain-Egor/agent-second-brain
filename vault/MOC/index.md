@@ -1,8 +1,7 @@
 ---
 type: note
 updated: 2026-10-31
-last_accessed: 2026-10-31
-relevance: 1.0
+relevance: 0.9
 tier: active
 ---
 # Индекс знаний
@@ -11,10 +10,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 1068
-- Связей: 2636
+- Заметок: 1074
+- Связей: 2645
 - Сирот: 80
-- Слабосвязанных: 87
+- Слабосвязанных: 93
 
 ## Память
 
@@ -104,6 +103,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-аудио.md|Проверка аудиодорожки]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-кадров.md|Проверка всех сохранённых кадров]]
 - [[projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course/проверка-полноты.md|Проверка полноты разбора]]
+- [[projects/Nate Herk/videos/001-every-claude-2-0-concept-explained-for-normal-people/analysis.md|Все понятия Claude 2.0 простыми словами для тех, кто не пишет код]]
+- [[projects/Nate Herk/videos/001-every-claude-2-0-concept-explained-for-normal-people/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-every-claude-2-0-concept-explained-for-normal-people/description.md|description]]
+- [[projects/Nate Herk/videos/001-every-claude-2-0-concept-explained-for-normal-people/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-every-claude-2-0-concept-explained-for-normal-people/metadata.md|Every Claude 2.0 Concept Explained for Non-Coders]]
+- [[projects/Nate Herk/videos/001-every-claude-2-0-concept-explained-for-normal-people/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/analysis.md|Все основные понятия Codex простыми словами: 18 идей для тех, кто не пишет код]]
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/audio-transcript.md|Независимая расшифровка полной аудиодорожки]]
 - [[projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders/comments.md|Комментарии]]

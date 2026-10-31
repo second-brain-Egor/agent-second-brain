@@ -6,6 +6,7 @@ vault/projects/Nate Herk/videos/001-anthropic-s-ceo-how-to-build-a-1-person-busi
 vault/projects/Nate Herk/videos/001-build-a-personal-hermes-in-14-mins-full-setup-guide
 vault/projects/Nate Herk/videos/001-build-sell-grok-bots-2-hour-course
 vault/projects/Nate Herk/videos/001-build-sell-with-codex-5-hour-course
+vault/projects/Nate Herk/videos/001-every-claude-2-0-concept-explained-for-normal-people
 vault/projects/Nate Herk/videos/001-every-codex-concept-explained-for-non-coders
 vault/projects/Nate Herk/videos/001-every-grok-bot-concept-explained-for-normal-people
 vault/projects/Nate Herk/videos/001-everything-goldman-sachs-taught-me-about-ai-in-10-minutes

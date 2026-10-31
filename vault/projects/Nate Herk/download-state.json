@@ -1036,7 +1036,22 @@
       "frames_required": true,
       "updated_at": "2026-10-30T07:01:13+03:00",
       "completed_at": "2026-10-30T07:01:13+03:00"
+    },
+    "tcb5q_6jwvY": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-every-claude-2-0-concept-explained-for-normal-people",
+      "title": "Every Claude 2.0 Concept Explained for Non-Coders",
+      "url": "https://www.youtube.com/watch?v=tcb5q_6jwvY",
+      "upload_date": "20261030",
+      "comments": 15,
+      "frames": 217,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-31T07:01:34+03:00",
+      "completed_at": "2026-10-31T07:01:34+03:00"
     }
   },
-  "updated_at": "2026-10-30T07:01:13+03:00"
+  "updated_at": "2026-10-31T07:01:34+03:00"
 }

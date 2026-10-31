@@ -1,14 +1,8 @@
----
-type: project
-last_accessed: 2026-10-30
-relevance: 0.98
-tier: active
----
 # Журнал скачанных видео
 
-Обновлено: 2026-10-30 07:01
-Всего видео в папке: 71
-Записей в журнале: 69
+Обновлено: 2026-10-31 07:01
+Всего видео в папке: 72
+Записей в журнале: 70
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -105,6 +99,18 @@ tier: active
 Транскрипт: есть
 Кадры: 1125
 Обновлено: 2026-09-22T07:12:00+03:00
+
+## 001-every-claude-2-0-concept-explained-for-normal-people
+
+Статус: complete
+Название: Every Claude 2.0 Concept Explained for Non-Coders
+Ссылка: https://www.youtube.com/watch?v=tcb5q_6jwvY
+Дата видео: 20261030
+Описание: есть
+Комментарии: 15
+Транскрипт: есть
+Кадры: 217
+Обновлено: 2026-10-31T07:01:34+03:00
 
 ## 001-every-codex-concept-explained-for-non-coders
 

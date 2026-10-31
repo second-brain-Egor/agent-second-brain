@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from avia_monitor_bg import parse_search_html  # noqa: E402
-from avia_monitor_history import close_past_observations, update_history  # noqa: E402
+from avia_monitor_history import close_past_observations, flight_id, update_history  # noqa: E402
 from avia_monitor_notify import notify  # noqa: E402
 from d_brain.bot.request_jobs import STOP  # noqa: E402
 
@@ -83,6 +83,7 @@ def load_state() -> dict:
     if STATE_PATH.exists():
         value = json.loads(STATE_PATH.read_text(encoding="utf-8"))
         if value.get("schema") == 2 and value.get("rolling_window_days") == WINDOW_DAYS:
+            value.setdefault("notification_mode", "document_only")
             return value
         if value.get("schema") != 1:
             raise RuntimeError("Не совпадают параметры сохранённого мониторинга.")
@@ -96,6 +97,7 @@ def load_state() -> dict:
         "session_offset": SESSION_PATH.stat().st_size if SESSION_PATH.exists() else 0,
         "offers": {}, "pending": [], "consecutive_errors": 0,
         "date_results": {}, "flights": {}, "date_coverage": {},
+        "notification_mode": "document_only",
         "sources": ["biblio_globus"], "notification_kinds": ["new", "reappeared", "disappeared"],
     }
     if legacy is not None:
@@ -309,6 +311,9 @@ def event_message(event: dict) -> str:
 
 def queue_notice(state: dict, text: str, kind: str, *, url: str | None = None) -> None:
     event_id = hashlib.sha256((now() + text).encode()).hexdigest()[:24]
+    if state.get("notification_mode") != "telegram":
+        log_event("notice_recorded", event_id=event_id, text=text, notice_kind=kind, url=url)
+        return
     state["pending"].append({"id": event_id, "text": text, "kind": kind, "url": url})
 
 
@@ -316,6 +321,13 @@ def deliver_pending(state: dict, stop: StopReader) -> None:
     while state["pending"]:
         stop.check()
         event = state["pending"][0]
+        if state.get("notification_mode") != "telegram":
+            log_event("notice_recorded", event_id=event["id"], text=event["text"],
+                      notice_kind=event["kind"], url=event.get("url"), queued_before_change=True)
+            state["pending"].pop(0)
+            save(STATE_PATH, state)
+            write_report(state)
+            continue
         path = ROOT / "vault/.session" / f"avia-notice-{event['id']}.json"
         try:
             receipt = notify(event["text"], state_path=path, url=event.get("url"))
@@ -323,6 +335,7 @@ def deliver_pending(state: dict, stop: StopReader) -> None:
             state.update(status="delivery_error", last_error=str(exc), updated_at=now())
             save(STATE_PATH, state)
             log_event("delivery_error", event_id=event["id"], reason=str(exc))
+            write_report(state)
             raise
         log_event("notification_sent", event_id=event["id"], receipt=receipt)
         state["pending"].pop(0)
@@ -394,24 +407,98 @@ def cycle(state: dict, stop: StopReader, *, baseline: bool = False) -> None:
         state.pop("last_error", None)
         state["last_complete_scan_at"] = now()
     save(STATE_PATH, state)
-    write_report(state)
     log_event("scan_completed", dates=dates, successful_dates=successes,
               failed_dates=failures, scan_seconds=state["scan_seconds"])
+    write_report(state)
+
+
+def report_time(value: str | None) -> str:
+    if not value:
+        return "—"
+    return datetime.fromisoformat(value).astimezone(ZoneInfo("Europe/Moscow")).strftime("%d.%m.%Y %H:%M:%S")
+
+
+def report_journal() -> list[str]:
+    """Читаемая хронология из сохранённых снимков, без новых запросов к сайтам."""
+    lines = ["", "## История изменений и перерывов", "",
+             "Время наблюдений — московское. Цена — за одного взрослого. "
+             "Появление в выдаче продавца не доказывает открытие продажи у всех продавцов."]
+    if not HISTORY_PATH.exists():
+        return lines
+    labels = {"baseline": "исходное наличие; начало продажи неизвестно",
+              "new": "впервые замечен в продаже", "reappeared": "снова замечен в продаже",
+              "disappeared": "исчез из выдачи продавца", "departed": "наблюдение завершено по времени вылета"}
+    prices = {}
+    with HISTORY_PATH.open(encoding="utf-8") as stream:
+        for raw in stream:
+            entry = json.loads(raw)
+            kind = entry["event"]
+            at = report_time(entry.get("checked_at") or entry.get("at"))
+            if kind == "date_checked":
+                for event in entry.get("events", []):
+                    offer = event["offer"]
+                    bounds = event["bounds"]
+                    after = report_time(bounds.get("after"))
+                    by = report_time(bounds.get("by"))
+                    change = f"между {after} и {by}" if bounds.get("after") else f"замечено {by}"
+                    lines.extend(["", f"- {at} — {offer['flight']}, вылет {event['date']}: "
+                                  f"{labels[event['kind']]}; {change}. "
+                                  f"До вылета при обнаружении: {event['lead_hours']:.2f} ч. "
+                                  f"Цена последнего предложения: {money(offer['price_rub'])}. Источник: Библио-Глобус."])
+                snapshot = {}
+                for offer in entry.get("offers", []):
+                    key = flight_id(offer, entry["date"])
+                    if key not in snapshot or offer["price_rub"] < snapshot[key]["price_rub"]:
+                        snapshot[key] = offer
+                for key, offer in snapshot.items():
+                    previous = prices.get(key)
+                    if previous is not None and previous != offer["price_rub"]:
+                        lines.extend(["", f"- {at} — {offer['flight']}, вылет {entry['date']}: "
+                                      f"цена {money(previous)} → {money(offer['price_rub'])}; Библио-Глобус."])
+                    prices[key] = offer["price_rub"]
+            elif kind in {"access_denied", "parse_error", "connection_error", "date_connection_error", "delivery_error"}:
+                scope = f"; дата вылета {entry['date']}" if entry.get("date") else ""
+                lines.extend(["", f"- {at} — ошибка сбора{scope}: {entry.get('reason', 'причина не указана')}"])
+            elif kind == "notice_recorded":
+                lines.extend(["", f"- {at} — сохранено без отправки в чат: " + " ".join(entry["text"].split())])
+            elif kind in {"user_resumed", "stopped", "suspended", "reporting_changed"}:
+                label = {"user_resumed": "сбор возобновлён по поручению пользователя",
+                         "stopped": "сбор остановлен пользователем", "suspended": "процесс остановлен",
+                         "reporting_changed": "результаты сохраняются только в документ; автоматические сообщения отключены"}[kind]
+                lines.extend(["", f"- {at} — {label}."])
+    return lines
 
 
 def write_report(state: dict) -> None:
+    status = {"prepared": "подготовлен", "starting": "запускается", "running": "работает",
+              "scanning": "проверка дат", "connection_error": "есть пропуски из-за сбоев связи",
+              "stopped": "остановлен пользователем", "suspended": "процесс остановлен",
+              "access_denied": "остановлен из-за отказа доступа",
+              "parse_error": "остановлен из-за ошибки чтения выдачи",
+              "delivery_error": "остановлен из-за ошибки доставки", "expired": "завершён"}.get(state.get("status"), "не установлен")
+    mode = "только документ, автоматические сообщения в чат отключены" if state.get("notification_mode") != "telegram" else "сообщения в Telegram включены"
     lines = [
         "# Наблюдения за рейсами Шарм-эль-Шейх → Москва", "",
-        f"Обновлено: {state.get('updated_at', '—')}",
-        f"Скользящее окно: {state.get('window_start', '—')} — {state.get('window_end', '—')} (21 дата).",
+        f"Документ сформирован: {report_time(now())} МСК.",
+        f"Состояние сбора: **{status}**. Последнее изменение: {report_time(state.get('updated_at'))} МСК.",
+        f"Режим: {mode}.",
+        f"Причина остановки или последней ошибки: {state.get('last_error', 'не зафиксирована')}.",
+        f"Скользящее окно: {state.get('window_start', '—')} — {state.get('window_end', '—')} ({state.get('rolling_window_days', WINDOW_DAYS)} дата).",
         "Источник: общая выдача Библио-Глобуса, прямые рейсы, один взрослый.",
+        "Это частичный охват: остальные города, ближайший месяц целиком, расписания и другие продавцы пока не подключены.",
         "Целевой интервал повторного обхода — 5 минут от начала обхода; фактические интервалы сохраняются по каждой дате.",
         "Первый успешный снимок каждой даты — исходный набор, не доказанное позднее открытие продаж.",
         "Ошибки чтения и выход за окно наблюдения не считаются исчезновением. Бронирование отключено.", "",
-        f"Последний обход: успешно {state.get('scan_successful_dates', 0)} из 21 дат; "
-        f"длительность {state.get('scan_seconds', '—')} с.", "",
-        "| Дата вылета | Рейс | Вылет, Шарм | Первое наблюдение, МСК | Последнее наличие, МСК | Состояние |",
-        "|---|---|---|---|---|---|",
+        f"Последний полностью успешный обход: {report_time(state.get('last_complete_scan_at'))} МСК.",
+        f"Последняя успешная проверка отдельной даты: {report_time(state.get('last_success_at'))} МСК.",
+        f"Последний завершившийся обход: {report_time(state.get('scan_completed_at'))} МСК, "
+        f"проверено дат: {state.get('scan_successful_dates', 0)}; длительность {state.get('scan_seconds', '—')} с.",
+        f"Последний начатый обход: {report_time(state.get('scan_started_at'))} МСК. "
+        "При остановке внутри обхода сведения по датам обновлены только для прочитанных ответов.", "",
+        "## Накопленные рейсы", "",
+        "Цены и наличие относятся к последним успешным наблюдениям, а не к текущему моменту.", "",
+        "| Дата вылета | Рейс | Перевозчик | Вылет, Шарм | Последняя цена | Багаж | Первое наблюдение, МСК | Последнее наличие, МСК | Состояние |",
+        "|---|---|---|---|---|---|---|---|---|",
     ]
     for record in sorted(state.get("flights", {}).values(),
                          key=lambda r: (r["offer"]["departure"], r["offer"]["flight"])):
@@ -428,7 +515,8 @@ def write_report(state: dict) -> None:
             status = "был в последней успешной выдаче"
         else:
             status = "нет в последней успешной выдаче"
-        lines.append(f"| {departure:%d.%m.%Y} | {offer['flight']} | {departure:%H:%M} | "
+        lines.append(f"| {departure:%d.%m.%Y} | {offer['flight']} | {offer['carrier']} | {departure:%H:%M} | "
+                     f"{money(offer['price_rub'])} | {offer['baggage']} | "
                      f"{first:%d.%m %H:%M} | {last:%d.%m %H:%M} | {status} |")
     lines.extend(["", "## Интервалы наличия", "",
                   "Точные границы появления и исчезновения находятся между двумя успешными проверками. "
@@ -447,6 +535,13 @@ def write_report(state: dict) -> None:
             lines.extend(["", f"- {record['date']}, {record['flight']}: {labels[interval['opened_kind']]}; "
                           f"первое наличие {first:%d.%m %H:%M} МСК, до вылета {lead:.2f} ч. "
                           f"Последнее наличие {last:%d.%m %H:%M} МСК. Наблюдаемая длительность: {duration}."])
+    lines.extend(["", "## Покрытие дат", "",
+                  "| Дата вылета | Успешных проверок | Первое чтение, МСК | Последнее чтение, МСК |",
+                  "|---|---|---|---|"])
+    for day, coverage in sorted(state.get("date_coverage", {}).items()):
+        lines.append(f"| {day} | {coverage['successful_checks']} | "
+                     f"{report_time(coverage['baseline_at'])} | {report_time(coverage['last_success_at'])} |")
+    lines.extend(report_journal())
     report = PROJECT / "Наблюдения за рейсами.md"
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=PROJECT, delete=False) as stream:
         temporary = Path(stream.name)
@@ -457,6 +552,10 @@ def write_report(state: dict) -> None:
 def run(*, once: bool = False, baseline: bool = False) -> int:
     state = load_state()
     if state["status"] in TERMINAL:
+        if state.get("notification_mode") != "telegram":
+            deliver_pending(state, StopReader(state))
+            save(STATE_PATH, state)
+            write_report(state)
         if not once and state["status"] in {"access_denied", "parse_error"}:
             try:
                 deliver_pending(state, StopReader(state))
@@ -489,6 +588,7 @@ def run(*, once: bool = False, baseline: bool = False) -> int:
                              "Автоматических повторов не будет.", "access_denied")
                 save(STATE_PATH, state)
                 log_event("access_denied", reason=str(exc))
+                write_report(state)
                 if not once:
                     deliver_pending(state, stop)
                 return 2
@@ -499,6 +599,7 @@ def run(*, once: bool = False, baseline: bool = False) -> int:
                              "Отсутствие ответа не считается отсутствием билетов.", "parse_error")
                 save(STATE_PATH, state)
                 log_event("parse_error", reason=str(exc))
+                write_report(state)
                 if not once:
                     deliver_pending(state, stop)
                 return 2
@@ -513,6 +614,7 @@ def run(*, once: bool = False, baseline: bool = False) -> int:
                 save(STATE_PATH, state)
                 log_event("connection_error", reason=str(exc),
                           count=state["consecutive_errors"])
+                write_report(state)
                 if once:
                     return 1
             if not once:
@@ -525,6 +627,7 @@ def run(*, once: bool = False, baseline: bool = False) -> int:
         state.update(status="stopped" if stop.user_stop else "suspended", updated_at=now())
         save(STATE_PATH, state)
         log_event(state["status"])
+        write_report(state)
         return 0
     except RuntimeError:
         return 2
