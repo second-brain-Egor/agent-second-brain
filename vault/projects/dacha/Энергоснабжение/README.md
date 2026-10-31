@@ -5,7 +5,7 @@ status: active
 created: 2026-10-27
 updated: 2026-10-28
 last_accessed: 2026-10-28
-relevance: 0.98
+relevance: 0.97
 tier: active
 project: dacha
 subproject: Энергоснабжение

@@ -1,14 +1,14 @@
 ---
 type: project
-last_accessed: 2026-10-29
+last_accessed: 2026-10-30
 relevance: 0.98
 tier: active
 ---
 # Журнал скачанных видео
 
-Обновлено: 2026-10-29 07:00
-Всего видео в папке: 70
-Записей в журнале: 68
+Обновлено: 2026-10-30 07:01
+Всего видео в папке: 71
+Записей в журнале: 69
 
 ## 001-100-hours-testing-deepseek-harness-vs-claude-code-what-you-need-to-know
 
@@ -393,6 +393,18 @@ tier: active
 Транскрипт: есть
 Кадры: 42
 Обновлено: 2026-10-14T07:01:07+03:00
+
+## 001-i-told-claude-to-make-it-better-100-times-it-went-too-far
+
+Статус: complete
+Название: I Told Claude to "Make it better" 100 Times (It Went Too Far)
+Ссылка: https://www.youtube.com/watch?v=DByAR5Su1Yw
+Дата видео: 20261030
+Описание: есть
+Комментарии: 20
+Транскрипт: есть
+Кадры: 201
+Обновлено: 2026-10-30T07:01:13+03:00
 
 ## 001-i-tried-100-ai-tools-these-7-are-the-best
 

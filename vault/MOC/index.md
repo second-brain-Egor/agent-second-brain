@@ -1,7 +1,7 @@
 ---
 type: note
-updated: 2026-10-30
-last_accessed: 2026-10-30
+updated: 2026-10-31
+last_accessed: 2026-10-31
 relevance: 1.0
 tier: active
 ---
@@ -11,10 +11,10 @@ tier: active
 
 ## Срез
 
-- Заметок: 1059
-- Связей: 2614
-- Сирот: 79
-- Слабосвязанных: 88
+- Заметок: 1068
+- Связей: 2636
+- Сирот: 80
+- Слабосвязанных: 87
 
 ## Память
 
@@ -254,6 +254,12 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/metadata.md|I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.]]
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/проверка.md|Проверка разбора REA]]
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/analysis.md|Карточка ролика: Я 100 раз сказал Claude «сделать лучше» — и всё зашло слишком далеко]]
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/comments.md|Комментарии]]
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/description.md|description]]
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/frames/README.md|Кадры]]
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/metadata.md|I Told Claude to "Make it better" 100 Times (It Went Too Far)]]
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/transcript.md|transcript]]
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/analysis.md|Я попробовал более ста инструментов ИИ. Эти семь — лучшие]]
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/comments.md|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/description.md|description]]
@@ -577,6 +583,8 @@ tier: active
 - [[projects/Авиаперелет/Исходная заметка о мониторинге.md|Мониторинг авиабилетов в Шарм-эль-Шейх]]
 - [[projects/Авиаперелет/Исходные исследования.md|Сохранённые первичные результаты веб-исследований]]
 - [[projects/Авиаперелет/Материалы и история.md|Материалы проекта «Авиаперелет»]]
+- [[projects/Авиаперелет/Мониторинг билетов.md|Проверка появления авиабилетов Шарм-эль-Шейх → Россия]]
+- [[projects/Авиаперелет/Наблюдения за рейсами.md|Наблюдения за рейсами Шарм-эль-Шейх → Москва]]
 - [[projects/Авиаперелет/Рейсы 21 ноября 2026.md|Прямые вылеты из Шарм-эль-Шейха 21 ноября 2026 года]]
 - [[projects/Внедрение ИИ платформы/01-project-outline.md|Каркас проекта]]
 - [[projects/Внедрение ИИ платформы/02-key-questions-and-sensitive-points.md|Ключевые вопросы и чувствительные моменты]]
@@ -785,13 +793,13 @@ tier: active
 
 ## Новые записи дня
 
+- [[daily/2026-10-31.md|2026-10-31]]
 - [[daily/2026-10-30.md|2026-10-30]]
 - [[daily/2026-10-29.md|2026-10-29]]
 - [[daily/2026-10-28.md|2026-10-28]]
 - [[daily/2026-10-27.md|2026-10-27]]
 - [[daily/2026-10-26.md|2026-10-26]]
 - [[daily/2026-10-25.md|2026-10-25]]
-- [[daily/2026-10-24.md|2026-10-24]]
 
 ## Недельные сводки
 

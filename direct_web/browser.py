@@ -62,7 +62,10 @@ def _profile_lock():
             fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
 
 
-def fetch_html(url: str, timeout: int = 30, *, proxy: str | None = None) -> str:
+def fetch_html(
+    url: str, timeout: int = 30, *, proxy: str | None = None,
+    wait_selector: str | None = None,
+) -> str:
     """Open a page in Chromium and return rendered HTML."""
     from playwright.sync_api import Error, TimeoutError, sync_playwright
 
@@ -119,6 +122,13 @@ def fetch_html(url: str, timeout: int = 30, *, proxy: str | None = None) -> str:
                     url, timeout=timeout * 1000, wait_until="domcontentloaded"
                 )
                 page.wait_for_timeout(2500)
+                if wait_selector:
+                    # Проверяем отказ до ожидания динамической выдачи.
+                    current = main_response or response
+                    if current is not None:
+                        validate_response(current.status, page.content(), page.url,
+                                          current.headers)
+                    page.wait_for_selector(wait_selector, timeout=timeout * 1000)
                 response = main_response or response
                 if response is None:
                     raise PageReadError(url, "браузер не получил ответ страницы")

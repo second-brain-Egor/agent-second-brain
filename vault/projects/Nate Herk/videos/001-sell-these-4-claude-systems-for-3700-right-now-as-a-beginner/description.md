@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-10-28
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 FREE First Client SOP: https://app.aiautomationsociety.ai/optin/first-client-SOP/?utm_source=youtube&utm_medium=organic&utm_content=sell-these-4-claude-systems&sl=yt_sell-these-4-claude-systems

@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "date": "2026-11-21",
+  "origin": "SSH",
+  "destination": "MOW",
+  "passengers_for_search": {
+    "adults": 1,
+    "children": 0,
+    "infants": 0
+  },
+  "passenger_count_confirmed": false,
+  "booking_enabled": false,
+  "interval_seconds": 300,
+  "created_at": "2026-10-30T10:25:10.663910+03:00",
+  "status": "suspended",
+  "session_offset": 893514,
+  "offers": {
+    "bg:4462f75b2e72417a5071d9e3": {
+      "id": "bg:4462f75b2e72417a5071d9e3",
+      "flight": "SU0431",
+      "carrier": "Аэрофлот",
+      "departure": "2026-11-21T22:35+02:00",
+      "arrival": "2026-11-22T05:40+03:00",
+      "price_rub": 64404,
+      "baggage": "Без багажа",
+      "booking_url": "https://www.bgoperator.ru/price.shtml?action=biletnewsorder&par=1.64404.AFL.MA.1(OMSU0431.26112122352611220540.SSH.SVO)(MTAzMDE3OTMzNDY4NzE1OTIyNzBfMF42NDQwNC4wMAoJCQkJCV4xMDMwMTc5MzM0Njg3MTU5MjI3MDoxXkFEVF5BRFReNjQ0MDQuMA)(A1_1_NB_MNO_0PC_MA)&sc=c792cab087d069bc94733a617a29efce",
+      "direct": true,
+      "exclusive": false
+    },
+    "bg:6aa6d7af96aeee0b796e9148": {
+      "id": "bg:6aa6d7af96aeee0b796e9148",
+      "flight": "SU0439",
+      "carrier": "Аэрофлот",
+      "departure": "2026-11-21T08:45+02:00",
+      "arrival": "2026-11-21T15:45+03:00",
+      "price_rub": 71089,
+      "baggage": "Без багажа",
+      "booking_url": "https://www.bgoperator.ru/price.shtml?action=biletnewsorder&par=1.71089.AFL.MA.1(OBSU0439.26112108452611211545.SSH.SVO)(MTAzMDE3OTMzNDY4NzE1OTIyNzBfM143MTA4OS4wMAoJCQkJCV4xMDMwMTc5MzM0Njg3MTU5MjI3MDoxXkFEVF5BRFReNzEwODkuMA)(A1_1_NB_BNO_0PC_MA)&sc=f1a3cfffaf43694dddd25a1f75ed1580",
+      "direct": true,
+      "exclusive": false
+    },
+    "bg:e64ecb5edcf5c8a05c913d7f": {
+      "id": "bg:e64ecb5edcf5c8a05c913d7f",
+      "flight": "SU0429",
+      "carrier": "Аэрофлот",
+      "departure": "2026-11-21T07:15+02:00",
+      "arrival": "2026-11-21T14:10+03:00",
+      "price_rub": 86769,
+      "baggage": "Без багажа",
+      "booking_url": "https://www.bgoperator.ru/price.shtml?action=biletnewsorder&par=1.86769.AFL.MA.1(ODSU0429.26112107152611211410.SSH.SVO)(MTAzMDE3OTMzNDY4NzE1OTIyNzBfNl44Njc2OS4wMAoJCQkJCV4xMDMwMTc5MzM0Njg3MTU5MjI3MDoxXkFEVF5BRFReODY3NjkuMA)(A1_1_NB_DNO_0PC_MA)&sc=28154e6b3776ed58840c7d2f9e4ab632",
+      "direct": true,
+      "exclusive": false
+    }
+  },
+  "pending": [],
+  "consecutive_errors": 0,
+  "process_id": 217775,
+  "service_started_at": "2026-10-30T10:28:18.108001+03:00",
+  "updated_at": "2026-10-30T10:57:26.320554+03:00",
+  "last_success_at": "2026-10-30T10:54:34.237847+03:00",
+  "next_check_at": 1793347174.2378511,
+  "sources": [
+    {
+      "url": "https://www.bgoperator.ru/price.shtml?action=biletnew&ac=1&chc=0&infc=0&params=021112026_SSH_MOW&search=true&un=1",
+      "exclusive": true,
+      "direct_offers": 0,
+      "completed": true
+    },
+    {
+      "url": "https://www.bgoperator.ru/price.shtml?action=biletnew&ac=1&chc=0&infc=0&params=021112026_SSH_MOW&search=true",
+      "exclusive": false,
+      "direct_offers": 3,
+      "completed": true
+    }
+  ],
+  "baseline_at": "2026-10-30T10:25:23.756297+03:00"
+}

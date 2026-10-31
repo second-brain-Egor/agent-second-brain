@@ -1,13 +1,13 @@
 ---
 type: note
-last_accessed: 2026-10-29
+last_accessed: 2026-10-30
 relevance: 0.98
 tier: active
 ---
 # MOC - Projects
 
 > Map of Content for Projects (auto-generated)
-> Generated: 2026-10-30 | folders: 27, notes: 738, standalone: 0
+> Generated: 2026-10-31 | folders: 27, notes: 746, standalone: 0
 
 [[projects/_index|Projects Overview]]
 
@@ -108,7 +108,7 @@ tier: active
 
 - [[projects/japanese-architecture/README|Японская архитектура]] — Японская архитектура — project
 
-## Nate Herk (438)
+## Nate Herk (444)
 
 - [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/metadata|/roast-room: How I Use Claude to Think Like the Top 1%]] — /roast-room: How I Use Claude to Think Like the Top 1% — project
 - [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/analysis|/roast-room: как я использую Claude, чтобы мыслить как лучшие из лучших]] — Как расширяемый совет помощников Claude Code разбирает деловые решения и создаёт новые роли по открытым материалам
@@ -176,6 +176,7 @@ tier: active
 - [[projects/Nate Herk/videos/002-i-tested-opus-5-5-vs-gpt-6-sol-on-10-real-use-cases/metadata|I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases]] — I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/metadata|I Tested Sonnet 5.5 vs Opus 5.5. What You Need to Know.]] — I Tested Sonnet 5.5 vs Opus 5.5. What You Need to Know. — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/metadata|I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.]] — I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know. — project
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/metadata|I Told Claude to "Make it better" 100 Times (It Went Too Far)]]
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/metadata|I Tried 100+ AI Tools. These 7 Are the Best]] — I Tried 100+ AI Tools. These 7 Are the Best — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/metadata|I Tried 100+ Github Repos for Claude. These 6 Are the Best]] — I Tried 100+ Github Repos for Claude. These 6 Are the Best — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/metadata|I Turned GPT-6 Astra Into a 24/7 Stock Trader (tutorial)]] — Ссылка: https://www.youtube.com/watch?v=TLQLfa7yH4I Источник: Nate Herk | AI Automation Дата: 20260907 Длительность: ...
@@ -226,6 +227,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/description|description]] — Description — project
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/description|description]]
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/description|description]] — Description — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/description|description]] — My playbook for growing a $1M AI agency: https://app.aiautomationsociety.ai/opaa-ads-optin My FREE resources...
@@ -296,6 +298,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/transcript|transcript]] — Transcript — project
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/transcript|transcript]]
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/transcript|transcript]] — Transcript — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/transcript|transcript]] — So, I recently did a trading challenge where I gave Claude $10,000 of my real money to trade stocks. And at the end o...
@@ -343,6 +346,7 @@ tier: active
 - [[projects/Nate Herk/download-journal|Журнал скачанных видео]]
 - [[projects/Nate Herk/videos/002-anthropic-engineer-explains-what-to-build-instead-of-ai-agents/analysis|Инженер Anthropic объясняет, что создавать вместо отдельных ИИ-агентов]] — Разбор подхода, в котором один ИИ-агент общего назначения получает узкие повторно используемые навыки с проверкой рез...
 - [[projects/Nate Herk/videos/002-anthropic-engineers-just-10x-d-everyone-s-claude-code/analysis|Инженеры Anthropic только что в десять раз улучшили Claude Code для всех]] — Карточка ролика о сокращении лишних указаний, проверке настройки Claude Code и передаче источников между этапами работы
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-roast-room-my-ai-board-of-advisors-make-my-decisions/frames/README|Кадры]] — Кадры — project
 - [[projects/Nate Herk/videos/001-sell-these-4-claude-systems-for-3700-right-now-as-a-beginner/frames/README|Кадры]]
 - [[projects/Nate Herk/videos/001-how-to-actually-choose-the-right-ai-agent/analysis|Как на самом деле выбрать подходящего ИИ-агента]] — - Дата публикации: 11 сентября 2026 года - Источник: канал Нейта Херка - Ссылка: https://www.youtube.com/watch?v=6LNl...
@@ -365,6 +369,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-gpt-6-astra-finally-solves-ai-video-editing-full-guide/analysis|Карточка ролика: Как GPT-6 Astra монтирует видео с Hyperframes]] — Нейт показывает монтаж в Codex и Hyperframes: расшифровка, вырезание ошибок, анимация сцен и несколько циклов правок.
 - [[projects/Nate Herk/videos/001-how-to-build-gpt-6-astra-automations-that-don-t-eat-your-usage-limit/analysis|Карточка ролика: Как создавать автоматизации GPT-6 Astra без расхода лимита подписки]] — Дата: 2026-09-16 Длительность: 35:25 Ссылка: https://www.youtube.com/watch?v=FqnNL8fnUWo
 - [[projects/Nate Herk/videos/003-no-seriously-claude-code-is-starting-to-get-dangerous/analysis|Карточка ролика: Нет, серьёзно: Claude Code становится опасным]] — Дата: 2026-09-27 Длительность: 13:42 Ссылка: https://www.youtube.com/watch?v=Ktnwygcnd8U
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/analysis|Карточка ролика: Я 100 раз сказал Claude «сделать лучше» — и всё зашло слишком далеко]] — Дата: 2026-10-30 Длительность: 13:50 Ссылка: https://www.youtube.com/watch?v=DByAR5Su1Yw
 - [[projects/Nate Herk/videos/002-this-stealth-model-makes-claude-code-free-here-s-how/analysis|Карточка ролика: бесплатные модели OpenRouter внутри Claude Code]] — Дата: 2026-08-21 Длительность: 13:34 Ссылка: https://www.youtube.com/watch?v=_kK_4cOYF4o
 - [[projects/Nate Herk/videos/009-codex-s-browser-agent-automates-literally-anything/analysis|Карточка ролика: браузерный агент Codex для автоматизации интерфейсов]] — Дата: 2026-08-13 Длительность: 16:27 Ссылка: https://www.youtube.com/watch?v=CB5bG4mvnS0
 - [[projects/Nate Herk/videos/005-a-week-of-grok-bot-lessons-in-10-mins/analysis|Карточка ролика: девять приёмов работы с Grok Bot]] — Дата: 2026-08-19 Длительность: 10:24 Ссылка: https://www.youtube.com/watch?v=TMPUUyQC5aM
@@ -409,6 +414,7 @@ tier: active
 - [[projects/Nate Herk/videos/001-i-tested-opus-5-5-vs-gpt-6-astra-on-12-real-use-cases/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-tested-sonnet-5-5-vs-opus-5-5-on-7-use-cases-what-you-need-to-know/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know/comments|Комментарии]] — Комментарии — project
+- [[projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far/comments|Комментарии]]
 - [[projects/Nate Herk/videos/001-i-tried-100-ai-tools-these-7-are-the-best/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-tried-100-github-repos-for-claude-these-6-are-the-best/comments|Комментарии]] — Комментарии — project
 - [[projects/Nate Herk/videos/001-i-turned-gpt-6-astra-into-a-24-7-stock-trader-tutorial/comments|Комментарии]] — FREE MONTH voice to text: https://get.glaido.com/nate My FREE resources: https://www.skool.com/ai-automation-society/...
@@ -587,14 +593,16 @@ tier: active
 
 - [[projects/VPN/README|VPN]] — Подключение компьютера через WireGuard: восстановить прежнюю схему с прокси и точку диагностики.
 
-## Авиаперелет (6)
+## Авиаперелет (8)
 
 - [[projects/Авиаперелет/README|Авиаперелет]]
 - [[projects/Авиаперелет/Источники проверки 29 октября|Источники проверки 29 октября 2026]]
 - [[projects/Авиаперелет/Материалы и история|Материалы проекта «Авиаперелет»]]
-- [[projects/Авиаперелет/Исходная заметка о мониторинге|Мониторинг авиабилетов в Шарм-эль-Шейх]] — Егор рассматривает концепцию мониторинга стоимости авиабилетов: скрипт отслеживает цены и при подходящих условиях бро...
+- [[projects/Авиаперелет/Наблюдения за рейсами|Наблюдения за рейсами Шарм-эль-Шейх → Москва]]
+- [[projects/Авиаперелет/Мониторинг билетов|Проверка появления авиабилетов Шарм-эль-Шейх → Россия]]
 - [[projects/Авиаперелет/Рейсы 21 ноября 2026|Прямые вылеты из Шарм-эль-Шейха 21 ноября 2026 года]]
 - [[projects/Авиаперелет/Исходные исследования|Сохранённые первичные результаты веб-исследований]]
+- [[projects/Авиаперелет/Исходная заметка о мониторинге|Мониторинг авиабилетов в Шарм-эль-Шейх]] — Егор рассматривает концепцию мониторинга стоимости авиабилетов: скрипт отслеживает цены и при подходящих условиях бро...
 
 ## Внедрение ИИ платформы (19)
 

@@ -1,7 +1,7 @@
 ---
 type: project
 last_accessed: 2026-10-28
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Sell These 4 Claude Systems for $3700+ Right Now (as a beginner)

@@ -5,7 +5,7 @@ source: daily/2026-10-07
 created: 2026-10-08
 updated: 2026-10-10
 last_accessed: 2026-10-10
-relevance: 0.98
+relevance: 0.97
 tier: active
 ---
 # Ремонт сварочника XTRAMIG 200SYN

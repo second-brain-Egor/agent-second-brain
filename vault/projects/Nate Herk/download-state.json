@@ -1021,7 +1021,22 @@
       "frames_required": true,
       "updated_at": "2026-10-28T07:01:12+03:00",
       "completed_at": "2026-10-28T07:01:12+03:00"
+    },
+    "DByAR5Su1Yw": {
+      "status": "complete",
+      "folder": "vault/projects/Nate Herk/videos/001-i-told-claude-to-make-it-better-100-times-it-went-too-far",
+      "title": "I Told Claude to \"Make it better\" 100 Times (It Went Too Far)",
+      "url": "https://www.youtube.com/watch?v=DByAR5Su1Yw",
+      "upload_date": "20261030",
+      "comments": 20,
+      "frames": 201,
+      "deduped_frames": 0,
+      "description": true,
+      "transcript": true,
+      "frames_required": true,
+      "updated_at": "2026-10-30T07:01:13+03:00",
+      "completed_at": "2026-10-30T07:01:13+03:00"
     }
   },
-  "updated_at": "2026-10-28T07:01:12+03:00"
+  "updated_at": "2026-10-30T07:01:13+03:00"
 }
